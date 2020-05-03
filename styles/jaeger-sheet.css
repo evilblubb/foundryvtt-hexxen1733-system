@@ -1,4 +1,29 @@
-.worldbuilding .list-header {
+.sheet.jaeger .sheet-header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.sheet.jaeger .sheet-header .header-fields {
+  display: flex;
+  flex-direction: row;
+}
+.sheet.jaeger .sheet-header .profile-img {
+  flex: 0;
+  height: 100px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+.sheet.jaeger .sheet-header .header-fields.attributes > * {
+  flex: 1;
+}
+.sheet.jaeger .sheet-header .header-fields .resource {
+  display: flex;
+  flex-direction: row;
+}
+
+
+.sheet.jaeger .list-header {
   padding: 5px;
   margin: 5px 0;
   background: rgba(0, 0, 0, 0.05);
@@ -7,51 +32,51 @@
   text-align: center;
   font-weight: bold;
 }
-.worldbuilding .list-header > * {
+.sheet.jaeger .list-header > * {
   margin: 0 3px;
 }
-.worldbuilding .list-body {
+.sheet.jaeger .list-body {
   list-style: none;
   margin: 0;
   padding: 0 6px;  
 }
-.worldbuilding .flexrow .li-label {
+.sheet.jaeger .flexrow .li-label {
   flex: 5;
 }
-.worldbuilding .combat .li-label {
+.sheet.jaeger .combat .li-label {
   flex: 2 2 100px;
 }
-.worldbuilding .flexrow .li-schaden ,
-.worldbuilding .flexrow .li-ap {
+.sheet.jaeger .flexrow .li-schaden ,
+.sheet.jaeger .flexrow .li-ap {
   flex: 0.5 0.5 30px;
 }
-.worldbuilding .flexrow .li-value ,
-.worldbuilding .flexrow .li-sum {
+.sheet.jaeger .flexrow .li-value ,
+.sheet.jaeger .flexrow .li-sum {
   flex: 1 1 50px;
 }
-.worldbuilding .flexrow .li-attr {
+.sheet.jaeger .flexrow .li-attr {
   flex: 0.5 0.5 50px;
 }
-.worldbuilding .flexrow .li-anmerkung {
+.sheet.jaeger .flexrow .li-anmerkung {
   flex: 10 10 100px;
 }
-.worldbuilding .flexrow .li-control {
+.sheet.jaeger .flexrow .li-control {
   flex: 0 0 20px;
 }
-.worldbuilding .list-body li > * {
+.sheet.jaeger .list-body li > * {
   margin: 1px 3px;
   min-height: 28px;
   line-height: 28px;
   text-align: center;
 }
-.worldbuilding .list-body .li-label {
+.sheet.jaeger .list-body .li-label {
   text-align: inherit;
 }
-.worldbuilding .list-body .li-anmerkung {
+.sheet.jaeger .list-body .li-anmerkung {
   text-align: inherit;
   line-height: unset;
 }
-.worldbuilding .list-body .li-text {
+.sheet.jaeger .list-body .li-text {
   border-bottom: 1px solid #AAA;
 }
 /*
