@@ -8,7 +8,7 @@ class JaegerSheet extends ActorSheet {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["worldbuilding", "sheet", "actor", "jaeger"],
-      template: "systems/hexxen-1773/templates/jaeger-sheet.html",
+      template: "systems/hexxen-1733/templates/jaeger-sheet.html",
       width: 600,
       height: 600,
       tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description"}]
