@@ -16,6 +16,12 @@
                 <input type="text" name="data.power.max" value="{{data.power.max}}" data-dtype="Number"/>
             </div>
         </div>
+        <div class="header-fields flexrow">
+        {{#each data.attributes as |attr key|}}
+            <span class="attribute-key">{{key}}"</span>
+            <input class="attribute-value" type="text" name="data.attributes.{{key}}.value" value="{{attr.value}}" data-dtype="Number"/>
+        {{/each}}
+        </div>
     </header>
 
     {{!-- Sheet Tab Navigation --}}
