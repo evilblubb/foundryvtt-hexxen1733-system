@@ -16,7 +16,7 @@
     "attributes": {
       "SIN": {
         "value": 2,
-        "label": "Sinnesschärfe",
+        "label": "SinnesschÃ¤rfe",
         "dtype": "Number"
       },
       "WIS": {
@@ -31,7 +31,7 @@
       },
       "KKR": {
         "value": 2,
-        "label": "Körperkraft",
+        "label": "KÃ¶rperkraft",
         "dtype": "Number"
       },
       "ATH": {
@@ -71,8 +71,8 @@
         "value": 0,
         "attribute": "GES"
       },
-      "Geistesstärke": {
-        "label": "Geistesstärke",
+      "GeistesstÃ¤rke": {
+        "label": "GeistesstÃ¤rke",
         "value": 0,
         "attribute": "WIL"
       },
@@ -129,7 +129,7 @@
         "ap": 1,
         "value": 0,
         "attribute": "ATH",
-        "anmerkung": "Parade -3, außer Fausthiebe"
+        "anmerkung": "Parade -3, auÃŸer Fausthiebe"
       },
       "Dolche & Messer": {
         "label": "Dolche & Messer",
@@ -137,7 +137,7 @@
         "ap": 1,
         "value": 0,
         "attribute": "GES",
-        "anmerkung": "Giftverwendung / Parade -2, außer Fausthiebe und Dolche & Messer"
+        "anmerkung": "Giftverwendung / Parade -2, auÃŸer Fausthiebe und Dolche & Messer"
       },
       "Fechtwaffen": {
         "label": "Fechtwaffen",
@@ -145,7 +145,7 @@
         "ap": 1,
         "value": 0,
         "attribute": "ATH",
-        "anmerkung": "Parade -1 pro gebundenem Gegner über dem Ersten"
+        "anmerkung": "Parade -1 pro gebundenem Gegner Ã¼ber dem Ersten"
       },
       "Schwerter": {
         "label": "Schwerter",
@@ -153,10 +153,10 @@
         "ap": 2,
         "value": 0,
         "attribute": "KKR",
-        "anmerkung": "Voll parierfähig"
+        "anmerkung": "Voll parierfÃ¤hig"
       },
-      "Säbel": {
-        "label": "Säbel",
+      "Saebel": {
+        "label": "SÃ¤bel",
         "schaden": 4,
         "ap": 2,
         "value": 0,
@@ -201,7 +201,7 @@
         "ap": 2,
         "value": 0,
         "attribute": "SIN",
-        "anmerkung": "Immer freie Schussmöglichkeit"
+        "anmerkung": "Immer freie SchussmÃ¶glichkeit"
       },
       "Armbrust": {
         "label": "Armbrust",
@@ -209,7 +209,7 @@
         "ap": 3,
         "value": 0,
         "attribute": "SIN",
-        "anmerkung": "Schütze muss freistehen"
+        "anmerkung": "SchÃ¼tze muss freistehen"
       },
       "Muskete": {
         "label": "Muskete",
@@ -217,7 +217,7 @@
         "ap": 3,
         "value": 0,
         "attribute": "SIN",
-        "anmerkung": "Schütze und Ziel müssen freistehen"
+        "anmerkung": "SchÃ¼tze und Ziel mÃ¼ssen freistehen"
       },
       "Ausweichen": {
         "label": "Ausweichen",
