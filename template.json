@@ -4,7 +4,7 @@
   "character": {
     "biography": "",
     "health": {
-      "value": 10,
+      "value": 12,
       "min": 0,
       "max": 10
     },
@@ -13,7 +13,229 @@
       "min": 0,
       "max": 5
     },
-    "attributes": {}
+    "attributes": {
+      "SIN": {
+        "value": 2,
+        "label": "Sinnesschärfe",
+        "dtype": "Number"
+      },
+      "WIS": {
+        "value": 2,
+        "label": "Wissen",
+        "dtype": "Number"
+      },
+      "WIL": {
+        "value": 2,
+        "label": "Willenskraft",
+        "dtype": "Number"
+      },
+      "KKR": {
+        "value": 2,
+        "label": "Körperkraft",
+        "dtype": "Number"
+      },
+      "ATH": {
+        "value": 2,
+        "label": "Athletik",
+        "dtype": "Number"
+      },
+      "GES": {
+        "value": 2,
+        "label": "Geschick",
+        "dtype": "Number"
+      }
+    },
+    "skills": {
+      "Akrobatik": {
+        "label": "Akrobatik",
+        "value": 0,
+        "attribute": "ATH"
+      },
+      "Aufmerksamkeit": {
+        "label": "Aufmerksamkeit",
+        "value": 0,
+        "attribute": "SIN"
+      },
+      "Erkennen": {
+        "label": "Erkennen",
+        "value": 0,
+        "attribute": "SIN"
+      },
+      "Erste Hilfe": {
+        "label": "Erste Hilfe",
+        "value": 0,
+        "attribute": "WIS"
+      },
+      "Fingerfertigkeit": {
+        "label": "Fingerfertigkeit",
+        "value": 0,
+        "attribute": "GES"
+      },
+      "Geistesstärke": {
+        "label": "Geistesstärke",
+        "value": 0,
+        "attribute": "WIL"
+      },
+      "Handwerken": {
+        "label": "Handwerken",
+        "value": 0,
+        "attribute": "GES"
+      },
+      "Heimlichkeit": {
+        "label": "Heimlichkeit",
+        "value": 0,
+        "attribute": "ATH"
+      },
+      "Land und Leute": {
+        "label": "Land und Leute",
+        "value": 0,
+        "attribute": "WIS"
+      },
+      "Redekunst": {
+        "label": "Redekunst",
+        "value": 0,
+        "attribute": "WIL"
+      },
+      "Muskelspiel": {
+        "label": "Muskelspiel",
+        "value": 0,
+        "attribute": "KKR"
+      },
+      "Reflexe": {
+        "label": "Reflexe",
+        "value": 0,
+        "attribute": "SIN"
+      },
+      "Reiten": {
+        "label": "Reiten",
+        "value": 0,
+        "attribute": "ATH"
+      },
+      "Unempfindlichkeit": {
+        "label": "Unempfindlichkeit",
+        "value": 0,
+        "attribute": "KKR"
+      },
+      "Wissensgebiete": {
+        "label": "Wissensgebiete",
+        "value": 0,
+        "attribute": "WIS"
+      }
+    },
+    "combat": {
+      "Fausthieb": {
+        "label": "Fausthieb",
+        "schaden": 0,
+        "ap": 1,
+        "value": 0,
+        "attribute": "ATH",
+        "anmerkung": "Parade -3, außer Fausthiebe"
+      },
+      "Dolche & Messer": {
+        "label": "Dolche & Messer",
+        "schaden": 1,
+        "ap": 1,
+        "value": 0,
+        "attribute": "GES",
+        "anmerkung": "Giftverwendung / Parade -2, außer Fausthiebe und Dolche & Messer"
+      },
+      "Fechtwaffen": {
+        "label": "Fechtwaffen",
+        "schaden": 2,
+        "ap": 1,
+        "value": 0,
+        "attribute": "ATH",
+        "anmerkung": "Parade -1 pro gebundenem Gegner über dem Ersten"
+      },
+      "Schwerter": {
+        "label": "Schwerter",
+        "schaden": 3,
+        "ap": 2,
+        "value": 0,
+        "attribute": "KKR",
+        "anmerkung": "Voll parierfähig"
+      },
+      "Säbel": {
+        "label": "Säbel",
+        "schaden": 4,
+        "ap": 2,
+        "value": 0,
+        "attribute": "KKR",
+        "anmerkung": "Parade -1"
+      },
+      "Schlagwaffen": {
+        "label": "Schlagwaffen",
+        "schaden": 5,
+        "ap": 2,
+        "value": 0,
+        "attribute": "KKR",
+        "anmerkung": "Parade -2"
+      },
+      "Stangenwaffen": {
+        "label": "Stangenwaffen",
+        "schaden": 6,
+        "ap": 3,
+        "value": 0,
+        "attribute": "KKR",
+        "anmerkung": "Parade kostet 2AP"
+      },
+      "Lanzen": {
+        "label": "Lanzen",
+        "schaden": 6,
+        "ap": 3,
+        "value": 0,
+        "attribute": "KKR",
+        "anmerkung": "Parade kostet 2AP"
+      },
+      "Schleuder": {
+        "label": "Schleuder",
+        "schaden": 1,
+        "ap": 2,
+        "value": 0,
+        "attribute": "GES",
+        "anmerkung": "Geschossgeeignet, Werfer muss freistehen"
+      },
+      "Pistole": {
+        "label": "Pistole",
+        "schaden": 3,
+        "ap": 2,
+        "value": 0,
+        "attribute": "SIN",
+        "anmerkung": "Immer freie Schussmöglichkeit"
+      },
+      "Armbrust": {
+        "label": "Armbrust",
+        "schaden": 5,
+        "ap": 3,
+        "value": 0,
+        "attribute": "SIN",
+        "anmerkung": "Schütze muss freistehen"
+      },
+      "Muskete": {
+        "label": "Muskete",
+        "schaden": 8,
+        "ap": 3,
+        "value": 0,
+        "attribute": "SIN",
+        "anmerkung": "Schütze und Ziel müssen freistehen"
+      },
+      "Ausweichen": {
+        "label": "Ausweichen",
+        "schaden": 0,
+        "ap": 1,
+        "value": 0,
+        "attribute": "ATH",
+        "anmerkung": "Pro geb. Gegner -1, Distanzangriffe -1"
+      },
+      "Schildbenutzung": {
+        "label": "Schildbenutzung",
+        "schaden": 0,
+        "ap": 1,
+        "value": 0,
+        "attribute": "KKR",
+        "anmerkung": "Nur 1x pro Runde / Blockt Distanzangriffe"
+      }
+    }
   }
 },
 "Item": {
