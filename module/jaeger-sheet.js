@@ -36,7 +36,7 @@ class JaegerSheet extends ActorSheet {
     return buttons
   }
   
-  _onConfigureToken(event) {
+  _onToggleEdit(event) {
     event.preventDefault();
     
     let mode = !!this.entity.data.flags.editMode || false;
