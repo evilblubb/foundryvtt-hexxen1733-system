@@ -18,6 +18,34 @@ class JaegerSheet extends ActorSheet {
   /* -------------------------------------------- */
 
   /** @override */
+  _getHeaderButtons() {
+    let buttons = super._getHeaderButtons();
+
+    // Token Configuration
+    let canConfigure = this.options.editable && (game.user.isGM || (this.actor.owner && game.user.isTrusted));
+    if (canConfigure) {
+      buttons = [
+        {
+          label: "Edit",
+          class: "configure-edit",
+          icon: "fas fa-edit",
+          onclick: ev => this._onToggleEdit(ev)
+        }
+      ].concat(buttons);
+    }
+    return buttons
+  }
+  
+  _onConfigureToken(event) {
+    event.preventDefault();
+    
+    let mode = !!this.entity.data.flags.editMode || false;
+    // FIXME this.object.setFlags vgl. foundry:18320
+    this.entity.data.flags.editMode = !mode;
+  }
+
+
+  /** @override */
   getData() {
     const data = super.getData();
     data.dtypes = ["String", "Number", "Boolean"];
