@@ -114,8 +114,8 @@ class JaegerSheet extends ActorSheet {
     html.find(".attributes").on("click", ".attribute-control", this._onClickAttributeControl.bind(this));
     // Add roll listener
     html.find(".sheet-header .attributes").on("click", ".roll", this._onClickRoll.bind(this));
-    html.find(".skills").on("click", ".li-control", this._onClickSkillControl.bind(this));
-    html.find(".combat").on("click", ".li-control", this._onClickSkillControl.bind(this));
+    html.find(".skills").on("click", ".li-control", this._onClickRoll.bind(this));
+    html.find(".combat").on("click", ".li-control", this._onClickRoll.bind(this));
   }
 
   /* -------------------------------------------- */
@@ -165,6 +165,7 @@ class JaegerSheet extends ActorSheet {
     event.preventDefault();
     const a = event.currentTarget;
     const action = a.dataset.action;
+    
     const type = a.dataset.type;
     const key = a.parentNode.dataset.key;
     
@@ -173,6 +174,7 @@ class JaegerSheet extends ActorSheet {
 
     console.log(event);
     
+    // shift or ctrl click --> delegate
     if ( event.originalEvent.shiftKey || event.originalEvent.ctrlKey ) {
       console.log("Roller for " + type + " " + key);
       new HexxenRoller(this.actor, /* options */ {
@@ -185,14 +187,17 @@ class JaegerSheet extends ActorSheet {
       return;
     }
 
+    let rolls = 0;
     if ( action === "roll" && type === "attribute" ) {
-      
-//      console.log("I'm rolling, rolling, rolling ... " + skill);
-      let rolls = attrs[key].value;
-      console.log(attrs[key].label + "-Probe: /hex " + rolls + "h");
-      ui.chat.processMessage("/hex " + rolls + "h");
-//      await this._onSubmit(event); // FIXME klären
+      rolls = attrs[key].value;
     }
+    else {
+      rolls = getSkillRolls(key);
+    }
+    
+    console.log(attrs[key].label + "-Probe: /hex " + rolls + "h");
+    ui.chat.processMessage("/hex " + rolls + "h");
+//    await this._onSubmit(event); // FIXME klären
   }
   
   async _onClickSkillControl(event) {
