@@ -42,6 +42,9 @@ class HexxenRoller extends FormApplication {
     
     let type = this.hints.type;
     let key = this.hints.key;
+    let dice = { "h": "Hexxen", "+": "Bonus", "-": "Malus", "s": "Segnung", "b": "Blut", "e": "Elixir", "f": "Fluch" };
+    data.dice = dice;
+    
     let result = {};
     data.data = result;
     

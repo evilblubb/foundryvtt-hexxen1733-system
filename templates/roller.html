@@ -1,10 +1,17 @@
 ﻿<form class="hexxen roller" autocomplete="off">
-I will be rolling.
-    <div class="flexcol">
+    I will be rolling.
+    <div class="flexrow">
         <span>Typ: {{data.type}}</span>
         <span>Key: {{data.key}}</span>
         <span>Label: {{data.label}}</span>
         <span>Modifier: {{data.modifier}}</span>
         <span>Wert: {{data.value}}</span>
+    </div>
+    <div class="dice flexcol">
+    {{#each data.dice as |die key|}}
+        <div class="die flexrow" data-key="{{key}}">
+            <span class="label">{{die}}</span>
+        </div>
+    {{/each}}
     </div>
 </form>
