@@ -92,9 +92,10 @@ class HexxenRoller extends FormApplication {
     
     const a = event.currentTarget;
     const action = a.dataset.action;
+    const target = a.parentNode.dataset.key;
     const form = this.form;
     
-    
+    form.find("input[name='dice.h']").value++;
   }
 
   /**
