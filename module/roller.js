@@ -92,11 +92,12 @@ class HexxenRoller extends FormApplication {
     
     const a = event.currentTarget;
     const action = a.dataset.action;
+    const inc = "increment" === action ? 1 : -1;
     const target = a.parentNode.dataset.key;
     const form = this.form;
     
-    let e = form.elements["dice.h"];
-    e.value = Number(e.value) + 1;
+    let e = form.elements["dice." + target];
+    e.value = Number(e.value) + inc;
   }
 
   /**
