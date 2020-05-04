@@ -9,8 +9,8 @@
     <div class="dice flexcol">
     {{#each dice as |die key|}}
         <div class="die flexrow" data-key="{{key}}">
-            <span class="label">{{die}}</span>
-            <input class="value" type="text" name="dice.{{key}}" value="{{#if key=='h'}}data.value{{else}}0{{/if}}" data-dtype="Number"/>
+            <span class="label">{{die.label}}</span>
+            <input class="value" type="text" name="dice.{{key}}" value="{{die.count}}" data-dtype="Number"/>
             <a class="control" data-action="decrease"><i class="fas fa-minus"></i></a>
             <a class="control" data-action="increase"><i class="fas fa-plus"></i></a>
         </div>

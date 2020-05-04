@@ -42,11 +42,17 @@ class HexxenRoller extends FormApplication {
     
     let type = this.hints.type;
     let key = this.hints.key;
-    let dice = { "h": "Hexxen", "+": "Bonus", "-": "Malus", "s": "Segnung", "b": "Blut", "e": "Elixir", "f": "Fluch" };
-    data.dice = dice;
-    
     let result = {};
     data.data = result;
+    let dice = { "h": { label: "Hexxen", count: 0 },
+                 "+": { label: "Bonus", count: 0 },
+                 "-": { label: "Malus", count: 0 },
+                 "s": { label: "Segnung", count: 0 },
+                 "b": { label: "Blut", count: 0 },
+                 "e": { label: "Elixir", count: 0 },
+                 "f": { label: "Fluch", count: 0 }
+                };
+    result.dice = dice;
     
     result.type = type;
     result.key = key;
@@ -54,9 +60,11 @@ class HexxenRoller extends FormApplication {
     result.modifier = 0;
     result.value = 0;
     
+    
     if ("attribute" === type) {
       let attribute = data.object.data.attributes[key]
       result.value = attribute.value;
+      result.dice.h.count = attribute.value;
       result.label = attribute.label;
     }
     
