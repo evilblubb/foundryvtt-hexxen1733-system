@@ -94,7 +94,7 @@ class HexxenRoller extends FormApplication {
       if ( key.startsWith("dice.") ) {
         let die = key.substr(5);
         let count = formData[key];
-        if ( count > 0 )
+        if ( count > 0 ) {
           roll += count;
           roll += die;
         }
