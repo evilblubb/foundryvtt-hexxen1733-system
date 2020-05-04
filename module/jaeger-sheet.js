@@ -188,14 +188,18 @@ class JaegerSheet extends ActorSheet {
     }
 
     let rolls = 0;
+    let label = "";
     if ( action === "roll" && type === "attribute" ) {
       rolls = attrs[key].value;
+      label = attrs[key].label;
     }
     else {
       rolls = this.getSkillRolls(key);
+      let target = this.object.data.data.skills[key] || this.object.data.data.combat[key];
+      label = target.label;
     }
     
-    console.log(attrs[key].label + "-Probe: /hex " + rolls + "h");
+    console.log(label + "-Probe: /hex " + rolls + "h");
     ui.chat.processMessage("/hex " + rolls + "h");
 //    await this._onSubmit(event); // FIXME klären
   }

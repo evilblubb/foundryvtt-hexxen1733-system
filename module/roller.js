@@ -78,7 +78,7 @@ class HexxenRoller extends FormApplication {
     else if ("combat" === type) {
       let combat = data.object.data.combat[key]
       let attribute = data.object.data.attributes[combat.attribute]
-      let rolls = Number(skill.value) + Number(attribute.value);
+      let rolls = Number(combat.value) + Number(attribute.value);
       result.value = rolls;
       result.dice.h.count = rolls;
       result.label = combat.label;
