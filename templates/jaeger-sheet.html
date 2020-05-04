@@ -1,24 +1,26 @@
 <form class="{{cssClass}}" autocomplete="off">
 
     {{!-- Sheet Header --}}
-    <header class="sheet-header">
-        <div class="">
+    <header class="sheet-header flexcol">
+        <div class="flexrow">
             <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
-            <div class="">
+            <div class="flexcol">
                 <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1>
-                <div class="">
-                    <input type="text" name="data.health.value" value="{{data.health.value}}" data-dtype="Number"/>
-                    <span> / </span>
-                    <input type="text" name="data.health.max" value="{{data.health.max}}" data-dtype="Number"/>
-                </div>
-                <div class="">
-                    <input type="text" name="data.power.value" value="{{data.power.value}}" data-dtype="Number"/>
-                    <span> / </span>
-                    <input type="text" name="data.power.max" value="{{data.power.max}}" data-dtype="Number"/>
+                <div class="flexrow">
+                    <div class="resource flexrow">
+                        <input type="text" name="data.health.value" value="{{data.health.value}}" data-dtype="Number"/>
+                        <span> / </span>
+                        <input type="text" name="data.health.max" value="{{data.health.max}}" data-dtype="Number"/>
+                    </div>
+                    <div class="resource flexrow">
+                        <input type="text" name="data.power.value" value="{{data.power.value}}" data-dtype="Number"/>
+                        <span> / </span>
+                        <input type="text" name="data.power.max" value="{{data.power.max}}" data-dtype="Number"/>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="attributes">
+        <div class="attributes flexrow">
         {{#each data.attributes as |attr key|}}
             <span class="attribute-key">{{key}}</span>
             <span class="attribute-value">{{attr.value}}</span>

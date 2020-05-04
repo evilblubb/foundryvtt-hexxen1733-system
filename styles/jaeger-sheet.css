@@ -7,22 +7,23 @@
   padding: 5px;
   overflow-y: hidden;
 }
+/*
 .sheet.jaeger .sheet-header {
   display: flex;
   flex-direction: column;
   /*margin-bottom: 10px;*/
-}
+}*/
 /*
 .sheet.jaeger .sheet-header .header-fields {
   display: flex;
   flex-direction: row;
 }
+*/
 .sheet.jaeger .sheet-header .profile-img {
   flex: 0;
-  height: 100px;
-  margin-right: 10px;
-  margin-bottom: 10px;
+  height: 100px; /* override system preset */
 }
+/*
 .sheet.jaeger .sheet-header .header-fields.attributes > * {
   flex: 1;
 }
