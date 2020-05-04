@@ -88,6 +88,18 @@ class HexxenRoller extends FormApplication {
    */
   async _updateObject(event, formData) {
     event.preventDefault();
+    
+    let roll = "/hex ";
+    for ( let key of Object.keys(formData) ) {
+      if ( key.startsWith("data.") ) {
+        let die = key.substr(5);
+        roll += formData[key];
+        roll += die;
+      }
+    }
+    
+    console.log(roll);
+    
 /*     const original = this.getData();
 
     // De-register the current sheet class
