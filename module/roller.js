@@ -5,12 +5,19 @@
  * @param options {Object}     Additional Application options
  */
 class HexxenRoller extends FormApplication {
+
+  constructor(entity, options, hints={}) {
+    super(entity, options);
+    this.hints = hints;
+  }
+  
 	static get defaultOptions() {
-	  const options = super.defaultOptions;
-//	  options.id = "sheet-config";
-	  options.template = "systems/hexxen-1733/templates/roller.html";
-	  options.width = 400;
-	  return options;
+    return mergeObject(super.defaultOptions, {
+      classes: ["hexxen", "roller"],
+      id: "roller",
+      template: "systems/hexxen-1733/templates/roller.html",
+      width: 400,
+    });
   }
 
   /* -------------------------------------------- */
@@ -30,7 +37,24 @@ class HexxenRoller extends FormApplication {
    * @return {Object}
    */
   getData() {
-    return {};
+    let data = super.getData() // object == entity, options == options
+    data.hints = this.hints;
+    data.data = {};
+    
+    data.type = this.hints.type;
+    let key = this.hints.key;
+    data.key = key;
+    data.label = key;
+    data.modifier = 0;
+    data.value = 0;
+    
+    if ("attribute" === this.hints.type) {
+      let attribute = data.object.data.attribute[key]
+      data.value = attribute.value;
+      data.label = attribute.label;
+    }
+    
+    return data;
     
 /*     const entityName = this.object.entity;
     const config = CONFIG[entityName];
