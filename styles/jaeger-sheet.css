@@ -7,31 +7,24 @@
   padding: 5px;
   overflow-y: hidden;
 }
-/*
+
+/* Sheet header section */
 .sheet.jaeger .sheet-header {
-  display: flex;
-  flex-direction: column;
-  /*margin-bottom: 10px;*/
-}*/
-/*
-.sheet.jaeger .sheet-header .header-fields {
-  display: flex;
-  flex-direction: row;
+  display: flex; /* override system preset */
+  flex-direction: column; /* override system preset */
+  margin-bottom: 5px;
 }
-*/
 .sheet.jaeger .sheet-header .profile-img {
   flex: 0;
   height: 100px; /* override system preset */
 }
-/*
-.sheet.jaeger .sheet-header .header-fields.attributes > * {
-  flex: 1;
+.sheet.jaeger .sheet-header .attributes {
+  margin-top: 5px;
+  text-align: center;
 }
-.sheet.jaeger .sheet-header .header-fields .resource {
-  display: flex;
-  flex-direction: row;
-}
-*/
+
+
+
 .sheet.jaeger .tabs {
   height: 40px;
   border-top: 1px solid #AAA;

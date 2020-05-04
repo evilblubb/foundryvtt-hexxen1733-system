@@ -1,7 +1,7 @@
 <form class="{{cssClass}}" autocomplete="off">
 
     {{!-- Sheet Header --}}
-    <header class="sheet-header flexcol">
+    <header class="sheet-header">
         <div class="flexrow">
             <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
             <div class="flexcol">
@@ -22,8 +22,10 @@
         </div>
         <div class="attributes flexrow">
         {{#each data.attributes as |attr key|}}
-            <span class="attribute-key">{{key}}</span>
-            <span class="attribute-value">{{attr.value}}</span>
+            <div class="attribute">
+                <span class="attribute-key">{{key}}</span>
+                <span class="attribute-value">{{attr.value}}</span>
+            </div>
         {{/each}}
         </div>
     </header>
