@@ -49,7 +49,7 @@ class HexxenRoller extends FormApplication {
     data.value = 0;
     
     if ("attribute" === this.hints.type) {
-      let attribute = data.object.data.attribute[key]
+      let attribute = data.object.data.attributes[key]
       data.value = attribute.value;
       data.label = attribute.label;
     }
