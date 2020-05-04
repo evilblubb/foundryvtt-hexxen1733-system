@@ -80,6 +80,23 @@ class HexxenRoller extends FormApplication {
 
   /* -------------------------------------------- */
 
+  /** @override */
+  activateListeners(html) {
+    super.activateListeners(html);
+    
+    html.find(".dice").on("click", ".control", this._onClickPlusMinus.bind(this));
+  }
+
+  async _onClickPlusMinus(event) {
+    event.preventDefault();
+    
+    const a = event.currentTarget;
+    const action = a.dataset.action;
+    const form = this.form;
+    
+    
+  }
+
   /**
    * This method is called upon form submission after form data is validated
    * @param event {Event}       The initial triggering submission event
