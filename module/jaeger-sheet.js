@@ -166,13 +166,20 @@ class JaegerSheet extends ActorSheet {
     const a = event.currentTarget;
     const action = a.dataset.action;
     const type = a.dataset.type;
+    const key = a.parentNode.dataset.key;
+    
     const attrs = this.object.data.data.attributes;
     const form = this.form;
 
     console.log(event);
+    
+    if ( event.originalEvent.shiftKey ) {
+      console.log("Roller for " + type + " " + key);
+      return;
+    }
 
     if ( action === "roll" && type === "attribute" ) {
-      const key = a.parentNode.dataset.key;
+      
 //      console.log("I'm rolling, rolling, rolling ... " + skill);
       let rolls = attrs[key].value;
       console.log(attrs[key].label + "-Probe: /hex " + rolls + "h");
