@@ -175,6 +175,10 @@ class JaegerSheet extends ActorSheet {
     
     if ( event.originalEvent.shiftKey ) {
       console.log("Roller for " + type + " " + key);
+      new HexxenRoller(this.actor, {
+        top: this.position.top + 40,
+        left: this.position.left + ((this.position.width - 400) / 2)
+      }).render(true);
       return;
     }
 
