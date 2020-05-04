@@ -39,19 +39,22 @@ class HexxenRoller extends FormApplication {
   getData() {
     let data = super.getData() // object == entity, options == options
     data.hints = this.hints;
-    data.data = {};
     
-    data.type = this.hints.type;
+    let type = this.hints.type;
     let key = this.hints.key;
-    data.key = key;
-    data.label = key;
-    data.modifier = 0;
-    data.value = 0;
+    let result = {};
+    data.data = result;
     
-    if ("attribute" === this.hints.type) {
+    result.type = type;
+    result.key = key;
+    result.label = key;
+    result.modifier = 0;
+    result.value = 0;
+    
+    if ("attribute" === type) {
       let attribute = data.object.data.attributes[key]
-      data.value = attribute.value;
-      data.label = attribute.label;
+      result.value = attribute.value;
+      result.label = attribute.label;
     }
     
     return data;
