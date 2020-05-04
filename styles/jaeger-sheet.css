@@ -7,6 +7,10 @@
   padding: 5px;
   overflow-y: hidden;
 }
+.sheet.jaeger .editor,
+.sheet.jaeger .editor-content {
+  height: 100%;
+}
 
 /* Sheet header section */
 .sheet.jaeger .sheet-header {
@@ -23,7 +27,9 @@
   text-align: center;
 }
 
-
+.sheet.jaeger .sheet-header .attribute {
+  flex-wrap: nowrap;
+}
 
 .sheet.jaeger .tabs {
   height: 40px;
