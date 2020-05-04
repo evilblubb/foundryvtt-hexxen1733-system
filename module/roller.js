@@ -96,7 +96,7 @@ class HexxenRoller extends FormApplication {
     const form = this.form;
     
     let e = form.elements["dice.h"];
-    e.value = Number(e.value)++;
+    e.value = Number(e.value) + 1;
   }
 
   /**
