@@ -23,7 +23,7 @@
         <div class="attributes flexrow">
         {{#each data.attributes as |attr key|}}
             <div class="attribute flexrow" data-key="{{key}}">
-                <a class="key roll" data-action="roll" data-type="attribute">{{key}}</a>
+                <a class="key roll" title="{{attr.label}}" data-action="roll" data-type="attribute">{{key}}</a>
                 <!--<span class="key">{{key}}</span>-->
                 <span class="value">{{attr.value}}</span>
             </div>
@@ -107,7 +107,7 @@
                     <input class="li-value" type="text" name="data.skills.{{key}}.value" value="{{skill.value}}" data-dtype="Number"/>
                     <span class="li-attr li-text" title="{{skill.attrLabel}}: {{skill.attrValue}}">[ +{{skill.attribute}} ]</span>
                     <span class="li-sum li-text">{{skill.summe}}</span>
-                    <a class="li-control" data-action="roll"><i class="fas fa-dice"></i></a>
+                    <a class="li-control roll" data-action="roll"><i class="fas fa-dice"></i></a>
                     <span class="li-control"></span>
                     {{#if skill.isCustom}}
                     <a class="li-control" data-action="delete"><i class="fas fa-trash"></i></a>
@@ -146,7 +146,7 @@
                     <input class="li-value" type="text" name="data.combat.{{key}}.value" value="{{skill.value}}" data-dtype="Number"/>
                     <span class="li-attr li-text" title="{{skill.attrLabel}}: {{skill.attrValue}}">[ +{{skill.attribute}} ]</span>
                     <span class="li-sum li-text">{{skill.summe}}</span>
-                    <a class="li-control" data-action="roll"><i class="fas fa-dice"></i></a>
+                    <a class="li-control roll" data-action="roll"><i class="fas fa-dice"></i></a>
                     <span class="li-anmerkung li-text">{{skill.anmerkung}}</span>
                 </li>
             {{/each}}

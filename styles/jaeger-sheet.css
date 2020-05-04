@@ -14,6 +14,9 @@
 .sheet.jaeger .editor-content {
   height: 100%;
 }
+.sheet.jaeger .roll {
+  cursor: crosshair; /* FIXME curson icon erstellen */
+}
 
 /* Sheet header section */
 .sheet.jaeger .sheet-header {
