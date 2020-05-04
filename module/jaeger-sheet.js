@@ -11,7 +11,7 @@ class JaegerSheet extends ActorSheet {
       template: "systems/hexxen-1733/templates/jaeger-sheet.html",
       width: 700,
       height: 700,
-      tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description"}]
+      tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "skills"}]
     });
   }
 
@@ -113,6 +113,7 @@ class JaegerSheet extends ActorSheet {
     // Add or Remove Attribute
     html.find(".attributes").on("click", ".attribute-control", this._onClickAttributeControl.bind(this));
     // Add roll listener
+    html.find(".sheet-header .attributes").on("click", ".roll", this._onClickRoll.bind(this));
     html.find(".skills").on("click", ".li-control", this._onClickSkillControl.bind(this));
     html.find(".combat").on("click", ".li-control", this._onClickSkillControl.bind(this));
   }
@@ -159,6 +160,25 @@ class JaegerSheet extends ActorSheet {
       await this._onSubmit(event);
     }
   }
+  
+  async _onClickRoll(event) {
+    event.preventDefault();
+    const a = event.currentTarget;
+    const action = a.dataset.action;
+    const type = a.dataset.type;
+    const attrs = this.object.data.data.attributes;
+    const form = this.form;
+
+    console.log(event);
+
+    if ( action === "roll" && type === "attribute" ) {
+      const key = a.parentNode.dataset.key;
+//      console.log("I'm rolling, rolling, rolling ... " + skill);
+      let rolls = attrs[key].value;
+      console.log(attrs[key].label + "-Probe: /hex " + rolls + "h");
+      ui.chat.processMessage("/hex " + rolls + "h");
+//      await this._onSubmit(event); // FIXME klären
+   }
   
   async _onClickSkillControl(event) {
     event.preventDefault();

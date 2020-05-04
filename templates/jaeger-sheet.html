@@ -22,8 +22,9 @@
         </div>
         <div class="attributes flexrow">
         {{#each data.attributes as |attr key|}}
-            <div class="attribute flexrow">
-                <span class="key">{{key}}</span>
+            <div class="attribute flexrow" data-key="{{key}}">
+                <a class="key roll" data-action="roll" data-type="attribute">{{key}}</a>
+                <!--<span class="key">{{key}}</span>-->
                 <span class="value">{{attr.value}}</span>
             </div>
         {{/each}}
