@@ -91,7 +91,7 @@ class HexxenRoller extends FormApplication {
     
     let roll = "/hex ";
     for ( let key of Object.keys(formData) ) {
-      if ( key.startsWith("data.") ) {
+      if ( key.startsWith("dice.") ) {
         let die = key.substr(5);
         roll += formData[key];
         roll += die;
