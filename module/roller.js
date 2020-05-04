@@ -68,16 +68,20 @@ class HexxenRoller extends FormApplication {
       result.label = attribute.label;
     }
     else if ("skill" === type) {
-      let attribute = data.object.data.skills[key]
-      result.value = attribute.value;
-      result.dice.h.count = attribute.value;
-      result.label = attribute.label;
+      let skill = data.object.data.skills[key]
+      let attribute = data.object.data.attributes[skill.attribute]
+      let rolls = Number(skill.value) + Number(attribute.value);
+      result.value = rolls;
+      result.dice.h.count = rolls;
+      result.label = skill.label;
     }
     else if ("combat" === type) {
-      let attribute = data.object.data.combat[key]
-      result.value = attribute.value;
-      result.dice.h.count = attribute.value;
-      result.label = attribute.label;
+      let combat = data.object.data.combat[key]
+      let attribute = data.object.data.attributes[combat.attribute]
+      let rolls = Number(skill.value) + Number(attribute.value);
+      result.value = rolls;
+      result.dice.h.count = rolls;
+      result.label = combat.label;
     }
     
     return data;

@@ -192,7 +192,7 @@ class JaegerSheet extends ActorSheet {
       rolls = attrs[key].value;
     }
     else {
-      rolls = getSkillRolls(key);
+      rolls = this.getSkillRolls(key);
     }
     
     console.log(attrs[key].label + "-Probe: /hex " + rolls + "h");
