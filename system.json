@@ -2,7 +2,7 @@
   "name": "hexxen-1733",
   "title": "HeXXen 1733",
   "description": "Basisdaten für RPG System HeXXen 1733.",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "minimumCoreVersion": "0.5.5",
   "compatibleCoreVersion": "0.5.5",
   "templateVersion": 1,
@@ -17,7 +17,7 @@
   "primaryTokenAttribute": "health",
   "secondaryTokenAttribute": "power",
   "url": "https://github.com/gizmo2342/foundryvtt-hexxen1733-system/",
-  "manifest": "https://github.com/gizmo2342/foundryvtt-hexxen1733-system/raw/stable/system.json",
-  "download": "https://github.com/gizmo2342/foundryvtt-hexxen1733-system/archive/stable.zip",
+  "manifest": "https://github.com/gizmo2342/foundryvtt-hexxen1733-system/raw/master/system.json",
+  "download": "https://github.com/gizmo2342/foundryvtt-hexxen1733-system/archive/master.zip",
   "license": "LICENSE.txt"
 }
