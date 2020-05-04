@@ -7,7 +7,7 @@
         <span>Wert: {{data.value}}</span>
     </div>
     <div class="dice flexcol">
-    {{#each dice as |die key|}}
+    {{#each data.dice as |die key|}}
         <div class="die flexrow" data-key="{{key}}">
             <span class="label">{{die.label}}</span>
             <input class="value" type="text" name="dice.{{key}}" value="{{die.count}}" data-dtype="Number"/>
