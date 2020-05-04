@@ -178,7 +178,8 @@ class JaegerSheet extends ActorSheet {
       console.log(attrs[key].label + "-Probe: /hex " + rolls + "h");
       ui.chat.processMessage("/hex " + rolls + "h");
 //      await this._onSubmit(event); // FIXME klären
-   }
+    }
+  }
   
   async _onClickSkillControl(event) {
     event.preventDefault();
