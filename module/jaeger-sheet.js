@@ -19,7 +19,7 @@ class JaegerSheet extends ActorSheet {
 
   /** @override */
   get title() {
-    return `${super.title} (Lv. ${this.actor.data.core.level})`;
+    return `${super.title} (Lv. ${this.actor.data.data.core.level})`;
   }
 
   /** @override */
