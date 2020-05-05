@@ -8,7 +8,7 @@ class JaegerSheet extends ActorSheet {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["hexxen", "sheet", "actor", "jaeger"],
-      template: "systems/hexxen-1733/templates/jaeger-sheet.html",
+      template: "systems/" + game.data.system.id + "/templates/jaeger-sheet.html", // FIXME basepath klären
       width: 700,
       height: 700,
       tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "skills"}]
@@ -111,7 +111,7 @@ class JaegerSheet extends ActorSheet {
     });
 
     // Add or Remove Attribute
-    html.find(".attributes").on("click", ".attribute-control", this._onClickAttributeControl.bind(this));
+    //html.find(".attributes").on("click", ".attribute-control", this._onClickAttributeControl.bind(this));
     // Add roll listener
     html.find(".sheet-header .attributes").on("click", ".roll", this._onClickRoll.bind(this));
     html.find(".skills").on("click", ".li-control", this._onClickRoll.bind(this));
