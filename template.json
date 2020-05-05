@@ -2,6 +2,14 @@
 "Actor": {
   "types": ["character"],
   "character": {
+    "core": {
+      "level": 1,
+      "role-1": "",
+      "role-2": "",
+      "role-3": "",
+      "profession": "",
+      "motivation": ""
+    },
     "biography": "",
     "health": {
       "value": 12,

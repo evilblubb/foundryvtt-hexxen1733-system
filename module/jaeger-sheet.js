@@ -18,6 +18,11 @@ class JaegerSheet extends ActorSheet {
   /* -------------------------------------------- */
 
   /** @override */
+  get title() {
+    return `${super.title} (Lv. ${this.actor.data.core.level})`;
+  }
+
+  /** @override */
   _getHeaderButtons() {
     let buttons = super._getHeaderButtons();
 

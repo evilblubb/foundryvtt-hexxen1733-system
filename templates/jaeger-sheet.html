@@ -66,8 +66,8 @@
             <ol class="attributes-list">
             {{#each data.attributes as |attr key|}}
                 <li class="attribute flexrow" data-attribute="{{key}}">
-                    <span class="attribute-label">{{attr.label}}"</span>
-                    <span class="attribute-key">{{key}}"</span>
+                    <span class="attribute-label">{{attr.label}}</span>
+                    <span class="attribute-key">{{key}}</span>
                     {{#if attr.isCheckbox}}
                     <label class="attribute-value checkbox"><input type="checkbox" name="data.attributes.{{key}}.value" {{checked attr.value}}/></label>
                     {{else}}
