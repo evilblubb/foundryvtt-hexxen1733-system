@@ -15,7 +15,7 @@ class HexxenRoller extends FormApplication {
     return mergeObject(super.defaultOptions, {
       classes: ["hexxen", "roller"],
       id: "roller",
-      template: "systems/hexxen-1733/templates/roller.html",
+      template: "systems/hexxen-1733/templates/roller.html", // FIXME basepath ermitteln
       width: 400,
     });
   }
@@ -27,7 +27,7 @@ class HexxenRoller extends FormApplication {
    * @type {String}
    */
   get title() {
-    return "HeXXen Roller Tool";
+    return "HeXXen Würfel Tool";
   }
 
   /* -------------------------------------------- */
