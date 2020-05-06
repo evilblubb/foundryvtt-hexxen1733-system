@@ -10,7 +10,7 @@ class JaegerSheet extends ActorSheet {
       classes: ["hexxen", "sheet", "actor", "jaeger"],
       template: "systems/" + game.data.system.id + "/templates/jaeger-sheet.html", // FIXME basepath klären
       width: 700,
-      height: 700,
+      height: 720,
       tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "skills"}]
     });
   }

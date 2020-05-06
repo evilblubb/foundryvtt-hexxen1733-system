@@ -47,6 +47,22 @@
 
         {{!-- Bio Tab --}}
         <div class="tab biography" data-group="primary" data-tab="description">
+            <div class="core">
+                <ol class="role-list">
+                    <li class="role">
+                        <label class="label">Rolle N<sup><u>o</u></sup>1<input class="value" type="text" name="data.core.role-1" value="{{data.core.role-1}}" placeholder="Rolle" /></label>
+                    </li>
+                    <li class="role">
+                        <label class="label">Rolle N<sup><u>o</u></sup>2<input class="value" type="text" name="data.core.role-2" value="{{data.core.role-2}}" placeholder="Rolle" /></label>
+                    </li>
+                    <li class="role">
+                        <label class="label">Rolle N<sup><u>o</u></sup>2<input class="value" type="text" name="data.core.role-3" value="{{data.core.role-3}}" placeholder="Rolle" /></label>
+                    </li>
+                    <li class="role">
+                        <label class="label">Profession<input class="value" type="text" name="data.core.profession" value="{{data.core.profession}}" placeholder="Profession" /></label>
+                    </li>
+                </ol>
+            </div>
             {{editor content=data.biography target="data.biography" button=true owner=owner editable=editable}}
         </div>
 
