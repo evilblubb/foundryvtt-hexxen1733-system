@@ -85,6 +85,9 @@
 .sheet.jaeger .biography .list-body .label {
   text-align: initial;
 }
+.sheet.jaeger .biography .list-body .role .label {
+  line-height: 20px;
+}
 .sheet.jaeger .biography div.core {
   border-bottom: 1px solid #AAA;
 }
