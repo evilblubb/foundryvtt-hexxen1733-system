@@ -79,8 +79,25 @@
   padding: 0 6px;  
 }
 
+.sheet.jaeger .biography .list-body {
+  margin: 5px 0;
+}
+.sheet.jaeger .biography .list-body .label {
+  text-align: initial;
+}
+.sheet.jaeger .biography div.core {
+  border-bottom: 1px solid #AAA;
+}
 .sheet.jaeger .biography .core input {
   width: unset;
+  flex: 2;
+}
+.sheet.jaeger .biography .editor {
+  margin: 5px;
+  padding: 5px;
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid #7a7971;
+  border-radius: 3px;
 }
 
 .sheet.jaeger .flexrow .li-label {
