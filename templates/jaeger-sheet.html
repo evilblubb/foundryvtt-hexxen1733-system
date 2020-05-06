@@ -47,19 +47,37 @@
 
         {{!-- Bio Tab --}}
         <div class="tab biography" data-group="primary" data-tab="description">
-            <div class="core">
+            <div class="core flexrow">
                 <ol class="role-list">
                     <li class="role flexrow">
-                        <label class="label">Rolle N<sup><u>o</u></sup>1<input class="value" type="text" name="data.core.role-1" value="{{data.core.role-1}}" placeholder="Rolle" /></label>
+                        <label class="label" for="role-1">Rolle N<sup><u>o</u></sup>1</label>
+                        <input class="value" type="text" name="data.core.role-1" value="{{data.core.role-1}}" id="role-1" placeholder="Rolle" />
                     </li>
                     <li class="role flexrow">
-                        <label class="label">Rolle N<sup><u>o</u></sup>2<input class="value" type="text" name="data.core.role-2" value="{{data.core.role-2}}" placeholder="Rolle" /></label>
+                        <label class="label" for="role-2">Rolle N<sup><u>o</u></sup>2</label>
+                        <input class="value" type="text" name="data.core.role-2" value="{{data.core.role-2}}" id="role-2" placeholder="Rolle" />
                     </li>
                     <li class="role flexrow">
-                        <label class="label">Rolle N<sup><u>o</u></sup>3<input class="value" type="text" name="data.core.role-3" value="{{data.core.role-3}}" placeholder="Rolle" /></label>
+                        <label class="label" for="role-3">Rolle N<sup><u>o</u></sup>3</label>
+                        <input class="value" type="text" name="data.core.role-3" value="{{data.core.role-3}}" id="role-3" placeholder="Rolle" />
                     </li>
                     <li class="role flexrow">
-                        <label class="label">Profession<input class="value" type="text" name="data.core.profession" value="{{data.core.profession}}" placeholder="Profession" /></label>
+                        <label class="label" for="profession">Profession</label>
+                        <input class="value" type="text" name="data.core.profession" value="{{data.core.profession}}" id="profession" placeholder="Profession" />
+                    </li>
+                </ol>
+                <ol class="other-list">
+                    <li class="level flexrow">
+                        <label class="label" for="level">Level</label>
+                        <input class="value" type="text" name="data.core.level" value="{{data.core.level}}" id="level" />
+                    </li>
+                    <li class="motivation flexrow">
+                        <label class="label" for="motivation">Motivation</label>
+                        <input class="value" type="text" name="data.core.motivation" value="{{data.core.motivation}}" id="motivation" />
+                    </li>
+                    <li class="level flexrow">
+                        <label class="label" for="motivation-bonus"></label>
+                        <input class="value" type="text" name="data.core.motivation-bonus" value="{{data.core.motivation-bonus}}" id="motivation" placeholder="Motivationsbonus" />
                     </li>
                 </ol>
             </div>
