@@ -78,6 +78,11 @@
   margin: 0;
   padding: 0 6px;  
 }
+
+.sheet.jaeger .biography .core input {
+  width: unset;
+}
+
 .sheet.jaeger .flexrow .li-label {
   flex: 5;
 }
