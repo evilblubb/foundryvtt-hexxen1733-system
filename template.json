@@ -249,12 +249,15 @@
   }
 },
 "Item": {
-  "types": ["item"],
+  "types": ["item", "role"],
   "item": {
     "description": "",
     "quantity": 1,
     "weight": 0,
     "attributes": {}
+  },
+  "role": {
+    "label": "Neue Rolle"
   }
 }
 }
