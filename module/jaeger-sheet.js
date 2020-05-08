@@ -176,7 +176,7 @@ class JaegerSheet extends ActorSheet {
     const target = a.parentNode.dataset.key;
     const form = this.form;
     
-    let e = form.elements["dice." + target];
+    let e = form.elements["data.resources." + target];
     e.value = Number(e.value) + inc;
   }
 
