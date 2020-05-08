@@ -38,6 +38,21 @@
   flex: 2;
   border-bottom: 1px solid #AAA;
 }
+.sheet.jaeger .sheet-header .resources {
+  margin-top: 5px;
+  text-align: center;
+  column-gap: 3%;
+}
+.sheet.jaeger .sheet-header .resource .value {
+  width: 50px;
+}
+.sheet.jaeger .sheet-header .resource .label {
+  line-height: 24px;
+}
+.sheet.jaeger .sheet-header .resource .control {
+  flex: 0 0 20px;
+  line-height: 24px;
+}
 
 .sheet.jaeger .tabs {
   height: 40px;

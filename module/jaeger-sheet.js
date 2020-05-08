@@ -118,6 +118,7 @@ class JaegerSheet extends ActorSheet {
     // Add or Remove Attribute
     //html.find(".attributes").on("click", ".attribute-control", this._onClickAttributeControl.bind(this));
     // Add roll listener
+    html.find(".sheet-header .resource").on("click", ".control", this._onClickPlusMinus.bind(this));
     html.find(".sheet-header .attributes").on("click", ".roll", this._onClickRoll.bind(this));
     html.find(".skills").on("click", ".li-control", this._onClickRoll.bind(this));
     html.find(".combat").on("click", ".li-control", this._onClickRoll.bind(this));
@@ -166,6 +167,19 @@ class JaegerSheet extends ActorSheet {
     }
   }
   
+  async _onClickPlusMinus(event) {
+    event.preventDefault();
+    
+    const a = event.currentTarget;
+    const action = a.dataset.action;
+    const inc = "increase" === action ? 1 : -1;
+    const target = a.parentNode.dataset.key;
+    const form = this.form;
+    
+    let e = form.elements["dice." + target];
+    e.value = Number(e.value) + inc;
+  }
+
   async _onClickRoll(event) {
     event.preventDefault();
     const a = event.currentTarget;
