@@ -24,10 +24,29 @@
         {{#each data.attributes as |attr key|}}
             <div class="attribute flexrow" data-key="{{key}}">
                 <a class="key roll" title="{{attr.label}}" data-action="roll" data-type="attribute">{{key}}</a>
-                <!--<span class="key">{{key}}</span>-->
                 <span class="value">{{attr.value}}</span>
             </div>
         {{/each}}
+        </div>
+        <div class="resources flexrow">
+            <div class="resource flexrow" data-key="segnungen">
+                <label class="label" for="segnungen">Segnungen</span>
+                <input class="value" type="text" name="data.resources.segnungen" value="{{data.resources.segnungen}}" data-dtype="Number" id="segnungen" />
+                <a class="control" data-action="decrease"><i class="fas fa-minus"></i></a>
+                <a class="control" data-action="increase"><i class="fas fa-plus"></i></a>
+            </div>
+            <div class="resource flexrow" data-key="ideen">
+                <label class="label" for="ideen">Ideen</span>
+                <input class="value" type="text" name="data.resources.ideen" value="{{data.resources.ideen}}" data-dtype="Number" id="ideen" />
+                <a class="control" data-action="decrease"><i class="fas fa-minus"></i></a>
+                <a class="control" data-action="increase"><i class="fas fa-plus"></i></a>
+            </div>
+            <div class="resource flexrow" data-key="coups">
+                <label class="label" for="coups">Coups</span>
+                <input class="value" type="text" name="data.resources.coups" value="{{data.resources.coups}}" data-dtype="Number" id="coups" />
+                <a class="control" data-action="decrease"><i class="fas fa-minus"></i></a>
+                <a class="control" data-action="increase"><i class="fas fa-plus"></i></a>
+            </div>
         </div>
     </header>
 
@@ -95,7 +114,7 @@
 
         {{!-- Zustand Tab --}}
         <div class="tab states" data-group="primary" data-tab="states">
-            Zust&auml;nde
+            TODO: Zust&auml;nde
         </div>
 
         {{!-- Attribute Tab --}}
@@ -154,7 +173,8 @@
 
         {{!-- Jägerkräfte Tab --}}
         <div class="tab powers" data-group="primary" data-tab="powers">
-            J&auml;gerkr&auml;fte
+            TODO: Konstruktionspunkte<br>
+            TODO: J&auml;gerkr&auml;fte
         </div>
 
         {{!-- Kampf Tab --}}
@@ -200,6 +220,7 @@
                 </li>
             {{/each}}
             </ol>
+            TODO: Notizfeld
         </div>
 
         </section>

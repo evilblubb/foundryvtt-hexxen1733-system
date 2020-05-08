@@ -4,13 +4,19 @@
   "character": {
     "core": {
       "level": 1,
-      "role-1": "",
-      "role-2": "",
-      "role-3": "",
+      "rolle-1": "",
+      "rolle-2": "",
+      "rolle-3": "",
       "profession": "",
       "motivation": "",
       "sprachen": "",
       "verderbnis": 0
+    },
+    "resources": {
+      "segnungen": 0,
+      "ideen": 0,
+      "coups": 0,
+      "kp": 0
     },
     "biography": "",
     "health": {
