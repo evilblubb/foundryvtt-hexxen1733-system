@@ -64,20 +64,24 @@ class JaegerSheet extends ActorSheet {
     data.data.skills = data.data.skills || {}; // sicherstellen, dass skills existiert
     for ( let skill of Object.values(data.data.skills) ) {
       let attr = data.data.attributes[skill.attribute]; // undefined falls nicht existent
+      let extra = (attr === "SIN" || attr === "WIS" || attr === "WIL") ? " (I)" : " (C)";
       let value = attr ? attr.value : 0;
       skill.attrValue = value;
       skill.attrLabel = attr ? attr.label : "unbekanntes Attribut";
       skill.summe = Number(skill.value) + Number(value);
+      skill.label += extra;
     }
     
     //Kampfskills aufbereiten
     data.data.combat = data.data.combat || {};
     for ( let skill of Object.values(data.data.combat) ) {
       let attr = data.data.attributes[skill.attribute]; // undefined falls nicht existent
+      let extra = (attr === "SIN" || attr === "WIS" || attr === "WIL") ? " (I)" : " (C)";
       let value = attr ? attr.value : 0;
       skill.attrValue = value;
       skill.attrLabel = attr ? attr.label : "unbekanntes Attribut";
       skill.summe = Number(skill.value) + Number(value);
+      skill.label += extra;
     }
     
     return data;
