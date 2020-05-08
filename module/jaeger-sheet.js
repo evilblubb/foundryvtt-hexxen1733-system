@@ -63,8 +63,9 @@ class JaegerSheet extends ActorSheet {
     // Skills aufbereiten
     data.data.skills = data.data.skills || {}; // sicherstellen, dass skills existiert
     for ( let skill of Object.values(data.data.skills) ) {
-      let attr = data.data.attributes[skill.attribute]; // undefined falls nicht existent
-      let extra = (attr === "SIN" || attr === "WIS" || attr === "WIL") ? " (I)" : " (C)";
+      let attrKey = skill.attribute;
+      let attr = data.data.attributes[attrKey]; // undefined falls nicht existent
+      let extra = (attrKey === "SIN" || attrKey === "WIS" || attrKey === "WIL") ? " (I)" : " (C)";
       let value = attr ? attr.value : 0;
       skill.attrValue = value;
       skill.attrLabel = attr ? attr.label : "unbekanntes Attribut";
@@ -75,8 +76,9 @@ class JaegerSheet extends ActorSheet {
     //Kampfskills aufbereiten
     data.data.combat = data.data.combat || {};
     for ( let skill of Object.values(data.data.combat) ) {
-      let attr = data.data.attributes[skill.attribute]; // undefined falls nicht existent
-      let extra = (attr === "SIN" || attr === "WIS" || attr === "WIL") ? " (I)" : " (C)";
+      let attrKey = skill.attribute;
+      let attr = data.data.attributes[attrKey]; // undefined falls nicht existent
+      let extra = (attrKey === "SIN" || attrKey === "WIS" || attrKey === "WIL") ? " (I)" : " (C)";
       let value = attr ? attr.value : 0;
       skill.attrValue = value;
       skill.attrLabel = attr ? attr.label : "unbekanntes Attribut";
