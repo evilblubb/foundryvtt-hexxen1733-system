@@ -16,7 +16,7 @@ export class Jaeger extends Actor {
     const actor = this.data;
     actor.data.health.max = 7 + actor.data.attributes.KKR.value + actor.data.attributes.WIL.value + actor.data.skills["Unempfindlichkeit"].value;
     actor.data.power.max = 10;
-	  return data;
+	  return actor;
   }
 
   
