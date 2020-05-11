@@ -65,7 +65,7 @@ class JaegerSheet extends ActorSheet {
     data.data.calc.ap = 6 - data.data.calc.pw;    
     
     // FIXME ändert nicht die Actor-Daten!!
-    data.data.health.max = 7 + data.data.attributes.KKR.value + data.data.attributes.WIL.value + data.data.skills["Unempfindlichkeit"].value;
+//    data.data.health.max = 7 + data.data.attributes.KKR.value + data.data.attributes.WIL.value + data.data.skills["Unempfindlichkeit"].value;
     
     // Skills aufbereiten
     data.data.skills = data.data.skills || {}; // sicherstellen, dass skills existiert

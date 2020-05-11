@@ -6,6 +6,7 @@
 
 // Import Modules
 import { SimpleActor } from "./actor.js";
+import { Jaeger } from "./jaeger.js";
 import { SimpleItemSheet } from "./item-sheet.js";
 import { SimpleActorSheet } from "./actor-sheet.js";
 
@@ -14,7 +15,7 @@ import { SimpleActorSheet } from "./actor-sheet.js";
 /* -------------------------------------------- */
 
 Hooks.once("init", async function() {
-  console.log(`Initializing Simple Worldbuilding System`);
+  console.log(`Initializing HeXXen 1733 System`);
 
 	/**
 	 * Set an initiative formula for the system
@@ -22,11 +23,11 @@ Hooks.once("init", async function() {
 	 */
 	CONFIG.Combat.initiative = {
 	  formula: "1d20",
-    decimals: 2
+    decimals: 0
   };
 
 	// Define custom Entity classes
-  CONFIG.Actor.entityClass = SimpleActor;
+  CONFIG.Actor.entityClass = Jaeger;
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
