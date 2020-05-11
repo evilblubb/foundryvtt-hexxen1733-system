@@ -57,16 +57,7 @@ class JaegerSheet extends ActorSheet {
     for ( let attr of Object.values(data.data.attributes) ) {
       attr.isCheckbox = attr.dtype === "Boolean";
     }
-    
-    // FIXME Teile des Codes nach Actor verschieben
-    data.data.calc = data.data.calc || {};
-    data.data.calc.ini = data.data.attributes.SIN.value + data.data.attributes.GES.value + data.data.skills["Reflexe"].value;    
-    data.data.calc.pw = data.data.calc.pw || 1;    
-    data.data.calc.ap = 6 - data.data.calc.pw;    
-    
-    // FIXME ändert nicht die Actor-Daten!!
-//    data.data.health.max = 7 + data.data.attributes.KKR.value + data.data.attributes.WIL.value + data.data.skills["Unempfindlichkeit"].value;
-    
+   
     // Skills aufbereiten
     data.data.skills = data.data.skills || {}; // sicherstellen, dass skills existiert
     for ( let skill of Object.values(data.data.skills) ) {
