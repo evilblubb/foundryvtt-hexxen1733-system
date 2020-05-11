@@ -9,7 +9,7 @@
                 <div class="flexrow">
                     <div class="ini flexrow">
                         <label class="label" title="Initiative" for="ini">INI</label>
-                        <input class="value" type="text" name="data.calc.ini" value="{{data.calc.ini}}" data-dtype="Number" id="ini" />
+                        <span class="value" id="ini">{{data.calc.ini}}</span>
                     </div>
                     <div class="pw flexrow">
                         <label class="label" title="Panzerwert" for="pw">PW</label>
@@ -21,15 +21,15 @@
                     </div>
                 </div>
                 <div class="flexrow">
-                    <div class="resource flexrow">
-                        <input type="text" name="data.health.value" value="{{data.health.value}}" data-dtype="Number"/>
-                        <span> / </span>
-                        <input type="text" name="data.health.max" value="{{data.health.max}}" data-dtype="Number"/>
+                    <div class="basis-lep flexrow">
+                        <label class="label" for="basis-lep">Basis-LEP</label>
+                        <input class="value" type="text" name="data.health.value" value="{{data.health.value}}" data-dtype="Number" id="basis-lep" />
+                        <span class="label"> / {{data.health.max}}</span>
                     </div>
-                    <div class="resource flexrow">
-                        <input type="text" name="data.power.value" value="{{data.power.value}}" data-dtype="Number"/>
-                        <span> / </span>
-                        <input type="text" name="data.power.max" value="{{data.power.max}}" data-dtype="Number"/>
+                    <div class="puffer-lep flexrow">
+                        <label class="label" for="puffer-lep">Puffer-LEP</label>
+                        <input class="value" type="text" name="data.power.value" value="{{data.power.value}}" data-dtype="Number" id="puffer-lep" />
+                        <span class="label"> / {{data.power.max}}</span>
                     </div>
                 </div>
             </div>

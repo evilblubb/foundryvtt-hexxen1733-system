@@ -25,11 +25,25 @@
   margin-bottom: 8px;
   text-align: center;
 }
+.sheet.jaeger .sheet-header .label,
+.sheet.jaeger .sheet-header .value,
+.sheet.jaeger .sheet-header .control {
+  height: 20px;
+  line-height: 20px;
+}
+.sheet.jaeger .sheet-header span.value {
+  border-bottom: 1px solid #AAA;
+}
+.sheet.jaeger .sheet-header input.value {
+  width: 50px;
+  padding: 0 3px;
+}
 .sheet.jaeger .sheet-header .profile-img {
   flex: 0;
   height: 100px; /* override system preset */
 }
 .sheet.jaeger .sheet-header .top {
+  padding-bottom: 8px;
   border-bottom: 1px solid #AAA;
 }
 .sheet.jaeger .sheet-header h1 input {
@@ -38,32 +52,24 @@
   margin: unset;
   width: 100%;
 }
+
+
 .sheet.jaeger .sheet-header .attributes {
   margin-top: 8px;
   column-gap: 3%;
 }
 .sheet.jaeger .sheet-header .attribute .value {
   flex: 2;
-  border-bottom: 1px solid #AAA;
 }
 .sheet.jaeger .sheet-header .resources {
   margin-top: 6px;
   column-gap: 5%;
 }
-.sheet.jaeger .sheet-header .resource .value {
-  height: 20px;
-  width: 50px;
-  padding: 0 3px;
-}
 .sheet.jaeger .sheet-header .resource .label {
   flex: 2;
-  height: 20px;
-  line-height: 20px;
 }
 .sheet.jaeger .sheet-header .resource .control {
   flex: 0 0 20px;
-  height: 20px;
-  line-height: 20px;
 }
 
 .sheet.jaeger .tabs {
