@@ -12,7 +12,7 @@
 }
 .sheet.jaeger .editor,
 .sheet.jaeger .editor-content {
-  height: 100%;
+  height: calc(100% - 180px);
 }
 .sheet.jaeger .roll {
   cursor: crosshair; /* FIXME curson icon erstellen */
@@ -22,26 +22,33 @@
 .sheet.jaeger .sheet-header {
   display: flex; /* override system preset */
   flex-direction: column; /* override system preset */
-  margin-bottom: 5px;
+  margin-bottom: 8px;
+  text-align: center;
 }
 .sheet.jaeger .sheet-header .profile-img {
   flex: 0;
   height: 100px; /* override system preset */
 }
+.sheet.jaeger .sheet-header .top {
+  border-bottom: 1px solid #AAA;
+}
+.sheet.jaeger .sheet-header h1 input {
+  height: 40px;
+  line-height: 40px;
+  margin: unset;
+  width: 100%;
+}
 .sheet.jaeger .sheet-header .attributes {
-  margin-top: 5px;
-  text-align: center;
+  margin-top: 8px;
   column-gap: 3%;
 }
-
 .sheet.jaeger .sheet-header .attribute .value {
   flex: 2;
   border-bottom: 1px solid #AAA;
 }
 .sheet.jaeger .sheet-header .resources {
-  margin-top: 5px;
-  text-align: center;
-  column-gap: 6%;
+  margin-top: 6px;
+  column-gap: 5%;
 }
 .sheet.jaeger .sheet-header .resource .value {
   height: 20px;
@@ -50,10 +57,12 @@
 }
 .sheet.jaeger .sheet-header .resource .label {
   flex: 2;
+  height: 20px;
   line-height: 20px;
 }
 .sheet.jaeger .sheet-header .resource .control {
   flex: 0 0 20px;
+  height: 20px;
   line-height: 20px;
 }
 
