@@ -134,7 +134,7 @@ class JaegerSheet extends ActorSheet {
   setPosition(options={}) {
     const position = super.setPosition(options);
     const sheetBody = this.element.find(".sheet-body");
-    const bodyHeight = position.height - 232;
+    const bodyHeight = position.height - 252;
     sheetBody.css("height", bodyHeight);
     return position;
   }
