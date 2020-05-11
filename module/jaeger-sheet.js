@@ -59,8 +59,8 @@ class JaegerSheet extends ActorSheet {
     }
     
     // FIXME Teile des Codes nach Actor verschieben
-    data.data.calc = data.calc || {};
-    data.data.calc.ini = data.data.attributes.SIN + data.data.attributes.GES + data.data.skills["Reflexe"].value;    
+    data.data.calc = data.data.calc || {};
+    data.data.calc.ini = data.data.attributes.SIN.value + data.data.attributes.GES.value + data.data.skills["Reflexe"].value;    
     data.data.calc.pw = data.data.calc.pw || 1;    
     data.data.calc.ap = 6 - data.data.calc.pw;    
     
