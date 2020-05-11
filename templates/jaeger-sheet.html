@@ -1,4 +1,4 @@
-<form class="{{cssClass}}" autocomplete="off">
+﻿<form class="{{cssClass}}" autocomplete="off">
 
     {{!-- Sheet Header --}}
     <header class="sheet-header">
@@ -72,7 +72,7 @@
         <a class="item" data-tab="states">Zustand</a>
         <a class="item" data-tab="attributes">Attribute</a>
         <a class="item" data-tab="skills">Fertigkeiten</a>
-        <a class="item" data-tab="powers">J&auml;gerkr&auml;fte</a>
+        <a class="item" data-tab="powers">Jägerkräfte</a>
         <a class="item" data-tab="combat">Kampf</a>
         <a class="item" data-tab="items">Besitz</a>
     </nav>
@@ -131,8 +131,8 @@
         {{!-- Zustand Tab --}}
         <div class="tab states" data-group="primary" data-tab="states">
             TODO: Erste Hilfe, Magische Heilung<br>
-            TODO: Anhaltende Einfl�sse<br>
-            TODO: Zust&auml;nde
+            TODO: Anhaltende Einflüsse<br>
+            TODO: Zustände
         </div>
 
         {{!-- Attribute Tab --}}
@@ -189,10 +189,10 @@
             </ol>
         </div>
 
-        {{!-- J�gerkr�fte Tab --}}
+        {{!-- Jägerkräfte Tab --}}
         <div class="tab powers" data-group="primary" data-tab="powers">
             TODO: Konstruktionspunkte<br>
-            TODO: J&auml;gerkr&auml;fte
+            TODO: Jägerkräfte
         </div>
 
         {{!-- Kampf Tab --}}
@@ -226,7 +226,7 @@
 
         {{!-- Besitz Tab --}}
         <div class="tab items" data-group="primary" data-tab="items">
-            TODO: Unterhalt, Verm�gen, Beutegut, Kleidung, R�stung, Ausr�stung
+            TODO: Unterhalt, Vermögen, Beutegut, Kleidung, Rüstung, Ausrüstung
             <ol class="items-list">
             {{#each actor.items as |item id|}}
                 <li class="item flexrow" data-item-id="{{item._id}}">
