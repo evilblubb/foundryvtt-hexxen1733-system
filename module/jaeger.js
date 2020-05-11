@@ -11,12 +11,11 @@ export class Jaeger extends Actor {
    * For example, in a d20 system - computing an ability modifier based on the value of that ability score.
    */
 	prepareData() {
-    const data = this.data;
-	  if ( data.hasOwnProperty("name") && !data.name ) {
-	    data.name = "New " + this.entity;
-    }
-    data.health.max = 7 + data.attributes.KKR.value + data.attributes.WIL.value + data.skills["Unempfindlichkeit"].value;
-    data.power.max = 10;
+    super.prepareData();
+    
+    const actor = this.data;
+    actor.data.health.max = 7 + actor.data.attributes.KKR.value + actor.data.attributes.WIL.value + actor.data.skills["Unempfindlichkeit"].value;
+    actor.data.power.max = 10;
 	  return data;
   }
 
