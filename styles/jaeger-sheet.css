@@ -1,6 +1,6 @@
 .sheet.jaeger {
-  min-width: 560px;
-  min-height: 420px;
+  min-width: 600px;
+  min-height: 500px;
 }
 .sheet.jaeger .flexrow {
   flex-wrap: unset; /* override system preset */
@@ -38,21 +38,40 @@
   width: 50px;
   padding: 0 3px;
 }
+
 .sheet.jaeger .sheet-header .profile-img {
   flex: 0;
-  height: 100px; /* override system preset */
+  height: 115px; /* override system preset */
 }
 .sheet.jaeger .sheet-header .top {
   padding-bottom: 8px;
   border-bottom: 1px solid #AAA;
 }
 .sheet.jaeger .sheet-header h1 input {
-  height: 40px;
-  line-height: 40px;
+  height: 42px;
+  line-height: 42px;
   margin: unset;
   width: 100%;
 }
-
+.sheet.jaeger .sheet-header .combat {
+  margin-top: 8px;
+  column-gap: 15%;
+}
+.sheet.jaeger .sheet-header .combat .value {
+  flex: 1.5;
+}
+.sheet.jaeger .sheet-header .lep {
+  margin-top: 8px;
+  column-gap: 8%;
+}
+.sheet.jaeger .sheet-header .lep .label,
+.sheet.jaeger .sheet-header .lep .value {
+  height: 28px;
+  line-height: 28px;
+}
+.sheet.jaeger .sheet-header .lep .label.max {
+  flex: 0 0 40px;
+}
 
 .sheet.jaeger .sheet-header .attributes {
   margin-top: 8px;

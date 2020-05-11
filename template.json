@@ -22,14 +22,14 @@
     },
     "biography": "",
     "health": {
-      "value": 12,
+      "value": 11,
       "min": 0,
-      "max": 10
+      "max": 11
     },
     "power": {
-      "value": 5,
+      "value": 0,
       "min": 0,
-      "max": 5
+      "max": 10
     },
     "attributes": {
       "SIN": {

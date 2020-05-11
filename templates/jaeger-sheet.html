@@ -6,7 +6,7 @@
             <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
             <div class="top flexcol">
                 <h1 class="actorname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1>
-                <div class="flexrow">
+                <div class="combat flexrow">
                     <div class="ini flexrow">
                         <label class="label" title="Initiative" for="ini">INI</label>
                         <span class="value" id="ini">{{data.calc.ini}}</span>
@@ -20,16 +20,16 @@
                         <span class="value" id="ap">{{data.calc.ap}}</span>
                     </div>
                 </div>
-                <div class="flexrow">
+                <div class="lep flexrow">
                     <div class="basis-lep flexrow">
                         <label class="label" for="basis-lep">Basis-LEP</label>
                         <input class="value" type="text" name="data.health.value" value="{{data.health.value}}" data-dtype="Number" id="basis-lep" />
-                        <span class="label"> / {{data.health.max}}</span>
+                        <span class="label max"> / {{data.health.max}}</span>
                     </div>
                     <div class="puffer-lep flexrow">
                         <label class="label" for="puffer-lep">Puffer-LEP</label>
                         <input class="value" type="text" name="data.power.value" value="{{data.power.value}}" data-dtype="Number" id="puffer-lep" />
-                        <span class="label"> / {{data.power.max}}</span>
+                        <span class="label max"> / {{data.power.max}}</span>
                     </div>
                 </div>
             </div>
