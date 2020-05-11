@@ -1,4 +1,4 @@
-.sheet.jaeger {
+﻿.sheet.jaeger {
   min-width: 600px;
   min-height: 500px;
 }
@@ -69,6 +69,9 @@
   height: 28px;
   line-height: 28px;
   font-size: 1.4em;
+}
+.sheet.jaeger .sheet-header .lep .value {
+  flex: 0.5;
 }
 .sheet.jaeger .sheet-header .lep .label.max {
   flex: 0 0 40px;
