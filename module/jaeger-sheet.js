@@ -190,10 +190,25 @@ class JaegerSheet extends ActorSheet {
     
     const a = event.currentTarget;
     const action = a.dataset.action;
-    const target = a.parentNode.dataset.key;
-    const form = this.form;
+    const inc = "increase" === action ? 1 : -1;
+    const parent = a.parentNode;
+    const max = parent.childElementCount; // FIXME [key].max ??
+    const target = parent.parentNode.dataset.key; // FIXME besser rekursiv suchen
 
+    const curent = this.actor.data.data.resources[key] + inc;
+    curent = curent < 0 ? 0 : (curent > max ? max : curent);
+    this.actor.data.data.resources[key] = curent; // FIXME via setter, um trigger zu ermöglichen
     
+    // FIXME nur notwendig, falls durch Änderung kein update des sheet ausgelöst wird
+    for (let i = 0; i < max; i++) {
+      parent.children[i].dataset.action = i < current ? "decrease" : "increase";
+      let cl = parent.children[i].children[0].classList;
+      if (i < current) {
+        cl.add("fa-inverse");
+      } else {
+        cl.remove("fa-inverse");
+      }
+    }
   }
   
   async _onClickRoll(event) {
