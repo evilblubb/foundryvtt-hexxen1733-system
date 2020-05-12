@@ -136,12 +136,12 @@ class JaegerSheet extends ActorSheet {
     
     // FIXME ist _renderInner() besser??
     // Aktualisiere Zustände, die keine Form-Elemente sind
-    this._updateState(html.find(".eh .controls", "eh", options);
-    this._updateState(html.find(".mh .controls", "mh", options);
-    this._updateState(html.find(".odmg .controls", "odmg", options);
-    this._updateState(html.find(".idmg .controls", "idmg", options);
-    this._updateState(html.find(".mdmg .controls", "mdmg", options);
-    this._updateState(html.find(".ldmg .controls", "ldmg", options);
+    this._updateState(html.find(".eh .controls"), "eh", options);
+    this._updateState(html.find(".mh .controls"), "mh", options);
+    this._updateState(html.find(".odmg .controls"), "odmg", options);
+    this._updateState(html.find(".idmg .controls"), "idmg", options);
+    this._updateState(html.find(".mdmg .controls"), "mdmg", options);
+    this._updateState(html.find(".ldmg .controls"), "ldmg", options);
     
     return html;
   }
