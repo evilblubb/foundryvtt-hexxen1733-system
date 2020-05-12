@@ -131,31 +131,29 @@ class JaegerSheet extends ActorSheet {
   }
 
   /** @override */
-  async _render(force=false, options={}) {
-    super._render(force, options);
+  async _renderInner(data, options={}) {
+    let html = await super._renderInner(data, options);
     
     // FIXME ist _renderInner() besser??
     // Aktualisiere Zustände, die keine Form-Elemente sind
-    this._updateState("eh", options);
-    this._updateState("mh", options);
-    this._updateState("odmg", options);
-    this._updateState("idmg", options);
-    this._updateState("mdmg", options);
-    this._updateState("ldmg", options);
+    this._updateState(html.find(".eh .controls", "eh", options);
+    this._updateState(html.find(".mh .controls", "mh", options);
+    this._updateState(html.find(".odmg .controls", "odmg", options);
+    this._updateState(html.find(".idmg .controls", "idmg", options);
+    this._updateState(html.find(".mdmg .controls", "mdmg", options);
+    this._updateState(html.find(".ldmg .controls", "ldmg", options);
+    
+    return html;
   }
   
-  _updateState(key, options={}) {
-    let form = this.form;
-    if (!form) return;
-    
+  _updateState(el, key, options={}) {
     // FIXME geht so nur für resources
     const curent = this.actor.data.data.resources[key];
-    const parent = $(form).find(`.${key} .controls`);
-    const max = parent.childElementCount;
+    const max = el.childElementCount;
 
     for (let i = 0; i < max; i++) {
-      parent.children[i].dataset.action = i < curent ? "decrease" : "increase";
-      let cl = parent.children[i].children[0].classList;
+      el.children[i].dataset.action = i < curent ? "decrease" : "increase";
+      let cl = el.children[i].children[0].classList;
       if (i < curent) {
         cl.add("fa-inverse");
       } else {
