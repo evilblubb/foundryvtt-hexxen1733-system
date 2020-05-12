@@ -59,6 +59,9 @@ class JaegerSheet extends ActorSheet {
     }
     
     data.stypes = { "idmg": "Innerer Schaden", "odmg": "Äußerer Schaden", "mdmg": "Malusschaden", "ldmg": "Lähmungsschaden" };
+    for ( let state of Object.values(data.data.states) ) {
+      state.type = data.stypes[state.type];
+    }
    
     // Skills aufbereiten
     data.data.skills = data.data.skills || {}; // sicherstellen, dass skills existiert
