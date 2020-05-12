@@ -135,8 +135,33 @@ class JaegerSheet extends ActorSheet {
     super._render(force, options);
     
     // Aktualisiere Zustände, die keine Form-Elemente sind
-    // this._update
+    this._updateState("eh", options);
+    this._updateState("mh", options);
+    this._updateState("odmg", options);
+    this._updateState("idmg", options);
+    this._updateState("mdmg", options);
+    this._updateState("ldmg", options);
   }
+  
+  _updateState(key, options={}) {
+    let form = this.form;
+    if (!form) return;
+    
+    // FIXME geht so nur für resources
+    const curent = this.actor.data.data.resources[key];
+    const parent = form.find(`.$key .controls`);
+    const max = parent.childElementCount;
+
+    for (let i = 0; i < max; i++) {
+      parent.children[i].dataset.action = i < curent ? "decrease" : "increase";
+      let cl = parent.children[i].children[0].classList;
+      if (i < curent) {
+        cl.add("fa-inverse");
+      } else {
+        cl.remove("fa-inverse");
+      }
+    }
+  }  
 
   /* -------------------------------------------- */
 
