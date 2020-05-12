@@ -57,6 +57,8 @@ class JaegerSheet extends ActorSheet {
     for ( let attr of Object.values(data.data.attributes) ) {
       attr.isCheckbox = attr.dtype === "Boolean";
     }
+    
+    data.stypes = { "idmg": "Innerer Schaden", "odmg": "Äußerer Schaden", "mdmg": "Malusschaden", "ldmg": "Lähmungsschaden" };
    
     // Skills aufbereiten
     data.data.skills = data.data.skills || {}; // sicherstellen, dass skills existiert

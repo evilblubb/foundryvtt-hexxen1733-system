@@ -206,18 +206,18 @@
             </div>
             <div class="zustaende flexcol">
                 <header class="list-header flexrow">
-                    <span class="header-label">Zustand</span>
-                    <span class="header-label">Typ</span>
-                    <span class="header-label">Nebeneffekt</span>
-                    <span class="header-label">Abbau</span>
-                    <span class="header-label">Helfen</span>
+                    <span class="label">Zustand</span>
+                    <span class="type">Typ</span>
+                    <span class="effect">Nebeneffekt</span>
+                    <span class="abbau">Abbau</span>
+                    <span class="hilfe">Helfen</span>
                 </header>
                 
                 <ol class="list-body">
                 {{#each data.states as |state key|}}
-                    <li class="attribute flexrow" data-attribute="{{key}}">
+                    <li class="state flexrow" data-attribute="{{key}}">
                         <span class="label">{{key}}</span>
-                        <span class="type">{{state.type}}</span>
+                        <span class="type">{{data.stypes[state.type]}}</span>
                         <span class="effekt">{{state.effekt}}</span>
                         <span class="abbau">{{state.abbau}}</span>
                         <span class="hilfe">{{state.hilfe}}</span>

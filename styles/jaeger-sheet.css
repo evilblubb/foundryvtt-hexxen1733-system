@@ -169,11 +169,17 @@
   line-height: 20px;
   text-align: inherit;
 }
-.sheet.jaeger .states .list-body .label {
+.sheet.jaeger .states .top .list-body .label {
   flex: 1.5;
 }
 .sheet.jaeger .states .einfluesse .list-body .control {
   color: red;
+}
+.sheet.jaeger .states .zustaende .effekt {
+  flex: 1.5;
+}
+.sheet.jaeger .states .zustaende .list-body span {
+  border-bottom: 1px solid #AAA;
 }
 
 .sheet.jaeger .flexrow .li-label {
