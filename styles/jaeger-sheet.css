@@ -175,6 +175,9 @@
 .sheet.jaeger .states .einfluesse .list-body .control {
   color: red;
 }
+.sheet.jaeger .states .zustaende .checkbox {
+  flex: 0 0 23px;
+}
 .sheet.jaeger .states .zustaende .effekt {
   flex: 1.5;
 }
