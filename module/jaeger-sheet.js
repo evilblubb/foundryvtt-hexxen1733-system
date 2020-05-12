@@ -230,7 +230,10 @@ class JaegerSheet extends ActorSheet {
 
     let curent = this.actor.data.data.resources[key] + inc;
     curent = curent < 0 ? 0 : (curent > max ? max : curent);
-    this.actor.update( { `data.resources.${key}`: curent } ); // data.data.resources[key] = curent; // FIXME via setter, um trigger zu ermöglichen
+    let update = {};
+    let res = `data.resources.${key}`;
+    update[res] = curent;
+    this.actor.update(update); // data.data.resources[key] = curent; // FIXME via setter, um trigger zu ermöglichen
     
     // this._updateState(html.find(".eh .controls")[0], "eh", options);
 
