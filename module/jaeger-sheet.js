@@ -125,6 +125,7 @@ class JaegerSheet extends ActorSheet {
     html.find(".sheet-header .resource").on("click", ".control", this._onClickPlusMinus.bind(this));
     html.find(".sheet-header .attributes").on("click", ".roll", this._onClickRoll.bind(this));
     html.find(".erste-hilfe").on("click", ".control", this._onClickStateToggle.bind(this));
+    html.find(".einfluesse").on("click", ".control", this._onClickStateToggle.bind(this));
     html.find(".skills").on("click", ".li-control", this._onClickRoll.bind(this));
     html.find(".combat").on("click", ".li-control", this._onClickRoll.bind(this));
   }

@@ -18,7 +18,11 @@
       "coups": 0,
       "kp": 0,
       "eh": 0,
-      "mh": 0
+      "mh": 0,
+      "idmg": 0,
+      "odmg": 0,
+      "mdmg": 0,
+      "ldmg": 0
     },
     "calc": {
     },
