@@ -193,7 +193,7 @@ class JaegerSheet extends ActorSheet {
     const inc = "increase" === action ? 1 : -1;
     const parent = a.parentNode;
     const max = parent.childElementCount; // FIXME [key].max ??
-    const target = parent.parentNode.dataset.key; // FIXME besser rekursiv suchen
+    const key = parent.parentNode.dataset.key; // FIXME besser rekursiv suchen
 
     const curent = this.actor.data.data.resources[key] + inc;
     curent = curent < 0 ? 0 : (curent > max ? max : curent);
