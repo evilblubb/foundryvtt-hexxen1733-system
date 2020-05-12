@@ -201,9 +201,9 @@ class JaegerSheet extends ActorSheet {
     
     // FIXME nur notwendig, falls durch Änderung kein update des sheet ausgelöst wird
     for (let i = 0; i < max; i++) {
-      parent.children[i].dataset.action = i < current ? "decrease" : "increase";
+      parent.children[i].dataset.action = i < curent ? "decrease" : "increase";
       let cl = parent.children[i].children[0].classList;
-      if (i < current) {
+      if (i < curent) {
         cl.add("fa-inverse");
       } else {
         cl.remove("fa-inverse");

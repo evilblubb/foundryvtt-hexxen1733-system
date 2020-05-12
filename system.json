@@ -2,7 +2,7 @@
   "name": "hexxen-1733-dev",
   "title": "HeXXen 1733 BETA",
   "description": "Basisdaten für RPG System HeXXen 1733. Dieses Produkt wurde unter Lizenz erstellt. HeXXen 1733 und sein Logo sind eingetragene Marken von Ulisses Spiele Deutschland, den U.S.A. und anderen Ländern. Ulisses Spiele und sein Logo sind eingetragene Marken der Ulisses Medien und Spiele Distribution GmbH. Dieses Werk enthält Material, das durch Ulisses Spiele und/oder andere Autoren urheberrechtlich geschützt ist. Solches Material wird mit Erlaubnis im Rahmen der Vereinbarung über Gemeinschaftsinhalte für HeXXen-1733-Scriptorium verwendet. Alle anderen Originalmaterialien in diesem Werk sind Copyright [2020] von [dein Name oder der deiner Firma] und werden im Rahmen der Vereinbarung über Gemeinschaftsinhalte für HeXXen-1733-Scriptorium veröffentlicht.",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "minimumCoreVersion": "0.5.5",
   "compatibleCoreVersion": "0.5.5",
   "templateVersion": 1,
