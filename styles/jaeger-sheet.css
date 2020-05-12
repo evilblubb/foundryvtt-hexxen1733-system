@@ -119,6 +119,7 @@
 }
 
 .sheet.jaeger .list-header {
+  flex: 0;
   padding: 5px;
   margin: 5px 0;
   background: rgba(0, 0, 0, 0.05);
@@ -131,7 +132,6 @@
   margin: 0 3px;
 }
 .sheet.jaeger .list-body {
-  flex: 0;
   list-style: none;
   margin: 0;
   padding: 0 6px;  
@@ -168,6 +168,9 @@
   min-height: 24px;
   line-height: 24px;
   text-align: inherit;
+}
+.sheet.jaeger .states .einfluesse .list-body .control {
+  color: red;
 }
 
 .sheet.jaeger .flexrow .li-label {
