@@ -27,6 +27,104 @@
     "calc": {
     },
     "biography": "",
+    "states": {
+      "Atemnot": {
+        "state": false,
+        "type": "idmg",
+        "effekt": "Abbau nur durch Luftzufuhr",
+        "abbau": "Unempfindlichkeit (oder je nach Situation)"
+      },
+      "Blindheit": {
+        "state": false,
+        "type": "mdmg",
+        "effekt": "Bei Interaktion mit der Umwelt: Malusstufen doppelt zählen",
+        "abbau": "Erkennen"
+      },
+      "Blutung": {
+        "state": false,
+        "type": "odmg",
+        "effekt": "INI-0: Schmerzschaden in Höhe eines Blutwürfels",
+        "abbau": "Unempfindlichkeit oder Erste Hilfe",
+        "hilfe": "2 AP: Erste Hilfe"
+      },
+      "Erfrierung": {
+        "state": false,
+        "type": "odmg",
+        "effekt": "---",
+        "abbau": "Unempfindlichkeit"
+      },
+      "Fixierung": {
+        "state": false,
+        "type": "ldmg",
+        "effekt": "Bewegung nicht möglich",
+        "abbau": "Akrobatik",
+        "hilfe": "2 AP: Muskelspiel oder Angriffsprobe"
+      },
+      "Fluch": {
+        "state": false,
+        "type": "mdmg",
+        "effekt": "Kann aus eigener Kraft keine anhaltenden Einflüsse abbauen",
+        "abbau": "Pro Segnung -1 Malusstufe",
+        "hilfe": "Quelle des Fluchs wird vernichtet"
+      },
+      "Furcht": {
+        "state": false,
+        "type": "mdmg",
+        "effekt": "-5 bei Angriffen gegen Furchtverursacher",
+        "abbau": "Geistesstärke",
+        "hilfe": "2 AP: Redekunst"
+      },
+      "Krankheit": {
+        "state": false,
+        "type": "mdmg",
+        "effekt": "Alle Malusstufen-Zustände sind dauerhaft",
+        "abbau": "Bei Regeneration: Erste Hilfe"
+      },
+      "Stummheit": {
+        "state": false,
+        "type": "mdmg",
+        "effekt": "Kann keine Anweisungen geben",
+        "abbau": "Redekunst"
+      },
+      "Taubheit": {
+        "state": false,
+        "type": "mdmg",
+        "effekt": "Kann nichts hören",
+        "abbau": "Aufmerksamkeit"
+      },
+      "Taumeln": {
+        "state": false,
+        "type": "ldmg",
+        "effekt": "---",
+        "abbau": "Akrobatik"
+      },
+      "Trauma": {
+        "state": false,
+        "type": "mdmg",
+        "effekt": "INI-0: Geistschaden in Höhe eines Blutwürfels",
+        "abbau": "Geistesstärke"
+      },
+      "Verbrennung": {
+        "state": false,
+        "type": "odmg",
+        "effekt": "---",
+        "abbau": "Unempfindlichkeit",
+        "hilfe": "2 AP: Unempfindlichkeit"
+      },
+      "Vergiftung": {
+        "state": false,
+        "type": "idmg",
+        "effekt": "---",
+        "abbau": "Unempfindlichkeit",
+        "hilfe": "2 AP: Erste Hilfe"
+      },
+      "Verzauberung": {
+        "state": false,
+        "type": "ldmg",
+        "effekt": "---",
+        "abbau": "Geistesstärke"
+      }
+    },
     "health": {
       "value": 11,
       "min": 0,

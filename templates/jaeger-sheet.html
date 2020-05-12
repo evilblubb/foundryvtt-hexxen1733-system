@@ -212,6 +212,18 @@
                     <span class="header-label">Abbau</span>
                     <span class="header-label">Helfen</span>
                 </header>
+                
+                <ol class="list-body">
+                {{#each data.states as |state key|}}
+                    <li class="attribute flexrow" data-attribute="{{key}}">
+                        <span class="label">{{key}}</span>
+                        <span class="type">{{state.type}}</span>
+                        <span class="effekt">{{state.effekt}}</span>
+                        <span class="abbau">{{state.abbau}}</span>
+                        <span class="hilfe">{{state.hilfe}}</span>
+                    </li>
+                {{/each}}
+                </ol>
             </div>
         </div>
 
