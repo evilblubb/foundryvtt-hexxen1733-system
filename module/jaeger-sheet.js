@@ -150,7 +150,7 @@ class JaegerSheet extends ActorSheet {
     
     // FIXME geht so nur für resources
     const curent = this.actor.data.data.resources[key];
-    const parent = $(form).find(`.$key .controls`);
+    const parent = $(form).find(`.${key} .controls`);
     const max = parent.childElementCount;
 
     for (let i = 0; i < max; i++) {
