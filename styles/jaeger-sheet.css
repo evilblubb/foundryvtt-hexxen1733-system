@@ -161,6 +161,15 @@
   border-radius: 3px;
 }
 
+.sheet.jaeger .states .top {
+  column-gap: 8px;
+}
+.sheet.jaeger .states .list-body li > * {
+  min-height: 24px;
+  line-height: 24px;
+  text-align: inherit;
+}
+
 .sheet.jaeger .flexrow .li-label {
   flex: 5;
 }
