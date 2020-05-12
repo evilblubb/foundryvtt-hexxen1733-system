@@ -131,6 +131,7 @@
   margin: 0 3px;
 }
 .sheet.jaeger .list-body {
+  flex: 0;
   list-style: none;
   margin: 0;
   padding: 0 6px;  
