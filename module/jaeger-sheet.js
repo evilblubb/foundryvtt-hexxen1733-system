@@ -134,6 +134,7 @@ class JaegerSheet extends ActorSheet {
   async _render(force=false, options={}) {
     super._render(force, options);
     
+    // FIXME ist _renderInner() besser??
     // Aktualisiere Zustände, die keine Form-Elemente sind
     this._updateState("eh", options);
     this._updateState("mh", options);
@@ -149,7 +150,7 @@ class JaegerSheet extends ActorSheet {
     
     // FIXME geht so nur für resources
     const curent = this.actor.data.data.resources[key];
-    const parent = form.find(`.$key .controls`);
+    const parent = $(form).find(`.$key .controls`);
     const max = parent.childElementCount;
 
     for (let i = 0; i < max; i++) {
