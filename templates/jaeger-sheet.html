@@ -206,9 +206,10 @@
             </div>
             <div class="zustaende flexcol">
                 <header class="list-header flexrow">
+                    <span class="checkbox"></span>
                     <span class="label">Zustand</span>
                     <span class="type">Typ</span>
-                    <span class="effect">Nebeneffekt</span>
+                    <span class="effekt">Nebeneffekt</span>
                     <span class="abbau">Abbau</span>
                     <span class="hilfe">Helfen</span>
                 </header>
@@ -216,6 +217,7 @@
                 <ol class="list-body">
                 {{#each data.states as |state key|}}
                     <li class="state flexrow" data-attribute="{{key}}">
+                        <label class="checkbox"><input type="checkbox" name="data.states.{{key}}.state" {{checked state.state}}/></label>
                         <span class="label">{{key}}</span>
                         <span class="type">{{state.type}}</span>
                         <span class="effekt">{{state.effekt}}</span>
