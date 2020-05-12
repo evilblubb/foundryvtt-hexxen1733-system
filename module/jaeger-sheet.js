@@ -130,6 +130,14 @@ class JaegerSheet extends ActorSheet {
     html.find(".combat").on("click", ".li-control", this._onClickRoll.bind(this));
   }
 
+  /** @override */
+  async _render(force=false, options={}) {
+    super._render(force, options);
+    
+    // Aktualisiere Zustände, die keine Form-Elemente sind
+    // this._update
+  }
+
   /* -------------------------------------------- */
 
   /** @override */
