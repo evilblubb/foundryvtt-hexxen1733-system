@@ -165,9 +165,12 @@
   column-gap: 8px;
 }
 .sheet.jaeger .states .list-body li > * {
-  min-height: 24px;
-  line-height: 24px;
+  min-height: 20px;
+  line-height: 20px;
   text-align: inherit;
+}
+.sheet.jaeger .states .list-body .label {
+  flex: 1.5;
 }
 .sheet.jaeger .states .einfluesse .list-body .control {
   color: red;
