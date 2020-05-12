@@ -155,9 +155,9 @@ class JaegerSheet extends ActorSheet {
       el.children[i].dataset.action = i < curent ? "decrease" : "increase";
       let cl = el.children[i].children[0].classList;
       if (i < curent) {
-        cl.add("fa-inverse");
+        cl.remove("fa-inverse"); // wird schwarz
       } else {
-        cl.remove("fa-inverse");
+        cl.add("fa-inverse"); // wird weiss
       }
     }
   }  
@@ -230,23 +230,11 @@ class JaegerSheet extends ActorSheet {
 
     let curent = this.actor.data.data.resources[key] + inc;
     curent = curent < 0 ? 0 : (curent > max ? max : curent);
+    
     let update = {};
     let res = `data.resources.${key}`;
     update[res] = curent;
-    this.actor.update(update); // data.data.resources[key] = curent; // FIXME via setter, um trigger zu ermöglichen
-    
-    // this._updateState(html.find(".eh .controls")[0], "eh", options);
-
-    // FIXME nur notwendig, falls durch Änderung kein update des sheet ausgelöst wird
-    // for (let i = 0; i < max; i++) {
-      // parent.children[i].dataset.action = i < curent ? "decrease" : "increase";
-      // let cl = parent.children[i].children[0].classList;
-      // if (i < curent) {
-        // cl.add("fa-inverse");
-      // } else {
-        // cl.remove("fa-inverse");
-      // }
-    // }
+    this.actor.update(update); // FIXME kann man das kompakter schreiben??
   }
   
   async _onClickRoll(event) {
