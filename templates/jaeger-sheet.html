@@ -130,9 +130,36 @@
 
         {{!-- Zustand Tab --}}
         <div class="tab states" data-group="primary" data-tab="states">
-            TODO: Erste Hilfe, Magische Heilung<br>
-            TODO: Anhaltende Einflüsse<br>
-            TODO: Zustände
+            <div class="erste-hilfe flexcol">
+                <header class="header flexrow">
+                    <span class="header-label">Heilfaktor</span>
+                </header>
+                
+                <ol class="list">
+                    <li class="eh flexrow" data-key="eh">
+                        <span class="label">Erste Hilfe [EH]</span>
+                        <span class="controls">
+                            <a class="control" data-action="toggle"><i class="fas fa-plus"></i></a>
+                            <a class="control" data-action="toggle"><i class="fas fa-plus"></i></a>
+                        </span>
+                    </li>
+                    <li class="mh flexrow" data-key="mh">
+                        <span class="label">Mag. Heilung & Elixire [MH]</span>
+                        <span class="controls">
+                            <a class="control" data-action="toggle"><i class="fas fa-plus"></i></a>
+                            <a class="control" data-action="toggle"><i class="fas fa-plus"></i></a>
+                            <a class="control" data-action="toggle"><i class="fas fa-plus"></i></a>
+                            <a class="control" data-action="toggle"><i class="fas fa-plus"></i></a>
+                        </span>
+                    </li>
+                </ol>
+            </div>
+            <div class="einfluesse flexcol">
+                TODO: Anhaltende Einflüsse
+            </div>
+            <div class="zustaende flexcol">
+                TODO: Zustände
+            </div>
         </div>
 
         {{!-- Attribute Tab --}}
