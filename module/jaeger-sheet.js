@@ -45,8 +45,9 @@ class JaegerSheet extends ActorSheet {
     event.preventDefault();
     
     let mode = !!this.entity.data.flags.editMode || false;
-    // FIXME this.object.setFlags vgl. foundry:18320
-    this.entity.data.flags.editMode = !mode;
+    // FIXME this.object.setFlags vgl. foundry:18320/9981
+    this.actor.setFlags("hexxen", "editMode", !mode);
+    // this.entity.data.flags.editMode = !mode;
   }
 
 
