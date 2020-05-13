@@ -44,7 +44,7 @@ class JaegerSheet extends ActorSheet {
   _onToggleEdit(event) {
     event.preventDefault();
     
-    let mode = !!this.entity.data.flags.editMode || false;
+    let mode = !!this.actor.getFlag(CONFIG.Hexxen.scope, "editMode") || false; // FIXME !! und || redundant?
     // FIXME this.object.setFlag vgl. foundry:18320/9981
     this.actor.setFlag(CONFIG.Hexxen.scope, "editMode", !mode);
     // this.entity.data.flags.editMode = !mode;
