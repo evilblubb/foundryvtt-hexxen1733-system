@@ -25,6 +25,11 @@ Hooks.once("init", async function() {
 	  formula: "@calc.ini",
     decimals: 0
   };
+  
+  // FIXME richtiger Platz??
+  Handlebars.registerHelper("dyn-input", function(options) {
+    return options.fn(this);
+  });
 
 	// Define custom Entity classes
   CONFIG.Actor.entityClass = Jaeger;

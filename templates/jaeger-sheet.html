@@ -38,7 +38,8 @@
         {{#each data.attributes as |attr key|}}
             <div class="attribute flexrow" data-key="{{key}}">
                 <a class="label roll" title="{{attr.label}}" data-action="roll" data-type="attribute">{{key}}</a>
-                <span class="value">{{attr.value}}</span>
+                {{dyn-input}}
+                <!--<span class="value">{{attr.value}}</span>-->
             </div>
         {{/each}}
         </div>
