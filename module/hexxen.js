@@ -38,7 +38,7 @@ Hooks.once("init", async function() {
   Handlebars.registerHelper("dyn-input", function(options) {
     // TODO besser actor.getFlag, aber dazu muss zuerst das Actor-Objekt ermittelt werden 
     // (actor ist nur das äußere Datenelement von Actor)
-    const flags = options.data.root.actor.flags[CONFIG.Hexxen.scope];
+    const flags = options.data.root.actor.flags[CONFIG.Hexxen.scope] || {};
     const editMode = flags.editMode || false;
     
     // FIXME id für label bereitstellen
