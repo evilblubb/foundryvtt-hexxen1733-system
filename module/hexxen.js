@@ -10,7 +10,8 @@ import { Jaeger } from "./jaeger.js";
 import { SimpleItemSheet } from "./item-sheet.js";
 import { SimpleActorSheet } from "./actor-sheet.js";
 
-class Hexxen {
+// TODO wie ist der Namespace ohne export??
+export class Hexxen {
   static get scope() {
     return game.data.system.id;
   }
