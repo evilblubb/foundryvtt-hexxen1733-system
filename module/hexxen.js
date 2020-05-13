@@ -10,8 +10,8 @@ import { Jaeger } from "./jaeger.js";
 import { SimpleItemSheet } from "./item-sheet.js";
 import { SimpleActorSheet } from "./actor-sheet.js";
 
-// TODO wie ist der Namespace ohne export??
-export class Hexxen {
+// TODO wie ist der Namespace??
+class Hexxen {
   static get scope() {
     return game.data.system.id;
   }
@@ -32,6 +32,7 @@ Hooks.once("init", async function() {
 	  formula: "@calc.ini",
     decimals: 0
   };
+  CONFIG.Hexxen = Hexxen;
   
   // FIXME richtiger Platz??
   Handlebars.registerHelper("dyn-input", function(options) {
