@@ -28,7 +28,7 @@ Hooks.once("init", async function() {
   
   // FIXME richtiger Platz??
   Handlebars.registerHelper("dyn-input", function(options) {
-    return "Handlebar Helper Output";
+    return options.data.root.entity.flags.editMode ? "Edit" : "Game";
   });
 
 	// Define custom Entity classes
