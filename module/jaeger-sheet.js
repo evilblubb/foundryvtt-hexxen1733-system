@@ -31,9 +31,9 @@ class JaegerSheet extends ActorSheet {
     if (canConfigure) {
       buttons = [
         {
-          label: "Edit",
+          label: (!!this.actor.getFlag(CONFIG.Hexxen.scope, "editMode")) ? "Game Mode" : "Edit Mode",
           class: "configure-edit",
-          icon: "fas fa-edit",
+          icon: "fas fa-" + (!!this.actor.getFlag(CONFIG.Hexxen.scope, "editMode")) ? "dice" : "edit",
           onclick: ev => this._onToggleEdit(ev)
         }
       ].concat(buttons);
