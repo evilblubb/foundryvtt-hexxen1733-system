@@ -42,9 +42,9 @@ Hooks.once("init", async function() {
     
     // FIXME id für label bereitstellen
     if (editMode) {
-      return `<input class="${options.hash.class}" type="text" name="${options.hash.path}.${options.hash.key}" value="${options.hash.value}" />`;
+      return new Handlebars.SafeString(`<input class="${options.hash.class}" type="text" name="${options.hash.path}.${options.hash.key}" value="${options.hash.value}" />`);
     } else { // game mode
-      return `<span class="${options.hash.class}">${options.hash.value}</span>`;
+      return new Handlebars.SafeString(`<span class="${options.hash.class}">${options.hash.value}</span>`);
     }
   });
 
