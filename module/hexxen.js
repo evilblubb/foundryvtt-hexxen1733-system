@@ -38,7 +38,14 @@ Hooks.once("init", async function() {
   Handlebars.registerHelper("dyn-input", function(options) {
     // TODO besser actor.getFlag, aber dazu muss zuerst das Actor-Objekt ermittelt werden 
     // (actor ist nur das äußere Datenelement von Actor)
-    return options.data.root.actor.flags[CONFIG.Hexxen.scope].editMode ? "Edit" : "Game"; 
+    const editMode = options.data.root.actor.flags[CONFIG.Hexxen.scope].editMode;
+    
+    // FIXME id für label bereitstellen
+    if (editMode) {
+      return `<input class="value" type="text" name="foo${}" value="${this.value}" />`;
+    } else { // game mode
+      return `<span class="value">${this.value}</span>`;
+    }
   });
 
 	// Define custom Entity classes

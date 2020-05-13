@@ -33,7 +33,7 @@ class JaegerSheet extends ActorSheet {
         {
           label: (!!this.actor.getFlag(CONFIG.Hexxen.scope, "editMode")) ? "Game Mode" : "Edit Mode",
           class: "configure-edit",
-          icon: "fas fa-" + (!!this.actor.getFlag(CONFIG.Hexxen.scope, "editMode")) ? "dice" : "edit",
+          icon: "fas fa-" + (!!this.actor.getFlag(CONFIG.Hexxen.scope, "editMode") ? "dice" : "edit"),
           onclick: ev => this._onToggleEdit(ev)
         }
       ].concat(buttons);
@@ -48,6 +48,7 @@ class JaegerSheet extends ActorSheet {
     // FIXME this.object.setFlag vgl. foundry:18320/9981
     this.actor.setFlag(CONFIG.Hexxen.scope, "editMode", !mode);
     // this.entity.data.flags.editMode = !mode;
+    // FIXME HeaderButton aktualisieren, momentan nur bei close/open.
   }
 
 
