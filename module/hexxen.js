@@ -26,6 +26,12 @@ Hooks.once("init", async function() {
     decimals: 0
   };
   
+  class Hexxen {
+    static get scope() {
+      return game.data.system.id;
+    }
+  }
+  
   // FIXME richtiger Platz??
   Handlebars.registerHelper("dyn-input", function(options) {
     return options.data.root.entity.flags.editMode ? "Edit" : "Game";
