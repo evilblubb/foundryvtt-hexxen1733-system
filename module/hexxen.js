@@ -28,7 +28,7 @@ Hooks.once("init", async function() {
   
   // FIXME richtiger Platz??
   Handlebars.registerHelper("dyn-input", function(options) {
-    return options.fn(this);
+    return "Handlebar Helper Output";
   });
 
 	// Define custom Entity classes
