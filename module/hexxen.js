@@ -36,7 +36,9 @@ Hooks.once("init", async function() {
   
   // FIXME richtiger Platz??
   Handlebars.registerHelper("dyn-input", function(options) {
-    return options.data.root.entity.flags.editMode ? "Edit" : "Game";
+    // TODO besser actor.getFlag, aber dazu muss zuerst das Actor-Objekt ermittelt werden 
+    // (actor ist nur das äußere Datenelement von Actor)
+    return options.data.root.actor.flags[CONFIG.Hexxen.scope].editMode ? "Edit" : "Game"; 
   });
 
 	// Define custom Entity classes
