@@ -42,7 +42,7 @@ Hooks.once("init", async function() {
     
     // FIXME id für label bereitstellen
     if (editMode) {
-      return `<input class="value" type="text" name="foo${}" value="${this.value}" />`;
+      return `<input class="value" type="text" name="foo${foo}" value="${this.value}" />`;
     } else { // game mode
       return `<span class="value">${this.value}</span>`;
     }
