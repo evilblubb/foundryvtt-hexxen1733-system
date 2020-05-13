@@ -10,6 +10,12 @@ import { Jaeger } from "./jaeger.js";
 import { SimpleItemSheet } from "./item-sheet.js";
 import { SimpleActorSheet } from "./actor-sheet.js";
 
+class Hexxen {
+  static get scope() {
+    return game.data.system.id;
+  }
+}
+  
 /* -------------------------------------------- */
 /*  Foundry VTT Initialization                  */
 /* -------------------------------------------- */
@@ -25,12 +31,6 @@ Hooks.once("init", async function() {
 	  formula: "@calc.ini",
     decimals: 0
   };
-  
-  class Hexxen {
-    static get scope() {
-      return game.data.system.id;
-    }
-  }
   
   // FIXME richtiger Platz??
   Handlebars.registerHelper("dyn-input", function(options) {
