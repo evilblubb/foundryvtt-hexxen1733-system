@@ -8,7 +8,7 @@ class JaegerSheet extends ActorSheet {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["hexxen", "sheet", "actor", "jaeger"],
-      template: "systems/" + CONFIG.Hexxen.scope + "/templates/jaeger-sheet.html", // FIXME basepath klären
+      template: "systems/" + game.data.system.id + "/templates/jaeger-sheet.html", // FIXME basepath klären
       width: 700,
       height: 720,
       tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "skills"}]
@@ -44,7 +44,7 @@ class JaegerSheet extends ActorSheet {
   _onToggleEdit(event) {
     event.preventDefault();
     
-    let mode = !!this.actor.getFlag(CONFIG.Hexxen.scope, "editMode") || false; // FIXME !! und || redundant?
+    let mode = !!this.actor.getFlag(game.data.system.id, "editMode") || false; // FIXME !! und || redundant?
     // FIXME this.object.setFlag vgl. foundry:18320/9981
     // FIXME scope ist problematisch
     this.actor.setFlag(CONFIG.Hexxen.scope, "editMode", !mode);
