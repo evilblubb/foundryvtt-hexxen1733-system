@@ -71,7 +71,6 @@
     <nav class="sheet-tabs tabs" data-group="primary">
         <a class="item" data-tab="description">Bio</a>
         <a class="item" data-tab="states">Zustand</a>
-        <a class="item" data-tab="attributes">Attribute</a>
         <a class="item" data-tab="skills">Fertigkeiten</a>
         <a class="item" data-tab="powers">Jägerkräfte</a>
         <a class="item" data-tab="combat">Kampf</a>
@@ -228,31 +227,6 @@
                 {{/each}}
                 </ol>
             </div>
-        </div>
-
-        {{!-- Attribute Tab --}}
-        <div class="tab attributes" data-group="primary" data-tab="attributes">
-        {{#if false}}
-            <header class="attributes-header flexrow">
-                <span class="attribute-label">Label</span>
-                <span class="attribute-key">Attribute Key</span>
-                <span class="attribute-value">Value</span>
-            </header>
-
-            <ol class="attributes-list">
-            {{#each data.attributes as |attr key|}}
-                <li class="attribute flexrow" data-attribute="{{key}}">
-                    <span class="attribute-label">{{attr.label}}</span>
-                    <span class="attribute-key">{{key}}</span>
-                    {{#if attr.isCheckbox}}
-                    <label class="attribute-value checkbox"><input type="checkbox" name="data.attributes.{{key}}.value" {{checked attr.value}}/></label>
-                    {{else}}
-                    <input class="attribute-value" type="text" name="data.attributes.{{key}}.value" value="{{attr.value}}" data-dtype="{{attr.dtype}}"/>
-                    {{/if}}
-                </li>
-            {{/each}}
-            </ol>
-        {{/if}}
         </div>
 
         {{!-- Fertigkeiten Tab --}}
