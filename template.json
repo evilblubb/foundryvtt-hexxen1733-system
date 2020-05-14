@@ -125,6 +125,7 @@
         "abbau": "Geistesstärke"
       }
     },
+    "states-text": "",
     "health": {
       "value": 11,
       "min": 0,
@@ -244,6 +245,8 @@
         "attribute": "WIS"
       }
     },
+    "skills-text": "",
+    "powers-text": "",
     "combat": {
       "Fausthieb": {
         "label": "Fausthieb",
@@ -357,8 +360,10 @@
         "attribute": "KKR",
         "anmerkung": "Nur 1x pro Runde / Blockt Distanzangriffe"
       }
+    },
+    "combat-text": "",
+    "item-text": ""
     }
-  }
 },
 "Item": {
   "types": ["item", "role"],

@@ -227,6 +227,8 @@
                 {{/each}}
                 </ol>
             </div>
+            
+            {{editor content=data.states-text target="data.states-text" button=true owner=owner editable=editable}}
         </div>
 
         {{!-- Fertigkeiten Tab --}}
@@ -258,12 +260,16 @@
                 </li>
             {{/each}}
             </ol>
+            
+            {{editor content=data.skills-text target="data.skills-text" button=true owner=owner editable=editable}}
         </div>
 
         {{!-- Jägerkräfte Tab --}}
         <div class="tab powers" data-group="primary" data-tab="powers">
             TODO: Konstruktionspunkte<br>
             TODO: Jägerkräfte
+            
+            {{editor content=data.powers-text target="data.powers-text" button=true owner=owner editable=editable}}
         </div>
 
         {{!-- Kampf Tab --}}
@@ -293,6 +299,8 @@
                 </li>
             {{/each}}
             </ol>
+            
+            {{editor content=data.combat-text target="data.combat-text" button=true owner=owner editable=editable}}
         </div>
 
         {{!-- Besitz Tab --}}
@@ -310,7 +318,8 @@
                 </li>
             {{/each}}
             </ol>
-            TODO: Notizfeld
+            
+            {{editor content=data.items-text target="data.items-text" button=true owner=owner editable=editable}}
         </div>
 
         </section>
