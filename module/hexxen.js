@@ -40,10 +40,13 @@ Hooks.once("init", async function() {
     // (actor ist nur das äußere Datenelement von Actor)
     const flags = options.data.root.actor.flags[CONFIG.Hexxen.scope] || {};
     const editMode = flags.editMode || false;
+    let name = [ options.hash.path, options.hash.key ];
+    if ( options.hash.target ) name.push( options.hash.target);
+    name = name.join(".");
     
     // FIXME id für label bereitstellen
     if (editMode) {
-      return new Handlebars.SafeString(`<input class="${options.hash.class}" type="text" name="${options.hash.path}.${options.hash.key}.${options.hash.target}" value="${options.hash.value}" data-dtype="Number"/>`);
+      return new Handlebars.SafeString(`<input class="${options.hash.class}" type="text" name="${name}" value="${options.hash.value}" data-dtype="Number"/>`);
     } else { // game mode
       return new Handlebars.SafeString(`<span class="${options.hash.class}">${options.hash.value}</span>`);
     }

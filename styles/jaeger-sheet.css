@@ -47,6 +47,7 @@
 }
 .sheet.jaeger .sheet-header span.value {
   border-bottom: 1px solid #AAA;
+  padding: 0 4px;
 }
 .sheet.jaeger .sheet-header input.value {
   width: 50px;
@@ -72,7 +73,7 @@
   column-gap: 15%;
 }
 .sheet.jaeger .sheet-header .combat .value {
-  flex: 1.5;
+  flex: 1.3;
 }
 .sheet.jaeger .sheet-header .lep {
   margin-top: 8px;
@@ -96,7 +97,7 @@
   column-gap: 3%;
 }
 .sheet.jaeger .sheet-header .attribute .value {
-  flex: 2;
+  flex: 1.6;
 }
 .sheet.jaeger .sheet-header .resources {
   margin-top: 6px;
