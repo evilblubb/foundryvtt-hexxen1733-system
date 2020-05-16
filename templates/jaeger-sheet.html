@@ -13,7 +13,8 @@
                     </div>
                     <div class="pw flexrow">
                         <label class="label" title="Panzerwert" for="pw">PW</label>
-                        <input class="value" type="text" name="data.calc.pw" value="{{data.calc.pw}}" data-dtype="Number" id="pw" />
+                        {{dyn-input class="value" path="data.calc" key=pw value=data.calc.pw}}
+                        <!--<input class="value" type="text" name="data.calc.pw" value="{{data.calc.pw}}" data-dtype="Number" id="pw" />-->
                     </div>
                     <div class="ap flexrow">
                         <label class="label" title="Aktionspunkte" for="ap">AP</label>
