@@ -11,7 +11,8 @@ class JaegerSheet extends ActorSheet {
       template: "systems/" + CONFIG.Hexxen.scope + "/templates/jaeger-sheet.html", // FIXME basepath klären
       width: 700,
       height: 720,
-      tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "skills"}]
+      tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "skills"}],
+      scrollY: [ ".scroll-y" ]
     });
   }
 

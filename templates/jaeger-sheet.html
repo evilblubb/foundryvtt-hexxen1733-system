@@ -82,7 +82,7 @@
     <section class="sheet-body">
 
         {{!-- Bio Tab --}}
-        <div class="tab biography" data-group="primary" data-tab="description">
+        <div class="tab biography scroll-y" data-group="primary" data-tab="description">
             <div class="core flexrow">
                 <ol class="list-body role-list">
                     <li class="role flexrow">
@@ -133,7 +133,7 @@
         </div>
 
         {{!-- Zustand Tab --}}
-        <div class="tab states" data-group="primary" data-tab="states">
+        <div class="tab states scroll-y" data-group="primary" data-tab="states">
             <div class="top flexrow">
                 <div class="erste-hilfe flexcol">
                     <header class="list-header flexrow">
@@ -239,7 +239,7 @@
         </div>
 
         {{!-- Fertigkeiten Tab --}}
-        <div class="tab skills" data-group="primary" data-tab="skills">
+        <div class="tab skills scroll-y" data-group="primary" data-tab="skills">
             <header class="list-header flexrow">
                 <span class="li-label">Fertigkeit</span>
                 <span class="li-value" title="Fertigkeitswert">FW</span>
@@ -275,7 +275,7 @@
         </div>
 
         {{!-- Jägerkräfte Tab --}}
-        <div class="tab powers" data-group="primary" data-tab="powers">
+        <div class="tab powers scroll-y" data-group="primary" data-tab="powers">
             TODO: Konstruktionspunkte<br>
             TODO: Jägerkräfte
             
@@ -286,7 +286,7 @@
         </div>
 
         {{!-- Kampf Tab --}}
-        <div class="tab combat" data-group="primary" data-tab="combat">
+        <div class="tab combat scroll-y" data-group="primary" data-tab="combat">
             <header class="list-header flexrow">
                 <span class="li-label">Waffe dabei?</span>
                 <span class="li-schaden" title="Basis-Schaden">SCH</span>
@@ -320,7 +320,7 @@
         </div>
 
         {{!-- Besitz Tab --}}
-        <div class="tab items" data-group="primary" data-tab="items">
+        <div class="tab items scroll-y" data-group="primary" data-tab="items">
             TODO: Unterhalt, Vermögen, Beutegut, Kleidung, Rüstung, Ausrüstung
             <ol class="items-list">
             {{#each actor.items as |item id|}}
