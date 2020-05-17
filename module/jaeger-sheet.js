@@ -142,7 +142,7 @@ class JaegerSheet extends ActorSheet {
   async _renderInner(data, options={}) {
     let html = await super._renderInner(data, options);
     
-    // FIXME ist _renderInner() besser?? Sonst Problem: Zugang zu html beim ersten Öffnen
+    // FIXME ist _renderInner() oder _replaceHTML() besser?? Sonst Problem: Zugang zu html beim ersten Öffnen
     // Aktualisiere Zustände, die keine Form-Elemente sind
     this._updateState(html.find(".eh .controls")[0], "eh", options);
     this._updateState(html.find(".mh .controls")[0], "mh", options);
