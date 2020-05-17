@@ -1,0 +1,1 @@
+Speicherort für .db-Files (Compendium, etc.)

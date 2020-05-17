@@ -13,7 +13,8 @@
                     </div>
                     <div class="pw flexrow">
                         <label class="label" title="Panzerwert" for="pw">PW</label>
-                        <input class="value" type="text" name="data.calc.pw" value="{{data.calc.pw}}" data-dtype="Number" id="pw" />
+                        {{dyn-input class="value" path="data.calc" key=pw value=data.calc.pw}}
+                        <!--<input class="value" type="text" name="data.calc.pw" value="{{data.calc.pw}}" data-dtype="Number" id="pw" />-->
                     </div>
                     <div class="ap flexrow">
                         <label class="label" title="Aktionspunkte" for="ap">AP</label>
@@ -38,7 +39,8 @@
         {{#each data.attributes as |attr key|}}
             <div class="attribute flexrow" data-key="{{key}}">
                 <a class="label roll" title="{{attr.label}}" data-action="roll" data-type="attribute">{{key}}</a>
-                <span class="value">{{attr.value}}</span>
+                {{dyn-input class="value" path="data.attributes" key=key target="value" value=attr.value}}
+                <!--<span class="value">{{attr.value}}</span>-->
             </div>
         {{/each}}
         </div>
@@ -70,7 +72,6 @@
     <nav class="sheet-tabs tabs" data-group="primary">
         <a class="item" data-tab="description">Bio</a>
         <a class="item" data-tab="states">Zustand</a>
-        <a class="item" data-tab="attributes">Attribute</a>
         <a class="item" data-tab="skills">Fertigkeiten</a>
         <a class="item" data-tab="powers">Jägerkräfte</a>
         <a class="item" data-tab="combat">Kampf</a>
@@ -81,7 +82,7 @@
     <section class="sheet-body">
 
         {{!-- Bio Tab --}}
-        <div class="tab biography" data-group="primary" data-tab="description">
+        <div class="tab biography scroll-y" data-group="primary" data-tab="description">
             <div class="core flexrow">
                 <ol class="list-body role-list">
                     <li class="role flexrow">
@@ -125,41 +126,120 @@
                 </ol>
             </div>
             
+            <header class="list-header flexrow">
+                <span class="header-label">Notizen</span>
+            </header>
             {{editor content=data.biography target="data.biography" button=true owner=owner editable=editable}}
         </div>
 
         {{!-- Zustand Tab --}}
-        <div class="tab states" data-group="primary" data-tab="states">
-            TODO: Erste Hilfe, Magische Heilung<br>
-            TODO: Anhaltende Einflüsse<br>
-            TODO: Zustände
-        </div>
-
-        {{!-- Attribute Tab --}}
-        <div class="tab attributes" data-group="primary" data-tab="attributes">
-            <header class="attributes-header flexrow">
-                <span class="attribute-label">Label</span>
-                <span class="attribute-key">Attribute Key</span>
-                <span class="attribute-value">Value</span>
+        <div class="tab states scroll-y" data-group="primary" data-tab="states">
+            <div class="top flexrow">
+                <div class="erste-hilfe flexcol">
+                    <header class="list-header flexrow">
+                        <span class="header-label">Heilfaktor</span>
+                    </header>
+                    
+                    <ol class="list-body">
+                        <li class="eh flexrow" data-key="eh">
+                            <span class="label">Erste Hilfe [EH]</span>
+                            <span class="controls">
+                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
+                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
+                            </span>
+                        </li>
+                        <li class="mh flexrow" data-key="mh">
+                            <span class="label">Mag. Heilung & Elixire [MH]</span>
+                            <span class="controls">
+                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
+                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
+                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
+                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
+                            </span>
+                        </li>
+                    </ol>
+                </div>
+                <div class="einfluesse flexcol">
+                    <header class="list-header flexrow">
+                        <span class="header-label">Anhaltende Einflüsse</span>
+                    </header>
+                    
+                    <ol class="list-body">
+                        <li class="odmg flexrow" data-key="odmg">
+                            <span class="label">Äußerer Schaden</span>
+                            <span class="controls">
+                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
+                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
+                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
+                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
+                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
+                            </span>
+                        </li>
+                        <li class="idmg flexrow" data-key="idmg">
+                            <span class="label">Innerer Schaden</span>
+                            <span class="controls">
+                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
+                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
+                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
+                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
+                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
+                            </span>
+                        </li>
+                        <li class="mdmg flexrow" data-key="mdmg">
+                            <span class="label">Malusschaden</span>
+                            <span class="controls">
+                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
+                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
+                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
+                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
+                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
+                            </span>
+                        </li>
+                        <li class="ldmg flexrow" data-key="ldmg">
+                            <span class="label">Lähmungsschaden</span>
+                            <span class="controls">
+                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
+                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
+                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
+                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
+                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
+                            </span>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <div class="zustaende flexcol">
+                <header class="list-header flexrow">
+                    <span class="checkbox"></span>
+                    <span class="label">Zustand</span>
+                    <span class="type">Typ</span>
+                    <span class="effekt">Nebeneffekt</span>
+                    <span class="abbau">Abbau</span>
+                    <span class="hilfe">Helfen</span>
+                </header>
+                
+                <ol class="list-body">
+                {{#each data.states as |state key|}}
+                    <li class="state flexrow" data-attribute="{{key}}">
+                        <label class="checkbox"><input type="checkbox" name="data.states.{{key}}.state" {{checked state.state}}/></label>
+                        <span class="label">{{key}}</span>
+                        <span class="type">{{state.type}}</span>
+                        <span class="effekt">{{state.effekt}}</span>
+                        <span class="abbau">{{state.abbau}}</span>
+                        <span class="hilfe">{{state.hilfe}}</span>
+                    </li>
+                {{/each}}
+                </ol>
+            </div>
+            
+            <header class="list-header flexrow">
+                <span class="header-label">Notizen</span>
             </header>
-
-            <ol class="attributes-list">
-            {{#each data.attributes as |attr key|}}
-                <li class="attribute flexrow" data-attribute="{{key}}">
-                    <span class="attribute-label">{{attr.label}}</span>
-                    <span class="attribute-key">{{key}}</span>
-                    {{#if attr.isCheckbox}}
-                    <label class="attribute-value checkbox"><input type="checkbox" name="data.attributes.{{key}}.value" {{checked attr.value}}/></label>
-                    {{else}}
-                    <input class="attribute-value" type="text" name="data.attributes.{{key}}.value" value="{{attr.value}}" data-dtype="{{attr.dtype}}"/>
-                    {{/if}}
-                </li>
-            {{/each}}
-            </ol>
+            {{editor content=data.states-text target="data.states-text" button=true owner=owner editable=editable}}
         </div>
 
         {{!-- Fertigkeiten Tab --}}
-        <div class="tab skills" data-group="primary" data-tab="skills">
+        <div class="tab skills scroll-y" data-group="primary" data-tab="skills">
             <header class="list-header flexrow">
                 <span class="li-label">Fertigkeit</span>
                 <span class="li-value" title="Fertigkeitswert">FW</span>
@@ -187,16 +267,26 @@
                 </li>
             {{/each}}
             </ol>
+            
+            <header class="list-header flexrow">
+                <span class="header-label">Notizen</span>
+            </header>
+            {{editor content=data.skills-text target="data.skills-text" button=true owner=owner editable=editable}}
         </div>
 
         {{!-- Jägerkräfte Tab --}}
-        <div class="tab powers" data-group="primary" data-tab="powers">
+        <div class="tab powers scroll-y" data-group="primary" data-tab="powers">
             TODO: Konstruktionspunkte<br>
             TODO: Jägerkräfte
+            
+            <header class="list-header flexrow">
+                <span class="header-label">Notizen</span>
+            </header>
+            {{editor content=data.powers-text target="data.powers-text" button=true owner=owner editable=editable}}
         </div>
 
         {{!-- Kampf Tab --}}
-        <div class="tab combat" data-group="primary" data-tab="combat">
+        <div class="tab combat scroll-y" data-group="primary" data-tab="combat">
             <header class="list-header flexrow">
                 <span class="li-label">Waffe dabei?</span>
                 <span class="li-schaden" title="Basis-Schaden">SCH</span>
@@ -222,10 +312,15 @@
                 </li>
             {{/each}}
             </ol>
+            
+            <header class="list-header flexrow">
+                <span class="header-label">Notizen</span>
+            </header>
+            {{editor content=data.combat-text target="data.combat-text" button=true owner=owner editable=editable}}
         </div>
 
         {{!-- Besitz Tab --}}
-        <div class="tab items" data-group="primary" data-tab="items">
+        <div class="tab items scroll-y" data-group="primary" data-tab="items">
             TODO: Unterhalt, Vermögen, Beutegut, Kleidung, Rüstung, Ausrüstung
             <ol class="items-list">
             {{#each actor.items as |item id|}}
@@ -239,7 +334,11 @@
                 </li>
             {{/each}}
             </ol>
-            TODO: Notizfeld
+            
+            <header class="list-header flexrow">
+                <span class="header-label">Notizen</span>
+            </header>
+            {{editor content=data.items-text target="data.items-text" button=true owner=owner editable=editable}}
         </div>
 
         </section>

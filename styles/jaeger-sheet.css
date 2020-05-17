@@ -2,6 +2,13 @@
   min-width: 600px;
   min-height: 500px;
 }
+.sheet.jaeger ::selection {
+  background: #81a8e6;
+}
+.sheet.jaeger input::placeholder {
+  color: #999;
+  opacity: 1;
+}
 .sheet.jaeger .flexrow {
   flex-wrap: unset; /* override system preset */
 }
@@ -10,9 +17,16 @@
   padding: 5px;
   overflow-y: hidden;
 }
-.sheet.jaeger .editor,
+.sheet.jaeger .editor {
+  height: 400px;
+  margin: 5px;
+  padding: 5px;
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid #7a7971;
+  border-radius: 3px;
+}
 .sheet.jaeger .editor-content {
-  height: calc(100% - 180px);
+  height: 100%;  
 }
 .sheet.jaeger .roll {
   cursor: crosshair; /* FIXME curson icon erstellen */
@@ -33,6 +47,7 @@
 }
 .sheet.jaeger .sheet-header span.value {
   border-bottom: 1px solid #AAA;
+  padding: 0 4px;
 }
 .sheet.jaeger .sheet-header input.value {
   width: 50px;
@@ -58,7 +73,7 @@
   column-gap: 15%;
 }
 .sheet.jaeger .sheet-header .combat .value {
-  flex: 1.5;
+  flex: 1.3;
 }
 .sheet.jaeger .sheet-header .lep {
   margin-top: 8px;
@@ -82,7 +97,7 @@
   column-gap: 3%;
 }
 .sheet.jaeger .sheet-header .attribute .value {
-  flex: 2;
+  flex: 1.6;
 }
 .sheet.jaeger .sheet-header .resources {
   margin-top: 6px;
@@ -119,6 +134,7 @@
 }
 
 .sheet.jaeger .list-header {
+  flex: 0;
   padding: 5px;
   margin: 5px 0;
   background: rgba(0, 0, 0, 0.05);
@@ -158,6 +174,30 @@
   background: rgba(0, 0, 0, 0.05);
   border: 1px solid #7a7971;
   border-radius: 3px;
+}
+
+.sheet.jaeger .states .top {
+  column-gap: 8px;
+}
+.sheet.jaeger .states .list-body li > * {
+  min-height: 20px;
+  line-height: 20px;
+  text-align: inherit;
+}
+.sheet.jaeger .states .top .list-body .label {
+  flex: 1.5;
+}
+.sheet.jaeger .states .einfluesse .list-body .control {
+  color: red;
+}
+.sheet.jaeger .states .zustaende .checkbox {
+  flex: 0 0 23px;
+}
+.sheet.jaeger .states .zustaende .effekt {
+  flex: 1.5;
+}
+.sheet.jaeger .states .zustaende .list-body span {
+  border-bottom: 1px solid #AAA;
 }
 
 .sheet.jaeger .flexrow .li-label {

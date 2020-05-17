@@ -8,10 +8,12 @@ class JaegerSheet extends ActorSheet {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["hexxen", "sheet", "actor", "jaeger"],
-      template: "systems/" + game.data.system.id + "/templates/jaeger-sheet.html", // FIXME basepath kl�ren
+      template: "systems/" + CONFIG.Hexxen.scope + "/templates/jaeger-sheet.html", // FIXME basepath klären
       width: 700,
       height: 720,
-      tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "skills"}]
+      tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "skills"}],
+      scrollY: [ ".biography.scroll-y", ".states.scroll-y", ".skills.scroll-y", ".powers.scroll-y", 
+        ".combat.scroll-y", ".items.scroll-y" ]
     });
   }
 
@@ -31,9 +33,9 @@ class JaegerSheet extends ActorSheet {
     if (canConfigure) {
       buttons = [
         {
-          label: "Edit",
+          label: (!!this.actor.getFlag(CONFIG.Hexxen.scope, "editMode")) ? "To Game Mode" : "To Edit Mode",
           class: "configure-edit",
-          icon: "fas fa-edit",
+          icon: "fas fa-" + (!!this.actor.getFlag(CONFIG.Hexxen.scope, "editMode") ? "dice" : "edit"),
           onclick: ev => this._onToggleEdit(ev)
         }
       ].concat(buttons);
@@ -44,20 +46,31 @@ class JaegerSheet extends ActorSheet {
   _onToggleEdit(event) {
     event.preventDefault();
     
-    let mode = !!this.entity.data.flags.editMode || false;
-    // FIXME this.object.setFlags vgl. foundry:18320
-    this.entity.data.flags.editMode = !mode;
+    let mode = !!this.actor.getFlag(CONFIG.Hexxen.scope, "editMode") || false; // FIXME !! und || redundant?
+    // toggle mode
+    mode = !mode;
+
+    // save changed flag (also updates inner part of actor sheet)
+    // FIXME scope könnte nicht existieren, dann problematisch
+    this.actor.setFlag(CONFIG.Hexxen.scope, "editMode", mode);
+
+    // update button
+    // FIXME was passiert remote?
+    event.target.childNodes[0].className = "fas fa-" + (mode ? "dice" : "edit");
+    event.target.childNodes[1].textContent = mode ? "To Game Mode" : "To Edit Mode";
   }
 
 
   /** @override */
   getData() {
     const data = super.getData();
-    data.dtypes = ["String", "Number", "Boolean"];
-    for ( let attr of Object.values(data.data.attributes) ) {
-      attr.isCheckbox = attr.dtype === "Boolean";
+    
+    data.stypes = { "idmg": "Innerer Schaden", "odmg": "Äußerer Schaden", "mdmg": "Malusschaden", "ldmg": "Lähmungsschaden" };
+    for ( let state of Object.values(data.data.states) ) {
+      state.type = data.stypes[state.type];
     }
    
+    // FIXME gehört teilweise in den Jaeger!
     // Skills aufbereiten
     data.data.skills = data.data.skills || {}; // sicherstellen, dass skills existiert
     for ( let skill of Object.values(data.data.skills) ) {
@@ -71,6 +84,7 @@ class JaegerSheet extends ActorSheet {
       skill.label += extra;
     }
     
+    // FIXME gehört teilweise in den Jaeger!
     //Kampfskills aufbereiten
     data.data.combat = data.data.combat || {};
     for ( let skill of Object.values(data.data.combat) ) {
@@ -87,6 +101,7 @@ class JaegerSheet extends ActorSheet {
     return data;
   }
   
+  // FIXME gehört in den Jaeger
   getSkillRolls(key) {
     let data = this.entity.data;
     let skill = data.data.skills[key] || data.data.combat[key];
@@ -101,6 +116,12 @@ class JaegerSheet extends ActorSheet {
   /** @override */
   activateListeners(html) {
     super.activateListeners(html);
+
+    // Add roll listener
+    // FIXME permissions??
+    html.find(".sheet-header .attributes").on("click", ".roll", this._onClickRoll.bind(this));
+    html.find(".skills").on("click", ".li-control", this._onClickRoll.bind(this));
+    html.find(".combat").on("click", ".li-control", this._onClickRoll.bind(this));
 
     // Everything below here is only needed if the sheet is editable
     if (!this.options.editable) return;
@@ -120,13 +141,42 @@ class JaegerSheet extends ActorSheet {
     });
 
     // Add or Remove Attribute
-    //html.find(".attributes").on("click", ".attribute-control", this._onClickAttributeControl.bind(this));
-    // Add roll listener
     html.find(".sheet-header .resource").on("click", ".control", this._onClickPlusMinus.bind(this));
-    html.find(".sheet-header .attributes").on("click", ".roll", this._onClickRoll.bind(this));
-    html.find(".skills").on("click", ".li-control", this._onClickRoll.bind(this));
-    html.find(".combat").on("click", ".li-control", this._onClickRoll.bind(this));
+    html.find(".erste-hilfe").on("click", ".control", this._onClickStateToggle.bind(this));
+    html.find(".einfluesse").on("click", ".control", this._onClickStateToggle.bind(this));
   }
+
+  /** @override */
+  async _renderInner(data, options={}) {
+    let html = await super._renderInner(data, options);
+    
+    // FIXME ist _renderInner() oder _replaceHTML() besser?? Sonst Problem: Zugang zu html beim ersten Öffnen
+    // Aktualisiere Zustände, die keine Form-Elemente sind
+    this._updateState(html.find(".eh .controls")[0], "eh", options);
+    this._updateState(html.find(".mh .controls")[0], "mh", options);
+    this._updateState(html.find(".odmg .controls")[0], "odmg", options);
+    this._updateState(html.find(".idmg .controls")[0], "idmg", options);
+    this._updateState(html.find(".mdmg .controls")[0], "mdmg", options);
+    this._updateState(html.find(".ldmg .controls")[0], "ldmg", options);
+    
+    return html;
+  }
+  
+  _updateState(el, key, options={}) {
+    // FIXME geht so nur für resources
+    const curent = this.actor.data.data.resources[key];
+    const max = el.childElementCount;
+
+    for (let i = 0; i < max; i++) {
+      el.children[i].dataset.action = i < curent ? "decrease" : "increase";
+      let cl = el.children[i].children[0].classList;
+      if (i < curent) {
+        cl.remove("fa-inverse"); // wird schwarz
+      } else {
+        cl.add("fa-inverse"); // wird weiss
+      }
+    }
+  }  
 
   /* -------------------------------------------- */
 
@@ -134,7 +184,7 @@ class JaegerSheet extends ActorSheet {
   setPosition(options={}) {
     const position = super.setPosition(options);
     const sheetBody = this.element.find(".sheet-body");
-    const bodyHeight = position.height - 252;
+    const bodyHeight = position.height - 255;
     sheetBody.css("height", bodyHeight);
     return position;
   }
@@ -142,35 +192,10 @@ class JaegerSheet extends ActorSheet {
   /* -------------------------------------------- */
 
   /**
-   * Listen for click events on an attribute control to modify the composition of attributes in the sheet
+   * Listen for click events on a control to modify the sheet
    * @param {MouseEvent} event    The originating left click event
    * @private
    */
-  async _onClickAttributeControl(event) {
-    event.preventDefault();
-    const a = event.currentTarget;
-    const action = a.dataset.action;
-    const attrs = this.object.data.data.attributes;
-    const form = this.form;
-
-    // Add new attribute
-    if ( action === "create" ) {
-      const nk = Object.keys(attrs).length + 1;
-      let newKey = document.createElement("div");
-      newKey.innerHTML = `<input type="text" name="data.attributes.attr${nk}.key" value="attr${nk}"/>`;
-      newKey = newKey.children[0];
-      form.appendChild(newKey);
-      await this._onSubmit(event);
-    }
-
-    // Remove existing attribute
-    else if ( action === "delete" ) {
-      const li = a.closest(".attribute");
-      li.parentElement.removeChild(li);
-      await this._onSubmit(event);
-    }
-  }
-  
   async _onClickPlusMinus(event) {
     event.preventDefault();
     
@@ -184,6 +209,25 @@ class JaegerSheet extends ActorSheet {
     e.value = Number(e.value) + inc;
   }
 
+  async _onClickStateToggle(event) {
+    event.preventDefault();
+    
+    const a = event.currentTarget;
+    const action = a.dataset.action;
+    const inc = "increase" === action ? 1 : -1;
+    const parent = a.parentNode;
+    const max = parent.childElementCount; // FIXME [key].max ??
+    const key = parent.parentNode.dataset.key; // FIXME besser rekursiv suchen
+
+    let curent = this.actor.data.data.resources[key] + inc;
+    curent = curent < 0 ? 0 : (curent > max ? max : curent);
+    
+    let update = {};
+    let res = `data.resources.${key}`;
+    update[res] = curent;
+    this.actor.update(update); // FIXME kann man das kompakter schreiben??
+  }
+  
   async _onClickRoll(event) {
     event.preventDefault();
     const a = event.currentTarget;
@@ -224,7 +268,7 @@ class JaegerSheet extends ActorSheet {
     
     console.log(label + "-Probe: /hex " + rolls + "h");
     ui.chat.processMessage("/hex " + rolls + "h");
-//    await this._onSubmit(event); // FIXME kl�ren
+//    await this._onSubmit(event); // FIXME klären
   }
   
   async _onClickSkillControl(event) {
@@ -236,12 +280,10 @@ class JaegerSheet extends ActorSheet {
 
     if ( action === "roll" ) {
       const skill = a.parentNode.dataset.skill;
-//      console.log(event);
-//      console.log("I'm rolling, rolling, rolling ... " + skill);
       let rolls = this.getSkillRolls(skill);
-      console.log(skill + "Probe: /hex " + rolls + "h");
+      console.log(skill + "-Probe: /hex " + rolls + "h");
       ui.chat.processMessage("/hex " + rolls + "h");
-//      await this._onSubmit(event); // FIXME kl�ren
+//      await this._onSubmit(event); // FIXME klären
    }
   }
   
@@ -250,29 +292,6 @@ class JaegerSheet extends ActorSheet {
   /** @override */
   _updateObject(event, formData) {
 
-    /*
-    // Handle the free-form attributes list
-    const formAttrs = expandObject(formData).data.attributes || {};
-    const attributes = Object.values(formAttrs).reduce((obj, v) => {
-      let k = v["key"].trim(); // FIXME gibt es nicht mehr
-      if ( /[\s\.]/.test(k) )  return ui.notifications.error("Attribute keys may not contain spaces or periods");
-      delete v["key"];
-      obj[k] = v;
-      return obj;
-    }, {});
-    
-    // Remove attributes which are no longer used
-    for ( let k of Object.keys(this.object.data.data.attributes) ) {
-      if ( !attributes.hasOwnProperty(k) ) attributes[`-=${k}`] = null;
-    }
-    
-    // Re-combine formData
-    formData = Object.entries(formData).filter(e => !e[0].startsWith("data.attributes")).reduce((obj, e) => {
-      obj[e[0]] = e[1];
-      return obj;
-    }, {_id: this.object._id, "data.attributes": attributes});
-    */
-    
     // Update the Actor
     return this.object.update(formData);
   }
