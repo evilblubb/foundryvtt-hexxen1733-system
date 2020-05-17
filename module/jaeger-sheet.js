@@ -53,7 +53,7 @@ class JaegerSheet extends ActorSheet {
     // this.entity.data.flags.editMode = !mode;
     // FIXME HeaderButton aktualisieren, momentan nur bei close/open.
     event.target.childNodes[0].className = "fas fa-" + (mode ? "dice" : "edit");
-    event.target.childNodes[1].text = mode ? "To Game Mode" : "To Edit Mode";
+    event.target.childNodes[1].textContent = mode ? "To Game Mode" : "To Edit Mode";
   }
 
 
