@@ -47,11 +47,15 @@ class JaegerSheet extends ActorSheet {
     event.preventDefault();
     
     let mode = !!this.actor.getFlag(CONFIG.Hexxen.scope, "editMode") || false; // FIXME !! und || redundant?
-    // FIXME this.object.setFlag vgl. foundry:18320/9981
-    // FIXME scope ist problematisch
-    this.actor.setFlag(CONFIG.Hexxen.scope, "editMode", !mode);
-    // this.entity.data.flags.editMode = !mode;
-    // FIXME HeaderButton aktualisieren, momentan nur bei close/open.
+    // toggle mode
+    mode = !mode;
+
+    // save changed flag (also updates inner part of actor sheet)
+    // FIXME scope könnte nicht existieren, dann problematisch
+    this.actor.setFlag(CONFIG.Hexxen.scope, "editMode", mode);
+
+    // update button
+    // FIXME was passiert remote?
     event.target.childNodes[0].className = "fas fa-" + (mode ? "dice" : "edit");
     event.target.childNodes[1].textContent = mode ? "To Game Mode" : "To Edit Mode";
   }
