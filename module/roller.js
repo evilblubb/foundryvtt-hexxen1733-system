@@ -144,6 +144,9 @@ class HexxenRoller extends FormApplication {
         }
       }
     }
+    if (this.hints.key) {
+      roll += ` # ${this.hints.key}`;
+    }
     
     console.log(roll);
     ui.chat.processMessage(roll);
