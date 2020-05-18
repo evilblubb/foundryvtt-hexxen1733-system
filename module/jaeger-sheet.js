@@ -29,7 +29,7 @@ class JaegerSheet extends ActorSheet {
     let buttons = super._getHeaderButtons();
 
     // Token Configuration
-    let canConfigure = this.options.editable && (game.user.isGM || (this.actor.owner && game.user.isTrusted));
+    let canConfigure = this.options.editable && (game.user.isGM || this.actor.owner);
     if (canConfigure) {
       buttons = [
         {
