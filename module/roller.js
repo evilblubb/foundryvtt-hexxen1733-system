@@ -14,7 +14,7 @@ class HexxenRoller extends FormApplication {
 	static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["hexxen", "roller"],
-      id: "roller-" + this.appId,
+      id: "roller",
       template: "systems/" + game.data.system.id + "/templates/roller.html", // FIXME basepath klären
       width: 300,
     });
@@ -22,6 +22,11 @@ class HexxenRoller extends FormApplication {
 
   /* -------------------------------------------- */
 
+  /** @override */
+  get id() {
+    return "roller-" + this.appId;
+  }
+  
   /**
    * Add the Entity name into the window title
    * @type {String}
