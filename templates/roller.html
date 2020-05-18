@@ -1,10 +1,13 @@
 ﻿<form class="hexxen roller" autocomplete="off">
     <div class="flexrow">
-        <span>Typ: {{data.type}}</span>
-        <span>Key: {{data.key}}</span>
-        <span>Label: {{data.label}}</span>
-        <span>Modifier: {{data.modifier}}</span>
+    {{#if manual }}
+        <span style="flex: 0.5">Fertigkeit:</span>
+        <input class="value" type="text" name="comment" value="{{data.label}}" />
+    {{else}}
+        <span>Fertigkeit: {{data.label}}</span>
+        <input class="value" type="hidden" name="comment" value="{{data.label}}" />
         <span>Wert: {{data.value}}</span>
+    {{/if}}
     </div>
     <div class="dice flexcol">
     {{#each data.dice as |die key|}}

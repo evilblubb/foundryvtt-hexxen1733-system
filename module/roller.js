@@ -9,6 +9,9 @@ class HexxenRoller extends FormApplication {
   constructor(entity, options, hints={}) {
     super(entity, options);
     this.hints = hints;
+    if (!hints.key) {
+      this.options.closeOnSubmit = false;
+    }
   }
   
 	static get defaultOptions() {
@@ -16,12 +19,17 @@ class HexxenRoller extends FormApplication {
       classes: ["hexxen", "roller"],
       id: "roller",
       template: "systems/" + game.data.system.id + "/templates/roller.html", // FIXME basepath klären
-      width: 400,
+      width: 300,
     });
   }
 
   /* -------------------------------------------- */
 
+  /** @override */
+  get id() {
+    return "roller-" + this.appId;
+  }
+  
   /**
    * Add the Entity name into the window title
    * @type {String}
@@ -42,6 +50,8 @@ class HexxenRoller extends FormApplication {
     
     let type = this.hints.type;
     let key = this.hints.key;
+    data.manual = key ? false : true;
+    
     let result = {};
     data.data = result;
     let dice = { "h": { label: "Hexxen", count: 0 },
@@ -143,6 +153,9 @@ class HexxenRoller extends FormApplication {
           roll += die;
         }
       }
+    }
+    if (formData.comment) {
+      roll += ` # ${formData.comment}`;
     }
     
     console.log(roll);
