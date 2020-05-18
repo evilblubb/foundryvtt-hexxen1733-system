@@ -16,7 +16,7 @@ class HexxenRoller extends FormApplication {
       classes: ["hexxen", "roller"],
       id: "roller",
       template: "systems/" + game.data.system.id + "/templates/roller.html", // FIXME basepath klären
-      width: 400,
+      width: 300,
     });
   }
 
