@@ -1,9 +1,9 @@
 ﻿<form class="hexxen roller" autocomplete="off">
     <div class="flexrow">
-    {{#if data.manual }}
+    {{#if manual }}
         <input class="value" type="text" name="comment" value="{{data.label}}" />
     {{else}}
-        <span>Label: {{data.label}}</span>
+        <span>Fertigkeit: {{data.label}}</span>
         <input class="value" type="hidden" name="comment" value="{{data.label}}" />
     {{/if}}
         <span>Wert: {{data.value}}</span>

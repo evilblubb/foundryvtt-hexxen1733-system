@@ -42,7 +42,7 @@ class HexxenRoller extends FormApplication {
     
     let type = this.hints.type;
     let key = this.hints.key;
-    data.manual = key ? true : false;
+    data.manual = key ? false : true;
     
     let result = {};
     data.data = result;
