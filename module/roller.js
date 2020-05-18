@@ -9,6 +9,9 @@ class HexxenRoller extends FormApplication {
   constructor(entity, options, hints={}) {
     super(entity, options);
     this.hints = hints;
+    if (!hints.key) {
+      this.options.closeOnSubmit = false;
+    }
   }
   
 	static get defaultOptions() {
