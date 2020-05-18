@@ -42,6 +42,8 @@ class HexxenRoller extends FormApplication {
     
     let type = this.hints.type;
     let key = this.hints.key;
+    data.manual = key ? true : false;
+    
     let result = {};
     data.data = result;
     let dice = { "h": { label: "Hexxen", count: 0 },
@@ -144,8 +146,8 @@ class HexxenRoller extends FormApplication {
         }
       }
     }
-    if (this.hints.key) {
-      roll += ` # ${this.hints.key}`;
+    if (formData.comment) {
+      roll += ` # ${formData.comment}`;
     }
     
     console.log(roll);
