@@ -2,7 +2,7 @@
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
  */
-export class SimpleActorSheet extends ActorSheet {
+class SimpleActorSheet extends ActorSheet {
 
   /** @override */
 	static get defaultOptions() {

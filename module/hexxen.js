@@ -4,12 +4,6 @@
  * Software License: GNU GPLv3
  */
 
-// Import Modules
-import { SimpleActor } from "./actor.js";
-import { Jaeger } from "./jaeger.js";
-import { SimpleItemSheet } from "./item-sheet.js";
-import { SimpleActorSheet } from "./actor-sheet.js";
-
 // TODO wie ist der Namespace??
 class Hexxen {
   static get scope() {

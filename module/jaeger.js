@@ -1,6 +1,6 @@
 ﻿
 
-export class Jaeger extends Actor {
+class Jaeger extends Actor {
 
   
   /**
