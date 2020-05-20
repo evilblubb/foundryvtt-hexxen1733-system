@@ -267,7 +267,7 @@ class JaegerSheet extends ActorSheet {
     }
     
     console.log(label + "-Probe: /hex " + rolls + "h");
-    ui.chat.processMessage("/hex " + rolls + "h # " + label);
+    ChatMessage.create({speaker: { actor: this.actor._id }, content: "/hex " + rolls + "h # " + label });
 //    await this._onSubmit(event); // FIXME klären
   }
   
@@ -283,8 +283,8 @@ class JaegerSheet extends ActorSheet {
       const skill = a.parentNode.dataset.skill;
       let rolls = this.getSkillRolls(skill);
       console.log(skill + "-Probe: /hex " + rolls + "h");
-      ui.chat.processMessage("/hex " + rolls + "h # " + skill);
-//      await this._onSubmit(event); // FIXME klären
+      ChatMessage.create({speaker: { actor: this.actor._id }, content: "/hex " + rolls + "h # " + label });
+      //      await this._onSubmit(event); // FIXME klären
    }
   }
   
