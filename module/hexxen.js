@@ -57,9 +57,9 @@ Hooks.once("init", async function() {
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("simple", SimpleActorSheet, { makeDefault: true });
+  Actors.registerSheet("simple", SimpleActorSheet, { types: ["npc"] });
   Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet("simple", SimpleItemSheet, {makeDefault: true});
+  Items.registerSheet("simple", SimpleItemSheet, { makeDefault: true });
 
   // Register system settings
   game.settings.register("worldbuilding", "macroShorthand", {

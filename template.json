@@ -1,6 +1,6 @@
 {
 "Actor": {
-  "types": ["character"],
+  "types": ["character", "npc"],
   "character": {
     "core": {
       "level": 1,
@@ -25,6 +25,7 @@
       "ldmg": 0
     },
     "calc": {
+      "pw": 1
     },
     "biography": "",
     "states": {
@@ -363,7 +364,55 @@
     },
     "combat-text": "",
     "items-text": ""
+    },
+  "npc": {
+    "biography": "",
+    "calc": {
+      "ini": 4
+    },
+    "health": {
+      "value": 10,
+      "min": 0,
+      "max": 10
+    },
+    "power": {
+      "value": 0,
+      "min": 0,
+      "max": 5
+    },
+    "attributes": {
+      "SIN": {
+        "value": 2,
+        "label": "Sinnesschärfe",
+        "dtype": "Number"
+      },
+      "WIS": {
+        "value": 2,
+        "label": "Wissen",
+        "dtype": "Number"
+      },
+      "WIL": {
+        "value": 2,
+        "label": "Willenskraft",
+        "dtype": "Number"
+      },
+      "KKR": {
+        "value": 2,
+        "label": "Körperkraft",
+        "dtype": "Number"
+      },
+      "ATH": {
+        "value": 2,
+        "label": "Athletik",
+        "dtype": "Number"
+      },
+      "GES": {
+        "value": 2,
+        "label": "Geschick",
+        "dtype": "Number"
+      }
     }
+  }
 },
 "Item": {
   "types": ["item", "role"],

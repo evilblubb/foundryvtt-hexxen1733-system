@@ -14,20 +14,21 @@ export class Jaeger extends Actor {
     super.prepareData();
     
     const actor = this.data;
-    
-    // Max-Werte für Basis- und Puffer-LEP berechnen
-    actor.data.health.min = -10;
-    actor.data.health.max = 7 + actor.data.attributes.KKR.value + actor.data.attributes.WIL.value + actor.data.skills["Unempfindlichkeit"].value;
-    actor.data.power.min = 0;
-    actor.data.power.max = 10;
-    
-    // INI, PW und AP berechnen
-    actor.data.calc = actor.data.calc || {};
-    actor.data.calc.ini = actor.data.attributes.SIN.value + actor.data.attributes.GES.value + actor.data.skills["Reflexe"].value;    
-    actor.data.calc.pw = actor.data.calc.pw || 1;    
-    actor.data.calc.ap = 6 - actor.data.calc.pw;    
-    
-	  return actor;
+
+    // Abgeleitete Basisdaten für Jaeger berechnen
+    if ("character" === actor.type) {
+      // Max-Werte für Basis- und Puffer-LEP berechnen
+      actor.data.health.min = -10;
+      actor.data.health.max = 7 + actor.data.attributes.KKR.value + actor.data.attributes.WIL.value + actor.data.skills["Unempfindlichkeit"].value;
+      actor.data.power.min = 0;
+      actor.data.power.max = 10;
+      
+      // INI, PW und AP berechnen
+      actor.data.calc = actor.data.calc || {};
+      actor.data.calc.ini = actor.data.attributes.SIN.value + actor.data.attributes.GES.value + actor.data.skills["Reflexe"].value;    
+      actor.data.calc.pw = actor.data.calc.pw || 1;    
+      actor.data.calc.ap = 6 - actor.data.calc.pw;    
+    }
   }
 
   

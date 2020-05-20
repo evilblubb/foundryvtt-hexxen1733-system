@@ -119,9 +119,11 @@ class JaegerSheet extends ActorSheet {
 
     // Add roll listener
     // FIXME permissions??
-    html.find(".sheet-header .attributes").on("click", ".roll", this._onClickRoll.bind(this));
-    html.find(".skills").on("click", ".li-control", this._onClickRoll.bind(this));
-    html.find(".combat").on("click", ".li-control", this._onClickRoll.bind(this));
+    if (game.user.isGM || this.actor.owner) {
+      html.find(".sheet-header .attributes").on("click", ".roll", this._onClickRoll.bind(this));
+      html.find(".skills").on("click", ".li-control", this._onClickRoll.bind(this));
+      html.find(".combat").on("click", ".li-control", this._onClickRoll.bind(this));
+    }
 
     // Everything below here is only needed if the sheet is editable
     if (!this.options.editable) return;
@@ -267,7 +269,7 @@ class JaegerSheet extends ActorSheet {
     }
     
     console.log(label + "-Probe: /hex " + rolls + "h");
-    ui.chat.processMessage("/hex " + rolls + "h # " + label);
+    ChatMessage.create({speaker: { actor: this.actor._id }, content: "/hex " + rolls + "h # " + label });
 //    await this._onSubmit(event); // FIXME klären
   }
   
@@ -283,8 +285,8 @@ class JaegerSheet extends ActorSheet {
       const skill = a.parentNode.dataset.skill;
       let rolls = this.getSkillRolls(skill);
       console.log(skill + "-Probe: /hex " + rolls + "h");
-      ui.chat.processMessage("/hex " + rolls + "h # " + skill);
-//      await this._onSubmit(event); // FIXME klären
+      ChatMessage.create({speaker: { actor: this.actor._id }, content: "/hex " + rolls + "h # " + label });
+      //      await this._onSubmit(event); // FIXME klären
    }
   }
   

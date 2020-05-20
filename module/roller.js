@@ -159,7 +159,12 @@ class HexxenRoller extends FormApplication {
     }
     
     console.log(roll);
-    ui.chat.processMessage(roll);
+    if (this.object instanceof Actor) {
+      ChatMessage.create({ speaker: { actor: this.object._id }, content: roll });
+    } else {
+      ChatMessage.create({ content: roll });
+    }
+    //ui.chat.processMessage(roll);
     
 /*     const original = this.getData();
 
