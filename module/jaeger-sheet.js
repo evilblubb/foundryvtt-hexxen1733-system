@@ -224,24 +224,25 @@ class JaegerSheet extends ActorSheet {
     const targetEl = a.closest("[data-key]");
 
     if (!action || !targetEl) {
-      console.log("Error in template: Can't identify required 'data-action' or 'data-key'. Ignoring event.", event);
+      console.warn("Error in template: Can't identify required attribute 'data-action' or 'data-key'. Ignoring event.", event);
       return;
     }
 
     // validate action
     if (! ["increase", "decrease"].includes(action) ) {
-      console.log("Error in template: Invalid 'data-action': '%s' Ignoring event.", action);
+      console.warn("Error in template: Invalid value for attribute 'data-action': '%s' Ignoring event.", action, event);
       return;
     }
+
     // validate key
-    const target = targetEl.dataset.key;
-    const inc = "increase" === action ? 1 : -1;
+    const key = targetEl.dataset.key;
     
     // modify actor data
-    let e = this.form.elements[target];
+    const inc = "increase" === action ? 1 : -1;
+    let e = this.form.elements[key];
     let value = Number(e.value) + inc;
     let updates = {};
-    updates[target] = value;
+    updates[key] = value;
     this.actor.update( updates );
   }
 
