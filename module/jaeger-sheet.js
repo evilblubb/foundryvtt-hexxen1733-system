@@ -224,24 +224,31 @@ class JaegerSheet extends ActorSheet {
     const targetEl = a.closest("[data-key]");
 
     if (!action || !targetEl) {
-      console.warn("Error in template: Can't identify required attribute 'data-action' or 'data-key'. Ignoring event.", event);
+      console.warn("Error in template: Can't identify required attribute 'data-action' or 'data-key'. Ignoring event.", $(a).parents, event);
       return;
     }
 
     // validate action
     if (! ["increase", "decrease"].includes(action) ) {
-      console.warn("Error in template: Invalid value for attribute 'data-action': '%s' Ignoring event.", action, event);
+      console.warn("Error in template: Invalid value for attribute 'data-action': '%s' Ignoring event.", action, $(a).parents, event);
       return;
     }
 
     // validate key
     const key = targetEl.dataset.key;
+    let value = getProperty(this.actor.data, key);
+    if (value === undefined) {
+      console.warn("Error in template: Unknown or bad target for attribute 'data-key': '%s' Ignoring event.", key, $(a).parents, event);
+      return;
+    }
     
     // modify actor data
+    // no min/max handling here, this is done in update
     const inc = "increase" === action ? 1 : -1;
-    let e = this.form.elements[key];
-    let value = Number(e.value) + inc;
-    let updates = {};
+    value += inc;
+
+    // invoke update
+    const updates = {};
     updates[key] = value;
     this.actor.update( updates );
   }
