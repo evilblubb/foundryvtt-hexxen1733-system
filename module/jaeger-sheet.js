@@ -194,21 +194,51 @@ class JaegerSheet extends ActorSheet {
   /* -------------------------------------------- */
 
   /**
-   * Listen for click events on a control to modify the sheet
+   * Callback for click events on +/- mimic to adjust actor data.
+   * The callback function expects the originating element to contain
+   * the attribute "data-action" with a value of either "increase" or
+   * "decrease". The originating element or one of it's parents must
+   * also contain the attribute "data-key", which must identify the
+   * actors data element to be modified. 
+   * 
+   * The originating element does not necessarily have to be an <a> element.
+   * It is recommended for the "data-key" attribute to not be too far up
+   * the tree to avoid side-effects.
+   * 
+   * Example:
+   * <div class="..." data-key="data.resources.coups">
+   *   ...
+   *   <a class="..." data-action="increase">...</a>
+   *   <a class="..." data-action="decrease">...</a>
+   * </div>
+   * 
    * @param {MouseEvent} event    The originating left click event
    * @private
    */
   async _onClickPlusMinus(event) {
     event.preventDefault();
-    
     const a = event.currentTarget;
+
+    // identify "data-action" and "data-key"
     const action = a.dataset.action;
+    const target = a.closest("[data-key]").dataset.key;
+
+    if (!action || !target) {
+      console.log("Can't identify required data-action or data-key.", event);
+      return;
+    }
+
+    // validate action and key
+    if (! ["increase", "decrease"].includes(action) ) {
+      console.log("Invalid data-action: %s", action);
+      return;
+    }
     const inc = "increase" === action ? 1 : -1;
-    const target = a.parentNode.dataset.key;
-    const form = this.form;
     
-    let e = form.elements["data.resources." + target];
-    e.value = Number(e.value) + inc;
+    // modify actor data
+    let e = this.form.elements[target];
+    let value = Number(e.value) + inc;
+    this.actor.update( { target: value } );
   }
 
   async _onClickStateToggle(event) {
