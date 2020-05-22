@@ -254,26 +254,6 @@ class JaegerSheet extends ActorSheet {
     this.actor.update(updates);
   }
 
-  // TODO entfernen, obsolet
-  async _onClickStateToggle(event) {
-    event.preventDefault();
-    
-    const a = event.currentTarget;
-    const action = a.dataset.action;
-    const inc = "increase" === action ? 1 : -1;
-    const parent = a.parentNode;
-    const max = parent.childElementCount; // FIXME [key].max ??
-    const key = parent.parentNode.dataset.key; // FIXME besser rekursiv suchen
-
-    let curent = this.actor.data.data.resources[key] + inc;
-    curent = curent < 0 ? 0 : (curent > max ? max : curent);
-    
-    let update = {};
-    let res = `data.resources.${key}`;
-    update[res] = curent;
-    this.actor.update(update); // FIXME kann man das kompakter schreiben??
-  }
-  
   async _onClickRoll(event) {
     event.preventDefault();
     const a = event.currentTarget;
