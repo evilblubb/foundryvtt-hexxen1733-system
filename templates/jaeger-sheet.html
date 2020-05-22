@@ -47,28 +47,19 @@
         <div class="resources flexrow">
             <div class="resource flexrow" data-key="data.resources.segnungen">
                 <label class="label" for="segnungen">Segnungen</label>
-                <div class="inc" style="position:relative">
-                    <input class="value" style="width: 100%;" type="text" name="data.resources.segnungen" value="{{data.resources.segnungen}}" data-dtype="Number" id="segnungen" />
-                    <div class="controls" style="display: none;">
-                        <a class="control" style="position: absolute; top: 0; left: 6px;" data-action="decrease"><i class="fas fa-minus"></i></a>
-                        <a class="control" style="position: absolute; top: 0; right: 6px;" data-action="increase"><i class="fas fa-plus"></i></a>
-                    </div>
-                </div>
-                <span class="label max"> / 5</span>
+                {{#inc-btn}}<input class="value" type="text" name="data.resources.segnungen" value="{{data.resources.segnungen}}" data-dtype="Number" id="segnungen" />{{/inc-btn}}
+                <span class="label max">&nbsp;/&nbsp;5</span>
             </div>
             <div class="resource flexrow" data-key="data.resources.ideen">
-                <label class="label" for="ideen">Ideen&nbsp;[=WIS]
+                <label class="label" for="ideen">Ideen&nbsp;[=WIS]</label>
                 <!--<span class="fa-stack"><i class="fas fa-stack-1x fa-circle" style="color:yellow"></i><i class="fas fa-stack-1x">I</i></span>-->
-                </label>
-                <input class="value" type="text" name="data.resources.ideen" value="{{data.resources.ideen}}" data-dtype="Number" id="ideen" />
-                <a class="control" data-action="decrease"><i class="fas fa-minus"></i></a>
-                <a class="control" data-action="increase"><i class="fas fa-plus"></i></a>
+                {{#inc-btn}}<input class="value" type="text" name="data.resources.ideen" value="{{data.resources.ideen}}" data-dtype="Number" id="ideen" />{{/inc-btn}}
+                <span class="label max">&nbsp;/&nbsp;tbd</span>
             </div>
             <div class="resource flexrow" data-key="data.resources.coups">
                 <label class="label" for="coups">Coups&nbsp;[=ATH]</label>
-                <input class="value" type="text" name="data.resources.coups" value="{{data.resources.coups}}" data-dtype="Number" id="coups" />
-                <a class="control" data-action="decrease"><i class="fas fa-minus"></i></a>
-                <a class="control" data-action="increase"><i class="fas fa-plus"></i></a>
+                {{#inc-btn}}<input class="value" type="text" name="data.resources.coups" value="{{data.resources.coups}}" data-dtype="Number" id="coups" />{{/inc-btn}}
+                <span class="label max">&nbsp;/&nbsp;tbd</span>
             </div>
         </div>
     </header>

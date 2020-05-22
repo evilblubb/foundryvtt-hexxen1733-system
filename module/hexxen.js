@@ -45,6 +45,16 @@ Hooks.once("init", async function() {
       return new Handlebars.SafeString(`<span class="${options.hash.class}">${options.hash.value}</span>`);
     }
   });
+  Handlebars.registerHelper("inc-btn", function(options) {
+    return new Handlebars.SafeString(`
+      <div class="inc">
+          ${options.fn(this)}
+          <div class="controls">
+              <a class="control left" data-action="decrease"><i class="fas fa-minus"></i></a>
+              <a class="control right" data-action="increase"><i class="fas fa-plus"></i></a>
+          </div>
+      </div>`);
+  });
 
 	// Define custom Entity classes
   CONFIG.Actor.entityClass = Jaeger;
