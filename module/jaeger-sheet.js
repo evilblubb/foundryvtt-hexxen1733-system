@@ -36,14 +36,14 @@ class JaegerSheet extends ActorSheet {
           label: (!!this.actor.getFlag(CONFIG.Hexxen.scope, "editMode")) ? "To Game Mode" : "To Edit Mode",
           class: "configure-edit",
           icon: "fas fa-" + (!!this.actor.getFlag(CONFIG.Hexxen.scope, "editMode") ? "dice" : "edit"),
-          onclick: ev => this._onToggleEdit(ev)
+          onclick: ev => this._onToggleEditMode(ev)
         }
       ].concat(buttons);
     }
     return buttons
   }
   
-  _onToggleEdit(event) {
+  _onToggleEditMode(event) {
     event.preventDefault();
     
     let mode = !!this.actor.getFlag(CONFIG.Hexxen.scope, "editMode") || false; // FIXME !! und || redundant?
@@ -60,6 +60,7 @@ class JaegerSheet extends ActorSheet {
     event.target.childNodes[1].textContent = mode ? "To Game Mode" : "To Edit Mode";
   }
 
+  /* -------------------------------------------- */
 
   /** @override */
   getData() {
@@ -114,6 +115,49 @@ class JaegerSheet extends ActorSheet {
   /* -------------------------------------------- */
 
   /** @override */
+  async _renderInner(data, options={}) {
+    let html = await super._renderInner(data, options);
+    
+    // FIXME ist _renderInner() oder _replaceHTML() besser?? Sonst Problem: Zugang zu html beim ersten Öffnen
+    // Aktualisiere Zustände, die keine Form-Elemente sind
+    this._updateState(html.find(".eh .controls")[0], "eh", options);
+    this._updateState(html.find(".mh .controls")[0], "mh", options);
+    this._updateState(html.find(".odmg .controls")[0], "odmg", options);
+    this._updateState(html.find(".idmg .controls")[0], "idmg", options);
+    this._updateState(html.find(".mdmg .controls")[0], "mdmg", options);
+    this._updateState(html.find(".ldmg .controls")[0], "ldmg", options);
+    
+    return html;
+  }
+
+  _updateState(el, key, options={}) {
+    // FIXME geht so nur für resources
+    const curent = this.actor.data.data.resources[key];
+    const max = el.childElementCount;
+
+    for (let i = 0; i < max; i++) {
+      el.children[i].dataset.action = i < curent ? "decrease" : "increase";
+      let cl = el.children[i].children[0].classList;
+      if (i < curent) {
+        cl.remove("fa-inverse"); // wird schwarz
+      } else {
+        cl.add("fa-inverse"); // wird weiss
+      }
+    }
+  }  
+
+  /* -------------------------------------------- */
+
+  /** @override */
+  setPosition(options={}) {
+    const position = super.setPosition(options);
+    const sheetBody = this.element.find(".sheet-body");
+    const bodyHeight = position.height - 255;
+    sheetBody.css("height", bodyHeight);
+    return position;
+  }
+
+  /** @override */
   activateListeners(html) {
     super.activateListeners(html);
 
@@ -149,59 +193,18 @@ class JaegerSheet extends ActorSheet {
     html.find(".states .top").on("click", ".control", this._onClickPlusMinus.bind(this));
 
     // hover effekt für +/- Buttons
-    html.find(".sheet-header .inc").hover(this._onHover.bind(this));
+    html.find(".sheet-header .inc").hover(this._onHoverPlusMinus.bind(this));
   }
 
-  async _onHover(event) {
+  async _onHoverPlusMinus(event) {
     event.preventDefault();
-    console.log(event);
-    event.currentTarget.children[1].style.display = event.type === "mouseenter" ? "block" : "none";
-  }
-
-  /** @override */
-  async _renderInner(data, options={}) {
-    let html = await super._renderInner(data, options);
-    
-    // FIXME ist _renderInner() oder _replaceHTML() besser?? Sonst Problem: Zugang zu html beim ersten Öffnen
-    // Aktualisiere Zustände, die keine Form-Elemente sind
-    this._updateState(html.find(".eh .controls")[0], "eh", options);
-    this._updateState(html.find(".mh .controls")[0], "mh", options);
-    this._updateState(html.find(".odmg .controls")[0], "odmg", options);
-    this._updateState(html.find(".idmg .controls")[0], "idmg", options);
-    this._updateState(html.find(".mdmg .controls")[0], "mdmg", options);
-    this._updateState(html.find(".ldmg .controls")[0], "ldmg", options);
-    
-    return html;
-  }
-  
-  _updateState(el, key, options={}) {
-    // FIXME geht so nur für resources
-    const curent = this.actor.data.data.resources[key];
-    const max = el.childElementCount;
-
-    for (let i = 0; i < max; i++) {
-      el.children[i].dataset.action = i < curent ? "decrease" : "increase";
-      let cl = el.children[i].children[0].classList;
-      if (i < curent) {
-        cl.remove("fa-inverse"); // wird schwarz
-      } else {
-        cl.add("fa-inverse"); // wird weiss
-      }
+    const target = $(event.currentTarget).find(".controls");
+    if ( event.type === "mouseenter" ) {
+      target.show();
+    } else {
+      target.hide();
     }
-  }  
-
-  /* -------------------------------------------- */
-
-  /** @override */
-  setPosition(options={}) {
-    const position = super.setPosition(options);
-    const sheetBody = this.element.find(".sheet-body");
-    const bodyHeight = position.height - 255;
-    sheetBody.css("height", bodyHeight);
-    return position;
   }
-
-  /* -------------------------------------------- */
 
   /**
    * Callback for click events on +/- mimic to adjust actor data.
@@ -262,6 +265,8 @@ class JaegerSheet extends ActorSheet {
     updates[key] = value;
     this.actor.update(updates);
   }
+  
+  /* -------------------------------------------- */
 
   async _onClickRoll(event) {
     event.preventDefault();
@@ -304,23 +309,6 @@ class JaegerSheet extends ActorSheet {
     console.log(label + "-Probe: /hex " + rolls + "h");
     ChatMessage.create({speaker: { actor: this.actor._id }, content: "/hex " + rolls + "h # " + label });
 //    await this._onSubmit(event); // FIXME klären
-  }
-  
-  // TODO entfernen, wird wohl nicht mehr benötigt
-  async _onClickSkillControl(event) {
-    event.preventDefault();
-    const a = event.currentTarget;
-    const action = a.dataset.action;
-    const attrs = this.object.data.data.attributes;
-    const form = this.form;
-
-    if ( action === "roll" ) {
-      const skill = a.parentNode.dataset.skill;
-      let rolls = this.getSkillRolls(skill);
-      console.log(skill + "-Probe: /hex " + rolls + "h");
-      ChatMessage.create({speaker: { actor: this.actor._id }, content: "/hex " + rolls + "h # " + label });
-      //      await this._onSubmit(event); // FIXME klären
-   }
   }
   
   /* -------------------------------------------- */
