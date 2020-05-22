@@ -47,10 +47,12 @@
         <div class="resources flexrow">
             <div class="resource flexrow" data-key="data.resources.segnungen">
                 <label class="label" for="segnungen">Segnungen</label>
-                <div class="inc" style="display: none; position:relative">
+                <div class="inc" style="position:relative">
                     <input class="value" style="width: 100%;" type="text" name="data.resources.segnungen" value="{{data.resources.segnungen}}" data-dtype="Number" id="segnungen" />
-                    <a class="control" style="position: absolute; top: 0; left: 6px;" data-action="decrease"><i class="fas fa-minus"></i></a>
-                    <a class="control" style="position: absolute; top: 0; right: 6px;" data-action="increase"><i class="fas fa-plus"></i></a>
+                    <div class="controls" style="display: none;">
+                        <a class="control" style="position: absolute; top: 0; left: 6px;" data-action="decrease"><i class="fas fa-minus"></i></a>
+                        <a class="control" style="position: absolute; top: 0; right: 6px;" data-action="increase"><i class="fas fa-plus"></i></a>
+                    </div>
                 </div>
             </div>
             <div class="resource flexrow" data-key="data.resources.ideen">
