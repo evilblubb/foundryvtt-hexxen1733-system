@@ -142,10 +142,11 @@ class JaegerSheet extends ActorSheet {
       li.slideUp(200, () => this.render(false));
     });
 
-    // Add or Remove Attribute
+    // Increment/Decrement buttons
+    // Segnungen, Ideen, Coups
     html.find(".sheet-header .resource").on("click", ".control", this._onClickPlusMinus.bind(this));
-    html.find(".erste-hilfe").on("click", ".control", this._onClickStateToggle.bind(this));
-    html.find(".einfluesse").on("click", ".control", this._onClickStateToggle.bind(this));
+    // Erste Hilfe, Mag. Heilung, Elixire
+    html.find(".states .top").on("click", ".control", this._onClickPlusMinus.bind(this));
   }
 
   /** @override */
@@ -236,23 +237,24 @@ class JaegerSheet extends ActorSheet {
 
     // validate key
     const key = targetEl.dataset.key;
-    let value = getProperty(this.actor.data, key);
+    let value = getProperty(this.actor.data, key); // returns undefined if key does not exist
     if (value === undefined) {
       console.warn("Error in template: Unknown or bad target for attribute 'data-key': '%s' Ignoring event.", key, $(a).parents(), event);
       return;
     }
     
     // modify actor data
-    // no min/max handling here, this is done in update
+    // no min/max handling here, this will be done in actor
     const inc = "increase" === action ? 1 : -1;
     value += inc;
 
     // invoke update
     const updates = {};
     updates[key] = value;
-    this.actor.update( updates );
+    this.actor.update(updates);
   }
 
+  // TODO entfernen, obsolet
   async _onClickStateToggle(event) {
     event.preventDefault();
     
