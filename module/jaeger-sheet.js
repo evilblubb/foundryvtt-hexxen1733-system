@@ -154,7 +154,7 @@ class JaegerSheet extends ActorSheet {
 
   async _onHover(event) {
     console.log(event);
-    event.currentTarget.style.display = event.type === "mouseover" ? "block" : "";
+    event.currentTarget.style.display = event.type === "mouseenter" ? "block" : "";
   }
 
   /** @override */
