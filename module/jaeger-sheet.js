@@ -65,6 +65,22 @@ class JaegerSheet extends ActorSheet {
   /** @override */
   getData() {
     const data = super.getData();
+
+    // group header resources
+    let hres = {}
+    for( let key of [ "segnungen", "ideen", "coups" ] ) {
+      // FIXME temporärer Code bis zur Änderung der Datenstruktur im Actor
+      hres[key] = {value: data.data.resources[key], label: key, max: 3};
+      // hres[key] = data.data.resources[key];
+    }
+    // FIXME temporärer Code bis zur Änderung der Datenstruktur im Actor
+    hres["segnungen"].label = "Segnungen";
+    hres["segnungen"].max = 5;
+    hres["ideen"].label = "Ideen [=WIS]";
+    hres["ideen"].max = data.data.attributes.WIS.value;
+    hres["coups"].label = "Coups [=ATH]";
+    hres["coups"].max = data.data.attributes.ATH.value;
+    data["header-resources"] = hres;
     
     data.stypes = { "idmg": "Innerer Schaden", "odmg": "Äußerer Schaden", "mdmg": "Malusschaden", "ldmg": "Lähmungsschaden" };
     for ( let state of Object.values(data.data.states) ) {
