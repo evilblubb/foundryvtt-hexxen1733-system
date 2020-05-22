@@ -142,11 +142,18 @@ class JaegerSheet extends ActorSheet {
       li.slideUp(200, () => this.render(false));
     });
 
-    // Increment/Decrement buttons
+    // +/- Buttons
     // Segnungen, Ideen, Coups
     html.find(".sheet-header .resource").on("click", ".control", this._onClickPlusMinus.bind(this));
     // Erste Hilfe, Mag. Heilung, Elixire
     html.find(".states .top").on("click", ".control", this._onClickPlusMinus.bind(this));
+
+    // hover effekt für +/- Buttons
+    html.find(".sheet-header .inc").hover(this._onHover.bind(this));
+  }
+
+  async _onHover(event) {
+    console.log(event);
   }
 
   /** @override */

@@ -104,7 +104,7 @@
   column-gap: 5%;
 }
 .sheet.jaeger .sheet-header .resource .label {
-  flex: 2;
+  flex: 1.5;
 }
 .sheet.jaeger .sheet-header .resource .control {
   flex: 0 0 20px;
