@@ -1,4 +1,15 @@
-﻿.hexxen div.inc {
+﻿:root {
+  --hexxen-pale-green: #edffea;
+  --hexxen-green: #177d1a;
+  --hexxen-dark-green: #084b0a;
+  --hexxen-tab-bg: rgba(8, 75, 10, 0.4);
+  --hexxen-header-bg: rgba(8, 75, 10, 0.15);
+  --hexxen-input-bg: var(--hexxen-pale-green);
+  --hexxen-input-border: var(--hexxen-dark-green);
+  scrollbar-color: var(--hexxen-green) var(--hexxen-dark-green); 
+}
+
+.hexxen div.inc {
   position: relative;
 }
 .hexxen div.inc div.controls {
@@ -14,6 +25,11 @@
   position: absolute;
   top: 0;
   right: 6px;
+}
+
+.hexxen input {
+  background-color: var(--hexxen-input-bg);
+  border-color: var(--hexxen-input-border);
 }
 
 .sheet.jaeger {
@@ -133,7 +149,7 @@
 
 .sheet.jaeger .tabs {
   height: 40px;
-  background: rgba(0, 0, 0, 0.15);
+  background: var(--hexxen-tab-bg);
   border-top: 1px solid #666;
   border-bottom: 1px solid #666;
 }
@@ -158,7 +174,7 @@
   flex: 0;
   padding: 5px;
   margin: 5px 0;
-  background: rgba(0, 0, 0, 0.05);
+  background: var(--hexxen-header-bg);
   border: 1px solid #AAA;
   border-radius: 2px;
   text-align: center;
