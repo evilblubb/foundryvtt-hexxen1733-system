@@ -295,11 +295,10 @@ class JaegerSheet extends ActorSheet {
     const attrs = this.object.data.data.attributes;
     const form = this.form;
 
-    console.log(event);
+    // console.log(event);
     
     // shift or ctrl click --> delegate
     if ( event.originalEvent.shiftKey || event.originalEvent.ctrlKey ) {
-      console.log("Roller for " + type + " " + key);
       new HexxenRoller(this.actor, /* options */ {
         top: this.position.top + 40,
         left: this.position.left + ((this.position.width - 400) / 2)
@@ -320,9 +319,9 @@ class JaegerSheet extends ActorSheet {
       rolls = this.getSkillRolls(key);
       let target = this.object.data.data.skills[key] || this.object.data.data.combat[key];
       label = target.label;
+      if (target.schaden) label += ` (SCH +${target.schaden})`;
     }
     
-    console.log(label + "-Probe: /hex " + rolls + "h");
     ChatMessage.create({speaker: { actor: this.actor._id }, content: "/hex " + rolls + "h # " + label });
 //    await this._onSubmit(event); // FIXME klären
   }

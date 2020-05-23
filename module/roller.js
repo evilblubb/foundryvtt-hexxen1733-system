@@ -92,6 +92,7 @@ class HexxenRoller extends FormApplication {
       result.value = rolls;
       result.dice.h.count = rolls;
       result.label = combat.label;
+      if (combat.schaden) result.label += ` (SCH +${combat.schaden})`;
     }
     
     return data;
