@@ -144,17 +144,22 @@ class HexxenRoller extends FormApplication {
   async _updateObject(event, formData) {
     event.preventDefault();
     
+    let empty = true;
     let roll = "/hex ";
     for ( let key of Object.keys(formData) ) {
       if ( key.startsWith("dice.") ) {
         let die = key.substr(5);
         let count = formData[key];
         if ( count > 0 ) {
+          empty = false;
           roll += count;
           roll += die;
         }
       }
     }
+
+    if (empty) return;
+
     if (formData.comment) {
       roll += ` # ${formData.comment}`;
     }
