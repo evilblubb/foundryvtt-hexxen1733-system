@@ -1,8 +1,46 @@
-/**
- * Extend the base Actor entity by defining a custom roll data structure which is ideal for the Simple system.
- * @extends {Actor}
- */
-export class SimpleActor extends Actor {
+﻿
+
+class HexxenActor extends Actor {
+
+  constructor(...args) {
+    super(...args);
+
+    // The actor is either created with it's saved data or with the associated tempate data.
+    // Entity.constructor calls this.initialize() which calls this.prepareData() before and after 
+    // this.prepareEmbeddedEntities().
+  }
+  
+  /**
+   * @override
+   *
+   * Prepare data for the Entity whenever the instance is first created or later updated.
+   * This method can be used to derive any internal attributes which are computed in a formulaic manner.
+   * For example, in a d20 system - computing an ability modifier based on the value of that ability score.
+   */
+	prepareData() {
+    super.prepareData();
+
+    // called twice during creation, before and after this.prepareEmbeddedEntities().
+    
+    const actor = this.data;
+
+    // Abgeleitete Basisdaten für Jaeger berechnen
+    if ("character" === actor.type) {
+      // Max-Werte für Basis- und Puffer-LEP berechnen
+      actor.data.health.min = -10;
+      actor.data.health.max = 7 + actor.data.attributes.KKR.value + actor.data.attributes.WIL.value + actor.data.skills["Unempfindlichkeit"].value;
+      actor.data.power.min = 0;
+      actor.data.power.max = 10;
+      
+      // INI, PW und AP berechnen
+      actor.data.calc = actor.data.calc || {};
+      actor.data.calc.ini = actor.data.attributes.SIN.value + actor.data.attributes.GES.value + actor.data.skills["Reflexe"].value;    
+      actor.data.calc.pw = actor.data.calc.pw || 1;    
+      actor.data.calc.ap = 6 - actor.data.calc.pw;    
+    }
+  }
+
+  
 
   /** @override */
   getRollData() {

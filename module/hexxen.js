@@ -57,7 +57,7 @@ Hooks.once("init", async function() {
   });
 
 	// Define custom Entity classes
-  CONFIG.Actor.entityClass = Jaeger;
+  CONFIG.Actor.entityClass = HexxenActor;
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);

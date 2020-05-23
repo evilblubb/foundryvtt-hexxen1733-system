@@ -7,7 +7,7 @@
   "compatibleCoreVersion": "0.6.0",
   "templateVersion": 1,
   "author": "Martin Brunninger",
-  "scripts": [ "module/hexxen.js", "module/jaeger.js", "module/item-sheet.js", "module/actor-sheet.js", "module/jaeger-sheet.js", "module/roller.js" ],
+  "scripts": [ "module/hexxen.js", "module/actor.js", "module/item-sheet.js", "module/actor-sheet.js", "module/jaeger-sheet.js", "module/roller.js" ],
   "esmodules": [],
   "styles": [ "styles/simple.css", "styles/jaeger-sheet.css", "styles/roller.css" ],
   "packs": [
