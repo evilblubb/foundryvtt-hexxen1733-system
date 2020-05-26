@@ -291,7 +291,7 @@
   text-align: inherit;
   line-height: unset;
 }
-.sheet.jaeger .list-body .li-text {
+.sheet.jaeger .list-body span.li-text {
   border-bottom: var(--hexxen-value-span-border);
 }
 /*
