@@ -70,16 +70,16 @@ class JaegerSheet extends ActorSheet {
     let hres = {}
     for( let key of [ "segnungen", "ideen", "coups" ] ) {
       // FIXME: temporärer Code bis zur Änderung der Datenstruktur im Actor
-      hres[key] = {value: data.data.resources[key], label: key, max: 3};
+      hres[key] = {value: data.data.resources[key]};
       // hres[key] = data.data.resources[key];
     }
     // FIXME: temporärer Code bis zur Änderung der Datenstruktur im Actor
     hres["segnungen"].label = "Segnungen";
     hres["segnungen"].max = 5;
     hres["ideen"].label = "Ideen [=WIS]";
-    hres["ideen"].max = data.data.attributes.WIS.value;
+    hres["ideen"].default = data.data.attributes.WIS.value;
     hres["coups"].label = "Coups [=ATH]";
-    hres["coups"].max = data.data.attributes.ATH.value;
+    hres["coups"].default = data.data.attributes.ATH.value;
     data["header-resources"] = hres;
     
     data.stypes = { "idmg": "Innerer Schaden", "odmg": "Äußerer Schaden", "mdmg": "Malusschaden", "ldmg": "Lähmungsschaden" };
@@ -206,6 +206,7 @@ class JaegerSheet extends ActorSheet {
     // Segnungen, Ideen, Coups
     html.find(".sheet-header .inc-btn").on("click", ".control", this._onClickPlusMinus.bind(this));
     html.find(".sheet-header .inc-btn").hover(this._onHoverPlusMinus.bind(this));
+    html.find(".sheet-header .to-default").on("click", this._onClickPlusMinus.bind(this));
     // Erste Hilfe, Mag. Heilung, Elixire
     html.find(".states .top").on("click", ".control", this._onClickPlusMinus.bind(this));
   }
@@ -259,7 +260,7 @@ class JaegerSheet extends ActorSheet {
     }
 
     // validate action
-    if (! ["increase", "decrease"].includes(action) ) {
+    if (! ["increase", "decrease", "default"].includes(action) ) {
       console.warn("Error in template: Invalid value for attribute 'data-action': '%s' Ignoring event.", action, $(a).parents(), event);
       return;
     }
@@ -273,9 +274,13 @@ class JaegerSheet extends ActorSheet {
     }
     
     // modify actor data
-    // no min/max handling here, this will be done in actor
-    const inc = "increase" === action ? 1 : -1;
-    value += inc;
+    if ("default" === action) {
+      let defval = getProperty(this.actor.data, key); // FIXME: das gibt es noch nicht
+    } else {
+      // no min/max handling here, this will be done in actor
+      const inc = "increase" === action ? 1 : -1;
+      value += inc;
+    }
 
     // invoke update
     const updates = {};

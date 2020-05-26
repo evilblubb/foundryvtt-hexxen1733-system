@@ -50,7 +50,14 @@
             <div class="resource flexrow" data-key="data.resources.{{key}}">
                 <label class="label" for="{{key}}">{{res.label}}</label>
                 {{#inc-btn}}<input class="value" type="text" name="data.resources.{{key}}" value="{{res.value}}" data-dtype="Number" id="{{key}}" />{{/inc-btn}}
-                <span class="label max">&nbsp;/&nbsp;{{res.max}}</span>
+                {{#if res.max}}
+                <span class="label max" title="Maximum">&nbsp;/&nbsp;{{res.max}}</span>
+                {{else}}{{#if res.default}}
+                <span class="label max" title="Default">&nbsp;/&nbsp;{{res.default}}</span>
+                <!-- TODO: span class="label max" title="Default - Zum Setzen klicken">&nbsp;/&nbsp;<a class="to-default" data-action="default">{{res.default}}</a></span-->
+                {{else}}
+                <span class="label max"></span>
+                {{/if}}{{/if}}
             </div>
             {{/each}}
         </div>
