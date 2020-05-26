@@ -22,14 +22,14 @@
                     </div>
                 </div>
                 <div class="lep flexrow">
-                    <div class="basis-lep flexrow">
+                    <div class="basis-lep flexrow" data-key="data.health.value">
                         <label class="label" for="basis-lep">Basis-LEP</label>
-                        <input class="value" type="text" name="data.health.value" value="{{data.health.value}}" data-dtype="Number" id="basis-lep" />
+                        {{#inc-btn}}<input class="value" type="text" name="data.health.value" value="{{data.health.value}}" data-dtype="Number" id="basis-lep" />{{/inc-btn}}
                         <span class="label max"> / {{data.health.max}}</span>
                     </div>
-                    <div class="puffer-lep flexrow">
+                    <div class="puffer-lep flexrow" data-key="data.power.value">
                         <label class="label" for="puffer-lep">Puffer-LEP</label>
-                        <input class="value" type="text" name="data.power.value" value="{{data.power.value}}" data-dtype="Number" id="puffer-lep" />
+                        {{#inc-btn}}<input class="value" type="text" name="data.power.value" value="{{data.power.value}}" data-dtype="Number" id="puffer-lep" />{{/inc-btn}}
                         <span class="label max"> / {{data.power.max}}</span>
                     </div>
                 </div>

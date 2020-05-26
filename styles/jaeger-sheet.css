@@ -21,15 +21,15 @@
   color: var(--hexxen-dark-green);
   font-size: 0.8em;
 }
-.hexxen div.inc div.controls .left {
+.hexxen div.inc div.controls .control {
   position: absolute;
   top: 0;
-  left: 6px;
+}
+.hexxen div.inc div.controls .left {
+  left: 7px;
 }
 .hexxen div.inc div.controls .right {
-  position: absolute;
-  top: 0;
-  right: 6px;
+  right: 7px;
 }
 
 .hexxen input {
@@ -146,15 +146,16 @@
 .sheet.jaeger .sheet-header .lep {
   margin-top: 8px;
   column-gap: 8%;
-}
-.sheet.jaeger .sheet-header .lep .label,
-.sheet.jaeger .sheet-header .lep .value {
-  height: 28px;
-  line-height: 28px;
   font-size: 1.4em;
 }
-.sheet.jaeger .sheet-header .lep .value {
-  flex: 0.5;
+.sheet.jaeger .sheet-header .lep .label,
+.sheet.jaeger .sheet-header .lep .value,
+.sheet.jaeger .sheet-header .lep .control{
+  height: 28px;
+  line-height: 28px;
+}
+.sheet.jaeger .sheet-header .lep .label {
+  flex: 1.5;
 }
 .sheet.jaeger .sheet-header .lep .label.max {
   flex: 0 0 40px;
