@@ -8,7 +8,7 @@ class JaegerSheet extends ActorSheet {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["hexxen", "sheet", "actor", "jaeger"],
-      template: "systems/" + CONFIG.Hexxen.scope + "/templates/jaeger-sheet.html", // FIXME basepath klären
+      template: "systems/" + CONFIG.Hexxen.scope + "/templates/jaeger-sheet.html", // FIXME: basepath klären
       width: 700,
       height: 720,
       tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "skills"}],
@@ -46,16 +46,16 @@ class JaegerSheet extends ActorSheet {
   _onToggleEditMode(event) {
     event.preventDefault();
     
-    let mode = !!this.actor.getFlag(CONFIG.Hexxen.scope, "editMode") || false; // FIXME !! und || redundant?
+    let mode = !!this.actor.getFlag(CONFIG.Hexxen.scope, "editMode") || false; // FIXME: !! und || redundant?
     // toggle mode
     mode = !mode;
 
     // save changed flag (also updates inner part of actor sheet)
-    // FIXME scope könnte nicht existieren, dann problematisch
+    // FIXME: scope könnte nicht existieren, dann problematisch
     this.actor.setFlag(CONFIG.Hexxen.scope, "editMode", mode);
 
     // update button
-    // FIXME was passiert remote?
+    // FIXME: was passiert remote?
     event.target.childNodes[0].className = "fas fa-" + (mode ? "dice" : "edit");
     event.target.childNodes[1].textContent = mode ? "To Game Mode" : "To Edit Mode";
   }
@@ -69,11 +69,11 @@ class JaegerSheet extends ActorSheet {
     // group header resources
     let hres = {}
     for( let key of [ "segnungen", "ideen", "coups" ] ) {
-      // FIXME temporärer Code bis zur Änderung der Datenstruktur im Actor
+      // FIXME: temporärer Code bis zur Änderung der Datenstruktur im Actor
       hres[key] = {value: data.data.resources[key], label: key, max: 3};
       // hres[key] = data.data.resources[key];
     }
-    // FIXME temporärer Code bis zur Änderung der Datenstruktur im Actor
+    // FIXME: temporärer Code bis zur Änderung der Datenstruktur im Actor
     hres["segnungen"].label = "Segnungen";
     hres["segnungen"].max = 5;
     hres["ideen"].label = "Ideen [=WIS]";
@@ -87,7 +87,7 @@ class JaegerSheet extends ActorSheet {
       state.type = data.stypes[state.type];
     }
    
-    // FIXME gehört teilweise in den Jaeger!
+    // FIXME: gehört teilweise in den Jaeger!
     // Skills aufbereiten
     data.data.skills = data.data.skills || {}; // sicherstellen, dass skills existiert
     for ( let skill of Object.values(data.data.skills) ) {
@@ -101,7 +101,7 @@ class JaegerSheet extends ActorSheet {
       skill.label += extra;
     }
     
-    // FIXME gehört teilweise in den Jaeger!
+    // FIXME: gehört teilweise in den Jaeger!
     //Kampfskills aufbereiten
     data.data.combat = data.data.combat || {};
     for ( let skill of Object.values(data.data.combat) ) {
@@ -118,7 +118,7 @@ class JaegerSheet extends ActorSheet {
     return data;
   }
   
-  // FIXME gehört in den Jaeger
+  // FIXME: gehört in den Jaeger
   getSkillRolls(key) {
     let data = this.entity.data;
     let skill = data.data.skills[key] || data.data.combat[key];
@@ -134,7 +134,7 @@ class JaegerSheet extends ActorSheet {
   async _renderInner(data, options={}) {
     let html = await super._renderInner(data, options);
     
-    // FIXME ist _renderInner() oder _replaceHTML() besser?? Sonst Problem: Zugang zu html beim ersten Öffnen
+    // FIXME: ist _renderInner() oder _replaceHTML() besser?? Sonst Problem: Zugang zu html beim ersten Öffnen
     // Aktualisiere Zustände, die keine Form-Elemente sind
     this._updateState(html.find(".eh .controls")[0], "eh", options);
     this._updateState(html.find(".mh .controls")[0], "mh", options);
@@ -147,7 +147,7 @@ class JaegerSheet extends ActorSheet {
   }
 
   _updateState(el, key, options={}) {
-    // FIXME geht so nur für resources
+    // FIXME: geht so nur für resources
     const curent = this.actor.data.data.resources[key];
     const max = el.childElementCount;
 
@@ -178,7 +178,7 @@ class JaegerSheet extends ActorSheet {
     super.activateListeners(html);
 
     // Add roll listener
-    // FIXME permissions??
+    // FIXME: permissions??
     if (game.user.isGM || this.actor.owner) {
       html.find(".sheet-header .attributes").on("click", ".roll", this._onClickRoll.bind(this));
       html.find(".skills").on("click", ".li-control", this._onClickRoll.bind(this));
@@ -210,7 +210,7 @@ class JaegerSheet extends ActorSheet {
     html.find(".states .top").on("click", ".control", this._onClickPlusMinus.bind(this));
   }
 
-  // TODO in Helper-Klasse auslagern und als Mixin einbinden
+  // TODO: in Helper-Klasse auslagern und als Mixin einbinden
   async _onHoverPlusMinus(event) {
     event.preventDefault();
     const target = $(event.currentTarget).find(".controls");
@@ -243,8 +243,8 @@ class JaegerSheet extends ActorSheet {
    * @param {MouseEvent} event    The originating left click event
    * @private
    */
-  // TODO in Helper-Klasse auslagern und als Mixin einbinden (Problem: this.actor verallgemeinern, evtl. splitten)
-  // TODO data-key alternativ über name des INPUT Elements ermitteln
+  // TODO: in Helper-Klasse auslagern und als Mixin einbinden (Problem: this.actor verallgemeinern, evtl. splitten)
+  // TODO: data-key alternativ über name des INPUT Elements ermitteln
   async _onClickPlusMinus(event) {
     event.preventDefault();
     const a = event.currentTarget;
@@ -324,7 +324,7 @@ class JaegerSheet extends ActorSheet {
     }
     
     ChatMessage.create({speaker: { actor: this.actor._id }, content: "/hex " + rolls + "h # " + label });
-//    await this._onSubmit(event); // FIXME klären
+//    await this._onSubmit(event); // FIXME: klären
   }
   
   /* -------------------------------------------- */

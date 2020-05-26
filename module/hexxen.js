@@ -4,7 +4,7 @@
  * Software License: GNU GPLv3
  */
 
-// TODO wie ist der Namespace??
+// TODO: wie ist der Namespace??
 class Hexxen {
   static get scope() {
     return game.data.system.id;
@@ -28,9 +28,9 @@ Hooks.once("init", async function() {
   };
   CONFIG.Hexxen = Hexxen;
   
-  // FIXME richtiger Platz??
+  // FIXME: richtiger Platz??
   Handlebars.registerHelper("dyn-input", function(options) {
-    // TODO besser actor.getFlag, aber dazu muss zuerst das Actor-Objekt ermittelt werden 
+    // TODO: besser actor.getFlag, aber dazu muss zuerst das Actor-Objekt ermittelt werden 
     // (actor ist nur das äußere Datenelement von Actor)
     const flags = options.data.root.actor.flags[CONFIG.Hexxen.scope] || {};
     const editMode = flags.editMode || false;
@@ -38,14 +38,17 @@ Hooks.once("init", async function() {
     if ( options.hash.target ) name.push( options.hash.target);
     name = name.join(".");
     
-    // FIXME id für label bereitstellen
+    // FIXME: Überarbeiten: u.a. id="foo" für <label for="foo"> bereitstellen
+    // FIXME: Template erstellen statt SafeString
     if (editMode) {
       return new Handlebars.SafeString(`<input class="${options.hash.class}" type="text" name="${name}" value="${options.hash.value}" data-dtype="Number"/>`);
     } else { // game mode
       return new Handlebars.SafeString(`<span class="${options.hash.class}">${options.hash.value}</span>`);
     }
   });
+  // FIXME: richtiger Platz??
   Handlebars.registerHelper("inc-btn", function(options) {
+    // FIXME: Template erstellen statt SafeString
     return new Handlebars.SafeString(`
       <div class="inc-btn">
           ${options.fn(this)}
