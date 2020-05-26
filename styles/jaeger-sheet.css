@@ -13,22 +13,22 @@
   scrollbar-color: var(--hexxen-green) var(--hexxen-dark-green); 
 }
 
-.hexxen div.inc {
+.hexxen div.inc-btn {
   position: relative;
 }
-.hexxen div.inc div.controls {
+.hexxen div.inc-btn div.controls {
   display: none;
   color: var(--hexxen-dark-green);
   font-size: 0.8em;
 }
-.hexxen div.inc div.controls .control {
+.hexxen div.inc-btn div.controls .control {
   position: absolute;
   top: 0;
 }
-.hexxen div.inc div.controls .left {
+.hexxen div.inc-btn div.controls .left {
   left: 7px;
 }
-.hexxen div.inc div.controls .right {
+.hexxen div.inc-btn div.controls .right {
   right: 7px;
 }
 

@@ -47,7 +47,7 @@ Hooks.once("init", async function() {
   });
   Handlebars.registerHelper("inc-btn", function(options) {
     return new Handlebars.SafeString(`
-      <div class="inc">
+      <div class="inc-btn">
           ${options.fn(this)}
           <div class="controls">
               <a class="control left" data-action="decrease"><i class="fas fa-minus"></i></a>

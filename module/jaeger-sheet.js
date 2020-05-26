@@ -204,8 +204,8 @@ class JaegerSheet extends ActorSheet {
 
     // +/- Buttons
     // Segnungen, Ideen, Coups
-    html.find(".sheet-header .inc").on("click", ".control", this._onClickPlusMinus.bind(this));
-    html.find(".sheet-header .inc").hover(this._onHoverPlusMinus.bind(this));
+    html.find(".sheet-header .inc-btn").on("click", ".control", this._onClickPlusMinus.bind(this));
+    html.find(".sheet-header .inc-btn").hover(this._onHoverPlusMinus.bind(this));
     // Erste Hilfe, Mag. Heilung, Elixire
     html.find(".states .top").on("click", ".control", this._onClickPlusMinus.bind(this));
   }
