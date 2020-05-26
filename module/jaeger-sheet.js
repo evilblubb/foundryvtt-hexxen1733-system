@@ -210,6 +210,7 @@ class JaegerSheet extends ActorSheet {
     html.find(".states .top").on("click", ".control", this._onClickPlusMinus.bind(this));
   }
 
+  // TODO in Helper-Klasse auslagern und als Mixin einbinden
   async _onHoverPlusMinus(event) {
     event.preventDefault();
     const target = $(event.currentTarget).find(".controls");
@@ -242,6 +243,8 @@ class JaegerSheet extends ActorSheet {
    * @param {MouseEvent} event    The originating left click event
    * @private
    */
+  // TODO in Helper-Klasse auslagern und als Mixin einbinden (Problem: this.actor verallgemeinern, evtl. splitten)
+  // TODO data-key alternativ über name des INPUT Elements ermitteln
   async _onClickPlusMinus(event) {
     event.preventDefault();
     const a = event.currentTarget;
