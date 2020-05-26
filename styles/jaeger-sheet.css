@@ -82,7 +82,7 @@
   padding: 0 6px;  
 }
 .sheet.jaeger .list-body li:nth-of-type(2n) {
-  background: rgba(255, 255, 255, 0.4)
+  background: rgba(255, 255, 255, 0.4);
 }
 .sheet.jaeger .editor {
   height: 400px;
@@ -209,17 +209,14 @@
   padding: 0 5px;
 }
 
-.sheet.jaeger .biography .list-body {
-  margin: 5px 0;
-}
 .sheet.jaeger .biography .list-body .label {
   text-align: initial;
 }
 .sheet.jaeger .biography .list-body .role .label {
   line-height: 20px;
 }
-.sheet.jaeger .biography div.core {
-  border-bottom: 1px solid #AAA;
+.sheet.jaeger .biography .list-body li:nth-of-type(2n) {
+  background: unset;
 }
 .sheet.jaeger .biography .core input {
   width: unset;
