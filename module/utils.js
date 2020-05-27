@@ -89,18 +89,23 @@
     // TODO: Ermittlung des Werts ist abhängig vom Typ des Elements
     const value = Number.parseInt(targetEl.value); // getProperty(this.actor.data, key); // returns undefined if key does not exist
     if (isNaN(value)) {
-      Hexxen.warn("Error in template: Bad value.", $(el).parents(), event);
+      Hexxen.warn("Error in template: Bad value.", targetEl, $(el).parents(), event);
       return;
     }
 
     // modify target element
     if ("default" === action) {
-      let defval = getProperty(this.actor.data, key); // FIXME: das gibt es noch nicht
+      const defval = targetEl.dataset.default ? Number.parseInt(targetEl.dataset.default) : undefined;
+      if (isNaN(defval)) {
+        Hexxen.warn("Error in template: Bad default value.", targetEl, $(el).parents(), event)
+      }
+      // TODO: Änderung des Werts ist abhängig vom Typ des Elements
+      targetEl.value = defval;
     } else {
       // no min/max handling here, this will be done in actor
       const inc = "increase" === action ? 1 : -1;
-    // TODO: Änderung des Werts ist abhängig vom Typ des Elements
-    targetEl.value = value + inc;
+      // TODO: Änderung des Werts ist abhängig vom Typ des Elements
+      targetEl.value = value + inc;
     }
 
     // maybe invoke submit
