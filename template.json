@@ -1,6 +1,6 @@
 {
 "Actor": {
-  "types": ["character", "npc"],
+  "types": ["npc", "character"],
   "character": {
     "core": {
       "level": 1,
