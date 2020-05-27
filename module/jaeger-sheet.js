@@ -254,7 +254,6 @@ class JaegerSheet extends ActorSheet {
     }
     
     ChatMessage.create({speaker: { actor: this.actor._id }, content: "/hex " + rolls + "h # " + label });
-//    await this._onSubmit(event); // FIXME: klären
   }
   
   /* -------------------------------------------- */
