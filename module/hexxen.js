@@ -10,6 +10,7 @@ class Hexxen {
     return game.data.system.id;
   }
 
+  // FIXME: log, info, warn, error: der ursprüngliche Aufrufspunkt geht verloren
   static log(...args) {
     // TODO: deaktivierbar machen
     console.log(...args);

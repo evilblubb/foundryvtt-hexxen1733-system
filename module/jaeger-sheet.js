@@ -256,8 +256,7 @@ class JaegerSheet extends ActorSheet {
     const actions = [ "increase", "decrease", "default" ];
     const action = el.dataset.action;
     if ( ! action || ! actions.includes(action) ) {
-      // TODO: über Hexxen.warn umleiten
-      console.warn("Error in template: The invoking element must have the attribute 'data-action' with one of the following values: [%s]", 
+      Hexxen.warn("Error in template: The invoking element must have the attribute 'data-action' with one of the following values: [%s]", 
                     actions.join(", "), $(el).parents(), event);
       return;
     }
@@ -267,8 +266,7 @@ class JaegerSheet extends ActorSheet {
     const key = parentEl ? parentEl.dataset.key : undefined;
     const targetEl = key ? this._findTarget(parentEl, key) : undefined;
     if ( ! parentEl || ! targetEl || "Number" !== targetEl.dataset.dtype ) {
-      // TODO: über Hexxen.warn umleiten
-      console.warn("Error in template: A parent of the invoking element must have the attribute 'data-key' and also contain the target element with this name and 'data-dtype'=='Number'.", 
+      Hexxen.warn("Error in template: A parent of the invoking element must have the attribute 'data-key' and also contain the target element with this name and 'data-dtype'=='Number'.", 
                     $(el).parents(), event);
       return;
     }
@@ -276,8 +274,7 @@ class JaegerSheet extends ActorSheet {
     // get current value
     const value = Number.parseInt(targetEl.value); // getProperty(this.actor.data, key); // returns undefined if key does not exist
     if ( value === NaN ) {
-      // TODO: über Hexxen.warn umleiten
-      console.warn("Error in template: Bad value.", $(el).parents(), event);
+      Hexxen.warn("Error in template: Bad value.", $(el).parents(), event);
       return;
     }
     
