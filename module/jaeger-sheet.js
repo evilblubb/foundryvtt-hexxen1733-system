@@ -136,6 +136,7 @@ class JaegerSheet extends ActorSheet {
     
     // FIXME: ist _renderInner() oder _replaceHTML() besser?? Sonst Problem: Zugang zu html beim ersten Öffnen
     // Aktualisiere Zustände, die keine Form-Elemente sind
+    // oder in activateListener(), foundry macht das auch
     this._updateState(html.find(".eh .controls")[0], "eh", options);
     this._updateState(html.find(".mh .controls")[0], "mh", options);
     this._updateState(html.find(".odmg .controls")[0], "odmg", options);
@@ -148,6 +149,7 @@ class JaegerSheet extends ActorSheet {
 
   _updateState(el, key, options={}) {
     // FIXME: geht so nur für resources
+    // FIXME: auf korrelierendes INPUT type=hidden umstellen
     const curent = this.actor.data.data.resources[key];
     const max = el.childElementCount;
 
