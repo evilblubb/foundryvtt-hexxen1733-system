@@ -212,7 +212,7 @@ class JaegerSheet extends ActorSheet {
   }
 
   // TODO: in Helper-Klasse auslagern und als Mixin einbinden
-  async _onHoverPlusMinus(event) {
+  _onHoverPlusMinus(event) {
     event.preventDefault();
     const target = $(event.currentTarget).find(".controls");
     if ( event.type === "mouseenter" ) {
@@ -246,48 +246,62 @@ class JaegerSheet extends ActorSheet {
    */
   // TODO: in Helper-Klasse auslagern und als Mixin einbinden (Problem: this.actor verallgemeinern, evtl. splitten)
   // TODO: data-key alternativ über name des INPUT Elements ermitteln
-  async _onClickPlusMinus(event) {
+  _onClickPlusMinus(event) {
     event.preventDefault();
-    const a = event.currentTarget;
+    const el = event.currentTarget;
 
-    // identify "data-action" and "data-key"
-    const action = a.dataset.action;
-    const targetEl = a.closest("[data-key]");
-
-    if (!action || !targetEl) {
-      console.warn("Error in template: Can't identify required attribute 'data-action' or 'data-key'. Ignoring event.", $(a).parents(), event);
+    // validate "data-action"
+    const actions = [ "increase", "decrease", "default" ];
+    const action = el.dataset.action;
+    if ( ! action || ! actions.includes(action) ) {
+      // TODO: über Hexxen.warn umleiten
+      console.warn("Error in template: The invoking element must have the attribute 'data-action' with one of the following values: [%s]", 
+                    actions.join(", "), $(el).parents(), event);
       return;
     }
 
-    // validate action
-    if (! ["increase", "decrease", "default"].includes(action) ) {
-      console.warn("Error in template: Invalid value for attribute 'data-action': '%s' Ignoring event.", action, $(a).parents(), event);
+    // validate "data-key"
+    const parentEl = el.closest("[data-key]");
+    const key = parentEl ? parentEl.dataset.key : undefined;
+    const targetEl = key ? this._findTarget(parentEl, key) : undefined;
+    if ( ! parentEl || ! targetEl || "Number" !== targetEl.dataset.dtype ) {
+      // TODO: über Hexxen.warn umleiten
+      console.warn("Error in template: A parent of the invoking element must have the attribute 'data-key' and also contain the target element with this name and 'data-dtype'=='Number'.", 
+                    $(el).parents(), event);
       return;
     }
 
-    // validate key
-    const key = targetEl.dataset.key;
-    let value = getProperty(this.actor.data, key); // returns undefined if key does not exist
-    if (value === undefined) {
-      console.warn("Error in template: Unknown or bad target for attribute 'data-key': '%s' Ignoring event.", key, $(a).parents(), event);
+    // get current value
+    const value = Number.parseInt(targetEl.value); // getProperty(this.actor.data, key); // returns undefined if key does not exist
+    if ( ! value ) {
+      // TODO: über Hexxen.warn umleiten
+      console.warn("Error in template: Bad value.", $(el).parents(), event);
       return;
     }
     
-    // modify actor data
+    // modify target element
     if ("default" === action) {
       let defval = getProperty(this.actor.data, key); // FIXME: das gibt es noch nicht
     } else {
       // no min/max handling here, this will be done in actor
       const inc = "increase" === action ? 1 : -1;
-      value += inc;
+      targetEl.value = value + inc;
     }
 
-    // invoke update
-    const updates = {};
-    updates[key] = value;
-    this.actor.update(updates);
+    // maybe invoke submit
+    if (this.options.submitOnChange) {
+      return this._onSubmit(event);
+    }
   }
   
+  // TODO: in Helper-Klasse auslagern und als static aufrufen. Kein Kontext notwendig.
+  _findTarget(parentEl, key) {
+    // TODO: div[data-edit] berücksichtigen
+    return $(parentEl).find(`input[name="${key}"]`)[0];
+  }
+
+  // FIXME: states um INPUT type=hidden ergänzen
+
   /* -------------------------------------------- */
 
   async _onClickRoll(event) {
@@ -333,6 +347,8 @@ class JaegerSheet extends ActorSheet {
   }
   
   /* -------------------------------------------- */
+
+  // FIXME: ungültige Eingaben in numerischen Textfeldern filtern
 
   /** @override */
   _updateObject(event, formData) {
