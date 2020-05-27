@@ -213,9 +213,6 @@ class JaegerSheet extends ActorSheet {
     html.find(".states .top").on("click", ".control", HexxenIncDecHelper.onClickPlusMinus.bind(this));
   }
 
-
-  // FIXME: states um INPUT type=hidden ergänzen
-
   /* -------------------------------------------- */
 
   async _onClickRoll(event) {
