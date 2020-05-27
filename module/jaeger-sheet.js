@@ -206,98 +206,13 @@ class JaegerSheet extends ActorSheet {
 
     // +/- Buttons
     // Segnungen, Ideen, Coups
-    html.find(".sheet-header .inc-btn").on("click", ".control", this._onClickPlusMinus.bind(this));
-    html.find(".sheet-header .inc-btn").hover(this._onHoverPlusMinus.bind(this));
-    html.find(".sheet-header .to-default").on("click", this._onClickPlusMinus.bind(this));
+    html.find(".sheet-header .inc-btn").on("click", ".control", HexxenIncDecHelper.onClickPlusMinus.bind(this));
+    html.find(".sheet-header .inc-btn").hover(HexxenIncDecHelper.onHoverPlusMinus.bind(this));
+    html.find(".sheet-header .to-default").on("click", HexxenIncDecHelper.onClickPlusMinus.bind(this));
     // Erste Hilfe, Mag. Heilung, Elixire
-    html.find(".states .top").on("click", ".control", this._onClickPlusMinus.bind(this));
+    html.find(".states .top").on("click", ".control", HexxenIncDecHelper.onClickPlusMinus.bind(this));
   }
 
-  // TODO: in Helper-Klasse auslagern und als Mixin einbinden
-  _onHoverPlusMinus(event) {
-    event.preventDefault();
-    const target = $(event.currentTarget).find(".controls");
-    if ( event.type === "mouseenter" ) {
-      target.show();
-    } else {
-      target.hide();
-    }
-  }
-
-  /**
-   * Callback for click events on +/- mimic to adjust actor data.
-   * The callback function expects the originating element to contain
-   * the attribute "data-action" with a value of either "increase" or
-   * "decrease". The originating element or one of it's parents must
-   * also contain the attribute "data-key", which must identify the
-   * actors data element to be modified. 
-   * 
-   * The originating element does not necessarily have to be an <a> element.
-   * It is recommended for the "data-key" attribute to not be too far up
-   * the tree to avoid side-effects.
-   * 
-   * Example:
-   * <div class="..." data-key="data.resources.coups">
-   *   ...
-   *   <a class="..." data-action="increase">...</a>
-   *   <a class="..." data-action="decrease">...</a>
-   * </div>
-   * 
-   * @param {MouseEvent} event    The originating left click event
-   * @private
-   */
-  // TODO: in Helper-Klasse auslagern und als Mixin einbinden (Problem: this.actor verallgemeinern, evtl. splitten)
-  // TODO: data-key alternativ über name des INPUT Elements ermitteln
-  _onClickPlusMinus(event) {
-    event.preventDefault();
-    const el = event.currentTarget;
-
-    // validate "data-action"
-    const actions = [ "increase", "decrease", "default" ];
-    const action = el.dataset.action;
-    if ( ! action || ! actions.includes(action) ) {
-      Hexxen.warn("Error in template: The invoking element must have the attribute 'data-action' with one of the following values: [%s]", 
-                    actions.join(", "), $(el).parents(), event);
-      return;
-    }
-
-    // validate "data-key"
-    const parentEl = el.closest("[data-key]");
-    const key = parentEl ? parentEl.dataset.key : undefined;
-    const targetEl = key ? this._findTarget(parentEl, key) : undefined;
-    if ( ! parentEl || ! targetEl || "Number" !== targetEl.dataset.dtype ) {
-      Hexxen.warn("Error in template: A parent of the invoking element must have the attribute 'data-key' and also contain the target element with this name and 'data-dtype'=='Number'.", 
-                    $(el).parents(), event);
-      return;
-    }
-
-    // get current value
-    const value = Number.parseInt(targetEl.value); // getProperty(this.actor.data, key); // returns undefined if key does not exist
-    if ( isNaN(value) ) {
-      Hexxen.warn("Error in template: Bad value.", $(el).parents(), event);
-      return;
-    }
-    
-    // modify target element
-    if ("default" === action) {
-      let defval = getProperty(this.actor.data, key); // FIXME: das gibt es noch nicht
-    } else {
-      // no min/max handling here, this will be done in actor
-      const inc = "increase" === action ? 1 : -1;
-      targetEl.value = value + inc;
-    }
-
-    // maybe invoke submit
-    if (this.options.submitOnChange) {
-      return this._onSubmit(event);
-    }
-  }
-  
-  // TODO: in Helper-Klasse auslagern und als static aufrufen. Kein Kontext notwendig.
-  _findTarget(parentEl, key) {
-    // TODO: div[data-edit] berücksichtigen
-    return $(parentEl).find(`input[name="${key}"]`)[0];
-  }
 
   // FIXME: states um INPUT type=hidden ergänzen
 
