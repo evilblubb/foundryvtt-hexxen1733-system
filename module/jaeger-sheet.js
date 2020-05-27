@@ -273,7 +273,7 @@ class JaegerSheet extends ActorSheet {
 
     // get current value
     const value = Number.parseInt(targetEl.value); // getProperty(this.actor.data, key); // returns undefined if key does not exist
-    if ( value === NaN ) {
+    if ( isNaN(value) ) {
       Hexxen.warn("Error in template: Bad value.", $(el).parents(), event);
       return;
     }
