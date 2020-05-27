@@ -9,6 +9,25 @@ class Hexxen {
   static get scope() {
     return game.data.system.id;
   }
+
+  static log(...args) {
+    // TODO: deaktivierbar machen
+    console.log(...args);
+  }
+
+  static info(...args) {
+    console.info(...args);
+  }
+
+  static warn(...args) {
+    // TODO: Warnmeldung in UI
+    console.warn(...args);
+  }
+
+  static error(...args) {
+    // TODO Fehlermeldung in UI
+    console.error(...args);
+  }
 }
   
 /* -------------------------------------------- */
