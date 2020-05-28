@@ -64,6 +64,18 @@ img#hexxen-logo {
   right: 7px;
 }
 
+.hexxen .seperator {
+  display: block; 
+  width: 100%;
+  min-height: 20px;
+  margin: 10px auto; 
+  border: none; 
+  background-image: url("../img/Rabenkasten_weit_unten_small.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 .hexxen.sheet .item.active .item-bg {
   background-image: url("../img/Rabenkasten_oben_small.png");
   background-size: contain;
