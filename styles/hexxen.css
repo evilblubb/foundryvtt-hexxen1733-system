@@ -1,0 +1,77 @@
+:root {
+  --hexxen-pale-green: #bcceb9;
+  --hexxen-green: #177d1a;
+  --hexxen-dark-green: #084b0a;
+  --hexxen-line-color: #4e804f;
+  --hexxen-header-color: var(--hexxen-dark-green);
+  --hexxen-tab-bgcolor: rgba(8, 75, 10, 0.4);
+  --hexxen-header-bgcolor: rgba(8, 75, 10, 0.15);
+  --hexxen-input-bgcolor: var(--hexxen-pale-green);
+  --hexxen-tab-border: 1px solid var(--hexxen-dark-green);
+  --hexxen-header-border: 1px solid var(--hexxen-line-color);
+  --hexxen-input-bordercolor: var(--hexxen-dark-green);
+  --hexxen-value-span-border: 1px solid var(--hexxen-line-color);
+  scrollbar-color: var(--hexxen-green) var(--hexxen-dark-green); 
+}
+::selection {
+  background: #81a8e6;
+}
+
+img#hexxen-logo {
+  position: absolute;
+  left: 110px;
+  top: 2px;
+  z-index: 60;
+  border: none;
+}
+
+#navigation {
+  left: 230px;
+}
+
+#loading {
+  left: 240px;
+  width: calc(100% - 560px);
+}
+
+.hexxen input {
+  background-color: var(--hexxen-input-bgcolor);
+  border-color: var(--hexxen-input-bordercolor);
+}
+.hexxen input::placeholder {
+  color: #999;
+  opacity: 1;
+}
+.hexxen .flexrow {
+  flex-wrap: unset; /* override system preset */
+}
+.hexxen div.inc-btn {
+  position: relative;
+}
+.hexxen div.inc-btn div.controls {
+  display: none;
+  color: var(--hexxen-dark-green);
+  font-size: 0.8em;
+}
+.hexxen div.inc-btn div.controls .control {
+  position: absolute;
+  top: 0;
+}
+.hexxen div.inc-btn div.controls .left {
+  left: 7px;
+}
+.hexxen div.inc-btn div.controls .right {
+  right: 7px;
+}
+
+.hexxen.sheet .item.active .item-bg {
+  background-image: url("../img/Rabenkasten_oben_small.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  text-decoration: none;
+  text-shadow: -1px -1px var(--hexxen-pale-green), 
+               -1px  1px var(--hexxen-pale-green), 
+                1px -1px var(--hexxen-pale-green), 
+                1px  1px var(--hexxen-pale-green);
+}
