@@ -14,6 +14,23 @@
   scrollbar-color: var(--hexxen-green) var(--hexxen-dark-green); 
 }
 
+img#hexxen-logo {
+  position: absolute;
+  left: 110px;
+  top: 2px;
+  z-index: 60;
+  border: none;
+}
+
+#navigation {
+  left: 230px;
+}
+
+#loading {
+  left: 240px;
+  width: calc(100% - 560px);
+}
+
 .hexxen div.inc-btn {
   position: relative;
 }

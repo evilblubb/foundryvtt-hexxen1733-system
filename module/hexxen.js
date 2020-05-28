@@ -88,6 +88,10 @@ Hooks.once("init", async function() {
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("simple", SimpleItemSheet, { makeDefault: true });
 
+  // Inject system logo
+  $("<img id='hexxen-logo' src='systems/" + Hexxen.scope + "/img/HeXXen1733_scriptorium_logo.png' height='65px' />").insertAfter("img#logo");
+  // TODO: eigenes left, #navigation left und #loading left/width dynamisch berechnen?
+
   // Register system settings
   game.settings.register("worldbuilding", "macroShorthand", {
     name: "Shortened Macro Syntax",
