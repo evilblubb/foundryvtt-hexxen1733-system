@@ -10,6 +10,10 @@ class Hexxen {
     return game.system.id;
   }
 
+  static get basepath() {
+    return "/systems/" + Hexxen.scope + "/";
+  }
+
   static get title() {
     return game.system.data.title;
   }
@@ -90,7 +94,8 @@ Hooks.once("init", async function() {
   Actors.unregisterSheet("core", ActorSheet);
   Actors.registerSheet("simple", SimpleActorSheet, { types: ["npc"] });
   Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet("simple", SimpleItemSheet, { makeDefault: true });
+  Items.registerSheet("simple", SimpleItemSheet, { types: ["item"], makeDefault: true });
+  Items.registerSheet("hexxen", RuleItemSheet, { types: ["motivation"], makeDefault: true });
 
   // Inject system logo
   $("<a class='hexxen-logo'><img id='hexxen-logo' src='systems/" + Hexxen.scope + "/img/HeXXen1733_scriptorium_logo.png' height='65px' /></a>")

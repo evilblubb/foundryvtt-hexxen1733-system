@@ -7,11 +7,6 @@
 /******************/
 /* Common section */
 /******************/
-.sheet.jaeger .window-content {
-  height: 100%;
-  padding: 0px;
-  overflow-y: hidden;
-}
 .sheet.jaeger .list-header {
   flex: 0;
   margin: 5px 0;
@@ -53,11 +48,10 @@
 /************************/
 /* Sheet header section */
 /************************/
+/** TODO: prüfen, ob noch notwendig. (vgl. .hexxen.sheet .sheet-header) */
 .sheet.jaeger .sheet-header {
   display: flex; /* override system preset */
   flex-direction: column; /* override system preset */
-  margin: 8px;
-  text-align: center;
 }
 .sheet.jaeger .sheet-header .label,
 .sheet.jaeger .sheet-header .value,
@@ -82,6 +76,7 @@
   padding-bottom: 8px;
   border-bottom: 1px solid #AAA;
 }
+/** TODO: prüfen, ob noch notwendig. (vgl. .hexxen.sheet .sheet-header h1 input) */
 .sheet.jaeger .sheet-header h1 input {
   height: 42px;
   line-height: 42px;
@@ -132,26 +127,6 @@
 }
 .sheet.jaeger .sheet-header .resource .control {
   flex: 0 0 20px;
-}
-
-.sheet.jaeger .tabs {
-  height: 40px;
-  background: var(--hexxen-tab-bgcolor);
-  border-top: var(--hexxen-tab-border);
-  border-bottom: var(--hexxen-tab-border);
-}
-.sheet.jaeger .tabs .item {
-  font-size: 1.15em;
-  line-height: 40px;
-  font-weight: bold;
-}
-.sheet.jaeger .sheet-body {
-  overflow: hidden;
-}
-.sheet.jaeger .sheet-body .tab {
-  height: 100%;
-  overflow-y: auto;
-  padding: 0 5px;
 }
 
 .sheet.jaeger .biography .list-body .label {
