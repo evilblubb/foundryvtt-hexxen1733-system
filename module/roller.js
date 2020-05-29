@@ -6,7 +6,7 @@
  */
 class HexxenRoller extends FormApplication {
 
-  constructor(entity, options, hints={}) {
+  constructor(entity=null, options={}, hints={}) {
     super(entity, options);
     this.hints = hints;
     if (!hints.key) {
