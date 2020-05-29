@@ -10,6 +10,15 @@ class HexxenActor extends Actor {
     // this.prepareEmbeddedEntities().
   }
   
+  // This is here to complete the picture, but should not be overridden.
+  // /** @override */
+  // _onUpdate(data, options, userId, context) {
+  //   // Manipulate data updates before they get processed.
+  //   // IMPORTANT: the updates are already merged into the actor data.
+  //   // There should be no reasons to manipulate here, as prepareData() gets called during update.
+  //   super._onUpdate(data, options, userId, context);
+  // }
+
   /**
    * @override
    *
@@ -21,8 +30,13 @@ class HexxenActor extends Actor {
     super.prepareData();
 
     // called twice during creation, before and after this.prepareEmbeddedEntities().
-    
+
     const actor = this.data;
+
+    // check data version and migrate data if neccessary.
+    const version = this.getFlag(CONFIG.Hexxen.scope, "editMode");
+    // if ()
+    
 
     // Abgeleitete Basisdaten für Jaeger berechnen
     if ("character" === actor.type) {
@@ -40,7 +54,51 @@ class HexxenActor extends Actor {
     }
   }
 
-  
+  /** @override */
+  prepareEmbeddedEntities() {
+    // Create Item objects for the items in the actor data structure.
+    super.prepareEmbeddedEntities();
+  }
+
+  // Workflow for collection items:
+  // ActorSheet._onDrop(): Fallunterscheidung Itemherkunft
+  //   `--> Actor.importItemFromCollection(): lädt Entity aus der Compendium-Collection
+  //          `--> callback_1
+  //
+  // (callback_1) 
+  //   `--> Actor.createOwnedItem(): Zuordung zu Entity-Collection "OwnedItems" des Actors
+  //          `--> Actor.createEmbeddedEntity(): Auskopplung Token
+  //                 `--> Entity.createEmbeddedEntity(): Entity "speichern" und verteilen
+  //                        `--> callback_2
+  //
+  // (callback_2): je Client, selbst direkt, die anderen werden über Entity Socket Listener angetriggert
+  //   `--> Entity.<static>_handleCreateEmbeddedEntity() 
+  //          `--> Actor.collection.push(): Fügt Rohdaten in Actor.data.<collection> ein
+  //          `--> Actor._onCreateEmbeddedEntity(): je Entity
+  //                 `--> Item.createOwned(): Erzeugt das eigentliche Item und fügt es zur Actor.items hinzu
+  //          `--> Entity._onModifyEmbeddedEntity(): 1x pro Batch
+  //                 `--> Actor.prepareData()
+
+  // Compendium: CONFIG.<metadata.entity>.entityClass
+  // Items:      CONFIG.Item.entityClass
+  // Actor:      prepareEmbeddedEntities() bzw. _onCreateEmbeddedEntity()
+
+  // Plan:
+  // CONST.COMPENDIUM_ENTITY_TYPES
+  // CONFIG.<Typ>.*
+
+
+  importItemFromCollection(collection, entryId) {
+    super.importItemFromCollection(collection, entryId);
+  }
+
+  async createOwnedItem(itemData, options = {}) {
+    super.createOwnedItem(itemData, options);
+  }
+
+  async createEmbeddedEntity(...args) {
+    super.createEmbeddedEntity(...args);
+  }
 
   /** @override */
   getRollData() {
@@ -69,5 +127,11 @@ class HexxenActor extends Actor {
       return obj;
     }, {});
     return data;
+  }
+
+  /** @override */
+  async update(data, options={}) {
+    // Manipulate data updates before they get sent out.
+    super.update(data, options);
   }
 }
