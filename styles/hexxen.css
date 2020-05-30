@@ -45,6 +45,20 @@ img#hexxen-logo {
 .hexxen .flexrow {
   flex-wrap: unset; /* override system preset */
 }
+.hexxen.sheet .list-header {
+  flex: 0;
+  margin: 5px 0;
+  padding: 5px;
+  color: var(--hexxen-header-color);
+  background: var(--hexxen-header-bgcolor);
+  border: var(--hexxen-header-border);
+  border-radius: 2px;
+  text-align: center;
+  font-weight: bold;
+}
+.hexxen.sheet .list-header > * {
+  margin: 0 3px;
+}
 .hexxen div.inc-btn {
   position: relative;
 }
@@ -63,6 +77,18 @@ img#hexxen-logo {
 .hexxen div.inc-btn div.controls .right {
   right: 7px;
 }
+.hexxen.sheet .editor {
+  min-height: 40px;
+  margin: 5px;
+  padding: 5px;
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid #7a7971;
+  border-radius: 3px;
+}
+.hexxen.sheet .editor .tox.tox-tinymce {
+  min-height: 150px;
+  max-height: 250px;
+}
 
 .hexxen .seperator {
   display: block; 
@@ -76,14 +102,53 @@ img#hexxen-logo {
   background-position: center;
 }
 
-.hexxen.sheet .item.active .item-bg {
+.hexxen.sheet .window-content {
+  height: 100%;
+  padding: 0px;
+  overflow-y: hidden;
+}
+
+.hexxen.sheet .sheet-header {
+  padding: 8px;
+  text-align: center;
+}
+.hexxen.sheet .sheet-header h1 input {
+  height: 42px;
+  line-height: 42px;
+  margin: unset;
+  width: 96%;
+}
+.hexxen.sheet .tabs {
+  height: 40px;
+  background: var(--hexxen-tab-bgcolor);
+  border-top: var(--hexxen-tab-border);
+  border-bottom: var(--hexxen-tab-border);
+}
+.hexxen.sheet .tabs .item {
+  font-size: 1.15em;
+  line-height: 40px;
+  font-weight: bold;
+}
+.hexxen.sheet .tabs .item.active .item-bg {
   background-image: url("../img/Rabenkasten_oben_small.png");
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  /* TODO: bessere Lösung für overflow suchen, da Probleme mit Klickbereich. */
+  padding: 0 10px;
+  margin: 0 -10px;
   text-decoration: none;
   text-shadow: -1px -1px var(--hexxen-pale-green), 
                -1px  1px var(--hexxen-pale-green), 
                 1px -1px var(--hexxen-pale-green), 
                 1px  1px var(--hexxen-pale-green);
 }
+.hexxen.sheet .sheet-body {
+  overflow: hidden;
+}
+.hexxen.sheet .sheet-body .tab {
+  height: 100%;
+  overflow-y: auto;
+  padding: 0 5px;
+}
+
