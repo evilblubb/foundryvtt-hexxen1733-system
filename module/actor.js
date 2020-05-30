@@ -34,7 +34,7 @@ class HexxenActor extends Actor {
     const actor = this.data;
 
     // check data version and migrate data if neccessary.
-    const version = this.getFlag(CONFIG.Hexxen.scope, "editMode");
+    const version = this.getFlag(Hexxen.scope, "editMode");
     // if ()
     
 
