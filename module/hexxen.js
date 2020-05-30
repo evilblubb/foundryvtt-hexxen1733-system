@@ -4,13 +4,13 @@
  * Software License: GNU GPLv3
  */
 
-// TODO: wie ist der Namespace??
 class Hexxen {
   static get scope() {
     return game.system.id;
   }
 
   static get basepath() {
+    // TODO: evtl. so machen: https://stackoverflow.com/questions/2255689/how-to-get-the-file-path-of-the-currently-executing-javascript-code/2255727
     return "/systems/" + Hexxen.scope + "/";
   }
 
@@ -34,7 +34,7 @@ class Hexxen {
   }
 
   static error(...args) {
-    // TODO Fehlermeldung in UI
+    // TODO: Fehlermeldung in UI
     console.error(...args);
   }
 }
@@ -54,13 +54,12 @@ Hooks.once("init", async function() {
 	  formula: "@calc.ini",
     decimals: 0
   };
-  CONFIG.Hexxen = Hexxen;
   
   // FIXME: richtiger Platz??
   Handlebars.registerHelper("dyn-input", function(options) {
     // TODO: besser actor.getFlag, aber dazu muss zuerst das Actor-Objekt ermittelt werden 
     // (actor ist nur das äußere Datenelement von Actor)
-    const flags = options.data.root.actor.flags[CONFIG.Hexxen.scope] || {};
+    const flags = options.data.root.actor.flags[Hexxen.scope] || {};
     const editMode = flags.editMode || false;
     let name = [ options.hash.path, options.hash.key ];
     if ( options.hash.target ) name.push( options.hash.target);
@@ -98,7 +97,7 @@ Hooks.once("init", async function() {
   Items.registerSheet("hexxen", RuleItemSheet, { types: ["motivation"], makeDefault: true });
 
   // Inject system logo
-  $("<a class='hexxen-logo'><img id='hexxen-logo' src='systems/" + Hexxen.scope + "/img/HeXXen1733_scriptorium_logo.png' height='65px' /></a>")
+  $("<a class='hexxen-logo'><img id='hexxen-logo' src='" + Hexxen.basepath + "img/HeXXen1733_scriptorium_logo.png' height='65px' /></a>")
       .insertAfter("img#logo");
   // TODO: eigenes left, #navigation left und #loading left/width dynamisch berechnen?
   $($.find("a.hexxen-logo")).on("click", () => { new HexxenAbout().render(true); } );
@@ -121,10 +120,15 @@ class HexxenAbout extends Application {
       classes: ["hexxen", "about"],
       id: "hexxen-about",
       title: "About Game System " + Hexxen.title,
-      template: "systems/" + Hexxen.scope + "/templates/about.html",
+      template: Hexxen.basepath + "templates/about.html",
+      "hx-basepath": Hexxen.basepath,
       width: 600,
       height: 450
     });
+  }
+
+  getData() {
+    return  { options: this.options };
   }
 }
 

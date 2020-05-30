@@ -8,7 +8,7 @@ class JaegerSheet extends ActorSheet {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["hexxen", "sheet", "actor", "jaeger"],
-      template: "systems/" + CONFIG.Hexxen.scope + "/templates/jaeger-sheet.html", // FIXME: basepath klären
+      template: Hexxen.basepath + "templates/jaeger-sheet.html",
       width: 700,
       height: 720,
       tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "skills"}],
@@ -33,9 +33,9 @@ class JaegerSheet extends ActorSheet {
     if (canConfigure) {
       buttons = [
         {
-          label: (!!this.actor.getFlag(CONFIG.Hexxen.scope, "editMode")) ? "To Game Mode" : "To Edit Mode",
+          label: (!!this.actor.getFlag(Hexxen.scope, "editMode")) ? "To Game Mode" : "To Edit Mode",
           class: "configure-edit",
-          icon: "fas fa-" + (!!this.actor.getFlag(CONFIG.Hexxen.scope, "editMode") ? "dice" : "edit"),
+          icon: "fas fa-" + (!!this.actor.getFlag(Hexxen.scope, "editMode") ? "dice" : "edit"),
           onclick: ev => this._onToggleEditMode(ev)
         }
       ].concat(buttons);
@@ -46,13 +46,13 @@ class JaegerSheet extends ActorSheet {
   _onToggleEditMode(event) {
     event.preventDefault();
     
-    let mode = !!this.actor.getFlag(CONFIG.Hexxen.scope, "editMode") || false; // FIXME: !! und || redundant?
+    let mode = !!this.actor.getFlag(Hexxen.scope, "editMode") || false; // FIXME: !! und || redundant?
     // toggle mode
     mode = !mode;
 
     // save changed flag (also updates inner part of actor sheet)
     // FIXME: scope könnte nicht existieren, dann problematisch
-    this.actor.setFlag(CONFIG.Hexxen.scope, "editMode", mode);
+    this.actor.setFlag(Hexxen.scope, "editMode", mode);
 
     // update button
     // FIXME: was passiert remote?
