@@ -97,7 +97,7 @@ Hooks.once("init", async function() {
   Items.registerSheet("hexxen", RuleItemSheet, { types: ["motivation"], makeDefault: true });
 
   // Inject system logo
-  $("<a class='hexxen-logo'><img id='hexxen-logo' src='" + Hexxen.basepath + "img/HeXXen1733_scriptorium_logo.png' height='65px' /></a>")
+  $("<a class='hexxen-logo'><img id='hexxen-logo' src='" + Hexxen.basepath + "img/HeXXen1733_scriptorium_small_outline.png' height='65px' /></a>")
       .insertAfter("img#logo");
   // TODO: eigenes left, #navigation left und #loading left/width dynamisch berechnen?
   $($.find("a.hexxen-logo")).on("click", () => { new HexxenAbout().render(true); } );
