@@ -18,7 +18,7 @@ class HexxenRoller extends FormApplication {
     return mergeObject(super.defaultOptions, {
       classes: ["hexxen", "roller"],
       id: "roller",
-      template: "systems/" + game.data.system.id + "/templates/roller.html", // FIXME basepath klären
+      template: Hexxen.basepath + "templates/roller.html", // FIXME basepath klären
       width: 300,
     });
   }
