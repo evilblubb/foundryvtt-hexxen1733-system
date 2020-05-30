@@ -30,7 +30,7 @@
   background: rgba(255, 255, 255, 0.4);
 }
 .sheet.jaeger .editor {
-  height: 400px;
+  min-height: 100px;
   margin: 5px;
   padding: 5px;
   background: rgba(0, 0, 0, 0.05);
