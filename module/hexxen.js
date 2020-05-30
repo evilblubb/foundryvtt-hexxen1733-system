@@ -96,7 +96,7 @@ Hooks.once("init", async function() {
   $("<a class='hexxen-logo'><img id='hexxen-logo' src='systems/" + Hexxen.scope + "/img/HeXXen1733_scriptorium_logo.png' height='65px' /></a>")
       .insertAfter("img#logo");
   // TODO: eigenes left, #navigation left und #loading left/width dynamisch berechnen?
-  $($.find("a.hexxen-logo")).on("click", () => { new HexxenDisclaimer().render(true); } );
+  $($.find("a.hexxen-logo")).on("click", () => { new HexxenAbout().render(true); } );
 
   // Register system settings
   game.settings.register("worldbuilding", "macroShorthand", {
@@ -109,14 +109,14 @@ Hooks.once("init", async function() {
   });
 });
 
-class HexxenDisclaimer extends Application {
+class HexxenAbout extends Application {
 
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
-      classes: ["hexxen", "disclaimer"],
-      id: "hexxen-disclaimer",
-      title: "Disclaimer - Game System " + Hexxen.title,
-      template: "systems/" + Hexxen.scope + "/templates/disclaimer.html",
+      classes: ["hexxen", "about"],
+      id: "hexxen-about",
+      title: "About Game System " + Hexxen.title,
+      template: "systems/" + Hexxen.scope + "/templates/about.html",
       width: 600,
       height: 450
     });
