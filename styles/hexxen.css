@@ -131,9 +131,12 @@ img#hexxen-logo {
 }
 .hexxen.sheet .tabs .item.active .item-bg {
   background-image: url("../img/Rabenkasten_oben_small.png");
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  /* TODO: bessere Lösung für overflow suchen, da Probleme mit Klickbereich. */
+  padding: 0 10px;
+  margin: 0 -10px;
   text-decoration: none;
   text-shadow: -1px -1px var(--hexxen-pale-green), 
                -1px  1px var(--hexxen-pale-green), 
