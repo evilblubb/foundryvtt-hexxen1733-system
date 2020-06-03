@@ -28,8 +28,8 @@
             <div class="grid-item3">
               {{#each data.attributes as |attr key|}}
                 <span class="item3" data-key="{{key}}">
-                    <span class="label" title="{{attr.label}}">{{key}}</span>
-                    {{dyn-input class="value" path="data.attributes" key=key target="value" value=attr.value}}
+                    <span class="label item3" title="{{attr.label}}">{{key}}</span>
+                    <input type="text" name="data.attributes.{{key}}.value" value="{{attr.value}}" data-dtype="Number"/>
                     <!--<span class="value">{{attr.value}}</span>-->
                 </span>
               {{/each}}

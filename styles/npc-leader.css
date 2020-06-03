@@ -64,6 +64,7 @@
 .grid-item2 input {
   width: 30px;
   height: 28px;
+  text-align: center;
 }
  .item2{
    margin-right: 25px;
@@ -73,7 +74,11 @@
   margin: 0 10px 0 10px;
 }
 .item3{
-  margin-right: 15px;
+  margin-right: 5px;
+}
+.item3 input{
+  width: 30px;
+  text-align: center;
 }
 .grid-container {
   display: grid;
