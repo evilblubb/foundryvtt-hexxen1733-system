@@ -3,23 +3,39 @@
     {{!-- Sheet Header --}}
     <header class="sheet-header">
         <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
-        <div class="header-fields">
-            <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1>
-            <div class="resource" style="width: 40%">
+        <div class="header-fields grid-container">
+            <h1 class="grid-item1 charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1>
+            <div class="grid-item2">
+              <span class="item2">
                 <span> LEP </span>
-                <input style="width: 60px" type="text" name="data.health.value" value="{{data.health.value}}" data-dtype="Number"/>
+                <input type="text" name="data.health.value" value="{{data.health.value}}" data-dtype="Number"/>
                 <span> / </span>
-                <input style="width: 60px" type="text" name="data.health.max" value="{{data.health.max}}" data-dtype="Number"/>
-            </div>
-            <div class="resource" style="width: 20%">
+                <input type="text" name="data.health.max" value="{{data.health.max}}" data-dtype="Number"/>
+              </span>
+              <span class="item2">
                 <label class="label" title="Initiative" for="ini">INI</label>
-                <input style="width: 60px" type="text" name="data.ini.value" value="{{data.ini.value}}" data-dtype="Number"/>
+                <input type="text" name="data.ini.value" value="{{data.ini.value}}" data-dtype="Number"/>
+              </span>
+              <span class="item2"
+                <label class="label">PW</label>
+                <input type="text" name="data.pw.value" value="{{data.pw.value}}" data-dtype="Number"/>
+              </span>
+              <span class="item2">
+                <label class="label">Hex</label>
+                <input type="text" name="data.hex.value" value="{{data.hex.value}}" data-dtype="Number"/>
+              </span>
             </div>
-            <div class="resource" style="width: 20%">
-                <label class="label" title="Initiative" for="ini">Stufe</label>
-                <input style="width: 60px" type="text" name="data.stufe.value" value="{{data.stufe.value}}" data-dtype="Number"/>
+            <div class="grid-item3">
+              {{#each data.attributes as |attr key|}}
+                <span class="item3" data-key="{{key}}">
+                    <span class="label" title="{{attr.label}}">{{key}}</span>
+                    {{dyn-input class="value" path="data.attributes" key=key target="value" value=attr.value}}
+                    <!--<span class="value">{{attr.value}}</span>-->
+                </span>
+              {{/each}}
             </div>
         </div>
+
     </header>
 
     {{!-- Sheet Tab Navigation --}}
@@ -29,12 +45,12 @@
 
         {{!-- Biography Tab --}}
         <div>
-          <h1>Anführer</h1>
+          <h1>Anführer Stufe {{data.stufe.value}}</h1>
           <div class="unnatural">
             <span>Wiedernatürlich oder sonstiges?</span>
           </div>
           <div class="head">
-            <h2>Bandenattacken</h2>
+            <h2>Attacken</h2>
           </div>
           <div class="head-content">
             <span>Hier kommen die Normalen Attacken hin</span>
