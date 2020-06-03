@@ -12,7 +12,7 @@ class JaegerSheet extends ActorSheet {
       width: 700,
       height: 720,
       tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "skills"}],
-      scrollY: [ ".biography.scroll-y", ".states.scroll-y", ".skills.scroll-y", ".powers.scroll-y", 
+      scrollY: [ ".biography.scroll-y", ".states.scroll-y", ".skills.scroll-y", ".powers.scroll-y",
         ".combat.scroll-y", ".items.scroll-y" ]
     });
   }
@@ -42,10 +42,10 @@ class JaegerSheet extends ActorSheet {
     }
     return buttons
   }
-  
+
   _onToggleEditMode(event) {
     event.preventDefault();
-    
+
     let mode = !!this.actor.getFlag(CONFIG.Hexxen.scope, "editMode") || false; // FIXME: !! und || redundant?
     // toggle mode
     mode = !mode;
@@ -81,12 +81,12 @@ class JaegerSheet extends ActorSheet {
     hres["coups"].label = "Coups [=ATH]";
     hres["coups"].default = data.data.attributes.ATH.value;
     data["header-resources"] = hres;
-    
+
     data.stypes = { "idmg": "Innerer Schaden", "odmg": "Äußerer Schaden", "mdmg": "Malusschaden", "ldmg": "Lähmungsschaden" };
     for ( let state of Object.values(data.data.states) ) {
       state.type = data.stypes[state.type];
     }
-   
+
     // FIXME: gehört teilweise in den Jaeger!
     // Skills aufbereiten
     data.data.skills = data.data.skills || {}; // sicherstellen, dass skills existiert
@@ -100,7 +100,7 @@ class JaegerSheet extends ActorSheet {
       skill.summe = Number(skill.value) + Number(value);
       skill.label += extra;
     }
-    
+
     // FIXME: gehört teilweise in den Jaeger!
     //Kampfskills aufbereiten
     data.data.combat = data.data.combat || {};
@@ -114,10 +114,10 @@ class JaegerSheet extends ActorSheet {
       skill.summe = Number(skill.value) + Number(value);
       skill.label += extra;
     }
-    
+
     return data;
   }
-  
+
   // FIXME: gehört in den Jaeger
   getSkillRolls(key) {
     let data = this.entity.data;
@@ -133,7 +133,7 @@ class JaegerSheet extends ActorSheet {
   /** @override */
   async _renderInner(data, options={}) {
     let html = await super._renderInner(data, options);
-    
+
     // FIXME: ist _renderInner() oder _replaceHTML() besser?? Sonst Problem: Zugang zu html beim ersten Öffnen
     // Aktualisiere Zustände, die keine Form-Elemente sind
     // oder in activateListener(), foundry macht das auch
@@ -143,7 +143,7 @@ class JaegerSheet extends ActorSheet {
     this._updateState(html.find(".idmg .controls")[0], "idmg", options);
     this._updateState(html.find(".mdmg .controls")[0], "mdmg", options);
     this._updateState(html.find(".ldmg .controls")[0], "ldmg", options);
-    
+
     return html;
   }
 
@@ -162,7 +162,7 @@ class JaegerSheet extends ActorSheet {
         cl.add("fa-inverse"); // wird weiss
       }
     }
-  }  
+  }
 
   /* -------------------------------------------- */
 
@@ -219,15 +219,15 @@ class JaegerSheet extends ActorSheet {
     event.preventDefault();
     const a = event.currentTarget;
     const action = a.dataset.action;
-    
+
     const type = a.dataset.type;
     const key = a.parentNode.dataset.key;
-    
+
     const attrs = this.object.data.data.attributes;
     const form = this.form;
 
     // console.log(event);
-    
+
     // shift or ctrl click --> delegate
     if ( event.originalEvent.shiftKey || event.originalEvent.ctrlKey ) {
       new HexxenRoller(this.actor, /* options */ {
@@ -252,10 +252,10 @@ class JaegerSheet extends ActorSheet {
       label = target.label;
       if (target.schaden) label += ` (SCH +${target.schaden})`;
     }
-    
+
     ChatMessage.create({speaker: { actor: this.actor._id }, content: "/hex " + rolls + "h # " + label });
   }
-  
+
   /* -------------------------------------------- */
 
   // FIXME: ungültige Eingaben in numerischen Textfeldern filtern

@@ -30,7 +30,7 @@ class Hexxen {
     console.error(...args);
   }
 }
-  
+
 /* -------------------------------------------- */
 /*  Foundry VTT Initialization                  */
 /* -------------------------------------------- */
@@ -47,17 +47,17 @@ Hooks.once("init", async function() {
     decimals: 0
   };
   CONFIG.Hexxen = Hexxen;
-  
+
   // FIXME: richtiger Platz??
   Handlebars.registerHelper("dyn-input", function(options) {
-    // TODO: besser actor.getFlag, aber dazu muss zuerst das Actor-Objekt ermittelt werden 
+    // TODO: besser actor.getFlag, aber dazu muss zuerst das Actor-Objekt ermittelt werden
     // (actor ist nur das äußere Datenelement von Actor)
     const flags = options.data.root.actor.flags[CONFIG.Hexxen.scope] || {};
     const editMode = flags.editMode || false;
     let name = [ options.hash.path, options.hash.key ];
     if ( options.hash.target ) name.push( options.hash.target);
     name = name.join(".");
-    
+
     // FIXME: Überarbeiten: u.a. id="foo" für <label for="foo"> bereitstellen
     // FIXME: Template erstellen statt SafeString
     if (editMode) {

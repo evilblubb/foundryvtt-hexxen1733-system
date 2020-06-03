@@ -1,0 +1,51 @@
+<form class="{{cssClass}}" autocomplete="off">
+
+    {{!-- Sheet Header --}}
+    <header class="sheet-header">
+        <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
+        <div class="header-fields">
+            <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1>
+            <div class="resource" style="width: 40%">
+                <span> LEP </span>
+                <input style="width: 60px" type="text" name="data.health.value" value="{{data.health.value}}" data-dtype="Number"/>
+                <span> / </span>
+                <input style="width: 60px" type="text" name="data.health.max" value="{{data.health.max}}" data-dtype="Number"/>
+            </div>
+            <div class="resource" style="width: 20%">
+                <label class="label" title="Initiative" for="ini">INI</label>
+                <input style="width: 60px" type="text" name="data.ini.value" value="{{data.ini.value}}" data-dtype="Number"/>
+            </div>
+            <div class="resource" style="width: 20%">
+                <label class="label" title="Initiative" for="ini">Stufe</label>
+                <input style="width: 60px" type="text" name="data.stufe.value" value="{{data.stufe.value}}" data-dtype="Number"/>
+            </div>
+        </div>
+    </header>
+
+    {{!-- Sheet Tab Navigation --}}
+    <body>
+
+    {{!-- Sheet Body --}}
+
+        {{!-- Biography Tab --}}
+        <div>
+          <div class="unnatural">
+            <span>Wiedernatürlich oder sonstiges?</span>
+          </div>
+          <div class="head">
+            <h2>Bandenattacken</h2>
+          </div>
+          <div class="head-content">
+            <span>Hier kommen die Normalen Attacken hin</span>
+          </div>
+          <div class="head">
+            <h2> Kräfte</h2>
+          </div>
+          <div class="head-content">
+            <span>Hier kommen Kräfte und besonderheiten hin (Anfälligkeiten)</span>
+          </div>
+        </div>
+
+
+    </body>
+</form>

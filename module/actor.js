@@ -6,10 +6,10 @@ class HexxenActor extends Actor {
     super(...args);
 
     // The actor is either created with it's saved data or with the associated tempate data.
-    // Entity.constructor calls this.initialize() which calls this.prepareData() before and after 
+    // Entity.constructor calls this.initialize() which calls this.prepareData() before and after
     // this.prepareEmbeddedEntities().
   }
-  
+
   /**
    * @override
    *
@@ -21,7 +21,7 @@ class HexxenActor extends Actor {
     super.prepareData();
 
     // called twice during creation, before and after this.prepareEmbeddedEntities().
-    
+
     const actor = this.data;
 
     // Abgeleitete Basisdaten für Jaeger berechnen
@@ -31,16 +31,16 @@ class HexxenActor extends Actor {
       actor.data.health.max = 7 + actor.data.attributes.KKR.value + actor.data.attributes.WIL.value + actor.data.skills["Unempfindlichkeit"].value;
       actor.data.power.min = 0;
       actor.data.power.max = 10;
-      
+
       // INI, PW und AP berechnen
       actor.data.calc = actor.data.calc || {};
-      actor.data.calc.ini = actor.data.attributes.SIN.value + actor.data.attributes.GES.value + actor.data.skills["Reflexe"].value;    
-      actor.data.calc.pw = actor.data.calc.pw || 1;    
-      actor.data.calc.ap = 6 - actor.data.calc.pw;    
+      actor.data.calc.ini = actor.data.attributes.SIN.value + actor.data.attributes.GES.value + actor.data.skills["Reflexe"].value;
+      actor.data.calc.pw = actor.data.calc.pw || 1;
+      actor.data.calc.ap = 6 - actor.data.calc.pw;
     }
   }
 
-  
+
 
   /** @override */
   getRollData() {
