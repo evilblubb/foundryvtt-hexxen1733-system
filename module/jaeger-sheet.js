@@ -101,6 +101,7 @@ class JaegerSheet extends ActorSheet {
       data.data.core["motivation"] = mot.name;
       // FIXME: HTML aus MCE behandeln
       data.data.core["motivation-bonus"] = mot.data.effect ? $(mot.data.effect)[0].innerText : "";
+      data.data.core["motivation-id"] = mot._id;
     }
 
     data.stypes = { "idmg": "Innerer Schaden", "odmg": "Äußerer Schaden", "mdmg": "Malusschaden", "ldmg": "Lähmungsschaden" };
