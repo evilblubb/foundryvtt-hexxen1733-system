@@ -21,15 +21,23 @@
   "packs": [
     {
       "name": "hexxen-items",
-      "label": "Hexxen Items",
+      "label": "Items",
       "system": "hexxen-1733-dev",
       "module": "hexxen-1733-dev",
       "path": "packs/items.db",
       "entity": "Item"
     },
     {
+      "name": "hexxen-motivation",
+      "label": "Motivationen",
+      "system": "hexxen-1733-dev",
+      "module": "hexxen-1733-dev",
+      "path": "packs/motivation.db",
+      "entity": "Item"
+    },
+    {
       "name": "hexxen-macros",
-      "label": "Hexxen Makros",
+      "label": "Makros",
       "system": "hexxen-1733-dev",
       "module": "hexxen-1733-dev",
       "path": "packs/macros.db",
