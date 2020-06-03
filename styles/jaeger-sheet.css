@@ -1,44 +1,4 @@
-﻿:root {
-  --hexxen-pale-green: #bcceb9;
-  --hexxen-green: #177d1a;
-  --hexxen-dark-green: #084b0a;
-  --hexxen-line-color: #4e804f;
-  --hexxen-header-color: var(--hexxen-dark-green);
-  --hexxen-tab-bgcolor: rgba(8, 75, 10, 0.4);
-  --hexxen-header-bgcolor: rgba(8, 75, 10, 0.15);
-  --hexxen-input-bgcolor: var(--hexxen-pale-green);
-  --hexxen-tab-border: 1px solid var(--hexxen-dark-green);
-  --hexxen-header-border: 1px solid var(--hexxen-line-color);
-  --hexxen-input-bordercolor: var(--hexxen-dark-green);
-  --hexxen-value-span-border: 1px solid var(--hexxen-line-color);
-  scrollbar-color: var(--hexxen-green) var(--hexxen-dark-green); 
-}
-
-.hexxen div.inc-btn {
-  position: relative;
-}
-.hexxen div.inc-btn div.controls {
-  display: none;
-  color: var(--hexxen-dark-green);
-  font-size: 0.8em;
-}
-.hexxen div.inc-btn div.controls .control {
-  position: absolute;
-  top: 0;
-}
-.hexxen div.inc-btn div.controls .left {
-  left: 7px;
-}
-.hexxen div.inc-btn div.controls .right {
-  right: 7px;
-}
-
-.hexxen input {
-  background-color: var(--hexxen-input-bgcolor);
-  border-color: var(--hexxen-input-bordercolor);
-}
-
-.sheet.jaeger {
+﻿.sheet.jaeger {
   min-width: 600px;
   min-height: 500px;
 }
@@ -47,21 +7,6 @@
 /******************/
 /* Common section */
 /******************/
-.sheet.jaeger ::selection {
-  background: #81a8e6;
-}
-.sheet.jaeger input::placeholder {
-  color: #999;
-  opacity: 1;
-}
-.sheet.jaeger .flexrow {
-  flex-wrap: unset; /* override system preset */
-}
-.sheet.jaeger .window-content {
-  height: 100%;
-  padding: 0px;
-  overflow-y: hidden;
-}
 .sheet.jaeger .list-header {
   flex: 0;
   margin: 5px 0;
@@ -79,14 +24,13 @@
 .sheet.jaeger .list-body {
   list-style: none;
   margin: 0;
-  margin-bottom: 10px;
   padding: 0 6px;  
 }
 .sheet.jaeger .list-body li:nth-of-type(2n) {
   background: rgba(255, 255, 255, 0.4);
 }
 .sheet.jaeger .editor {
-  height: 400px;
+  min-height: 100px;
   margin: 5px;
   padding: 5px;
   background: rgba(0, 0, 0, 0.05);
@@ -104,11 +48,10 @@
 /************************/
 /* Sheet header section */
 /************************/
+/** TODO: prüfen, ob noch notwendig. (vgl. .hexxen.sheet .sheet-header) */
 .sheet.jaeger .sheet-header {
   display: flex; /* override system preset */
   flex-direction: column; /* override system preset */
-  margin: 8px;
-  text-align: center;
 }
 .sheet.jaeger .sheet-header .label,
 .sheet.jaeger .sheet-header .value,
@@ -133,6 +76,7 @@
   padding-bottom: 8px;
   border-bottom: 1px solid #AAA;
 }
+/** TODO: prüfen, ob noch notwendig. (vgl. .hexxen.sheet .sheet-header h1 input) */
 .sheet.jaeger .sheet-header h1 input {
   height: 42px;
   line-height: 42px;
@@ -185,31 +129,6 @@
   flex: 0 0 20px;
 }
 
-.sheet.jaeger .tabs {
-  height: 40px;
-  background: var(--hexxen-tab-bgcolor);
-  border-top: var(--hexxen-tab-border);
-  border-bottom: var(--hexxen-tab-border);
-}
-.sheet.jaeger .tabs .item {
-  font-size: 1.15em;
-  line-height: 40px;
-  font-weight: bold;
-}
-.sheet.jaeger .tabs .item.active {
-  text-decoration: underline;
-  text-shadow: none;
-}
-
-.sheet.jaeger .sheet-body {
-  overflow: hidden;
-}
-.sheet.jaeger .sheet-body .tab {
-  height: 100%;
-  overflow-y: auto;
-  padding: 0 5px;
-}
-
 .sheet.jaeger .biography .list-body .label {
   text-align: initial;
 }
@@ -219,9 +138,14 @@
 .sheet.jaeger .biography .list-body li:nth-of-type(2n) {
   background: unset;
 }
-.sheet.jaeger .biography .core input {
+.sheet.jaeger .biography .core .value {
   width: unset;
   flex: 2;
+}
+.sheet.jaeger .biography .core .motivation-bonus .value {
+  text-align: initial;
+  font-size: 0.8em;
+  line-height: unset;
 }
 .sheet.jaeger .biography .editor {
   margin: 5px;
@@ -252,7 +176,7 @@
   flex: 1.5;
 }
 .sheet.jaeger .states .zustaende .list-body span {
-  border-bottom: 1px solid #AAA;
+  border-bottom: var(--hexxen-value-span-border);
 }
 
 .sheet.jaeger .flexrow .li-label {
@@ -294,11 +218,25 @@
 .sheet.jaeger .list-body span.li-text {
   border-bottom: var(--hexxen-value-span-border);
 }
-/*
-.worldbuilding .skills-list .skill-control {
-  flex: 0 0 20px;
-  text-align: center;
-  line-height: 28px;
-  border: none;
+.sheet.jaeger .items-list {
+  list-style: none;
+  margin: 7px 0;
+  padding: 0;
+  overflow-y: auto;
 }
-*/
+.sheet.jaeger .items-list .item {
+  height: 30px;
+  line-height: 24px;
+  padding: 3px 0;
+  border-bottom: var(--hexxen-value-span-border);
+}
+.sheet.jaeger .items-list .item img {
+  flex: 0 0 24px;
+  margin-right: 5px;
+}
+.sheet.jaeger .items-list .item-name {
+  margin: 0;
+}
+.sheet.jaeger .items-list .item-controls {
+  flex: 0 0 36px;
+}

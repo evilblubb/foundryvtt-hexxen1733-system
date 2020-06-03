@@ -7,21 +7,37 @@
   "compatibleCoreVersion": "0.6.0",
   "templateVersion": 1,
   "author": "Martin Brunninger",
-  "scripts": [ "module/hexxen.js", "module/utils.js", "module/actor.js", "module/item-sheet.js", "module/actor-sheet.js", "module/jaeger-sheet.js", "module/roller.js" ],
+  "scripts": [  "module/hexxen.js", 
+                "module/utils.js", 
+                "module/actor.js", 
+                "module/item-sheet.js", 
+                "module/rule-item-sheet.js", 
+                "module/actor-sheet.js", 
+                "module/jaeger-sheet.js", 
+                "module/roller.js" 
+              ],
   "esmodules": [],
-  "styles": [ "styles/simple.css", "styles/jaeger-sheet.css", "styles/roller.css" ],
+  "styles": [ "styles/simple.css", "styles/hexxen.css", "styles/jaeger-sheet.css", "styles/roller.css" ],
   "packs": [
     {
       "name": "hexxen-items",
-      "label": "Hexxen Items",
+      "label": "Items",
       "system": "hexxen-1733-dev",
       "module": "hexxen-1733-dev",
       "path": "packs/items.db",
       "entity": "Item"
     },
     {
+      "name": "hexxen-motivation",
+      "label": "Motivationen",
+      "system": "hexxen-1733-dev",
+      "module": "hexxen-1733-dev",
+      "path": "packs/motivation.db",
+      "entity": "Item"
+    },
+    {
       "name": "hexxen-macros",
-      "label": "Hexxen Makros",
+      "label": "Makros",
       "system": "hexxen-1733-dev",
       "module": "hexxen-1733-dev",
       "path": "packs/macros.db",

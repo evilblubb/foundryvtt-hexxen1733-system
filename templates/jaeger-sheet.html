@@ -64,12 +64,12 @@
 
     {{!-- Sheet Tab Navigation --}}
     <nav class="sheet-tabs tabs" data-group="primary">
-        <a class="item" data-tab="description">Bio</a>
-        <a class="item" data-tab="states">Zustand</a>
-        <a class="item" data-tab="skills">Fertigkeiten</a>
-        <a class="item" data-tab="powers">Jägerkräfte</a>
-        <a class="item" data-tab="combat">Kampf</a>
-        <a class="item" data-tab="items">Besitz</a>
+        <a class="item" data-tab="description"><div class="item-bg">Bio</div></a>
+        <a class="item" data-tab="states"><div class="item-bg">Zustand</div></a>
+        <a class="item" data-tab="skills"><div class="item-bg">Fertigkeiten</div></a>
+        <a class="item" data-tab="powers"><div class="item-bg">Jägerkräfte</div></a>
+        <a class="item" data-tab="combat"><div class="item-bg">Kampf</div></a>
+        <a class="item" data-tab="items"><div class="item-bg">Besitz</div></a>
     </nav>
 
     {{!-- Sheet Body --}}
@@ -110,13 +110,14 @@
                             <label class="label" for="level">Level</label>
                             <input class="value" type="text" name="data.core.level" value="{{data.core.level}}" data-dtype="Number" id="level" />
                         </li>
-                        <li class="motivation flexrow">
+                        <li class="item motivation flexrow" data-item-id="{{data.core.motivation-id}}">
                             <label class="label" for="motivation">Motivation</label>
-                            <input class="value" type="text" name="data.core.motivation" value="{{data.core.motivation}}" id="motivation" />
+                            <a class="value item-edit">{{data.core.motivation}}</a>
                         </li>
                         <li class="motivation-bonus flexrow">
                             <label class="label" for="motivation-bonus"></label>
-                            <input class="value" type="text" name="data.core.motivation-bonus" value="{{data.core.motivation-bonus}}" id="motivation" placeholder="Motivationsbonus" />
+                            <!-- FIXME: HTML aus MCE wird angezeigt -->
+                            <span class="value">{{data.core.motivation-bonus}}</span>
                         </li>
                         <li class="Verderbnis flexrow">
                             <label class="label" for="verderbnis">Verderbnis</label>
@@ -125,6 +126,8 @@
                     </ol>
                 </div>
             </div>
+
+            <div class="seperator"></div>
             
             <header class="list-header flexrow">
                 <span class="header-label">Notizen</span>
@@ -239,6 +242,8 @@
                 {{/each}}
                 </ol>
             </div>
+
+            <div class="seperator"></div>
             
             <header class="list-header flexrow">
                 <span class="header-label">Notizen</span>
@@ -276,7 +281,9 @@
                 </li>
             {{/each}}
             </ol>
-            
+
+            <div class="seperator"></div>
+
             <header class="list-header flexrow">
                 <span class="header-label">Notizen</span>
             </header>
@@ -288,6 +295,8 @@
             TODO: Konstruktionspunkte<br>
             TODO: Jägerkräfte
             
+            <div class="seperator"></div>
+
             <header class="list-header flexrow">
                 <span class="header-label">Notizen</span>
             </header>
@@ -323,6 +332,8 @@
             {{/each}}
             </ol>
             
+            <div class="seperator"></div>
+
             <header class="list-header flexrow">
                 <span class="header-label">Notizen</span>
             </header>
@@ -344,7 +355,9 @@
                 </li>
             {{/each}}
             </ol>
-            
+
+            <div class="seperator"></div>
+
             <header class="list-header flexrow">
                 <span class="header-label">Notizen</span>
             </header>

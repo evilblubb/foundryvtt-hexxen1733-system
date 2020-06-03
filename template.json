@@ -415,7 +415,17 @@
   }
 },
 "Item": {
-  "types": ["item", "role"],
+  "types": ["item", "role", "motivation"],
+  "templates": {
+    "core": {
+      "references": [ 
+        {
+          "source": "",
+          "link": ""
+        } 
+      ]
+    }
+  },
   "item": {
     "description": "",
     "quantity": 1,
@@ -424,6 +434,11 @@
   },
   "role": {
     "label": "Neue Rolle"
+  },
+  "motivation": {
+    "templates": [ "core" ],
+    "description": "",
+    "effect": ""
   }
 }
 }
