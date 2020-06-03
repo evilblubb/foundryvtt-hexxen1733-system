@@ -154,6 +154,7 @@ class HexxenActor extends Actor {
   /** @override */
   async _onCreateEmbeddedEntity(embeddedName, child, options, userId) {
     super._onCreateEmbeddedEntity(embeddedName, child, options, userId);
+    // TODO: Kopie aus Actor wieder entfernen
     // const item = Item.createOwned(child, this);
     // this.items.set(item.id, item);
     // //}

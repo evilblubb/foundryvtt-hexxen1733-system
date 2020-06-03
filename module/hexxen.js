@@ -102,15 +102,15 @@ Hooks.once("init", async function() {
   // TODO: eigenes left, #navigation left und #loading left/width dynamisch berechnen?
   $($.find("a.hexxen-logo")).on("click", () => { new HexxenAbout().render(true); } );
 
-  // Register system settings
-  game.settings.register("worldbuilding", "macroShorthand", {
-    name: "Shortened Macro Syntax",
-    hint: "Enable a shortened macro syntax which allows referencing attributes directly, for example @str instead of @attributes.str.value. Disable this setting if you need the ability to reference the full attribute model, for example @attributes.str.label.",
-    scope: "world",
-    type: Boolean,
-    default: true,
-    config: true
-  });
+  // // Register system settings
+  // game.settings.register("worldbuilding", "macroShorthand", {
+  //   name: "Shortened Macro Syntax",
+  //   hint: "Enable a shortened macro syntax which allows referencing attributes directly, for example @str instead of @attributes.str.value. Disable this setting if you need the ability to reference the full attribute model, for example @attributes.str.label.",
+  //   scope: "world",
+  //   type: Boolean,
+  //   default: true,
+  //   config: true
+  // });
 });
 
 class HexxenAbout extends Application {
