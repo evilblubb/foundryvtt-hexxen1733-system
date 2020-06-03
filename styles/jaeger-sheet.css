@@ -176,7 +176,7 @@
   flex: 1.5;
 }
 .sheet.jaeger .states .zustaende .list-body span {
-  border-bottom: 1px solid #AAA;
+  border-bottom: var(--hexxen-value-span-border);
 }
 
 .sheet.jaeger .flexrow .li-label {
