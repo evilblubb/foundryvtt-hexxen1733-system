@@ -50,6 +50,7 @@
 }
 .worldbuilding .head-content {
   margin: 0 20px 0 30px;
+  height: 120px;
 }
 .grid-item1 {
   grid-area: header;

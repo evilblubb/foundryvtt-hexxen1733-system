@@ -45,21 +45,21 @@
 
         {{!-- Biography Tab --}}
         <div>
-          <h1>Anführer Stufe {{data.stufe.value}}</h1>
+          <h1>Anführer</h1>
+          <span> Stufe<input style="width:30px; text-align: center; margin-left: 10px;"type="text" name="data.stufe.value" value="{{data.stufe.value}}" data-dtype="Number"/> </span>
           <div class="unnatural">
-            <span>Wiedernatürlich oder sonstiges?</span>
           </div>
           <div class="head">
             <h2>Attacken</h2>
           </div>
           <div class="head-content">
-            <span>Hier kommen die Normalen Attacken hin</span>
+            {{editor content=data.biography1 target="data.biography1" button=true owner=owner editable=editable}}
           </div>
           <div class="head">
             <h2> Kräfte</h2>
           </div>
           <div class="head-content">
-            <span>Hier kommen Kräfte und besonderheiten hin (Anfälligkeiten)</span>
+            {{editor content=data.biography2 target="data.biography2" button=true owner=owner editable=editable}}
           </div>
         </div>
 

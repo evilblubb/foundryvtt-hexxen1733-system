@@ -2,6 +2,8 @@
 "Actor": {
   "types": ["npc", "character", "npc-bande", "npc-leader"],
   "npc-leader":{
+    "biography1": "",
+    "biography2": "",
     "ini": {
       "value": 4
     },
@@ -53,6 +55,8 @@
     }
   },
   "npc-bande": {
+    "biography1": "",
+    "biography2": "",
     "ini": {
       "value": 4
     },
