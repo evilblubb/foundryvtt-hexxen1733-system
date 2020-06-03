@@ -218,11 +218,25 @@
 .sheet.jaeger .list-body span.li-text {
   border-bottom: var(--hexxen-value-span-border);
 }
-/*
-.worldbuilding .skills-list .skill-control {
-  flex: 0 0 20px;
-  text-align: center;
-  line-height: 28px;
-  border: none;
+.sheet.jaeger .items-list {
+  list-style: none;
+  margin: 7px 0;
+  padding: 0;
+  overflow-y: auto;
 }
-*/
+.sheet.jaeger .items-list .item {
+  height: 30px;
+  line-height: 24px;
+  padding: 3px 0;
+  border-bottom: var(--hexxen-value-span-border);
+}
+.sheet.jaeger .items-list .item img {
+  flex: 0 0 24px;
+  margin-right: 5px;
+}
+.sheet.jaeger .items-list .item-name {
+  margin: 0;
+}
+.sheet.jaeger .items-list .item-controls {
+  flex: 0 0 36px;
+}
