@@ -9,7 +9,14 @@ class HexxenActor extends Actor {
     // Entity.constructor calls this.initialize() which calls this.prepareData() before and after 
     // this.prepareEmbeddedEntities().
   }
-  
+
+  /** @override */
+  async update(data, options={}) {
+    // Manipulate data updates before they get sent out.
+    super.update(data, options);
+  }
+
+  // This is called whenever update data have been sent by the server.
   // This is here to complete the picture, but should not be overridden.
   // /** @override */
   // _onUpdate(data, options, userId, context) {
@@ -34,7 +41,7 @@ class HexxenActor extends Actor {
     const actor = this.data;
 
     // check data version and migrate data if neccessary.
-    const version = this.getFlag(Hexxen.scope, "editMode");
+    // const version = this.getFlag(Hexxen.scope, "version");
     // if ()
     
 
@@ -54,11 +61,50 @@ class HexxenActor extends Actor {
     }
   }
 
+  // get 
+
+  // get motivation() {
+  //   const m = this.data.items.filter(i => "motivation" === i.type);
+  //   return m.length > 0 ? m[0] : undefined;
+  // }
+
   /** @override */
   prepareEmbeddedEntities() {
     // Create Item objects for the items in the actor data structure.
     super.prepareEmbeddedEntities();
+
+    //TODO: anpassen sobald Struktur festgelegt.
+    // vorläufig alle items in actor.items belassen, da sonst vermutlich Seiteneffekte.
+    // this.items
+    //     .filter(item => "motivation" === item.type)
+    //     .forEach(item => this.motivation = item);
   }
+
+  // TODO: Kopie aus Actor wieder entfernen
+  // /** @override */
+  // prepareEmbeddedEntities() {
+  //   const prior = this.items;
+  //   const items = new Collection();
+  //   for ( let i of this.data.items ) {
+  //     let item = null;
+
+  //     // Update existing items
+  //     if ( prior && prior.has(i._id ) ) {
+  //       item = prior.get(i._id);
+  //       item.data = i;
+  //       item.prepareData();
+  //     }
+
+  //     // Construct new items
+  //     else item = Item.createOwned(i, this);
+  //     items.set(i._id, item);
+  //   }
+
+  //   // Assign Items to the Actor
+  //   this.items = items;
+  // }
+
+
 
   // Workflow for collection items:
   // ActorSheet._onDrop(): Fallunterscheidung Itemherkunft
@@ -79,61 +125,82 @@ class HexxenActor extends Actor {
   //          `--> Entity._onModifyEmbeddedEntity(): 1x pro Batch
   //                 `--> Actor.prepareData()
 
-  // Compendium: CONFIG.<metadata.entity>.entityClass
-  // Items:      CONFIG.Item.entityClass
-  // Actor:      prepareEmbeddedEntities() bzw. _onCreateEmbeddedEntity()
 
-  // Plan:
-  // CONST.COMPENDIUM_ENTITY_TYPES
-  // CONFIG.<Typ>.*
-
-
+  // TODO: Collections abhandeln
   importItemFromCollection(collection, entryId) {
     super.importItemFromCollection(collection, entryId);
   }
 
+  // TODO: temporär für Breakpoint
   async createOwnedItem(itemData, options = {}) {
     super.createOwnedItem(itemData, options);
   }
 
-  async createEmbeddedEntity(...args) {
-    super.createEmbeddedEntity(...args);
+  // TODO: temporär für Breakpoint
+  async createEmbeddedEntity(embeddedName, data, options={}) {
+    // TODO: Berechtigungen prüfen
+    if ("motivation" === data.type) {
+      // this.motivation = item;
+      // remove old motivation(s) von data.items
+      let remove = this.data.items
+          .filter( i => "motivation" === i.type && i._id !== data._id )
+          .map( i => i._id );
+      // FIXME: render des sheets aufgrund des delete unterdrücken, überflüssig
+      await this.deleteEmbeddedEntity("OwnedItem", remove);
+    } //else {
+    super.createEmbeddedEntity(embeddedName, data, options);
   }
 
+  /** @override */
+  async _onCreateEmbeddedEntity(embeddedName, child, options, userId) {
+    super._onCreateEmbeddedEntity(embeddedName, child, options, userId);
+    // const item = Item.createOwned(child, this);
+    // this.items.set(item.id, item);
+    // //}
+    // if (options.renderSheet && (userId === game.user._id)) {
+    //   item.sheet.render(true, {
+    //     renderContext: "create" + embeddedName,
+    //     renderData: child
+    //   });
+    // }
+  }
+
+  _onDeleteEmbeddedEntity(embeddedName, child, options, userId) {
+    // if ("item" === child.type) {
+    super._onDeleteEmbeddedEntity(embeddedName, child, options, userId);
+    // }
+  }
+
+
+  
   /** @override */
   getRollData() {
     const data = super.getRollData();
-    const shorthand = game.settings.get("worldbuilding", "macroShorthand");
+    // const shorthand = game.settings.get("worldbuilding", "macroShorthand");
 
-    // Re-map all attributes onto the base roll data
-    if ( !!shorthand ) {
-      for ( let [k, v] of Object.entries(data.attributes) ) {
-        if ( !(k in data) ) data[k] = v.value;
-      }
-      delete data.attributes;
-    }
+    // // Re-map all attributes onto the base roll data
+    // if ( !!shorthand ) {
+    //   for ( let [k, v] of Object.entries(data.attributes) ) {
+    //     if ( !(k in data) ) data[k] = v.value;
+    //   }
+    //   delete data.attributes;
+    // }
 
-    // Map all items data using their slugified names
-    data.items = this.data.items.reduce((obj, i) => {
-      if ("item" === i.type) {
-        let key = i.name.slugify({strict: true});
-        let itemData = duplicate(i.data);
-        if ( !!shorthand ) {
-          for ( let [k, v] of Object.entries(itemData.attributes) ) {
-            if ( !(k in itemData) ) itemData[k] = v.value;
-          }
-          delete itemData["attributes"];
-        }
-        obj[key] = itemData;
-      }
-      return obj;
-    }, {});
+    // // Map all items data using their slugified names
+    // data.items = this.data.items.reduce((obj, i) => {
+    //   if ("item" === i.type) {
+    //     let key = i.name.slugify({strict: true});
+    //     let itemData = duplicate(i.data);
+    //     if ( !!shorthand ) {
+    //       for ( let [k, v] of Object.entries(itemData.attributes) ) {
+    //         if ( !(k in itemData) ) itemData[k] = v.value;
+    //       }
+    //       delete itemData["attributes"];
+    //     }
+    //     obj[key] = itemData;
+    //   }
+    //   return obj;
+    // }, {});
     return data;
-  }
-
-  /** @override */
-  async update(data, options={}) {
-    // Manipulate data updates before they get sent out.
-    super.update(data, options);
   }
 }

@@ -138,9 +138,14 @@
 .sheet.jaeger .biography .list-body li:nth-of-type(2n) {
   background: unset;
 }
-.sheet.jaeger .biography .core input {
+.sheet.jaeger .biography .core .value {
   width: unset;
   flex: 2;
+}
+.sheet.jaeger .biography .core .motivation-bonus .value {
+  text-align: initial;
+  font-size: 0.8em;
+  line-height: unset;
 }
 .sheet.jaeger .biography .editor {
   margin: 5px;

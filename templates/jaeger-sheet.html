@@ -112,11 +112,12 @@
                         </li>
                         <li class="motivation flexrow">
                             <label class="label" for="motivation">Motivation</label>
-                            <input class="value" type="text" name="data.core.motivation" value="{{data.core.motivation}}" id="motivation" />
+                            <a class="value" data-action="show" data-id="">{{data.core.motivation}}</a>
                         </li>
                         <li class="motivation-bonus flexrow">
                             <label class="label" for="motivation-bonus"></label>
-                            <input class="value" type="text" name="data.core.motivation-bonus" value="{{data.core.motivation-bonus}}" id="motivation" placeholder="Motivationsbonus" />
+                            <!-- FIXME: HTML aus MCE wird angezeigt -->
+                            <span class="value">{{data.core.motivation-bonus}}</span>
                         </li>
                         <li class="Verderbnis flexrow">
                             <label class="label" for="verderbnis">Verderbnis</label>

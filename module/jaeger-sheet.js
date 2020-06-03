@@ -64,9 +64,22 @@ class JaegerSheet extends ActorSheet {
 
   /** @override */
   getData() {
+    // get duplicated data
     const data = super.getData();
 
-    // group header resources
+    // contains (from BaseEntitySheet)
+    //   entity: any; (copy of this.actor.data; data only, not the Actor instance)
+    //   owner: boolean;
+    //   limited: boolean;
+    //   options: any;
+    //   editable: boolean;
+    //   cssClass: string;
+    // (from ActorSheet)
+    //   actor: any; (alias for entity)
+    //   data: any; (alias for actor.data; inner data)
+    //   items: any; (alias for actor.items; data only, not the Item instance; sorted, contains all subtypes)
+
+    // header resources
     let hres = {}
     for( let key of [ "segnungen", "ideen", "coups" ] ) {
       // FIXME: temporärer Code bis zur Änderung der Datenstruktur im Actor
@@ -82,6 +95,14 @@ class JaegerSheet extends ActorSheet {
     hres["coups"].default = data.data.attributes.ATH.value;
     data["header-resources"] = hres;
     
+    let mot = this.actor.itemTypes.motivation; // returns items, not data
+    mot = mot.length > 0 ? mot[0].data : undefined; 
+    if (mot) {
+      data.data.core["motivation"] = mot.name;
+      // FIXME: HTML aus MCE behandeln
+      data.data.core["motivation-bonus"] = mot.data.effect ? $(mot.data.effect)[0].innerText : "";
+    }
+
     data.stypes = { "idmg": "Innerer Schaden", "odmg": "Äußerer Schaden", "mdmg": "Malusschaden", "ldmg": "Lähmungsschaden" };
     for ( let state of Object.values(data.data.states) ) {
       state.type = data.stypes[state.type];
@@ -114,6 +135,8 @@ class JaegerSheet extends ActorSheet {
       skill.summe = Number(skill.value) + Number(value);
       skill.label += extra;
     }
+
+    // TODO: data.items filtern, sobald alle anderen subtypen abgehandelt
     
     return data;
   }
