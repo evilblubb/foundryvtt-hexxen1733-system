@@ -1,0 +1,79 @@
+.worldbuilding {
+  /* Sheet Tabs */
+  /* Items List */
+  /* Attributes */
+}
+.worldbuilding .window-content {
+  height: 100%;
+  padding: 5px;
+  overflow-y: hidden;
+}
+.worldbuilding .sheet-header {
+  height: 125px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.worldbuilding .sheet-header .profile-img {
+  flex: 0 0 100px;
+  height: 100px;
+  margin-right: 10px;
+}
+.worldbuilding .sheet-header .header-fields {
+  height: 125px;
+}
+.worldbuilding .sheet-header h1.charname {
+  height: 50px;
+  padding: 0px;
+  margin: 0 0;
+  border-bottom: 0;
+}
+.worldbuilding .sheet-header h1.charname input {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+.worldbuilding .sheet-body {
+  overflow: hidden;
+}
+.worldbuilding.sheet.actor {
+  min-width: 560px;
+  min-height: 420px;
+}
+.worldbuilding .unnatural{
+  margin: 10px 20px 10px 20px;
+}
+.worldbuilding .head {
+  margin: 10px 20px 10px 20px;
+}
+.worldbuilding .head-content {
+  margin: 0 20px 0 30px;
+  height: 120px;
+}
+.grid-item1 {
+  grid-area: header;
+}
+.grid-item2 {
+  grid-area: main;
+  width: auto;
+  margin: 0 10px 0 10px;
+  float: left;
+  text-align: left;
+}
+.grid-item2 input {
+  width: 30px;
+  height: 28px;
+  text-align: center;
+}
+ .item2{
+   margin-right: 25px;
+ }
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "main"
+  padding: 0px;
+}

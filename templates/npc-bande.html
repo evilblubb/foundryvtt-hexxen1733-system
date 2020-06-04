@@ -1,0 +1,49 @@
+<form class="{{cssClass}}" autocomplete="off">
+
+    {{!-- Sheet Header --}}
+    <header class="sheet-header">
+        <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
+
+        <div class="header-fields grid-container">
+            <h1 class="grid-item1 charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1>
+            <div class="grid-item2">
+              <span class="item2">
+                <span> LEP </span>
+                <input type="text" name="data.health.value" value="{{data.health.value}}" data-dtype="Number"/>
+                <span> / </span>
+                <input type="text" name="data.health.max" value="{{data.health.max}}" data-dtype="Number"/>
+              </span>
+              <span class="item2">
+                <label class="label" title="Initiative" for="ini">INI</label>
+                <input type="text" name="data.ini.value" value="{{data.ini.value}}" data-dtype="Number"/>
+              </span>
+            </div>
+          </div>
+    </header>
+
+    {{!-- Sheet Tab Navigation --}}
+    <body>
+
+    {{!-- Sheet Body --}}
+
+        {{!-- Biography Tab --}}
+        <div>
+          <h1>Bandengegner</h1>
+          <span> Stufe<input style="width:30px; text-align: center; margin-left: 10px;"type="text" name="data.stufe.value" value="{{data.stufe.value}}" data-dtype="Number"/> </span>
+          <div class="unnatural">
+          </div>
+          <div class="head">
+            <h2>Attacken</h2>
+          </div>
+          <div class="head-content">
+            {{editor content=data.biography1 target="data.biography1" button=true owner=owner editable=editable}}
+          </div>
+          <div class="head">
+            <h2> Kräfte</h2>
+          </div>
+          <div class="head-content">
+            {{editor content=data.biography2 target="data.biography2" button=true owner=owner editable=editable}}
+          </div>
+        </div>
+    </body>
+</form>

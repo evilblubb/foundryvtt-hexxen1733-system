@@ -10,17 +10,21 @@
   "scripts": [  "module/hexxen.js", 
                 "module/utils.js", 
                 "module/actor.js", 
+                "module/jaeger-sheet.js", 
+                "module/actor-sheet.js", 
+                "module/npc-bande-sheet.js", 
+                "module/npc-leader-sheet.js", 
                 "module/item-sheet.js", 
                 "module/rule-item-sheet.js", 
-                "module/actor-sheet.js", 
-                "module/jaeger-sheet.js", 
-                "module/roller.js" 
+                "module/roller.js"
               ],
   "esmodules": [],
   "styles": [ "styles/simple.css", 
               "styles/hexxen.css", 
               "styles/jaeger-sheet.css", 
-              "styles/roller.css"
+              "styles/roller.css", 
+              "styles/npc-bande.css", 
+              "styles/npc-leader.css"
             ],
   "packs": [
     {
