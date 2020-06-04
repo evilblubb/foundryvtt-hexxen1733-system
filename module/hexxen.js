@@ -97,14 +97,18 @@ Hooks.once("init", async function() {
   Items.registerSheet("hexxen", RuleItemSheet, { types: ["motivation"], makeDefault: true });
 
   // Inject system logo
+  // TODO: wohin mit solchen Sachen. Macht den Hook zu unübersichtlich.
   $("<a class='hexxen-logo'><img id='hexxen-logo' src='" + Hexxen.basepath + "img/HeXXen1733_scriptorium_small_outline.png' height='65px' /></a>")
       .insertAfter("img#logo");
   // TODO: eigenes left, #navigation left und #loading left/width dynamisch berechnen?
   $($.find("a.hexxen-logo")).on("click", () => { new HexxenAbout().render(true); } );
 
   // Inject custom roll command
+  // TODO: wohin mit solchen Sachen. Macht den Hook zu unübersichtlich.
   const oldFn = TextEditor._replaceInlineRolls;
   TextEditor._replaceInlineRolls = ((match, command, formula, ...args) => {
+    // TODO: auf Templates umstellen
+    // TODO: Rechte?
     if ("/hex " === command) {
       return `<a class="hex-roll" title="Würfeln" data-message="${formula}"><i class="fas fa-dice"></i> ${formula}</a>`;
     } else if ("/hc " === command) {
@@ -115,7 +119,7 @@ Hooks.once("init", async function() {
   });
   $("body").on("click", "a.hex-roll", (event) => {
     const speaker = $(event.currentTarget).closest("div.app")[0].id.replace("actor-", "") || undefined;
-
+    // TODO: HexxenRoller einbinden, sobald dieser an die Übergabe eines roll-Strings angepasst ist.
     // if ( event.originalEvent.shiftKey || event.originalEvent.ctrlKey ) {
     //   new HexxenRoller(undefined, /* options */ {
     //     top: this.position.top + 40,
@@ -128,11 +132,13 @@ Hooks.once("init", async function() {
     // }
 
     const message = event.currentTarget.dataset.message;
+    // TODO: Überprüfungen und Rechte?
     ChatMessage.create({speaker: { actor: speaker }, content: "/hex " + message });
   });
   $("body").on("click", "a.hex-chat", (event) => {
     const speaker = $(event.currentTarget).closest("div.app")[0].id.replace("actor-", "") || undefined;
     const message = event.currentTarget.dataset.message;
+    // TODO: Überprüfungen und Rechte?
     ChatMessage.create({speaker: { actor: speaker }, content: message });
   });
 
