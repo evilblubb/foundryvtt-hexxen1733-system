@@ -137,18 +137,38 @@ class HexxenActor extends Actor {
   }
 
   // TODO: temporär für Breakpoint
-  async createEmbeddedEntity(embeddedName, data, options={}) {
-    // TODO: Berechtigungen prüfen
-    if ("motivation" === data.type) {
-      // this.motivation = item;
-      // remove old motivation(s) von data.items
-      let remove = this.data.items
-          .filter( i => "motivation" === i.type && i._id !== data._id )
-          .map( i => i._id );
-      // FIXME: render des sheets aufgrund des delete unterdrücken, überflüssig
-      await this.deleteEmbeddedEntity("OwnedItem", remove);
-    } //else {
-    super.createEmbeddedEntity(embeddedName, data, options);
+  async createEmbeddedEntity(embeddedName, newItemData, options={}) {
+    if ("character" === this.data.type) {
+
+      // TODO: Berechtigungen prüfen
+      if ("motivation" === newItemData.type) {
+        // remove old motivation(s) from data.items
+        // TODO: oder nur blocken?
+        const remove = this.data.items
+            .filter( i => "motivation" === i.type )
+            .map( i => i._id );
+        // FIXME: render des sheets aufgrund des delete unterdrücken, überflüssig
+        await this.deleteEmbeddedEntity("OwnedItem", remove);
+      }
+      else if ("role" === newItemData.type) {
+        // TODO: check if an additional role is allowed (Lv. 1/2/7)
+        // TODO: check for duplicates
+        const level = this.data.data.core.level; // TODO: Datenstruktur
+        const max = level >= 7 ? 3 : ( level >= 2 ? 2 : 1 );
+        const roles = this.data.items
+            .filter( i => "role" === i.type );
+        if (roles.length >= max) { 
+          ui.notifications.warn(`Es wurden bereits ${max} Rollen zugewiesen.`)
+          return; 
+        }
+        else if (roles.filter( i => i.name === newItemData.name).length) {
+          ui.notifications.warn(`Die Rolle ${newItemData.name} ist bereits zugewiesen.`)
+          return;
+        }
+      }
+    } 
+
+    super.createEmbeddedEntity(embeddedName, newItemData, options);
   }
 
   /** @override */
