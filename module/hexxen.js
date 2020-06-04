@@ -118,7 +118,7 @@ Hooks.once("init", async function() {
     }
   });
   $("body").on("click", "a.hex-roll", (event) => {
-    const speaker = $(event.currentTarget).closest("div.app")[0].id.replace("actor-", "") || undefined;
+    let speaker = $(event.currentTarget).closest("div.app")[0].id.replace("actor-", "") || undefined;
     // TODO: HexxenRoller einbinden, sobald dieser an die Übergabe eines roll-Strings angepasst ist.
     // if ( event.originalEvent.shiftKey || event.originalEvent.ctrlKey ) {
     //   new HexxenRoller(undefined, /* options */ {
@@ -131,12 +131,20 @@ Hooks.once("init", async function() {
     //   return;
     // }
 
+    // TODO: Tokens besser berücksichtigen (game.actors.get() berücksichtigt keine Tokens)
+    // maybe a token, check for another -
+    let idx = speaker.lastIndexOf('-');
+    speaker = idx === -1 ? speaker : speaker.substring(0, idx);
     const message = event.currentTarget.dataset.message;
     // TODO: Überprüfungen und Rechte?
     ChatMessage.create({speaker: { actor: speaker }, content: "/hex " + message });
   });
   $("body").on("click", "a.hex-chat", (event) => {
-    const speaker = $(event.currentTarget).closest("div.app")[0].id.replace("actor-", "") || undefined;
+    let speaker = $(event.currentTarget).closest("div.app")[0].id.replace("actor-", "") || undefined;
+    // TODO: Tokens besser berücksichtigen (game.actors.get() berücksichtigt keine Tokens)
+    // maybe a token, check for another -
+    let idx = speaker.lastIndexOf('-');
+    speaker = idx === -1 ? speaker : speaker.substring(0, idx);
     const message = event.currentTarget.dataset.message;
     // TODO: Überprüfungen und Rechte?
     ChatMessage.create({speaker: { actor: speaker }, content: message });
