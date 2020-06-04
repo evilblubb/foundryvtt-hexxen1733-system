@@ -89,6 +89,15 @@ img#hexxen-logo {
   min-height: 150px;
   max-height: 250px;
 }
+.hexxen.sheet .editor .hex-roll,
+.hexxen.sheet .editor .hex-chat {
+  background: #DDD;
+  padding: 1px 4px;
+  border: var(--hexxen-value-span-border);
+  border-radius: 2px;
+  white-space: nowrap;
+  word-break: break-all;
+}
 
 .hexxen .seperator {
   display: block; 

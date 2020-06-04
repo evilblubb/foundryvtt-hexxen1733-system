@@ -102,6 +102,40 @@ Hooks.once("init", async function() {
   // TODO: eigenes left, #navigation left und #loading left/width dynamisch berechnen?
   $($.find("a.hexxen-logo")).on("click", () => { new HexxenAbout().render(true); } );
 
+  // Inject custom roll command
+  const oldFn = TextEditor._replaceInlineRolls;
+  TextEditor._replaceInlineRolls = ((match, command, formula, ...args) => {
+    if ("/hex " === command) {
+      return `<a class="hex-roll" title="Würfeln" data-message="${formula}"><i class="fas fa-dice"></i> ${formula}</a>`;
+    } else if ("/hc " === command) {
+      return `<a class="hex-chat" title="Im Chat anzeigen" data-message="${formula}"><i class="fas fa-comments"></i> ${formula}</a>`;
+    } else {
+      return oldFn(match, command, formula, ...args);
+    }
+  });
+  $("body").on("click", "a.hex-roll", (event) => {
+    const speaker = $(event.currentTarget).closest("div.app")[0].id.replace("actor-", "") || undefined;
+
+    // if ( event.originalEvent.shiftKey || event.originalEvent.ctrlKey ) {
+    //   new HexxenRoller(undefined, /* options */ {
+    //     top: this.position.top + 40,
+    //     left: this.position.left + ((this.position.width - 400) / 2)
+    //   }, /* hints */ {
+    //     type: type,
+    //     key: key
+    //   }).render(true);
+    //   return;
+    // }
+
+    const message = event.currentTarget.dataset.message;
+    ChatMessage.create({speaker: { actor: speaker }, content: "/hex " + message });
+  });
+  $("body").on("click", "a.hex-chat", (event) => {
+    const speaker = $(event.currentTarget).closest("div.app")[0].id.replace("actor-", "") || undefined;
+    const message = event.currentTarget.dataset.message;
+    ChatMessage.create({speaker: { actor: speaker }, content: message });
+  });
+
   // // Register system settings
   // game.settings.register("worldbuilding", "macroShorthand", {
   //   name: "Shortened Macro Syntax",
