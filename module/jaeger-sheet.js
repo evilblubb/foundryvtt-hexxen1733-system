@@ -68,6 +68,25 @@ class JaegerSheet extends HexxenActorSheet {
       data.data.core["motivation-bonus"] = mot.data.summary ? $(mot.data.summary)[0].innerText : "";
       data.data.core["motivation-id"] = mot._id;
     }
+    let role = this.actor.itemTypes.role; // returns items, not data
+    switch (role.length) {
+      case 3: 
+        data.data.core["rolle-3"] = role[2].data.name;
+        data.data.core["rolle-3-id"] = role[2].data._id;
+        // no break
+      case 2: 
+        data.data.core["rolle-2"] = role[1].data.name;
+        data.data.core["rolle-2-id"] = role[1].data._id;
+        // no break
+      case 1: 
+        data.data.core["rolle-1"] = role[0].data.name;
+        data.data.core["rolle-1-id"] = role[0].data._id;
+        // no break
+      default:
+        data.data.core["rolle-3-hint"] = data.data.core.level < 7 ? "Verfügbar ab Level 7" : "Rolle verfügbar";
+        data.data.core["rolle-2-hint"] = data.data.core.level < 2 ? "Verfügbar ab Level 2" : "Rolle verfügbar";
+        data.data.core["rolle-1-hint"] = data.data.core.level < 1 ? "Verfügbar ab Level 1" : "Rolle verfügbar";
+    }
 
     data.stypes = { "idmg": "Innerer Schaden", "odmg": "Äußerer Schaden", "mdmg": "Malusschaden", "ldmg": "Lähmungsschaden" };
     for ( let state of Object.values(data.data.states) ) {
@@ -181,6 +200,7 @@ class JaegerSheet extends HexxenActorSheet {
 
     // Update Inventory Item
     html.find('.item-edit').click(ev => {
+      // TODO: Überprüfungen
       const li = $(ev.currentTarget).parents(".item");
       const item = this.actor.getOwnedItem(li.data("itemId"));
       item.sheet.render(true);
@@ -188,6 +208,7 @@ class JaegerSheet extends HexxenActorSheet {
 
     // Delete Inventory Item
     html.find('.item-delete').click(ev => {
+      // TODO: Überprüfungen
       const li = $(ev.currentTarget).parents(".item");
       this.actor.deleteOwnedItem(li.data("itemId"));
       li.slideUp(200, () => this.render(false));
