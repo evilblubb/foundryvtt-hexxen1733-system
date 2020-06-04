@@ -483,16 +483,19 @@
   }
 },
 "Item": {
-  "types": ["item", "role", "motivation"],
+  "types": ["item", "role", "profession", "motivation"],
   "templates": {
     "core": {
       "references": [ 
         {
           "source": "",
-          "link": ""
+          "link": "",
+          "page": ""
         } 
-      ]
-    }
+      ],
+      "description": "",
+      "summary": ""
+      }
   },
   "item": {
     "description": "",
@@ -501,12 +504,13 @@
     "attributes": {}
   },
   "role": {
-    "label": "Neue Rolle"
+    "templates": [ "core" ]
+  },
+  "profession": {
+    "templates": [ "core" ]
   },
   "motivation": {
-    "templates": [ "core" ],
-    "description": "",
-    "effect": ""
+    "templates": [ "core" ]
   }
 }
 }
