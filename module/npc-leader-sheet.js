@@ -2,7 +2,7 @@
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
  */
-class NpcLeaderSheet extends ActorSheet {
+class NpcLeaderSheet extends HexxenActorSheet {
 
   /** @override */
 	static get defaultOptions() {

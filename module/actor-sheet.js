@@ -1,8 +1,51 @@
+class HexxenActorSheet extends ActorSheet {
+
+  /** @override */
+  _getHeaderButtons() {
+    let buttons = super._getHeaderButtons();
+
+    // Token Configuration
+    let canConfigure = this.options.editable && (game.user.isGM || this.actor.owner);
+    if (canConfigure) {
+      buttons = [
+        {
+          label: this.editMode ? "To Game Mode" : "To Edit Mode",
+          class: "configure-edit",
+          icon: `fas fa-${this.editMode ? "dice" : "edit"}`,
+          onclick: ev => this._onToggleEditMode(ev)
+        }
+      ].concat(buttons);
+    }
+    return buttons
+  }
+
+  _onToggleEditMode(event) {
+    event.preventDefault();
+    
+    let mode = this.editMode;
+    // toggle mode
+    mode = !mode;
+
+    // save changed flag (also updates inner part of actor sheet)
+    this.actor.setFlag(Hexxen.scope, "editMode", mode);
+
+    // update button
+    // FIXME: was passiert remote?
+    // TODO: besser im activateListener oder _replaceHTML machen
+    event.target.childNodes[0].className = "fas fa-" + (mode ? "dice" : "edit");
+    event.target.childNodes[1].textContent = mode ? "To Game Mode" : "To Edit Mode";
+  }
+
+  get editMode() {
+    return !! this.actor.getFlag(Hexxen.scope, "editMode");
+  }
+}
+
 /**
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
  */
-class SimpleActorSheet extends ActorSheet {
+class SimpleActorSheet extends HexxenActorSheet {
 
   /** @override */
 	static get defaultOptions() {

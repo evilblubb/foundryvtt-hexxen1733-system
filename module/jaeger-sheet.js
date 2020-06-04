@@ -2,7 +2,7 @@
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
  */
-class JaegerSheet extends ActorSheet {
+class JaegerSheet extends HexxenActorSheet {
 
   /** @override */
   static get defaultOptions() {
@@ -24,41 +24,6 @@ class JaegerSheet extends ActorSheet {
     return `${super.title} (Lv. ${this.actor.data.data.core.level})`;
   }
 
-  /** @override */
-  _getHeaderButtons() {
-    let buttons = super._getHeaderButtons();
-
-    // Token Configuration
-    let canConfigure = this.options.editable && (game.user.isGM || this.actor.owner);
-    if (canConfigure) {
-      buttons = [
-        {
-          label: (!!this.actor.getFlag(Hexxen.scope, "editMode")) ? "To Game Mode" : "To Edit Mode",
-          class: "configure-edit",
-          icon: "fas fa-" + (!!this.actor.getFlag(Hexxen.scope, "editMode") ? "dice" : "edit"),
-          onclick: ev => this._onToggleEditMode(ev)
-        }
-      ].concat(buttons);
-    }
-    return buttons
-  }
-
-  _onToggleEditMode(event) {
-    event.preventDefault();
-    
-    let mode = !!this.actor.getFlag(Hexxen.scope, "editMode") || false; // FIXME: !! und || redundant?
-    // toggle mode
-    mode = !mode;
-
-    // save changed flag (also updates inner part of actor sheet)
-    // FIXME: scope könnte nicht existieren, dann problematisch
-    this.actor.setFlag(Hexxen.scope, "editMode", mode);
-
-    // update button
-    // FIXME: was passiert remote?
-    event.target.childNodes[0].className = "fas fa-" + (mode ? "dice" : "edit");
-    event.target.childNodes[1].textContent = mode ? "To Game Mode" : "To Edit Mode";
-  }
 
   /* -------------------------------------------- */
 

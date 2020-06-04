@@ -57,7 +57,7 @@ Hooks.once("init", async function() {
   
   // FIXME: richtiger Platz??
   Handlebars.registerHelper("dyn-input", function(options) {
-    // TODO: besser actor.getFlag, aber dazu muss zuerst das Actor-Objekt ermittelt werden
+    // TODO: besser actor.gameMode, aber dazu muss zuerst das Actor/Token-Objekt ermittelt werden
     // (actor ist nur das äußere Datenelement von Actor)
     const flags = options.data.root.actor.flags[Hexxen.scope] || {};
     const editMode = flags.editMode || false;
