@@ -158,13 +158,22 @@ class HexxenActor extends Actor {
         const roles = this.data.items
             .filter( i => "role" === i.type );
         if (roles.length >= max) { 
-          ui.notifications.warn(`Es wurden bereits ${max} Rollen zugewiesen.`)
+          ui.notifications.warn(`Es wurden bereits ${max} Rollen zugewiesen.`); // TODO: singular
           return; 
         }
         else if (roles.filter( i => i.name === newItemData.name).length) {
-          ui.notifications.warn(`Die Rolle ${newItemData.name} ist bereits zugewiesen.`)
+          ui.notifications.warn(`Die Rolle ${newItemData.name} ist bereits zugewiesen.`);
           return;
         }
+      }
+      else if ("profession" === newItemData.type) {
+        const prof = this.data.items
+            .filter( i => "profession" === i.type );
+        if (prof.length >= 1) { 
+          ui.notifications.warn(`Es wurde bereits eine Profession zugewiesen.`);
+          return; 
+        }
+        // TODO: Voraussetzungen prüfen
       }
     } 
 
