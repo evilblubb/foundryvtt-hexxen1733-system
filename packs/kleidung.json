@@ -174,5 +174,38 @@
     ],
     "description": "Einmal pro Kampf kann eine beliebige Nahkampfwaffe oder Schleuderwaffe für 1 Ap weniger (mindestens aber 1 Ap) angewendet werden.",
     "summary": ""
+  },
+  "kuerass/brigantine": {
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_panzerungen.html",
+        "page": "Das Buch der Regeln | Seite 99"
+      }
+    ],
+    "description": "Schwere Rüstung, PW3",
+    "summary": "Kosten: 70 Gulden"
+  },
+  "lederkoller": {
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_panzerungen.html",
+        "page": "Das Buch der Regeln | Seite 99"
+      }
+    ],
+    "description": "Mittelschwere Rüstung, PW2",
+    "summary": "Kosten: 30 Gulden"
+  },
+  "ross-harnisch": {
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_panzerungen.html",
+        "page": "Das Buch der Regeln | Seite 99"
+      }
+    ],
+    "description": "Panzerung für Schlachtrösser, PW +1",
+    "summary": "Kosten: 80 Gulden"
   }
 }
