@@ -64,7 +64,7 @@ class JaegerSheet extends HexxenActorSheet {
     mot = mot.length > 0 ? mot[0].data : undefined; 
     if (mot) {
       data.data.core["motivation"] = mot.name;
-      // FIXME: HTML aus MCE behandeln
+      // FIXME: HTML aus MCE besser behandeln
       data.data.core["motivation-bonus"] = mot.data.summary ? $(mot.data.summary)[0].innerText : "";
       data.data.core["motivation-id"] = mot._id;
     }
@@ -87,6 +87,13 @@ class JaegerSheet extends HexxenActorSheet {
         data.data.core["rolle-2-hint"] = data.data.core.level < 2 ? "Verfügbar ab Level 2" : "Rolle verfügbar";
         data.data.core["rolle-1-hint"] = data.data.core.level < 1 ? "Verfügbar ab Level 1" : "Rolle verfügbar";
     }
+    let prof = this.actor.itemTypes.profession;
+    prof = prof.length > 0 ? prof[0].data : undefined; 
+    if (prof) {
+      data.data.core["profession"] = prof.name;
+      data.data.core["profession-id"] = prof._id;
+    }
+    data.data.core["profession-hint"] = data.data.core.level < 2 ? "Verfügbar ab Level 2" : "Profession verfügbar";
 
     data.stypes = { "idmg": "Innerer Schaden", "odmg": "Äußerer Schaden", "mdmg": "Malusschaden", "ldmg": "Lähmungsschaden" };
     for ( let state of Object.values(data.data.states) ) {

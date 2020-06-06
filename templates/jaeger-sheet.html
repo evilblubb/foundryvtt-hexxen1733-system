@@ -108,9 +108,13 @@
                             <span class="value hint" style="color:gray">{{data.core.rolle-3-hint}}</span>
                             {{/if}}
                         </li>
-                        <li class="profession flexrow">
+                        <li class="item profession flexrow" data-item-id="{{data.core.profession-id}}">
                             <label class="label" for="profession">Profession</label>
-                            <input class="value" type="text" name="data.core.profession" value="{{data.core.profession}}" id="profession" />
+                            {{#if data.core.profession-id}}
+                            <a class="value item-edit" id="rolle-3">{{data.core.profession}}</a>
+                            {{else}}
+                            <span class="value hint" style="color:gray">{{data.core.profession-hint}}</span>
+                            {{/if}}
                         </li>
                         <li class="sprachen flexrow">
                             <label class="label" for="sprachen">Sprachen</label>
