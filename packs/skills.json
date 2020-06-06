@@ -3711,6 +3711,103 @@
           ]
         }
       }
+    },
+    "vigilant": {
+      "jaeger": {
+        "jaeger1": {
+          "name": "Geld öffnet Wege",
+          "text": "Du bist es gewohnt, Dinge zu regeln, indem du die richtigen Personen mit der passenden Summe bezahlst. Durch diese Kraft weißt du immer, wie viel Geld für eine bestimmte Dienstleistung oder einen Gefallen angemessen ist. Du kannst zudem mithilfe einer Vergleichsprobe auf Sin + Fw (Erkennen) gegen den Wil-Wert des Ziels erkennen, ob eine Person bestechlich ist und wie viel Geld sie in etwa für einen Gefallen verlangen würde. Darüber hinaus kannst du bei allen sozialen Handlungen (meist Redekunst-Proben oder Massenbefragungen) einen Bonus von +1 bis +5 erkaufen, unabhängig davon, ob die Person oder der Personenkreis bestechlich ist oder nicht. Die Kosten entsprechen dem Bonus hoch 2, multipliziert mit 10 (entspricht 10, 40, 90, 160, 250 Gulden).",
+          "summary": "Allgemeine Jägerkraft/Sozial",
+          "references": [
+            {
+              "source": "Wiki",
+              "link": "http://hexxen1733-regelwiki.de/index.php/ajk_Geld_%C3%B6ffnet_Wege.html"
+            },
+            {
+              "source": "Hexenjagd ",
+              "page": "120"
+            }
+          ]
+        },
+        "jaeger2": {
+          "name": "Habsburger Einfluss",
+          "text": "Du bist bestens unterrichtet über die Vorgänge des Habsburger Herrscherhauses, kennst so gut wie jeden Angehörigen der engeren Familie, aber auch viele weitere hochgestellte Persönlichkeiten wie Generäle, Schatzmeister, Herolde etc. Überdies bist du mit den Formen der gehobenen Etikette ebenso vertraut wie mit der Heraldik, den feinen Künsten, der Geschichte Europas etc.. Habsburger Einfluss gibt dir einen Bonus von +5 auf jede Probe, die etwas mit dem Geschlecht der Habsburger oder dem europäischen Adel zu tun hat. Das betrifft z. B. Wissensgebiete-Proben, um dir Details aus der Habsburger Geschichte in Erinnerung zu rufen, Redekunst-Proben, um das Vertrauen eines beliebigen Adeligen zu gewinnen, oder Land-und-Leute-Proben, um dich bei Hofe umzuhören. Darüber hinaus stehst du mit Adeligen und Verbündeten in ganz Europa in Kontakt, hast überall Beziehungen, und viele einflussreiche Menschen schulden dir einen Gefallen. Immer wenn du mindestens 3 Fza auf einen Schlag bekommst, generiert jedes Mitglied deiner Gruppe 1 zusätzliche Fza. Außerdem kannst du in jeder Stadt, jeder Burg oder jedem Schloss einmal pro Abenteuer bzw. Abenteuerabschnitt einen Gefallen einlösen. Dieser ist zumeist rollenspielerischer Natur, z. B. könnte man dir Unterschlupf gewähren, lokale Geheimnisse anvertrauen oder Zugang zu gesicherten Räumen verschaffen. Eine Probe sollte dafür nicht nötig sein, der HeXXenmeister kann jedoch die Einlösung des Gefallens verweigern, falls ihm die Forderung als unangemessen erscheint oder sie den Verlauf des Abenteuers empfindlich stört. Alternativ kannst du als Gefallen auch Diener, Helfer und Söldner akquirieren. Du erhältst Bandenfreunde in Höhe der Erfolge einer Redekunst-Probe x2, ohne dass dein Unterhalt steigt.",
+          "summary": "Allgemeine Jägerkraft/Sozial",
+          "references": [
+            {
+              "source": "Wiki",
+              "link": "http://hexxen1733-regelwiki.de/index.php/ajk_Habsburger_Einfluss.html"
+            },
+            {
+              "source": "Hexenjagd ",
+              "page": "121"
+            }
+          ]
+        }
+      },
+      "aufbau": {
+        "aufbau1": {
+          "name": "Graue Eminenz",
+          "text": "Du bist darin geübt, abzutauchen, dich vor deinen Feinden zu verbergen und andere aus dem Hintergrund zu manipulieren.",
+          "summary": "Ausbaukraft/Ambition",
+          "references": [
+            {
+              "source": "Wiki",
+              "link": "http://hexxen1733-regelwiki.de/index.php/abk_Graue_Eminenz.html"
+            },
+            {
+              "source": "Hexenjagd ",
+              "page": "120"
+            }
+          ],
+          "stammeffekt": {
+            "name": "Adelige Ambitionen",
+            "text": " Besitzt du zu Beginn oder am Ende eines Konflikts keine Ambition, so erhältst du 1 Ambition."
+          },
+          "gesellen": {
+            "gesellen1": {
+              "name": "Kenne deinen Feind",
+              "text": "Du erhältst einen Bonus von +3 auf Heimlichkeit, wenn du dich vor Feinden verstecken möchtest. Du kannst 1 Ambition opfern, um den Bonus auf +5 zu erhöhen."
+            },
+            "gesellen2": {
+              "name": "Auf Wiederschauen",
+              "text": "Im Kampf kannst du als freie Aktion (0 Ap) 1 Ambition opfern, um dich von 1 Anführergegner oder allen Bandengegnern zu lösen (mehrfach anwendbar)."
+            },
+            "gesellen3": {
+              "name": "Flinke Finger",
+              "text": "Du erhältst einen Bonus von +3 auf Heimlichkeit, wenn du einen kleinen Gegenstand verschwinden lassen oder tarnen möchtest, sodass er nicht gefunden wird. Das Gleiche gilt für Schlösser knacken (Fingerfertigkeit). Der Bonus gilt ebenfalls, wenn du in Ini 0 eine Reduzierungsprobe auf Fingerfertigkeit oder Akrobatik ausführst, um Lähmungsstufen abzubauen."
+            }
+          },
+          "expert": {
+            "expert1": {
+              "name": "Politisches Geschick",
+              "text": "Immer wenn dir eine relevante Redekunst-Probe gelingt (z. B.: Vertrauen aufbauen, neu Information erhalten), erhältst du 1 Ambition."
+            },
+            "expert2": {
+              "name": "Rückzug",
+              "text": " Einmal pro Kampf kannst du als freie Reaktion (0 Ap) 1 Ambition opfern und zum Rückzug blasen. Alle Jäger müssen damit einverstanden sein. Kommt es zum Rückzug, lösen sich alle Jäger automatisch von ihren Gegnern und verlassen (zusammen mit evtl. Bandenfreunden) das Kampfgebiet. Der Konflikt endet dadurch, es wird jedoch nur die abgerundete Hälfte ausgegebener Coups und Ideen regeneriert."
+            },
+            "expert3": {
+              "name": "Drahtzieher",
+              "text": " Wenn du mit einem Nsc sprichst oder Massenbefragungen durchführst, stellst du das so geschickt an, dass sich nachher niemand an deinen Namen oder dein Aussehen erinnern kann. Solltest du durch Redekunst-Proben oder Massenbefragungen (Land und Leute) Bedrohungsstufen aufbauen, werden diese ignoriert. Führst du eine zweite Redekunst-Probe gegen dieselbe Zielperson (frühestens nach Ablauf eines Tages) bzw. eine zweite Land-und-Leute-Probe am selben Ort (als Fza) aus, erhältst du einen Bonus von +2, beim dritten Mal von +5."
+            }
+          },
+          "meister": {
+            "meister1": {
+              "name": "Elitäre Ausbildung",
+              "text": "Du hast eine umfangreiche Ausbildung genossen und reicherst deinen Erfahrungsschatz mit jeder neuen Mission an. Zu Beginn eines Abenteuers oder Abenteuerabschnitts darfst du eine Fertigkeit aussuchen, für die du einen Bonus +1 bekommst. Du kannst diese Fertigkeit zu Beginn jedes weiteren Abenteuers bzw. Abschnitts neu wählen."
+            },
+            "meister2": {
+              "name": "Tausendsassa",
+              "text": "Du bist bewandert in vielen Fächern, hast Kontakte in jeder Stadt, kennst dich mit jeder Art von Beruf oder Tätigkeit aus. Sobald du diesen Meistereffekt wählst, darfst du dich für eine Handwerks-Jägerkraft, einer beliebigen Rolle entscheiden (Handwerks-Jägerkräfte sind Kräfte, mit denen etwas hergestellt wird, nicht zwangsweise, auf denen auf die Fertigkeit Handwerken gewürfelt wird) und sie für die üblichen Kosten erlernen."
+            },
+            "meister3": {
+              "name": "Identitätsraub",
+              "text": "Du bist ein Meister darin, dich als jemand anderes auszugeben – ob als Bischof oder Graf, als namhafter Patrizier oder auch als gesuchter Mörder. Alle Proben, die dazu beitragen, eine Person von deiner neuen Identität zu überzeugen, gelingen automatisch. Dieser Effekt funktioniert nur, wenn diejenigen, mit denen du zu tun hast, das gewählte Ziel nicht persönlich kennen. Unter Umständen benötigst du zudem ein passendes Kleidungsset, das du auf dem Markt erwerben musst."
+            }
+          }
+        }
+      }
     }
   }
 }
