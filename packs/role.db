@@ -1,0 +1,3 @@
+{"name":"Eiferer","permission":{"default":0,"6zpN0EQmwsdmTRQO":3},"type":"role","data":{"references":[{"source":"","link":"","page":""}],"description":"","summary":""},"flags":{},"img":"icons/svg/mystery-man.svg","_id":"9wsKRTJfoAE7fCnZ"}
+{"name":"Beschützer","permission":{"default":0,"6zpN0EQmwsdmTRQO":3},"type":"role","data":{"references":[{"source":"","link":"","page":""}],"description":"","summary":""},"flags":{},"img":"icons/svg/mystery-man.svg","_id":"pnvdq9PnVnFcvMTw"}
+{"name":"Fernkämpfer","permission":{"default":0,"6zpN0EQmwsdmTRQO":3},"type":"role","data":{"references":[{"source":"","link":"","page":""}],"description":"","summary":""},"flags":{},"img":"icons/svg/mystery-man.svg","_id":"Bazly7hxFOqebrbj"}
