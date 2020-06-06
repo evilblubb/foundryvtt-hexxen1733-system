@@ -40,7 +40,7 @@
       "label": "Rollen",
       "system": "hexxen-1733-dev",
       "module": "hexxen-1733-dev",
-      "path": "packs/motivation.db",
+      "path": "packs/role.db",
       "entity": "Item"
     },
     {
@@ -48,7 +48,7 @@
       "label": "Professionen",
       "system": "hexxen-1733-dev",
       "module": "hexxen-1733-dev",
-      "path": "packs/motivation.db",
+      "path": "packs/profession.db",
       "entity": "Item"
     },
     {
