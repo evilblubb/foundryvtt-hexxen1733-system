@@ -166,6 +166,15 @@ class HexxenActor extends Actor {
           return;
         }
       }
+      else if ("profession" === newItemData.type) {
+        // remove old motivation(s) from data.items
+        // TODO: oder nur blocken?
+        const remove = this.data.items
+            .filter( i => "profession" === i.type )
+            .map( i => i._id );
+        // FIXME: render des sheets aufgrund des delete unterdrücken, überflüssig
+        await this.deleteEmbeddedEntity("OwnedItem", remove);
+      }
     } 
 
     super.createEmbeddedEntity(embeddedName, newItemData, options);
