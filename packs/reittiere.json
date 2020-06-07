@@ -1,0 +1,106 @@
+{
+  "reitpferd": {
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_reittiere_und_fahrzeuge.html"
+      },{
+        "source":"Das Buch der Regeln",
+        "page": "99"
+      }
+    ],
+    "description": "Traglast: trägt 2 Beutegut-Pakete",
+    "summary": "Kosten: 90 Gulden | Unterhalt: 20 Gulden"
+  },
+  "schlachtross": {
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_reittiere_und_fahrzeuge.html"
+      },{
+        "source":"Das Buch der Regeln",
+        "page": "99"
+      }
+    ],
+    "description": "Traglast: trägt 2 Beutegut-Pakete",
+    "summary": "Kosten: 200 Gulden | Unterhalt: 40 Gulden"
+  },
+  "lasttier": {
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_reittiere_und_fahrzeuge.html"
+      },{
+        "source":"Das Buch der Regeln",
+        "page": "99"
+      }
+    ],
+    "description": "Esel/Ochse | Traglast: trägt 4 Beutegut-Pakete",
+    "summary": "Kosten: 20 Gulden | Unterhalt: 10 Gulden"
+  },
+  "kutsche-1-achser": {
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_reittiere_und_fahrzeuge.html"
+      },{
+        "source":"Das Buch der Regeln",
+        "page": "99"
+      }
+    ],
+    "description": "Traglast: trägt 10 Beutegut-Pakete",
+    "summary": "Kosten: 250 Gulden | Unterhalt: 20 Gulden"
+  },
+  "kutsche-2-achser": {
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_reittiere_und_fahrzeuge.html"
+      },{
+        "source":"Das Buch der Regeln",
+        "page": "99"
+      }
+    ],
+    "description": "Traglast: trägt 15 Beutegut-Pakete",
+    "summary": "Kosten: 500 Gulden | Unterhalt: 30 Gulden"
+  },
+  "karren-1-achser": {
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_reittiere_und_fahrzeuge.html"
+      },{
+        "source":"Das Buch der Regeln",
+        "page": "99"
+      }
+    ],
+    "description": "Traglast: trägt 20 Beutegut-Pakete",
+    "summary": "Kosten: 30 Gulden | Unterhalt: 5 Gulden"
+  },
+  "wagen-2-achser": {
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_reittiere_und_fahrzeuge.html"
+      },{
+        "source":"Das Buch der Regeln",
+        "page": "99"
+      }
+    ],
+    "description": "Traglast: trägt 40 Beutegut-Pakete",
+    "summary": "Kosten: 50 Gulden | Unterhalt: 10 Gulden"
+  },
+  "flussschiff": {
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_reittiere_und_fahrzeuge.html"
+      },{
+        "source":"Das Buch der Regeln",
+        "page": "99"
+      }
+    ],
+    "description": "Traglast: trägt 100 Beutegut-Pakete",
+    "summary": "Kosten: 610 Gulden | Unterhalt: 50 Gulden"
+  }
+}

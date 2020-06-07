@@ -7,7 +7,7 @@ class NpcBandeSheet extends HexxenActorSheet {
   /** @override */
 	static get defaultOptions() {
 	  return mergeObject(super.defaultOptions, {
-  	  classes: ["worldbuilding", "sheet", "actor"],
+  	  classes: ["sheet", "actor", "npc"],
   	  template: Hexxen.basepath + "templates/npc-bande.html",
       width: 600,
       height: 600,
