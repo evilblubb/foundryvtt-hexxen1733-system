@@ -1,0 +1,770 @@
+{
+  "allgemein": {
+    "transportables-laboratorium": {
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "99"
+        }
+      ],
+      "description": "Erforderlich für verschiedene Herstellungsprozesse (Elixiere, Gifte, Wurfgeschosse etc.)",
+      "summary": "Kosten: 60 Gulden"
+    },
+    "biologisches-laboratorium": {
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "99"
+        }
+      ],
+      "description": "Das Biologische Laboratorium kann als transportables Laboratorium verwendet werden. Es gibt einen zusätzlichen Bonus +1 beim Nehmen von natürlichen Proben und beim Herstellen von Elixieren und Giften. Du kannst immer nur ein Laboratorium mit dir führen. Wird es mit einem Fahrzeug befördert, zählt es als Gewicht wie 3 Beutegutpakete.",
+      "summary": "Kosten: 270 Gulden"
+    },
+    "mineralisches-laboratorium": {
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "99"
+        }
+      ],
+      "description": "Das Mineralische Laboratorium kann als transportables Laboratorium verwendet werden. Es gibt einen zusätzlichen Bonus +1 beim Nehmen von mineralischen Proben und beim Herstellen von Wurfgeschossen und Speziellem Schießpulver. Du kannst immer nur ein Laboratorium tragen. Wird es mit einem Fahrzeug befördert, zählt es als Gewicht wie 3 Beutegutpakete.",
+      "summary": "Kosten: 270 Gulden"
+    },
+    "werkzeugkiste": {
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "99"
+        }
+      ],
+      "description": "Erforderlich für diverse handwerkliche Tätigkeiten",
+      "summary": "Kosten: 25 Gulden"
+    },
+    "fackel": {
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "99"
+        }
+      ],
+      "description": "Schwaches Licht für 1 Stunde",
+      "summary": "Kosten: 1 Gulden"
+    },
+    "fernrohr": {
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "99"
+        }
+      ],
+      "description": "Bonus von +2 auf Erkennen von weit entfernten Objekten (nicht im Kampf)",
+      "summary": "Kosten: 70 Gulden"
+    },
+    "kletterhaken": {
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "99"
+        }
+      ],
+      "description": "Bonus von +2 auf Akrobatik-Proben beim Klettern mit Seilen oder ähnliche Tätigkeit",
+      "summary": "Kosten: 10 Gulden"
+    },
+    "kompass": {
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "99"
+        }
+      ],
+      "description": "Bestimmt automatisch Norden",
+      "summary": "Kosten: 25 Gulden"
+    },
+    "landkarte": {
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "99"
+        }
+      ],
+      "description": "Gebiet: ca. 50x50km, Automatisches Finden von Städten, Herbergen, Burgen etc.",
+      "summary": "Kosten: 15 Gulden"
+    },
+    "oellampe": {
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "99"
+        }
+      ],
+      "description": "Erfordert Öl (Unterhalt +10)",
+      "summary": "Kosten: 10 Gulden"
+    },
+    "rueckentrage": {
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "99"
+        }
+      ],
+      "description": "Träger kann 2 Beutegut-Pakete tragen",
+      "summary": "Kosten: 8 Gulden"
+    },
+    "schlafsack": {
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "99"
+        }
+      ],
+      "description": "Erforderlich, um im Freien Lep zu regenerieren",
+      "summary": "Kosten: 7 Gulden"
+    },
+    "seil": {
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "99"
+        }
+      ],
+      "description": "5m, vielsetiig einsetzbar",
+      "summary": "Kosten: 10 Gulden"
+    },
+    "schreibutensilien": {
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "99"
+        }
+      ],
+      "description": "Papier, Silberstift, Feder und Tinte für eigene Notizen",
+      "summary": "Kosten: 15 Gulden"
+    },
+    "alkohol": {
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "99"
+        }
+      ],
+      "description": "Vorrat an Schnaps, Wein, Likör",
+      "summary": "Kosten: 15 Gulden"
+    },
+    "zelt": {
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "99"
+        }
+      ],
+      "description": "Erforderlich, um im Freien Lep zu regenerieren",
+      "summary": "Kosten: 20 Gulden"
+    },
+    "feldbett": {
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "99"
+        }
+      ],
+      "description": "Verbesserte Regeneration von Lep",
+      "summary": "Kosten: 15 Gulden"
+    },
+    "handschellen": {
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "99"
+        }
+      ],
+      "description": "Fesseln von besiegten menschenähnlichen Gegnern möglich",
+      "summary": "Kosten: 22 Gulden"
+    },
+    "vorhaengeschloss": {
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "99"
+        }
+      ],
+      "description": "Zum Abschließen von Türen und Truhen",
+      "summary": "Kosten: 17 Gulden"
+    },
+    "truhe": {
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "99"
+        }
+      ],
+      "description": "Mit Schlüssel und Schloss. Zum sicheren Verwahren von Wertgegenständen oder Münzen (max. 1000 Gulden in Münzen passen in eine durchschnittliche kleine Truhe)",
+      "summary": "Kosten: 33 Gulden"
+    },
+    "buschmesser": {
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "99"
+        }
+      ],
+      "description": "Das Buschmesser zählt als Waffe wie ein Säbel, gibt aber beim Durchschneiden von Ranken, Wurzeln und ähnlichem einen Bonus +1.",
+      "summary": "Kosten: 90 Gulden"
+    },
+    "gezaehe": {
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "99"
+        }
+      ],
+      "description": "Das Gezähe gibt einen Bonus +2 bei allen handwerklichen Tätigkeiten unter Tage.",
+      "summary": "Kosten: 35 Gulden"
+    },
+    "klettergeschirr": {
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "99"
+        }
+      ],
+      "description": "Um Klettergeschirr zu erwerben, musst du mehrere Märkte bereisen. An jedem Markt darfst du als Fza einen Marktbesuch zum Einkaufen vornehmen und kannst dabei 1 Teil des Klettergeschirrs für 10 Gulden kaufen. Sobald du mindestens 1 Teil erworben hast, musst du beim nächsten Teil mit einem W6 würfeln: Entspricht die Augenzahl der Anzahl erworbener Teil oder ist niedriger, so kannst du auf diesem Markt nichts passendes finden. Ist die Augenzahl höher, konntest du ein weiteres Teil finden und für 10 Gulden kaufen. Jedes Teil gibt beim Klettern +1 auf Akrobatik (max. +5). Bei einem Bonus von +3 kann der HeXXenmeister entscheiden, dass die Probe automatisch gelingt.",
+      "summary": "Kosten: 10 Gulden pro Teil"
+    },
+    "probentasche": {
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "99"
+        }
+      ],
+      "description": "\tDie Probentasche erhöht die Menge an Verbrauchsgegenständen, die man mit in den Kampf führen kann um +5 (wenn nach den im Buch der Regeln angegebenen Richtlinien für Tragkapazität gespielt wird). Wird nicht nach diesen Richtlinien gespielt, erhöht die Tasche die Tragkraft des Jägers um +1 Beutegutpaket. Man kann immer nur eine Probentasche tragen.",
+      "summary": "Kosten: 27 Gulden"
+    },
+    "spitzhacke": {
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "99"
+        }
+      ],
+      "description": "Eine Spitzhacke zählt in jeder Hinsicht als Schlagwaffe und kann mit denselben Werten verwendet werden.",
+      "summary": "Kosten: 50 Gulden"
+    },
+    "schutzamulett": {
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "99"
+        }
+      ],
+      "description": "Sobald der Träger des Schutzamuletts zum Ziel eines von einer wahren Hexe gewirkten Zaubers wird, darf er mit 2 Blutwürfeln würfeln. Erzielt er insgesamt 5 oder mehr Blutstropfensymbole, wird der Zaubereffekt für ihn annulliert. Sobald das geschieht, ist das Amulett kraftlos, bis der Träger seine nächste Fza (mit beliebiger Tätigkeit) ausführt. Ein Jäger kann mehrere Schutzamulette kaufen, das hat jedoch nur rollenspielerische Auswirkungen; mehrere Amulette erhöhen weder die Zahl der Blutwürfel noch die der Aufladungen. Die Gesamtheit aller getragenen Schutzamulette zählt wie 1 Amulett.",
+      "summary": "Kosten: 15 Gulden"
+    },
+    "kochstelle": {
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "99"
+        }
+      ],
+      "description": "Will ein Jäger die Kochstelle verwenden, um die Gruppe zu versorgen, muss er seinen Unterhalt um 20 Gulden erhöhen (für Zutaten und Gewürze). Benutzt er sie ausschließlich, um Kräutermittel zu produzieren, sind die Unterhaltskosten in der entsprechenden Jägerkraft beschrieben (Kräuterwissen) und die zusätzlichen Kosten zum Kochen entfallen. Um eine schmackhafte Mahlzeit zuzubereiten, ist eine Fza erforderlich sowie eine Koch-Probe auf Wissensgebiete (Rezepte aus Büchern), Land und Leute (überlieferte Rezepte) oder Hexenkunst (uralte oder exotische Rezepte). Teile die Erfolge auf die Gruppenmitglieder auf. Für 1 Erfolg erhält ein Jäger 1 Coup oder 1 Idee, für 3 Erfolge darf er 1 Eh-Kästchen neu benutzen. Jeder Effekt darf pro Jäger nur einmal pro Probe und einmal pro Tag verwendet werden. Für das Maximum von 5 Erfolgen pro Person würde man demnach 1 Coup und 1 Idee erhalten und 1 Eh-Kästchen reaktivieren.",
+      "summary": "Kosten: 18 Gulden"
+    }
+  },
+  "wurfgeschosse":{
+    "description":"Geschosse werden üblicherweise mit einer Schleuder ins Ziel befördert. Während die Schleuder zunächst den normalen Schaden anrichtet (Schaden 1 plus weiterer Schaden durch Treffererfolge), haben die Geschosse verschiedene Nebeneffekte, die aber nur dann eintreten, wenn beim Angriffswurf mindestens 1 Erfolg erzielt wurde.",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/uebersicht-wurfgeschosse.html"
+      },
+      {
+        "source": "Das Buch der Regeln ",
+        "page": "123"
+      }
+    ],
+    "blitzbombe": {
+      "description": "Würfele beim Angriff einen Blutwürfel mit. Für jedes Blutstropfensymbol erhält das Ziel 1 Malusstufe (max. 5).",
+      "summary": ""
+    },
+    "brandgeschoss": {
+      "description": "Würfele beim Angriff einen Blutwürfel mit. Für jedes Blutstropfensymbol erhält das Ziel 1 äußere Schadensstufe (max. 5).",
+      "summary": ""
+    },
+    "explosivgranate": {
+      "description": "Dieses Geschoss kann mehrere Gegner treffen. Es entspricht den in der Markttabelle und in den Regeln auf Seite 66 beschriebenen Explosivgeschossen.",
+      "summary": ""
+    },
+    "giftgeschoss": {
+      "description": "Würfele beim Angriffswurf einen Blutwürfel mit. Für jedes Blutstropfensymbol erhält der Gegner 1 innere Schadensstufe (max. 5).",
+      "summary": ""
+    },
+    "nebelbombe": {
+      "description": "Du kannst eine Nebelbombe als Aktion für 1 Ap direkt vor die eigenen Füße werfen und löst dich so automatisch von einem gebundenen Gegner. Das erfordert keine Probe und zählt nicht als Angriff. Nebelbomben können mehrfach pro Runde angewendet werden.",
+      "summary": ""
+    },
+    "saeurebombe": {
+      "description": "Würfele beim Angriffswurf einen Blutwürfel mit. Für jedes Blutstropfensymbol wird der Panzerwert des Gegners dauerhaft um 1 reduziert. Säurebomben wirken nicht bei riesigen oder titanischen Gegnern. Gegner, die einmal Opfer einer Säurebombe geworden sind (und deren Pw dadurch mindestens um 1 reduziert wurde), verlieren keine weiteren Panzerpunkte durch nochmalige Benutzung von Säure (gleich aus welcher Quelle).",
+      "summary": ""
+    },
+    "schmierbombe": {
+      "description": "Wird ein Gegner von einer Schmierbombe getroffen, löst er sich von allen Jägern und erhält 1 Malusstufe. Du kannst Schmierbomben nicht auf befreundete Jäger anwenden. Schmierbomben wirken nicht bei riesigen oder titanischen Gegnern.",
+      "summary": ""
+    },
+    "wurfgranate": {
+      "description": "Würfele beim Angriffswurf einen Blutwürfel mit. Für jedes Blutstropfensymbol erhält der Gegner zusätzlich 2 Punkte Schaden (Feuerschaden, Schmerzschaden).",
+      "summary": ""
+    }
+  },
+  "elixiere":{
+    "description":"Jede Anwendung verbraucht ein MH-Kästchen und erfordert einen Wurf mit dem Elixierwürfel (außer bei Panzerund Talent-Elixieren).",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/alc_uebersicht_elixiere.html"
+      },
+      {
+        "source": "Das Buch der Regeln ",
+        "page": "122"
+      }
+    ],
+    "ausdauer-elixier": {
+      "description": "Der Konsument erhält Puffer-Lep in Höhe des Elixiersymbols mal 2.",
+      "summary": ""
+    },
+    "coup-elixier": {
+      "description": "Der Konsument erhält Coups in Höhe des Elixiersymbols.",
+      "summary": ""
+    },
+    "gegengift": {
+      "description": "Der Konsument verliert innere Schadensstufen in Höhe des Elixiersymbols.",
+      "summary": ""
+    },
+    "heil-elixier": {
+      "description": "Der Konsument regeneriert Lep in Höhe des Elixiersymbols (bis zum max. Lep-Wert).",
+      "summary": ""
+    },
+    "ideen-elixier": {
+      "description": "Der Konsument erhält Ideen in Höhe des Elixiersymbols.",
+      "summary": ""
+    },
+    "mut-elixier": {
+      "description": "Der Konsument verliert Malusstufen in Höhe des Elixiersymbols.",
+      "summary": ""
+    },
+    "panzer-elixier": {
+      "description": "Der Pw des Konsumenten steigt bis zur nächsten Ini-Phase um 2.",
+      "summary": ""
+    },
+    "talent-elixier": {
+      "description": "Der Konsument erhält auf seine nächste Fertigkeitsprobe einen Bonus von +5. Wird der Effekt nicht genutzt, so erlischt er nach einigen Minuten.",
+      "summary": ""
+    }
+  },
+  "kraeutermittel":{
+    "description":"",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": ""
+      },
+      {
+        "source": "Hexenjagd",
+        "page": "104"
+      }
+    ],
+    "Bannpulver": {
+      "description": "Dieses Pulver wird kreisförmig um den eigenen Körper auf den Boden gestreut (oder einen Reiter inkl. stehendem Pferd). Das erfordert eine Aktion mit 1 Ap. Alle widernatürlichen Gegner, die zu diesem Zeitpunkt an den Jäger gebunden sind, lösen sich automatisch von ihm. Gegner, deren Bindung auf diese Weise gelöst wurde, können in dieser Runde weder den Jäger im Bannkreis im Nahkampf attackieren (jedoch im Fernkampf) noch sich an einen anderen Jäger heranbewegen. Gegner, die nicht an den Jäger gebunden waren, können jedoch normal an ihn ziehen. Die Wirkung des Bannpulvers und des Bannkreises endet in Ini 0.",
+      "summary": ""
+    },
+    "Glitzerpulver": {
+      "description": "Dieses Pulver wird in die Luft über einer Zielperson geschleudert (der Anwender selbst oder ein Gefährte). Dort rieselt es langsam herab und erzeugt dabei ein glitzerndes, funkelndes Feld. Glitzerpulver kann als Reaktion für 1 Ap verwendet werden. Für die Dauer dieser Kampfrunde erleiden alle Fernkampfangriffe mit physischen Waffen (also keine Zauberkräfte) gegen die Zielperson einen Malus von −2.",
+      "summary": ""
+    },
+    "Heilungssalbe": {
+      "description": "Diese Salbe heilt Verletzungen, muss jedoch großflächig aufgetragen werden, was nicht während des Kampfes möglich ist. Der Behandelte würfelt 2 Elixierwürfel und regeneriert Lep in Höhe des besseren Ergebnisses. Überschreiten seine Lep dadurch das Maximum, erhält er den Überschuss als Puffer-Lep. In diesem Fall kann er jedoch erst wieder durch die Salbe geheilt werden, wenn er mindestens 1 normalen Lep verliert. Die Anwendung zählt als Magische Heilung (Mh).",
+      "summary": ""
+    },
+    "Hexengift": {
+      "description": "Dieses Waffengift entspricht in jeder Hinsicht einfachem Waffengift. Wird es gegen eine wahre Hexe angewendet, verursacht es jedoch 2 Blutwürfel zusätzlichen Schaden statt nur 1.",
+      "summary": ""
+    },
+    "Hexensalbe": {
+      "description": "Wird diese Salbe aufgetragen (meist auf das Gesicht, die Unterarme oder die Hände), beginnt die Haut an diesen Stellen, dunkler und fleckiger zu werden. Es entstehen Falten und Furunkel, die an Warzen erinnern. Im Gesicht zieht sich die Haut stark zurück. Der Anwender nimmt das Aussehen eines untoten Wesens, einer Hexe oder einer ähnlichen widernatürlichen Kreatur an. Die Veränderung bleibt für eine Anzahl Stunden in Höhe eines Elixierwürfels bestehen. Die Auswirkungen der Salbe sind in erster Linie rollenspielerischer Natur. Zusätzlich erhält die Person eine Schadensreduzierung −1 gegen alle physischen Angriffe, erleidet dafür aber auch einen Malus von −5 auf Redekunst-Proben sowie sämtliche Interaktionen mit normalen Menschen. Nach Ablauf der Wirkung nimmt die Haut ihre frühere Konsistenz an. Die Anwendung zählt als Magische Heilung (Mh).",
+      "summary": ""
+    },
+    "Irrwischkraut": {
+      "description": "Verwende Irrwischkraut wie ein Elixier. Sobald es eingenommen wurde, erhöht sich ab der folgenden Kampfrunde die Ini des Jägers um das Ergebnis eines Elixierwürfels. Nach Ende des Kampfes erleidet er jedoch für jeden Punkt Ini über seinem Normalwert 1 Punkt Geistschaden. Die Anwendung zählt als Magische Heilung (Mh).",
+      "summary": ""
+    },
+    "Rauschkraut": {
+      "description": "Verwende Rauschkraut wie ein Elixier. Sobald es eingenommen wurde, erhält der Anwender Rage in Höhe eines Elixierwürfels (bis zum erlaubten Maximum von 5 Ragen). Die Anwendung zählt als Magische Heilung (Mh).",
+      "summary": ""
+    },
+    "Verhextes Wasser": {
+      "description": "Verwende Verhextes Wasser wie ein Wurfgeschoss. Es richtet zwar keinen Schaden an (außer dem Grundschaden durch den Schleuderangriff), der Anwender darf jedoch mit einem Blutwürfel würfeln. Entspricht die Anzahl der Blutstropfensymbole mindestens der Anführerstufe des Gegners, sind alle Immunitäten des Ziels bis ans Ende der Kampfrunde aufgehoben. Werden in dieser Zeit anhaltende Einflüsse erzeugt, können diese zwar in Ini 0 abgebaut werden, bleiben jedoch auch bestehen, wenn die Immunität in der nächsten Runde wieder gültig ist. Sobald verhextes Wasser einmal erfolgreich angewendet wurde, kann das Ziel während des aktuellen Kampfes nicht mehr von diesem betroffen werden.",
+      "summary": ""
+    },
+    "Warzengift": {
+      "description": "Dieses Waffengift lässt die Haut reißen, Pusteln und Warzen entstehen. Würfele beim Angriff einen Blutwürfel mit. Wenn der Angriff mit der vergifteten Waffe zum Verlust von Lep beim Gegner führt, erzeugt das Warzengift für jedes Blutstropfensymbol abwechselnd 1 äußere Schadensstufe oder 1 Malusstufe. Bei 3 Erfolgen würde es somit zuerst 1 äußere Schadensstufe, dann 1 Malusstufe, dann erneut 1 äußere Schadensstufe verursachen.",
+      "summary": ""
+    },
+    "Wundtrank": {
+      "description": "Verwende den Wundtrank wie ein Elixier. Sobald er eingenommen wurde, reduziert er äußere Schadensstufen in Höhe eines Elixierwürfels. Die Anwendung zählt als Magische Heilung (Mh).",
+      "summary": ""
+    }
+  },
+  "unikate":{
+    "description":"Jedes Unikat kann eine der unten aufgeführten Wirkungen aufweisen. Die jeweiligen Kosten in Kp und die Unterhaltssteigerungen unterscheiden sich für jede Wirkung.",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/uni_uebersicht_der_unikat_wirkungen.html"
+      },
+      {
+        "source": "Das Buch der Regeln ",
+        "page": "141"
+      }
+    ],
+    "Donnerschuss ": {
+      "description": "Alle Angriffe der Schusswaffe ignorieren 1 Pw. Der Umbau ist möglich bei Armbrüsten, Musketen und Pistolen.",
+      "summary": " (20 Kp, Unterhalt +50)"
+    },
+    "Feuerschaden": {
+      "description": "Die Waffe richtet bei einem Treffer Feuerschaden an. Der Schadenstyp der Waffe ändert sich in Feuerschaden. Würfele einen Blutwürfel mit. Die Zahl der Blutstropfensymbole gibt an, wie viele äußere Schadensstufen bei einem erfolgreichen Treffer (mindestens 1 Treffererfolg) erzeugt wurden. Wenn der Blutwürfel kein Blutstropfensymbol anzeigt, kann diese Wirkung bis zum Ende des Kampfes nicht mehr eingesetzt werden. Der Umbau ist möglich bei Armbrüsten, Säbeln und Schwertern.",
+      "summary": "(25 Kp, Unterhalt +80)"
+    },
+    "Giftkanal ": {
+      "description": "Die Waffe kann wie Dolche und Messer mit Giften präpariert werden. Der Umbau ist möglich bei Armbrüsten, Fechtwaffen und Schwertern.",
+      "summary": "(15 Kp, Unterhalt +20)"
+    },
+    "Schnellschuss ": {
+      "description": "Wenn der Jäger in der laufenden Runde nur einen einzigen Schusswaffenangriff ausführt, kann er diesen um 1 Ap reduzieren. Eine Kombination mit Nahkampfangriffen ist erlaubt. Der Einbau ist möglich bei Armbrüsten und Pistolen.",
+      "summary": "(15 Kp, Unterhalt +40)"
+    },
+    "Schleuderbüchse ": {
+      "description": " Die Muskete verursacht 2 Schadenspunkte Grundschaden weniger, kann dafür aber Wurfgeschosse verschießen wie sonst nur eine Schleuder. Der Einbau ist möglich bei Musketen.",
+      "summary": "(10 Kp, Unterhalt +20)"
+    },
+    "Schussstange ": {
+      "description": "Im langen Schaft der Waffe ist eine Schussvorrichtung eingebaut. Wenn du selbst freistehst, kannst du mit der Waffe einen Angriff über Distanz (nur einmal pro Kampf) ausführen (auch gegen gebundene Gegner). Erhöhe die Ap-Kosten des Angriffs um +1. Alle anderen Werte bleiben jedoch bestehen. Der Einbau ist möglich bei Lanzen, Schlagwaffen und Stangenwaffen.",
+      "summary": "(15 Kp, Unterhalt +30)"
+    },
+    "Silberklinge ": {
+      "description": "Alle Angriffe dieser Waffe gegen widernatürliche Kreaturen erzeugen +1 Schaden. Der Einbau ist möglich bei Dolchen, Fechtwaffen, Säbeln und Schwertern.",
+      "summary": "(30 Kp, Unterhalt +50)"
+    },
+    "Wirbel ": {
+      "description": "Die Waffe beginnt zu wirbeln oder zu rotieren, sodass sie mehrere gebundene Gegner verletzten kann. Wenn du mit dieser Waffe angreifst und mindestens zwei Gegner an dich gebunden sind, erhältst du für jeden Angriff einen Bonus von +1. Allerdings kannst du in diesem Zug jeden Gegner maximal einmal mit dieser Waffe attackieren. Der Einbau ist möglich bei Fechtwaffen, Schlagwaffen, Säbeln, Schwertern und Stangenwaffen.",
+      "summary": "(20 Kp, Unterhalt +30)"
+    },
+      "Blendaura ": {
+      "description": "Immer, wenn du von einem Gegner durch einen Nahkampfangriff getroffen wirst, strahlt deine Blendaura-Panzerung in einem grellen Licht, das den angreifenden Gegner blendet. Für je 4 Erfolge, die der Gegner bei einem Nahkampfangriff gegen den Träger der Panzerung erzielt, erhält er automatisch 1 Malusstufe. Der Einbau ist möglich bei schweren Panzerungen.",
+      "summary": "(25 Kp, Unterhalt +50)"
+    },
+    "Modulare Panzerung": {
+      "description": "Die Panzerung ist modular aufgebaut. Bei Bedarf können Panzerplatten und -teile abgeworfen werden, wodurch die Panzerung leichter wird. Der Träger kann sich vor Kampfbeginn (wenn nicht überrascht) oder in Ini 0 entscheiden, ob er den Panzerballast abwirft. Das ist pro Konflikt einmal möglich. Für den Rest des Kampfes wird die Panzerung behandelt wie eine der jeweils niedrigeren Stufe: Aus einer schweren Panzerung wird eine mittelschwere Panzerung, aus einer mittelschweren Panzerung eine leichte Panzerung. Der Einbau ist möglich bei mittelschweren und schweren Panzerungen.",
+      "summary": "(15 Kp, Unterhalt+20)"
+    },
+    "Verhärtendes Leder": {
+      "description": "Das Leder der Panzerung wird dazu gebracht, sich zusammenzuziehen, sodass es sich verhärtet und dadurch die Schutzwirkung erhöht. Der Träger kann vor Kampfbeginn (wenn nicht überrascht) oder in Ini 0 das verhärtende Leder aktivieren. In der nächsten Runde zählt die Panzerung wie eine schwere Panzerung (Pw 3, Ap 3). Der Einbau ist möglich bei mittelschweren Panzerungen.",
+      "summary": "(15 Kp, Unterhalt +20)"
+    }
+  },
+  "gifte":{
+    "description":"",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/uebersicht-gifte.html"
+      },
+      {
+        "source": "Das Buch der Regeln ",
+        "page": "125"
+      }
+    ],
+    "Effektives Waffengift ": {
+      "description": "Die Zahl der bei einem Angriff verursachten Schadenspunkte (Lep-Verlust beim Gegner, nach Abzug von Panzerung) wird verdoppelt.",
+      "summary": ""
+    },
+    "Einfaches Waffengift": {
+      "description": "Würfele beim Angriff einen Blutwürfel mit. Wenn der Angriff mit der vergifteten Waffe zum Verlust von Lep beim Gegner führt, erzeugt jedes Blutstropfensymbol 2 weitere Schadenspunkte (Gift, Schmerzschaden).",
+      "summary": ""
+    },
+    "Feuergift ": {
+      "description": "Würfele beim Angriff einen Blutwürfel mit. Wenn der Angriff mit der vergifteten Waffe zum Verlust von Lep beim Gegner führt, erzeugt das Feuergift für jedes Blutstropfensymbol 1 äußere Schadensstufe.",
+      "summary": ""
+    },
+    "Gift des Erstarrens ": {
+      "description": "Würfele beim Angriff einen Blutwürfel mit. Wenn der Angriff mit der vergifteten Waffe zum Verlust von Lep beim Gegner führt, verliert der Gegner Schadensreduzierungen in Höhe der gewürfelten Blutstropfensymbole.",
+      "summary": ""
+    },
+    "Lotusgift ": {
+      "description": "  Dieses Gift ist besonders effektiv, wenn das Ziel bereits unter negativen Zuständen leidet. Wenn der Angriff mit der vergifteten Waffe zum Verlust von Lep beim Gegner führt, erleidet dieser sofort 2 Punkte Schmerzschaden für jede äußere Schadensstufe, innere Schadensstufe und Malusstufe, unter der er bereits leidet (kumulativ).",
+      "summary": ""
+    },
+    "Schlafgift ": {
+      "description": " Schlafgift muss dem Ziel über Nahrung oder Getränke zugeführt werden und ist nicht als Waffengift tauglich. Pro Schlafgift sind 4 Bandengegner (gleich welcher Stufe) oder 1 Anführergegner betroffen. Es können maximal drei Schlafgifte kombiniert werden, wodurch z. B. durch ein vergiftetes Fass Wasser bis zu 8 Bandengegner und 1 Anführergegner lahmgelegt werden können. Bandengegner schlafen automatisch tief und fest für drei bis vier Stunden ein (sie gelten als besiegt, noch bevor der Kampf beginnt).  Anführergegner starten stattdessen bei der nächsten Begegnung mit 3 Malusstufen, die ab der ersten Ini-0-Phase normal abgebaut werden können.",
+      "summary": ""
+    },
+    "Schwächegift ": {
+      "description": "Würfele beim Angriff einen Blutwürfel mit. Wenn der Angriff mit der vergifteten Waffe zum Verlust von Lep beim Gegner führt, erzeugt das Schwächegift für jedes Blutstropfensymbol 1 Malusstufe beim Gegner.",
+      "summary": ""
+    },
+    "Wundgift ": {
+      "description": "Würfele beim Angriff einen Blutwürfel mit. Wenn der Angriff mit der vergifteten Waffe zum Verlust von Lep beim Gegner führt, erzeugt das Wundgift für jedes Blutstropfensymbol 1 innere Schadensstufe beim Gegner.",
+      "summary": ""
+    }
+  },
+  "apperate":{
+    "description":"Die maximale Anzahl an Apparaten entspricht dem Fw (Handwerken) + 2. Jeder Apparat kann von Stufe 1 bis Stufe 3 ausgebaut werden (Kosten: je 12 Kp pro Stufe).",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/mech_uebersicht_der_apparate.html"
+      },
+      {
+        "source": "Das Buch der Regeln ",
+        "page": "140"
+      }
+    ],
+    "Bewegungsunterstützer": {
+      "description": " Coups +1 (Ausbau: +2, +3)",
+      "summary": ""
+    },
+    "Fernsichtbrille": {
+      "description": "Erkennen-Probe Bonus von +1 (Ausbau: +2, +3)",
+      "summary": ""
+    },
+    "Kraftverstärker ": {
+      "description": "Muskelspiel-Probe Bonus von +1 (Ausbau: +2, +3)",
+      "summary": ""
+    },
+    "Linsensystem": {
+      "description": "Ideen +1 (Ausbau: +2, +3)",
+      "summary": ""
+    },
+    "Multifunktionswerkzeug ": {
+      "description": "Handwerken-ProbeBonus von +1 (Ausbau: +2, +3)",
+      "summary": ""
+    },
+    "Panzerplatten ": {
+      "description": "Puffer-Lep +2 (Ausbau: +4, +6)",
+      "summary": ""
+    },
+    "Präzises Feinwerkzeug ": {
+      "description": "Fingerfertigkeit- Probe Bonus von +1 (Ausbau: +2, +3)",
+      "summary": ""
+    },
+    "Schildhalterung ": {
+      "description": "Schildblock-Probe Bonus von +1 (Ausbau: +2, +3)",
+      "summary": ""
+    },
+    "Sprungfedern ": {
+      "description": "Automatisches Lösen von einem Feind und Sprünge von bis zu 2 Metern Höhe (Ausbau: zweimal pro Kampf bzw. dreimal pro Kampf einsetzbar)",
+      "summary": "einmal pro Kampf"
+    },
+    "Waffenhalterung  ": {
+      "description": "Ap-Kosten für Waffenangriff -1 (Ausbau: 2 x pro Kampf bzw. 3 x pro Kampf einsetzbar)",
+      "summary": "einmal pro Kampf"
+    },
+    "Wurfhakenschleuder ": {
+      "description": "Akrobatik-Probe Bonus von +1 (Ausbau: +2, +3)",
+      "summary": ""
+    }
+  },
+  "seelenapperate":{
+    "description":"Die maximale Anzahl an Apparaten entspricht dem Fw (Handwerken) + 2. Jeder Apparat kann von Stufe 1 bis Stufe 3 ausgebaut werden (Kosten: je 12 Kp pro Stufe).",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/mech_uebersicht_der_apparate.html"
+      },
+      {
+        "source": "Das Buch der Regeln ",
+        "page": "140"
+      }
+    ],
+    "Abwehrautomatik": {
+      "description": "Ausweichen-, Schildblock- und Parieren-Probe Bonus von +1 (Ausbau: +2, +3)",
+      "summary": ""
+    },
+    "Zielsystem": {
+      "description": "Musketen-, Armbrüste- und Pistolen- Probe Bonus +1 (Ausbau: +2, +3)",
+      "summary": ""
+    },
+    "Vibrierende Klinge": {
+      "description": "Dolche/Messer-, Säbelund Schwerter-Probe Bonus +1 (Ausbau: +2, +3)",
+      "summary": ""
+    },
+    "Wundversorger": {
+      "description": " Erste Hilfe-Probe Bonus +1 (Ausbau: +2, +3)",
+      "summary": ""
+    }
+  },
+  "sonstiges":{
+    "description":"Medizin, Talismane, Kunstobjekte",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/medizin-talismane-kunstobjekte.html"
+      },
+      {
+        "source": "Archiv des Wächterbunds II",
+        "page": "58"
+      }
+    ],
+    "Hasenpfote ": {
+      "description": " Einmal pro Abenteuer bzw. Abenteuerabschnitt darf der Träger 1 Würfel einer Fertigkeitsprobe auf eine beliebige Seite drehen. Jeder Jäger darf nur 1 Hasenpfote tragen.",
+      "summary": "1 Ti"
+    },
+    "Knochenflöte ": {
+      "description": "Der Klang dieser Flöte verscheucht Tiere. Einmal pro Kampf kannst du als Aktion (3 Ap) die Flöte spielen. Würfele auf Fingerfertigkeit; für jeden Erfolg wird eine Bandenstufe (nur natürliche Tiere) besiegt. Die Tiere fliehen und können danach nicht wiederverwertet werden. Würfele anschließend mit dem Blutwürfel. Zeigt er die leere Seite, ist die magische Kraft der Flöte erschöpft.",
+      "summary": "4 Ti"
+    },
+    "Knochenwürfelset  ": {
+      "description": "Dieses Set enthält 10 Knochenwürfel, in der Regel hergestellt aus den Gebeinen unterschiedlicher Tiere. Stelle die 10 Würfel mit HeXXenwürfeln dar. Einmal pro Tag kannst du die Würfel rollen lassen. Alle Würfel, die eine leere Seite zeigen, werden permanent entfernt (ihre magische Kraft ist erloschen). Alle Würfel, die ein HeXXensymbol zeigen, geben dir wahlweise 1 Coup oder 1 Idee und bleiben im Set. Alle Würfel, die einen Espritstern zeigen, geben dir 1 Segnung (max. 5) und bleiben im Set. Sobald du die Würfel erneut würfelst, musst du evtl. vorhandene überschüssige Coups und Ideen abbauen. Du kannst mehrere Knochenwürfelsets haben, aber immer nur eines verwenden; benutze zusätzliche Sets als Nachfüllsets.",
+      "summary": "10 Ti"
+    },
+    "Monstertrophäe ": {
+      "description": "Diese meist brutal abschreckenden Trophäen sind nicht nur begehrt unter Sammlern und Forschern, sie verbreiten auch den Ruhm deiner Gruppe. Eine Monstertrophäe kann in größeren Städten als Fza für 750 Gulden sowie +20 Gulden für jeden Erfolg auf einer Fingerfertigkeit-Probe verkauft werden.",
+      "summary": "30 Wi"
+    },
+    "Mumie  ": {
+      "description": "Hierbei handelt es sich um den vollständig einbalsamierten Körper eines Menschen (auch wenn der sich evtl. aus ver-schiedenen gesammelten Teilen zusammensetzt). Mumien sind extrem begehrt unter Alchemisten, Sammlern und Forschern. Jede Mumie kann daher in einer Stadt als Fza für 500 Gulden sowie +10 Gulden für jeden Erfolg auf einer Fingerfertigkeit-Probe verkauft werden.",
+      "summary": "20 Ti"
+    },
+    "Schädelpulver  ": {
+      "description": "Dieses Pulver, auch Cranium humamum genannt, wird aus dem Zermahlen eines menschlichen Schädels, ggf. unter Beimischung anderer Knochenteile und Mineralien gewonnen. Das Pulver hat keine offensichtlichen körperlichen Auswirkungen, sondern wirkt auf spirituelle, übersinnliche Weise. Nimmt ein Charakter Schädelpulver vor dem Zubettgehen zu sich, darf er am nächsten Morgen mit dem Elixierwürfel würfeln und erhält entsprechend viele beliebige Ressourcen (Coups, Ideen, Segnungen, Ambitions- oder Rage-Punkte o. a.). Dafür muss er allerdings am nächsten Morgen 1 Kästchen Mh abstreichen.",
+      "summary": "3 Mi"
+    },
+    "Schmerzsalbe": {
+      "description": "Schmerzsalben werden aus Menschenfett hergestellt. Die Schmerzsalbe hat dieselbe Wirkung wie ein Panzerelixier.",
+      "summary": "4 Mi"
+    },
+    "Teufelsamulett  ": {
+      "description": "Ein solches Amulett schützt gegen widernatürliche Monster. Es entspricht in jeglicher Hinsicht einem Schutzamulett gegen Hexen, wirkt jedoch gegen Zauber aller widernatürlicher Gegner. Anders als das Schutzamulett gegen Hexen kann das Teufelsamulett nicht aufgeladen werden; die magische Wirkung ist nach einmaliger Anwendung verflogen.",
+      "summary": "5 Wi"
+    },
+    "Tierpräparat  ": {
+      "description": "Tierpräparate sind kleine Kunstwerke, die man auf jedem größeren Markt (ab Kleinstadt) gewinnbringend verkaufen kann. Das Verkaufen eines Tierpräparats erfordert keine Fza, bringt 100 Gulden ein sowie +5 Gulden für jeden Erfolg auf einer Fingerfertigkeit-Probe.",
+      "summary": "10 Ti"
+    },
+    "Totenhand ": {
+      "description": "Totenhände sind wichtige Bestandteile okkulter medizinischer Praktiken. Ihnen wird eine ganze Reihe verschiedener Wirkungen zugesprochen, u.a. sollen sie Hautkrankheiten heilen können. Immer, wenn der Träger eine Reduzierungsprobe für äußere Schadensstufen ausführt, kann er 1 Finger einer Totenhand (insgesamt 5) opfern, um 1 automatischen Erfolg auf der Probe zu bekommen. Für jede Probe kann man nur 1 Finger opfern.",
+      "summary": "5 Mi"
+    },
+    "Zahnkette ": {
+      "description": "Diese Kette besteht aus 5 Zähnen verschiedener besiegter Tiere. Der Träger kann einmal pro Kampf als freie Reaktion (0 Ap) 1 Zahn opfern, um die gegen ihn gerichteten Angriffserfolge eines natürlichen Tiers um 1 zu reduzieren. Jeder Jäger darf nur 1 Zahnkette tragen.",
+      "summary": "5 Ti"
+    }
+  }
+}
