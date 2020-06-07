@@ -2,17 +2,17 @@
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
  */
-class JaegerSheet extends ActorSheet {
+class JaegerSheet extends HexxenActorSheet {
 
   /** @override */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["hexxen", "sheet", "actor", "jaeger"],
-      template: "systems/" + CONFIG.Hexxen.scope + "/templates/jaeger-sheet.html", // FIXME basepath klären
+      template: Hexxen.basepath + "templates/jaeger-sheet.html",
       width: 700,
       height: 720,
       tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "skills"}],
-      scrollY: [ ".biography.scroll-y", ".states.scroll-y", ".skills.scroll-y", ".powers.scroll-y", 
+      scrollY: [ ".biography.scroll-y", ".states.scroll-y", ".skills.scroll-y", ".powers.scroll-y",
         ".combat.scroll-y", ".items.scroll-y" ]
     });
   }
@@ -24,53 +24,88 @@ class JaegerSheet extends ActorSheet {
     return `${super.title} (Lv. ${this.actor.data.data.core.level})`;
   }
 
-  /** @override */
-  _getHeaderButtons() {
-    let buttons = super._getHeaderButtons();
 
-    // Token Configuration
-    let canConfigure = this.options.editable && (game.user.isGM || this.actor.owner);
-    if (canConfigure) {
-      buttons = [
-        {
-          label: (!!this.actor.getFlag(CONFIG.Hexxen.scope, "editMode")) ? "To Game Mode" : "To Edit Mode",
-          class: "configure-edit",
-          icon: "fas fa-" + (!!this.actor.getFlag(CONFIG.Hexxen.scope, "editMode") ? "dice" : "edit"),
-          onclick: ev => this._onToggleEdit(ev)
-        }
-      ].concat(buttons);
-    }
-    return buttons
-  }
-  
-  _onToggleEdit(event) {
-    event.preventDefault();
-    
-    let mode = !!this.actor.getFlag(CONFIG.Hexxen.scope, "editMode") || false; // FIXME !! und || redundant?
-    // toggle mode
-    mode = !mode;
-
-    // save changed flag (also updates inner part of actor sheet)
-    // FIXME scope könnte nicht existieren, dann problematisch
-    this.actor.setFlag(CONFIG.Hexxen.scope, "editMode", mode);
-
-    // update button
-    // FIXME was passiert remote?
-    event.target.childNodes[0].className = "fas fa-" + (mode ? "dice" : "edit");
-    event.target.childNodes[1].textContent = mode ? "To Game Mode" : "To Edit Mode";
-  }
-
+  /* -------------------------------------------- */
 
   /** @override */
   getData() {
+    // get duplicated data
     const data = super.getData();
+
+    // contains (from BaseEntitySheet)
+    //   entity: any; (copy of this.actor.data; data only, not the Actor instance)
+    //   owner: boolean;
+    //   limited: boolean;
+    //   options: any;
+    //   editable: boolean;
+    //   cssClass: string;
+    // (from ActorSheet)
+    //   actor: any; (alias for entity)
+    //   data: any; (alias for actor.data; inner data)
+    //   items: any; (alias for actor.items; data only, not the Item instance; sorted, contains all subtypes)
+
+    // header resources
+    let hres = {}
+    for( let key of [ "segnungen", "ideen", "coups" ] ) {
+      // FIXME: temporärer Code bis zur Änderung der Datenstruktur im Actor
+      hres[key] = {value: data.data.resources[key]};
+      // hres[key] = data.data.resources[key];
+    }
+    // FIXME: temporärer Code bis zur Änderung der Datenstruktur im Actor
+    hres["segnungen"].label = "Segnungen";
+    hres["segnungen"].max = 5;
+    hres["ideen"].label = "Ideen [=WIS]";
+    hres["ideen"].default = data.data.attributes.WIS.value;
+    hres["coups"].label = "Coups [=ATH]";
+    hres["coups"].default = data.data.attributes.ATH.value;
+    data["header-resources"] = hres;
     
+    let mot = this.actor.itemTypes.motivation; // returns items, not data
+    mot = mot.length > 0 ? mot[0].data : undefined; 
+    if (mot) {
+      data.data.core["motivation"] = mot.name;
+      // FIXME: HTML aus MCE besser behandeln
+      data.data.core["motivation-bonus"] = mot.data.summary ? mot.data.summary : mot.data.description;
+      data.data.core["motivation-id"] = mot._id;
+    }
+    else {
+      data.data.core["motivation"] = "";
+      data.data.core["motivation-bonus"] = "";
+      data.data.core["motivation-hint"] = "Keine Motivation ausgewählt";
+    }
+    let role = this.actor.itemTypes.role; // returns items, not data
+    switch (role.length) {
+      case 3: 
+        data.data.core["rolle-3"] = role[2].data.name;
+        data.data.core["rolle-3-id"] = role[2].data._id;
+        // no break
+      case 2: 
+        data.data.core["rolle-2"] = role[1].data.name;
+        data.data.core["rolle-2-id"] = role[1].data._id;
+        // no break
+      case 1: 
+        data.data.core["rolle-1"] = role[0].data.name;
+        data.data.core["rolle-1-id"] = role[0].data._id;
+        // no break
+      default:
+        data.data.core["rolle-3-hint"] = data.data.core.level < 7 ? "Verfügbar ab Level 7" : "Keine Rolle ausgewählt";
+        data.data.core["rolle-2-hint"] = data.data.core.level < 2 ? "Verfügbar ab Level 2" : "Keine Rolle ausgewählt";
+        data.data.core["rolle-1-hint"] = data.data.core.level < 1 ? "Verfügbar ab Level 1" : "Keine Rolle ausgewählt";
+    }
+    let prof = this.actor.itemTypes.profession;
+    prof = prof.length > 0 ? prof[0].data : undefined; 
+    if (prof) {
+      data.data.core["profession"] = prof.name;
+      data.data.core["profession-id"] = prof._id;
+    }
+    data.data.core["profession-hint"] = data.data.core.level < 2 ? "Verfügbar ab Level 2" : "Keine Profession ausgewählt";
+
     data.stypes = { "idmg": "Innerer Schaden", "odmg": "Äußerer Schaden", "mdmg": "Malusschaden", "ldmg": "Lähmungsschaden" };
     for ( let state of Object.values(data.data.states) ) {
       state.type = data.stypes[state.type];
     }
-   
-    // FIXME gehört teilweise in den Jaeger!
+
+    // FIXME: gehört teilweise in den Jaeger!
     // Skills aufbereiten
     data.data.skills = data.data.skills || {}; // sicherstellen, dass skills existiert
     for ( let skill of Object.values(data.data.skills) ) {
@@ -83,8 +118,8 @@ class JaegerSheet extends ActorSheet {
       skill.summe = Number(skill.value) + Number(value);
       skill.label += extra;
     }
-    
-    // FIXME gehört teilweise in den Jaeger!
+
+    // FIXME: gehört teilweise in den Jaeger!
     //Kampfskills aufbereiten
     data.data.combat = data.data.combat || {};
     for ( let skill of Object.values(data.data.combat) ) {
@@ -97,11 +132,13 @@ class JaegerSheet extends ActorSheet {
       skill.summe = Number(skill.value) + Number(value);
       skill.label += extra;
     }
+
+    // TODO: data.items filtern, sobald alle anderen subtypen abgehandelt
     
     return data;
   }
-  
-  // FIXME gehört in den Jaeger
+
+  // FIXME: gehört in den Jaeger
   getSkillRolls(key) {
     let data = this.entity.data;
     let skill = data.data.skills[key] || data.data.combat[key];
@@ -114,58 +151,25 @@ class JaegerSheet extends ActorSheet {
   /* -------------------------------------------- */
 
   /** @override */
-  activateListeners(html) {
-    super.activateListeners(html);
-
-    // Add roll listener
-    // FIXME permissions??
-    if (game.user.isGM || this.actor.owner) {
-      html.find(".sheet-header .attributes").on("click", ".roll", this._onClickRoll.bind(this));
-      html.find(".skills").on("click", ".li-control", this._onClickRoll.bind(this));
-      html.find(".combat").on("click", ".li-control", this._onClickRoll.bind(this));
-    }
-
-    // Everything below here is only needed if the sheet is editable
-    if (!this.options.editable) return;
-
-    // Update Inventory Item
-    html.find('.item-edit').click(ev => {
-      const li = $(ev.currentTarget).parents(".item");
-      const item = this.actor.getOwnedItem(li.data("itemId"));
-      item.sheet.render(true);
-    });
-
-    // Delete Inventory Item
-    html.find('.item-delete').click(ev => {
-      const li = $(ev.currentTarget).parents(".item");
-      this.actor.deleteOwnedItem(li.data("itemId"));
-      li.slideUp(200, () => this.render(false));
-    });
-
-    // Add or Remove Attribute
-    html.find(".sheet-header .resource").on("click", ".control", this._onClickPlusMinus.bind(this));
-    html.find(".erste-hilfe").on("click", ".control", this._onClickStateToggle.bind(this));
-    html.find(".einfluesse").on("click", ".control", this._onClickStateToggle.bind(this));
-  }
-
-  /** @override */
   async _renderInner(data, options={}) {
     let html = await super._renderInner(data, options);
-    
-    // FIXME ist _renderInner() oder _replaceHTML() besser?? Sonst Problem: Zugang zu html beim ersten Öffnen
+
+    // FIXME: ist _renderInner() oder _replaceHTML() besser?? Sonst Problem: Zugang zu html beim ersten Öffnen
     // Aktualisiere Zustände, die keine Form-Elemente sind
+    // oder in activateListener(), foundry macht das auch
     this._updateState(html.find(".eh .controls")[0], "eh", options);
     this._updateState(html.find(".mh .controls")[0], "mh", options);
     this._updateState(html.find(".odmg .controls")[0], "odmg", options);
     this._updateState(html.find(".idmg .controls")[0], "idmg", options);
     this._updateState(html.find(".mdmg .controls")[0], "mdmg", options);
     this._updateState(html.find(".ldmg .controls")[0], "ldmg", options);
-    
+
     return html;
   }
-  
+
   _updateState(el, key, options={}) {
-    // FIXME geht so nur für resources
+    // FIXME: geht so nur für resources
+    // FIXME: auf korrelierendes INPUT type=hidden umstellen
     const curent = this.actor.data.data.resources[key];
     const max = el.childElementCount;
 
@@ -178,7 +182,7 @@ class JaegerSheet extends ActorSheet {
         cl.add("fa-inverse"); // wird weiss
       }
     }
-  }  
+  }
 
   /* -------------------------------------------- */
 
@@ -191,61 +195,63 @@ class JaegerSheet extends ActorSheet {
     return position;
   }
 
+  /** @override */
+  activateListeners(html) {
+    super.activateListeners(html);
+
+    // Add roll listener
+    // FIXME: permissions??
+    if (game.user.isGM || this.actor.owner) {
+      html.find(".sheet-header .attributes").on("click", ".roll", this._onClickRoll.bind(this));
+      html.find(".skills").on("click", ".li-control", this._onClickRoll.bind(this));
+      html.find(".combat").on("click", ".li-control", this._onClickRoll.bind(this));
+    }
+
+    // Everything below here is only needed if the sheet is editable
+    if (!this.options.editable) return;
+
+    // Update Inventory Item
+    html.find('.item-edit').click(ev => {
+      // TODO: Überprüfungen
+      const li = $(ev.currentTarget).parents(".item");
+      const item = this.actor.getOwnedItem(li.data("itemId"));
+      item.sheet.render(true);
+    });
+
+    // Delete Inventory Item
+    html.find('.item-delete').click(ev => {
+      // TODO: Überprüfungen
+      const li = $(ev.currentTarget).parents(".item");
+      this.actor.deleteOwnedItem(li.data("itemId"));
+      li.slideUp(200, () => this.render(false));
+    });
+
+    // +/- Buttons
+    // Segnungen, Ideen, Coups
+    html.find(".sheet-header .inc-btn").hover(HexxenIncDecHelper.onHoverPlusMinus.bind(this));
+    html.find(".sheet-header .inc-btn").on("click", ".control", HexxenIncDecHelper.onClickPlusMinus.bind(this));
+    html.find(".sheet-header .set-default").on("click", HexxenIncDecHelper.onClickPlusMinus.bind(this));
+    // Erste Hilfe, Mag. Heilung, Elixire
+    html.find(".states .top").on("click", ".control", HexxenIncDecHelper.onClickPlusMinus.bind(this));
+  }
+
   /* -------------------------------------------- */
 
-  /**
-   * Listen for click events on a control to modify the sheet
-   * @param {MouseEvent} event    The originating left click event
-   * @private
-   */
-  async _onClickPlusMinus(event) {
-    event.preventDefault();
-    
-    const a = event.currentTarget;
-    const action = a.dataset.action;
-    const inc = "increase" === action ? 1 : -1;
-    const target = a.parentNode.dataset.key;
-    const form = this.form;
-    
-    let e = form.elements["data.resources." + target];
-    e.value = Number(e.value) + inc;
-  }
-
-  async _onClickStateToggle(event) {
-    event.preventDefault();
-    
-    const a = event.currentTarget;
-    const action = a.dataset.action;
-    const inc = "increase" === action ? 1 : -1;
-    const parent = a.parentNode;
-    const max = parent.childElementCount; // FIXME [key].max ??
-    const key = parent.parentNode.dataset.key; // FIXME besser rekursiv suchen
-
-    let curent = this.actor.data.data.resources[key] + inc;
-    curent = curent < 0 ? 0 : (curent > max ? max : curent);
-    
-    let update = {};
-    let res = `data.resources.${key}`;
-    update[res] = curent;
-    this.actor.update(update); // FIXME kann man das kompakter schreiben??
-  }
-  
   async _onClickRoll(event) {
     event.preventDefault();
     const a = event.currentTarget;
     const action = a.dataset.action;
-    
+
     const type = a.dataset.type;
     const key = a.parentNode.dataset.key;
-    
+
     const attrs = this.object.data.data.attributes;
     const form = this.form;
 
-    console.log(event);
-    
+    // console.log(event);
+
     // shift or ctrl click --> delegate
     if ( event.originalEvent.shiftKey || event.originalEvent.ctrlKey ) {
-      console.log("Roller for " + type + " " + key);
       new HexxenRoller(this.actor, /* options */ {
         top: this.position.top + 40,
         left: this.position.left + ((this.position.width - 400) / 2)
@@ -266,31 +272,15 @@ class JaegerSheet extends ActorSheet {
       rolls = this.getSkillRolls(key);
       let target = this.object.data.data.skills[key] || this.object.data.data.combat[key];
       label = target.label;
+      if (target.schaden) label += ` (SCH +${target.schaden})`;
     }
-    
-    console.log(label + "-Probe: /hex " + rolls + "h");
-    ChatMessage.create({speaker: { actor: this.actor._id }, content: "/hex " + rolls + "h # " + label });
-//    await this._onSubmit(event); // FIXME klären
-  }
-  
-  // TODO entfernen, wird wohl nicht mehr benötigt
-  async _onClickSkillControl(event) {
-    event.preventDefault();
-    const a = event.currentTarget;
-    const action = a.dataset.action;
-    const attrs = this.object.data.data.attributes;
-    const form = this.form;
 
-    if ( action === "roll" ) {
-      const skill = a.parentNode.dataset.skill;
-      let rolls = this.getSkillRolls(skill);
-      console.log(skill + "-Probe: /hex " + rolls + "h");
-      ChatMessage.create({speaker: { actor: this.actor._id }, content: "/hex " + rolls + "h # " + label });
-      //      await this._onSubmit(event); // FIXME klären
-   }
+    ChatMessage.create({speaker: { actor: this.actor._id }, content: "/hex " + rolls + "h # " + label });
   }
-  
+
   /* -------------------------------------------- */
+
+  // FIXME: ungültige Eingaben in numerischen Textfeldern filtern
 
   /** @override */
   _updateObject(event, formData) {

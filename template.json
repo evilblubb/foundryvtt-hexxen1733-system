@@ -1,6 +1,74 @@
 {
 "Actor": {
-  "types": ["character", "npc"],
+  "types": ["npc", "character", "npc-bande", "npc-leader"],
+  "npc-leader":{
+    "biography1": "",
+    "biography2": "",
+    "ini": {
+      "value": 4
+    },
+    "health": {
+      "value": 10,
+      "min": 0,
+      "max": 10
+    },
+    "stufe": {
+      "value": 1
+    },
+    "pw": {
+      "value": 1
+    },
+    "hex": {
+      "value":0
+    },
+    "attributes": {
+      "SIN": {
+        "value": 2,
+        "label": "Sinnesschärfe",
+        "dtype": "Number"
+      },
+      "WIS": {
+        "value": 2,
+        "label": "Wissen",
+        "dtype": "Number"
+      },
+      "WIL": {
+        "value": 2,
+        "label": "Willenskraft",
+        "dtype": "Number"
+      },
+      "KKR": {
+        "value": 2,
+        "label": "Körperkraft",
+        "dtype": "Number"
+      },
+      "ATH": {
+        "value": 2,
+        "label": "Athletik",
+        "dtype": "Number"
+      },
+      "GES": {
+        "value": 2,
+        "label": "Geschick",
+        "dtype": "Number"
+      }
+    }
+  },
+  "npc-bande": {
+    "biography1": "",
+    "biography2": "",
+    "ini": {
+      "value": 4
+    },
+    "health": {
+      "value": 10,
+      "min": 0,
+      "max": 10
+    },
+    "stufe": {
+      "value": 1
+    }
+  },
   "character": {
     "core": {
       "level": 1,
@@ -415,7 +483,20 @@
   }
 },
 "Item": {
-  "types": ["item", "role"],
+  "types": ["item", "role", "profession", "motivation"],
+  "templates": {
+    "core": {
+      "references": [ 
+        {
+          "source": "",
+          "link": "",
+          "page": ""
+        } 
+      ],
+      "description": "",
+      "summary": ""
+      }
+  },
   "item": {
     "description": "",
     "quantity": 1,
@@ -423,7 +504,13 @@
     "attributes": {}
   },
   "role": {
-    "label": "Neue Rolle"
+    "templates": [ "core" ]
+  },
+  "profession": {
+    "templates": [ "core" ]
+  },
+  "motivation": {
+    "templates": [ "core" ]
   }
 }
 }

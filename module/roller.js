@@ -6,7 +6,7 @@
  */
 class HexxenRoller extends FormApplication {
 
-  constructor(entity, options, hints={}) {
+  constructor(entity=null, options={}, hints={}) {
     super(entity, options);
     this.hints = hints;
     if (!hints.key) {
@@ -18,7 +18,7 @@ class HexxenRoller extends FormApplication {
     return mergeObject(super.defaultOptions, {
       classes: ["hexxen", "roller"],
       id: "roller",
-      template: "systems/" + game.data.system.id + "/templates/roller.html", // FIXME basepath klären
+      template: Hexxen.basepath + "templates/roller.html", // FIXME basepath klären
       width: 300,
     });
   }
@@ -92,6 +92,7 @@ class HexxenRoller extends FormApplication {
       result.value = rolls;
       result.dice.h.count = rolls;
       result.label = combat.label;
+      if (combat.schaden) result.label += ` (SCH +${combat.schaden})`;
     }
     
     return data;
@@ -143,17 +144,22 @@ class HexxenRoller extends FormApplication {
   async _updateObject(event, formData) {
     event.preventDefault();
     
+    let empty = true;
     let roll = "/hex ";
     for ( let key of Object.keys(formData) ) {
       if ( key.startsWith("dice.") ) {
         let die = key.substr(5);
         let count = formData[key];
         if ( count > 0 ) {
+          empty = false;
           roll += count;
           roll += die;
         }
       }
     }
+
+    if (empty) return;
+
     if (formData.comment) {
       roll += ` # ${formData.comment}`;
     }

@@ -22,15 +22,15 @@
                     </div>
                 </div>
                 <div class="lep flexrow">
-                    <div class="basis-lep flexrow">
+                    <div class="basis-lep flexrow" data-key="data.health.value">
                         <label class="label" for="basis-lep">Basis-LEP</label>
-                        <input class="value" type="text" name="data.health.value" value="{{data.health.value}}" data-dtype="Number" id="basis-lep" />
-                        <span class="label max"> / {{data.health.max}}</span>
+                        {{#inc-btn}}<input class="value" type="text" name="data.health.value" value="{{data.health.value}}" data-dtype="Number" id="basis-lep" />{{/inc-btn}}
+                        <span class="label max" title="Maximum"> / {{data.health.max}}</span>
                     </div>
-                    <div class="puffer-lep flexrow">
+                    <div class="puffer-lep flexrow" data-key="data.power.value">
                         <label class="label" for="puffer-lep">Puffer-LEP</label>
-                        <input class="value" type="text" name="data.power.value" value="{{data.power.value}}" data-dtype="Number" id="puffer-lep" />
-                        <span class="label max"> / {{data.power.max}}</span>
+                        {{#inc-btn}}<input class="value" type="text" name="data.power.value" value="{{data.power.value}}" data-dtype="Number" id="puffer-lep" />{{/inc-btn}}
+                        <span class="label max" title="Maximum"> / {{data.power.max}}</span>
                     </div>
                 </div>
             </div>
@@ -45,37 +45,31 @@
         {{/each}}
         </div>
         <div class="resources flexrow">
-            <div class="resource flexrow" data-key="segnungen">
-                <label class="label" for="segnungen">Segnungen</label>
-                <input class="value" type="text" name="data.resources.segnungen" value="{{data.resources.segnungen}}" data-dtype="Number" id="segnungen" />
-                <a class="control" data-action="decrease"><i class="fas fa-minus"></i></a>
-                <a class="control" data-action="increase"><i class="fas fa-plus"></i></a>
-            </div>
-            <div class="resource flexrow" data-key="ideen">
-                <label class="label" for="ideen">Ideen [=WIS]
                 <!--<span class="fa-stack"><i class="fas fa-stack-1x fa-circle" style="color:yellow"></i><i class="fas fa-stack-1x">I</i></span>-->
-                </label>
-                <input class="value" type="text" name="data.resources.ideen" value="{{data.resources.ideen}}" data-dtype="Number" id="ideen" />
-                <a class="control" data-action="decrease"><i class="fas fa-minus"></i></a>
-                <a class="control" data-action="increase"><i class="fas fa-plus"></i></a>
+            {{#each header-resources as |res key|}}
+            <div class="resource flexrow" data-key="data.resources.{{key}}">
+                <label class="label" for="{{key}}">{{res.label}}</label>
+                {{#inc-btn}}<input class="value" type="text" name="data.resources.{{key}}" value="{{res.value}}" data-default="{{res.default}}" data-dtype="Number" id="{{key}}" />{{/inc-btn}}
+                {{#if res.max}}
+                <span class="label max" title="Maximum">&nbsp;/&nbsp;{{res.max}}</span>
+                {{else if res.default}}
+                <span class="label max" title="Default - Zum Setzen klicken">&nbsp;/&nbsp;<a class="set-default" data-action="default">{{res.default}}</a></span>
+                {{else}}
+                <span class="label max"></span>
+                {{/if}}
             </div>
-            <div class="resource flexrow" data-key="coups">
-                <label class="label" for="coups">Coups [=ATH]</label>
-                <input class="value" type="text" name="data.resources.coups" value="{{data.resources.coups}}" data-dtype="Number" id="coups" />
-                <a class="control" data-action="decrease"><i class="fas fa-minus"></i></a>
-                <a class="control" data-action="increase"><i class="fas fa-plus"></i></a>
-            </div>
+            {{/each}}
         </div>
     </header>
 
     {{!-- Sheet Tab Navigation --}}
     <nav class="sheet-tabs tabs" data-group="primary">
-        <a class="item" data-tab="description">Bio</a>
-        <a class="item" data-tab="states">Zustand</a>
-        <a class="item" data-tab="skills">Fertigkeiten</a>
-        <a class="item" data-tab="powers">Jägerkräfte</a>
-        <a class="item" data-tab="combat">Kampf</a>
-        <a class="item" data-tab="items">Besitz</a>
+        <a class="item" data-tab="description"><div class="item-bg">Bio</div></a>
+        <a class="item" data-tab="states"><div class="item-bg">Zustand</div></a>
+        <a class="item" data-tab="skills"><div class="item-bg">Fertigkeiten</div></a>
+        <a class="item" data-tab="powers"><div class="item-bg">Jägerkräfte</div></a>
+        <a class="item" data-tab="combat"><div class="item-bg">Kampf</div></a>
+        <a class="item" data-tab="items"><div class="item-bg">Besitz</div></a>
     </nav>
 
     {{!-- Sheet Body --}}
@@ -83,48 +77,77 @@
 
         {{!-- Bio Tab --}}
         <div class="tab biography scroll-y" data-group="primary" data-tab="description">
-            <div class="core flexrow">
-                <ol class="list-body role-list">
-                    <li class="role flexrow">
-                        <label class="label" for="role-1">Rolle N<sup><u>o</u></sup>1</label>
-                        <input class="value" type="text" name="data.core.role-1" value="{{data.core.role-1}}" id="role-1" />
-                    </li>
-                    <li class="role flexrow">
-                        <label class="label" for="role-2">Rolle N<sup><u>o</u></sup>2</label>
-                        <input class="value" type="text" name="data.core.role-2" value="{{data.core.role-2}}" id="role-2" />
-                    </li>
-                    <li class="role flexrow">
-                        <label class="label" for="role-3">Rolle N<sup><u>o</u></sup>3</label>
-                        <input class="value" type="text" name="data.core.role-3" value="{{data.core.role-3}}" id="role-3" />
-                    </li>
-                    <li class="profession flexrow">
-                        <label class="label" for="profession">Profession</label>
-                        <input class="value" type="text" name="data.core.profession" value="{{data.core.profession}}" id="profession" />
-                    </li>
-                    <li class="sprachen flexrow">
-                        <label class="label" for="sprachen">Sprachen</label>
-                        <input class="value" type="text" name="data.core.sprachen" value="{{data.core.sprachen}}" id="sprachen" />
-                    </li>
-                </ol>
-                <ol class="list-body other-list">
-                    <li class="level flexrow">
-                        <label class="label" for="level">Level</label>
-                        <input class="value" type="text" name="data.core.level" value="{{data.core.level}}" data-dtype="Number" id="level" />
-                    </li>
-                    <li class="motivation flexrow">
-                        <label class="label" for="motivation">Motivation</label>
-                        <input class="value" type="text" name="data.core.motivation" value="{{data.core.motivation}}" id="motivation" />
-                    </li>
-                    <li class="motivation-bonus flexrow">
-                        <label class="label" for="motivation-bonus"></label>
-                        <input class="value" type="text" name="data.core.motivation-bonus" value="{{data.core.motivation-bonus}}" id="motivation" placeholder="Motivationsbonus" />
-                    </li>
-                    <li class="Verderbnis flexrow">
-                        <label class="label" for="verderbnis">Verderbnis</label>
-                        <input class="value" type="text" name="data.core.verderbnis" value="{{data.core.verderbnis}}" data-dtype="Number" id="verderbnis" />
-                    </li>
-                </ol>
+            <div class="core flexcol">
+                <header class="list-header flexrow">
+                    <span class="header-label">Basiswerte</span>
+                </header>
+                
+                <div class="flexrow">
+                    <ol class="list-body role-list">
+                        <li class="item role flexrow" data-item-id="{{data.core.rolle-1-id}}">
+                            <label class="label" for="rolle-1">Rolle N<sup><u>o</u></sup>1</label>
+                            {{#if data.core.rolle-1-id}}
+                            <a class="value item-edit" id="rolle-1">{{data.core.rolle-1}}</a>
+                            {{else}}
+                            <span class="value hint" style="color:gray">{{data.core.rolle-1-hint}}</span>
+                            {{/if}}
+                        </li>
+                        <li class="item role flexrow" data-item-id="{{data.core.rolle-2-id}}">
+                            <label class="label" for="rolle-2">Rolle N<sup><u>o</u></sup>2</label>
+                            {{#if data.core.rolle-2-id}}
+                            <a class="value item-edit" id="rolle-2">{{data.core.rolle-2}}</a>
+                            {{else}}
+                            <span class="value hint" style="color:gray">{{data.core.rolle-2-hint}}</span>
+                            {{/if}}
+                        </li>
+                        <li class="item role flexrow" data-item-id="{{data.core.rolle-3-id}}">
+                            <label class="label" for="rolle-3">Rolle N<sup><u>o</u></sup>3</label>
+                            {{#if data.core.rolle-3-id}}
+                            <a class="value item-edit" id="rolle-3">{{data.core.rolle-3}}</a>
+                            {{else}}
+                            <span class="value hint" style="color:gray">{{data.core.rolle-3-hint}}</span>
+                            {{/if}}
+                        </li>
+                        <li class="item profession flexrow" data-item-id="{{data.core.profession-id}}">
+                            <label class="label" for="profession">Profession</label>
+                            {{#if data.core.profession-id}}
+                            <a class="value item-edit" id="profession">{{data.core.profession}}</a>
+                            {{else}}
+                            <span class="value hint" style="color:gray">{{data.core.profession-hint}}</span>
+                            {{/if}}
+                        </li>
+                        <li class="sprachen flexrow">
+                            <label class="label" for="sprachen">Sprachen</label>
+                            <input class="value" type="text" name="data.core.sprachen" value="{{data.core.sprachen}}" id="sprachen" />
+                        </li>
+                    </ol>
+                    <ol class="list-body other-list">
+                        <li class="level flexrow">
+                            <label class="label" for="level">Level</label>
+                            <input class="value" type="text" name="data.core.level" value="{{data.core.level}}" data-dtype="Number" id="level" />
+                        </li>
+                        <li class="item motivation flexrow" data-item-id="{{data.core.motivation-id}}">
+                            <label class="label" for="motivation">Motivation</label>
+                            {{#if data.core.motivation-id}}
+                            <a class="value item-edit" id="motivation">{{data.core.motivation}}</a>
+                            {{else}}
+                            <span class="value hint" style="color:gray">{{data.core.motivation-hint}}</span>
+                            {{/if}}
+                        </li>
+                        <li class="motivation-bonus flexrow">
+                            <label class="label" for="motivation-bonus"></label>
+                            <!-- FIXME: HTML aus MCE wird angezeigt -->
+                            <span class="value">{{data.core.motivation-bonus}}</span>
+                        </li>
+                        <li class="Verderbnis flexrow">
+                            <label class="label" for="verderbnis">Verderbnis</label>
+                            <input class="value" type="text" name="data.core.verderbnis" value="{{data.core.verderbnis}}" data-dtype="Number" id="verderbnis" />
+                        </li>
+                    </ol>
+                </div>
             </div>
+
+            <div class="seperator"></div>
             
             <header class="list-header flexrow">
                 <span class="header-label">Notizen</span>
@@ -140,15 +163,17 @@
                         <span class="header-label">Heilfaktor</span>
                     </header>
                     
+                    <!-- TODO: dynamisch erzeugen -->
                     <ol class="list-body">
-                        <li class="eh flexrow" data-key="eh">
+                        <li class="eh flexrow" data-key="data.resources.eh">
                             <span class="label">Erste Hilfe [EH]</span>
                             <span class="controls">
                                 <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
                                 <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
                             </span>
+                            <input type="hidden" name="data.resources.eh" value={{data.resources.eh}} data-dtype="Number" />
                         </li>
-                        <li class="mh flexrow" data-key="mh">
+                        <li class="mh flexrow" data-key="data.resources.mh">
                             <span class="label">Mag. Heilung & Elixire [MH]</span>
                             <span class="controls">
                                 <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
@@ -156,6 +181,7 @@
                                 <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
                                 <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
                             </span>
+                            <input type="hidden" name="data.resources.mh" value={{data.resources.mh}} data-dtype="Number" />
                         </li>
                     </ol>
                 </div>
@@ -164,8 +190,9 @@
                         <span class="header-label">Anhaltende Einflüsse</span>
                     </header>
                     
+                    <!-- TODO: dynamisch erzeugen -->
                     <ol class="list-body">
-                        <li class="odmg flexrow" data-key="odmg">
+                        <li class="odmg flexrow" data-key="data.resources.odmg">
                             <span class="label">Äußerer Schaden</span>
                             <span class="controls">
                                 <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
@@ -174,8 +201,9 @@
                                 <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
                                 <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
                             </span>
+                            <input type="hidden" name="data.resources.odmg" value={{data.resources.odmg}} data-dtype="Number" />
                         </li>
-                        <li class="idmg flexrow" data-key="idmg">
+                        <li class="idmg flexrow" data-key="data.resources.idmg">
                             <span class="label">Innerer Schaden</span>
                             <span class="controls">
                                 <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
@@ -184,8 +212,9 @@
                                 <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
                                 <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
                             </span>
+                            <input type="hidden" name="data.resources.idmg" value={{data.resources.idmg}} data-dtype="Number" />
                         </li>
-                        <li class="mdmg flexrow" data-key="mdmg">
+                        <li class="mdmg flexrow" data-key="data.resources.mdmg">
                             <span class="label">Malusschaden</span>
                             <span class="controls">
                                 <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
@@ -194,8 +223,9 @@
                                 <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
                                 <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
                             </span>
+                            <input type="hidden" name="data.resources.mdmg" value={{data.resources.mdmg}} data-dtype="Number" />
                         </li>
-                        <li class="ldmg flexrow" data-key="ldmg">
+                        <li class="ldmg flexrow" data-key="data.resources.ldmg">
                             <span class="label">Lähmungsschaden</span>
                             <span class="controls">
                                 <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
@@ -204,6 +234,7 @@
                                 <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
                                 <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
                             </span>
+                            <input type="hidden" name="data.resources.ldmg" value={{data.resources.ldmg}} data-dtype="Number" />
                         </li>
                     </ol>
                 </div>
@@ -231,6 +262,8 @@
                 {{/each}}
                 </ol>
             </div>
+
+            <div class="seperator"></div>
             
             <header class="list-header flexrow">
                 <span class="header-label">Notizen</span>
@@ -254,7 +287,8 @@
             {{#each data.skills as |skill key|}}
                 <li class="skill flexrow" data-key="{{key}}">
                     <span class="li-label li-text">{{skill.label}}</span>
-                    <input class="li-value" type="text" name="data.skills.{{key}}.value" value="{{skill.value}}" data-dtype="Number"/>
+                    {{dyn-input class="li-value li-text" path="data.skills" key=key target="value" value=skill.value}}
+                    <!--input class="li-value" type="text" name="data.skills.{{key}}.value" value="{{skill.value}}" data-dtype="Number"/-->
                     <span class="li-attr li-text" title="{{skill.attrLabel}}: {{skill.attrValue}}">[ +{{skill.attribute}} ]</span>
                     <span class="li-sum li-text">{{skill.summe}}</span>
                     <a class="li-control roll" data-action="roll" data-type="skill"><i class="fas fa-dice"></i></a>
@@ -267,7 +301,9 @@
                 </li>
             {{/each}}
             </ol>
-            
+
+            <div class="seperator"></div>
+
             <header class="list-header flexrow">
                 <span class="header-label">Notizen</span>
             </header>
@@ -279,6 +315,8 @@
             TODO: Konstruktionspunkte<br>
             TODO: Jägerkräfte
             
+            <div class="seperator"></div>
+
             <header class="list-header flexrow">
                 <span class="header-label">Notizen</span>
             </header>
@@ -288,7 +326,7 @@
         {{!-- Kampf Tab --}}
         <div class="tab combat scroll-y" data-group="primary" data-tab="combat">
             <header class="list-header flexrow">
-                <span class="li-label">Waffe dabei?</span>
+                <span class="li-label">Waffe</span>
                 <span class="li-schaden" title="Basis-Schaden">SCH</span>
                 <span class="li-ap" title="Aktionspunkte">AP</span>
                 <span class="li-value" title="Fertigkeitswert">FW</span>
@@ -304,7 +342,8 @@
                     <span class="li-label li-text">{{skill.label}}</span>
                     <span class="li-schaden li-text">{{skill.schaden}}</span>
                     <span class="li-ap li-text">{{skill.ap}}</span>
-                    <input class="li-value" type="text" name="data.combat.{{key}}.value" value="{{skill.value}}" data-dtype="Number"/>
+                    {{dyn-input class="li-value li-text" path="data.combat" key=key target="value" value=skill.value}}
+                    <!--input class="li-value" type="text" name="data.combat.{{key}}.value" value="{{skill.value}}" data-dtype="Number"/-->
                     <span class="li-attr li-text" title="{{skill.attrLabel}}: {{skill.attrValue}}">[ +{{skill.attribute}} ]</span>
                     <span class="li-sum li-text">{{skill.summe}}</span>
                     <a class="li-control roll" data-action="roll" data-type="combat"><i class="fas fa-dice"></i></a>
@@ -313,6 +352,8 @@
             {{/each}}
             </ol>
             
+            <div class="seperator"></div>
+
             <header class="list-header flexrow">
                 <span class="header-label">Notizen</span>
             </header>
@@ -334,7 +375,9 @@
                 </li>
             {{/each}}
             </ol>
-            
+
+            <div class="seperator"></div>
+
             <header class="list-header flexrow">
                 <span class="header-label">Notizen</span>
             </header>
