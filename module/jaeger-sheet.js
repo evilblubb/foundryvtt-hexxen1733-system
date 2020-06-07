@@ -65,7 +65,7 @@ class JaegerSheet extends HexxenActorSheet {
     if (mot) {
       data.data.core["motivation"] = mot.name;
       // FIXME: HTML aus MCE besser behandeln
-      data.data.core["motivation-bonus"] = mot.data.summary ? $(mot.data.summary)[0].innerText : "";
+      data.data.core["motivation-bonus"] = mot.data.summary ? mot.data.summary : mot.data.description;
       data.data.core["motivation-id"] = mot._id;
     }
     else {
