@@ -108,9 +108,13 @@
                             <span class="value hint" style="color:gray">{{data.core.rolle-3-hint}}</span>
                             {{/if}}
                         </li>
-                        <li class="profession flexrow">
+                        <li class="item profession flexrow" data-item-id="{{data.core.profession-id}}">
                             <label class="label" for="profession">Profession</label>
-                            <input class="value" type="text" name="data.core.profession" value="{{data.core.profession}}" id="profession" />
+                            {{#if data.core.profession-id}}
+                            <a class="value item-edit" id="profession">{{data.core.profession}}</a>
+                            {{else}}
+                            <span class="value hint" style="color:gray">{{data.core.profession-hint}}</span>
+                            {{/if}}
                         </li>
                         <li class="sprachen flexrow">
                             <label class="label" for="sprachen">Sprachen</label>
@@ -124,7 +128,11 @@
                         </li>
                         <li class="item motivation flexrow" data-item-id="{{data.core.motivation-id}}">
                             <label class="label" for="motivation">Motivation</label>
-                            <a class="value item-edit">{{data.core.motivation}}</a>
+                            {{#if data.core.motivation-id}}
+                            <a class="value item-edit" id="motivation">{{data.core.motivation}}</a>
+                            {{else}}
+                            <span class="value hint" style="color:gray">{{data.core.motivation-hint}}</span>
+                            {{/if}}
                         </li>
                         <li class="motivation-bonus flexrow">
                             <label class="label" for="motivation-bonus"></label>

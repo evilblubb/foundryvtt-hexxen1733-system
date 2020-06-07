@@ -135,12 +135,13 @@
 .sheet.jaeger .biography .list-body .role .label {
   line-height: 20px;
 }
-.sheet.jaeger .biography .list-body li:nth-of-type(2n) {
-  background: unset;
-}
 .sheet.jaeger .biography .core .value {
   width: unset;
   flex: 2;
+  text-align: initial;
+}
+.sheet.jaeger .biography .core .other-list input {
+  text-align: center;
 }
 .sheet.jaeger .biography .core .motivation-bonus .value {
   text-align: initial;

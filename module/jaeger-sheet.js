@@ -64,9 +64,14 @@ class JaegerSheet extends HexxenActorSheet {
     mot = mot.length > 0 ? mot[0].data : undefined; 
     if (mot) {
       data.data.core["motivation"] = mot.name;
-      // FIXME: HTML aus MCE behandeln
-      data.data.core["motivation-bonus"] = mot.data.summary ? $(mot.data.summary)[0].innerText : "";
+      // FIXME: HTML aus MCE besser behandeln
+      data.data.core["motivation-bonus"] = mot.data.summary ? mot.data.summary : mot.data.description;
       data.data.core["motivation-id"] = mot._id;
+    }
+    else {
+      data.data.core["motivation"] = "";
+      data.data.core["motivation-bonus"] = "";
+      data.data.core["motivation-hint"] = "Keine Motivation ausgewählt";
     }
     let role = this.actor.itemTypes.role; // returns items, not data
     switch (role.length) {
@@ -83,10 +88,17 @@ class JaegerSheet extends HexxenActorSheet {
         data.data.core["rolle-1-id"] = role[0].data._id;
         // no break
       default:
-        data.data.core["rolle-3-hint"] = data.data.core.level < 7 ? "Verfügbar ab Level 7" : "Rolle verfügbar";
-        data.data.core["rolle-2-hint"] = data.data.core.level < 2 ? "Verfügbar ab Level 2" : "Rolle verfügbar";
-        data.data.core["rolle-1-hint"] = data.data.core.level < 1 ? "Verfügbar ab Level 1" : "Rolle verfügbar";
+        data.data.core["rolle-3-hint"] = data.data.core.level < 7 ? "Verfügbar ab Level 7" : "Keine Rolle ausgewählt";
+        data.data.core["rolle-2-hint"] = data.data.core.level < 2 ? "Verfügbar ab Level 2" : "Keine Rolle ausgewählt";
+        data.data.core["rolle-1-hint"] = data.data.core.level < 1 ? "Verfügbar ab Level 1" : "Keine Rolle ausgewählt";
     }
+    let prof = this.actor.itemTypes.profession;
+    prof = prof.length > 0 ? prof[0].data : undefined; 
+    if (prof) {
+      data.data.core["profession"] = prof.name;
+      data.data.core["profession-id"] = prof._id;
+    }
+    data.data.core["profession-hint"] = data.data.core.level < 2 ? "Verfügbar ab Level 2" : "Keine Profession ausgewählt";
 
     data.stypes = { "idmg": "Innerer Schaden", "odmg": "Äußerer Schaden", "mdmg": "Malusschaden", "ldmg": "Lähmungsschaden" };
     for ( let state of Object.values(data.data.states) ) {
