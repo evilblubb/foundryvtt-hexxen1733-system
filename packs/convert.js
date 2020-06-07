@@ -27,7 +27,7 @@ for (const key in list) {
           out.data.description = item.description;
           out.data.summary = item.summary;
           out.flags = {};
-          out.img = "systems/hexxen-1733-dev/img/Siegel-Rabe-small.png";
+          out.img = "systems/hexxen-1733/img/Siegel-Rabe-small.png";
       
           fs.appendFileSync(fd, JSON.stringify(out), 'utf8');
           fs.appendFileSync(fd, '\n', 'utf8');
