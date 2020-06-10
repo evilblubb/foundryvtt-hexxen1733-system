@@ -74,7 +74,7 @@
   "primaryTokenAttribute": "health",
   "secondaryTokenAttribute": "power",
   "url": "https://github.com/gizmo2342/foundryvtt-hexxen1733-system/",
-  "manifest": "https://github.com/gizmo2342/foundryvtt-hexxen1733-system/raw/stable/system.json",
-  "download": "https://github.com/gizmo2342/foundryvtt-hexxen1733-system/archive/stable.zip",
+  "manifest": "https://github.com/gizmo2342/foundryvtt-hexxen1733-system/raw/master/system.json",
+  "download": "https://github.com/gizmo2342/foundryvtt-hexxen1733-system/archive/master.zip",
   "license": "LICENSE.txt"
 }
