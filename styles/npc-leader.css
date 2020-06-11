@@ -89,3 +89,9 @@
     "footer";
   padding: 0px;
 }
+.editor{
+  min-height: 120px;
+}
+.tox-tinymce{
+  min-height: 120px;
+}

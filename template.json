@@ -4,8 +4,8 @@
   "npc-leader":{
     "biography1": "",
     "biography2": "",
-    "ini": {
-      "value": 4
+    "calc": {
+      "ini": 4
     },
     "health": {
       "value": 10,
@@ -57,8 +57,8 @@
   "npc-bande": {
     "biography1": "",
     "biography2": "",
-    "ini": {
-      "value": 4
+    "calc": {
+      "ini": 4
     },
     "health": {
       "value": 10,
@@ -486,12 +486,12 @@
   "types": ["item", "role", "profession", "motivation"],
   "templates": {
     "core": {
-      "references": [ 
+      "references": [
         {
           "source": "",
           "link": "",
           "page": ""
-        } 
+        }
       ],
       "description": "",
       "summary": ""
