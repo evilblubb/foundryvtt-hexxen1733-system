@@ -76,13 +76,13 @@
     <section class="sheet-body">
 
         {{#*inline "item"}}
-        <div class="td flexrow item {{type}} allow-break" data-item-id="{{item-id}}">
+        <div class="{{class}} flexrow item {{type}} allow-break" data-item-id="{{item-id}}">
             {{#if item-id}}
             <a class="value item-edit" id="{{id}}">{{name}}</a>
             <a class="control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
             {{else}}
             {{! TODO: Höhe des span eindampfen }}
-            <span class="value hint" style="color:gray">{{hint}}</span>
+            <div class="hint">{{hint}}</div>
             {{/if}}
         </div>
         {{/inline}}
@@ -93,47 +93,52 @@
             <div class="table table-1">
                 <div class="tr">
                     <label class="td label" for="rolle-1">Rolle №1</label>
-                    {{> item id="rolle-1" type="role" name=data.core.rolle-1 item-id=data.core.rolle-1-id hint=data.core.rolle-1-hint}}
+                    {{> item id="rolle-1" class="td" type="role" name=data.core.rolle-1 item-id=data.core.rolle-1-id hint=data.core.rolle-1-hint}}
                 </div>
                 <div class="tr">
                     <label class="td label" for="rolle-2">Rolle №2</label>
-                    {{> item id="rolle-2" type="role" name=data.core.rolle-2 item-id=data.core.rolle-2-id hint=data.core.rolle-2-hint}}
+                    {{> item id="rolle-2" class="td" type="role" name=data.core.rolle-2 item-id=data.core.rolle-2-id hint=data.core.rolle-2-hint}}
                 </div>
                 <div class="tr">
                     <label class="td label" for="rolle-3">Rolle №3</label>
-                    {{> item id="rolle-3" type="role" name=data.core.rolle-3 item-id=data.core.rolle-3-id hint=data.core.rolle-3-hint}}
+                    {{> item id="rolle-3" class="td" type="role" name=data.core.rolle-3 item-id=data.core.rolle-3-id hint=data.core.rolle-3-hint}}
                 </div>
                 <div class="tr">
                     <label class="td label" for="profession">Profession</label>
-                    {{> item id="profession" type="profession" name=data.core.profession item-id=data.core.profession-id hint=data.core.profession-hint}}
+                    {{> item id="profession" class="td" type="profession" name=data.core.profession item-id=data.core.profession-id hint=data.core.profession-hint}}
                 </div>
                 <div class="tr">
                     <label class="td label" for="sprachen">Sprachen</label>
                     <div class="td flexrow sprachen">
                         {{! TODO: Höhe des Input vs. padding des div (aus td) }}
-                        <input class="value" type="text" name="data.core.sprachen" value="{{data.core.sprachen}}" id="sprachen" />
+                        <input id="sprachen" class="value" type="text" name="data.core.sprachen" value="{{data.core.sprachen}}" />
                     </div>
                 </div>
             </div>
-            <ol class="list-body other-list">
-                <li class="level flexrow">
-                    <label class="label" for="level">Level</label>
-                    <input class="value" type="text" name="data.core.level" value="{{data.core.level}}" data-dtype="Number" id="level" />
-                </li>
-                <li class="item motivation flexrow" data-item-id="{{data.core.motivation-id}}">
-                    <label class="label" for="motivation">Motivation</label>
-                    {{> item id="motivation" type="motivation" name=data.core.motivation item-id=data.core.motivation-id hint=data.core.motivation-hint}}
-                </li>
-                <li class="motivation-bonus flexrow allow-break">
-                    <label class="label" for="motivation-bonus"></label>
-                    <!-- FIXME: HTML aus MCE wird angezeigt -->
-                    <span class="value">{{data.core.motivation-bonus}}</span>
-                </li>
-                <li class="Verderbnis flexrow">
-                    <label class="label" for="verderbnis">Verderbnis</label>
-                    <input class="value" type="text" name="data.core.verderbnis" value="{{data.core.verderbnis}}" data-dtype="Number" id="verderbnis" />
-                </li>
-            </ol>
+            <div class="table table-2">
+                <div class="tr">
+                    <label class="td label" for="level">Level</label>
+                    <div class="td flexrow level">
+                        {{! TODO: Höhe des Input vs. padding des div (aus td) }}
+                        <input id="level" class="value" type="text" name="data.core.level" value="{{data.core.level}}" data-dtype="Number" />
+                    </div>
+                </div>
+                <div class="tr">
+                    <label class="td label" for="motivation">Motivation</label>
+                    <div class="td flexcol">
+                        {{> item id="motivation" type="motivation" name=data.core.motivation item-id=data.core.motivation-id hint=data.core.motivation-hint}}
+                        {{! FIXME: bei bonus wird HTML aus MCE angezeigt! SafeString?? }}
+                        <div id="motivation-bonus" class="note allow-break">{{data.core.motivation-bonus}}</div>    
+                    </div>
+                </div>
+                <div class="tr">
+                    <label class="td label" for="verderbnis">Verderbnis</label>
+                    <div class="td flexrow verderbnis">
+                        {{! TODO: Höhe des Input vs. padding des div (aus td) }}
+                        <input id="verderbnis" class="value" type="text" name="data.core.verderbnis" value="{{data.core.verderbnis}}" data-dtype="Number" />
+                    </div>
+                </div>
+            </div>
 
             <div class="seperator"></div>
             

@@ -32,7 +32,7 @@
 }
 
 .sheet.jaeger .roll {
-  cursor: crosshair; /* FIXME: curson icon erstellen */
+  cursor: crosshair; /* TODO: curson icon erstellen */
 }
 
 
@@ -120,36 +120,24 @@
   flex: 0 0 20px;
 }
 
+/* TODO: teilweise nach hexxen.css auslagern? */
 .hexxen.sheet .biography.tab[data-tab].active {
   display:grid;
   align-content: start;
   align-items: start;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 5px;
+  grid-gap: 5px 10px;
 }
-.hexxen.sheet .biography > * {
+.hexxen.sheet.jaeger .biography > * {
   grid-column: 1/3;
 }
-.hexxen.sheet .biography > :nth-child(n+2):nth-child(-n+3) {
-  grid-column: unset;
+.hexxen.sheet.jaeger .biography .table-1,
+.hexxen.sheet.jaeger .biography .table-2 {
+  grid-column: auto;
 }
-.hexxen.sheet .biography .table .tr .td:nth-child(1) {
+.hexxen.sheet.jaeger .biography .table .tr .td:nth-child(1) {
   width: 25%;
   min-width: 75px;
-}
-
-.sheet.jaeger .biography .list-body .label {
-  text-align: initial;
-}
-.sheet.jaeger .biography .value {
-  width: unset;
-  flex: 2;
-  text-align: initial;
-}
-.sheet.jaeger .biography .motivation-bonus .value {
-  text-align: initial;
-  font-size: 0.8em;
-  line-height: unset;
 }
 
 .sheet.jaeger .states .top {

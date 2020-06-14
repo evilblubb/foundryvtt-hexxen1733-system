@@ -3,6 +3,7 @@
   --hexxen-green: #177d1a;
   --hexxen-dark-green: #084b0a;
   --hexxen-line-color: #4e804f;
+  --hexxen-hint-color: gray;
   --hexxen-highlight-hover-color:rgba(8, 75, 10, 0.15);
   --hexxen-highlight-even-color: rgba(255, 255, 255, 0.4);
   --hexxen-header-color: var(--hexxen-dark-green);
@@ -34,6 +35,10 @@ img#hexxen-logo {
   width: calc(100% - 560px);
 }
 
+input[type="text"], input[type="password"], input[type="datetime-local"] {
+  height: 23px;
+}
+
 .hexxen .allow-break {
   word-break: break-word;
 }
@@ -54,10 +59,17 @@ img#hexxen-logo {
 }
 .hexxen .table .td {
   display: table-cell;
+  padding: 0px 6px;
+}
+.hexxen .table .td:nth-child(1) {
   padding: 5px 6px;
 }
 .hexxen .table .td.flexrow {
   display: flex;
+}
+.hexxen .table .td input {
+  margin-left: -3px;
+  margin-right: -3px;
 }
 
 .hexxen .control {
@@ -103,6 +115,18 @@ img#hexxen-logo {
   border-radius: 2px;
   white-space: nowrap;
   word-break: break-all;
+}
+
+.hexxen .note {
+  font-size: 0.8em;
+  padding: 2px;
+}
+.hexxen .hint {
+  font-size: 0.8em;
+  color: var(--hexxen-hint-color);
+  flex: unset;
+  line-height: unset;
+  margin: unset;
 }
 
 .hexxen .seperator {
