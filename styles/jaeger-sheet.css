@@ -30,18 +30,7 @@
 .sheet.jaeger .list-body li:nth-of-type(2n) {
   background: rgba(255, 255, 255, 0.4);
 }
-/*
-.sheet.jaeger .editor {
-  min-height: 100px;
-  margin: 5px;
-  padding: 5px;
-  background: rgba(0, 0, 0, 0.05);
-  border: 1px solid #7a7971;
-  border-radius: 3px;
-}
-.sheet.jaeger .editor-content {
-  height: 100%;  
-}*/
+
 .sheet.jaeger .roll {
   cursor: crosshair; /* FIXME: curson icon erstellen */
 }
@@ -162,15 +151,7 @@
   font-size: 0.8em;
   line-height: unset;
 }
-/*
-.sheet.jaeger .biography .editor {
-  margin: 5px;
-  padding: 5px;
-  background: rgba(0, 0, 0, 0.05);
-  border: 1px solid #7a7971;
-  border-radius: 3px;
-}
-*/
+
 .sheet.jaeger .states .top {
   column-gap: 8px;
 }
