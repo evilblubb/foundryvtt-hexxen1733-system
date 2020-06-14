@@ -84,7 +84,7 @@
                     <div class="td flexrow item role" data-item-id="{{data.core.rolle-1-id}}">
                         {{#if data.core.rolle-1-id}}
                         <a class="value item-edit" id="rolle-1">{{data.core.rolle-1}}</a>
-                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                        <a class="control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
                         {{else}}
                         <span class="value hint" style="color:gray">{{data.core.rolle-1-hint}}</span>
                         {{/if}}
@@ -95,7 +95,7 @@
                     <div class="td flexrow item role" data-item-id="{{data.core.rolle-2-id}}">
                         {{#if data.core.rolle-2-id}}
                         <a class="value item-edit" id="rolle-2">{{data.core.rolle-2}}</a>
-                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                        <a class="control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
                         {{else}}
                         <span class="value hint" style="color:gray">{{data.core.rolle-2-hint}}</span>
                         {{/if}}
@@ -106,8 +106,9 @@
                     <div class="td flexrow item role" data-item-id="{{data.core.rolle-3-id}}">
                         {{#if data.core.rolle-3-id}}
                         <a class="value item-edit" id="rolle-3">{{data.core.rolle-3}}</a>
-                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                        <a class="control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
                         {{else}}
+                        {{! TODO: Höhe des span eindampfen }}
                         <span class="value hint" style="color:gray">{{data.core.rolle-3-hint}}</span>
                         {{/if}}
                     </div>
@@ -117,7 +118,7 @@
                     <div class="td flexrow item profession" data-item-id="{{data.core.profession-id}}">
                         {{#if data.core.profession-id}}
                         <a class="value item-edit" id="profession">{{data.core.profession}}</a>
-                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                        <a class="control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
                         {{else}}
                         <span class="value hint" style="color:gray">{{data.core.profession-hint}}</span>
                         {{/if}}
@@ -126,6 +127,7 @@
                 <div class="tr">
                     <label class="td label" for="sprachen">Sprachen</label>
                     <div class="td flexrow sprachen">
+                        {{! TODO: Höhe des Input vs. padding des div (aus td) }}
                         <input class="value" type="text" name="data.core.sprachen" value="{{data.core.sprachen}}" id="sprachen" />
                     </div>
                 </div>
@@ -139,7 +141,7 @@
                     <label class="label" for="motivation">Motivation</label>
                     {{#if data.core.motivation-id}}
                     <a class="value item-edit" id="motivation">{{data.core.motivation}}</a>
-                    <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                    <a class="control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
                     {{else}}
                     <span class="value hint" style="color:gray">{{data.core.motivation-hint}}</span>
                     {{/if}}
