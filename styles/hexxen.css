@@ -3,6 +3,8 @@
   --hexxen-green: #177d1a;
   --hexxen-dark-green: #084b0a;
   --hexxen-line-color: #4e804f;
+  --hexxen-highlight-hover-color:rgba(255, 255, 255, 0.7);
+  --hexxen-highlight-even-color: rgba(255, 255, 255, 0.4);
   --hexxen-header-color: var(--hexxen-dark-green);
   --hexxen-tab-bgcolor: rgba(8, 75, 10, 0.4);
   --hexxen-header-bgcolor: rgba(8, 75, 10, 0.15);
@@ -24,39 +26,72 @@ img#hexxen-logo {
   z-index: 60;
   border: none;
 }
-
 #navigation {
   left: 230px;
 }
-
 #loading {
   left: 240px;
   width: calc(100% - 560px);
 }
 
+.hexxen .flexrow {
+  flex-wrap: unset; /* override system preset */
+}
+.hexxen .table {
+  display: table;
+}
+.hexxen .table .tr {
+  display: table-row;
+}
+.hexxen .table .tr:nth-child(2n) {
+  background-color: var(--hexxen-highlight-even-color);
+}
+.hexxen .table .td {
+  display: table-cell;
+  padding: 5px 6px;
+}
+.hexxen .table .td.flexrow {
+  display: flex;
+}
+
 .hexxen input {
   background-color: var(--hexxen-input-bgcolor);
   border-color: var(--hexxen-input-bordercolor);
+  text-align: initial;
+}
+.hexxen input[data-dtype="Number"] {
+  text-align: center;
 }
 .hexxen input::placeholder {
   color: #999;
   opacity: 1;
 }
-.hexxen .flexrow {
-  flex-wrap: unset; /* override system preset */
+
+.hexxen .seperator {
+  display: block; 
+  width: 100%;
+  min-height: 20px;
+  margin: 2px 0; 
+  border: none; 
+  background-image: url("../img/Rabenkasten_weit_unten_small.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
-.hexxen.sheet .list-header {
-  flex: 0;
-  margin: 5px 0;
-  padding: 5px;
+
+.hexxen.sheet .sheet-body header {
   color: var(--hexxen-header-color);
   background: var(--hexxen-header-bgcolor);
   border: var(--hexxen-header-border);
-  border-radius: 2px;
+  border-radius: 4px;
   text-align: center;
   font-weight: bold;
 }
-.hexxen.sheet .list-header > * {
+.hexxen.sheet .sheet-body .block-header {
+  margin: 0px -3px;
+  padding: 4px 8px 3px;
+}
+.hexxen.sheet .sheet-body .block-header > * {
   margin: 0 3px;
 }
 .hexxen div.inc-btn {
@@ -78,12 +113,15 @@ img#hexxen-logo {
   right: 7px;
 }
 .hexxen.sheet .editor {
-  min-height: 40px;
+  min-height: 100px;
   margin: 5px;
   padding: 5px;
   background: rgba(0, 0, 0, 0.05);
   border: 1px solid #7a7971;
   border-radius: 3px;
+}
+.hexxen.sheet .editor .editor-content {
+  height: 100%;  
 }
 .hexxen.sheet .editor .tox.tox-tinymce {
   min-height: 150px;
@@ -97,18 +135,6 @@ img#hexxen-logo {
   border-radius: 2px;
   white-space: nowrap;
   word-break: break-all;
-}
-
-.hexxen .seperator {
-  display: block; 
-  width: 100%;
-  min-height: 20px;
-  margin: 10px auto; 
-  border: none; 
-  background-image: url("../img/Rabenkasten_weit_unten_small.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
 }
 
 .hexxen.sheet .window-content {
@@ -158,7 +184,7 @@ img#hexxen-logo {
 .hexxen.sheet .sheet-body .tab {
   height: 100%;
   overflow-y: auto;
-  padding: 0 5px;
+  padding: 8px;
 }
 
 /* TODO: hier oder rules.css */

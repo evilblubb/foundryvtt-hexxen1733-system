@@ -7,6 +7,7 @@
 /******************/
 /* Common section */
 /******************/
+
 .sheet.jaeger .list-header {
   flex: 0;
   margin: 5px 0;
@@ -29,6 +30,7 @@
 .sheet.jaeger .list-body li:nth-of-type(2n) {
   background: rgba(255, 255, 255, 0.4);
 }
+/*
 .sheet.jaeger .editor {
   min-height: 100px;
   margin: 5px;
@@ -39,7 +41,7 @@
 }
 .sheet.jaeger .editor-content {
   height: 100%;  
-}
+}*/
 .sheet.jaeger .roll {
   cursor: crosshair; /* FIXME: curson icon erstellen */
 }
@@ -129,25 +131,38 @@
   flex: 0 0 20px;
 }
 
+.hexxen.sheet .biography.tab[data-tab].active {
+  display:grid;
+  align-content: start;
+  align-items: start;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 5px;
+}
+.hexxen.sheet .biography > * {
+  grid-column: 1/3;
+}
+.hexxen.sheet .biography > :nth-child(n+2):nth-child(-n+3) {
+  grid-column: unset;
+}
+.hexxen.sheet .biography .table .tr .td:nth-child(1) {
+  width: 25%;
+  min-width: 75px;
+}
+
 .sheet.jaeger .biography .list-body .label {
   text-align: initial;
 }
-.sheet.jaeger .biography .list-body .role .label {
-  line-height: 20px;
-}
-.sheet.jaeger .biography .core .value {
+.sheet.jaeger .biography .value {
   width: unset;
   flex: 2;
   text-align: initial;
 }
-.sheet.jaeger .biography .core .other-list input {
-  text-align: center;
-}
-.sheet.jaeger .biography .core .motivation-bonus .value {
+.sheet.jaeger .biography .motivation-bonus .value {
   text-align: initial;
   font-size: 0.8em;
   line-height: unset;
 }
+/*
 .sheet.jaeger .biography .editor {
   margin: 5px;
   padding: 5px;
@@ -155,7 +170,7 @@
   border: 1px solid #7a7971;
   border-radius: 3px;
 }
-
+*/
 .sheet.jaeger .states .top {
   column-gap: 8px;
 }

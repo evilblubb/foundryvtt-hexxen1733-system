@@ -77,86 +77,87 @@
 
         {{!-- Bio Tab --}}
         <div class="tab biography scroll-y" data-group="primary" data-tab="biography">
-            <div class="core flexcol">
-                <header class="list-header flexrow">
-                    <span class="header-label">Basiswerte</span>
-                </header>
-                
-                <div class="flexrow">
-                    <ol class="list-body role-list">
-                        <li class="item role flexrow" data-item-id="{{data.core.rolle-1-id}}">
-                            <label class="label" for="rolle-1">Rolle N<sup><u>o</u></sup>1</label>
-                            {{#if data.core.rolle-1-id}}
-                            <a class="value item-edit" id="rolle-1">{{data.core.rolle-1}}</a>
-                            <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-                            {{else}}
-                            <span class="value hint" style="color:gray">{{data.core.rolle-1-hint}}</span>
-                            {{/if}}
-                        </li>
-                        <li class="item role flexrow" data-item-id="{{data.core.rolle-2-id}}">
-                            <label class="label" for="rolle-2">Rolle N<sup><u>o</u></sup>2</label>
-                            {{#if data.core.rolle-2-id}}
-                            <a class="value item-edit" id="rolle-2">{{data.core.rolle-2}}</a>
-                            <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-                            {{else}}
-                            <span class="value hint" style="color:gray">{{data.core.rolle-2-hint}}</span>
-                            {{/if}}
-                        </li>
-                        <li class="item role flexrow" data-item-id="{{data.core.rolle-3-id}}">
-                            <label class="label" for="rolle-3">Rolle N<sup><u>o</u></sup>3</label>
-                            {{#if data.core.rolle-3-id}}
-                            <a class="value item-edit" id="rolle-3">{{data.core.rolle-3}}</a>
-                            <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-                            {{else}}
-                            <span class="value hint" style="color:gray">{{data.core.rolle-3-hint}}</span>
-                            {{/if}}
-                        </li>
-                        <li class="item profession flexrow" data-item-id="{{data.core.profession-id}}">
-                            <label class="label" for="profession">Profession</label>
-                            {{#if data.core.profession-id}}
-                            <a class="value item-edit" id="profession">{{data.core.profession}}</a>
-                            <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-                            {{else}}
-                            <span class="value hint" style="color:gray">{{data.core.profession-hint}}</span>
-                            {{/if}}
-                        </li>
-                        <li class="sprachen flexrow">
-                            <label class="label" for="sprachen">Sprachen</label>
-                            <input class="value" type="text" name="data.core.sprachen" value="{{data.core.sprachen}}" id="sprachen" />
-                        </li>
-                    </ol>
-                    <ol class="list-body other-list">
-                        <li class="level flexrow">
-                            <label class="label" for="level">Level</label>
-                            <input class="value" type="text" name="data.core.level" value="{{data.core.level}}" data-dtype="Number" id="level" />
-                        </li>
-                        <li class="item motivation flexrow" data-item-id="{{data.core.motivation-id}}">
-                            <label class="label" for="motivation">Motivation</label>
-                            {{#if data.core.motivation-id}}
-                            <a class="value item-edit" id="motivation">{{data.core.motivation}}</a>
-                            <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-                            {{else}}
-                            <span class="value hint" style="color:gray">{{data.core.motivation-hint}}</span>
-                            {{/if}}
-                        </li>
-                        <li class="motivation-bonus flexrow">
-                            <label class="label" for="motivation-bonus"></label>
-                            <!-- FIXME: HTML aus MCE wird angezeigt -->
-                            <span class="value">{{data.core.motivation-bonus}}</span>
-                        </li>
-                        <li class="Verderbnis flexrow">
-                            <label class="label" for="verderbnis">Verderbnis</label>
-                            <input class="value" type="text" name="data.core.verderbnis" value="{{data.core.verderbnis}}" data-dtype="Number" id="verderbnis" />
-                        </li>
-                    </ol>
+            <header class="block-header">Basiswerte</header>
+            <div class="table table-1">
+                <div class="tr">
+                    <label class="td label" for="rolle-1">Rolle №1</label>
+                    <div class="td flexrow item role" data-item-id="{{data.core.rolle-1-id}}">
+                        {{#if data.core.rolle-1-id}}
+                        <a class="value item-edit" id="rolle-1">{{data.core.rolle-1}}</a>
+                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                        {{else}}
+                        <span class="value hint" style="color:gray">{{data.core.rolle-1-hint}}</span>
+                        {{/if}}
+                    </div>
+                </div>
+                <div class="tr">
+                    <label class="td label" for="rolle-2">Rolle №2</label>
+                    <div class="td flexrow item role" data-item-id="{{data.core.rolle-2-id}}">
+                        {{#if data.core.rolle-2-id}}
+                        <a class="value item-edit" id="rolle-2">{{data.core.rolle-2}}</a>
+                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                        {{else}}
+                        <span class="value hint" style="color:gray">{{data.core.rolle-2-hint}}</span>
+                        {{/if}}
+                    </div>
+                </div>
+                <div class="tr">
+                    <label class="td label" for="rolle-3">Rolle №3</label>
+                    <div class="td flexrow item role" data-item-id="{{data.core.rolle-3-id}}">
+                        {{#if data.core.rolle-3-id}}
+                        <a class="value item-edit" id="rolle-3">{{data.core.rolle-3}}</a>
+                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                        {{else}}
+                        <span class="value hint" style="color:gray">{{data.core.rolle-3-hint}}</span>
+                        {{/if}}
+                    </div>
+                </div>
+                <div class="tr">
+                    <label class="td label" for="profession">Profession</label>
+                    <div class="td flexrow item profession" data-item-id="{{data.core.profession-id}}">
+                        {{#if data.core.profession-id}}
+                        <a class="value item-edit" id="profession">{{data.core.profession}}</a>
+                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                        {{else}}
+                        <span class="value hint" style="color:gray">{{data.core.profession-hint}}</span>
+                        {{/if}}
+                    </div>
+                </div>
+                <div class="tr">
+                    <label class="td label" for="sprachen">Sprachen</label>
+                    <div class="td flexrow sprachen">
+                        <input class="value" type="text" name="data.core.sprachen" value="{{data.core.sprachen}}" id="sprachen" />
+                    </div>
                 </div>
             </div>
+            <ol class="list-body other-list">
+                <li class="level flexrow">
+                    <label class="label" for="level">Level</label>
+                    <input class="value" type="text" name="data.core.level" value="{{data.core.level}}" data-dtype="Number" id="level" />
+                </li>
+                <li class="item motivation flexrow" data-item-id="{{data.core.motivation-id}}">
+                    <label class="label" for="motivation">Motivation</label>
+                    {{#if data.core.motivation-id}}
+                    <a class="value item-edit" id="motivation">{{data.core.motivation}}</a>
+                    <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                    {{else}}
+                    <span class="value hint" style="color:gray">{{data.core.motivation-hint}}</span>
+                    {{/if}}
+                </li>
+                <li class="motivation-bonus flexrow">
+                    <label class="label" for="motivation-bonus"></label>
+                    <!-- FIXME: HTML aus MCE wird angezeigt -->
+                    <span class="value">{{data.core.motivation-bonus}}</span>
+                </li>
+                <li class="Verderbnis flexrow">
+                    <label class="label" for="verderbnis">Verderbnis</label>
+                    <input class="value" type="text" name="data.core.verderbnis" value="{{data.core.verderbnis}}" data-dtype="Number" id="verderbnis" />
+                </li>
+            </ol>
 
             <div class="seperator"></div>
             
-            <header class="list-header flexrow">
-                <span class="header-label">Notizen</span>
-            </header>
+            <header class="block-header">Notizen</header>
             {{editor content=data.biography target="data.biography" button=true owner=owner editable=editable}}
         </div>
 
