@@ -3,7 +3,7 @@
   --hexxen-green: #177d1a;
   --hexxen-dark-green: #084b0a;
   --hexxen-line-color: #4e804f;
-  --hexxen-highlight-hover-color:rgba(255, 255, 255, 0.7);
+  --hexxen-highlight-hover-color:rgba(8, 75, 10, 0.15);
   --hexxen-highlight-even-color: rgba(255, 255, 255, 0.4);
   --hexxen-header-color: var(--hexxen-dark-green);
   --hexxen-tab-bgcolor: rgba(8, 75, 10, 0.4);
@@ -46,6 +46,9 @@ img#hexxen-logo {
 .hexxen .table .tr:nth-child(2n) {
   background-color: var(--hexxen-highlight-even-color);
 }
+.hexxen .table .tr:hover {
+  background-color: var(--hexxen-highlight-hover-color);
+}
 .hexxen .table .td {
   display: table-cell;
   padding: 5px 6px;
@@ -58,6 +61,7 @@ img#hexxen-logo {
   flex: 0 0 20px;
   text-align: center;
 }
+
 
 .hexxen input {
   background-color: var(--hexxen-input-bgcolor);
