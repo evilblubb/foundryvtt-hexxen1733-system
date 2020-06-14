@@ -83,12 +83,15 @@ img#hexxen-logo {
   display: block; 
   width: 100%;
   min-height: 20px;
-  margin: 2px 0; 
+  margin: 10px 0; 
   border: none; 
   background-image: url("../img/Rabenkasten_weit_unten_small.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+}
+.hexxen.sheet .seperator {
+  margin: 2px 0; 
 }
 
 .hexxen.sheet .sheet-body header {
