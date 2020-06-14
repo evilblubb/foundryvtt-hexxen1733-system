@@ -75,54 +75,37 @@
     {{!-- Sheet Body --}}
     <section class="sheet-body">
 
+        {{#*inline "item"}}
+        <div class="td flexrow item {{type}} allow-break" data-item-id="{{item-id}}">
+            {{#if item-id}}
+            <a class="value item-edit" id="{{id}}">{{name}}</a>
+            <a class="control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+            {{else}}
+            {{! TODO: Höhe des span eindampfen }}
+            <span class="value hint" style="color:gray">{{hint}}</span>
+            {{/if}}
+        </div>
+        {{/inline}}
+
         {{!-- Bio Tab --}}
         <div class="tab biography scroll-y" data-group="primary" data-tab="biography">
             <header class="block-header">Basiswerte</header>
             <div class="table table-1">
                 <div class="tr">
                     <label class="td label" for="rolle-1">Rolle №1</label>
-                    <div class="td flexrow item role allow-break" data-item-id="{{data.core.rolle-1-id}}">
-                        {{#if data.core.rolle-1-id}}
-                        <a class="value item-edit" id="rolle-1">{{data.core.rolle-1}}</a>
-                        <a class="control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-                        {{else}}
-                        <span class="value hint" style="color:gray">{{data.core.rolle-1-hint}}</span>
-                        {{/if}}
-                    </div>
+                    {{> item id="rolle-1" type="role" name=data.core.rolle-1 item-id=data.core.rolle-1-id hint=data.core.rolle-1-hint}}
                 </div>
                 <div class="tr">
                     <label class="td label" for="rolle-2">Rolle №2</label>
-                    <div class="td flexrow item role allow-break" data-item-id="{{data.core.rolle-2-id}}">
-                        {{#if data.core.rolle-2-id}}
-                        <a class="value item-edit" id="rolle-2">{{data.core.rolle-2}}</a>
-                        <a class="control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-                        {{else}}
-                        <span class="value hint" style="color:gray">{{data.core.rolle-2-hint}}</span>
-                        {{/if}}
-                    </div>
+                    {{> item id="rolle-2" type="role" name=data.core.rolle-2 item-id=data.core.rolle-2-id hint=data.core.rolle-2-hint}}
                 </div>
                 <div class="tr">
                     <label class="td label" for="rolle-3">Rolle №3</label>
-                    <div class="td flexrow item role allow-break" data-item-id="{{data.core.rolle-3-id}}">
-                        {{#if data.core.rolle-3-id}}
-                        <a class="value item-edit" id="rolle-3">{{data.core.rolle-3}}</a>
-                        <a class="control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-                        {{else}}
-                        {{! TODO: Höhe des span eindampfen }}
-                        <span class="value hint" style="color:gray">{{data.core.rolle-3-hint}}</span>
-                        {{/if}}
-                    </div>
+                    {{> item id="rolle-3" type="role" name=data.core.rolle-3 item-id=data.core.rolle-3-id hint=data.core.rolle-3-hint}}
                 </div>
                 <div class="tr">
                     <label class="td label" for="profession">Profession</label>
-                    <div class="td flexrow item profession allow-break" data-item-id="{{data.core.profession-id}}">
-                        {{#if data.core.profession-id}}
-                        <a class="value item-edit" id="profession">{{data.core.profession}}</a>
-                        <a class="control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-                        {{else}}
-                        <span class="value hint" style="color:gray">{{data.core.profession-hint}}</span>
-                        {{/if}}
-                    </div>
+                    {{> item id="profession" type="profession" name=data.core.profession item-id=data.core.profession-id hint=data.core.profession-hint}}
                 </div>
                 <div class="tr">
                     <label class="td label" for="sprachen">Sprachen</label>
@@ -139,12 +122,7 @@
                 </li>
                 <li class="item motivation flexrow" data-item-id="{{data.core.motivation-id}}">
                     <label class="label" for="motivation">Motivation</label>
-                    {{#if data.core.motivation-id}}
-                    <a class="value item-edit" id="motivation">{{data.core.motivation}}</a>
-                    <a class="control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-                    {{else}}
-                    <span class="value hint" style="color:gray">{{data.core.motivation-hint}}</span>
-                    {{/if}}
+                    {{> item id="motivation" type="motivation" name=data.core.motivation item-id=data.core.motivation-id hint=data.core.motivation-hint}}
                 </li>
                 <li class="motivation-bonus flexrow allow-break">
                     <label class="label" for="motivation-bonus"></label>
