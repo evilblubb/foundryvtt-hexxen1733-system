@@ -34,6 +34,9 @@ img#hexxen-logo {
   width: calc(100% - 560px);
 }
 
+.hexxen .allow-break {
+  word-break: break-word;
+}
 .hexxen .flexrow {
   flex-wrap: unset; /* override system preset */
 }

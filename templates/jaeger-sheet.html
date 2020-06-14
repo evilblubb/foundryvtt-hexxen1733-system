@@ -81,7 +81,7 @@
             <div class="table table-1">
                 <div class="tr">
                     <label class="td label" for="rolle-1">Rolle №1</label>
-                    <div class="td flexrow item role" data-item-id="{{data.core.rolle-1-id}}">
+                    <div class="td flexrow item role allow-break" data-item-id="{{data.core.rolle-1-id}}">
                         {{#if data.core.rolle-1-id}}
                         <a class="value item-edit" id="rolle-1">{{data.core.rolle-1}}</a>
                         <a class="control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
@@ -92,7 +92,7 @@
                 </div>
                 <div class="tr">
                     <label class="td label" for="rolle-2">Rolle №2</label>
-                    <div class="td flexrow item role" data-item-id="{{data.core.rolle-2-id}}">
+                    <div class="td flexrow item role allow-break" data-item-id="{{data.core.rolle-2-id}}">
                         {{#if data.core.rolle-2-id}}
                         <a class="value item-edit" id="rolle-2">{{data.core.rolle-2}}</a>
                         <a class="control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
@@ -103,7 +103,7 @@
                 </div>
                 <div class="tr">
                     <label class="td label" for="rolle-3">Rolle №3</label>
-                    <div class="td flexrow item role" data-item-id="{{data.core.rolle-3-id}}">
+                    <div class="td flexrow item role allow-break" data-item-id="{{data.core.rolle-3-id}}">
                         {{#if data.core.rolle-3-id}}
                         <a class="value item-edit" id="rolle-3">{{data.core.rolle-3}}</a>
                         <a class="control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
@@ -115,7 +115,7 @@
                 </div>
                 <div class="tr">
                     <label class="td label" for="profession">Profession</label>
-                    <div class="td flexrow item profession" data-item-id="{{data.core.profession-id}}">
+                    <div class="td flexrow item profession allow-break" data-item-id="{{data.core.profession-id}}">
                         {{#if data.core.profession-id}}
                         <a class="value item-edit" id="profession">{{data.core.profession}}</a>
                         <a class="control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
@@ -146,7 +146,7 @@
                     <span class="value hint" style="color:gray">{{data.core.motivation-hint}}</span>
                     {{/if}}
                 </li>
-                <li class="motivation-bonus flexrow">
+                <li class="motivation-bonus flexrow allow-break">
                     <label class="label" for="motivation-bonus"></label>
                     <!-- FIXME: HTML aus MCE wird angezeigt -->
                     <span class="value">{{data.core.motivation-bonus}}</span>
