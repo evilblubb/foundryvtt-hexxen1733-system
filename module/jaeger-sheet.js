@@ -226,6 +226,10 @@ class JaegerSheet extends HexxenActorSheet {
       li.slideUp(200, () => this.render(false));
     });
 
+    // Item controls bei hover anzeigen
+    // TODO: Helper verallgemeinern
+    //html.find(".item").hover(HexxenIncDecHelper.onHoverPlusMinus);
+
     // +/- Buttons
     // Segnungen, Ideen, Coups
     html.find(".sheet-header .inc-btn").hover(HexxenIncDecHelper.onHoverPlusMinus.bind(this));

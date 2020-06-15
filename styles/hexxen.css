@@ -77,11 +77,14 @@ input[type="text"], input[type="password"], input[type="datetime-local"] {
   background-color: var(--hexxen-highlight-hover-color) !important;
 }
 
+/* FIXME: Test Item controls nur bei hover (vs. edit mode) */
+/*.hexxen .controls {
+  display: none;
+}*/
 .hexxen .control {
   flex: 0 0 20px;
   text-align: center;
 }
-
 
 .hexxen input {
   background-color: var(--hexxen-input-bgcolor);
