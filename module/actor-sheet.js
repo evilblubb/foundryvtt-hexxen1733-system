@@ -39,6 +39,13 @@ class HexxenActorSheet extends ActorSheet {
   get editMode() {
     return !! this.actor.getFlag(Hexxen.scope, "editMode");
   }
+
+  /** @override */
+  getData() {
+    const data = super.getData();
+    data.editMode = this.editMode;
+    return data;
+  }
 }
 
 /**

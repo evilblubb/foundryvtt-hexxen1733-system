@@ -37,12 +37,14 @@ class JaegerSheet extends HexxenActorSheet {
     //   owner: boolean;
     //   limited: boolean;
     //   options: any;
-    //   editable: boolean;
+    //   editable: boolean; (not read-only)
     //   cssClass: string;
     // (from ActorSheet)
     //   actor: any; (alias for entity)
     //   data: any; (alias for actor.data; inner data)
     //   items: any; (alias for actor.items; data only, not the Item instance; sorted, contains all subtypes)
+    // (from HexxenActorSheet)
+    //   editMode: boolean; (full set (true) or limited set (false) of form elements)
 
     // header resources
     let hres = {}
@@ -64,7 +66,6 @@ class JaegerSheet extends HexxenActorSheet {
     mot = mot.length > 0 ? mot[0].data : undefined; 
     if (mot) {
       data.data.core["motivation"] = mot.name;
-      // FIXME: HTML aus MCE besser behandeln
       data.data.core["motivation-bonus"] = mot.data.summary ? mot.data.summary : mot.data.description;
       data.data.core["motivation-id"] = mot._id;
     }
@@ -100,6 +101,21 @@ class JaegerSheet extends HexxenActorSheet {
     }
     data.data.core["profession-hint"] = data.data.core.level < 2 ? "Verfügbar ab Level 2" : "Keine Profession ausgewählt";
 
+    // TODO: temporary code until data structure change
+    const languages = {};
+    languages.value = data.data.core.sprachen;
+    data.data.languages = languages;
+
+    const level = {};
+    level.value = data.data.core.level;
+    level.dtype = "Number"; // TODO: Kontanten anlegen
+    data.data.level = level;
+
+    const vitiation = {};
+    vitiation.value = data.data.core.verderbnis;
+    vitiation.dtype = "Number"; // TODO: Kontanten anlegen
+    data.data.vitiation = vitiation;
+
     data.stypes = { "idmg": "Innerer Schaden", "odmg": "Äußerer Schaden", "mdmg": "Malusschaden", "ldmg": "Lähmungsschaden" };
     for ( let state of Object.values(data.data.states) ) {
       state.type = data.stypes[state.type];
@@ -134,6 +150,7 @@ class JaegerSheet extends HexxenActorSheet {
     }
 
     // TODO: data.items filtern, sobald alle anderen subtypen abgehandelt
+    data.actor.items = data.actor.items.filter(i => { return "item" === i.type; });
     
     return data;
   }
@@ -226,6 +243,10 @@ class JaegerSheet extends HexxenActorSheet {
       li.slideUp(200, () => this.render(false));
     });
 
+    // Item controls bei hover anzeigen
+    // TODO: Helper verallgemeinern
+    //html.find(".item").hover(HexxenIncDecHelper.onHoverPlusMinus);
+
     // +/- Buttons
     // Segnungen, Ideen, Coups
     html.find(".sheet-header .inc-btn").hover(HexxenIncDecHelper.onHoverPlusMinus.bind(this));
@@ -284,6 +305,20 @@ class JaegerSheet extends HexxenActorSheet {
 
   /** @override */
   _updateObject(event, formData) {
+
+    // TODO: temporary code until data structure change in actor
+    if (formData.hasOwnProperty("data.languages.value")){
+      formData["data.core.sprachen"] = formData["data.languages.value"];
+      delete formData["data.languages.value"];
+    }
+    if (formData.hasOwnProperty("data.level.value")){
+      formData["data.core.level"] = formData["data.level.value"];
+      delete formData["data.level.value"];
+    }
+    if (formData.hasOwnProperty("data.vitiation.value")){
+      formData["data.core.verderbnis"] = formData["data.vitiation.value"];
+      delete formData["data.vitiation.value"];
+    }
 
     // Update the Actor
     return this.object.update(formData);
