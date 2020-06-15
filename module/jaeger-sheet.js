@@ -102,6 +102,11 @@ class JaegerSheet extends HexxenActorSheet {
     }
     data.data.core["profession-hint"] = data.data.core.level < 2 ? "Verfügbar ab Level 2" : "Keine Profession ausgewählt";
 
+    // TODO: temporary code until data structure change
+    const languages = {};
+    languages.value = data.data.core.sprachen;
+    data.data.languages = languages;
+
     data.stypes = { "idmg": "Innerer Schaden", "odmg": "Äußerer Schaden", "mdmg": "Malusschaden", "ldmg": "Lähmungsschaden" };
     for ( let state of Object.values(data.data.states) ) {
       state.type = data.stypes[state.type];
@@ -290,6 +295,12 @@ class JaegerSheet extends HexxenActorSheet {
 
   /** @override */
   _updateObject(event, formData) {
+
+    // TODO: temporary code until data structure change in actor
+    if (formData.hasOwnProperty("data.languages.value")){
+      formData["data.core.sprachen"] = formData["data.languages.value"];
+      delete formData["data.languages.value"];
+    }
 
     // Update the Actor
     return this.object.update(formData);

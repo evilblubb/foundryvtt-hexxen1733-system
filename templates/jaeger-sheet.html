@@ -110,7 +110,23 @@
                 <div class="tr">
                     <label class="td label" for="sprachen">Sprachen</label>
                     <div class="td flexrow sprachen">
-                        <input id="sprachen" class="value" type="text" name="data.core.sprachen" value="{{data.core.sprachen}}" />
+
+                        {{#*inline "input"}}
+                        {{! log "root:" @root 
+                            "this:" @this 
+                            "editMode:" @root.editMode}}
+                        {{#if @root.editMode}}
+                        <input {{#if id}} id="{{id}}" {{/if}} 
+                            class="{{#if classes}}{{classes}} {{/if}}value" 
+                            type="text" 
+                            name="{{target}}{{#if content.value}}.value{{/if}}" 
+                            value="{{#if content.value}}{{content.value}}{{else}}{{content}}{{/if}}" />
+                        {{else}}
+                        <span class="{{#if classes}}{{classes}} {{/if}}value">{{#if content.value}}{{content.value}}{{else}}{{content}}{{/if}}</span>
+                        {{/if}}
+                        {{/inline}}
+
+                        {{> input id="sprachen" classes="foo" target="data.languages" content=data.languages }}
                     </div>
                 </div>
             </div>
