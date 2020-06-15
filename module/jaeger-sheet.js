@@ -150,6 +150,7 @@ class JaegerSheet extends HexxenActorSheet {
     }
 
     // TODO: data.items filtern, sobald alle anderen subtypen abgehandelt
+    data.actor.items = data.actor.items.filter(i => { return "item" === i.type; });
     
     return data;
   }
