@@ -106,6 +106,16 @@ class JaegerSheet extends HexxenActorSheet {
     languages.value = data.data.core.sprachen;
     data.data.languages = languages;
 
+    const level = {};
+    level.value = data.data.core.level;
+    level.dtype = "Number"; // TODO: Kontanten anlegen
+    data.data.level = level;
+
+    const vitiation = {};
+    vitiation.value = data.data.core.verderbnis;
+    vitiation.dtype = "Number"; // TODO: Kontanten anlegen
+    data.data.vitiation = vitiation;
+
     data.stypes = { "idmg": "Innerer Schaden", "odmg": "Äußerer Schaden", "mdmg": "Malusschaden", "ldmg": "Lähmungsschaden" };
     for ( let state of Object.values(data.data.states) ) {
       state.type = data.stypes[state.type];
@@ -299,6 +309,14 @@ class JaegerSheet extends HexxenActorSheet {
     if (formData.hasOwnProperty("data.languages.value")){
       formData["data.core.sprachen"] = formData["data.languages.value"];
       delete formData["data.languages.value"];
+    }
+    if (formData.hasOwnProperty("data.level.value")){
+      formData["data.core.level"] = formData["data.level.value"];
+      delete formData["data.level.value"];
+    }
+    if (formData.hasOwnProperty("data.vitiation.value")){
+      formData["data.core.verderbnis"] = formData["data.vitiation.value"];
+      delete formData["data.vitiation.value"];
     }
 
     // Update the Actor

@@ -55,6 +55,10 @@ Hooks.once("init", async function() {
     decimals: 0
   };
   
+  Handlebars.registerHelper('isDefined', function (value) {
+    return value !== undefined;
+  });
+
   // FIXME: richtiger Platz??
   Handlebars.registerHelper("dyn-input", function(options) {
     // TODO: besser actor.gameMode, aber dazu muss zuerst das Actor/Token-Objekt ermittelt werden
