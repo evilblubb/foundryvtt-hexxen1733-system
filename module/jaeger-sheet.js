@@ -37,12 +37,14 @@ class JaegerSheet extends HexxenActorSheet {
     //   owner: boolean;
     //   limited: boolean;
     //   options: any;
-    //   editable: boolean;
+    //   editable: boolean; (not read-only)
     //   cssClass: string;
     // (from ActorSheet)
     //   actor: any; (alias for entity)
     //   data: any; (alias for actor.data; inner data)
     //   items: any; (alias for actor.items; data only, not the Item instance; sorted, contains all subtypes)
+    // (from HexxenActorSheet)
+    //   editMode: boolean; (full set (true) or limited set (false) of form elements)
 
     // header resources
     let hres = {}
