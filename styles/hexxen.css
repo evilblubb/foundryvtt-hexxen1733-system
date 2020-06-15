@@ -127,7 +127,7 @@ input[type="text"], input[type="password"], input[type="datetime-local"] {
 
 .hexxen .note {
   font-size: 0.8em;
-  padding: 2px;
+  margin: 2px;
 }
 .hexxen .hint {
   font-size: 0.8em;

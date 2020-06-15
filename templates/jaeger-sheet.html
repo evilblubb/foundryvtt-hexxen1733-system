@@ -81,7 +81,6 @@
             <a class="value item-edit" id="{{id}}">{{name}}</a>
             {{#if editMode}}<a class="controls control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>{{/if}}
             {{else}}
-            {{! TODO: Höhe des span eindampfen }}
             <div class="hint">{{hint}}</div>
             {{/if}}
         </div>
@@ -141,8 +140,7 @@
                     <label class="td label" for="motivation">Motivation</label>
                     <div class="td flexcol">
                         {{> item id="motivation" type="motivation" name=data.core.motivation item-id=data.core.motivation-id hint=data.core.motivation-hint}}
-                        {{! FIXME: bei bonus wird HTML aus MCE angezeigt! SafeString?? }}
-                        <div id="motivation-bonus" class="note allow-break">{{data.core.motivation-bonus}}</div>    
+                        <div id="motivation-bonus" class="note allow-break">{{{data.core.motivation-bonus}}}</div>    
                     </div>
                 </div>
                 <div class="tr">
