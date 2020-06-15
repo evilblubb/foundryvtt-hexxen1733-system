@@ -1,6 +1,7 @@
 ﻿<form class="{{cssClass}}" autocomplete="off">
 
     {{#*inline "item"}}
+    {{! > item id="rolle-1" class="td" type="role" name=data.core.rolle-1 item-id=data.core.rolle-1-id hint=data.core.rolle-1-hint}}
     <div class="{{class}} flexrow item {{type}} allow-break" data-item-id="{{item-id}}">
         {{#if item-id}}
         <a class="value item-edit" id="{{id}}">{{name}}</a>
@@ -12,6 +13,7 @@
     {{/inline}}
 
     {{#*inline "input"}}
+    {{! > input id="languages" class="foo" target="data.languages" content=data.languages}}
     {{! log "root:" @root 
         "this:" @this 
         "editMode:" @root.editMode}}
