@@ -1,5 +1,34 @@
 ﻿<form class="{{cssClass}}" autocomplete="off">
 
+    {{#*inline "item"}}
+    <div class="{{class}} flexrow item {{type}} allow-break" data-item-id="{{item-id}}">
+        {{#if item-id}}
+        <a class="value item-edit" id="{{id}}">{{name}}</a>
+        {{#if editMode}}<a class="controls control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>{{/if}}
+        {{else}}
+        <div class="hint">{{hint}}</div>
+        {{/if}}
+    </div>
+    {{/inline}}
+
+    {{#*inline "input"}}
+    {{! log "root:" @root 
+        "this:" @this 
+        "editMode:" @root.editMode}}
+    {{#if @root.editMode}}
+    <input {{#if id}} id="{{id}}" {{/if}} 
+        class="{{#if (isDefined class)}}{{class}} {{/if}}value" 
+        type="text" 
+        name="{{target}}{{#if (isDefined content.value)}}.value{{/if}}" 
+        value="{{#if (isDefined content.value)}}{{content.value}}{{else}}{{content}}{{/if}}" 
+        {{#if content.dtype}}data-dtype="{{content.dtype}}"{{/if}} />
+    {{else}}
+    <span class="{{#if (isDefined class)}}{{class}} {{/if}}value">
+        {{#if (isDefined content.value)}}{{content.value}}{{else}}{{content}}{{/if}}
+    </span>
+    {{/if}}
+    {{/inline}}
+
     {{!-- Sheet Header --}}
     <header class="sheet-header">
         <div class="flexrow">
@@ -75,17 +104,6 @@
     {{!-- Sheet Body --}}
     <section class="sheet-body">
 
-        {{#*inline "item"}}
-        <div class="{{class}} flexrow item {{type}} allow-break" data-item-id="{{item-id}}">
-            {{#if item-id}}
-            <a class="value item-edit" id="{{id}}">{{name}}</a>
-            {{#if editMode}}<a class="controls control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>{{/if}}
-            {{else}}
-            <div class="hint">{{hint}}</div>
-            {{/if}}
-        </div>
-        {{/inline}}
-
         {{!-- Bio Tab --}}
         <div class="tab biography scroll-y" data-group="primary" data-tab="biography">
             <header class="block-header">Basiswerte</header>
@@ -107,46 +125,31 @@
                     {{> item id="profession" class="td" type="profession" name=data.core.profession item-id=data.core.profession-id hint=data.core.profession-hint}}
                 </div>
                 <div class="tr">
-                    <label class="td label" for="sprachen">Sprachen</label>
-                    <div class="td flexrow sprachen">
-
-                        {{#*inline "input"}}
-                        {{! log "root:" @root 
-                            "this:" @this 
-                            "editMode:" @root.editMode}}
-                        {{#if @root.editMode}}
-                        <input {{#if id}} id="{{id}}" {{/if}} 
-                            class="{{#if classes}}{{classes}} {{/if}}value" 
-                            type="text" 
-                            name="{{target}}{{#if content.value}}.value{{/if}}" 
-                            value="{{#if content.value}}{{content.value}}{{else}}{{content}}{{/if}}" />
-                        {{else}}
-                        <span class="{{#if classes}}{{classes}} {{/if}}value">{{#if content.value}}{{content.value}}{{else}}{{content}}{{/if}}</span>
-                        {{/if}}
-                        {{/inline}}
-
-                        {{> input id="sprachen" classes="foo" target="data.languages" content=data.languages }}
+                    <label class="td label" for="languages">Sprachen</label>
+                    <div class="td flexrow languages">
+                        {{> input id="languages" target="data.languages" content=data.languages}}
                     </div>
                 </div>
             </div>
             <div class="table table-2">
                 <div class="tr">
-                    <label class="td label" for="level">Level</label>
+                    <label class="td label" for="level">Jägerstufe</label>
                     <div class="td flexrow level">
-                        <input id="level" class="value" type="text" name="data.core.level" value="{{data.core.level}}" data-dtype="Number" />
+                        {{> input id="level" target="data.level" content=data.level}}
                     </div>
                 </div>
                 <div class="tr">
                     <label class="td label" for="motivation">Motivation</label>
                     <div class="td flexcol">
                         {{> item id="motivation" type="motivation" name=data.core.motivation item-id=data.core.motivation-id hint=data.core.motivation-hint}}
+                        {{!-- using {{{ }}} to allow HTML code to pass through unescaped --}}
                         <div id="motivation-bonus" class="note allow-break">{{{data.core.motivation-bonus}}}</div>    
                     </div>
                 </div>
                 <div class="tr">
-                    <label class="td label" for="verderbnis">Verderbnis</label>
-                    <div class="td flexrow verderbnis">
-                        <input id="verderbnis" class="value" type="text" name="data.core.verderbnis" value="{{data.core.verderbnis}}" data-dtype="Number" />
+                    <label class="td label" for="vitiation">Verderbnis</label>
+                    <div class="td flexrow vitiation">
+                        {{> input id="vitiation" target="data.vitiation" content=data.vitiation}}
                     </div>
                 </div>
             </div>
