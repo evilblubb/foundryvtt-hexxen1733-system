@@ -1,6 +1,7 @@
 {
   "allgemein": {
     "transportables-laboratorium": {
+      "name":"Transportables Laboratorium",
       "references": [
         {
           "source": "Wiki",
@@ -15,6 +16,7 @@
       "summary": "Kosten: 60 Gulden"
     },
     "biologisches-laboratorium": {
+      "name":"Biologisches Laboratorium",
       "references": [
         {
           "source": "Wiki",
@@ -29,6 +31,7 @@
       "summary": "Kosten: 270 Gulden"
     },
     "mineralisches-laboratorium": {
+      "name":"Mineralisches Laboratorium",
       "references": [
         {
           "source": "Wiki",
@@ -43,6 +46,7 @@
       "summary": "Kosten: 270 Gulden"
     },
     "werkzeugkiste": {
+      "name":"Werkzeugkiste",
       "references": [
         {
           "source": "Wiki",
@@ -57,6 +61,7 @@
       "summary": "Kosten: 25 Gulden"
     },
     "fackel": {
+      "name":"Fackel",
       "references": [
         {
           "source": "Wiki",
@@ -71,6 +76,7 @@
       "summary": "Kosten: 1 Gulden"
     },
     "fernrohr": {
+      "name":"Fernrohr",
       "references": [
         {
           "source": "Wiki",
@@ -85,6 +91,7 @@
       "summary": "Kosten: 70 Gulden"
     },
     "kletterhaken": {
+      "name":"Kletterhacken",
       "references": [
         {
           "source": "Wiki",

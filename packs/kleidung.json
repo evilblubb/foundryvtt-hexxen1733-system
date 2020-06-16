@@ -1,5 +1,6 @@
 {
   "aristokratische-kleidung": {
+    "name":"Aristokratische Kleidung",
     "references": [
       {
         "source": "Wiki",
@@ -11,6 +12,7 @@
     "summary": ""
   },
   "bauerntracht": {
+    "name":"Bauerntracht",
     "references": [
       {
         "source": "Wiki",
@@ -22,6 +24,7 @@
     "summary": ""
   },
   "bergmannshabit": {
+    "name":"Bergmannshabit",
     "references": [
       {
         "source": "Wiki",
@@ -33,6 +36,7 @@
     "summary": "Kosten: 12 Gulden."
   },
   "buergerliche-kleidung": {
+    "name":"Bürgerliche Kleidung",
     "references": [
       {
         "source": "Wiki",
@@ -44,6 +48,7 @@
     "summary": ""
   },
   "gardeuniform": {
+    "name":"Gardeuniform",
     "references": [
       {
         "source": "Wiki",
@@ -55,6 +60,7 @@
     "summary": ""
   },
   "gelehrtenkleidung": {
+    "name":"Gelehrtenkleidung",
     "references": [
       {
         "source": "Wiki",
@@ -66,6 +72,7 @@
     "summary": ""
   },
   "handwerkerkleidung": {
+    "name":"Handwerkerkleidung",
     "references": [
       {
         "source": "Wiki",
@@ -77,6 +84,7 @@
     "summary": ""
   },
   "kriegeruntergewand": {
+    "name":"Kriegeruntergewand",
     "references": [
       {
         "source": "Wiki",
@@ -88,6 +96,7 @@
     "summary": ""
   },
   "kultrobe": {
+    "name":"Kultrobe",
     "references": [
       {
         "source": "Wiki",
@@ -99,6 +108,7 @@
     "summary": ""
   },
   "kundschafterkleidung": {
+    "name":"Kundschafterkleidung",
     "references": [
       {
         "source": "Wiki",
@@ -110,6 +120,7 @@
     "summary": "Kosten: 40 Gulden."
   },
   "landsknechtkleidung": {
+    "name":"Landsknechtkleidung",
     "references": [
       {
         "source": "Wiki",
@@ -121,6 +132,7 @@
     "summary": ""
   },
   "liturgisches-gewand": {
+    "name":"Liturgisches Gewand",
     "references": [
       {
         "source": "Wiki",
@@ -132,6 +144,7 @@
     "summary": ""
   },
   "musketierkleidung": {
+    "name":"Musketierkleidung",
     "references": [
       {
         "source": "Wiki",
@@ -143,6 +156,7 @@
     "summary": ""
   },
   "moenchs-/nonnenkleidung": {
+    "name":"Mönchs-/Nonnenkleidung",
     "references": [
       {
         "source": "Wiki",
@@ -154,6 +168,7 @@
     "summary": ""
   },
   "reisekleidung": {
+    "name":"Reisekleidung",
     "references": [
       {
         "source": "Wiki",
@@ -165,6 +180,7 @@
     "summary": ""
   },
   "soeldnerkleidung": {
+    "name":"Söldnerkleidung",
     "references": [
       {
         "source": "Wiki",
@@ -176,6 +192,7 @@
     "summary": ""
   },
   "kuerass/brigantine": {
+    "name":"Kürass/Brigantine",
     "references": [
       {
         "source": "Wiki",
@@ -187,6 +204,7 @@
     "summary": "Kosten: 70 Gulden"
   },
   "lederkoller": {
+    "name":"Lederkoller",
     "references": [
       {
         "source": "Wiki",
@@ -198,6 +216,7 @@
     "summary": "Kosten: 30 Gulden"
   },
   "ross-harnisch": {
+    "name":"Roß Harnisch",
     "references": [
       {
         "source": "Wiki",
