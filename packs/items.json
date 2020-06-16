@@ -106,6 +106,7 @@
       "summary": "Kosten: 10 Gulden"
     },
     "kompass": {
+      "name":"Kompass",
       "references": [
         {
           "source": "Wiki",
@@ -120,6 +121,7 @@
       "summary": "Kosten: 25 Gulden"
     },
     "landkarte": {
+      "name":"Landkarte",
       "references": [
         {
           "source": "Wiki",
@@ -134,6 +136,7 @@
       "summary": "Kosten: 15 Gulden"
     },
     "oellampe": {
+      "name":"Öllampe",
       "references": [
         {
           "source": "Wiki",
@@ -148,6 +151,7 @@
       "summary": "Kosten: 10 Gulden"
     },
     "rueckentrage": {
+      "name":"Rückentrage",
       "references": [
         {
           "source": "Wiki",
@@ -162,6 +166,7 @@
       "summary": "Kosten: 8 Gulden"
     },
     "schlafsack": {
+      "name":"Schlafsack",
       "references": [
         {
           "source": "Wiki",
@@ -176,6 +181,7 @@
       "summary": "Kosten: 7 Gulden"
     },
     "seil": {
+      "name":"Seil",
       "references": [
         {
           "source": "Wiki",
@@ -190,6 +196,7 @@
       "summary": "Kosten: 10 Gulden"
     },
     "schreibutensilien": {
+      "name":"Schreibutensilien",
       "references": [
         {
           "source": "Wiki",
@@ -204,6 +211,7 @@
       "summary": "Kosten: 15 Gulden"
     },
     "alkohol": {
+      "name":"Alkohol",
       "references": [
         {
           "source": "Wiki",
@@ -218,6 +226,7 @@
       "summary": "Kosten: 15 Gulden"
     },
     "zelt": {
+      "name":"Zelt",
       "references": [
         {
           "source": "Wiki",
@@ -232,6 +241,7 @@
       "summary": "Kosten: 20 Gulden"
     },
     "feldbett": {
+      "name":"Feldbett",
       "references": [
         {
           "source": "Wiki",
@@ -246,6 +256,7 @@
       "summary": "Kosten: 15 Gulden"
     },
     "handschellen": {
+      "name":"Handschellen",
       "references": [
         {
           "source": "Wiki",
@@ -260,6 +271,7 @@
       "summary": "Kosten: 22 Gulden"
     },
     "vorhaengeschloss": {
+      "name":"Vorhängeschloss",
       "references": [
         {
           "source": "Wiki",
@@ -274,6 +286,7 @@
       "summary": "Kosten: 17 Gulden"
     },
     "truhe": {
+      "name":"Truhe",
       "references": [
         {
           "source": "Wiki",
@@ -288,6 +301,7 @@
       "summary": "Kosten: 33 Gulden"
     },
     "buschmesser": {
+      "name":"Buschmesser",
       "references": [
         {
           "source": "Wiki",
@@ -302,6 +316,7 @@
       "summary": "Kosten: 90 Gulden"
     },
     "gezaehe": {
+      "name":"Gezähe",
       "references": [
         {
           "source": "Wiki",
@@ -316,6 +331,7 @@
       "summary": "Kosten: 35 Gulden"
     },
     "klettergeschirr": {
+      "name":"Klettergeschirr",
       "references": [
         {
           "source": "Wiki",
@@ -330,6 +346,7 @@
       "summary": "Kosten: 10 Gulden pro Teil"
     },
     "probentasche": {
+      "name":"Probentasche",
       "references": [
         {
           "source": "Wiki",
@@ -344,6 +361,7 @@
       "summary": "Kosten: 27 Gulden"
     },
     "spitzhacke": {
+      "name":"Spitzhacke",
       "references": [
         {
           "source": "Wiki",
@@ -358,6 +376,7 @@
       "summary": "Kosten: 50 Gulden"
     },
     "schutzamulett": {
+      "name":"Schutzamulett",
       "references": [
         {
           "source": "Wiki",
