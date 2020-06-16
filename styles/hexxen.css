@@ -1,21 +1,3 @@
-:root {
-  --hexxen-pale-green: #bcceb9;
-  --hexxen-green: #177d1a;
-  --hexxen-dark-green: #084b0a;
-  --hexxen-line-color: #4e804f;
-  --hexxen-hint-color: gray;
-  --hexxen-highlight-hover-color:rgba(8, 75, 10, 0.15);
-  --hexxen-highlight-even-color: rgba(255, 255, 255, 0.4);
-  --hexxen-header-color: var(--hexxen-dark-green);
-  --hexxen-tab-bgcolor: rgba(8, 75, 10, 0.4);
-  --hexxen-header-bgcolor: rgba(8, 75, 10, 0.15);
-  --hexxen-input-bgcolor: var(--hexxen-pale-green);
-  --hexxen-tab-border: 1px solid var(--hexxen-dark-green);
-  --hexxen-header-border: 1px solid var(--hexxen-line-color);
-  --hexxen-input-bordercolor: var(--hexxen-dark-green);
-  --hexxen-value-span-border: 1px solid var(--hexxen-line-color);
-  scrollbar-color: var(--hexxen-green) var(--hexxen-dark-green); 
-}
 ::selection {
   background: #81a8e6;
 }
@@ -35,10 +17,66 @@ img#hexxen-logo {
   width: calc(100% - 560px);
 }
 
-input[type="text"], input[type="password"], input[type="datetime-local"] {
-  height: 23px;
+.hexxen {
+  --hexxen-light-color: rgb(185, 145, 95);
+  --hexxen-dark-color: rgb(120, 55, 60);
+
+  --hexxen-title-color: var(--hexxen-dark-color);
+  --hexxen-minimized-title-color: rgba(120, 55, 60, 0.75);
+  --hexxen-sheet-background-image: url("../img/Hex_Pokerkarte_front_hell.png");
+  --hexxen-sheet-background-blend-color: rgba(160, 125, 110, 0.7);
+
+  --hexxen-hint-color: var(--hexxen-dark-color);
+
+  --hexxen-highlight-even-color: rgba(255, 255, 255, 0.5);
+  --hexxen-highlight-odd-color: rgba(140, 40, 20, 0.1);
+  --hexxen-highlight-hover-color:rgba(140, 40, 20, 0.3);
+
+  --hexxen-value-span-bgcolor: rgba(255, 255, 255, 0.3);
+  --hexxen-value-span-border: 1px solid var(--hexxen-dark-color);
+  --hexxen-input-bgcolor: rgba(255, 255, 255, 0.8);
+  --hexxen-input-bordercolor: var(--hexxen-dark-color);
+  --hexxen-input-placeholder-color: var(--hexxen-light-color);
+  --hexxen-editor-bgcolor: var(--hexxen-highlight-even-color);
+  --hexxen-editor-border: 1px solid var(--hexxen-dark-color);
+
+  --hexxen-box-border: 1px solid var(--hexxen-dark-color);
+  --hexxen-nav-background-image: url("../img/Rabenkasten_oben_small.png");
+  --hexxen-nav-bgcolor: rgba(80, 30, 0, 0.4);
+  --hexxen-nav-border: 1px solid var(--hexxen-dark-color);
+  --hexxen-header-color: var(--hexxen-dark-color);
+  --hexxen-header-bgcolor: rgba(130, 50, 0, 0.3);
+  --hexxen-header-border: 1px solid rgb(170, 120, 75);
+  --hexxen-outline-color: var(--hexxen-light-color);
+  --hexxen-table-border: 1px solid var(--hexxen-highlight-even-color);
+  --hexxen-seperator-image: url("../img/Rabenkasten_weit_unten_small.png");
+
+  scrollbar-color: var(--hexxen-light-color) var(--hexxen-dark-color); 
+
+  /* alte Farben:
+  --hexxen-light-color: #bcceb9;
+  --hexxen-dark-color: #084b0a;
+  --hexxen-line-color: #4e804f;
+  --hexxen-highlight-hover-color:rgba(8, 75, 10, 0.15);
+  --hexxen-highlight-even-color: rgba(255, 255, 255, 0.4);
+  --hexxen-tab-bgcolor: rgba(8, 75, 10, 0.4);
+  --hexxen-header-bgcolor: rgba(8, 75, 10, 0.15);
+  */
 }
 
+.hexxen.app {
+  background: unset;
+  background-color: var(--hexxen-title-color);
+}
+.hexxen.app.minimized {
+  background-color: var(--hexxen-minimized-title-color);
+}
+.hexxen.sheet .window-content {
+  background-image: var(--hexxen-sheet-background-image);
+  background-size: 100% 100%;
+  background-color: var(--hexxen-sheet-background-blend-color);
+  background-blend-mode: overlay;
+}
 .hexxen .allow-break {
   word-break: break-word;
 }
@@ -47,13 +85,16 @@ input[type="text"], input[type="password"], input[type="datetime-local"] {
 }
 .hexxen .table {
   display: table;
-  border: 1px solid var(--hexxen-highlight-even-color);
+  border: var(--hexxen-table-border);
 }
 .hexxen .table .tr {
   display: table-row;
 }
 .hexxen .table .tr:nth-child(2n) {
   background-color: var(--hexxen-highlight-even-color);
+}
+.hexxen .table .tr:nth-child(2n+1) {
+  background-color: var(--hexxen-highlight-odd-color);
 }
 .hexxen .table .tr:hover {
   background-color: var(--hexxen-highlight-hover-color) !important;
@@ -62,7 +103,7 @@ input[type="text"], input[type="password"], input[type="datetime-local"] {
   display: table-cell;
   padding: 0px 6px;
 }
-.hexxen .table .td:nth-child(1) {
+.hexxen .table .td:nth-child(1) { /* adjust for first column */
   padding: 5px 6px;
 }
 .hexxen .table .td.flexrow {
@@ -72,19 +113,11 @@ input[type="text"], input[type="password"], input[type="datetime-local"] {
   margin-left: -3px;
   margin-right: -3px;
 }
-/* TODO: Temporär für alte Listen */
-.hexxen .items-list li:hover,
-.hexxen .list-body li:hover {
-  background-color: var(--hexxen-highlight-hover-color) !important;
-}
 
-/* FIXME: Test Item controls nur bei hover (vs. edit mode) */
-/*.hexxen .controls {
-  display: none;
-}*/
 .hexxen .control {
   flex: 0 0 20px;
   text-align: center;
+  color: var(--hexxen-dark-color);
 }
 
 .hexxen input {
@@ -92,11 +125,15 @@ input[type="text"], input[type="password"], input[type="datetime-local"] {
   border-color: var(--hexxen-input-bordercolor);
   text-align: initial;
 }
+.hexxen input[type="text"], input[type="password"], input[type="datetime-local"] {
+  height: 23px;
+}
+
 .hexxen input[data-dtype="Number"] {
   text-align: center;
 }
 .hexxen input::placeholder {
-  color: #999;
+  color: var(--hexxen-input-placeholder-color);
   opacity: 1;
 }
 
@@ -104,8 +141,8 @@ input[type="text"], input[type="password"], input[type="datetime-local"] {
   min-height: 100px;
   margin: 2px;
   padding: 5px;
-  background: rgba(0, 0, 0, 0.05);
-  border: 1px solid #7a7971;
+  background: var(--hexxen-editor-bgcolor);
+  border: var(--hexxen-editor-border);
   border-radius: 3px;
 }
 .hexxen .editor .editor-content {
@@ -120,7 +157,7 @@ input[type="text"], input[type="password"], input[type="datetime-local"] {
 .hexxen .editor .hex-chat {
   background: #DDD;
   padding: 1px 4px;
-  border: var(--hexxen-value-span-border);
+  border: var(--hexxen-box-border);
   border-radius: 2px;
   white-space: nowrap;
   word-break: break-all;
@@ -144,7 +181,7 @@ input[type="text"], input[type="password"], input[type="datetime-local"] {
   min-height: 20px;
   margin: 10px 0; 
   border: none; 
-  background-image: url("../img/Rabenkasten_weit_unten_small.png");
+  background-image: var(--hexxen-seperator-image);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -158,7 +195,6 @@ input[type="text"], input[type="password"], input[type="datetime-local"] {
 }
 .hexxen div.inc-btn div.controls {
   display: none;
-  color: var(--hexxen-dark-green);
   font-size: 0.8em;
 }
 .hexxen div.inc-btn div.controls .control {
@@ -190,9 +226,9 @@ input[type="text"], input[type="password"], input[type="datetime-local"] {
 }
 .hexxen.sheet .tabs {
   height: 40px;
-  background: var(--hexxen-tab-bgcolor);
-  border-top: var(--hexxen-tab-border);
-  border-bottom: var(--hexxen-tab-border);
+  background: var(--hexxen-nav-bgcolor);
+  border-top: var(--hexxen-nav-border);
+  border-bottom: var(--hexxen-nav-border);
 }
 .hexxen.sheet .tabs .item {
   font-size: 1.15em;
@@ -200,7 +236,7 @@ input[type="text"], input[type="password"], input[type="datetime-local"] {
   font-weight: bold;
 }
 .hexxen.sheet .tabs .item.active .item-bg {
-  background-image: url("../img/Rabenkasten_oben_small.png");
+  background-image: var(--hexxen-nav-background-image);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -208,10 +244,10 @@ input[type="text"], input[type="password"], input[type="datetime-local"] {
   padding: 0 10px;
   margin: 0 -10px;
   text-decoration: none;
-  text-shadow: -1px -1px var(--hexxen-pale-green), 
-               -1px  1px var(--hexxen-pale-green), 
-                1px -1px var(--hexxen-pale-green), 
-                1px  1px var(--hexxen-pale-green);
+  text-shadow: -1px -1px var(--hexxen-outline-color), 
+               -1px  1px var(--hexxen-outline-color), 
+                1px -1px var(--hexxen-outline-color), 
+                1px  1px var(--hexxen-outline-color);
 }
 .hexxen.sheet .sheet-body {
   overflow: hidden;
