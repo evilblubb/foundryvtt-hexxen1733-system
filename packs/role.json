@@ -1,5 +1,6 @@
 {
   "alchemist": {
+    "name":"Alchemist",
     "references": [
       {
         "source": "Wiki",
@@ -11,6 +12,7 @@
     "summary": "Kleidungsset beim Start: Gelehrtenkleidung oder bürgerliche Kleidung (suche dir ein Set aus)."
   },
   "attentaeter": {
+    "name":"Attentäter",
     "references": [
       {
         "source": "Wiki",
@@ -22,6 +24,7 @@
     "summary": "Kleidungsset beim Start: Reisekleidung oder Söldnerkleidung (suche dir ein Set aus)."
   },
   "beschuetzer": {
+    "name":"Beschützer",
     "references": [
       {
         "source": "Wiki",
@@ -33,6 +36,7 @@
     "summary": "Kleidungsset bei Start: Gardeuniform oder Landsknechtkleidung (suche dir ein Set aus)."
   },
   "eiferer": {
+    "name":"Eiferer",
     "references": [
       {
         "source": "Wiki",
@@ -44,6 +48,7 @@
     "summary": "Kleidungsset beim Start: Kriegeruntergewand, Reisekleidung oder Mönchs-/Nonnenkleidung (suche dir ein Set aus)."
   },
   "fechter": {
+    "name":"Fechter",
     "references": [
       {
         "source": "Wiki",
@@ -55,6 +60,7 @@
     "summary": "Kleidungsset beim Start: Aristokratische Kleidung oder Reisekleidung (suche dir ein Set aus)."
   },
   "fernkaempfer": {
+    "name":"Fernkämpfer",
     "references": [
       {
         "source": "Wiki",
@@ -66,6 +72,7 @@
     "summary": ""
   },
   "hexenfeind": {
+    "name":"Hexenfeind",
     "references": [
       {
         "source": "Wiki",
@@ -77,6 +84,7 @@
     "summary": "Kleidungsset beim Start: Bürgerliche Kleidung, Reisekleidung oder Söldnerkleidung (suche dir ein Set aus)."
   },
   "hexenmystiker": {
+    "name":"Hexenmystiker",
     "references": [
       {
         "source": "Wiki",
@@ -88,6 +96,7 @@
     "summary": "Kleidungsset beim Start: Bürgerliche Kleidung, Kultrobe oder Bauerntracht (suche dir ein Set aus)."
   },
   "konstrukteur": {
+    "name":"Konstrukteur",
     "references": [
       {
         "source": "Wiki",
@@ -99,6 +108,7 @@
     "summary": "Kleidungsset beim Start: Bürgerliche Kleidung, Handwerkerkleidung oder Reisekleidung (suche dir ein Set aus)."
   },
   "kundschafter": {
+    "name":"Kundschafter",
     "references": [
       {
         "source": "Wiki",
@@ -110,6 +120,7 @@
     "summary": "Kleidungsset beim Start: Reisekleidung oder Kundschafterkleidung"
   },
   "nahkaempfer": {
+    "name":"Nahkämpfer",
     "references": [
       {
         "source": "Wiki",
@@ -121,6 +132,7 @@
     "summary": "Kleidungsset beim Start: Kriegeruntergewand, Landsknechtkleidung oder Söldnerkleidung (suche dir ein Set aus)"
   },
   "priester": {
+    "name":"Priester",
     "references": [
       {
         "source": "Wiki",
@@ -132,6 +144,7 @@
     "summary": ""
   },
   "stratege": {
+    "name":"Stratege",
     "references": [
       {
         "source": "Wiki",

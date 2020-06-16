@@ -1,5 +1,6 @@
 {
   "aristokrat": {
+    "name":"Aristokrat",
     "references": [
       {
         "source": "Wiki",
@@ -11,6 +12,7 @@
     "summary": ""
   },
   "feuerprediger": {
+    "name":"Feuerprediger",
     "references": [
       {
         "source": "Wiki",
@@ -22,6 +24,7 @@
     "summary": ""
   },
   "freischaffender-hexenjaeger": {
+    "name":"Freischaffender Hexenjäger",
     "references": [
       {
         "source": "Wiki",
@@ -33,6 +36,7 @@
     "summary": ""
   },
   "gardist": {
+    "name":"Gardist",
     "references": [
       {
         "source": "Wiki",
@@ -44,6 +48,7 @@
     "summary": ""
   },
   "henker": {
+    "name":"Henker",
     "references": [
       {
         "source": "Wiki",
@@ -55,6 +60,7 @@
     "summary": "Zusatzregel: Eine Henkersmaske bzw. -kapuze kann auf dem freien Markt für 5 Gulden erworben werden. Der Träger der Maske erhält einen Bonus von +2, wenn er eine defensive Probe auf Geistesstärke zur Abwendung feindlicher Zauber ausführt. Er erhält zudem einen Bonus +2 bei allen Einschüchterungsversuchen, die auf Muskelspiel ausgetragen werden. Nur Jäger mit der Profession Henker können die Maske auf diese Weise anwenden."
   },
   "hexenrichter": {
+    "name":"Hexenrichter",
     "references": [
       {
         "source": "Wiki",
@@ -66,6 +72,7 @@
     "summary": ""
   },
   "inquisitor": {
+    "name":"Inquisitor",
     "references": [
       {
         "source": "Wiki",
@@ -77,6 +84,7 @@
     "summary": ""
   },
   "investigator": {
+    "name":"Investigator",
     "references": [
       {
         "source": "Wiki",
@@ -88,6 +96,7 @@
     "summary": ""
   },
   "kraeuterkundler": {
+    "name":"Kräuterkundler",
     "references": [
       {
         "source": "Wiki",
@@ -99,6 +108,7 @@
     "summary": ""
   },
   "mariannen-seelsorgerin": {
+    "name":"Mariannen Seelsorgerin",
     "references": [
       {
         "source": "Wiki",
@@ -110,6 +120,7 @@
     "summary": ""
   },
   "mariannen-streiterin": {
+    "name":"Mariannen Streiterin",
     "references": [
       {
         "source": "Wiki",
@@ -121,6 +132,7 @@
     "summary": ""
   },
   "metallurge": {
+    "name":"Metallurge",
     "references": [
       {
         "source": "Wiki",
@@ -132,6 +144,7 @@
     "summary": ""
   },
   "musketier": {
+    "name":"Musketier",
     "references": [
       {
         "source": "Wiki",
@@ -143,6 +156,7 @@
     "summary": ""
   },
   "okuluth": {
+    "name":"Okuluth",
     "references": [
       {
         "source": "Wiki",
@@ -154,6 +168,7 @@
     "summary": ""
   },
   "ordenskrieger": {
+    "name":"Ordenskrieger",
     "references": [
       {
         "source": "Wiki",
@@ -165,6 +180,7 @@
     "summary": ""
   },
   "purgator": {
+    "name":"Purgator",
     "references": [
       {
         "source": "Wiki",
@@ -176,6 +192,7 @@
     "summary": ""
   },
   "raecher": {
+    "name":"Rächer",
     "references": [
       {
         "source": "Wiki",
@@ -187,6 +204,7 @@
     "summary": ""
   },
   "spion": {
+    "name":"Spion",
     "references": [
       {
         "source": "Wiki",
@@ -198,6 +216,7 @@
     "summary": ""
   },
   "steiger": {
+    "name":"Steiger",
     "references": [
       {
         "source": "Wiki",
@@ -209,6 +228,7 @@
     "summary": ""
   },
   "soeldner": {
+    "name":"Söldner",
     "references": [
       {
         "source": "Wiki",
@@ -220,6 +240,7 @@
     "summary": ""
   },
   "tunnelpionier": {
+    "name":"Tunnelpionier",
     "references": [
       {
         "source": "Wiki",
@@ -231,6 +252,7 @@
     "summary": ""
   },
   "tueftler": {
+    "name":"Tüftler",
     "references": [
       {
         "source": "Wiki",
@@ -242,6 +264,7 @@
     "summary": ""
   },
   "universalgelehrter": {
+    "name":"Universalgelehrter",
     "references": [
       {
         "source": "Wiki",
@@ -253,6 +276,7 @@
     "summary": ""
   },
   "vigilant": {
+    "name":"Vigilant",
     "references": [
       {
         "source": "Wiki",
