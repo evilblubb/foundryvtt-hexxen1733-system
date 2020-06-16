@@ -19,7 +19,7 @@ for (const key in list) {
       
           const out = {};
           out._id = `${type}${++i}`; // TODO: Foundry-typische IDs erzeugen (16 Zeichen)
-          out.name = key; //.capitalize();
+          out.name = item.name;
           out.permission = { "default": 0 };
           out.type = type;
           out.data = {};
