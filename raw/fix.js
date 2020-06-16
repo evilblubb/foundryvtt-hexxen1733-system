@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const list = ["motivation", "role", "profession"];
+const list = []; // ["motivation", "role", "profession"];
 for (const key in list) {
   if (list.hasOwnProperty(key)) {
     const type = list[key];
