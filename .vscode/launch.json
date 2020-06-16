@@ -11,7 +11,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/packs/convert.js"
+      "program": "${workspaceFolder}/raw/packs/convert.js"
     }
   ]
 }

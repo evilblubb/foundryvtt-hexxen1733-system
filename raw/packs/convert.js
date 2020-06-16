@@ -10,7 +10,7 @@ for (const key in list) {
     
     let fd;
     try {
-      fd = fs.openSync(`${__dirname}/${type}.db`, 'w'); // alte Datei überschreiben
+      fd = fs.openSync(`${__dirname}/../../packs/${type}.db`, 'w'); // alte Datei überschreiben
     
       let i = 0;
       for (const key in data) {
