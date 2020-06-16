@@ -1,5 +1,6 @@
 {
   "abtruenning": {
+    "name":"Abtrünnig",
     "references": [
       {
         "source": "Wiki",
@@ -11,6 +12,7 @@
     "summary": ""
   },
   "aufopferungsvoll": {
+    "name":"Aufopferungsvoll",
     "references": [
       {
         "source": "Wiki",
@@ -22,6 +24,7 @@
     "summary": ""
   },
   "dominant": {
+    "name":"Dominant",
     "references": [
       {
         "source": "Wiki",
@@ -33,6 +36,7 @@
     "summary": ""
   },
   "durstig": {
+    "name":"Durstig",
     "references": [
       {
         "source": "Wiki",
@@ -44,6 +48,7 @@
     "summary": ""
   },
   "einschüchternd": {
+    "name":"Einschüchternd",
     "references": [
       {
         "source": "Wiki",
@@ -55,6 +60,7 @@
     "summary": ""
   },
   "erkundend": {
+    "name":"Erkundend",
     "references": [
       {
         "source": "Wiki",
@@ -66,6 +72,7 @@
     "summary": ""
   },
   "fanatisch": {
+    "name":"Fanatisch",
     "references": [
       {
         "source": "Wiki",
@@ -77,6 +84,7 @@
     "summary": ""
   },
   "fatalistisch": {
+    "name":"Fatalistisch",
     "references": [
       {
         "source": "Wiki",
@@ -88,6 +96,7 @@
     "summary": ""
   },
   "fuersorglich": {
+    "name":"Fürsorglich",
     "references": [
       {
         "source": "Wiki",
@@ -99,6 +108,7 @@
     "summary": ""
   },
   "gebeutelt": {
+    "name":"Gebeutelt",
     "references": [
       {
         "source": "Wiki",
@@ -110,6 +120,7 @@
     "summary": ""
   },
   "gelangweilt": {
+    "name":"Gelangweilt",
     "references": [
       {
         "source": "Wiki",
@@ -121,6 +132,7 @@
     "summary": ""
   },
   "gesandter": {
+    "name":"Gesandter",
     "references": [
       {
         "source": "Wiki",
@@ -132,6 +144,7 @@
     "summary": ""
   },
   "geschaeftstuechtig": {
+    "name":"Geschäftstüchtig",
     "references": [
       {
         "source": "Wiki",
@@ -143,6 +156,7 @@
     "summary": ""
   },
   "getrieben": {
+    "name":"Getrieben",
     "references": [
       {
         "source": "Wiki",
@@ -154,6 +168,7 @@
     "summary": ""
   },
   "glamouroes": {
+    "name":"Glamourös",
     "references": [
       {
         "source": "Wiki",
@@ -165,6 +180,7 @@
     "summary": ""
   },
   "gottesfuerchtig": {
+    "name":"Gottesfürchtig",
     "references": [
       {
         "source": "Wiki",
@@ -176,6 +192,7 @@
     "summary": ""
   },
   "heimatsuchend": {
+    "name":"Heimatsuchend",
     "references": [
       {
         "source": "Wiki",
@@ -187,6 +204,7 @@
     "summary": ""
   },
   "heimatvertrieben": {
+    "name":"Heimatvertriben",
     "references": [
       {
         "source": "Wiki",
@@ -198,6 +216,7 @@
     "summary": ""
   },
   "hoffnungsvoll": {
+    "name":"Hoffnungsvoll",
     "references": [
       {
         "source": "Wiki",
@@ -209,6 +228,7 @@
     "summary": ""
   },
   "kontakfreudig": {
+    "name":"Kontakfreudig",
     "references": [
       {
         "source": "Wiki",
@@ -220,6 +240,7 @@
     "summary": ""
   },
   "neugierig": {
+    "name":"Neugierig",
     "references": [
       {
         "source": "Wiki",
@@ -231,6 +252,7 @@
     "summary": ""
   },
   "profilierungssuechtig": {
+    "name":"Profilierungssüchtig",
     "references": [
       {
         "source": "Wiki",
@@ -242,6 +264,7 @@
     "summary": ""
   },
   "rebellisch": {
+    "name":"Rebellisch",
     "references": [
       {
         "source": "Wiki",
@@ -253,6 +276,7 @@
     "summary": ""
   },
   "umherziehend": {
+    "name":"Umherziehend",
     "references": [
       {
         "source": "Wiki",
@@ -264,6 +288,7 @@
     "summary": ""
   },
   "unbeugsam": {
+    "name":"Unbeugsam",
     "references": [
       {
         "source": "Wiki",
@@ -275,6 +300,7 @@
     "summary": ""
   },
   "verbissen": {
+    "name":"Verbissen",
     "references": [
       {
         "source": "Wiki",
@@ -286,6 +312,7 @@
     "summary": ""
   },
   "wachsam": {
+    "name":"Wachsam",
     "references": [
       {
         "source": "Wiki",
@@ -297,6 +324,7 @@
     "summary": ""
   },
   "wahrheitssuchend": {
+    "name":"Warheitssuchend",
     "references": [
       {
         "source": "Wiki",
