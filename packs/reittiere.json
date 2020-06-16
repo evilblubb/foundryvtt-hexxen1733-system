@@ -1,5 +1,6 @@
 {
   "reitpferd": {
+    "name":"Reitpferd",
     "references": [
       {
         "source": "Wiki",
@@ -13,6 +14,7 @@
     "summary": "Kosten: 90 Gulden | Unterhalt: 20 Gulden"
   },
   "schlachtross": {
+    "name":"Schlachtroß",
     "references": [
       {
         "source": "Wiki",
@@ -26,6 +28,7 @@
     "summary": "Kosten: 200 Gulden | Unterhalt: 40 Gulden"
   },
   "lasttier": {
+    "name":"Lasttier",
     "references": [
       {
         "source": "Wiki",
@@ -39,6 +42,7 @@
     "summary": "Kosten: 20 Gulden | Unterhalt: 10 Gulden"
   },
   "kutsche-1-achser": {
+    "name":"Kutsche, 1-Achser",
     "references": [
       {
         "source": "Wiki",
@@ -52,6 +56,7 @@
     "summary": "Kosten: 250 Gulden | Unterhalt: 20 Gulden"
   },
   "kutsche-2-achser": {
+    "name":"Kutsche, 2-Achser",
     "references": [
       {
         "source": "Wiki",
@@ -65,6 +70,7 @@
     "summary": "Kosten: 500 Gulden | Unterhalt: 30 Gulden"
   },
   "karren-1-achser": {
+    "name":"Karren, 1-Achser",
     "references": [
       {
         "source": "Wiki",
@@ -78,6 +84,7 @@
     "summary": "Kosten: 30 Gulden | Unterhalt: 5 Gulden"
   },
   "wagen-2-achser": {
+    "name":"Wagen, 2-Achser",
     "references": [
       {
         "source": "Wiki",
@@ -91,6 +98,7 @@
     "summary": "Kosten: 50 Gulden | Unterhalt: 10 Gulden"
   },
   "flussschiff": {
+    "name":"Flussschiff",
     "references": [
       {
         "source": "Wiki",
