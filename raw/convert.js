@@ -5,12 +5,12 @@ for (const key in list) {
   if (list.hasOwnProperty(key)) {
     const type = list[key];
 
-    const content = fs.readFileSync(`${__dirname}/${type}.json`, "utf8");
+    const content = fs.readFileSync(`${__dirname}/packs/${type}.json`, "utf8");
     const data = JSON.parse(content);
     
     let fd;
     try {
-      fd = fs.openSync(`${__dirname}/../../packs/${type}.db`, 'w'); // alte Datei überschreiben
+      fd = fs.openSync(`${__dirname}/../packs/${type}.db`, 'w'); // alte Datei überschreiben
     
       let i = 0;
       for (const key in data) {
