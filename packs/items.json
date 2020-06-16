@@ -1,7 +1,7 @@
 {
   "allgemein": {
     "transportables-laboratorium": {
-      "name":"Transportables Laboratorium",
+      "name": "Transportables Laboratorium",
       "references": [
         {
           "source": "Wiki",
@@ -16,7 +16,7 @@
       "summary": "Kosten: 60 Gulden"
     },
     "biologisches-laboratorium": {
-      "name":"Biologisches Laboratorium",
+      "name": "Biologisches Laboratorium",
       "references": [
         {
           "source": "Wiki",
@@ -31,7 +31,7 @@
       "summary": "Kosten: 270 Gulden"
     },
     "mineralisches-laboratorium": {
-      "name":"Mineralisches Laboratorium",
+      "name": "Mineralisches Laboratorium",
       "references": [
         {
           "source": "Wiki",
@@ -46,7 +46,7 @@
       "summary": "Kosten: 270 Gulden"
     },
     "werkzeugkiste": {
-      "name":"Werkzeugkiste",
+      "name": "Werkzeugkiste",
       "references": [
         {
           "source": "Wiki",
@@ -61,7 +61,7 @@
       "summary": "Kosten: 25 Gulden"
     },
     "fackel": {
-      "name":"Fackel",
+      "name": "Fackel",
       "references": [
         {
           "source": "Wiki",
@@ -76,7 +76,7 @@
       "summary": "Kosten: 1 Gulden"
     },
     "fernrohr": {
-      "name":"Fernrohr",
+      "name": "Fernrohr",
       "references": [
         {
           "source": "Wiki",
@@ -91,7 +91,7 @@
       "summary": "Kosten: 70 Gulden"
     },
     "kletterhaken": {
-      "name":"Kletterhacken",
+      "name": "Kletterhacken",
       "references": [
         {
           "source": "Wiki",
@@ -106,7 +106,7 @@
       "summary": "Kosten: 10 Gulden"
     },
     "kompass": {
-      "name":"Kompass",
+      "name": "Kompass",
       "references": [
         {
           "source": "Wiki",
@@ -121,7 +121,7 @@
       "summary": "Kosten: 25 Gulden"
     },
     "landkarte": {
-      "name":"Landkarte",
+      "name": "Landkarte",
       "references": [
         {
           "source": "Wiki",
@@ -136,7 +136,7 @@
       "summary": "Kosten: 15 Gulden"
     },
     "oellampe": {
-      "name":"Öllampe",
+      "name": "Öllampe",
       "references": [
         {
           "source": "Wiki",
@@ -151,7 +151,7 @@
       "summary": "Kosten: 10 Gulden"
     },
     "rueckentrage": {
-      "name":"Rückentrage",
+      "name": "Rückentrage",
       "references": [
         {
           "source": "Wiki",
@@ -166,7 +166,7 @@
       "summary": "Kosten: 8 Gulden"
     },
     "schlafsack": {
-      "name":"Schlafsack",
+      "name": "Schlafsack",
       "references": [
         {
           "source": "Wiki",
@@ -181,7 +181,7 @@
       "summary": "Kosten: 7 Gulden"
     },
     "seil": {
-      "name":"Seil",
+      "name": "Seil",
       "references": [
         {
           "source": "Wiki",
@@ -196,7 +196,7 @@
       "summary": "Kosten: 10 Gulden"
     },
     "schreibutensilien": {
-      "name":"Schreibutensilien",
+      "name": "Schreibutensilien",
       "references": [
         {
           "source": "Wiki",
@@ -211,7 +211,7 @@
       "summary": "Kosten: 15 Gulden"
     },
     "alkohol": {
-      "name":"Alkohol",
+      "name": "Alkohol",
       "references": [
         {
           "source": "Wiki",
@@ -226,7 +226,7 @@
       "summary": "Kosten: 15 Gulden"
     },
     "zelt": {
-      "name":"Zelt",
+      "name": "Zelt",
       "references": [
         {
           "source": "Wiki",
@@ -241,7 +241,7 @@
       "summary": "Kosten: 20 Gulden"
     },
     "feldbett": {
-      "name":"Feldbett",
+      "name": "Feldbett",
       "references": [
         {
           "source": "Wiki",
@@ -256,7 +256,7 @@
       "summary": "Kosten: 15 Gulden"
     },
     "handschellen": {
-      "name":"Handschellen",
+      "name": "Handschellen",
       "references": [
         {
           "source": "Wiki",
@@ -271,7 +271,7 @@
       "summary": "Kosten: 22 Gulden"
     },
     "vorhaengeschloss": {
-      "name":"Vorhängeschloss",
+      "name": "Vorhängeschloss",
       "references": [
         {
           "source": "Wiki",
@@ -286,7 +286,7 @@
       "summary": "Kosten: 17 Gulden"
     },
     "truhe": {
-      "name":"Truhe",
+      "name": "Truhe",
       "references": [
         {
           "source": "Wiki",
@@ -301,7 +301,7 @@
       "summary": "Kosten: 33 Gulden"
     },
     "buschmesser": {
-      "name":"Buschmesser",
+      "name": "Buschmesser",
       "references": [
         {
           "source": "Wiki",
@@ -316,7 +316,7 @@
       "summary": "Kosten: 90 Gulden"
     },
     "gezaehe": {
-      "name":"Gezähe",
+      "name": "Gezähe",
       "references": [
         {
           "source": "Wiki",
@@ -331,7 +331,7 @@
       "summary": "Kosten: 35 Gulden"
     },
     "klettergeschirr": {
-      "name":"Klettergeschirr",
+      "name": "Klettergeschirr",
       "references": [
         {
           "source": "Wiki",
@@ -346,7 +346,7 @@
       "summary": "Kosten: 10 Gulden pro Teil"
     },
     "probentasche": {
-      "name":"Probentasche",
+      "name": "Probentasche",
       "references": [
         {
           "source": "Wiki",
@@ -361,7 +361,7 @@
       "summary": "Kosten: 27 Gulden"
     },
     "spitzhacke": {
-      "name":"Spitzhacke",
+      "name": "Spitzhacke",
       "references": [
         {
           "source": "Wiki",
@@ -376,7 +376,7 @@
       "summary": "Kosten: 50 Gulden"
     },
     "schutzamulett": {
-      "name":"Schutzamulett",
+      "name": "Schutzamulett",
       "references": [
         {
           "source": "Wiki",
@@ -391,7 +391,7 @@
       "summary": "Kosten: 15 Gulden"
     },
     "kochstelle": {
-      "name":"Kochstelle",
+      "name": "Kochstelle",
       "references": [
         {
           "source": "Wiki",
@@ -406,8 +406,10 @@
       "summary": "Kosten: 18 Gulden"
     }
   },
-  "sonstiges":{
-    "description":"Medizin, Talismane, Kunstobjekte",
+  "hasenpfote ": {
+    "name":"Hasenpfote",
+    "description": " Einmal pro Abenteuer bzw. Abenteuerabschnitt darf der Träger 1 Würfel einer Fertigkeitsprobe auf eine beliebige Seite drehen. Jeder Jäger darf nur 1 Hasenpfote tragen.",
+    "summary": "1 Ti",
     "references": [
       {
         "source": "Wiki",
@@ -417,50 +419,156 @@
         "source": "Archiv des Wächterbunds II",
         "page": "58"
       }
-    ],
-    "Hasenpfote ": {
-      "description": " Einmal pro Abenteuer bzw. Abenteuerabschnitt darf der Träger 1 Würfel einer Fertigkeitsprobe auf eine beliebige Seite drehen. Jeder Jäger darf nur 1 Hasenpfote tragen.",
-      "summary": "1 Ti"
-    },
-    "Knochenflöte ": {
-      "description": "Der Klang dieser Flöte verscheucht Tiere. Einmal pro Kampf kannst du als Aktion (3 Ap) die Flöte spielen. Würfele auf Fingerfertigkeit; für jeden Erfolg wird eine Bandenstufe (nur natürliche Tiere) besiegt. Die Tiere fliehen und können danach nicht wiederverwertet werden. Würfele anschließend mit dem Blutwürfel. Zeigt er die leere Seite, ist die magische Kraft der Flöte erschöpft.",
-      "summary": "4 Ti"
-    },
-    "Knochenwürfelset  ": {
-      "description": "Dieses Set enthält 10 Knochenwürfel, in der Regel hergestellt aus den Gebeinen unterschiedlicher Tiere. Stelle die 10 Würfel mit HeXXenwürfeln dar. Einmal pro Tag kannst du die Würfel rollen lassen. Alle Würfel, die eine leere Seite zeigen, werden permanent entfernt (ihre magische Kraft ist erloschen). Alle Würfel, die ein HeXXensymbol zeigen, geben dir wahlweise 1 Coup oder 1 Idee und bleiben im Set. Alle Würfel, die einen Espritstern zeigen, geben dir 1 Segnung (max. 5) und bleiben im Set. Sobald du die Würfel erneut würfelst, musst du evtl. vorhandene überschüssige Coups und Ideen abbauen. Du kannst mehrere Knochenwürfelsets haben, aber immer nur eines verwenden; benutze zusätzliche Sets als Nachfüllsets.",
-      "summary": "10 Ti"
-    },
-    "Monstertrophäe ": {
-      "description": "Diese meist brutal abschreckenden Trophäen sind nicht nur begehrt unter Sammlern und Forschern, sie verbreiten auch den Ruhm deiner Gruppe. Eine Monstertrophäe kann in größeren Städten als Fza für 750 Gulden sowie +20 Gulden für jeden Erfolg auf einer Fingerfertigkeit-Probe verkauft werden.",
-      "summary": "30 Wi"
-    },
-    "Mumie  ": {
-      "description": "Hierbei handelt es sich um den vollständig einbalsamierten Körper eines Menschen (auch wenn der sich evtl. aus ver-schiedenen gesammelten Teilen zusammensetzt). Mumien sind extrem begehrt unter Alchemisten, Sammlern und Forschern. Jede Mumie kann daher in einer Stadt als Fza für 500 Gulden sowie +10 Gulden für jeden Erfolg auf einer Fingerfertigkeit-Probe verkauft werden.",
-      "summary": "20 Ti"
-    },
-    "Schädelpulver  ": {
-      "description": "Dieses Pulver, auch Cranium humamum genannt, wird aus dem Zermahlen eines menschlichen Schädels, ggf. unter Beimischung anderer Knochenteile und Mineralien gewonnen. Das Pulver hat keine offensichtlichen körperlichen Auswirkungen, sondern wirkt auf spirituelle, übersinnliche Weise. Nimmt ein Charakter Schädelpulver vor dem Zubettgehen zu sich, darf er am nächsten Morgen mit dem Elixierwürfel würfeln und erhält entsprechend viele beliebige Ressourcen (Coups, Ideen, Segnungen, Ambitions- oder Rage-Punkte o. a.). Dafür muss er allerdings am nächsten Morgen 1 Kästchen Mh abstreichen.",
-      "summary": "3 Mi"
-    },
-    "Schmerzsalbe": {
-      "description": "Schmerzsalben werden aus Menschenfett hergestellt. Die Schmerzsalbe hat dieselbe Wirkung wie ein Panzerelixier.",
-      "summary": "4 Mi"
-    },
-    "Teufelsamulett  ": {
-      "description": "Ein solches Amulett schützt gegen widernatürliche Monster. Es entspricht in jeglicher Hinsicht einem Schutzamulett gegen Hexen, wirkt jedoch gegen Zauber aller widernatürlicher Gegner. Anders als das Schutzamulett gegen Hexen kann das Teufelsamulett nicht aufgeladen werden; die magische Wirkung ist nach einmaliger Anwendung verflogen.",
-      "summary": "5 Wi"
-    },
-    "Tierpräparat  ": {
-      "description": "Tierpräparate sind kleine Kunstwerke, die man auf jedem größeren Markt (ab Kleinstadt) gewinnbringend verkaufen kann. Das Verkaufen eines Tierpräparats erfordert keine Fza, bringt 100 Gulden ein sowie +5 Gulden für jeden Erfolg auf einer Fingerfertigkeit-Probe.",
-      "summary": "10 Ti"
-    },
-    "Totenhand ": {
-      "description": "Totenhände sind wichtige Bestandteile okkulter medizinischer Praktiken. Ihnen wird eine ganze Reihe verschiedener Wirkungen zugesprochen, u.a. sollen sie Hautkrankheiten heilen können. Immer, wenn der Träger eine Reduzierungsprobe für äußere Schadensstufen ausführt, kann er 1 Finger einer Totenhand (insgesamt 5) opfern, um 1 automatischen Erfolg auf der Probe zu bekommen. Für jede Probe kann man nur 1 Finger opfern.",
-      "summary": "5 Mi"
-    },
-    "Zahnkette ": {
-      "description": "Diese Kette besteht aus 5 Zähnen verschiedener besiegter Tiere. Der Träger kann einmal pro Kampf als freie Reaktion (0 Ap) 1 Zahn opfern, um die gegen ihn gerichteten Angriffserfolge eines natürlichen Tiers um 1 zu reduzieren. Jeder Jäger darf nur 1 Zahnkette tragen.",
-      "summary": "5 Ti"
-    }
+    ]
+  },
+  "knochenfloete ": {
+    "name":"Knochenflöte",
+    "description": "Der Klang dieser Flöte verscheucht Tiere. Einmal pro Kampf kannst du als Aktion (3 Ap) die Flöte spielen. Würfele auf Fingerfertigkeit; für jeden Erfolg wird eine Bandenstufe (nur natürliche Tiere) besiegt. Die Tiere fliehen und können danach nicht wiederverwertet werden. Würfele anschließend mit dem Blutwürfel. Zeigt er die leere Seite, ist die magische Kraft der Flöte erschöpft.",
+    "summary": "4 Ti",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/medizin-talismane-kunstobjekte.html"
+      },
+      {
+        "source": "Archiv des Wächterbunds II",
+        "page": "58"
+      }
+    ]
+  },
+  "knochenwuerfelset  ": {
+    "name":"Knochenwürfelset",
+    "description": "Dieses Set enthält 10 Knochenwürfel, in der Regel hergestellt aus den Gebeinen unterschiedlicher Tiere. Stelle die 10 Würfel mit HeXXenwürfeln dar. Einmal pro Tag kannst du die Würfel rollen lassen. Alle Würfel, die eine leere Seite zeigen, werden permanent entfernt (ihre magische Kraft ist erloschen). Alle Würfel, die ein HeXXensymbol zeigen, geben dir wahlweise 1 Coup oder 1 Idee und bleiben im Set. Alle Würfel, die einen Espritstern zeigen, geben dir 1 Segnung (max. 5) und bleiben im Set. Sobald du die Würfel erneut würfelst, musst du evtl. vorhandene überschüssige Coups und Ideen abbauen. Du kannst mehrere Knochenwürfelsets haben, aber immer nur eines verwenden; benutze zusätzliche Sets als Nachfüllsets.",
+    "summary": "10 Ti",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/medizin-talismane-kunstobjekte.html"
+      },
+      {
+        "source": "Archiv des Wächterbunds II",
+        "page": "58"
+      }
+    ]
+  },
+  "monstertrophaee ": {
+    "name":"Monstertrophäe",
+    "description": "Diese meist brutal abschreckenden Trophäen sind nicht nur begehrt unter Sammlern und Forschern, sie verbreiten auch den Ruhm deiner Gruppe. Eine Monstertrophäe kann in größeren Städten als Fza für 750 Gulden sowie +20 Gulden für jeden Erfolg auf einer Fingerfertigkeit-Probe verkauft werden.",
+    "summary": "30 Wi",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/medizin-talismane-kunstobjekte.html"
+      },
+      {
+        "source": "Archiv des Wächterbunds II",
+        "page": "58"
+      }
+    ]
+  },
+  "mumie": {
+    "name":"Mumie",
+    "description": "Hierbei handelt es sich um den vollständig einbalsamierten Körper eines Menschen (auch wenn der sich evtl. aus ver-schiedenen gesammelten Teilen zusammensetzt). Mumien sind extrem begehrt unter Alchemisten, Sammlern und Forschern. Jede Mumie kann daher in einer Stadt als Fza für 500 Gulden sowie +10 Gulden für jeden Erfolg auf einer Fingerfertigkeit-Probe verkauft werden.",
+    "summary": "20 Ti",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/medizin-talismane-kunstobjekte.html"
+      },
+      {
+        "source": "Archiv des Wächterbunds II",
+        "page": "58"
+      }
+    ]
+  },
+  "schaedelpulver": {
+    "name":"Schädelpulver",
+    "description": "Dieses Pulver, auch Cranium humamum genannt, wird aus dem Zermahlen eines menschlichen Schädels, ggf. unter Beimischung anderer Knochenteile und Mineralien gewonnen. Das Pulver hat keine offensichtlichen körperlichen Auswirkungen, sondern wirkt auf spirituelle, übersinnliche Weise. Nimmt ein Charakter Schädelpulver vor dem Zubettgehen zu sich, darf er am nächsten Morgen mit dem Elixierwürfel würfeln und erhält entsprechend viele beliebige Ressourcen (Coups, Ideen, Segnungen, Ambitions- oder Rage-Punkte o. a.). Dafür muss er allerdings am nächsten Morgen 1 Kästchen Mh abstreichen.",
+    "summary": "3 Mi",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/medizin-talismane-kunstobjekte.html"
+      },
+      {
+        "source": "Archiv des Wächterbunds II",
+        "page": "58"
+      }
+    ]
+  },
+  "schmerzsalbe": {
+    "name":"Schmerzsalbe",
+    "description": "Schmerzsalben werden aus Menschenfett hergestellt. Die Schmerzsalbe hat dieselbe Wirkung wie ein Panzerelixier.",
+    "summary": "4 Mi",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/medizin-talismane-kunstobjekte.html"
+      },
+      {
+        "source": "Archiv des Wächterbunds II",
+        "page": "58"
+      }
+    ]
+  },
+  "teufelsamulett": {
+    "name":"Teufelsamulett",
+    "description": "Ein solches Amulett schützt gegen widernatürliche Monster. Es entspricht in jeglicher Hinsicht einem Schutzamulett gegen Hexen, wirkt jedoch gegen Zauber aller widernatürlicher Gegner. Anders als das Schutzamulett gegen Hexen kann das Teufelsamulett nicht aufgeladen werden; die magische Wirkung ist nach einmaliger Anwendung verflogen.",
+    "summary": "5 Wi",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/medizin-talismane-kunstobjekte.html"
+      },
+      {
+        "source": "Archiv des Wächterbunds II",
+        "page": "58"
+      }
+    ]
+  },
+  "tierpraeparat": {
+    "name":"Tierpräparat",
+    "description": "Tierpräparate sind kleine Kunstwerke, die man auf jedem größeren Markt (ab Kleinstadt) gewinnbringend verkaufen kann. Das Verkaufen eines Tierpräparats erfordert keine Fza, bringt 100 Gulden ein sowie +5 Gulden für jeden Erfolg auf einer Fingerfertigkeit-Probe.",
+    "summary": "10 Ti",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/medizin-talismane-kunstobjekte.html"
+      },
+      {
+        "source": "Archiv des Wächterbunds II",
+        "page": "58"
+      }
+    ]
+  },
+  "totenhand": {
+    "name":"Totenhand",
+    "description": "Totenhände sind wichtige Bestandteile okkulter medizinischer Praktiken. Ihnen wird eine ganze Reihe verschiedener Wirkungen zugesprochen, u.a. sollen sie Hautkrankheiten heilen können. Immer, wenn der Träger eine Reduzierungsprobe für äußere Schadensstufen ausführt, kann er 1 Finger einer Totenhand (insgesamt 5) opfern, um 1 automatischen Erfolg auf der Probe zu bekommen. Für jede Probe kann man nur 1 Finger opfern.",
+    "summary": "5 Mi",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/medizin-talismane-kunstobjekte.html"
+      },
+      {
+        "source": "Archiv des Wächterbunds II",
+        "page": "58"
+      }
+    ]
+  },
+  "zahnkette": {
+    "name":"Zahnkette",
+    "description": "Diese Kette besteht aus 5 Zähnen verschiedener besiegter Tiere. Der Träger kann einmal pro Kampf als freie Reaktion (0 Ap) 1 Zahn opfern, um die gegen ihn gerichteten Angriffserfolge eines natürlichen Tiers um 1 zu reduzieren. Jeder Jäger darf nur 1 Zahnkette tragen.",
+    "summary": "5 Ti",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/medizin-talismane-kunstobjekte.html"
+      },
+      {
+        "source": "Archiv des Wächterbunds II",
+        "page": "58"
+      }
+    ]
   }
 }
