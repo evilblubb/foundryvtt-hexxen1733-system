@@ -4,8 +4,8 @@
     {{! > item id="rolle-1" class="td" type="role" name=data.core.rolle-1 item-id=data.core.rolle-1-id hint=data.core.rolle-1-hint}}
     <div class="{{class}} flexrow item {{type}} allow-break" data-item-id="{{item-id}}">
         {{#if item-id}}
-        <a class="value item-edit" id="{{id}}">{{name}}</a>
-        {{#if editMode}}<a class="controls control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>{{/if}}
+        <a class="value item-edit" id="{{id}}" title="Beschreibung anzeigen">{{name}}</a>
+        {{#if editMode}}<a class="controls control item-delete" title="Löschen"><i class="fas fa-trash"></i></a>{{/if}}
         {{else}}
         <div class="hint">{{hint}}</div>
         {{/if}}
