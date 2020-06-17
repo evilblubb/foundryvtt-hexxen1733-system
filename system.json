@@ -7,23 +7,23 @@
   "compatibleCoreVersion": "0.6.0-0.6.2",
   "templateVersion": 1,
   "author": "Martin Brunninger",
-  "scripts": [  "module/hexxen.js", 
-                "module/utils.js", 
-                "module/actor.js", 
-                "module/actor-sheet.js", 
-                "module/jaeger-sheet.js", 
-                "module/npc-bande-sheet.js", 
-                "module/npc-leader-sheet.js", 
-                "module/item-sheet.js", 
-                "module/rule-item-sheet.js", 
+  "scripts": [  "module/hexxen.js",
+                "module/utils.js",
+                "module/actor.js",
+                "module/actor-sheet.js",
+                "module/jaeger-sheet.js",
+                "module/npc-bande-sheet.js",
+                "module/npc-leader-sheet.js",
+                "module/item-sheet.js",
+                "module/rule-item-sheet.js",
                 "module/roller.js"
               ],
   "esmodules": [],
-  "styles": [ "styles/simple.css", 
-              "styles/hexxen.css", 
-              "styles/jaeger-sheet.css", 
-              "styles/roller.css", 
-              "styles/npc-bande.css", 
+  "styles": [ "styles/simple.css",
+              "styles/hexxen.css",
+              "styles/jaeger-sheet.css",
+              "styles/roller.css",
+              "styles/npc-bande.css",
               "styles/npc-leader.css"
             ],
   "packs": [
@@ -60,6 +60,14 @@
       "entity": "Item"
     },
     {
+      "name": "hexxen-skills",
+      "label": "Jägerkräfte",
+      "system": "hexxen-1733",
+      "module": "hexxen-1733",
+      "path": "packs/skills.db",
+      "entity": "Item"
+    },
+    {
       "name": "hexxen-macros",
       "label": "Makros",
       "system": "hexxen-1733",
@@ -74,7 +82,7 @@
   "primaryTokenAttribute": "health",
   "secondaryTokenAttribute": "power",
   "url": "https://github.com/gizmo2342/foundryvtt-hexxen1733-system/",
-  "manifest": "https://github.com/gizmo2342/foundryvtt-hexxen1733-system/raw/develop/system.json",
-  "download": "https://github.com/gizmo2342/foundryvtt-hexxen1733-system/archive/develop.zip",
+  "manifest": "https://github.com/gizmo2342/foundryvtt-hexxen1733-system/raw/master/system.json",
+  "download": "https://github.com/gizmo2342/foundryvtt-hexxen1733-system/archive/master.zip",
   "license": "LICENSE.txt"
 }
