@@ -22,6 +22,7 @@ for (const key in list) {
   if (list.hasOwnProperty(key)) {
     const type = list[key];
 
+    console.log(`Converting ${type} ...`);
     const content = fs.readFileSync(`${__dirname}/packs/${type}.json`, "utf8");
     const data = JSON.parse(content);
     
