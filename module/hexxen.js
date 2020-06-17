@@ -137,6 +137,7 @@ Hooks.once("init", async function() {
 
     // TODO: Tokens besser berücksichtigen (game.actors.get() berücksichtigt keine Tokens)
     // maybe a token, check for another -
+    // FIXME: Verwendung in einem Item Sheet verursacht eine defekte Actor-ID, welche den Chat kaputt macht. (Foundry Bug #3056)
     let idx = speaker.lastIndexOf('-');
     speaker = idx === -1 ? speaker : speaker.substring(0, idx);
     const message = event.currentTarget.dataset.message;
