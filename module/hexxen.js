@@ -54,7 +54,7 @@ Hooks.once("init", async function() {
 	  formula: "@calc.ini",
     decimals: 0
   };
-  
+
   Handlebars.registerHelper('isDefined', function (value) {
     return value !== undefined;
   });
@@ -98,7 +98,7 @@ Hooks.once("init", async function() {
   Actors.registerSheet("simple", SimpleActorSheet, { types: ["npc"] });
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("simple", SimpleItemSheet, { types: ["item"], makeDefault: true });
-  Items.registerSheet("hexxen", RuleItemSheet, { types: ["role", "profession", "motivation"], makeDefault: true });
+  Items.registerSheet("hexxen", RuleItemSheet, { types: ["role", "profession", "motivation","skills"], makeDefault: true });
 
   // Inject system logo
   // TODO: wohin mit solchen Sachen. Macht den Hook zu unübersichtlich.
@@ -183,4 +183,3 @@ class HexxenAbout extends Application {
     return  { options: this.options };
   }
 }
-
