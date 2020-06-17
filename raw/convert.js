@@ -1,5 +1,22 @@
 const fs = require('fs');
 
+const generated = [];
+function generateID(count, k) {
+  const _sym = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+  let str;
+
+  do {
+    str = '';
+
+    for(let i = 0; i < count; i++) {
+        str += _sym[Math.floor(Math.random() * (_sym.length))];
+    }
+  } while (generated.includes(str));
+
+  generated.push(str);
+  return str;
+}
+
 const list = ["motivation", "role", "profession"];
 for (const key in list) {
   if (list.hasOwnProperty(key)) {
@@ -18,7 +35,7 @@ for (const key in list) {
           const item = data[key];
       
           const out = {};
-          out._id = `${type}${++i}`; // TODO: Foundry-typische IDs erzeugen (16 Zeichen)
+          out._id = generateID(16);
           out.name = item.name;
           out.permission = { "default": 0 };
           out.type = type;
