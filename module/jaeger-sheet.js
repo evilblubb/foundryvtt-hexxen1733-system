@@ -244,8 +244,9 @@ class JaegerSheet extends HexxenActorSheet {
     });
 
     // Item controls bei hover anzeigen
-    // TODO: Helper verallgemeinern
+    // TODO: Hover Helper verallgemeinern
     //html.find(".item").hover(HexxenIncDecHelper.onHoverPlusMinus);
+    html.find("a[data-action='select']").on("click", HexxenCompendiumHelper.onClickOpenCompendium);
 
     // +/- Buttons
     // Segnungen, Ideen, Coups

@@ -7,7 +7,8 @@
         <a class="value item-edit" id="{{id}}" title="Beschreibung anzeigen">{{name}}</a>
         {{#if editMode}}<a class="controls control item-delete" title="Löschen"><i class="fas fa-trash"></i></a>{{/if}}
         {{else}}
-        <div class="hint">{{hint}}</div>
+        {{! TODO: Link nur wenn auch verfügbar. --> available in Datenstruktur notwendig }}
+        <a class="hint" id="{{id}}" title="{{type}} auswählen" data-action="select" data-type="{{type}}">{{hint}}</a>
         {{/if}}
     </div>
     {{/inline}}
