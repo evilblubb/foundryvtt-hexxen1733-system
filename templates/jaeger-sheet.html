@@ -1,14 +1,21 @@
 ﻿<form class="{{cssClass}}" autocomplete="off">
 
     {{#*inline "item"}}
-    {{! > item id="rolle-1" class="td" type="role" name=data.core.rolle-1 item-id=data.core.rolle-1-id hint=data.core.rolle-1-hint}}
-    <div class="{{class}} flexrow item {{type}} allow-break" data-item-id="{{item-id}}">
-        {{#if item-id}}
-        <a class="value item-edit" id="{{id}}" title="Beschreibung anzeigen">{{name}}</a>
-        {{#if editMode}}<a class="controls control item-delete" title="Löschen"><i class="fas fa-trash"></i></a>{{/if}}
+    {{! > item id="rolle-1" class="td" type="role" content=data.rolle-1}}
+    {{log "content:" content
+        "editMode:" @root.editMode}}
+    <div class="{{class}} flexrow item {{type}} allow-break" 
+        {{#if content.item}}data-item-id="{{content.item._id}}"{{/if}}>
+        {{#if content.item}}
+        <a class="value item-edit" id="{{id}}" title="Beschreibung anzeigen">{{content.item.name}}</a>
+        {{! TODO: Listener von class item-delete auf data-action delete umstellen }}
+            {{#if editMode}}<a class="controls control item-delete" title="Löschen"><i class="fas fa-trash"></i></a>{{/if}}
         {{else}}
-        {{! TODO: Link nur wenn auch verfügbar. --> available in Datenstruktur notwendig }}
-        <a class="hint" id="{{id}}" title="{{type}} auswählen" data-action="select" data-type="{{type}}">{{hint}}</a>
+            {{#if content.available}}
+            <a class="hint" id="{{id}}" title="{{type}} auswählen" data-action="select" data-type="{{type}}">{{content.available-hint}}</a>
+            {{else}}
+            <span class="hint" id="{{id}}">{{content.hint}}</span>
+            {{/if}}
         {{/if}}
     </div>
     {{/inline}}
@@ -112,20 +119,20 @@
             <header class="block-header">Basiswerte</header>
             <div class="table table-1">
                 <div class="tr">
-                    <label class="td label" for="rolle-1">Rolle №1</label>
-                    {{> item id="rolle-1" class="td" type="role" name=data.core.rolle-1 item-id=data.core.rolle-1-id hint=data.core.rolle-1-hint}}
+                    <label class="td label" for="role-1">Rolle №1</label>
+                    {{> item id="role-1" class="td" type="role" content=data.role-1}}
                 </div>
                 <div class="tr">
-                    <label class="td label" for="rolle-2">Rolle №2</label>
-                    {{> item id="rolle-2" class="td" type="role" name=data.core.rolle-2 item-id=data.core.rolle-2-id hint=data.core.rolle-2-hint}}
+                    <label class="td label" for="role-2">Rolle №2</label>
+                    {{> item id="role-2" class="td" type="role" content=data.role-2}}
                 </div>
                 <div class="tr">
-                    <label class="td label" for="rolle-3">Rolle №3</label>
-                    {{> item id="rolle-3" class="td" type="role" name=data.core.rolle-3 item-id=data.core.rolle-3-id hint=data.core.rolle-3-hint}}
+                    <label class="td label" for="role-3">Rolle №3</label>
+                    {{> item id="role-3" class="td" type="role" content=data.role-3}}
                 </div>
                 <div class="tr">
                     <label class="td label" for="profession">Profession</label>
-                    {{> item id="profession" class="td" type="profession" name=data.core.profession item-id=data.core.profession-id hint=data.core.profession-hint}}
+                    {{> item id="profession" class="td" type="profession" content=data.profession}}
                 </div>
                 <div class="tr">
                     <label class="td label" for="languages">Sprachen</label>
@@ -144,9 +151,9 @@
                 <div class="tr">
                     <label class="td label" for="motivation">Motivation</label>
                     <div class="td flexcol">
-                        {{> item id="motivation" type="motivation" name=data.core.motivation item-id=data.core.motivation-id hint=data.core.motivation-hint}}
+                        {{> item id="motivation" type="motivation" content=data.motivation}}
                         {{!-- using {{{ }}} to allow HTML code to pass through unescaped --}}
-                        <div id="motivation-bonus" class="note allow-break">{{{data.core.motivation-bonus}}}</div>    
+                        <div id="motivation-bonus" class="note allow-break">{{{data.motivation.bonus}}}</div>    
                     </div>
                 </div>
                 <div class="tr">

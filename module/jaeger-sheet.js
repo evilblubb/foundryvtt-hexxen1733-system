@@ -30,7 +30,7 @@ class JaegerSheet extends HexxenActorSheet {
   /** @override */
   getData() {
     // get duplicated data
-    const data = super.getData();
+    const out = super.getData();
 
     // contains (from BaseEntitySheet)
     //   entity: any; (copy of this.actor.data; data only, not the Actor instance)
@@ -50,83 +50,85 @@ class JaegerSheet extends HexxenActorSheet {
     let hres = {}
     for( let key of [ "segnungen", "ideen", "coups" ] ) {
       // FIXME: temporärer Code bis zur Änderung der Datenstruktur im Actor
-      hres[key] = {value: data.data.resources[key]};
+      hres[key] = {value: out.data.resources[key]};
       // hres[key] = data.data.resources[key];
     }
     // FIXME: temporärer Code bis zur Änderung der Datenstruktur im Actor
     hres["segnungen"].label = "Segnungen";
     hres["segnungen"].max = 5;
     hres["ideen"].label = "Ideen [=WIS]";
-    hres["ideen"].default = data.data.attributes.WIS.value;
+    hres["ideen"].default = out.data.attributes.WIS.value;
     hres["coups"].label = "Coups [=ATH]";
-    hres["coups"].default = data.data.attributes.ATH.value;
-    data["header-resources"] = hres;
+    hres["coups"].default = out.data.attributes.ATH.value;
+    out["header-resources"] = hres;
     
+    // TODO: das sollte bereits im templste sein
+    out.data.motivation = { available: true,  "available-hint": "Keine Motivation ausgewählt", hint: "oops" };
+    // TODO: das sollte (teilweise?) bereits im actor.prepare() passieren
     let mot = this.actor.itemTypes.motivation; // returns items, not data
     mot = mot.length > 0 ? mot[0].data : undefined; 
     if (mot) {
-      data.data.core["motivation"] = mot.name;
-      data.data.core["motivation-bonus"] = mot.data.summary ? mot.data.summary : mot.data.description;
-      data.data.core["motivation-id"] = mot._id;
+      out.data.motivation.item = mot;
+      out.data.motivation.bonus = mot.data.summary ? mot.data.summary : mot.data.description;
     }
-    else {
-      data.data.core["motivation"] = "";
-      data.data.core["motivation-bonus"] = "";
-      data.data.core["motivation-hint"] = "Keine Motivation ausgewählt";
-    }
+
+    // TODO: das sollte bereits im templste sein
+    out.data["role-1"] = { available: true,  "available-hint": "Keine Rolle ausgewählt", hint: "oops" };
+    out.data["role-2"] = { available: out.data.core.level >= 2,  "available-hint": "Keine Rolle ausgewählt", hint: "Verfügbar ab Level 2" };
+    out.data["role-3"] = { available: out.data.core.level >= 7,  "available-hint": "Keine Rolle ausgewählt", hint: "Verfügbar ab Level 7" };
+
+    // TODO: das sollte (teilweise?) bereits im actor.prepare() passieren
     let role = this.actor.itemTypes.role; // returns items, not data
     switch (role.length) {
       case 3: 
-        data.data.core["rolle-3"] = role[2].data.name;
-        data.data.core["rolle-3-id"] = role[2].data._id;
+        out.data["role-3"].item = role[2].data;
         // no break
       case 2: 
-        data.data.core["rolle-2"] = role[1].data.name;
-        data.data.core["rolle-2-id"] = role[1].data._id;
+        out.data["role-2"].item = role[1].data;
         // no break
       case 1: 
-        data.data.core["rolle-1"] = role[0].data.name;
-        data.data.core["rolle-1-id"] = role[0].data._id;
+        out.data["role-1"].item = role[0].data;
         // no break
       default:
-        data.data.core["rolle-3-hint"] = data.data.core.level < 7 ? "Verfügbar ab Level 7" : "Keine Rolle ausgewählt";
-        data.data.core["rolle-2-hint"] = data.data.core.level < 2 ? "Verfügbar ab Level 2" : "Keine Rolle ausgewählt";
-        data.data.core["rolle-1-hint"] = data.data.core.level < 1 ? "Verfügbar ab Level 1" : "Keine Rolle ausgewählt";
     }
+
+    // TODO: das sollte bereits im templste sein
+    // TODO: available über rule realisieren
+    out.data.profession = { available: out.data.core.level >= 2,  "available-hint": "Keine Profession ausgewählt", hint: "Verfügbar ab Level 2" };
+
+    // TODO: das sollte (teilweise?) bereits im actor.prepare() passieren
     let prof = this.actor.itemTypes.profession;
     prof = prof.length > 0 ? prof[0].data : undefined; 
     if (prof) {
-      data.data.core["profession"] = prof.name;
-      data.data.core["profession-id"] = prof._id;
+      out.data.profession.item = prof;
     }
-    data.data.core["profession-hint"] = data.data.core.level < 2 ? "Verfügbar ab Level 2" : "Keine Profession ausgewählt";
 
     // TODO: temporary code until data structure change
     const languages = {};
-    languages.value = data.data.core.sprachen;
-    data.data.languages = languages;
+    languages.value = out.data.core.sprachen;
+    out.data.languages = languages;
 
     const level = {};
-    level.value = data.data.core.level;
+    level.value = out.data.core.level;
     level.dtype = "Number"; // TODO: Kontanten anlegen
-    data.data.level = level;
+    out.data.level = level;
 
     const vitiation = {};
-    vitiation.value = data.data.core.verderbnis;
+    vitiation.value = out.data.core.verderbnis;
     vitiation.dtype = "Number"; // TODO: Kontanten anlegen
-    data.data.vitiation = vitiation;
+    out.data.vitiation = vitiation;
 
-    data.stypes = { "idmg": "Innerer Schaden", "odmg": "Äußerer Schaden", "mdmg": "Malusschaden", "ldmg": "Lähmungsschaden" };
-    for ( let state of Object.values(data.data.states) ) {
-      state.type = data.stypes[state.type];
+    out.stypes = { "idmg": "Innerer Schaden", "odmg": "Äußerer Schaden", "mdmg": "Malusschaden", "ldmg": "Lähmungsschaden" };
+    for ( let state of Object.values(out.data.states) ) {
+      state.type = out.stypes[state.type];
     }
 
     // FIXME: gehört teilweise in den Jaeger!
     // Skills aufbereiten
-    data.data.skills = data.data.skills || {}; // sicherstellen, dass skills existiert
-    for ( let skill of Object.values(data.data.skills) ) {
+    out.data.skills = out.data.skills || {}; // sicherstellen, dass skills existiert
+    for ( let skill of Object.values(out.data.skills) ) {
       let attrKey = skill.attribute;
-      let attr = data.data.attributes[attrKey]; // undefined falls nicht existent
+      let attr = out.data.attributes[attrKey]; // undefined falls nicht existent
       let extra = (attrKey === "SIN" || attrKey === "WIS" || attrKey === "WIL") ? " (I)" : " (C)";
       let value = attr ? attr.value : 0;
       skill.attrValue = value;
@@ -137,10 +139,10 @@ class JaegerSheet extends HexxenActorSheet {
 
     // FIXME: gehört teilweise in den Jaeger!
     //Kampfskills aufbereiten
-    data.data.combat = data.data.combat || {};
-    for ( let skill of Object.values(data.data.combat) ) {
+    out.data.combat = out.data.combat || {};
+    for ( let skill of Object.values(out.data.combat) ) {
       let attrKey = skill.attribute;
-      let attr = data.data.attributes[attrKey]; // undefined falls nicht existent
+      let attr = out.data.attributes[attrKey]; // undefined falls nicht existent
       let extra = (attrKey === "SIN" || attrKey === "WIS" || attrKey === "WIL") ? " (I)" : " (C)";
       let value = attr ? attr.value : 0;
       skill.attrValue = value;
@@ -150,9 +152,9 @@ class JaegerSheet extends HexxenActorSheet {
     }
 
     // TODO: data.items filtern, sobald alle anderen subtypen abgehandelt
-    data.actor.items = data.actor.items.filter(i => { return "item" === i.type; });
+    out.actor.items = out.actor.items.filter(i => { return "item" === i.type; });
     
-    return data;
+    return out;
   }
 
   // FIXME: gehört in den Jaeger
