@@ -2,7 +2,7 @@
 
     {{#*inline "item"}}
     {{! > item id="rolle-1" class="td" type="role" content=data.rolle-1}}
-    {{log "content:" content
+    {{! log "content:" content
         "editMode:" @root.editMode}}
     <div class="{{class}} flexrow item {{type}} allow-break" 
         {{#if content.item}}data-item-id="{{content.item._id}}"{{/if}}>
