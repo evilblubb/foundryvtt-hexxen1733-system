@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import json
 
@@ -8,8 +9,8 @@ role_list = []
 profession_list = []
 string = "skills"
 o = 000
-f = open("skills.db", "w")
-with open('skills.json') as json_file:
+f = open("skills.db", "w", encoding="utf8")
+with open('skills.json',"r" , encoding="utf8") as json_file:
     data = json.load(json_file)
     role_data = data["role"]
     profession_data = data["profession"]
@@ -34,7 +35,7 @@ with open('skills.json') as json_file:
                 out["data"] = out2
                 out["flags"] = {}
                 out["img"] = "systems/hexxen-1733/img/Siegel-Rabe-small.png"
-                json.dump(out, f)
+                json.dump(out, f, ensure_ascii=False)
                 f.write('\n')
                 o = o + 1
         else:
@@ -53,7 +54,7 @@ with open('skills.json') as json_file:
                 out["data"] = out2
                 out["flags"] = {}
                 out["img"] = "systems/hexxen-1733/img/Siegel-Rabe-small.png"
-                json.dump(out, f)
+                json.dump(out, f, ensure_ascii=False)
                 f.write('\n')
                 o = o + 1
         else:
@@ -73,7 +74,7 @@ with open('skills.json') as json_file:
                 out["data"] = out2
                 out["flags"] = {}
                 out["img"] = "systems/hexxen-1733/img/Siegel-Rabe-small.png"
-                json.dump(out, f)
+                json.dump(out, f, ensure_ascii=False)
                 f.write('\n')
                 o = o + 1
                 if "gesellen" in temp:
@@ -90,7 +91,7 @@ with open('skills.json') as json_file:
                         out["data"] = out2
                         out["flags"] = {}
                         out["img"] = "systems/hexxen-1733/img/Siegel-Rabe-small.png"
-                        json.dump(out, f)
+                        json.dump(out, f, ensure_ascii=False)
                         f.write('\n')
                         o = o + 1
                 else:
@@ -110,7 +111,7 @@ with open('skills.json') as json_file:
                         out["flags"] = {}
                         out["img"] = "systems/hexxen-1733/img/Siegel-Rabe-small.png"
                         print(out)
-                        json.dump(out, f)
+                        json.dump(out, f, ensure_ascii=False)
                         f.write('\n')
                         o = o + 1
                 else:
@@ -129,7 +130,7 @@ with open('skills.json') as json_file:
                         out["data"] = out2
                         out["flags"] = {}
                         out["img"] = "systems/hexxen-1733/img/Siegel-Rabe-small.png"
-                        json.dump(out, f)
+                        json.dump(out, f, ensure_ascii=False)
                         f.write('\n')
                         o = o + 1
                 else:
@@ -153,7 +154,7 @@ with open('skills.json') as json_file:
                 out["data"] = out2
                 out["flags"] = {}
                 out["img"] = "systems/hexxen-1733/img/Siegel-Rabe-small.png"
-                json.dump(out, f)
+                json.dump(out, f, ensure_ascii=False)
                 f.write('\n')
                 o = o + 1
         else:
@@ -172,7 +173,7 @@ with open('skills.json') as json_file:
                 out["data"] = out2
                 out["flags"] = {}
                 out["img"] = "systems/hexxen-1733/img/Siegel-Rabe-small.png"
-                json.dump(out, f)
+                json.dump(out, f, ensure_ascii=False)
                 f.write('\n')
                 o = o + 1
         else:
@@ -193,7 +194,7 @@ with open('skills.json') as json_file:
                 out["data"] = out2
                 out["flags"] = {}
                 out["img"] = "systems/hexxen-1733/img/Siegel-Rabe-small.png"
-                json.dump(out, f)
+                json.dump(out, f, ensure_ascii=False)
                 f.write('\n')
                 o = o + 1
                 if "gesellen" in temp:
@@ -210,7 +211,7 @@ with open('skills.json') as json_file:
                         out["data"] = out2
                         out["flags"] = {}
                         out["img"] = "systems/hexxen-1733/img/Siegel-Rabe-small.png"
-                        json.dump(out, f)
+                        json.dump(out, f, ensure_ascii=False)
                         f.write('\n')
                         o = o + 1
                 else:
@@ -230,7 +231,7 @@ with open('skills.json') as json_file:
                         out["flags"] = {}
                         out["img"] = "systems/hexxen-1733/img/Siegel-Rabe-small.png"
                         print(out)
-                        json.dump(out, f)
+                        json.dump(out, f, ensure_ascii=False)
                         f.write('\n')
                         o = o + 1
                 else:
@@ -249,7 +250,7 @@ with open('skills.json') as json_file:
                         out["data"] = out2
                         out["flags"] = {}
                         out["img"] = "systems/hexxen-1733/img/Siegel-Rabe-small.png"
-                        json.dump(out, f)
+                        json.dump(out, f, ensure_ascii=False)
                         f.write('\n')
                         o = o + 1
                 else:
