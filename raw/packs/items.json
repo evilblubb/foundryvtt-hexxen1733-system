@@ -1,413 +1,411 @@
 {
-  "allgemein": {
-    "transportables-laboratorium": {
-      "name": "Transportables Laboratorium",
-      "references": [
-        {
-          "source": "Wiki",
-          "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
-        },
-        {
-          "source": "Das Buch der Regeln",
-          "page": "99"
-        }
-      ],
-      "description": "Erforderlich für verschiedene Herstellungsprozesse (Elixiere, Gifte, Wurfgeschosse etc.)",
-      "summary": "Kosten: 60 Gulden"
-    },
-    "biologisches-laboratorium": {
-      "name": "Biologisches Laboratorium",
-      "references": [
-        {
-          "source": "Wiki",
-          "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
-        },
-        {
-          "source": "Das Buch der Regeln",
-          "page": "99"
-        }
-      ],
-      "description": "Das Biologische Laboratorium kann als transportables Laboratorium verwendet werden. Es gibt einen zusätzlichen Bonus +1 beim Nehmen von natürlichen Proben und beim Herstellen von Elixieren und Giften. Du kannst immer nur ein Laboratorium mit dir führen. Wird es mit einem Fahrzeug befördert, zählt es als Gewicht wie 3 Beutegutpakete.",
-      "summary": "Kosten: 270 Gulden"
-    },
-    "mineralisches-laboratorium": {
-      "name": "Mineralisches Laboratorium",
-      "references": [
-        {
-          "source": "Wiki",
-          "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
-        },
-        {
-          "source": "Das Buch der Regeln",
-          "page": "99"
-        }
-      ],
-      "description": "Das Mineralische Laboratorium kann als transportables Laboratorium verwendet werden. Es gibt einen zusätzlichen Bonus +1 beim Nehmen von mineralischen Proben und beim Herstellen von Wurfgeschossen und Speziellem Schießpulver. Du kannst immer nur ein Laboratorium tragen. Wird es mit einem Fahrzeug befördert, zählt es als Gewicht wie 3 Beutegutpakete.",
-      "summary": "Kosten: 270 Gulden"
-    },
-    "werkzeugkiste": {
-      "name": "Werkzeugkiste",
-      "references": [
-        {
-          "source": "Wiki",
-          "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
-        },
-        {
-          "source": "Das Buch der Regeln",
-          "page": "99"
-        }
-      ],
-      "description": "Erforderlich für diverse handwerkliche Tätigkeiten",
-      "summary": "Kosten: 25 Gulden"
-    },
-    "fackel": {
-      "name": "Fackel",
-      "references": [
-        {
-          "source": "Wiki",
-          "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
-        },
-        {
-          "source": "Das Buch der Regeln",
-          "page": "99"
-        }
-      ],
-      "description": "Schwaches Licht für 1 Stunde",
-      "summary": "Kosten: 1 Gulden"
-    },
-    "fernrohr": {
-      "name": "Fernrohr",
-      "references": [
-        {
-          "source": "Wiki",
-          "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
-        },
-        {
-          "source": "Das Buch der Regeln",
-          "page": "99"
-        }
-      ],
-      "description": "Bonus von +2 auf Erkennen von weit entfernten Objekten (nicht im Kampf)",
-      "summary": "Kosten: 70 Gulden"
-    },
-    "kletterhaken": {
-      "name": "Kletterhacken",
-      "references": [
-        {
-          "source": "Wiki",
-          "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
-        },
-        {
-          "source": "Das Buch der Regeln",
-          "page": "99"
-        }
-      ],
-      "description": "Bonus von +2 auf Akrobatik-Proben beim Klettern mit Seilen oder ähnliche Tätigkeit",
-      "summary": "Kosten: 10 Gulden"
-    },
-    "kompass": {
-      "name": "Kompass",
-      "references": [
-        {
-          "source": "Wiki",
-          "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
-        },
-        {
-          "source": "Das Buch der Regeln",
-          "page": "99"
-        }
-      ],
-      "description": "Bestimmt automatisch Norden",
-      "summary": "Kosten: 25 Gulden"
-    },
-    "landkarte": {
-      "name": "Landkarte",
-      "references": [
-        {
-          "source": "Wiki",
-          "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
-        },
-        {
-          "source": "Das Buch der Regeln",
-          "page": "99"
-        }
-      ],
-      "description": "Gebiet: ca. 50x50km, Automatisches Finden von Städten, Herbergen, Burgen etc.",
-      "summary": "Kosten: 15 Gulden"
-    },
-    "oellampe": {
-      "name": "Öllampe",
-      "references": [
-        {
-          "source": "Wiki",
-          "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
-        },
-        {
-          "source": "Das Buch der Regeln",
-          "page": "99"
-        }
-      ],
-      "description": "Erfordert Öl (Unterhalt +10)",
-      "summary": "Kosten: 10 Gulden"
-    },
-    "rueckentrage": {
-      "name": "Rückentrage",
-      "references": [
-        {
-          "source": "Wiki",
-          "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
-        },
-        {
-          "source": "Das Buch der Regeln",
-          "page": "99"
-        }
-      ],
-      "description": "Träger kann 2 Beutegut-Pakete tragen",
-      "summary": "Kosten: 8 Gulden"
-    },
-    "schlafsack": {
-      "name": "Schlafsack",
-      "references": [
-        {
-          "source": "Wiki",
-          "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
-        },
-        {
-          "source": "Das Buch der Regeln",
-          "page": "99"
-        }
-      ],
-      "description": "Erforderlich, um im Freien Lep zu regenerieren",
-      "summary": "Kosten: 7 Gulden"
-    },
-    "seil": {
-      "name": "Seil",
-      "references": [
-        {
-          "source": "Wiki",
-          "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
-        },
-        {
-          "source": "Das Buch der Regeln",
-          "page": "99"
-        }
-      ],
-      "description": "5m, vielsetiig einsetzbar",
-      "summary": "Kosten: 10 Gulden"
-    },
-    "schreibutensilien": {
-      "name": "Schreibutensilien",
-      "references": [
-        {
-          "source": "Wiki",
-          "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
-        },
-        {
-          "source": "Das Buch der Regeln",
-          "page": "99"
-        }
-      ],
-      "description": "Papier, Silberstift, Feder und Tinte für eigene Notizen",
-      "summary": "Kosten: 15 Gulden"
-    },
-    "alkohol": {
-      "name": "Alkohol",
-      "references": [
-        {
-          "source": "Wiki",
-          "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
-        },
-        {
-          "source": "Das Buch der Regeln",
-          "page": "99"
-        }
-      ],
-      "description": "Vorrat an Schnaps, Wein, Likör",
-      "summary": "Kosten: 15 Gulden"
-    },
-    "zelt": {
-      "name": "Zelt",
-      "references": [
-        {
-          "source": "Wiki",
-          "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
-        },
-        {
-          "source": "Das Buch der Regeln",
-          "page": "99"
-        }
-      ],
-      "description": "Erforderlich, um im Freien Lep zu regenerieren",
-      "summary": "Kosten: 20 Gulden"
-    },
-    "feldbett": {
-      "name": "Feldbett",
-      "references": [
-        {
-          "source": "Wiki",
-          "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
-        },
-        {
-          "source": "Das Buch der Regeln",
-          "page": "99"
-        }
-      ],
-      "description": "Verbesserte Regeneration von Lep",
-      "summary": "Kosten: 15 Gulden"
-    },
-    "handschellen": {
-      "name": "Handschellen",
-      "references": [
-        {
-          "source": "Wiki",
-          "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
-        },
-        {
-          "source": "Das Buch der Regeln",
-          "page": "99"
-        }
-      ],
-      "description": "Fesseln von besiegten menschenähnlichen Gegnern möglich",
-      "summary": "Kosten: 22 Gulden"
-    },
-    "vorhaengeschloss": {
-      "name": "Vorhängeschloss",
-      "references": [
-        {
-          "source": "Wiki",
-          "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
-        },
-        {
-          "source": "Das Buch der Regeln",
-          "page": "99"
-        }
-      ],
-      "description": "Zum Abschließen von Türen und Truhen",
-      "summary": "Kosten: 17 Gulden"
-    },
-    "truhe": {
-      "name": "Truhe",
-      "references": [
-        {
-          "source": "Wiki",
-          "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
-        },
-        {
-          "source": "Das Buch der Regeln",
-          "page": "99"
-        }
-      ],
-      "description": "Mit Schlüssel und Schloss. Zum sicheren Verwahren von Wertgegenständen oder Münzen (max. 1000 Gulden in Münzen passen in eine durchschnittliche kleine Truhe)",
-      "summary": "Kosten: 33 Gulden"
-    },
-    "buschmesser": {
-      "name": "Buschmesser",
-      "references": [
-        {
-          "source": "Wiki",
-          "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
-        },
-        {
-          "source": "Das Buch der Regeln",
-          "page": "99"
-        }
-      ],
-      "description": "Das Buschmesser zählt als Waffe wie ein Säbel, gibt aber beim Durchschneiden von Ranken, Wurzeln und ähnlichem einen Bonus +1.",
-      "summary": "Kosten: 90 Gulden"
-    },
-    "gezaehe": {
-      "name": "Gezähe",
-      "references": [
-        {
-          "source": "Wiki",
-          "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
-        },
-        {
-          "source": "Das Buch der Regeln",
-          "page": "99"
-        }
-      ],
-      "description": "Das Gezähe gibt einen Bonus +2 bei allen handwerklichen Tätigkeiten unter Tage.",
-      "summary": "Kosten: 35 Gulden"
-    },
-    "klettergeschirr": {
-      "name": "Klettergeschirr",
-      "references": [
-        {
-          "source": "Wiki",
-          "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
-        },
-        {
-          "source": "Das Buch der Regeln",
-          "page": "99"
-        }
-      ],
-      "description": "Um Klettergeschirr zu erwerben, musst du mehrere Märkte bereisen. An jedem Markt darfst du als Fza einen Marktbesuch zum Einkaufen vornehmen und kannst dabei 1 Teil des Klettergeschirrs für 10 Gulden kaufen. Sobald du mindestens 1 Teil erworben hast, musst du beim nächsten Teil mit einem W6 würfeln: Entspricht die Augenzahl der Anzahl erworbener Teil oder ist niedriger, so kannst du auf diesem Markt nichts passendes finden. Ist die Augenzahl höher, konntest du ein weiteres Teil finden und für 10 Gulden kaufen. Jedes Teil gibt beim Klettern +1 auf Akrobatik (max. +5). Bei einem Bonus von +3 kann der HeXXenmeister entscheiden, dass die Probe automatisch gelingt.",
-      "summary": "Kosten: 10 Gulden pro Teil"
-    },
-    "probentasche": {
-      "name": "Probentasche",
-      "references": [
-        {
-          "source": "Wiki",
-          "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
-        },
-        {
-          "source": "Das Buch der Regeln",
-          "page": "99"
-        }
-      ],
-      "description": "\tDie Probentasche erhöht die Menge an Verbrauchsgegenständen, die man mit in den Kampf führen kann um +5 (wenn nach den im Buch der Regeln angegebenen Richtlinien für Tragkapazität gespielt wird). Wird nicht nach diesen Richtlinien gespielt, erhöht die Tasche die Tragkraft des Jägers um +1 Beutegutpaket. Man kann immer nur eine Probentasche tragen.",
-      "summary": "Kosten: 27 Gulden"
-    },
-    "spitzhacke": {
-      "name": "Spitzhacke",
-      "references": [
-        {
-          "source": "Wiki",
-          "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
-        },
-        {
-          "source": "Das Buch der Regeln",
-          "page": "99"
-        }
-      ],
-      "description": "Eine Spitzhacke zählt in jeder Hinsicht als Schlagwaffe und kann mit denselben Werten verwendet werden.",
-      "summary": "Kosten: 50 Gulden"
-    },
-    "schutzamulett": {
-      "name": "Schutzamulett",
-      "references": [
-        {
-          "source": "Wiki",
-          "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
-        },
-        {
-          "source": "Das Buch der Regeln",
-          "page": "99"
-        }
-      ],
-      "description": "Sobald der Träger des Schutzamuletts zum Ziel eines von einer wahren Hexe gewirkten Zaubers wird, darf er mit 2 Blutwürfeln würfeln. Erzielt er insgesamt 5 oder mehr Blutstropfensymbole, wird der Zaubereffekt für ihn annulliert. Sobald das geschieht, ist das Amulett kraftlos, bis der Träger seine nächste Fza (mit beliebiger Tätigkeit) ausführt. Ein Jäger kann mehrere Schutzamulette kaufen, das hat jedoch nur rollenspielerische Auswirkungen; mehrere Amulette erhöhen weder die Zahl der Blutwürfel noch die der Aufladungen. Die Gesamtheit aller getragenen Schutzamulette zählt wie 1 Amulett.",
-      "summary": "Kosten: 15 Gulden"
-    },
-    "kochstelle": {
-      "name": "Kochstelle",
-      "references": [
-        {
-          "source": "Wiki",
-          "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
-        },
-        {
-          "source": "Das Buch der Regeln",
-          "page": "99"
-        }
-      ],
-      "description": "Will ein Jäger die Kochstelle verwenden, um die Gruppe zu versorgen, muss er seinen Unterhalt um 20 Gulden erhöhen (für Zutaten und Gewürze). Benutzt er sie ausschließlich, um Kräutermittel zu produzieren, sind die Unterhaltskosten in der entsprechenden Jägerkraft beschrieben (Kräuterwissen) und die zusätzlichen Kosten zum Kochen entfallen. Um eine schmackhafte Mahlzeit zuzubereiten, ist eine Fza erforderlich sowie eine Koch-Probe auf Wissensgebiete (Rezepte aus Büchern), Land und Leute (überlieferte Rezepte) oder Hexenkunst (uralte oder exotische Rezepte). Teile die Erfolge auf die Gruppenmitglieder auf. Für 1 Erfolg erhält ein Jäger 1 Coup oder 1 Idee, für 3 Erfolge darf er 1 Eh-Kästchen neu benutzen. Jeder Effekt darf pro Jäger nur einmal pro Probe und einmal pro Tag verwendet werden. Für das Maximum von 5 Erfolgen pro Person würde man demnach 1 Coup und 1 Idee erhalten und 1 Eh-Kästchen reaktivieren.",
-      "summary": "Kosten: 18 Gulden"
-    }
+  "transportables-laboratorium": {
+    "name": "Transportables Laboratorium",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
+      },
+      {
+        "source": "Das Buch der Regeln",
+        "page": "99"
+      }
+    ],
+    "description": "Erforderlich für verschiedene Herstellungsprozesse (Elixiere, Gifte, Wurfgeschosse etc.)",
+    "summary": "Kosten: 60 Gulden"
+  },
+  "biologisches-laboratorium": {
+    "name": "Biologisches Laboratorium",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
+      },
+      {
+        "source": "Das Buch der Regeln",
+        "page": "99"
+      }
+    ],
+    "description": "Das Biologische Laboratorium kann als transportables Laboratorium verwendet werden. Es gibt einen zusätzlichen Bonus +1 beim Nehmen von natürlichen Proben und beim Herstellen von Elixieren und Giften. Du kannst immer nur ein Laboratorium mit dir führen. Wird es mit einem Fahrzeug befördert, zählt es als Gewicht wie 3 Beutegutpakete.",
+    "summary": "Kosten: 270 Gulden"
+  },
+  "mineralisches-laboratorium": {
+    "name": "Mineralisches Laboratorium",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
+      },
+      {
+        "source": "Das Buch der Regeln",
+        "page": "99"
+      }
+    ],
+    "description": "Das Mineralische Laboratorium kann als transportables Laboratorium verwendet werden. Es gibt einen zusätzlichen Bonus +1 beim Nehmen von mineralischen Proben und beim Herstellen von Wurfgeschossen und Speziellem Schießpulver. Du kannst immer nur ein Laboratorium tragen. Wird es mit einem Fahrzeug befördert, zählt es als Gewicht wie 3 Beutegutpakete.",
+    "summary": "Kosten: 270 Gulden"
+  },
+  "werkzeugkiste": {
+    "name": "Werkzeugkiste",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
+      },
+      {
+        "source": "Das Buch der Regeln",
+        "page": "99"
+      }
+    ],
+    "description": "Erforderlich für diverse handwerkliche Tätigkeiten",
+    "summary": "Kosten: 25 Gulden"
+  },
+  "fackel": {
+    "name": "Fackel",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
+      },
+      {
+        "source": "Das Buch der Regeln",
+        "page": "99"
+      }
+    ],
+    "description": "Schwaches Licht für 1 Stunde",
+    "summary": "Kosten: 1 Gulden"
+  },
+  "fernrohr": {
+    "name": "Fernrohr",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
+      },
+      {
+        "source": "Das Buch der Regeln",
+        "page": "99"
+      }
+    ],
+    "description": "Bonus von +2 auf Erkennen von weit entfernten Objekten (nicht im Kampf)",
+    "summary": "Kosten: 70 Gulden"
+  },
+  "kletterhaken": {
+    "name": "Kletterhacken",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
+      },
+      {
+        "source": "Das Buch der Regeln",
+        "page": "99"
+      }
+    ],
+    "description": "Bonus von +2 auf Akrobatik-Proben beim Klettern mit Seilen oder ähnliche Tätigkeit",
+    "summary": "Kosten: 10 Gulden"
+  },
+  "kompass": {
+    "name": "Kompass",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
+      },
+      {
+        "source": "Das Buch der Regeln",
+        "page": "99"
+      }
+    ],
+    "description": "Bestimmt automatisch Norden",
+    "summary": "Kosten: 25 Gulden"
+  },
+  "landkarte": {
+    "name": "Landkarte",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
+      },
+      {
+        "source": "Das Buch der Regeln",
+        "page": "99"
+      }
+    ],
+    "description": "Gebiet: ca. 50x50km, Automatisches Finden von Städten, Herbergen, Burgen etc.",
+    "summary": "Kosten: 15 Gulden"
+  },
+  "oellampe": {
+    "name": "Öllampe",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
+      },
+      {
+        "source": "Das Buch der Regeln",
+        "page": "99"
+      }
+    ],
+    "description": "Erfordert Öl (Unterhalt +10)",
+    "summary": "Kosten: 10 Gulden"
+  },
+  "rueckentrage": {
+    "name": "Rückentrage",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
+      },
+      {
+        "source": "Das Buch der Regeln",
+        "page": "99"
+      }
+    ],
+    "description": "Träger kann 2 Beutegut-Pakete tragen",
+    "summary": "Kosten: 8 Gulden"
+  },
+  "schlafsack": {
+    "name": "Schlafsack",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
+      },
+      {
+        "source": "Das Buch der Regeln",
+        "page": "99"
+      }
+    ],
+    "description": "Erforderlich, um im Freien Lep zu regenerieren",
+    "summary": "Kosten: 7 Gulden"
+  },
+  "seil": {
+    "name": "Seil",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
+      },
+      {
+        "source": "Das Buch der Regeln",
+        "page": "99"
+      }
+    ],
+    "description": "5m, vielsetiig einsetzbar",
+    "summary": "Kosten: 10 Gulden"
+  },
+  "schreibutensilien": {
+    "name": "Schreibutensilien",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
+      },
+      {
+        "source": "Das Buch der Regeln",
+        "page": "99"
+      }
+    ],
+    "description": "Papier, Silberstift, Feder und Tinte für eigene Notizen",
+    "summary": "Kosten: 15 Gulden"
+  },
+  "alkohol": {
+    "name": "Alkohol",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
+      },
+      {
+        "source": "Das Buch der Regeln",
+        "page": "99"
+      }
+    ],
+    "description": "Vorrat an Schnaps, Wein, Likör",
+    "summary": "Kosten: 15 Gulden"
+  },
+  "zelt": {
+    "name": "Zelt",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
+      },
+      {
+        "source": "Das Buch der Regeln",
+        "page": "99"
+      }
+    ],
+    "description": "Erforderlich, um im Freien Lep zu regenerieren",
+    "summary": "Kosten: 20 Gulden"
+  },
+  "feldbett": {
+    "name": "Feldbett",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
+      },
+      {
+        "source": "Das Buch der Regeln",
+        "page": "99"
+      }
+    ],
+    "description": "Verbesserte Regeneration von Lep",
+    "summary": "Kosten: 15 Gulden"
+  },
+  "handschellen": {
+    "name": "Handschellen",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
+      },
+      {
+        "source": "Das Buch der Regeln",
+        "page": "99"
+      }
+    ],
+    "description": "Fesseln von besiegten menschenähnlichen Gegnern möglich",
+    "summary": "Kosten: 22 Gulden"
+  },
+  "vorhaengeschloss": {
+    "name": "Vorhängeschloss",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
+      },
+      {
+        "source": "Das Buch der Regeln",
+        "page": "99"
+      }
+    ],
+    "description": "Zum Abschließen von Türen und Truhen",
+    "summary": "Kosten: 17 Gulden"
+  },
+  "truhe": {
+    "name": "Truhe",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
+      },
+      {
+        "source": "Das Buch der Regeln",
+        "page": "99"
+      }
+    ],
+    "description": "Mit Schlüssel und Schloss. Zum sicheren Verwahren von Wertgegenständen oder Münzen (max. 1000 Gulden in Münzen passen in eine durchschnittliche kleine Truhe)",
+    "summary": "Kosten: 33 Gulden"
+  },
+  "buschmesser": {
+    "name": "Buschmesser",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
+      },
+      {
+        "source": "Das Buch der Regeln",
+        "page": "99"
+      }
+    ],
+    "description": "Das Buschmesser zählt als Waffe wie ein Säbel, gibt aber beim Durchschneiden von Ranken, Wurzeln und ähnlichem einen Bonus +1.",
+    "summary": "Kosten: 90 Gulden"
+  },
+  "gezaehe": {
+    "name": "Gezähe",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
+      },
+      {
+        "source": "Das Buch der Regeln",
+        "page": "99"
+      }
+    ],
+    "description": "Das Gezähe gibt einen Bonus +2 bei allen handwerklichen Tätigkeiten unter Tage.",
+    "summary": "Kosten: 35 Gulden"
+  },
+  "klettergeschirr": {
+    "name": "Klettergeschirr",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
+      },
+      {
+        "source": "Das Buch der Regeln",
+        "page": "99"
+      }
+    ],
+    "description": "Um Klettergeschirr zu erwerben, musst du mehrere Märkte bereisen. An jedem Markt darfst du als Fza einen Marktbesuch zum Einkaufen vornehmen und kannst dabei 1 Teil des Klettergeschirrs für 10 Gulden kaufen. Sobald du mindestens 1 Teil erworben hast, musst du beim nächsten Teil mit einem W6 würfeln: Entspricht die Augenzahl der Anzahl erworbener Teil oder ist niedriger, so kannst du auf diesem Markt nichts passendes finden. Ist die Augenzahl höher, konntest du ein weiteres Teil finden und für 10 Gulden kaufen. Jedes Teil gibt beim Klettern +1 auf Akrobatik (max. +5). Bei einem Bonus von +3 kann der HeXXenmeister entscheiden, dass die Probe automatisch gelingt.",
+    "summary": "Kosten: 10 Gulden pro Teil"
+  },
+  "probentasche": {
+    "name": "Probentasche",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
+      },
+      {
+        "source": "Das Buch der Regeln",
+        "page": "99"
+      }
+    ],
+    "description": "\tDie Probentasche erhöht die Menge an Verbrauchsgegenständen, die man mit in den Kampf führen kann um +5 (wenn nach den im Buch der Regeln angegebenen Richtlinien für Tragkapazität gespielt wird). Wird nicht nach diesen Richtlinien gespielt, erhöht die Tasche die Tragkraft des Jägers um +1 Beutegutpaket. Man kann immer nur eine Probentasche tragen.",
+    "summary": "Kosten: 27 Gulden"
+  },
+  "spitzhacke": {
+    "name": "Spitzhacke",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
+      },
+      {
+        "source": "Das Buch der Regeln",
+        "page": "99"
+      }
+    ],
+    "description": "Eine Spitzhacke zählt in jeder Hinsicht als Schlagwaffe und kann mit denselben Werten verwendet werden.",
+    "summary": "Kosten: 50 Gulden"
+  },
+  "schutzamulett": {
+    "name": "Schutzamulett",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
+      },
+      {
+        "source": "Das Buch der Regeln",
+        "page": "99"
+      }
+    ],
+    "description": "Sobald der Träger des Schutzamuletts zum Ziel eines von einer wahren Hexe gewirkten Zaubers wird, darf er mit 2 Blutwürfeln würfeln. Erzielt er insgesamt 5 oder mehr Blutstropfensymbole, wird der Zaubereffekt für ihn annulliert. Sobald das geschieht, ist das Amulett kraftlos, bis der Träger seine nächste Fza (mit beliebiger Tätigkeit) ausführt. Ein Jäger kann mehrere Schutzamulette kaufen, das hat jedoch nur rollenspielerische Auswirkungen; mehrere Amulette erhöhen weder die Zahl der Blutwürfel noch die der Aufladungen. Die Gesamtheit aller getragenen Schutzamulette zählt wie 1 Amulett.",
+    "summary": "Kosten: 15 Gulden"
+  },
+  "kochstelle": {
+    "name": "Kochstelle",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
+      },
+      {
+        "source": "Das Buch der Regeln",
+        "page": "99"
+      }
+    ],
+    "description": "Will ein Jäger die Kochstelle verwenden, um die Gruppe zu versorgen, muss er seinen Unterhalt um 20 Gulden erhöhen (für Zutaten und Gewürze). Benutzt er sie ausschließlich, um Kräutermittel zu produzieren, sind die Unterhaltskosten in der entsprechenden Jägerkraft beschrieben (Kräuterwissen) und die zusätzlichen Kosten zum Kochen entfallen. Um eine schmackhafte Mahlzeit zuzubereiten, ist eine Fza erforderlich sowie eine Koch-Probe auf Wissensgebiete (Rezepte aus Büchern), Land und Leute (überlieferte Rezepte) oder Hexenkunst (uralte oder exotische Rezepte). Teile die Erfolge auf die Gruppenmitglieder auf. Für 1 Erfolg erhält ein Jäger 1 Coup oder 1 Idee, für 3 Erfolge darf er 1 Eh-Kästchen neu benutzen. Jeder Effekt darf pro Jäger nur einmal pro Probe und einmal pro Tag verwendet werden. Für das Maximum von 5 Erfolgen pro Person würde man demnach 1 Coup und 1 Idee erhalten und 1 Eh-Kästchen reaktivieren.",
+    "summary": "Kosten: 18 Gulden"
   },
   "hasenpfote ": {
-    "name":"Hasenpfote",
+    "name": "Hasenpfote",
     "description": " Einmal pro Abenteuer bzw. Abenteuerabschnitt darf der Träger 1 Würfel einer Fertigkeitsprobe auf eine beliebige Seite drehen. Jeder Jäger darf nur 1 Hasenpfote tragen.",
     "summary": "1 Ti",
     "references": [
@@ -422,7 +420,7 @@
     ]
   },
   "knochenfloete ": {
-    "name":"Knochenflöte",
+    "name": "Knochenflöte",
     "description": "Der Klang dieser Flöte verscheucht Tiere. Einmal pro Kampf kannst du als Aktion (3 Ap) die Flöte spielen. Würfele auf Fingerfertigkeit; für jeden Erfolg wird eine Bandenstufe (nur natürliche Tiere) besiegt. Die Tiere fliehen und können danach nicht wiederverwertet werden. Würfele anschließend mit dem Blutwürfel. Zeigt er die leere Seite, ist die magische Kraft der Flöte erschöpft.",
     "summary": "4 Ti",
     "references": [
@@ -437,7 +435,7 @@
     ]
   },
   "knochenwuerfelset  ": {
-    "name":"Knochenwürfelset",
+    "name": "Knochenwürfelset",
     "description": "Dieses Set enthält 10 Knochenwürfel, in der Regel hergestellt aus den Gebeinen unterschiedlicher Tiere. Stelle die 10 Würfel mit HeXXenwürfeln dar. Einmal pro Tag kannst du die Würfel rollen lassen. Alle Würfel, die eine leere Seite zeigen, werden permanent entfernt (ihre magische Kraft ist erloschen). Alle Würfel, die ein HeXXensymbol zeigen, geben dir wahlweise 1 Coup oder 1 Idee und bleiben im Set. Alle Würfel, die einen Espritstern zeigen, geben dir 1 Segnung (max. 5) und bleiben im Set. Sobald du die Würfel erneut würfelst, musst du evtl. vorhandene überschüssige Coups und Ideen abbauen. Du kannst mehrere Knochenwürfelsets haben, aber immer nur eines verwenden; benutze zusätzliche Sets als Nachfüllsets.",
     "summary": "10 Ti",
     "references": [
@@ -452,7 +450,7 @@
     ]
   },
   "monstertrophaee ": {
-    "name":"Monstertrophäe",
+    "name": "Monstertrophäe",
     "description": "Diese meist brutal abschreckenden Trophäen sind nicht nur begehrt unter Sammlern und Forschern, sie verbreiten auch den Ruhm deiner Gruppe. Eine Monstertrophäe kann in größeren Städten als Fza für 750 Gulden sowie +20 Gulden für jeden Erfolg auf einer Fingerfertigkeit-Probe verkauft werden.",
     "summary": "30 Wi",
     "references": [
@@ -467,7 +465,7 @@
     ]
   },
   "mumie": {
-    "name":"Mumie",
+    "name": "Mumie",
     "description": "Hierbei handelt es sich um den vollständig einbalsamierten Körper eines Menschen (auch wenn der sich evtl. aus ver-schiedenen gesammelten Teilen zusammensetzt). Mumien sind extrem begehrt unter Alchemisten, Sammlern und Forschern. Jede Mumie kann daher in einer Stadt als Fza für 500 Gulden sowie +10 Gulden für jeden Erfolg auf einer Fingerfertigkeit-Probe verkauft werden.",
     "summary": "20 Ti",
     "references": [
@@ -482,7 +480,7 @@
     ]
   },
   "schaedelpulver": {
-    "name":"Schädelpulver",
+    "name": "Schädelpulver",
     "description": "Dieses Pulver, auch Cranium humamum genannt, wird aus dem Zermahlen eines menschlichen Schädels, ggf. unter Beimischung anderer Knochenteile und Mineralien gewonnen. Das Pulver hat keine offensichtlichen körperlichen Auswirkungen, sondern wirkt auf spirituelle, übersinnliche Weise. Nimmt ein Charakter Schädelpulver vor dem Zubettgehen zu sich, darf er am nächsten Morgen mit dem Elixierwürfel würfeln und erhält entsprechend viele beliebige Ressourcen (Coups, Ideen, Segnungen, Ambitions- oder Rage-Punkte o. a.). Dafür muss er allerdings am nächsten Morgen 1 Kästchen Mh abstreichen.",
     "summary": "3 Mi",
     "references": [
@@ -497,7 +495,7 @@
     ]
   },
   "schmerzsalbe": {
-    "name":"Schmerzsalbe",
+    "name": "Schmerzsalbe",
     "description": "Schmerzsalben werden aus Menschenfett hergestellt. Die Schmerzsalbe hat dieselbe Wirkung wie ein Panzerelixier.",
     "summary": "4 Mi",
     "references": [
@@ -512,7 +510,7 @@
     ]
   },
   "teufelsamulett": {
-    "name":"Teufelsamulett",
+    "name": "Teufelsamulett",
     "description": "Ein solches Amulett schützt gegen widernatürliche Monster. Es entspricht in jeglicher Hinsicht einem Schutzamulett gegen Hexen, wirkt jedoch gegen Zauber aller widernatürlicher Gegner. Anders als das Schutzamulett gegen Hexen kann das Teufelsamulett nicht aufgeladen werden; die magische Wirkung ist nach einmaliger Anwendung verflogen.",
     "summary": "5 Wi",
     "references": [
@@ -527,7 +525,7 @@
     ]
   },
   "tierpraeparat": {
-    "name":"Tierpräparat",
+    "name": "Tierpräparat",
     "description": "Tierpräparate sind kleine Kunstwerke, die man auf jedem größeren Markt (ab Kleinstadt) gewinnbringend verkaufen kann. Das Verkaufen eines Tierpräparats erfordert keine Fza, bringt 100 Gulden ein sowie +5 Gulden für jeden Erfolg auf einer Fingerfertigkeit-Probe.",
     "summary": "10 Ti",
     "references": [
@@ -542,7 +540,7 @@
     ]
   },
   "totenhand": {
-    "name":"Totenhand",
+    "name": "Totenhand",
     "description": "Totenhände sind wichtige Bestandteile okkulter medizinischer Praktiken. Ihnen wird eine ganze Reihe verschiedener Wirkungen zugesprochen, u.a. sollen sie Hautkrankheiten heilen können. Immer, wenn der Träger eine Reduzierungsprobe für äußere Schadensstufen ausführt, kann er 1 Finger einer Totenhand (insgesamt 5) opfern, um 1 automatischen Erfolg auf der Probe zu bekommen. Für jede Probe kann man nur 1 Finger opfern.",
     "summary": "5 Mi",
     "references": [
@@ -557,7 +555,7 @@
     ]
   },
   "zahnkette": {
-    "name":"Zahnkette",
+    "name": "Zahnkette",
     "description": "Diese Kette besteht aus 5 Zähnen verschiedener besiegter Tiere. Der Träger kann einmal pro Kampf als freie Reaktion (0 Ap) 1 Zahn opfern, um die gegen ihn gerichteten Angriffserfolge eines natürlichen Tiers um 1 zu reduzieren. Jeder Jäger darf nur 1 Zahnkette tragen.",
     "summary": "5 Ti",
     "references": [
