@@ -5,7 +5,6 @@
   "version": "0.5.3",
   "minimumCoreVersion": "0.5.5",
   "compatibleCoreVersion": "0.6.0-0.6.2",
-  "templateVersion": 1,
   "author": "Martin Brunninger",
   "scripts": [  "module/hexxen.js",
                 "module/utils.js",

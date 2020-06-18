@@ -5,10 +5,22 @@ class HexxenActor extends Actor {
   constructor(...args) {
     super(...args);
 
-    // The actor is either created with it's saved data or with the associated tempate data.
+    // The actor is either created with it's saved data or with the associated template data.
     // Entity.constructor calls this.initialize() which calls this.prepareData() before and after
     // this.prepareEmbeddedEntities().
   }
+
+  get type() {
+    return this.data.type;
+  }
+
+  /** @override */
+  initialize() {
+    // Check if actor data have to be migrated
+    this._migrateData();
+    super.initialize();  
+  }
+  
 
   /** @override */
   async update(data, options={}) {
@@ -46,18 +58,18 @@ class HexxenActor extends Actor {
     
 
     // Abgeleitete Basisdaten für Jaeger berechnen
-    if ("character" === actor.type) {
+    if ("character" === this.type) {
       // Max-Werte für Basis- und Puffer-LEP berechnen
-      actor.data.health.min = -10;
-      actor.data.health.max = 7 + actor.data.attributes.KKR.value + actor.data.attributes.WIL.value + actor.data.skills["Unempfindlichkeit"].value;
-      actor.data.power.min = 0;
-      actor.data.power.max = 10;
+      // actor.data.health.min = -10;
+      // actor.data.health.max = 7 + actor.data.attributes.KKR.value + actor.data.attributes.WIL.value + actor.data.skills["Unempfindlichkeit"].value;
+      // actor.data.power.min = 0;
+      // actor.data.power.max = 10;
 
       // INI, PW und AP berechnen
-      actor.data.calc = actor.data.calc || {};
-      actor.data.calc.ini = actor.data.attributes.SIN.value + actor.data.attributes.GES.value + actor.data.skills["Reflexe"].value;
-      actor.data.calc.pw = actor.data.calc.pw || 1;
-      actor.data.calc.ap = 6 - actor.data.calc.pw;
+      // actor.data.calc = actor.data.calc || {};
+      // actor.data.calc.ini = actor.data.attributes.SIN.value + actor.data.attributes.GES.value + actor.data.skills["Reflexe"].value;
+      // actor.data.calc.pw = actor.data.calc.pw || 1;
+      // actor.data.calc.ap = 6 - actor.data.calc.pw;
     }
   }
 
@@ -138,7 +150,7 @@ class HexxenActor extends Actor {
 
   // TODO: temporär für Breakpoint
   async createEmbeddedEntity(embeddedName, newItemData, options={}) {
-    if ("character" === this.data.type) {
+    if ("character" === this.type) {
 
       // TODO: Berechtigungen prüfen
       if ("motivation" === newItemData.type) {
@@ -149,6 +161,7 @@ class HexxenActor extends Actor {
             .map( i => i._id );
         // FIXME: render des sheets aufgrund des delete unterdrücken, überflüssig
         await this.deleteEmbeddedEntity("OwnedItem", remove);
+        // TODO: id eintragen
       }
       else if ("role" === newItemData.type) {
         // TODO: check if an additional role is allowed (Lv. 1/2/7)
@@ -165,6 +178,7 @@ class HexxenActor extends Actor {
           ui.notifications.warn(`Die Rolle ${newItemData.name} ist bereits zugewiesen.`);
           return;
         }
+        // TODO: id eintragen
       }
       else if ("profession" === newItemData.type) {
         const prof = this.data.items
@@ -174,11 +188,14 @@ class HexxenActor extends Actor {
           return; 
         }
         // TODO: Voraussetzungen prüfen
+        // TODO: id eintragen
       }
     } 
 
     super.createEmbeddedEntity(embeddedName, newItemData, options);
   }
+
+  // TODO: delete --> id löschen
 
   /** @override */
   async _onCreateEmbeddedEntity(embeddedName, child, options, userId) {
@@ -233,4 +250,75 @@ class HexxenActor extends Actor {
     // }, {});
     return data;
   }
+
+  async _migrateData() {
+    const revision = this.getFlag(Hexxen.scope, "data-revision") || 0;
+    
+    if ("character" === this.type) {
+      
+      switch (revision) {
+        case 0: {
+          const updates = {}, remove = {};
+          updates["data.level.value"] = this.data.data.core.level;
+          updates["data.languages.0.value"] = this.data.data.core.sprachen; // FIXME: array???
+          updates["data.vitiation.value"] = this.data.data.core.verderbnis;
+
+          updates["data.temp.pw"] = this.data.data.calc.pw;
+
+          updates["data.notes.biography.editor"] = this.data.data["biography"];
+          updates["data.notes.states.editor"] = this.data.data["states-text"];
+          updates["data.notes.skills.editor"] = this.data.data["skills-text"];
+          updates["data.notes.powers.editor"] = this.data.data["powers-text"];
+          updates["data.notes.combat.editor"] = this.data.data["combat-text"];
+          updates["data.notes.items.editor"] = this.data.data["items-text"];
+
+          // // identify motivation/role/profession itemId
+          const mot = this.data.items.filter(i => "motivation" === i.type);
+          if (mot.length > 0) {
+            updates["data.motivation.itemId"] = mot[0]._id;
+          }
+          const role = this.data.items.filter(i => "role" === i.type);
+          for (let i = 0; i < 3; i++) {
+            if (role.length > i) {
+              updates[`data.role-${i+1}.itemId`] = role[i]._id;
+            }
+          }
+          const prof = this.data.items.filter(i => "profession" === i.type);
+          if (prof.length > 0) {
+            updates["data.profession.itemId"] = prof[0]._id;
+          }
+
+          remove["data"] = { 
+            "-=core": null,
+            "-=calc": null,
+            "-=biography": null, 
+            "-=states-text": null, 
+            "-=skills-text": null, 
+            "-=powers-text": null, 
+            "-=combat-text": null, 
+            "-=items-text": null
+          };
+          remove["data.health"] = { 
+            "-=min": null,
+            "-=max": null
+          };
+          remove["data.power"] = { 
+            "-=min": null,
+            "-=max": null
+          };
+
+          // TODO: klären, ob das so richtig ist. (bei setFlags am Ende fehlen die updates)
+          await this.setFlag(Hexxen.scope, "data-revision", 1); // update flag first
+          await this.update(updates);
+          await this.update(remove);
+
+          // continue
+        }
+        case 1:
+        default:
+      }
+    }
+    
+  }
+
 }

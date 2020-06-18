@@ -95,7 +95,7 @@ Hooks.once("init", async function() {
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("simple", SimpleActorSheet, { types: ["npc"] });
+//  Actors.registerSheet("simple", SimpleActorSheet, { types: ["npc"] });
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("simple", SimpleItemSheet, { types: ["item"], makeDefault: true });
   Items.registerSheet("hexxen", RuleItemSheet, { types: ["role", "profession", "motivation","skills"], makeDefault: true });
