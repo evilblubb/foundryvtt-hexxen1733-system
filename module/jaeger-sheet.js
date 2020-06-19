@@ -21,7 +21,7 @@ class JaegerSheet extends HexxenActorSheet {
 
   /** @override */
   get title() {
-    return `${super.title} (Lv. ${this.actor.data.data.core.level})`;
+    return `${super.title} (Lv. ${this.actor.level})`;
   }
 
 
@@ -49,11 +49,11 @@ class JaegerSheet extends HexxenActorSheet {
     // header resources
     let hres = {}
     for( let key of [ "segnungen", "ideen", "coups" ] ) {
-      // FIXME: temporärer Code bis zur Änderung der Datenstruktur im Actor
+      // TODO: temporärer Code bis zur Änderung der Datenstruktur im Actor
       hres[key] = {value: out.data.resources[key]};
       // hres[key] = data.data.resources[key];
     }
-    // FIXME: temporärer Code bis zur Änderung der Datenstruktur im Actor
+    // TODO: temporärer Code bis zur Änderung der Datenstruktur im Actor
     hres["segnungen"].label = "Segnungen";
     hres["segnungen"].max = 5;
     hres["ideen"].label = "Ideen [=WIS]";
@@ -62,9 +62,10 @@ class JaegerSheet extends HexxenActorSheet {
     hres["coups"].default = out.data.attributes.ATH.value;
     out["header-resources"] = hres;
     
-    // TODO: das sollte bereits im templste sein
-    out.data.motivation = { available: true,  "available-hint": "Keine Motivation ausgewählt", hint: "oops" };
-    // TODO: das sollte (teilweise?) bereits im actor.prepare() passieren
+    // TODO: hints auf localize umstellen
+    out.data.motivation["available-hint"] = "Keine Motivation ausgewählt";
+    out.data.motivation["hint"] = "oops";
+    // FIXME: das sollte (teilweise?) bereits im actor.prepare() passieren
     let mot = this.actor.itemTypes.motivation; // returns items, not data
     mot = mot.length > 0 ? mot[0].data : undefined; 
     if (mot) {
@@ -72,12 +73,14 @@ class JaegerSheet extends HexxenActorSheet {
       out.data.motivation.bonus = mot.data.summary ? mot.data.summary : mot.data.description;
     }
 
-    // TODO: das sollte bereits im templste sein
-    out.data["role-1"] = { available: true,  "available-hint": "Keine Rolle ausgewählt", hint: "oops" };
-    out.data["role-2"] = { available: out.data.core.level >= 2,  "available-hint": "Keine Rolle ausgewählt", hint: "Verfügbar ab Level 2" };
-    out.data["role-3"] = { available: out.data.core.level >= 7,  "available-hint": "Keine Rolle ausgewählt", hint: "Verfügbar ab Level 7" };
-
-    // TODO: das sollte (teilweise?) bereits im actor.prepare() passieren
+    // TODO: hints auf localize umstellen
+    out.data["role-1"]["available-hint"] = "Keine Rolle ausgewählt";
+    out.data["role-1"]["hint"] = "oops";
+    out.data["role-2"]["available-hint"] = "Keine Rolle ausgewählt";
+    out.data["role-2"]["hint"] = "Verfügbar ab Level 2";
+    out.data["role-3"]["available-hint"] = "Keine Rolle ausgewählt";
+    out.data["role-3"]["hint"] = "Verfügbar ab Level 7";
+    // FIXME: das sollte (teilweise?) bereits im actor.prepare() passieren
     let role = this.actor.itemTypes.role; // returns items, not data
     switch (role.length) {
       case 3: 
@@ -92,38 +95,27 @@ class JaegerSheet extends HexxenActorSheet {
       default:
     }
 
-    // TODO: das sollte bereits im templste sein
-    // TODO: available über rule realisieren
-    out.data.profession = { available: out.data.core.level >= 2,  "available-hint": "Keine Profession ausgewählt", hint: "Verfügbar ab Level 2" };
-
-    // TODO: das sollte (teilweise?) bereits im actor.prepare() passieren
+    // TODO: hints auf localize umstellen
+    out.data.profession["available-hint"] = "Keine Profession ausgewählt";
+    out.data.profession["hint"] = "oops";
+    // FIXME: das sollte (teilweise?) bereits im actor.prepare() passieren
     let prof = this.actor.itemTypes.profession;
     prof = prof.length > 0 ? prof[0].data : undefined; 
     if (prof) {
       out.data.profession.item = prof;
     }
 
-    // TODO: temporary code until data structure change
+    // FIXME: temporary code until array annotation is identified
     const languages = {};
-    languages.value = out.data.core.sprachen;
+    languages.value = out.data.languages["0"].value;
     out.data.languages = languages;
-
-    const level = {};
-    level.value = out.data.core.level;
-    level.dtype = "Number"; // TODO: Kontanten anlegen
-    out.data.level = level;
-
-    const vitiation = {};
-    vitiation.value = out.data.core.verderbnis;
-    vitiation.dtype = "Number"; // TODO: Kontanten anlegen
-    out.data.vitiation = vitiation;
 
     out.stypes = { "idmg": "Innerer Schaden", "odmg": "Äußerer Schaden", "mdmg": "Malusschaden", "ldmg": "Lähmungsschaden" };
     for ( let state of Object.values(out.data.states) ) {
       state.type = out.stypes[state.type];
     }
 
-    // FIXME: gehört teilweise in den Jaeger!
+    // TODO: gehört teilweise in den Jaeger!
     // Skills aufbereiten
     out.data.skills = out.data.skills || {}; // sicherstellen, dass skills existiert
     for ( let skill of Object.values(out.data.skills) ) {
@@ -137,7 +129,7 @@ class JaegerSheet extends HexxenActorSheet {
       skill.label += extra;
     }
 
-    // FIXME: gehört teilweise in den Jaeger!
+    // TODO: gehört teilweise in den Jaeger!
     //Kampfskills aufbereiten
     out.data.combat = out.data.combat || {};
     for ( let skill of Object.values(out.data.combat) ) {
@@ -157,7 +149,7 @@ class JaegerSheet extends HexxenActorSheet {
     return out;
   }
 
-  // FIXME: gehört in den Jaeger
+  // TODO: gehört in den Jaeger
   getSkillRolls(key) {
     let data = this.entity.data;
     let skill = data.data.skills[key] || data.data.combat[key];
@@ -173,7 +165,7 @@ class JaegerSheet extends HexxenActorSheet {
   async _renderInner(data, options={}) {
     let html = await super._renderInner(data, options);
 
-    // FIXME: ist _renderInner() oder _replaceHTML() besser?? Sonst Problem: Zugang zu html beim ersten Öffnen
+    // TODO: ist _renderInner() oder _replaceHTML() besser?? Sonst Problem: Zugang zu html beim ersten Öffnen
     // Aktualisiere Zustände, die keine Form-Elemente sind
     // oder in activateListener(), foundry macht das auch
     this._updateState(html.find(".eh .controls")[0], "eh", options);
@@ -187,8 +179,8 @@ class JaegerSheet extends HexxenActorSheet {
   }
 
   _updateState(el, key, options={}) {
-    // FIXME: geht so nur für resources
-    // FIXME: auf korrelierendes INPUT type=hidden umstellen
+    // TODO: geht so nur für resources
+    // TODO: auf korrelierendes INPUT type=hidden umstellen
     const curent = this.actor.data.data.resources[key];
     const max = el.childElementCount;
 
@@ -219,7 +211,7 @@ class JaegerSheet extends HexxenActorSheet {
     super.activateListeners(html);
 
     // Add roll listener
-    // FIXME: permissions??
+    // TODO: permissions??
     if (game.user.isGM || this.actor.owner) {
       html.find(".sheet-header .attributes").on("click", ".roll", this._onClickRoll.bind(this));
       html.find(".skills").on("click", ".li-control", this._onClickRoll.bind(this));
@@ -304,23 +296,15 @@ class JaegerSheet extends HexxenActorSheet {
 
   /* -------------------------------------------- */
 
-  // FIXME: ungültige Eingaben in numerischen Textfeldern filtern
+  // TODO: ungültige Eingaben in numerischen Textfeldern filtern
 
   /** @override */
   _updateObject(event, formData) {
 
     // TODO: temporary code until data structure change in actor
     if (formData.hasOwnProperty("data.languages.value")){
-      formData["data.core.sprachen"] = formData["data.languages.value"];
+      formData["data.languages.0.value"] = formData["data.languages.value"];
       delete formData["data.languages.value"];
-    }
-    if (formData.hasOwnProperty("data.level.value")){
-      formData["data.core.level"] = formData["data.level.value"];
-      delete formData["data.level.value"];
-    }
-    if (formData.hasOwnProperty("data.vitiation.value")){
-      formData["data.core.verderbnis"] = formData["data.vitiation.value"];
-      delete formData["data.vitiation.value"];
     }
 
     // Update the Actor

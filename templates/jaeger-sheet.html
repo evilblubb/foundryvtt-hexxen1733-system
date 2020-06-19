@@ -48,11 +48,11 @@
                 <div class="combat flexrow">
                     <div class="ini flexrow">
                         <label class="label" title="Initiative" for="ini">INI</label>
-                        <span class="value" id="ini">{{data.calc.ini}}</span>
+                        <span class="value" id="ini">{{data.ini.value}}</span>
                     </div>
                     <div class="pw flexrow">
                         <label class="label" title="Panzerwert" for="pw">PW</label>
-                        {{dyn-input class="value" path="data.calc" key="pw" value=data.calc.pw}}
+                        {{dyn-input class="value" path="data.temp" key="pw" value=data.temp.pw}}
                         <!--<input class="value" type="text" name="data.calc.pw" value="{{data.calc.pw}}" data-dtype="Number" id="pw" />-->
                     </div>
                     <div class="ap flexrow">
@@ -167,7 +167,7 @@
             <div class="seperator"></div>
             
             <header class="block-header">Notizen</header>
-            {{editor content=data.biography target="data.biography" button=true owner=owner editable=editable}}
+            {{editor content=data.notes.biography.editor target="data.notes.biography.editor" button=true owner=owner editable=editable}}
         </div>
 
         {{!-- Zustand Tab --}}
@@ -283,7 +283,7 @@
             <header class="list-header flexrow">
                 <span class="header-label">Notizen</span>
             </header>
-            {{editor content=data.states-text target="data.states-text" button=true owner=owner editable=editable}}
+            {{editor content=data.notes.states.editor target="data.notes.states.editor" button=true owner=owner editable=editable}}
         </div>
 
         {{!-- Fertigkeiten Tab --}}
@@ -322,7 +322,7 @@
             <header class="list-header flexrow">
                 <span class="header-label">Notizen</span>
             </header>
-            {{editor content=data.skills-text target="data.skills-text" button=true owner=owner editable=editable}}
+            {{editor content=data.notes.skills.editor target="data.notes.skills.editor" button=true owner=owner editable=editable}}
         </div>
 
         {{!-- Jägerkräfte Tab --}}
@@ -335,7 +335,7 @@
             <header class="list-header flexrow">
                 <span class="header-label">Notizen</span>
             </header>
-            {{editor content=data.powers-text target="data.powers-text" button=true owner=owner editable=editable}}
+            {{editor content=data.notes.powers.editor target="data.notes.powers.editor" button=true owner=owner editable=editable}}
         </div>
 
         {{!-- Kampf Tab --}}
@@ -372,7 +372,7 @@
             <header class="list-header flexrow">
                 <span class="header-label">Notizen</span>
             </header>
-            {{editor content=data.combat-text target="data.combat-text" button=true owner=owner editable=editable}}
+            {{editor content=data.notes.combat.editor target="data.notes.combat.editor" button=true owner=owner editable=editable}}
         </div>
 
         {{!-- Besitz Tab --}}
@@ -396,7 +396,7 @@
             <header class="list-header flexrow">
                 <span class="header-label">Notizen</span>
             </header>
-            {{editor content=data.items-text target="data.items-text" button=true owner=owner editable=editable}}
+            {{editor content=data.notes.items.editor target="data.notes.items.editor" button=true owner=owner editable=editable}}
         </div>
 
         </section>
