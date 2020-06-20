@@ -44,7 +44,7 @@ class Hexxen {
 /* -------------------------------------------- */
 
 Hooks.once("init", async function() {
-  console.log(`Initializing HeXXen 1733 System`);
+  console.info(`HeXXen 1733 | Initializing system`);
 
 	/**
 	 * Set an initiative formula for the system
@@ -58,6 +58,8 @@ Hooks.once("init", async function() {
   Handlebars.registerHelper('isDefined', function (value) {
     return value !== undefined;
   });
+
+  // TODO: preload some images
 
   // FIXME: richtiger Platz??
   Handlebars.registerHelper("dyn-input", function(options) {
