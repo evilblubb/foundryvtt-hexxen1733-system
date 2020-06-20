@@ -19,11 +19,14 @@ class HexxenActor extends Actor {
   }
 
   /** @override */
-  async initialize() {
+  initialize() {
     // Check if actor data have to be migrated
     // TODO: ist async/await hier notwenig?
-    await this._migrateData();
-    super.initialize();  
+    // FIXME: issue #3107
+    setTimeout(async () => {
+      await this._migrateData();
+      super.initialize();
+    }, 500);
   }
 
   // TODO: wann genau wird _onCreate() aufgerufen
@@ -44,7 +47,7 @@ class HexxenActor extends Actor {
    * IMPORTANT: the updates are already merged into the actor data.
    * This is called before prepareData() gets called during update.
    * Could be useful to override when there is a need to react on specific updates.
-   */ 
+   */
   // /** @override */
   // _onUpdate(data, options, userId, context) {
   //   super._onUpdate(data, options, userId, context);
@@ -141,14 +144,14 @@ class HexxenActor extends Actor {
   //   `--> Actor.importItemFromCollection(): lädt Entity aus der Compendium-Collection
   //          `--> callback_1
   //
-  // (callback_1) 
+  // (callback_1)
   //   `--> Actor.createOwnedItem(): Zuordung zu Entity-Collection "OwnedItems" des Actors
   //          `--> Actor.createEmbeddedEntity(): Auskopplung Token
   //                 `--> Entity.createEmbeddedEntity(): Entity "speichern" und verteilen
   //                        `--> callback_2
   //
   // (callback_2): je Client, selbst direkt, die anderen werden über Entity Socket Listener angetriggert
-  //   `--> Entity.<static>_handleCreateEmbeddedEntity() 
+  //   `--> Entity.<static>_handleCreateEmbeddedEntity()
   //          `--> Actor.collection.push(): Fügt Rohdaten in Actor.data.<collection> ein
   //          `--> Actor._onCreateEmbeddedEntity(): je Entity
   //                 `--> Item.createOwned(): Erzeugt das eigentliche Item und fügt es zur Actor.items hinzu
@@ -188,9 +191,9 @@ class HexxenActor extends Actor {
         const max = level >= 7 ? 3 : ( level >= 2 ? 2 : 1 );
         const roles = this.data.items
             .filter( i => "role" === i.type );
-        if (roles.length >= max) { 
+        if (roles.length >= max) {
           ui.notifications.warn(`Es wurden bereits ${max} Rollen zugewiesen.`); // TODO: singular
-          return; 
+          return;
         }
         else if (roles.filter( i => i.name === newItemData.name).length) {
           ui.notifications.warn(`Die Rolle ${newItemData.name} ist bereits zugewiesen.`);
@@ -201,14 +204,14 @@ class HexxenActor extends Actor {
       else if ("profession" === newItemData.type) {
         const prof = this.data.items
             .filter( i => "profession" === i.type );
-        if (prof.length >= 1) { 
+        if (prof.length >= 1) {
           ui.notifications.warn(`Es wurde bereits eine Profession zugewiesen.`);
-          return; 
+          return;
         }
         // TODO: Voraussetzungen prüfen
         // TODO: id eintragen
       }
-    } 
+    }
 
     super.createEmbeddedEntity(embeddedName, newItemData, options);
   }
@@ -237,7 +240,7 @@ class HexxenActor extends Actor {
   }
 
 
-  
+
   /** @override */
   getRollData() {
     const data = super.getRollData();
@@ -270,19 +273,24 @@ class HexxenActor extends Actor {
   }
 
   async _migrateData() {
-    // early actors did not have a "_data-revision" attribute, so check for "core" and "calc" which
-    // do not appear in later revisions
+    // early actors did not have a "_data-revision" attribute (but is added through the template),
+    // so check for "core" and "calc" which do not appear in later revisions
     const legacy = (this.data.data.core !== undefined) && (this.data.data.calc !== undefined);
     const revision = legacy ? 0 : this.data.data["_data-revision"];
-    
+
+    // FIXME: handle tokens
+
+    // FIXME: nur als Gamemaster ausführen, da sonst ggf. mehrfach
+
     if ("character" === this.type) {
-      
+
       switch (revision) {
         case 0: {
           // FIXME: log entfernen
           console.info("migrate", this.data.name, duplicate(this.data));
           const updates = {}, remove = {};
 
+          // FIXME: ifs verwenden
           updates["data.health.min"] = 0; // calculated
           updates["data.health.max"] = 0; // calculated
           updates["data.power.max"] = 0; // calculated
@@ -316,23 +324,26 @@ class HexxenActor extends Actor {
             updates["data.profession.itemId"] = prof[0]._id;
           }
 
-          remove["data"] = { 
+          remove["data"] = {
             "-=core": null,
             "-=calc": null,
-            "-=biography": null, 
-            "-=states-text": null, 
-            "-=skills-text": null, 
-            "-=powers-text": null, 
-            "-=combat-text": null, 
+            "-=biography": null,
+            "-=states-text": null,
+            "-=skills-text": null,
+            "-=powers-text": null,
+            "-=combat-text": null,
             "-=items-text": null
           };
-          remove["data.power"] = { 
+          remove["data.power"] = {
             "-=min": null
           };
 
           // FIXME: erster update (setFlag ruft update auf) schlägt fehl, da game.actors nicht definiert ist.
+          console.log(this.name, "update 1");
           await this.setFlag(Hexxen.scope, "data-revision", 1); // update will fail (error: collection not defined)
+          console.log(this.name, "update 2");
           await this.update(updates);
+          console.log(this.name, "update 3");
           await this.update(remove);
 
           // FIXME: log entfernen
@@ -343,7 +354,7 @@ class HexxenActor extends Actor {
         default:
       }
     }
-    
+
   }
 
 }
