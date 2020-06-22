@@ -143,7 +143,7 @@
     }
   },
   "unikate": {
-    "description": "Jedes Unikat kann eine der unten aufgeführten Wirkungen aufweisen. Die jeweiligen Kosten in Kp und die ssteigerungen unterscheiden sich für jede Wirkung.",
+    "description": "Jedes Unikat kann eine der unten aufgeführten Wirkungen aufweisen. Die jeweiligen Kosten in Kp und die Unterhaltssteigerungen unterscheiden sich für jede Wirkung.",
     "references": [
       {
         "source": "Wiki",
