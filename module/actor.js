@@ -20,7 +20,7 @@ class HexxenActor extends Actor {
 
   /** @override */
   initialize() {
-    // Check if actor data have to be migrated
+    // TODO: Check if actor data have to be migrated, otherwise immediately call super.initialize()
     // TODO: ist async/await hier notwenig?
     // FIXME: issue #3107
     setTimeout(async () => {
@@ -278,7 +278,8 @@ class HexxenActor extends Actor {
     const legacy = (this.data.data.core !== undefined) && (this.data.data.calc !== undefined);
     const revision = legacy ? 0 : this.data.data["_data-revision"];
 
-    // FIXME: handle tokens
+    // TODO: handle tokens
+    if (this.isToken()) return;
 
     // FIXME: nur als Gamemaster ausführen, da sonst ggf. mehrfach
 
