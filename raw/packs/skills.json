@@ -5,7 +5,8 @@
         "esprit1": {
           "name": "Medicus",
           "text": "Jeder Espritstern, den du bei einem Wurf auf Erste Hilfe würfelst, zählt als Erfolg.",
-          "summary": "Gestik / Unterhalt +25",
+          "summary": "Gestik",
+          "upkeep":"25",
           "references": [
             {
               "source": "Wiki",
@@ -54,7 +55,8 @@
         "aufbau1": {
           "name": "Wurfgeschosse herstellen",
           "text": "Als Freizeitaktion kannst du auf Ges + Fw (Handwerken) würfeln und erhältst für jeden Erfolg ein Geschoss, dessen Anleitung du vorher über die entsprechenden Ausbaueffekte gelernt haben musst. Auf dem freien Markt kannst du Geschosse für 5 Gulden pro Stück verkaufen. Um ein Wurfgeschoss zu schleudern, ist ein Fernkampfangriff (2 Ap) mit einer Probe auf Ges + Fw (Schleudern) nötig. Für den Angriff gelten alle Einschränkungen für Schleudern. Willst du das Wurfgeschoss mit bloßen Händen werfen, wird der Fw (Schleudern) ignoriert, aber alle anderen Angriffswerte (Ap-Kosten, Schaden, eventuelle Einschränkungen) der Schleuderwaffe gelten. Ist der Angriff erfolgreich, verursacht er zunächst ganz normal den Grund-  schaden der Schleuder plus weiteren Schaden durch Treffererfolge; danach tritt der Nebeneffekt des Wurfgeschosses ein (beim Brandgeschoss beispielsweise Brandstufen). Die Chemikalien zur Herstellung von Wurfgeschossen sind selten und gefährlich. Um einen steten Vorrat an Chemikalien zu gewährleisten, wird der Unterhalt um 80 Gulden erhöht.",
-          "summary": "Als Startkraft: Du erhältst ein transportables Labor als Startausrüstung.\nAusbau/Handw. (Gestik)/Unterhalt +80",
+          "summary": "Als Startkraft: Du erhältst ein transportables Labor als Startausrüstung.\nAusbau/Handw. (Gestik)",
+          "upkeep":"80",
           "references": [
             {
               "source": "Wiki",
@@ -115,7 +117,8 @@
         "aufbau2": {
           "name": "Elexiere herstellen",
           "text": "Führe als Freizeitaktion eine Probe auf Wis + Fw (Wissensgebiete) durch. Für jeden Erfolg erhältst du ein Elixier aus den gelernten Effekten. Wenn du beispielsweise die Effekte „Elixiere des Geistes“ und „Elixiere der Heilung“ gelernt hast und beim Erschaffungsvorgang 4 Erfolge würfelst, könntest du 2 Heil-Elixiere, 1 Ideen-Elixier und 1 Mut-Elixier herstellen. Um einen ständigen Vorrat teurer Ingredienzen zu sichern, erhöht sich der Unterhalt bei Erwerb des Stammeffekts um 100 Gulden. Alle Elixiere können für je 5 Gulden pro Stück über den freien Markt verkauft werden. Um ein Elixier selbst einzunehmen, musst du 1 Aktionspunkt (Ap) als Reaktion opfern. Willst du einem anderen Charakter ein Elixier einflößen, erfordert das eine Aktion mit 2 Ap. Im Kampf ein Elixier an einen anderen Charakter abzugeben, erfordert ebenso eine Aktion mit 2 Ap. Wichtig: Alle Anwendungen von Elixieren zählen als Magische Heilung (MH), auch wenn sie keinen Heil-Effekt haben. Das führt dazu, dass ein Jäger maximal viermal pro Tag ein Elixier konsumieren kann (der Empfänger streicht jeweils ein MH-Kästchen durch).",
-          "summary": "Als Startkraft: Du erhältst ein tragbares Labor als Startausrüstung.\nHandwerk (Gestik) / Unterhalt +100",
+          "summary": "Als Startkraft: Du erhältst ein tragbares Labor als Startausrüstung.\nHandwerk (Gestik)",
+          "upkeep":"100",
           "references": [
             {
               "source": "Wiki",
@@ -229,7 +232,8 @@
         "aufbau1": {
           "name": "Gifte herstellen",
           "text": "Du kannst für dich oder deine Gefährten Gifte aller Art herstellen. Führe einmal täglich als Freizeitaktion mit Hilfe eines Labors oder tragbaren Laboratoriums eine Probe Ges + Fw (Fingerfertigkeit) durch. Für jeden Erfolg erhältst du eine Phiole mit einem frei wählbaren Gift, dessen Rezept du beherrschst. (Mehr zum Einsatz von Giften siehe „Gifte und Waffen“). Giftphiolen können auf dem freien Markt für 5 Gulden pro Stück verkauft werden.",
-          "summary": "Ausbau/Handw. (Gestik)/Unterhalt +90. Als Startkraft: Du erhältst ein transportables Laboratorium als Startausrüstung.",
+          "summary": "Ausbau/Handw. (Gestik). Als Startkraft: Du erhältst ein transportables Laboratorium als Startausrüstung.",
+          "upkeep":"90",
           "references": [
             {
               "source": "Wiki",
@@ -913,10 +917,11 @@
           "name": "Schießpulver herstellen",
           "text": "Du bist in der Lage, mächtiges Schießpulver für alle gängigen Feuerwaffen herzustellen. Führe einmal pro Tag als Freizeitaktion in einem Labor oder mit Hilfe eines transportablen Laboratoriums eine Probe Ges + Fw (Handwerken) durch. Du erhältst für jeden Erfolg 1 Einheit mächtiges Schießpulver, das du auch an deine Gefährten weitergeben kannst. Vor jedem Schuss mit einer Pistole oder einer Muskete kann ein Schütze bestimmen, ob er mächtiges Schießpulver nutzen möchte (verbraucht eine Einheit, kostet keine zusätzlichen Ap). In diesem Fall würfelt er beim Angriffswurf einen Blutwürfel mit. Die Zahl der Blutstropfensymbole wird zum Schaden des Angriffs addiert. Mit mächtigem Schießpulver können auch Explosionen ausgelöst werden, wenn beispielsweise das Schloss an einer Schatulle gesprengt werden soll (verbraucht 1 Einheit) oder eine Holztür (verbraucht 5 Einheiten). Zum Herstellen von mächtigem Schießpulver benötigst du einen steten Vorrat an Chemikalien, was deinen Unterhalt um 50 Gulden erhöht.",
           "summary": "",
+          "upkeep":"50",
           "references": [
             {
               "source": "Wiki",
-              "link": "Handwerk (Gestik) / Unterhalt +50. Als Startkraft: Du erhältst ein transportables Laboratorium als Startausrüstung."
+              "link": "http://hexxen1733-regelwiki.de/index.php/ak_schiesspulver_herstellen.html"
             },
             {
               "source": "Das Buch der Regeln ",
@@ -1216,7 +1221,8 @@
         "aufbau1": {
           "name": "Kräuterwissen",
           "text": "Kräuterwissen erlaubt es dir, mithilfe einer Kochstelle verschiedene Kräutermittel herzustellen. Führe dazu im Rahmen einer Fza eine Probe auf Wis + Fw (Hexenkunst) aus. Für jeden Erfolg erhältst du ein Kräutermittel, dessen Rezept du kennst. Um dir einen ständigen Vorrat an Rohstoffen zu sichern, erhöht sich der Unterhalt bei Erwerb des Stammeffekts um 80 Gulden. Jedes Kräutermittel kann auf dem Markt für 5 Gulden verkauft werden.",
-          "summary": "Ausbaukraft/Handwerk (Gestik)/Unterhalt +80. Als Startkraft: Du erhältst eine Kochstelle, sowie ein Messer bzw. einen Dolch als Startausrüstung.",
+          "summary": "Ausbaukraft/Handwerk (Gestik). Als Startkraft: Du erhältst eine Kochstelle, sowie ein Messer bzw. einen Dolch als Startausrüstung.",
+          "upkeep":"80",
           "references": [
             {
               "source": "Wiki",
@@ -1277,7 +1283,8 @@
         "aufbau2": {
           "name": "Mystische Rituale",
           "text": "Für die Rituale benötigst du einen Vorrat an Ingredienzen, dein Unterhalt steigt um 15 Gulden.",
-          "summary": "Ausbaukraft/Rage/Unterhalt +15. Als Startkraft: Du erhältst einen Dolch oder ein Messer.",
+          "summary": "Ausbaukraft/Rage. Als Startkraft: Du erhältst einen Dolch oder ein Messer.",
+          "upkeep":"15",
           "references": [
             {
               "source": "Wiki",
@@ -1338,7 +1345,8 @@
         "aufbau3": {
           "name": "Volksflüche",
           "text": "Einige Flüche müssen in Form eines Rituals durchgeführt werden. Ein solches Ritual erfordert immer 1 Fza, eine Hexenkunst-Probe und das Opfern von mindestens 1 Rage. Verfügst du über ein persönliches Objekt der Zielperson, darfst du den Elixierwürfel würfeln (der im Zusammenhang mit dieser Kraft auch als „Fluchwürfel“ bezeichnet wird) und erhältst einen Bonus in Höhe der gewürfelten Zahl.",
-          "summary": "Ausbaukraft/Rage/Unterhalt +30",
+          "summary": "Ausbaukraft/Rage",
+          "upkeep":"30",
           "references": [
             {
               "source": "Wiki",
@@ -1453,6 +1461,7 @@
           "name": "Mechanikum",
           "text": "Die maximale Anzahl an eingebauten Apparaten entspricht dem Fw (Handwerken) +2, d. h. bei einem Fw von 3 können 5 Apparate eingebaut sein. Diese Anzahl kann zusätzlich durch Ausbaueffekte (siehe unten) erhöht werden. Jeder Apparat darf nur einmal in einem Mechanikum eingebaut sein, aber mit der Zeit kann man Apparate verbessern. Jeder neu eingebaute Apparat startet auf Ausbaustufe 1 und kann bis Ausbaustufe 3 verbessert werden. Für jeden eingebauten Apparat erhöht sich der Unterhalt um 15 Gulden (unabhängig von der Ausbaustufe). Der Einbau eines Apparats erfordert Konstruktionspunkte (siehe Seite 138): Für den Ersteinbau auf Stufe 1 sind stets 12 Kp nötig, die Verbesserung von Stufe 1 auf Stufe 2 kostet weitere 12 Kp, die von Stufe 2 auf 3 nochmals 12 Kp. Vorhandene Apparate können als Freizeitaktion ohne Probe und zusätzliche Kp-Kosten ausgebaut und durch andere ersetzt werden.",
           "summary": "Ausbau/Handwerk/Unterhalt +15 pro Apparatur/Erlaubt das Sammeln von Kp. Als Startkraft: Du erhältst eine Werkzeugkiste als Startausrüstung. Du startest automatisch mit einem fertigen Grundgerüst (siehe unten) sowie einem Apparat pro Fw-Punkt (Handwerken), jeweils auf Ausbaustufe 1. Du darfst nur Apparate auswählen, die du laut der von dir erlernten Ausbaueffekte herstellen kannst, und es darf sich nicht um Seelenlicht-Apparate handeln.",
+          "upkeep":"15",
           "references": [
             {
               "source": "Wiki",
@@ -1488,7 +1497,8 @@
             },
             "expert2": {
               "name": "Seelenmotor",
-              "text": "(Unterhalt +40): Dieser Effekt erlaubt es dir, einen Seelenmotor am Grundgerüst zu installieren. Dieser zählt nicht als Apparat und fungiert als kleines Aggregat mit einem Seelenlichtsplitter (gefülltes Heinzeller-Glas) als Kern. Die Energie des Seelenlichtsplitters reicht aus, um Seelenlicht- Apparate anzutreiben. Der Seelenlichtsplitter ist teuer und erhöht daher den Unterhalt um 40 Gulden. Hast du den Seelenmotor installiert, kannst du folgende Seelenlicht-Apparate in dein Grundgerüst einbauen: eine Abwehrautomatik, ein Zielsystem, eine vibrierende Klinge oder einen Wundversorger. Weil Seelenlicht- Apparate komplizierter und hochwertiger als mechanische Apparate sind, sind ihre Kp-Kosten höher: Sie kosten pro Stufe 16 Kp. Seelenlicht-Apparate zählen in punkto Unterhalt wie normale Apparate, d. h. sie erhöhen den Unterhalt jeweils um 15 (die Energie, die sie verbrauchen, beziehen sie aus dem Unterhalt des Experteneffekts „Seelenmotor“)."
+              "text": "(Unterhalt +40): Dieser Effekt erlaubt es dir, einen Seelenmotor am Grundgerüst zu installieren. Dieser zählt nicht als Apparat und fungiert als kleines Aggregat mit einem Seelenlichtsplitter (gefülltes Heinzeller-Glas) als Kern. Die Energie des Seelenlichtsplitters reicht aus, um Seelenlicht- Apparate anzutreiben. Der Seelenlichtsplitter ist teuer und erhöht daher den Unterhalt um 40 Gulden. Hast du den Seelenmotor installiert, kannst du folgende Seelenlicht-Apparate in dein Grundgerüst einbauen: eine Abwehrautomatik, ein Zielsystem, eine vibrierende Klinge oder einen Wundversorger. Weil Seelenlicht- Apparate komplizierter und hochwertiger als mechanische Apparate sind, sind ihre Kp-Kosten höher: Sie kosten pro Stufe 16 Kp. Seelenlicht-Apparate zählen in punkto Unterhalt wie normale Apparate, d. h. sie erhöhen den Unterhalt jeweils um 15 (die Energie, die sie verbrauchen, beziehen sie aus dem Unterhalt des Experteneffekts „Seelenmotor“).",
+              "upkeep":"40"
             },
             "expert3": {
               "name": "Mächtiger Apparat",
@@ -1498,11 +1508,13 @@
           "meister": {
             "meister1": {
               "name": "Seelenkanone ",
-              "text": "(Unterhalt +150): Diesen besonderen Seelenapparat kannst du für 30 Kp einbauen. Die schwere Waffe ähnelt einer riesigen Muskete, die Strahlen aus Seelenlicht verschießt. Um sie abzufeuern, verwendest du die Regeln für Musketen und würfelst auf Sin + Fw (Muskete). Jeder Schuss verbraucht 2 Ap, richtet 6 Punkte Grundschaden an und ignoriert automatisch 1 Punkt Panzerwert (Pw). Da sie große Mengen Energie verbraucht, kann die Kanone nur alle zwei Runden einmal abgefeuert werden. Die Seelenkanone zählt zwar als Seelenapparat, kann aber nicht ausgebaut werden."
+              "text": "Diesen besonderen Seelenapparat kannst du für 30 Kp einbauen. Die schwere Waffe ähnelt einer riesigen Muskete, die Strahlen aus Seelenlicht verschießt. Um sie abzufeuern, verwendest du die Regeln für Musketen und würfelst auf Sin + Fw (Muskete). Jeder Schuss verbraucht 2 Ap, richtet 6 Punkte Grundschaden an und ignoriert automatisch 1 Punkt Panzerwert (Pw). Da sie große Mengen Energie verbraucht, kann die Kanone nur alle zwei Runden einmal abgefeuert werden. Die Seelenkanone zählt zwar als Seelenapparat, kann aber nicht ausgebaut werden.",
+              "upkeep":"150"
             },
             "meister2": {
               "name": "Kampfkoloss",
-              "text": "(Unterhalt +80): Der Kampfkoloss ist ein mächtiges, Ruß speiendes Vehikel aus Metall, das sich im Kampf unaufhaltsam auf seine Feinde zubewegt. Hast du diesen Meistereffekt gelernt, kannst du das Grundgerüst deines Mechanikums in einen Kampfkoloss umbauen, was einmalig 45 Kp kostet und nichts an den anderen Apparaten und Effekten ändert. Der Kampfkoloss selbst zählt nicht als Apparat. Um ihn mit ausreichend Energie zu speisen, musst du einen Seelenmotor eingebaut haben (siehe :Experteneffekt „Seelenmotor“) und gleichzeitig erhöht sich dein Unterhalt nochmals um 80. Der Kampfkoloss muss vor dem Kampf aktiviert werden. Er kann nur aktiviert werden, wenn die Gruppe nicht überrascht wurde. Nach der Aktivierung besitzt du für den Rest des Kampfes pro Runde 4 Ap bei einem Panzerwert von 3. Zusätzlich kannst du dich jeweils für 1 Ap (Aktion) von einem an dich gebundenen Gegner lösen. Sollten deine Lep in den Minusbereich geraten, wird der Kampfkoloss für den Rest des Kampfes deaktiviert. Er wird dadurch allerdings nicht zerstört, sondern gilt als beschädigt und muss mit Hilfe von 5 Erfolgen auf Handwerken (Fza) repariert werden (das kann jeder Jäger mit einem Fw von mindestens 1 in Handwerken erledigen). Erst wenn alle Erfolge aufgebracht wurden, kann der Kampfkoloss wieder aktiviert werden."
+              "text": "Der Kampfkoloss ist ein mächtiges, Ruß speiendes Vehikel aus Metall, das sich im Kampf unaufhaltsam auf seine Feinde zubewegt. Hast du diesen Meistereffekt gelernt, kannst du das Grundgerüst deines Mechanikums in einen Kampfkoloss umbauen, was einmalig 45 Kp kostet und nichts an den anderen Apparaten und Effekten ändert. Der Kampfkoloss selbst zählt nicht als Apparat. Um ihn mit ausreichend Energie zu speisen, musst du einen Seelenmotor eingebaut haben (siehe :Experteneffekt „Seelenmotor“) und gleichzeitig erhöht sich dein Unterhalt nochmals um 80. Der Kampfkoloss muss vor dem Kampf aktiviert werden. Er kann nur aktiviert werden, wenn die Gruppe nicht überrascht wurde. Nach der Aktivierung besitzt du für den Rest des Kampfes pro Runde 4 Ap bei einem Panzerwert von 3. Zusätzlich kannst du dich jeweils für 1 Ap (Aktion) von einem an dich gebundenen Gegner lösen. Sollten deine Lep in den Minusbereich geraten, wird der Kampfkoloss für den Rest des Kampfes deaktiviert. Er wird dadurch allerdings nicht zerstört, sondern gilt als beschädigt und muss mit Hilfe von 5 Erfolgen auf Handwerken (Fza) repariert werden (das kann jeder Jäger mit einem Fw von mindestens 1 in Handwerken erledigen). Erst wenn alle Erfolge aufgebracht wurden, kann der Kampfkoloss wieder aktiviert werden.",
+              "upkeep":"80"
             },
             "meister3": {
               "name": "Komplexes Grundgerüst",
@@ -1513,7 +1525,8 @@
         "aufbau2": {
           "name": "Unikate produzieren",
           "text": "Weil du einen Vorrat an hochwertigen Bauteilen und Bauplänen benötigst und dich permanent weiterbilden musst, erhöht diese Kraft deinen Unterhalt um 20 Gulden. Um ein Unikat herzustellen, benötigst du zunächst eine normale Panzerung oder Waffe. Für diese wählst du dann eine Unikat-Wirkung aus, für die du den dazugehörigen Ausbaueffekt erlernt hast und opferst die in der Unikat-Liste angegebenen Kp. Um das Unikat entsprechend zu würdigen, solltest du dir einen besonderen Namen dafür ausdenken. Unikat-Waffen und -Panzerungen erhöhen den Unterhalt. Dieser Unterhalt muss von dem jeweiligen Besitzer des Unikats bezahlt werden.",
-          "summary": "Ausbaukraft/Handwerk/Unterhalt +20/Erlaubt das Sammeln von Kp. Als Startkraft: Du erhältst eine Werkzeugkiste als Startausrüstung und darfst eine Startpanzerung bzw. Startwaffe als Unikat mit einer Unikat-Wirkung für maximal 20 Kp definieren. Du musst über den zur Unikat-Wirkung gehörenden Ausbaueffekt verfügen",
+          "summary": "Ausbaukraft/Handwerk/Erlaubt das Sammeln von Kp. Als Startkraft: Du erhältst eine Werkzeugkiste als Startausrüstung und darfst eine Startpanzerung bzw. Startwaffe als Unikat mit einer Unikat-Wirkung für maximal 20 Kp definieren. Du musst über den zur Unikat-Wirkung gehörenden Ausbaueffekt verfügen",
+          "upkeep":"20",
           "references": [
             {
               "source": "Wiki",
@@ -1553,7 +1566,8 @@
             },
             "expert3": {
               "name": "Produktkenntnisse",
-              "text": "(Unterhalt -x*/Sprache): Wenn du diesen Effekt gemeistert hast, bist du in der Lage, den Wert und die Qualität von Waren besser einzuschätzen. Produktkenntnisse gibt dir einen Bonus von +3 auf Redekunst für alle Versuche, Waren teurer zu verkaufen oder billiger zu erwerben (mehr über Feilschen auf Seite 97). Bei der Untersuchung von Gegenständen und Materialien erhältst du einen Bonus von +3 auf Erkennen und Fingerfertigkeit (z. B. beim Entdecken eines Geheimfachs in einer Kommode). *Außerdem darfst du deinen Unterhalt um 10 Gulden pro Fw-Punkt (Redekunst) senken."
+              "text": "(Unterhalt -x*/Sprache): Wenn du diesen Effekt gemeistert hast, bist du in der Lage, den Wert und die Qualität von Waren besser einzuschätzen. Produktkenntnisse gibt dir einen Bonus von +3 auf Redekunst für alle Versuche, Waren teurer zu verkaufen oder billiger zu erwerben (mehr über Feilschen auf Seite 97). Bei der Untersuchung von Gegenständen und Materialien erhältst du einen Bonus von +3 auf Erkennen und Fingerfertigkeit (z. B. beim Entdecken eines Geheimfachs in einer Kommode). *Außerdem darfst du deinen Unterhalt um 10 Gulden pro Fw-Punkt (Redekunst) senken.",
+              "upkeep":"-10"
             }
           },
           "meister": {
@@ -1754,6 +1768,7 @@
           "name": "Feldsanitäter",
           "text": "Immer wenn du die Fertigkeit „Erste Hilfe“ anwendest und dabei mindestens 1 Espritstern würfelst, kannst du die Versorgung als Magische Heilung (MH) gelten lassen. Würfelst du 2 Espritsterne, muss für die Heilung weder ein EH- noch ein MH-Kästchen durchgestrichen werden. Die gewürfelten Espritsterne gelten durch diese Espritkraft nicht als benutzt, sondern entfalten zusätzlich noch ihre eigene Wirkung. Du kannst Feld-Sanitäter nicht bei einem Patienten anwenden, der beide EH-Kästchen durchgestrichen hat.",
           "summary": "Unterhalt +5 / Gestik. Publikation: Das Buch der Regeln | Seite 142",
+          "upkeep":"5",
           "references": [
             {
               "source": "Wiki",
@@ -1960,7 +1975,8 @@
         "jaeger2": {
           "name": "Wunden versorgen",
           "text": "Du kannst Wunden, die bereits versorgt wurden, noch einmal versorgen. Behandle deinen Patienten außerhalb eines Konfliktes. Anschließend würfele auf Wis + Fw (Erste Hilfe): Pro Erfolg darf der Patient bei einem bereits durchgestrichenenEH-Kästchen die Durchstreichung entfernen; für 2 Erfolge darf er bei einem bereits durchgestrichenen MH-Kästchen die Durchstreichung entfernen. Pro Patient ist einmal am Tag eine Anwendung von Wunden versorgen möglich. Diese Kraft erfordert einen Vorrat an Heilkräutern, Salben und Bandagen, daher erhöht sich der Unterhalt um 25 Gulden.",
-          "summary": "Unterhalt +25 / Gestik",
+          "summary": "Gestik",
+          "upkeep":"25",
           "references": [
             {
               "source": "Wiki",
@@ -2298,6 +2314,7 @@
           "name": "Einfaches Geflogen",
           "text": "Du kannst einmal pro Tag als Freizeitaktion in einer städtischen Umgebung Gefolge anwerben. Würfele auf Wil + Fw (Redekunst). Für jeden Erfolg erhältst du 1 Bandenfreund der Bandenstufe 1. Zahle sofort bei der Rekrutierung 10 Gulden pro neuem Bandenfreund und erhöhe deinen Unterhalt um 5 für jeden Bandenfreund (Achtung: Dieser Unterhaltsmodifikator gilt stets nur für die aktuelle Zahl an Gefolge). Dein maximales Gefolge entspricht deinem Fw (Redekunst) mal 2.",
           "summary": "Sozial / Sprache",
+          "upkeep":"5",
           "references": [
             {
               "source": "Wiki",
@@ -2361,7 +2378,8 @@
         "jaeger3": {
           "name": "Schutz vor den Elementen",
           "text": "Du bist in die geheimen Herstellungsprozesse von Schutzsalben und alchemistischen Substanzen eingeweiht, die nach Aussage deines Ordens zwar nur gegen Feuer schützen sollen, in Wahrheit aber die Haut vor jeder Form elementaren Schadens bewahren. Wirke diese Jägerkraft entweder vor einem Kampf (wenn du nicht überrascht wurdest) oder währenddessen als Aktion mit 1 Ap. Du kannst auch andere Jäger gleichzeitig als Ziel benennen, das kostet dich jedoch pro Anwendung zusätzlich 1 Idee. Immer wenn du (bzw. die geschützte Person) Feuer-, Blitz-, Frost- oder Säureschaden erleidest – direkt oder durch anhaltende Einflüsse –, darfst du den Schaden um das Ergebnis eines Blutwürfels reduzieren, noch bevor er von evtl. vorhandenen Puffer-Lep abgezogen wird. Die Wirkung hält bis zum Ende des Kampfes an, wird aber vorzeitig aufgehoben, wenn der Blutwürfel die leere Seite zeigt. In diesem Fall kann sie erneut auf das gleiche Ziel gewirkt werden, kostet aber wieder Ap und Ideen. Schutz vor den Elementen erfordert einen ständigen Vorrat an Ingredienzen für Salben und alchemistische Mittel, daher erhöht sich der Unterhalt um 40 Gulden.",
-          "summary": "Allgemeine Jägerkraft/Unterhalt +40",
+          "summary": "Allgemeine Jägerkraft",
+          "upkeep":"40",
           "references": [
             {
               "source": "Wiki",
@@ -2560,7 +2578,8 @@
         "aufbau1": {
           "name": "Körper verwerten",
           "text": "Zu den Aufgaben eines Henkers gehört nicht nur die Hinrichtung von Menschen; sie müssen auch die Körper entfernen. Einige Henker verdienen sich Geld dazu, indem sie die toten Körper verwerten und daraus Medizin, Talismane oder Kunstobjekte herstellen. Um Körper verwerten zu können, musst du vorher Rohstoffe sammeln. Nach jedem siegreichen Kampf kannst du je nach Art der Besiegten Ingredienzen erhalten. Würfele auf Erkennen, um die benutzbaren, gut erhaltenen Teile zu identifizieren und notiere für jeden Erfolge TierischeIngredienzen (Ti), Menschliche Ingredienzen (Mi) oder Widernatürliche Ingredienzen (Wi) – je nachdem, gegen welche Gegner du kämpftest. Nahmen verschiedene Kreaturenarten am Kampf teil, kannst du die Erfolge auch aufteilen. Das Sammeln selbst erfordert nur wenig Zeit, für die Herstellung musst du jedoch eine Fza aufwenden und ein transportables Laboratorium besitzen oder Zugang zu einem Labor haben. Du musst nicht würfeln, allerdings kannst du pro Fza immer nur maximal 8 Ingredienzen verarbeiten. Für Objekte, die mehr als 8 Ingredienzen benötigen, musst du mehrere Fza aufbringen. Da du zur Herstellung der Objekte zusätzliche Chemikalien und Materialien benötigst, steigt der Unterhalt um 30 Gulden.",
-          "summary": "Ausbaukraft, Handwerk, Unterhalt +30",
+          "summary": "Ausbaukraft, Handwerk",
+          "upkeep":"30",
           "references": [
             {
               "source": "Wiki",
@@ -3130,7 +3149,8 @@
         "jaeger1": {
           "name": "Gehärtete Geschosse",
           "text": "Du kannst im Rahmen einer Freizeitaktion gehärtete Geschosse herstellen. Dazu brauchst du Zugang zu einer Werkstatt, einem Labor oder einem Laboratorium. Für jeden Erfolg auf einer Handwerksprobe erhältst du entweder eine Musketenkugel, eine Pistolenkugel oder einen Bolzen bzw. Pfeil. Das Laden einer Waffe mit dem passenden Geschoss ist in den Ap-Kosten zum Abfeuern der Waffe enthalten. Ein gehärtetes Geschoss ignoriert automatisch 2 Pw des Gegners.",
-          "summary": "Unterhalt +30 / Handwerk",
+          "summary": "Handwerk",
+          "upkeep":"30",
           "references": [
             {
               "source": "Wiki",
@@ -3145,7 +3165,8 @@
         "jaeger2": {
           "name": "Veredeln",
           "text": "Du kannst versuchen, wertlose Gegenstände zu veredeln, indem du sie in eine bessere, wertvollere Variante umwandelst. Um das zu tun, benötigst du 1 Beutegut-Paket (Wert: 100 Gulden). Führe eine Probe auf Wissensgebiete aus. Für jeden Erfolg wird das Beutegut-Paket um 5 Gulden wertvoller. Pro Beutegut-Paket ist dieser Vorgang einmal möglich. Du kannst täglich eine solche Probe ausführen, ohne dass dies viel Zeit verbrauchen würde (du musst allerdings Zugang zu einer Werkstatt, einem Labor oder einem transportablen Laboratorium besitzen). Du kannst aber auch eine Fza opfern und dafür bis zu 5 Beutegut-Pakete auf einen Schlag veredeln (würfele einmal für alle).",
-          "summary": "Unterhalt +50 / Handwerk",
+          "summary": "Handwerk",
+          "upkeep":"50",
           "references": [
             {
               "source": "Wiki",
@@ -3334,7 +3355,8 @@
         "jaeger1": {
           "name": "Schriftgeleherter",
           "text": "Du erhältst einen permanenten Bonus von +3 auf alle Proben, die etwas mit schriftlichen Darlegungen zu tun haben (in der Regel Wissensgebiete-Proben). Darüber hinaus kannst du das aus Büchern gewonnene Wissen besser einsetzen. Wenn du dich einem Buch widmest, dessen Studium Freizeitaktionen benötigt, kannst du einmal pro Tag eine Sammelprobe ausführen, ohne Fza aufzuwenden (du kannst jedoch freiwillig 1 Fza opfern, um eine zweite Sammelprobe abzulegen). Zudem ignorierst du die schädlichen Auswirkungen des Studiums (z. B. Verderbnis) und erhältst für jedes vollständig gelesene Werk die maximale Menge an Segnungen. Darüber hinaus führst du stets einen Vorrat wichtiger Schriften mit dir, oft auch eine Sammlung eigener Notizen. Immer wenn du eine Probe auf Redekunst, Land und Leute oder Wissensgebiete ablegst, darfst du mit einem Blutwürfel würfeln und erhältst einen Bonus in Höhe der Blutstropfensymbole (im Falle von Wissensgebiete zählt dies zusätzlich zum Bonus +3). Zeigt der Blutwürfel die leere Seite, konntest du kein Buch mit passendem Inhalt in deinem Bestand finden. Da du stets auf der Suche nach neuen Werken und neuem Wissen bist, steigt dein Unterhalt um 40 Gulden an.",
-          "summary": "Allgemeine Jägerkraft/Sozial/Unterhalt +40",
+          "summary": "Allgemeine Jägerkraft/Sozial",
+          "upkeep":"40",
           "references": [
             {
               "source": "Wiki",
@@ -3349,7 +3371,8 @@
         "jaeger2": {
           "name": "Wertvolle Aufzeichnungen",
           "text": "Du dokumentierst permanent sämtliche deiner Erlebnisse, Erfahrungen und Erkenntnisse. Vor allem wenn du dich auf einem Außeneinsatz befindest, hältst du in Form eines Tagebuchs oder von Notizen alle wichtigen und unwichtigen Fakten fest. Wertvolle Aufzeichnungen kann im erzählerischen Rollenspiel verwendet werden, um sich vergangene Ereignisse und Einsichten möglichst detailgetreu in Erinnerung zu rufen. In aller Regel muss dir der HeXXenmeister auf die Sprünge helfen und frühere Beschreibungen wiederholen, die die Jäger (oder Spieler) bereits vergessen haben oder an die sie sich falsch erinnern. Außerdem erhältst du immer 1 Idee pro gewürfeltem Erfolg, wenn ein Jäger durch eine Probe auf Redekunst, Land und Leute oder Wissensgebiete eine wichtige Information in Erfahrung bringt (z. B. durch eine Massenbefragung). Wurden Informationen durch freies Rollenspiel erlangt, bestimmst du die Anzahl der Ideen mit einem Elixierwürfel. Die Besonderheit an diesen Ideen ist, dass du sie in deinen Aufzeichnungen zwischenspeichern kannst (maximal 5 gleichzeitig). Sie verfallen erst, wenn sie benutzt werden. Als freie Reaktion (0 Ap) kannst du sie jederzeit einsetzen oder an einen deiner Mitstreiter weitergeben. Diese Jägerkraft erfordert einen ständigen Vorrat an Papier und Tinte, wodurch dein Unterhalt um 15 Gulden steigt (bei Erwerb dieser Kraft erhältst du Schreibutensilien kostenfrei).",
-          "summary": "Allgemeine Jägerkraft/Gestik, Sicht/Unterhalt +15",
+          "summary": "Allgemeine Jägerkraft/Gestik, Sicht",
+          "upkeep":"15",
           "references": [
             {
               "source": "Wiki",
@@ -3581,7 +3604,8 @@
         "jaeger2": {
           "name": "Sprengstoff verwenden",
           "text": "Du kannst Sprengstoff einsetzen, um Tunnel entweder voranzutreiben oder zum Einsturz zu bringen. Eine Probe ist für bergbauliche Tätigkeiten normalerweise nicht erforderlich, da du durch deine Ausbildung hinreichend befähigt bist, Sprengstoffe einzusetzen; die Auswirkungen von Tunneleinstürzen bzw. neuen Tunneln muss der HeXXenmeister im Einzelfall regeln. Sprengstoffe im Kampf: Du führst immer genügend Sprengstoff mit dir, um größere Explosionen im Kampf zu bewirken (dafür zahlst du einen permanenten Unterhalt von +60 Gulden). Sprengstoff im Kampf wird so behandelt, als ob du einen unbegrenzten Vorrat an Explosivgranaten mit dir führst. Dieser fiktive Vorrat an Granaten kann nicht an andere Jäger verteilt oder verkauft werden. Da du geschult im Umgang mit Sprengstoffen bist, darfst du den Blutwürfel einmal wiederholen und dich danach für das bessere Ergebnis entscheiden.",
-          "summary": "Unterhalt +60",
+          "summary": "",
+          "upkeep":"60",
           "references": [
             {
               "source": "Wiki",
