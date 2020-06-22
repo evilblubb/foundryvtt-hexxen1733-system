@@ -244,6 +244,13 @@ class HexxenActor extends Actor {
   /** @override */
   getRollData() {
     const data = super.getRollData();
+
+    // TODO: temporärer Konvertierungscode für INI bei NPCs, durch migration ersetzen
+    if ("character" !== this.type) {
+      data.ini = data.ini || {};
+      data.ini.value = data.calc.ini;
+    }
+
     // const shorthand = game.settings.get("worldbuilding", "macroShorthand");
 
     // // Re-map all attributes onto the base roll data

@@ -51,7 +51,7 @@ Hooks.once("init", async function() {
 	 * @type {String}
 	 */
 	CONFIG.Combat.initiative = {
-	  formula: "@calc.ini",
+	  formula: "@ini.value",
     decimals: 0
   };
 
