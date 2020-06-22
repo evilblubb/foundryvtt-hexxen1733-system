@@ -80,15 +80,22 @@ class HexxenActor extends Actor {
       // Max-Werte für Basis- und Puffer-LEP berechnen
       // TODO: automatisieren (rules)
       actor.data.health.min = -10;
-      actor.data.health.max = 7 + actor.data.attributes.KKR.value + actor.data.attributes.WIL.value + actor.data.skills["Unempfindlichkeit"].value;
+      actor.data.health.max = 7 + actor.data.attributes.KKR.value
+                                + actor.data.attributes.WIL.value
+                                + actor.data.skills["Unempfindlichkeit"].value
+                                + actor.data.temp["lep-bonus"];
       actor.data.power.min = 0;
       actor.data.power.max = 10;
 
       // INI, PW und AP berechnen
       // TODO: automatisieren (rules)
-      actor.data.ini.value = actor.data.attributes.SIN.value + actor.data.attributes.GES.value + actor.data.skills["Reflexe"].value;
+      actor.data.ini.value = actor.data.attributes.SIN.value
+                                + actor.data.attributes.GES.value
+                                + actor.data.skills["Reflexe"].value
+                                + actor.data.temp["ini-bonus"];
       actor.data.calc = actor.data.calc || {};
-      actor.data.calc.ap = 6 - actor.data.temp.pw;
+      actor.data.calc.ap = 6 - actor.data.temp.pw
+                                + actor.data.temp["ap-bonus"];
 
       // Motivation/Roles/Profession vorbereiten
       // TODO: automatisieren (rules)

@@ -130,7 +130,7 @@ img#hexxen-logo {
 }
 
 .hexxen input[data-dtype="Number"] {
-  text-align: center;
+  text-align: center !important;
 }
 .hexxen input::placeholder {
   color: var(--hexxen-input-placeholder-color);

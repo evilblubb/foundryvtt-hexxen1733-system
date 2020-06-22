@@ -57,9 +57,9 @@ class JaegerSheet extends HexxenActorSheet {
     hres["segnungen"].label = "Segnungen";
     hres["segnungen"].max = 5;
     hres["ideen"].label = "Ideen [=WIS]";
-    hres["ideen"].default = out.data.attributes.WIS.value;
+    hres["ideen"].default = out.data.attributes.WIS.value + out.data.temp["idee-bonus"];
     hres["coups"].label = "Coups [=ATH]";
-    hres["coups"].default = out.data.attributes.ATH.value;
+    hres["coups"].default = out.data.attributes.ATH.value + out.data.temp["coup-bonus"];
     out["header-resources"] = hres;
 
     // TODO: hints auf localize umstellen
