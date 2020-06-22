@@ -4,11 +4,11 @@
     {{! > item id="rolle-1" class="td" type="role" content=data.rolle-1}}
     {{! log "content:" content
         "editMode:" @root.editMode}}
-    <div class="{{class}} flexrow item {{type}} allow-break" 
+    <div class="{{class}} flexrow item {{type}} allow-break"
         {{#if content.item}}data-item-id="{{content.item._id}}"{{/if}}>
         {{#if content.item}}
         <a class="value item-edit" id="{{id}}" title="Beschreibung anzeigen">{{content.item.name}}</a>
-        {{! TODO: Listener von class item-delete auf data-action delete umstellen }}
+        {{! TODO: Listener von class item-delete auf data-action delete umstellen, auch .js }}
             {{#if editMode}}<a class="controls control item-delete" title="Löschen"><i class="fas fa-trash"></i></a>{{/if}}
         {{else}}
             {{#if content.available}}
@@ -22,15 +22,15 @@
 
     {{#*inline "input"}}
     {{! > input id="languages" class="foo" target="data.languages" content=data.languages}}
-    {{! log "root:" @root 
-        "this:" @this 
+    {{! log "root:" @root
+        "this:" @this
         "editMode:" @root.editMode}}
     {{#if @root.editMode}}
-    <input {{#if id}} id="{{id}}" {{/if}} 
-        class="{{#if (isDefined class)}}{{class}} {{/if}}value" 
-        type="text" 
-        name="{{target}}{{#if (isDefined content.value)}}.value{{/if}}" 
-        value="{{#if (isDefined content.value)}}{{content.value}}{{else}}{{content}}{{/if}}" 
+    <input {{#if id}} id="{{id}}" {{/if}}
+        class="{{#if (isDefined class)}}{{class}} {{/if}}value"
+        type="text"
+        name="{{target}}{{#if (isDefined content.value)}}.value{{/if}}"
+        value="{{#if (isDefined content.value)}}{{content.value}}{{else}}{{content}}{{/if}}"
         {{#if content.dtype}}data-dtype="{{content.dtype}}"{{/if}} />
     {{else}}
     <span class="{{#if (isDefined class)}}{{class}} {{/if}}value">
@@ -53,7 +53,6 @@
                     <div class="pw flexrow">
                         <label class="label" title="Panzerwert" for="pw">PW</label>
                         {{dyn-input class="value" path="data.temp" key="pw" value=data.temp.pw}}
-                        <!--<input class="value" type="text" name="data.calc.pw" value="{{data.calc.pw}}" data-dtype="Number" id="pw" />-->
                     </div>
                     <div class="ap flexrow">
                         <label class="label" title="Aktionspunkte" for="ap">AP</label>
@@ -79,12 +78,11 @@
             <div class="attribute flexrow" data-key="{{key}}">
                 <a class="label roll" title="{{attr.label}}" data-action="roll" data-type="attribute">{{key}}</a>
                 {{dyn-input class="value" path="data.attributes" key=key target="value" value=attr.value}}
-                <!--<span class="value">{{attr.value}}</span>-->
             </div>
         {{/each}}
         </div>
         <div class="resources flexrow">
-                <!--<span class="fa-stack"><i class="fas fa-stack-1x fa-circle" style="color:yellow"></i><i class="fas fa-stack-1x">I</i></span>-->
+                <!-- TODO: <span class="fa-stack"><i class="fas fa-stack-1x fa-circle" style="color:yellow"></i><i class="fas fa-stack-1x">I</i></span>-->
             {{#each header-resources as |res key|}}
             <div class="resource flexrow" data-key="data.resources.{{key}}">
                 <label class="label" for="{{key}}">{{res.label}}</label>
@@ -153,7 +151,7 @@
                     <div class="td flexcol">
                         {{> item id="motivation" type="motivation" content=data.motivation}}
                         {{!-- using {{{ }}} to allow HTML code to pass through unescaped --}}
-                        <div id="motivation-bonus" class="note allow-break">{{{data.motivation.bonus}}}</div>    
+                        <div id="motivation-bonus" class="note allow-break">{{{data.motivation.bonus}}}</div>
                     </div>
                 </div>
                 <div class="tr">
@@ -165,7 +163,7 @@
             </div>
 
             <div class="seperator"></div>
-            
+
             <header class="block-header">Notizen</header>
             {{editor content=data.notes.biography.editor target="data.notes.biography.editor" button=true owner=owner editable=editable}}
         </div>
@@ -177,7 +175,7 @@
                     <header class="list-header flexrow">
                         <span class="header-label">Heilfaktor</span>
                     </header>
-                    
+
                     <!-- TODO: dynamisch erzeugen -->
                     <ol class="list-body">
                         <li class="eh flexrow" data-key="data.resources.eh">
@@ -204,7 +202,7 @@
                     <header class="list-header flexrow">
                         <span class="header-label">Anhaltende Einflüsse</span>
                     </header>
-                    
+
                     <!-- TODO: dynamisch erzeugen -->
                     <ol class="list-body">
                         <li class="odmg flexrow" data-key="data.resources.odmg">
@@ -263,7 +261,7 @@
                     <span class="abbau">Abbau</span>
                     <span class="hilfe">Helfen</span>
                 </header>
-                
+
                 <ol class="list-body">
                 {{#each data.states as |state key|}}
                     <li class="state flexrow" data-attribute="{{key}}">
@@ -279,7 +277,7 @@
             </div>
 
             <div class="seperator"></div>
-            
+
             <header class="list-header flexrow">
                 <span class="header-label">Notizen</span>
             </header>
@@ -303,7 +301,6 @@
                 <li class="skill flexrow" data-key="{{key}}">
                     <span class="li-label li-text">{{skill.label}}</span>
                     {{dyn-input class="li-value li-text" path="data.skills" key=key target="value" value=skill.value}}
-                    <!--input class="li-value" type="text" name="data.skills.{{key}}.value" value="{{skill.value}}" data-dtype="Number"/-->
                     <span class="li-attr li-text" title="{{skill.attrLabel}}: {{skill.attrValue}}">[ +{{skill.attribute}} ]</span>
                     <span class="li-sum li-text">{{skill.summe}}</span>
                     <a class="li-control roll" data-action="roll" data-type="skill"><i class="fas fa-dice"></i></a>
@@ -329,7 +326,7 @@
         <div class="tab powers scroll-y" data-group="primary" data-tab="powers">
             TODO: Konstruktionspunkte<br>
             TODO: Jägerkräfte
-            
+
             <div class="seperator"></div>
 
             <header class="list-header flexrow">
@@ -358,7 +355,6 @@
                     <span class="li-schaden li-text">{{skill.schaden}}</span>
                     <span class="li-ap li-text">{{skill.ap}}</span>
                     {{dyn-input class="li-value li-text" path="data.combat" key=key target="value" value=skill.value}}
-                    <!--input class="li-value" type="text" name="data.combat.{{key}}.value" value="{{skill.value}}" data-dtype="Number"/-->
                     <span class="li-attr li-text" title="{{skill.attrLabel}}: {{skill.attrValue}}">[ +{{skill.attribute}} ]</span>
                     <span class="li-sum li-text">{{skill.summe}}</span>
                     <a class="li-control roll" data-action="roll" data-type="combat"><i class="fas fa-dice"></i></a>
@@ -366,7 +362,7 @@
                 </li>
             {{/each}}
             </ol>
-            
+
             <div class="seperator"></div>
 
             <header class="list-header flexrow">

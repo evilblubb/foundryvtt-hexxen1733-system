@@ -61,13 +61,13 @@ class JaegerSheet extends HexxenActorSheet {
     hres["coups"].label = "Coups [=ATH]";
     hres["coups"].default = out.data.attributes.ATH.value;
     out["header-resources"] = hres;
-    
+
     // TODO: hints auf localize umstellen
     out.data.motivation["available-hint"] = "Keine Motivation ausgewählt";
     out.data.motivation["hint"] = "oops";
     // FIXME: das sollte (teilweise?) bereits im actor.prepare() passieren
     let mot = this.actor.itemTypes.motivation; // returns items, not data
-    mot = mot.length > 0 ? mot[0].data : undefined; 
+    mot = mot.length > 0 ? mot[0].data : undefined;
     if (mot) {
       out.data.motivation.item = mot;
       out.data.motivation.bonus = mot.data.summary ? mot.data.summary : mot.data.description;
@@ -83,13 +83,13 @@ class JaegerSheet extends HexxenActorSheet {
     // FIXME: das sollte (teilweise?) bereits im actor.prepare() passieren
     let role = this.actor.itemTypes.role; // returns items, not data
     switch (role.length) {
-      case 3: 
+      case 3:
         out.data["role-3"].item = role[2].data;
         // no break
-      case 2: 
+      case 2:
         out.data["role-2"].item = role[1].data;
         // no break
-      case 1: 
+      case 1:
         out.data["role-1"].item = role[0].data;
         // no break
       default:
@@ -100,7 +100,7 @@ class JaegerSheet extends HexxenActorSheet {
     out.data.profession["hint"] = "oops";
     // FIXME: das sollte (teilweise?) bereits im actor.prepare() passieren
     let prof = this.actor.itemTypes.profession;
-    prof = prof.length > 0 ? prof[0].data : undefined; 
+    prof = prof.length > 0 ? prof[0].data : undefined;
     if (prof) {
       out.data.profession.item = prof;
     }
@@ -145,7 +145,7 @@ class JaegerSheet extends HexxenActorSheet {
 
     // TODO: data.items filtern, sobald alle anderen subtypen abgehandelt
     out.actor.items = out.actor.items.filter(i => { return "item" === i.type; });
-    
+
     return out;
   }
 
@@ -230,6 +230,7 @@ class JaegerSheet extends HexxenActorSheet {
     });
 
     // Delete Inventory Item
+    // TODO: Listener von class item-delete auf data-action delete umstellen, auch .html
     html.find('.item-delete').click(ev => {
       // TODO: Überprüfungen
       const li = $(ev.currentTarget).parents(".item");
