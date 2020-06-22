@@ -11,7 +11,9 @@
       }
     ],
     "description": "Traglast: trägt 2 Beutegut-Pakete",
-    "summary": "Kosten: 90 Gulden | Unterhalt: 20 Gulden"
+    "summary": "",
+    "cost":"90",
+    "upkeep":"20"
   },
   "schlachtross": {
     "name":"Schlachtroß",
@@ -25,7 +27,9 @@
       }
     ],
     "description": "Traglast: trägt 2 Beutegut-Pakete",
-    "summary": "Kosten: 200 Gulden | Unterhalt: 40 Gulden"
+    "summary": "",
+    "cost":"200",
+    "upkeep":"40"
   },
   "lasttier": {
     "name":"Lasttier",
@@ -39,7 +43,9 @@
       }
     ],
     "description": "Esel/Ochse | Traglast: trägt 4 Beutegut-Pakete",
-    "summary": "Kosten: 20 Gulden | Unterhalt: 10 Gulden"
+    "summary": "",
+    "cost":"20",
+    "upkeep":"10"
   },
   "kutsche-1-achser": {
     "name":"Kutsche, 1-Achser",
@@ -53,7 +59,9 @@
       }
     ],
     "description": "Traglast: trägt 10 Beutegut-Pakete",
-    "summary": "Kosten: 250 Gulden | Unterhalt: 20 Gulden"
+    "summary": "",
+    "cost":"250",
+    "upkeep":"20"
   },
   "kutsche-2-achser": {
     "name":"Kutsche, 2-Achser",
@@ -67,7 +75,9 @@
       }
     ],
     "description": "Traglast: trägt 15 Beutegut-Pakete",
-    "summary": "Kosten: 500 Gulden | Unterhalt: 30 Gulden"
+    "summary": "",
+    "cost":"500",
+    "upkeep":"30"
   },
   "karren-1-achser": {
     "name":"Karren, 1-Achser",
@@ -81,7 +91,9 @@
       }
     ],
     "description": "Traglast: trägt 20 Beutegut-Pakete",
-    "summary": "Kosten: 30 Gulden | Unterhalt: 5 Gulden"
+    "summary": "",
+    "cost":"30",
+    "upkeep":"5"
   },
   "wagen-2-achser": {
     "name":"Wagen, 2-Achser",
@@ -95,7 +107,9 @@
       }
     ],
     "description": "Traglast: trägt 40 Beutegut-Pakete",
-    "summary": "Kosten: 50 Gulden | Unterhalt: 10 Gulden"
+    "summary": "",
+    "cost":"50",
+    "upkeep":"10"
   },
   "flussschiff": {
     "name":"Flussschiff",
@@ -109,6 +123,8 @@
       }
     ],
     "description": "Traglast: trägt 100 Beutegut-Pakete",
-    "summary": "Kosten: 610 Gulden | Unterhalt: 50 Gulden"
+    "summary": "",
+    "cost":"610",
+    "upkeep":"50"
   }
 }
