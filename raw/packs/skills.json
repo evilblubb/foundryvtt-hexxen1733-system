@@ -1525,7 +1525,7 @@
         "aufbau2": {
           "name": "Unikate produzieren",
           "text": "Weil du einen Vorrat an hochwertigen Bauteilen und Bauplänen benötigst und dich permanent weiterbilden musst, erhöht diese Kraft deinen Unterhalt um 20 Gulden. Um ein Unikat herzustellen, benötigst du zunächst eine normale Panzerung oder Waffe. Für diese wählst du dann eine Unikat-Wirkung aus, für die du den dazugehörigen Ausbaueffekt erlernt hast und opferst die in der Unikat-Liste angegebenen Kp. Um das Unikat entsprechend zu würdigen, solltest du dir einen besonderen Namen dafür ausdenken. Unikat-Waffen und -Panzerungen erhöhen den Unterhalt. Dieser Unterhalt muss von dem jeweiligen Besitzer des Unikats bezahlt werden.",
-          "summary": "Ausbaukraft/Handwerk/Erlaubt das Sammeln von Kp. Als Startkraft: Du erhältst eine Werkzeugkiste als Startausrüstung und darfst eine Startpanzerung bzw. Startwaffe als Unikat mit einer Unikat-Wirkung für maximal 20 Kp definieren. Du musst über den zur Unikat-Wirkung gehörenden Ausbaueffekt verfügen",,
+          "summary": "Ausbaukraft/Handwerk/Erlaubt das Sammeln von Kp. Als Startkraft: Du erhältst eine Werkzeugkiste als Startausrüstung und darfst eine Startpanzerung bzw. Startwaffe als Unikat mit einer Unikat-Wirkung für maximal 20 Kp definieren. Du musst über den zur Unikat-Wirkung gehörenden Ausbaueffekt verfügen",
           "upkeep":"20",
           "references": [
             {
