@@ -31,7 +31,8 @@
         type="text"
         name="{{target}}{{#if (isDefined content.value)}}.value{{/if}}"
         value="{{#if (isDefined content.value)}}{{content.value}}{{else}}{{content}}{{/if}}"
-        {{#if content.dtype}}data-dtype="{{content.dtype}}"{{/if}} />
+        {{#if content.dtype}}data-dtype="{{content.dtype}}"{{/if}}
+        {{#if placeholder}}placeholder="{{placeholder}}"{{/if}} />
     {{else}}
     <span class="{{#if (isDefined class)}}{{class}} {{/if}}value">
         {{#if (isDefined content.value)}}{{content.value}}{{else}}{{content}}{{/if}}
@@ -44,7 +45,7 @@
         <div class="flexrow">
             <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
             <div class="top flexcol">
-                <h1 class="actorname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1>
+                <h1 class="actorname flexrow">{{>input target="name" content=actor.name placeholder="Name"}}</h1>
                 <div class="combat flexrow">
                     <div class="ini flexrow">
                         <label class="label" title="Initiative" for="ini">INI</label>
