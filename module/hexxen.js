@@ -44,20 +44,22 @@ class Hexxen {
 /* -------------------------------------------- */
 
 Hooks.once("init", async function() {
-  console.log(`Initializing HeXXen 1733 System`);
+  console.info(`HeXXen 1733 | Initializing system`);
 
 	/**
 	 * Set an initiative formula for the system
 	 * @type {String}
 	 */
 	CONFIG.Combat.initiative = {
-	  formula: "@calc.ini",
+	  formula: "@ini.value",
     decimals: 0
   };
-  
+
   Handlebars.registerHelper('isDefined', function (value) {
     return value !== undefined;
   });
+
+  // TODO: preload some images
 
   // FIXME: richtiger Platz??
   Handlebars.registerHelper("dyn-input", function(options) {
@@ -95,10 +97,10 @@ Hooks.once("init", async function() {
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("simple", SimpleActorSheet, { types: ["npc"] });
+//  Actors.registerSheet("simple", SimpleActorSheet, { types: ["npc"] });
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("simple", SimpleItemSheet, { types: ["item"], makeDefault: true });
-  Items.registerSheet("hexxen", RuleItemSheet, { types: ["role", "profession", "motivation"], makeDefault: true });
+  Items.registerSheet("hexxen", RuleItemSheet, { types: ["role", "profession", "motivation","skills"], makeDefault: true });
 
   // Inject system logo
   // TODO: wohin mit solchen Sachen. Macht den Hook zu unübersichtlich.
@@ -137,6 +139,7 @@ Hooks.once("init", async function() {
 
     // TODO: Tokens besser berücksichtigen (game.actors.get() berücksichtigt keine Tokens)
     // maybe a token, check for another -
+    // FIXME: Verwendung in einem Item Sheet verursacht eine defekte Actor-ID, welche den Chat kaputt macht. (Foundry Bug #3056)
     let idx = speaker.lastIndexOf('-');
     speaker = idx === -1 ? speaker : speaker.substring(0, idx);
     const message = event.currentTarget.dataset.message;
@@ -183,4 +186,3 @@ class HexxenAbout extends Application {
     return  { options: this.options };
   }
 }
-

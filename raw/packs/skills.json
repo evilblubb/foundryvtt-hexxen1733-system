@@ -109,7 +109,7 @@
               "text": "Immer, wenn du einen Schleuder-Angriff mit einem Geschoss ausführst und den Blutwürfel mitwürfelst, darfst du 1 Blutstropfensymbol addieren."
             },
             "meister3": {
-              "name": "Geschosskunde I",
+              "name": "Geschosskunde II",
               "text": "Ideen +1."
             }
           }
@@ -292,9 +292,9 @@
           }
         },
         "aufbau2": {
-          "name": "",
-          "text": ".",
-          "summary": "",
+          "name": "Wie ein Schatten",
+          "text": "Du hast gelernt, dich lautlos und unauffällig zu bewegen. Die Nacht ist ein wertvoller Verbündeter. Du kannst die unten beschriebenen Coupeffekte nutzen (kombinierbar), sobald du sie erlernt hast.",
+          "summary": "Ausbaukraft/Coup/Beweglichkeit",
           "references": [
             {
               "source": "Wiki",

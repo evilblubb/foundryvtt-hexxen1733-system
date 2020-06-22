@@ -1,29 +1,40 @@
 ﻿<form class="{{cssClass}}" autocomplete="off">
 
     {{#*inline "item"}}
-    {{! > item id="rolle-1" class="td" type="role" name=data.core.rolle-1 item-id=data.core.rolle-1-id hint=data.core.rolle-1-hint}}
-    <div class="{{class}} flexrow item {{type}} allow-break" data-item-id="{{item-id}}">
-        {{#if item-id}}
-        <a class="value item-edit" id="{{id}}" title="Beschreibung anzeigen">{{name}}</a>
-        {{#if editMode}}<a class="controls control item-delete" title="Löschen"><i class="fas fa-trash"></i></a>{{/if}}
+    {{! > item id="rolle-1" class="td" type="role" content=data.rolle-1}}
+    {{! log "content:" content
+        "editMode:" @root.editMode}}
+    <div class="{{class}} flexrow item {{type}} allow-break"
+        {{#if content.item}}data-item-id="{{content.item._id}}"{{/if}}>
+        {{#if content.item}}
+        <a class="value item-edit" id="{{id}}" title="Beschreibung anzeigen">{{content.item.name}}</a>
+        {{! TODO: Listener von class item-delete auf data-action delete umstellen, auch .js }}
+            {{#if editMode}}<a class="controls control item-delete" title="Löschen"><i class="fas fa-trash"></i></a>{{/if}}
         {{else}}
-        <div class="hint">{{hint}}</div>
+            {{#if content.available}}
+            <a class="hint" id="{{id}}" title="{{type}} auswählen" data-action="select" data-type="{{type}}">{{content.available-hint}}</a>
+            {{else}}
+            <span class="hint" id="{{id}}">{{content.hint}}</span>
+            {{/if}}
         {{/if}}
     </div>
     {{/inline}}
 
     {{#*inline "input"}}
     {{! > input id="languages" class="foo" target="data.languages" content=data.languages}}
-    {{! log "root:" @root 
-        "this:" @this 
+    {{! log "root:" @root
+        "this:" @this
         "editMode:" @root.editMode}}
     {{#if @root.editMode}}
-    <input {{#if id}} id="{{id}}" {{/if}} 
-        class="{{#if (isDefined class)}}{{class}} {{/if}}value" 
-        type="text" 
-        name="{{target}}{{#if (isDefined content.value)}}.value{{/if}}" 
-        value="{{#if (isDefined content.value)}}{{content.value}}{{else}}{{content}}{{/if}}" 
-        {{#if content.dtype}}data-dtype="{{content.dtype}}"{{/if}} />
+    <input {{#if id}} id="{{id}}" {{/if}}
+        class="{{#if (isDefined class)}}{{class}} {{/if}}value"
+        type="text"
+        name="{{target}}{{#if (isDefined content.value)}}.value{{/if}}"
+        value="{{#if (isDefined content.value)}}{{content.value}}{{else}}{{content}}{{/if}}"
+        {{! TODO: dtype besser lösen }}
+        {{#if content.dtype}}data-dtype="{{content.dtype}}"{{/if}}
+        {{#if dtype}}data-dtype="{{dtype}}"{{/if}}
+        {{#if placeholder}}placeholder="{{placeholder}}"{{/if}} />
     {{else}}
     <span class="{{#if (isDefined class)}}{{class}} {{/if}}value">
         {{#if (isDefined content.value)}}{{content.value}}{{else}}{{content}}{{/if}}
@@ -36,16 +47,15 @@
         <div class="flexrow">
             <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
             <div class="top flexcol">
-                <h1 class="actorname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1>
+                <h1 class="actorname flexrow">{{>input target="name" content=actor.name placeholder="Name"}}</h1>
                 <div class="combat flexrow">
                     <div class="ini flexrow">
                         <label class="label" title="Initiative" for="ini">INI</label>
-                        <span class="value" id="ini">{{data.calc.ini}}</span>
+                        <span class="value" id="ini">{{data.ini.value}}</span>
                     </div>
                     <div class="pw flexrow">
                         <label class="label" title="Panzerwert" for="pw">PW</label>
-                        {{dyn-input class="value" path="data.calc" key="pw" value=data.calc.pw}}
-                        <!--<input class="value" type="text" name="data.calc.pw" value="{{data.calc.pw}}" data-dtype="Number" id="pw" />-->
+                        {{dyn-input class="value" path="data.temp" key="pw" value=data.temp.pw}}
                     </div>
                     <div class="ap flexrow">
                         <label class="label" title="Aktionspunkte" for="ap">AP</label>
@@ -71,12 +81,11 @@
             <div class="attribute flexrow" data-key="{{key}}">
                 <a class="label roll" title="{{attr.label}}" data-action="roll" data-type="attribute">{{key}}</a>
                 {{dyn-input class="value" path="data.attributes" key=key target="value" value=attr.value}}
-                <!--<span class="value">{{attr.value}}</span>-->
             </div>
         {{/each}}
         </div>
         <div class="resources flexrow">
-                <!--<span class="fa-stack"><i class="fas fa-stack-1x fa-circle" style="color:yellow"></i><i class="fas fa-stack-1x">I</i></span>-->
+                <!-- TODO: <span class="fa-stack"><i class="fas fa-stack-1x fa-circle" style="color:yellow"></i><i class="fas fa-stack-1x">I</i></span>-->
             {{#each header-resources as |res key|}}
             <div class="resource flexrow" data-key="data.resources.{{key}}">
                 <label class="label" for="{{key}}">{{res.label}}</label>
@@ -111,20 +120,20 @@
             <header class="block-header">Basiswerte</header>
             <div class="table table-1">
                 <div class="tr">
-                    <label class="td label" for="rolle-1">Rolle №1</label>
-                    {{> item id="rolle-1" class="td" type="role" name=data.core.rolle-1 item-id=data.core.rolle-1-id hint=data.core.rolle-1-hint}}
+                    <label class="td label" for="role-1">Rolle №1</label>
+                    {{> item id="role-1" class="td" type="role" content=data.role-1}}
                 </div>
                 <div class="tr">
-                    <label class="td label" for="rolle-2">Rolle №2</label>
-                    {{> item id="rolle-2" class="td" type="role" name=data.core.rolle-2 item-id=data.core.rolle-2-id hint=data.core.rolle-2-hint}}
+                    <label class="td label" for="role-2">Rolle №2</label>
+                    {{> item id="role-2" class="td" type="role" content=data.role-2}}
                 </div>
                 <div class="tr">
-                    <label class="td label" for="rolle-3">Rolle №3</label>
-                    {{> item id="rolle-3" class="td" type="role" name=data.core.rolle-3 item-id=data.core.rolle-3-id hint=data.core.rolle-3-hint}}
+                    <label class="td label" for="role-3">Rolle №3</label>
+                    {{> item id="role-3" class="td" type="role" content=data.role-3}}
                 </div>
                 <div class="tr">
                     <label class="td label" for="profession">Profession</label>
-                    {{> item id="profession" class="td" type="profession" name=data.core.profession item-id=data.core.profession-id hint=data.core.profession-hint}}
+                    {{> item id="profession" class="td" type="profession" content=data.profession}}
                 </div>
                 <div class="tr">
                     <label class="td label" for="languages">Sprachen</label>
@@ -143,9 +152,9 @@
                 <div class="tr">
                     <label class="td label" for="motivation">Motivation</label>
                     <div class="td flexcol">
-                        {{> item id="motivation" type="motivation" name=data.core.motivation item-id=data.core.motivation-id hint=data.core.motivation-hint}}
+                        {{> item id="motivation" type="motivation" content=data.motivation}}
                         {{!-- using {{{ }}} to allow HTML code to pass through unescaped --}}
-                        <div id="motivation-bonus" class="note allow-break">{{{data.core.motivation-bonus}}}</div>    
+                        <div id="motivation-bonus" class="note allow-break">{{{data.motivation.bonus}}}</div>
                     </div>
                 </div>
                 <div class="tr">
@@ -157,9 +166,9 @@
             </div>
 
             <div class="seperator"></div>
-            
+
             <header class="block-header">Notizen</header>
-            {{editor content=data.biography target="data.biography" button=true owner=owner editable=editable}}
+            {{editor content=data.notes.biography.editor target="data.notes.biography.editor" button=true owner=owner editable=editable}}
         </div>
 
         {{!-- Zustand Tab --}}
@@ -169,7 +178,7 @@
                     <header class="list-header flexrow">
                         <span class="header-label">Heilfaktor</span>
                     </header>
-                    
+
                     <!-- TODO: dynamisch erzeugen -->
                     <ol class="list-body">
                         <li class="eh flexrow" data-key="data.resources.eh">
@@ -196,7 +205,7 @@
                     <header class="list-header flexrow">
                         <span class="header-label">Anhaltende Einflüsse</span>
                     </header>
-                    
+
                     <!-- TODO: dynamisch erzeugen -->
                     <ol class="list-body">
                         <li class="odmg flexrow" data-key="data.resources.odmg">
@@ -255,7 +264,7 @@
                     <span class="abbau">Abbau</span>
                     <span class="hilfe">Helfen</span>
                 </header>
-                
+
                 <ol class="list-body">
                 {{#each data.states as |state key|}}
                     <li class="state flexrow" data-attribute="{{key}}">
@@ -271,11 +280,53 @@
             </div>
 
             <div class="seperator"></div>
-            
+
+            <header class="list-header flexrow">
+                <span class="header-label">Temporäre Eingabefelder für unberücksichtigte Boni</span>
+            </header>
+            <div class="temp flexrow">
+                <div class="flexcol">
+                    <ol class="list-body">
+                        <li class="flexrow">
+                            <label class="label" for="lep-bonus">LEP Max</label>
+                            <div class="flexcol">
+                                {{>input id="lep-bonus" target="data.temp.lep-bonus" content=data.temp.lep-bonus dtype="Number" }}
+                                <div class="hint allow-break">Hinweis: Unempfindlichkeit ist bereits berücksichtigt.</div>
+                            </div>
+                        </li>
+                        <li class="flexrow">
+                            <label class="label" for="ini-bonus">Initiative</label>
+                            <div class="flexcol">
+                                {{>input id="ini-bonus" target="data.temp.ini-bonus" content=data.temp.ini-bonus dtype="Number" }}
+                                <div class="hint allow-break">Hinweis: Reflexe ist bereits berücksichtigt.</div>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+                <div class="flexcol">
+                    <ol class="list-body">
+                        <li class="flexrow">
+                            <label class="label" for="idee-bonus">Ideen</label>
+                            {{>input id="idee-bonus" target="data.temp.idee-bonus" content=data.temp.idee-bonus dtype="Number" }}
+                        </li>
+                        <li class="flexrow">
+                            <label class="label" for="coup-bonus">Coups</label>
+                            {{>input id="coup-bonus" target="data.temp.coup-bonus" content=data.temp.coup-bonus dtype="Number" }}
+                        </li>
+                        <li class="flexrow">
+                            <label class="label" for="ap-bonus">Aktionspunkte</label>
+                            {{>input id="ap-bonus" target="data.temp.ap-bonus" content=data.temp.ap-bonus dtype="Number" }}
+                        </li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="seperator"></div>
+
             <header class="list-header flexrow">
                 <span class="header-label">Notizen</span>
             </header>
-            {{editor content=data.states-text target="data.states-text" button=true owner=owner editable=editable}}
+            {{editor content=data.notes.states.editor target="data.notes.states.editor" button=true owner=owner editable=editable}}
         </div>
 
         {{!-- Fertigkeiten Tab --}}
@@ -295,7 +346,6 @@
                 <li class="skill flexrow" data-key="{{key}}">
                     <span class="li-label li-text">{{skill.label}}</span>
                     {{dyn-input class="li-value li-text" path="data.skills" key=key target="value" value=skill.value}}
-                    <!--input class="li-value" type="text" name="data.skills.{{key}}.value" value="{{skill.value}}" data-dtype="Number"/-->
                     <span class="li-attr li-text" title="{{skill.attrLabel}}: {{skill.attrValue}}">[ +{{skill.attribute}} ]</span>
                     <span class="li-sum li-text">{{skill.summe}}</span>
                     <a class="li-control roll" data-action="roll" data-type="skill"><i class="fas fa-dice"></i></a>
@@ -314,20 +364,29 @@
             <header class="list-header flexrow">
                 <span class="header-label">Notizen</span>
             </header>
-            {{editor content=data.skills-text target="data.skills-text" button=true owner=owner editable=editable}}
+            {{editor content=data.notes.skills.editor target="data.notes.skills.editor" button=true owner=owner editable=editable}}
         </div>
 
         {{!-- Jägerkräfte Tab --}}
         <div class="tab powers scroll-y" data-group="primary" data-tab="powers">
-            TODO: Konstruktionspunkte<br>
+            <ol class="list-body">
+                <li class="flexrow">
+                    <label class="label" for="kp">Konstruktionspunkte</label>
+                    <input id="kp" class="value" type="text" name="data.resources.kp" value="{{data.resources.kp}}" data-dtype="Number" />
+                </li>
+            </ol>
+
+            <header class="list-header flexrow">
+                <span class="header-label">Jägerkräfte</span>
+            </header>
             TODO: Jägerkräfte
-            
+
             <div class="seperator"></div>
 
             <header class="list-header flexrow">
                 <span class="header-label">Notizen</span>
             </header>
-            {{editor content=data.powers-text target="data.powers-text" button=true owner=owner editable=editable}}
+            {{editor content=data.notes.powers.editor target="data.notes.powers.editor" button=true owner=owner editable=editable}}
         </div>
 
         {{!-- Kampf Tab --}}
@@ -350,7 +409,6 @@
                     <span class="li-schaden li-text">{{skill.schaden}}</span>
                     <span class="li-ap li-text">{{skill.ap}}</span>
                     {{dyn-input class="li-value li-text" path="data.combat" key=key target="value" value=skill.value}}
-                    <!--input class="li-value" type="text" name="data.combat.{{key}}.value" value="{{skill.value}}" data-dtype="Number"/-->
                     <span class="li-attr li-text" title="{{skill.attrLabel}}: {{skill.attrValue}}">[ +{{skill.attribute}} ]</span>
                     <span class="li-sum li-text">{{skill.summe}}</span>
                     <a class="li-control roll" data-action="roll" data-type="combat"><i class="fas fa-dice"></i></a>
@@ -358,18 +416,39 @@
                 </li>
             {{/each}}
             </ol>
-            
+
             <div class="seperator"></div>
 
             <header class="list-header flexrow">
                 <span class="header-label">Notizen</span>
             </header>
-            {{editor content=data.combat-text target="data.combat-text" button=true owner=owner editable=editable}}
+            {{editor content=data.notes.combat.editor target="data.notes.combat.editor" button=true owner=owner editable=editable}}
         </div>
 
         {{!-- Besitz Tab --}}
         <div class="tab items scroll-y" data-group="primary" data-tab="items">
-            TODO: Unterhalt, Vermögen, Beutegut, Kleidung, Rüstung, Ausrüstung
+            <header class="list-header flexrow">
+                <span class="header-label">Vermögen & Unterhalt</span>
+            </header>
+            <div class="top flexrow">
+                <div class="vermoegen flexcol">
+                    <ol class="list-body">
+                        <li class="flexrow">
+                            <label class="label" for="vermoegen">Vermögen</label>
+                            <input id="vermoegen" class="value" type="text" name="data.temp.vermoegen" value="{{data.temp.vermoegen}}" />
+                        </li>
+                    </ol>
+                </div>
+                <div class="unterhalt flexcol">
+                    <ol class="list-body">
+                        <li class="flexrow">
+                            <label class="label" for="unterhalt">Unterhalt</label>
+                            <input id="unterhalt" class="value" type="text" name="data.temp.unterhalt" value="{{data.temp.unterhalt}}" />
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            TODO: Beutegut, Kleidung, Rüstung, Ausrüstung
             <ol class="items-list">
             {{#each actor.items as |item id|}}
                 <li class="item flexrow" data-item-id="{{item._id}}">
@@ -388,7 +467,7 @@
             <header class="list-header flexrow">
                 <span class="header-label">Notizen</span>
             </header>
-            {{editor content=data.items-text target="data.items-text" button=true owner=owner editable=editable}}
+            {{editor content=data.notes.items.editor target="data.notes.items.editor" button=true owner=owner editable=editable}}
         </div>
 
         </section>

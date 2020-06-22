@@ -51,7 +51,7 @@ img#hexxen-logo {
   --hexxen-table-border: 1px solid var(--hexxen-highlight-even-color);
   --hexxen-seperator-image: url("../img/Rabenkasten_weit_unten_small.png");
 
-  scrollbar-color: var(--hexxen-light-color) var(--hexxen-dark-color); 
+  scrollbar-color: var(--hexxen-light-color) var(--hexxen-dark-color);
 
   /* alte Farben:
   --hexxen-light-color: #bcceb9;
@@ -130,7 +130,7 @@ img#hexxen-logo {
 }
 
 .hexxen input[data-dtype="Number"] {
-  text-align: center;
+  text-align: center !important;
 }
 .hexxen input::placeholder {
   color: var(--hexxen-input-placeholder-color);
@@ -146,7 +146,7 @@ img#hexxen-logo {
   border-radius: 3px;
 }
 .hexxen .editor .editor-content {
-  height: 100%;  
+  height: 100%;
 }
 .hexxen .editor .tox.tox-tinymce {
   min-height: 150px;
@@ -176,18 +176,18 @@ img#hexxen-logo {
 }
 
 .hexxen .seperator {
-  display: block; 
+  display: block;
   width: 100%;
   min-height: 20px;
-  margin: 10px 0; 
-  border: none; 
+  margin: 10px 0;
+  border: none;
   background-image: var(--hexxen-seperator-image);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
 }
 .hexxen.sheet .seperator {
-  margin: 2px 0; 
+  margin: 2px 0;
 }
 
 .hexxen div.inc-btn {
@@ -218,11 +218,11 @@ img#hexxen-logo {
   padding: 8px;
   text-align: center;
 }
-.hexxen.sheet .sheet-header h1 input {
+.hexxen.sheet .sheet-header h1 .value {
   height: 42px;
   line-height: 42px;
   margin: unset;
-  width: 96%;
+  width: 100%;
 }
 .hexxen.sheet .tabs {
   height: 40px;
@@ -244,9 +244,9 @@ img#hexxen-logo {
   padding: 0 10px;
   margin: 0 -10px;
   text-decoration: none;
-  text-shadow: -1px -1px var(--hexxen-outline-color), 
-               -1px  1px var(--hexxen-outline-color), 
-                1px -1px var(--hexxen-outline-color), 
+  text-shadow: -1px -1px var(--hexxen-outline-color),
+               -1px  1px var(--hexxen-outline-color),
+                1px -1px var(--hexxen-outline-color),
                 1px  1px var(--hexxen-outline-color);
 }
 .hexxen.sheet .sheet-body {

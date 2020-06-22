@@ -128,4 +128,33 @@
   }
 }
 
+class HexxenCompendiumHelper {
 
+  /** 
+   * Helper callback function. Opens compendia of a certain Item subtype.
+   * To match, a compendium has to be of entity-type "Item" and it's name must contain "-<type>".
+   * 
+   * @param {String} type       Subtype of the items.
+   */
+  static openCompendium(type) {
+    const packs = game.packs.entries.filter(el => el.metadata.name.indexOf(`-${type}`) != -1);
+    // TODO: besser mit mehreren passenden Compendien umgehen
+    if (packs.length) {
+      packs.forEach(pack => {
+        pack.render(true);
+      });
+    } 
+    else {
+      ui.notifications.info(`Kein passendes Compendium gefunden.`);
+    }
+  }
+
+  /**
+   * Wrapper for use as a listener.
+   * 
+   * @param {Event} event 
+   */
+  static onClickOpenCompendium(event) {
+    HexxenCompendiumHelper.openCompendium(event.currentTarget.dataset.type);
+  }
+}

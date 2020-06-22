@@ -12,34 +12,42 @@
       }
     ],
     "blitzbombe": {
+      "name":"Blitzbome",
       "description": "Würfele beim Angriff einen Blutwürfel mit. Für jedes Blutstropfensymbol erhält das Ziel 1 Malusstufe (max. 5).",
       "summary": ""
     },
     "brandgeschoss": {
+      "name":"Brandgeschoss",
       "description": "Würfele beim Angriff einen Blutwürfel mit. Für jedes Blutstropfensymbol erhält das Ziel 1 äußere Schadensstufe (max. 5).",
       "summary": ""
     },
     "explosivgranate": {
+      "name":"Explosivgranate",
       "description": "Dieses Geschoss kann mehrere Gegner treffen. Es entspricht den in der Markttabelle und in den Regeln auf Seite 66 beschriebenen Explosivgeschossen.",
       "summary": ""
     },
     "giftgeschoss": {
+      "name":"Giftgeschoss",
       "description": "Würfele beim Angriffswurf einen Blutwürfel mit. Für jedes Blutstropfensymbol erhält der Gegner 1 innere Schadensstufe (max. 5).",
       "summary": ""
     },
     "nebelbombe": {
+      "name":"Nebelbombe",
       "description": "Du kannst eine Nebelbombe als Aktion für 1 Ap direkt vor die eigenen Füße werfen und löst dich so automatisch von einem gebundenen Gegner. Das erfordert keine Probe und zählt nicht als Angriff. Nebelbomben können mehrfach pro Runde angewendet werden.",
       "summary": ""
     },
     "saeurebombe": {
+      "name":"Säurebombe",
       "description": "Würfele beim Angriffswurf einen Blutwürfel mit. Für jedes Blutstropfensymbol wird der Panzerwert des Gegners dauerhaft um 1 reduziert. Säurebomben wirken nicht bei riesigen oder titanischen Gegnern. Gegner, die einmal Opfer einer Säurebombe geworden sind (und deren Pw dadurch mindestens um 1 reduziert wurde), verlieren keine weiteren Panzerpunkte durch nochmalige Benutzung von Säure (gleich aus welcher Quelle).",
       "summary": ""
     },
     "schmierbombe": {
+      "name":"Schmierbombe",
       "description": "Wird ein Gegner von einer Schmierbombe getroffen, löst er sich von allen Jägern und erhält 1 Malusstufe. Du kannst Schmierbomben nicht auf befreundete Jäger anwenden. Schmierbomben wirken nicht bei riesigen oder titanischen Gegnern.",
       "summary": ""
     },
     "wurfgranate": {
+      "name":"Wurfgranate",
       "description": "Würfele beim Angriffswurf einen Blutwürfel mit. Für jedes Blutstropfensymbol erhält der Gegner zusätzlich 2 Punkte Schaden (Feuerschaden, Schmerzschaden).",
       "summary": ""
     }
@@ -57,34 +65,42 @@
       }
     ],
     "ausdauer-elixier": {
+      "name":"Ausdauer Elexier",
       "description": "Der Konsument erhält Puffer-Lep in Höhe des Elixiersymbols mal 2.",
       "summary": ""
     },
     "coup-elixier": {
+      "name":"Coup Elexier",
       "description": "Der Konsument erhält Coups in Höhe des Elixiersymbols.",
       "summary": ""
     },
     "gegengift": {
+      "name":"Gegengift",
       "description": "Der Konsument verliert innere Schadensstufen in Höhe des Elixiersymbols.",
       "summary": ""
     },
     "heil-elixier": {
+      "name":"Heil Elexier",
       "description": "Der Konsument regeneriert Lep in Höhe des Elixiersymbols (bis zum max. Lep-Wert).",
       "summary": ""
     },
     "ideen-elixier": {
+      "name":"Ideen Elexier",
       "description": "Der Konsument erhält Ideen in Höhe des Elixiersymbols.",
       "summary": ""
     },
     "mut-elixier": {
+      "name":"Mut Elexier",
       "description": "Der Konsument verliert Malusstufen in Höhe des Elixiersymbols.",
       "summary": ""
     },
     "panzer-elixier": {
+      "name":"Panzer Elexier",
       "description": "Der Pw des Konsumenten steigt bis zur nächsten Ini-Phase um 2.",
       "summary": ""
     },
     "talent-elixier": {
+      "name":"Talent Elexier",
       "description": "Der Konsument erhält auf seine nächste Fertigkeitsprobe einen Bonus von +5. Wird der Effekt nicht genutzt, so erlischt er nach einigen Minuten.",
       "summary": ""
     }
@@ -101,43 +117,53 @@
         "page": "104"
       }
     ],
-    "Bannpulver": {
+    "bannpulver": {
+      "name":"Bannpulver",
       "description": "Dieses Pulver wird kreisförmig um den eigenen Körper auf den Boden gestreut (oder einen Reiter inkl. stehendem Pferd). Das erfordert eine Aktion mit 1 Ap. Alle widernatürlichen Gegner, die zu diesem Zeitpunkt an den Jäger gebunden sind, lösen sich automatisch von ihm. Gegner, deren Bindung auf diese Weise gelöst wurde, können in dieser Runde weder den Jäger im Bannkreis im Nahkampf attackieren (jedoch im Fernkampf) noch sich an einen anderen Jäger heranbewegen. Gegner, die nicht an den Jäger gebunden waren, können jedoch normal an ihn ziehen. Die Wirkung des Bannpulvers und des Bannkreises endet in Ini 0.",
       "summary": ""
     },
-    "Glitzerpulver": {
+    "glitzerpulver": {
+      "name":"Glitzerpulver",
       "description": "Dieses Pulver wird in die Luft über einer Zielperson geschleudert (der Anwender selbst oder ein Gefährte). Dort rieselt es langsam herab und erzeugt dabei ein glitzerndes, funkelndes Feld. Glitzerpulver kann als Reaktion für 1 Ap verwendet werden. Für die Dauer dieser Kampfrunde erleiden alle Fernkampfangriffe mit physischen Waffen (also keine Zauberkräfte) gegen die Zielperson einen Malus von −2.",
       "summary": ""
     },
-    "Heilungssalbe": {
+    "heilungssalbe": {
+      "name":"Heilungssalbe",
       "description": "Diese Salbe heilt Verletzungen, muss jedoch großflächig aufgetragen werden, was nicht während des Kampfes möglich ist. Der Behandelte würfelt 2 Elixierwürfel und regeneriert Lep in Höhe des besseren Ergebnisses. Überschreiten seine Lep dadurch das Maximum, erhält er den Überschuss als Puffer-Lep. In diesem Fall kann er jedoch erst wieder durch die Salbe geheilt werden, wenn er mindestens 1 normalen Lep verliert. Die Anwendung zählt als Magische Heilung (Mh).",
       "summary": ""
     },
-    "Hexengift": {
+    "hexengift": {
+      "name":"Hexengift",
       "description": "Dieses Waffengift entspricht in jeder Hinsicht einfachem Waffengift. Wird es gegen eine wahre Hexe angewendet, verursacht es jedoch 2 Blutwürfel zusätzlichen Schaden statt nur 1.",
       "summary": ""
     },
-    "Hexensalbe": {
+    "hexensalbe": {
+      "name":"Hexensalbe",
       "description": "Wird diese Salbe aufgetragen (meist auf das Gesicht, die Unterarme oder die Hände), beginnt die Haut an diesen Stellen, dunkler und fleckiger zu werden. Es entstehen Falten und Furunkel, die an Warzen erinnern. Im Gesicht zieht sich die Haut stark zurück. Der Anwender nimmt das Aussehen eines untoten Wesens, einer Hexe oder einer ähnlichen widernatürlichen Kreatur an. Die Veränderung bleibt für eine Anzahl Stunden in Höhe eines Elixierwürfels bestehen. Die Auswirkungen der Salbe sind in erster Linie rollenspielerischer Natur. Zusätzlich erhält die Person eine Schadensreduzierung −1 gegen alle physischen Angriffe, erleidet dafür aber auch einen Malus von −5 auf Redekunst-Proben sowie sämtliche Interaktionen mit normalen Menschen. Nach Ablauf der Wirkung nimmt die Haut ihre frühere Konsistenz an. Die Anwendung zählt als Magische Heilung (Mh).",
       "summary": ""
     },
-    "Irrwischkraut": {
+    "irrwischkraut": {
+      "name":"Irrwischkraut",
       "description": "Verwende Irrwischkraut wie ein Elixier. Sobald es eingenommen wurde, erhöht sich ab der folgenden Kampfrunde die Ini des Jägers um das Ergebnis eines Elixierwürfels. Nach Ende des Kampfes erleidet er jedoch für jeden Punkt Ini über seinem Normalwert 1 Punkt Geistschaden. Die Anwendung zählt als Magische Heilung (Mh).",
       "summary": ""
     },
-    "Rauschkraut": {
+    "rauschkraut": {
+      "name":"Rauschkraut",
       "description": "Verwende Rauschkraut wie ein Elixier. Sobald es eingenommen wurde, erhält der Anwender Rage in Höhe eines Elixierwürfels (bis zum erlaubten Maximum von 5 Ragen). Die Anwendung zählt als Magische Heilung (Mh).",
       "summary": ""
     },
-    "Verhextes Wasser": {
+    "verhextes-wasser": {
+      "name":"Verhextes Wasser",
       "description": "Verwende Verhextes Wasser wie ein Wurfgeschoss. Es richtet zwar keinen Schaden an (außer dem Grundschaden durch den Schleuderangriff), der Anwender darf jedoch mit einem Blutwürfel würfeln. Entspricht die Anzahl der Blutstropfensymbole mindestens der Anführerstufe des Gegners, sind alle Immunitäten des Ziels bis ans Ende der Kampfrunde aufgehoben. Werden in dieser Zeit anhaltende Einflüsse erzeugt, können diese zwar in Ini 0 abgebaut werden, bleiben jedoch auch bestehen, wenn die Immunität in der nächsten Runde wieder gültig ist. Sobald verhextes Wasser einmal erfolgreich angewendet wurde, kann das Ziel während des aktuellen Kampfes nicht mehr von diesem betroffen werden.",
       "summary": ""
     },
-    "Warzengift": {
+    "warzengift": {
+      "name":"Warzengift",
       "description": "Dieses Waffengift lässt die Haut reißen, Pusteln und Warzen entstehen. Würfele beim Angriff einen Blutwürfel mit. Wenn der Angriff mit der vergifteten Waffe zum Verlust von Lep beim Gegner führt, erzeugt das Warzengift für jedes Blutstropfensymbol abwechselnd 1 äußere Schadensstufe oder 1 Malusstufe. Bei 3 Erfolgen würde es somit zuerst 1 äußere Schadensstufe, dann 1 Malusstufe, dann erneut 1 äußere Schadensstufe verursachen.",
       "summary": ""
     },
-    "Wundtrank": {
+    "wundtrank": {
+      "name":"Wundtrank",
       "description": "Verwende den Wundtrank wie ein Elixier. Sobald er eingenommen wurde, reduziert er äußere Schadensstufen in Höhe eines Elixierwürfels. Die Anwendung zählt als Magische Heilung (Mh).",
       "summary": ""
     }
@@ -154,57 +180,68 @@
         "page": "141"
       }
     ],
-    "Donnerschuss ": {
+    "donnerschuss ": {
+      "name":"Donnerschuss",
       "description": "Alle Angriffe der Schusswaffe ignorieren 1 Pw. Der Umbau ist möglich bei Armbrüsten, Musketen und Pistolen.",
       "summary": " (20 Kp)",
       "upkeep":"50"
     },
-    "Feuerschaden": {
+    "feuerschaden": {
+      "name":"Feuerschaden",
       "description": "Die Waffe richtet bei einem Treffer Feuerschaden an. Der Schadenstyp der Waffe ändert sich in Feuerschaden. Würfele einen Blutwürfel mit. Die Zahl der Blutstropfensymbole gibt an, wie viele äußere Schadensstufen bei einem erfolgreichen Treffer (mindestens 1 Treffererfolg) erzeugt wurden. Wenn der Blutwürfel kein Blutstropfensymbol anzeigt, kann diese Wirkung bis zum Ende des Kampfes nicht mehr eingesetzt werden. Der Umbau ist möglich bei Armbrüsten, Säbeln und Schwertern.",
       "summary": "(25 Kp)",
       "upkeep":"80"
     },
-    "Giftkanal ": {
+    "giftkanal": {
+      "name":"Giftkanal",
       "description": "Die Waffe kann wie Dolche und Messer mit Giften präpariert werden. Der Umbau ist möglich bei Armbrüsten, Fechtwaffen und Schwertern.",
       "summary": "(15 Kp)",
       "upkeep":"20"
     },
-    "Schnellschuss ": {
+    "schnellschuss": {
+      "name":"Schnellschuss",
       "description": "Wenn der Jäger in der laufenden Runde nur einen einzigen Schusswaffenangriff ausführt, kann er diesen um 1 Ap reduzieren. Eine Kombination mit Nahkampfangriffen ist erlaubt. Der Einbau ist möglich bei Armbrüsten und Pistolen.",
       "summary": "(15 Kp)",
       "upkeep":"40"
     },
-    "Schleuderbüchse ": {
+    "schleuderbüchse": {
+      "name":"Schleuderbüchse",
       "description": " Die Muskete verursacht 2 Schadenspunkte Grundschaden weniger, kann dafür aber Wurfgeschosse verschießen wie sonst nur eine Schleuder. Der Einbau ist möglich bei Musketen.",
       "summary": "(10 Kp)",
       "upkeep":"20"
     },
-    "Schussstange ": {
+    "schussstange": {
+      "name":"Schussstange",
       "description": "Im langen Schaft der Waffe ist eine Schussvorrichtung eingebaut. Wenn du selbst freistehst, kannst du mit der Waffe einen Angriff über Distanz (nur einmal pro Kampf) ausführen (auch gegen gebundene Gegner). Erhöhe die Ap-Kosten des Angriffs um +1. Alle anderen Werte bleiben jedoch bestehen. Der Einbau ist möglich bei Lanzen, Schlagwaffen und Stangenwaffen.",
       "summary": "(15 Kp)",
       "upkeep":"30"
     },
-    "Silberklinge ": {
+    "silberklinge": {
+      "name":"Silberklinge",
       "description": "Alle Angriffe dieser Waffe gegen widernatürliche Kreaturen erzeugen +1 Schaden. Der Einbau ist möglich bei Dolchen, Fechtwaffen, Säbeln und Schwertern.",
       "summary": "(30 Kp)",
       "upkeep":"50"
     },
-    "Wirbel ": {
+    "wirbel": {
+      "name":"wirbel",
       "description": "Die Waffe beginnt zu wirbeln oder zu rotieren, sodass sie mehrere gebundene Gegner verletzten kann. Wenn du mit dieser Waffe angreifst und mindestens zwei Gegner an dich gebunden sind, erhältst du für jeden Angriff einen Bonus von +1. Allerdings kannst du in diesem Zug jeden Gegner maximal einmal mit dieser Waffe attackieren. Der Einbau ist möglich bei Fechtwaffen, Schlagwaffen, Säbeln, Schwertern und Stangenwaffen.",
       "summary": "(20 Kp)",
       "upkeep":"30"
     },
-    "Blendaura ": {
+    "blendaura": {
+      "name":"Blendaura",
       "description": "Immer, wenn du von einem Gegner durch einen Nahkampfangriff getroffen wirst, strahlt deine Blendaura-Panzerung in einem grellen Licht, das den angreifenden Gegner blendet. Für je 4 Erfolge, die der Gegner bei einem Nahkampfangriff gegen den Träger der Panzerung erzielt, erhält er automatisch 1 Malusstufe. Der Einbau ist möglich bei schweren Panzerungen.",
       "summary": "(25 Kp)",
       "upkeep":"50"
     },
-    "Modulare Panzerung": {
+    "modulare-panzerung": {
+      "name":"Modulare Panzerung",
       "description": "Die Panzerung ist modular aufgebaut. Bei Bedarf können Panzerplatten und -teile abgeworfen werden, wodurch die Panzerung leichter wird. Der Träger kann sich vor Kampfbeginn (wenn nicht überrascht) oder in Ini 0 entscheiden, ob er den Panzerballast abwirft. Das ist pro Konflikt einmal möglich. Für den Rest des Kampfes wird die Panzerung behandelt wie eine der jeweils niedrigeren Stufe: Aus einer schweren Panzerung wird eine mittelschwere Panzerung, aus einer mittelschweren Panzerung eine leichte Panzerung. Der Einbau ist möglich bei mittelschweren und schweren Panzerungen.",
       "summary": "(15 Kp)",
       "upkeep":"20"
     },
-    "Verhärtendes Leder": {
+    "verhaertendes-leder": {
+      "name":"Verhärtendes Leder",
       "description": "Das Leder der Panzerung wird dazu gebracht, sich zusammenzuziehen, sodass es sich verhärtet und dadurch die Schutzwirkung erhöht. Der Träger kann vor Kampfbeginn (wenn nicht überrascht) oder in Ini 0 das verhärtende Leder aktivieren. In der nächsten Runde zählt die Panzerung wie eine schwere Panzerung (Pw 3, Ap 3). Der Einbau ist möglich bei mittelschweren Panzerungen.",
       "summary": "(15 Kp)",
       "upkeep":"20"
@@ -222,35 +259,43 @@
         "page": "125"
       }
     ],
-    "Effektives Waffengift ": {
+    "effektives-waffengift": {
+      "name":"Effektives Waffengift",
       "description": "Die Zahl der bei einem Angriff verursachten Schadenspunkte (Lep-Verlust beim Gegner, nach Abzug von Panzerung) wird verdoppelt.",
       "summary": ""
     },
-    "Einfaches Waffengift": {
+    "einfaches-waffengift": {
+      "name":"Einfaches Waffengift",
       "description": "Würfele beim Angriff einen Blutwürfel mit. Wenn der Angriff mit der vergifteten Waffe zum Verlust von Lep beim Gegner führt, erzeugt jedes Blutstropfensymbol 2 weitere Schadenspunkte (Gift, Schmerzschaden).",
       "summary": ""
     },
-    "Feuergift ": {
+    "feuergift": {
+      "name":"Feuergift",
       "description": "Würfele beim Angriff einen Blutwürfel mit. Wenn der Angriff mit der vergifteten Waffe zum Verlust von Lep beim Gegner führt, erzeugt das Feuergift für jedes Blutstropfensymbol 1 äußere Schadensstufe.",
       "summary": ""
     },
-    "Gift des Erstarrens ": {
+    "gift-des-erstarrens": {
+      "name":"Gift des Erstarrens",
       "description": "Würfele beim Angriff einen Blutwürfel mit. Wenn der Angriff mit der vergifteten Waffe zum Verlust von Lep beim Gegner führt, verliert der Gegner Schadensreduzierungen in Höhe der gewürfelten Blutstropfensymbole.",
       "summary": ""
     },
-    "Lotusgift ": {
+    "lotusgift": {
+      "name":"Lotusgift",
       "description": "  Dieses Gift ist besonders effektiv, wenn das Ziel bereits unter negativen Zuständen leidet. Wenn der Angriff mit der vergifteten Waffe zum Verlust von Lep beim Gegner führt, erleidet dieser sofort 2 Punkte Schmerzschaden für jede äußere Schadensstufe, innere Schadensstufe und Malusstufe, unter der er bereits leidet (kumulativ).",
       "summary": ""
     },
-    "Schlafgift ": {
+    "schlafgift": {
+      "name":"Schlafgift",
       "description": " Schlafgift muss dem Ziel über Nahrung oder Getränke zugeführt werden und ist nicht als Waffengift tauglich. Pro Schlafgift sind 4 Bandengegner (gleich welcher Stufe) oder 1 Anführergegner betroffen. Es können maximal drei Schlafgifte kombiniert werden, wodurch z. B. durch ein vergiftetes Fass Wasser bis zu 8 Bandengegner und 1 Anführergegner lahmgelegt werden können. Bandengegner schlafen automatisch tief und fest für drei bis vier Stunden ein (sie gelten als besiegt, noch bevor der Kampf beginnt).  Anführergegner starten stattdessen bei der nächsten Begegnung mit 3 Malusstufen, die ab der ersten Ini-0-Phase normal abgebaut werden können.",
       "summary": ""
     },
-    "Schwächegift ": {
+    "schwaechegift": {
+      "name":"Schwächegift",
       "description": "Würfele beim Angriff einen Blutwürfel mit. Wenn der Angriff mit der vergifteten Waffe zum Verlust von Lep beim Gegner führt, erzeugt das Schwächegift für jedes Blutstropfensymbol 1 Malusstufe beim Gegner.",
       "summary": ""
     },
-    "Wundgift ": {
+    "wundgift": {
+      "name":"Wundgift",
       "description": "Würfele beim Angriff einen Blutwürfel mit. Wenn der Angriff mit der vergifteten Waffe zum Verlust von Lep beim Gegner führt, erzeugt das Wundgift für jedes Blutstropfensymbol 1 innere Schadensstufe beim Gegner.",
       "summary": ""
     }
@@ -267,47 +312,58 @@
         "page": "140"
       }
     ],
-    "Bewegungsunterstützer": {
+    "bewegungsunterstuetzer": {
+      "name":"Bewegungsunterstützer",
       "description": " Coups +1 (Ausbau: +2, +3)",
       "summary": ""
     },
-    "Fernsichtbrille": {
+    "fernsichtbrille": {
+      "name":"Fernsichtbrille",
       "description": "Erkennen-Probe Bonus von +1 (Ausbau: +2, +3)",
       "summary": ""
     },
-    "Kraftverstärker ": {
+    "kraftverstaerker": {
+      "name":"Kraftverstärker",
       "description": "Muskelspiel-Probe Bonus von +1 (Ausbau: +2, +3)",
       "summary": ""
     },
-    "Linsensystem": {
+    "linsensystem": {
+      "name":"Linsensystem",
       "description": "Ideen +1 (Ausbau: +2, +3)",
       "summary": ""
     },
-    "Multifunktionswerkzeug ": {
+    "multifunktionswerkzeug": {
+      "name":"Multifunktionswerkzeug",
       "description": "Handwerken-ProbeBonus von +1 (Ausbau: +2, +3)",
       "summary": ""
     },
-    "Panzerplatten ": {
+    "panzerplatten": {
+      "name":"Panzerplatten",
       "description": "Puffer-Lep +2 (Ausbau: +4, +6)",
       "summary": ""
     },
-    "Präzises Feinwerkzeug ": {
+    "praezises-feinwerkzeug": {
+      "name":"Präzises Feinwerkzeug",
       "description": "Fingerfertigkeit- Probe Bonus von +1 (Ausbau: +2, +3)",
       "summary": ""
     },
-    "Schildhalterung ": {
+    "schildhalterungs": {
+      "name":"Schildhalterung",
       "description": "Schildblock-Probe Bonus von +1 (Ausbau: +2, +3)",
       "summary": ""
     },
-    "Sprungfedern ": {
+    "sprungfedern": {
+      "name":"Sprungfedern",
       "description": "Automatisches Lösen von einem Feind und Sprünge von bis zu 2 Metern Höhe (Ausbau: zweimal pro Kampf bzw. dreimal pro Kampf einsetzbar)",
       "summary": "einmal pro Kampf"
     },
-    "Waffenhalterung  ": {
+    "waffenhalterung": {
+      "name":"Waffenhalterung",
       "description": "Ap-Kosten für Waffenangriff -1 (Ausbau: 2 x pro Kampf bzw. 3 x pro Kampf einsetzbar)",
       "summary": "einmal pro Kampf"
     },
-    "Wurfhakenschleuder ": {
+    "wurfhakenschleuder": {
+      "name":"Wurfhakenschleuder",
       "description": "Akrobatik-Probe Bonus von +1 (Ausbau: +2, +3)",
       "summary": ""
     }
@@ -324,19 +380,23 @@
         "page": "140"
       }
     ],
-    "Abwehrautomatik": {
+    "abwehrautomatik": {
+      "name":"Abwehrautomatik",
       "description": "Ausweichen-, Schildblock- und Parieren-Probe Bonus von +1 (Ausbau: +2, +3)",
       "summary": ""
     },
-    "Zielsystem": {
+    "zielsystem": {
+      "name":"Zielsystem",
       "description": "Musketen-, Armbrüste- und Pistolen- Probe Bonus +1 (Ausbau: +2, +3)",
       "summary": ""
     },
-    "Vibrierende Klinge": {
+    "vibrierende-klinge": {
+      "name":"Vibrierende Klinge",
       "description": "Dolche/Messer-, Säbelund Schwerter-Probe Bonus +1 (Ausbau: +2, +3)",
       "summary": ""
     },
-    "Wundversorger": {
+    "wundversorger": {
+      "name":"Wundversorger",
       "description": " Erste Hilfe-Probe Bonus +1 (Ausbau: +2, +3)",
       "summary": ""
     }

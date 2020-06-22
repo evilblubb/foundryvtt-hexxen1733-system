@@ -4,9 +4,11 @@
     "references": [
       {
         "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/kle_aristokratische_kleidung.html",
-        "page": "Das Buch der Regeln | Seite 155"
-      }
+        "link": "http://hexxen1733-regelwiki.de/index.php/kle_aristokratische_kleidung.html"
+      },{
+        "source":"Das Buch der Regeln",
+        "page": "155"
+        }
     ],
     "description": "Aristokratische Kleidung muss gepflegt werden und erhöht den Unterhalt um +20. Dafür gibt sie einen Bonus von +2 auf Redekunst.",
     "summary": ""
@@ -16,9 +18,11 @@
     "references": [
       {
         "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/kle_Bauerntracht.html",
-        "page": "Hexenjagd | Seite 122"
-      }
+        "link": "http://hexxen1733-regelwiki.de/index.php/kle_Bauerntracht.html"
+        },{
+          "source":"Hexenjagd",
+          "page": "122"
+          }
     ],
     "description": "Bauerntracht gibt einen Bonus von +2 bei der Herstellung von Kräutermitteln sowie beim Zubereiten von Mahlzeiten mithilfe der Kochstelle. Dieser Bonus kann nach Ermessen des HeXXenmeisters auch bei anderen typischen bäuerlichen oder alltäglichen Aufgaben gewährt werden.",
     "summary": ""
@@ -28,9 +32,11 @@
     "references": [
       {
         "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/kle_bergmannshabit.html",
-        "page": "Archiv des Wächterbunds 1 | Seite 79"
-      }
+        "link": "http://hexxen1733-regelwiki.de/index.php/kle_bergmannshabit.html"
+        },{
+          "source":"Archiv des Wächterbunds 1",
+          "page": "79"
+          }
     ],
     "description": "Wenn du diese Kleidung unter Tage trägst und Schaden durch Steinschlag, Nässe, Kälte, Abrutschen, Stürze oder ähnliche Gefahren erleidest, wird der Schaden jeweils um 3 Punkte reduziert.",
     "summary": "",
@@ -41,9 +47,11 @@
     "references": [
       {
         "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/kle_Buergerlich.html",
-        "page": "Das Buch der Regeln | Seite 156"
-      }
+        "link": "http://hexxen1733-regelwiki.de/index.php/kle_Buergerlich.html"
+        },{
+          "source":"Das Buch der Regeln",
+          "page": "156"
+          }
     ],
     "description": "Ein Charakter in bürgerlicher Kleidung erhält einen Bonus von +1 auf Redekunst.",
     "summary": ""
@@ -53,9 +61,11 @@
     "references": [
       {
         "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/kle_Gardeuniform.html",
-        "page": "Das Buch der Regeln | Seite 156"
-      }
+        "link": "http://hexxen1733-regelwiki.de/index.php/kle_Gardeuniform.html"
+        },{
+          "source":"Das Buch der Regeln",
+          "page": "156"
+          }
     ],
     "description": "Die Gardeuniform gibt einen Bonus von +1 beim Parieren oder einem Schildblock.",
     "summary": ""
@@ -65,9 +75,11 @@
     "references": [
       {
         "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/kle_gelehrtenkleidung.html",
-        "page": "Das Buch der Regeln | Seite 156"
-      }
+        "link": "http://hexxen1733-regelwiki.de/index.php/kle_gelehrtenkleidung.html"
+        },{
+          "source":"Das Buch der Regeln",
+          "page": "156"
+          }
     ],
     "description": "Gelehrte werden im Kampf nicht unbedingt als Bedrohung angesehen. Der Träger von Gelehrtenkleidung darf sich einmal pro Kampf automatisch von einem gebundenen Gegner lösen.",
     "summary": ""
@@ -77,9 +89,11 @@
     "references": [
       {
         "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/kle_Handwerkerkleidung.html",
-        "page": "Das Buch der Regeln | Seite 157"
-      }
+        "link": "http://hexxen1733-regelwiki.de/index.php/kle_Handwerkerkleidung.html"
+        },{
+          "source":"Das Buch der Regeln",
+          "page": "157"
+          }
     ],
     "description": "Handwerkerkleidung gewährt einen Bonus von +2 auf Handwerken- Proben.",
     "summary": ""
@@ -89,9 +103,11 @@
     "references": [
       {
         "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/kle_Kriegeruntergewand.html",
-        "page": "Das Buch der Regeln | Seite 157"
-      }
+        "link": "http://hexxen1733-regelwiki.de/index.php/kle_Kriegeruntergewand.html"
+        },{
+          "source":"Das Buch der Regeln",
+          "page": "157"
+          }
     ],
     "description": "Ein Jäger im Kriegeruntergewand erhält Lep +3.",
     "summary": ""
@@ -101,9 +117,11 @@
     "references": [
       {
         "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/kle_Kultrobe.html",
-        "page": "Hexenjagd | Seite 122"
-      }
+        "link": "http://hexxen1733-regelwiki.de/index.php/kle_Kultrobe.html"
+        },{
+          "source":"Hexenjagd",
+          "page": "122"
+          }
     ],
     "description": "Eine Kultrobe gibt einen Bonus von +2 auf Heimlichkeit, um sich unerkannt in der Dunkelheit oder den Schatten zu bewegen, sowie +2 auf Redekunst, wenn man mit Kultisten, Sektenmitgliedern o. Ä. interagiert. Im Kampf kann eine Kultrobe als Aktion für 1 Ap abgelegt werden. In diesem Fall wird sofort Kleidungsset #2 aktiviert.",
     "summary": ""
@@ -113,9 +131,11 @@
     "references": [
       {
         "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/kle_kundschafterkleidung.html",
-        "page": "Archiv des Wächterbunds 1 | Seite 79"
-      }
+        "link": "http://hexxen1733-regelwiki.de/index.php/kle_kundschafterkleidung.html"
+        },{
+          "source":"Archiv des Wächterbunds 1",
+          "page": "79"
+          }
     ],
     "description": "Wenn du in Kundschafterkleidung im Außenbereich übernachtest (unter freiem Himmel, im Zelt oder im Zelt mit Feldbett), regenerierst du zusätzlich +2 Lep und erhältst +1 Coup oder +1 Idee für die Dauer des nächsten Tages. Ist eine Herberge, Stadt oder sonstige stabile Unterkunft in der Nähe, kannst du Kundschafterkleidung nicht anwenden.",
     "summary": "",
@@ -126,9 +146,11 @@
     "references": [
       {
         "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/kle_Landsknechtkleidung.html",
-        "page": "Das Buch der Regeln | Seite 157"
-      }
+        "link": "http://hexxen1733-regelwiki.de/index.php/kle_Landsknechtkleidung.html"
+        },{
+          "source":"Das Buch der Regeln",
+          "page": "157"
+          }
     ],
     "description": "Träger von Landsknechtkleidung können einen Gegner mehr an sich binden, als es die Kräftebeschreibungen angeben oder es die Umgebung zulässt.",
     "summary": ""
@@ -138,9 +160,11 @@
     "references": [
       {
         "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/kle_Liturgisches.html",
-        "page": "Das Buch der Regeln | Seite 158"
-      }
+        "link": "http://hexxen1733-regelwiki.de/index.php/kle_Liturgisches.html"
+        },{
+          "source":"Das Buch der Regeln",
+          "page": "158"
+          }
     ],
     "description": "Menschliche Gegner wagen es oftmals nicht, ein hoch angesehenes Kirchenmitglied zu attackieren. Einmal pro Kampf kannst du die gegnerischen Angriffserfolge bei einem gegen dich gerichteten Nahkampfangriff um 3 reduzieren.",
     "summary": ""
@@ -150,9 +174,11 @@
     "references": [
       {
         "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/kle_Musketierkleidung.html",
-        "page": "Das Buch der Regeln | Seite 158"
-      }
+        "link": "http://hexxen1733-regelwiki.de/index.php/kle_Musketierkleidung.html"
+        },{
+          "source":"Das Buch der Regeln",
+          "page": "158"
+          }
     ],
     "description": "Einmal pro Kampf kann eine beliebige Schusswaffe für 1 Ap weniger (mindestens aber 1 Ap) angewendet werden.",
     "summary": ""
@@ -162,9 +188,11 @@
     "references": [
       {
         "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/kle_Moench_Nonne.html",
-        "page": "Das Buch der Regeln | Seite 158"
-      }
+        "link": "http://hexxen1733-regelwiki.de/index.php/kle_Moench_Nonne.html"
+        },{
+          "source":"Das Buch der Regeln",
+          "page": "158"
+          }
     ],
     "description": "Träger dieser Kleidung können einmal pro Konflikt als kostenlose Reaktion 1 Segnung in 1 Idee oder umgekehrt tauschen.",
     "summary": ""
@@ -174,9 +202,11 @@
     "references": [
       {
         "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/kle_Reisekleidung.html",
-        "page": "Das Buch der Regeln | Seite 159"
-      }
+        "link": "http://hexxen1733-regelwiki.de/index.php/kle_Reisekleidung.html"
+        },{
+          "source":"Das Buch der Regeln",
+          "page": "159"
+          }
     ],
     "description": "Reisekleidung gibt 2 Puffer-Lep.",
     "summary": ""
@@ -186,9 +216,11 @@
     "references": [
       {
         "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/kle_Soeldnerkleidung.html",
-        "page": "Das Buch der Regeln | Seite 159"
-      }
+        "link": "http://hexxen1733-regelwiki.de/index.php/kle_Soeldnerkleidung.html"
+        },{
+          "source":"Das Buch der Regeln",
+          "page": "159"
+          }
     ],
     "description": "Einmal pro Kampf kann eine beliebige Nahkampfwaffe oder Schleuderwaffe für 1 Ap weniger (mindestens aber 1 Ap) angewendet werden.",
     "summary": ""
@@ -198,9 +230,11 @@
     "references": [
       {
         "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_panzerungen.html",
-        "page": "Das Buch der Regeln | Seite 99"
-      }
+        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_panzerungen.html"
+        },{
+          "source":"Das Buch der Regeln",
+          "page": "99"
+          }
     ],
     "description": "Schwere Rüstung, PW3",
     "summary": "",
@@ -211,9 +245,11 @@
     "references": [
       {
         "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_panzerungen.html",
-        "page": "Das Buch der Regeln | Seite 99"
-      }
+        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_panzerungen.html"
+        },{
+          "source":"Das Buch der Regeln",
+          "page": "99"
+          }
     ],
     "description": "Mittelschwere Rüstung, PW2",
     "summary": "",
@@ -224,9 +260,11 @@
     "references": [
       {
         "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_panzerungen.html",
-        "page": "Das Buch der Regeln | Seite 99"
-      }
+        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_panzerungen.html"
+        },{
+          "source":"Das Buch der Regeln",
+          "page": "99"
+          }
     ],
     "description": "Panzerung für Schlachtrösser, PW +1",
     "summary": "",
