@@ -278,10 +278,12 @@ class HexxenActor extends Actor {
     const legacy = (this.data.data.core !== undefined) && (this.data.data.calc !== undefined);
     const revision = legacy ? 0 : this.data.data["_data-revision"];
 
+    // TODO: vorgelagerte Prüfung (z.B. _needToMigrate())
     // TODO: handle tokens
-    if (this.isToken()) return;
+    if (this.isToken) return;
 
-    // FIXME: nur als Gamemaster ausführen, da sonst ggf. mehrfach
+    // to avoid multiple migration runs, migration is only done by gamemaster
+    if (!game.user.isGM) return; //TODO: Hinweis für Spieler, dass Actor noch nicht migriert.
 
     if ("character" === this.type) {
 
