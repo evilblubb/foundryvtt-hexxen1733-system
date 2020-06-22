@@ -143,7 +143,7 @@
     }
   },
   "unikate": {
-    "description": "Jedes Unikat kann eine der unten aufgeführten Wirkungen aufweisen. Die jeweiligen Kosten in Kp und die Unterhaltssteigerungen unterscheiden sich für jede Wirkung.",
+    "description": "Jedes Unikat kann eine der unten aufgeführten Wirkungen aufweisen. Die jeweiligen Kosten in Kp und die ssteigerungen unterscheiden sich für jede Wirkung.",
     "references": [
       {
         "source": "Wiki",
@@ -156,47 +156,58 @@
     ],
     "Donnerschuss ": {
       "description": "Alle Angriffe der Schusswaffe ignorieren 1 Pw. Der Umbau ist möglich bei Armbrüsten, Musketen und Pistolen.",
-      "summary": " (20 Kp, Unterhalt +50)"
+      "summary": " (20 Kp)",
+      "upkeep":"50"
     },
     "Feuerschaden": {
       "description": "Die Waffe richtet bei einem Treffer Feuerschaden an. Der Schadenstyp der Waffe ändert sich in Feuerschaden. Würfele einen Blutwürfel mit. Die Zahl der Blutstropfensymbole gibt an, wie viele äußere Schadensstufen bei einem erfolgreichen Treffer (mindestens 1 Treffererfolg) erzeugt wurden. Wenn der Blutwürfel kein Blutstropfensymbol anzeigt, kann diese Wirkung bis zum Ende des Kampfes nicht mehr eingesetzt werden. Der Umbau ist möglich bei Armbrüsten, Säbeln und Schwertern.",
-      "summary": "(25 Kp, Unterhalt +80)"
+      "summary": "(25 Kp)",
+      "upkeep":"80"
     },
     "Giftkanal ": {
       "description": "Die Waffe kann wie Dolche und Messer mit Giften präpariert werden. Der Umbau ist möglich bei Armbrüsten, Fechtwaffen und Schwertern.",
-      "summary": "(15 Kp, Unterhalt +20)"
+      "summary": "(15 Kp)",
+      "upkeep":"20"
     },
     "Schnellschuss ": {
       "description": "Wenn der Jäger in der laufenden Runde nur einen einzigen Schusswaffenangriff ausführt, kann er diesen um 1 Ap reduzieren. Eine Kombination mit Nahkampfangriffen ist erlaubt. Der Einbau ist möglich bei Armbrüsten und Pistolen.",
-      "summary": "(15 Kp, Unterhalt +40)"
+      "summary": "(15 Kp)",
+      "upkeep":"40"
     },
     "Schleuderbüchse ": {
       "description": " Die Muskete verursacht 2 Schadenspunkte Grundschaden weniger, kann dafür aber Wurfgeschosse verschießen wie sonst nur eine Schleuder. Der Einbau ist möglich bei Musketen.",
-      "summary": "(10 Kp, Unterhalt +20)"
+      "summary": "(10 Kp)",
+      "upkeep":"20"
     },
     "Schussstange ": {
       "description": "Im langen Schaft der Waffe ist eine Schussvorrichtung eingebaut. Wenn du selbst freistehst, kannst du mit der Waffe einen Angriff über Distanz (nur einmal pro Kampf) ausführen (auch gegen gebundene Gegner). Erhöhe die Ap-Kosten des Angriffs um +1. Alle anderen Werte bleiben jedoch bestehen. Der Einbau ist möglich bei Lanzen, Schlagwaffen und Stangenwaffen.",
-      "summary": "(15 Kp, Unterhalt +30)"
+      "summary": "(15 Kp)",
+      "upkeep":"30"
     },
     "Silberklinge ": {
       "description": "Alle Angriffe dieser Waffe gegen widernatürliche Kreaturen erzeugen +1 Schaden. Der Einbau ist möglich bei Dolchen, Fechtwaffen, Säbeln und Schwertern.",
-      "summary": "(30 Kp, Unterhalt +50)"
+      "summary": "(30 Kp)",
+      "upkeep":"50"
     },
     "Wirbel ": {
       "description": "Die Waffe beginnt zu wirbeln oder zu rotieren, sodass sie mehrere gebundene Gegner verletzten kann. Wenn du mit dieser Waffe angreifst und mindestens zwei Gegner an dich gebunden sind, erhältst du für jeden Angriff einen Bonus von +1. Allerdings kannst du in diesem Zug jeden Gegner maximal einmal mit dieser Waffe attackieren. Der Einbau ist möglich bei Fechtwaffen, Schlagwaffen, Säbeln, Schwertern und Stangenwaffen.",
-      "summary": "(20 Kp, Unterhalt +30)"
+      "summary": "(20 Kp)",
+      "upkeep":"30"
     },
     "Blendaura ": {
       "description": "Immer, wenn du von einem Gegner durch einen Nahkampfangriff getroffen wirst, strahlt deine Blendaura-Panzerung in einem grellen Licht, das den angreifenden Gegner blendet. Für je 4 Erfolge, die der Gegner bei einem Nahkampfangriff gegen den Träger der Panzerung erzielt, erhält er automatisch 1 Malusstufe. Der Einbau ist möglich bei schweren Panzerungen.",
-      "summary": "(25 Kp, Unterhalt +50)"
+      "summary": "(25 Kp)",
+      "upkeep":"50"
     },
     "Modulare Panzerung": {
       "description": "Die Panzerung ist modular aufgebaut. Bei Bedarf können Panzerplatten und -teile abgeworfen werden, wodurch die Panzerung leichter wird. Der Träger kann sich vor Kampfbeginn (wenn nicht überrascht) oder in Ini 0 entscheiden, ob er den Panzerballast abwirft. Das ist pro Konflikt einmal möglich. Für den Rest des Kampfes wird die Panzerung behandelt wie eine der jeweils niedrigeren Stufe: Aus einer schweren Panzerung wird eine mittelschwere Panzerung, aus einer mittelschweren Panzerung eine leichte Panzerung. Der Einbau ist möglich bei mittelschweren und schweren Panzerungen.",
-      "summary": "(15 Kp, Unterhalt+20)"
+      "summary": "(15 Kp)",
+      "upkeep":"20"
     },
     "Verhärtendes Leder": {
       "description": "Das Leder der Panzerung wird dazu gebracht, sich zusammenzuziehen, sodass es sich verhärtet und dadurch die Schutzwirkung erhöht. Der Träger kann vor Kampfbeginn (wenn nicht überrascht) oder in Ini 0 das verhärtende Leder aktivieren. In der nächsten Runde zählt die Panzerung wie eine schwere Panzerung (Pw 3, Ap 3). Der Einbau ist möglich bei mittelschweren Panzerungen.",
-      "summary": "(15 Kp, Unterhalt +20)"
+      "summary": "(15 Kp)",
+      "upkeep":"20"
     }
   },
   "gifte": {
