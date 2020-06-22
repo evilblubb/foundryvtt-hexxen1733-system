@@ -126,6 +126,9 @@
       "segnungen": 0,
       "ideen": 0,
       "coups": 0,
+      "rage": 0,
+      "ambition": 0,
+      "quintessenz": 0,
       "kp": 0,
       "eh": 0,
       "mh": 0,
@@ -464,7 +467,14 @@
       "items": { "editor": "" }
     },
     "temp": {
-      "pw": 0
+      "pw": 0,
+      "unterhalt": 0,
+      "vermoegen": 0,
+      "ini-bonus": 0,
+      "ap-bonus": 0,
+      "lep-bonus": 0,
+      "idee-bonus": 0,
+      "coup-bonus": 0
     },
     "biography": "",
     "states-text": "",
