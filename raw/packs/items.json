@@ -46,7 +46,6 @@
     "description": "Das Mineralische Laboratorium kann als transportables Laboratorium verwendet werden. Es gibt einen zusätzlichen Bonus +1 beim Nehmen von mineralischen Proben und beim Herstellen von Wurfgeschossen und Speziellem Schießpulver. Du kannst immer nur ein Laboratorium tragen. Wird es mit einem Fahrzeug befördert, zählt es als Gewicht wie 3 Beutegutpakete.",
     "summary": "",
     "cost": "270"
-    "summary": "Kosten: 270 Gulden"
   },
   "werkzeugkiste": {
     "name": "Werkzeugkiste",
