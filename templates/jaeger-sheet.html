@@ -374,7 +374,28 @@
 
         {{!-- Besitz Tab --}}
         <div class="tab items scroll-y" data-group="primary" data-tab="items">
-            TODO: Unterhalt, Vermögen, Beutegut, Kleidung, Rüstung, Ausrüstung
+            <header class="list-header flexrow">
+                <span class="header-label">Vermögen & Unterhalt</span>
+            </header>
+            <div class="top flexrow">
+                <div class="vermoegen flexcol">
+                    <ol class="list-body">
+                        <li class="flexrow">
+                            <label class="label" for="vermoegen">Vermögen</label>
+                            <input id="vermoegen" class="value" type="text" name="data.temp.vermoegen" value="{{data.temp.vermoegen}}" />
+                        </li>
+                    </ol>
+                </div>
+                <div class="unterhalt flexcol">
+                    <ol class="list-body">
+                        <li class="flexrow">
+                            <label class="label" for="unterhalt">Unterhalt</label>
+                            <input id="unterhalt" class="value" type="text" name="data.temp.unterhalt" value="{{data.temp.unterhalt}}" />
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            TODO: Beutegut, Kleidung, Rüstung, Ausrüstung
             <ol class="items-list">
             {{#each actor.items as |item id|}}
                 <li class="item flexrow" data-item-id="{{item._id}}">

@@ -153,13 +153,17 @@
 .sheet.jaeger .states .top {
   column-gap: 8px;
 }
-.sheet.jaeger .states .list-body li > * {
+.sheet.jaeger .states .list-body li > *,
+.sheet.jaeger .items .list-body li > * {
   min-height: 20px;
   line-height: 20px;
   text-align: inherit;
 }
 .sheet.jaeger .states .top .list-body .label {
   flex: 1.5;
+}
+.sheet.jaeger .items .top .list-body .label {
+  flex: 0.5;
 }
 .sheet.jaeger .states .einfluesse .list-body .control {
   color: red;

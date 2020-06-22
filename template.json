@@ -468,8 +468,8 @@
     },
     "temp": {
       "pw": 0,
-      "unterhalt": 0,
-      "vermoegen": 0,
+      "unterhalt": "",
+      "vermoegen": "",
       "ini-bonus": 0,
       "ap-bonus": 0,
       "lep-bonus": 0,
