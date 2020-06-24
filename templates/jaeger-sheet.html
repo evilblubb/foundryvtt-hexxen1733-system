@@ -36,71 +36,136 @@
         {{#if dtype}}data-dtype="{{dtype}}"{{/if}}
         {{#if placeholder}}placeholder="{{placeholder}}"{{/if}} />
     {{else}}
-    <span class="{{#if (isDefined class)}}{{class}} {{/if}}value">
+    <div class="{{#if (isDefined class)}}{{class}} {{/if}}value">
         {{#if (isDefined content.value)}}{{content.value}}{{else}}{{content}}{{/if}}
-    </span>
+    </div>
     {{/if}}
     {{/inline}}
 
     {{!-- Sheet Header --}}
     <header class="sheet-header">
-        <div class="flexrow">
-            <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
-            <div class="top flexcol">
-                <h1 class="actorname flexrow">{{>input target="name" content=actor.name placeholder="Name"}}</h1>
-                <div class="combat flexrow">
+        <img class="profile-img" style="grid-area: img;" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
+        <h1 class="actorname" style="grid-area: name;">{{>input target="name" content=actor.name placeholder="Name"}}</h1>
+        <div class="table stats" style="grid-area: stats;">
+            <div class="tr health" data-key="data.health.value">
+                <label class="td label" for="health">Basis-LEP</label>
+                {{#inc-btn class="td"}}<input class="value" type="text" name="data.health.value" value="{{data.health.value}}" data-dtype="Number" id="health" />{{/inc-btn}}
+                <span class="td label max" title="Maximum"> / {{data.health.max}}</span>
+            </div>
+            <div class="tr power" data-key="data.power.value">
+                <label class="td label" for="power">Puffer-LEP</label>
+                {{#inc-btn class="td"}}<input class="value" type="text" name="data.power.value" value="{{data.power.value}}" data-dtype="Number" id="power" />{{/inc-btn}}
+                <span class="td label max" title="Maximum"> / {{data.power.max}}</span>
+            </div>
+        </div>
+        <div class="table combat" style="grid-area: combat;">
+            <div class="tr">
+                <div class="td">
                     <div class="ini flexrow">
                         <label class="label" title="Initiative" for="ini">INI</label>
-                        <span class="value" id="ini">{{data.ini.value}}</span>
+                        <div class="value" id="ini">{{data.ini.value}}</div>
                     </div>
+                </div>
+                <div class="td">
                     <div class="pw flexrow">
                         <label class="label" title="Panzerwert" for="pw">PW</label>
                         {{dyn-input class="value" path="data.temp" key="pw" value=data.temp.pw}}
                     </div>
+                </div>
+                <div class="td">
                     <div class="ap flexrow">
                         <label class="label" title="Aktionspunkte" for="ap">AP</label>
-                        <span class="value" id="ap">{{data.calc.ap}}</span>
-                    </div>
-                </div>
-                <div class="lep flexrow">
-                    <div class="basis-lep flexrow" data-key="data.health.value">
-                        <label class="label" for="basis-lep">Basis-LEP</label>
-                        {{#inc-btn}}<input class="value" type="text" name="data.health.value" value="{{data.health.value}}" data-dtype="Number" id="basis-lep" />{{/inc-btn}}
-                        <span class="label max" title="Maximum"> / {{data.health.max}}</span>
-                    </div>
-                    <div class="puffer-lep flexrow" data-key="data.power.value">
-                        <label class="label" for="puffer-lep">Puffer-LEP</label>
-                        {{#inc-btn}}<input class="value" type="text" name="data.power.value" value="{{data.power.value}}" data-dtype="Number" id="puffer-lep" />{{/inc-btn}}
-                        <span class="label max" title="Maximum"> / {{data.power.max}}</span>
+                        <div class="value" id="ap">{{data.calc.ap}}</div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="attributes flexrow">
-        {{#each data.attributes as |attr key|}}
-            <div class="attribute flexrow" data-key="{{key}}">
-                <a class="label roll" title="{{attr.label}}" data-action="roll" data-type="attribute">{{key}}</a>
-                {{dyn-input class="value" path="data.attributes" key=key target="value" value=attr.value}}
+        <div class="table attributes" style="grid-area: attr;">
+            <div class="tr">
+                <div class="td">
+                    {{#with data.attributes.SIN as |attr| }}
+                    <div class="attribute flexrow" data-key="SIN">
+                        <a class="label roll" title="{{attr.label}}" data-action="roll" data-type="attribute">SIN</a>
+                        {{dyn-input class="value" path="data.attributes" key=key target="value" value=attr.value}}
+                    </div>
+                    {{/with}}
+                </div>
+                <div class="td">
+                    {{#with data.attributes.WIS as |attr| }}
+                    <div class="attribute flexrow" data-key="WIS">
+                        <a class="label roll" title="{{attr.label}}" data-action="roll" data-type="attribute">WIS</a>
+                        {{dyn-input class="value" path="data.attributes" key=key target="value" value=attr.value}}
+                    </div>
+                    {{/with}}
+                </div>
+                <div class="td">
+                    {{#with data.attributes.WIL as |attr| }}
+                    <div class="attribute flexrow" data-key="WIL">
+                        <a class="label roll" title="{{attr.label}}" data-action="roll" data-type="attribute">WIL</a>
+                        {{dyn-input class="value" path="data.attributes" key=key target="value" value=attr.value}}
+                    </div>
+                    {{/with}}
+                </div>
             </div>
-        {{/each}}
+            <div class="tr">
+                <div class="td">
+                    {{#with data.attributes.KKR as |attr| }}
+                    <div class="attribute flexrow" data-key="KKR">
+                        <a class="label roll" title="{{attr.label}}" data-action="roll" data-type="attribute">KKR</a>
+                        {{dyn-input class="value" path="data.attributes" key=key target="value" value=attr.value}}
+                    </div>
+                    {{/with}}
+                </div>
+                <div class="td">
+                    {{#with data.attributes.ATH as |attr| }}
+                    <div class="attribute flexrow" data-key="ATH">
+                        <a class="label roll" title="{{attr.label}}" data-action="roll" data-type="attribute">ATH</a>
+                        {{dyn-input class="value" path="data.attributes" key=key target="value" value=attr.value}}
+                    </div>
+                    {{/with}}
+                </div>
+                <div class="td">
+                    {{#with data.attributes.GES as |attr| }}
+                    <div class="attribute flexrow" data-key="GES">
+                        <a class="label roll" title="{{attr.label}}" data-action="roll" data-type="attribute">GES</a>
+                        {{dyn-input class="value" path="data.attributes" key=key target="value" value=attr.value}}
+                    </div>
+                    {{/with}}
+                </div>
+            </div>
         </div>
-        <div class="resources flexrow">
-                <!-- TODO: <span class="fa-stack"><i class="fas fa-stack-1x fa-circle" style="color:yellow"></i><i class="fas fa-stack-1x">I</i></span>-->
+        <div class="table resources" style="grid-area: res;">
+            <div class="tr resource" data-key="data.resources.quintessenz">
+                <label class="td label" for="">Quintessenz</label>
+                <div class="td value"></div>
+                <div class="td label"></div>
+            </div>
+            <div class="tr resource" data-key="data.resources.ambition">
+                <label class="td label" for="">Ambition</label>
+                <div class="td value"></div>
+                <div class="td label"></div>
+            </div>
+            <div class="tr resource" data-key="data.resources.rage">
+                <label class="td label" for="">Rage</label>
+                <div class="td value"></div>
+                <div class="td label"></div>
+            </div>
             {{#each header-resources as |res key|}}
-            <div class="resource flexrow" data-key="data.resources.{{key}}">
-                <label class="label" for="{{key}}">{{res.label}}</label>
-                {{#inc-btn}}<input class="value" type="text" name="data.resources.{{key}}" value="{{res.value}}" data-default="{{res.default}}" data-dtype="Number" id="{{key}}" />{{/inc-btn}}
+            <div class="tr resource" data-key="data.resources.{{key}}">
+                <label class="td label" for="{{key}}">{{res.label}}</label>
+                {{#inc-btn class="td"}}<input class="value" type="text" name="data.resources.{{key}}" value="{{res.value}}" data-default="{{res.default}}" data-dtype="Number" id="{{key}}" />{{/inc-btn}}
                 {{#if res.max}}
-                <span class="label max" title="Maximum">&nbsp;/&nbsp;{{res.max}}</span>
+                <span class="td label max" title="Maximum">&nbsp;/&nbsp;{{res.max}}</span>
                 {{else if res.default}}
-                <span class="label max" title="Default - Zum Setzen klicken">&nbsp;/&nbsp;<a class="set-default" data-action="default">{{res.default}}</a></span>
+                <span class="td label max" title="Default - Zum Setzen klicken">&nbsp;/&nbsp;<a class="set-default" data-action="default">{{res.default}}</a></span>
                 {{else}}
-                <span class="label max"></span>
+                <span class="td label max"></span>
                 {{/if}}
             </div>
             {{/each}}
         </div>
     </header>
+
 
     {{!-- Sheet Tab Navigation --}}
     <nav class="sheet-tabs tabs" data-group="primary">

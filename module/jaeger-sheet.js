@@ -56,9 +56,9 @@ class JaegerSheet extends HexxenActorSheet {
     // TODO: temporärer Code bis zur Änderung der Datenstruktur im Actor
     hres["segnungen"].label = "Segnungen";
     hres["segnungen"].max = 5;
-    hres["ideen"].label = "Ideen [=WIS]";
+    hres["ideen"].label = "Ideen";
     hres["ideen"].default = out.data.attributes.WIS.value + out.data.temp["idee-bonus"];
-    hres["coups"].label = "Coups [=ATH]";
+    hres["coups"].label = "Coups";
     hres["coups"].default = out.data.attributes.ATH.value + out.data.temp["coup-bonus"];
     out["header-resources"] = hres;
 

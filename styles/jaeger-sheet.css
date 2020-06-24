@@ -1,8 +1,46 @@
-﻿.sheet.jaeger {
+﻿.hexxen.jaeger {
   min-width: 600px;
   min-height: 500px;
 }
 
+.hexxen.jaeger .sheet-header {
+  display: grid;
+  grid-template-columns: 115px 2fr 1.4fr;
+  grid-template-rows: auto 1fr auto auto;
+  grid-gap: 6px;
+  grid-template-areas:
+    'img name name'
+    'img stats res'
+    'combat combat res'
+    'attr attr res';
+  white-space: nowrap;
+}
+.hexxen.jaeger .sheet-header .profile-img {
+  height: 115px; /* override system preset */
+  border-color: var(--hexxen-input-bordercolor);
+}
+
+.hexxen.jaeger .sheet-header .stats {
+  font-size: 1.4em;
+  height: 1.4em;
+}
+.hexxen.jaeger .sheet-header .stats .td:nth-child(1) {
+  padding: 3px 6px;
+}
+.hexxen.jaeger .sheet-header .stats .label,
+.hexxen.jaeger .sheet-header .stats .value,
+.hexxen.jaeger .sheet-header .stats .control {
+  height: 28px;
+  line-height: 28px;
+}
+.hexxen.jaeger .sheet-header .stats div.inc-btn div.controls .control {
+  top: 4px;
+}
+
+.hexxen.jaeger .sheet-header .resources .label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
 /******************/
 /* Common section */
@@ -48,11 +86,11 @@
 /* Sheet header section */
 /************************/
 /** TODO: prüfen, ob noch notwendig. (vgl. .hexxen.sheet .sheet-header) */
-.sheet.jaeger .sheet-header {
+.sheet.jaeger.x .sheet-header {
   display: flex; /* override system preset */
   flex-direction: column; /* override system preset */
 }
-.sheet.jaeger .sheet-header .label,
+/*.sheet.jaeger .sheet-header .label,
 .sheet.jaeger .sheet-header .value,
 .sheet.jaeger .sheet-header .control {
   height: 20px;
@@ -67,18 +105,14 @@
 .sheet.jaeger .sheet-header input.value {
   min-width: 50px;
   padding: 0 3px;
-}
+}*/
 
-.sheet.jaeger .sheet-header .profile-img {
-  flex: 0;
-  height: 115px; /* override system preset */
-}
-.sheet.jaeger .sheet-header .top {
+/*.sheet.jaeger .sheet-header .top {
   padding-bottom: 8px;
   border-bottom: 1px solid #AAA;
-}
+}*/
 /** TODO: prüfen, ob noch notwendig. (vgl. .hexxen.sheet .sheet-header h1 input) */
-.sheet.jaeger .sheet-header h1 input {
+/*.sheet.jaeger .sheet-header h1 input {
   height: 42px;
   line-height: 42px;
   margin: unset;
@@ -116,7 +150,7 @@
 .sheet.jaeger .sheet-header .attribute .value {
   flex: 1.6;
 }
-.sheet.jaeger .sheet-header .resources {
+.sheet.jaeger .sheet-header.old .resources {
   margin-top: 6px;
   column-gap: 3%;
 }
@@ -128,7 +162,7 @@
 }
 .sheet.jaeger .sheet-header .resource .control {
   flex: 0 0 20px;
-}
+}*/
 
 /* TODO: teilweise nach hexxen.css auslagern? */
 .hexxen.sheet .biography.tab[data-tab].active {

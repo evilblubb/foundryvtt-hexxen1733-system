@@ -199,13 +199,13 @@ img#hexxen-logo {
 }
 .hexxen div.inc-btn div.controls .control {
   position: absolute;
-  top: 0;
+  top: 7px;
 }
 .hexxen div.inc-btn div.controls .left {
-  left: 7px;
+  left: 13px;
 }
 .hexxen div.inc-btn div.controls .right {
-  right: 7px;
+  right: 13px;
 }
 
 .hexxen.sheet .window-content {
@@ -223,6 +223,12 @@ img#hexxen-logo {
   line-height: 42px;
   margin: unset;
   width: 100%;
+}
+.hexxen.sheet .sheet-header div.value {
+  border-bottom: var(--hexxen-value-span-border);
+  background-color: var(--hexxen-value-span-bgcolor);
+  border-radius: 2px;
+  padding: 0 4px;
 }
 .hexxen.sheet .tabs {
   height: 40px;

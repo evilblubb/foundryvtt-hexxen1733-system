@@ -76,14 +76,14 @@ Hooks.once("init", async function() {
     if (editMode) {
       return new Handlebars.SafeString(`<input class="${options.hash.class}" type="text" name="${name}" value="${options.hash.value}" data-dtype="Number"/>`);
     } else { // game mode
-      return new Handlebars.SafeString(`<span class="${options.hash.class}">${options.hash.value}</span>`);
+      return new Handlebars.SafeString(`<div class="${options.hash.class}">${options.hash.value}</div>`);
     }
   });
   // FIXME: richtiger Platz??
   Handlebars.registerHelper("inc-btn", function(options) {
     // FIXME: Template erstellen statt SafeString
     return new Handlebars.SafeString(`
-      <div class="inc-btn">
+      <div class="${options.hash.class} inc-btn">
           ${options.fn(this)}
           <div class="controls">
               <a class="control left" data-action="decrease"><i class="fas fa-minus"></i></a>
