@@ -29,7 +29,7 @@ img#hexxen-logo {
   --hexxen-hint-color: var(--hexxen-dark-color);
 
   --hexxen-highlight-even-color: rgba(255, 255, 255, 0.5);
-  --hexxen-highlight-odd-color: rgba(140, 40, 20, 0.1);
+  --hexxen-highlight-odd-color: rgba(140, 40, 20, 0.15);
   --hexxen-highlight-hover-color:rgba(140, 40, 20, 0.3);
 
   --hexxen-value-span-bgcolor: rgba(255, 255, 255, 0.3);
@@ -199,13 +199,14 @@ img#hexxen-logo {
 }
 .hexxen div.inc-btn div.controls .control {
   position: absolute;
-  top: 7px;
+  line-height: 24px;
+  top: 0px;
 }
 .hexxen div.inc-btn div.controls .left {
-  left: 13px;
+  left: 7px;
 }
 .hexxen div.inc-btn div.controls .right {
-  right: 13px;
+  right: 7px;
 }
 
 .hexxen.sheet .window-content {

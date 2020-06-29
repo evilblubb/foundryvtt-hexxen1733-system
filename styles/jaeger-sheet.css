@@ -5,27 +5,55 @@
 
 .hexxen.jaeger .sheet-header {
   display: grid;
-  grid-template-columns: 115px 2fr 1.4fr;
-  grid-template-rows: auto 1fr auto auto;
-  grid-gap: 6px;
+  grid-template-columns: 115px 1fr;
+  grid-template-rows: auto auto 1fr auto;
+  grid-gap: 4px 6px;
   grid-template-areas:
-    'img name name'
-    'img stats res'
-    'combat combat res'
-    'attr attr res';
+    'img name'
+    'img combat'
+    'img stats'
+    'res res';
   white-space: nowrap;
 }
 .hexxen.jaeger .sheet-header .profile-img {
+  grid-area: img;
   height: 115px; /* override system preset */
   border-color: var(--hexxen-input-bordercolor);
 }
-
-.hexxen.jaeger .sheet-header .stats {
-  font-size: 1.4em;
-  height: 1.4em;
+.hexxen.jaeger .sheet-header .actorname {
+  grid-area: name;
 }
-.hexxen.jaeger .sheet-header .stats .td:nth-child(1) {
-  padding: 3px 6px;
+.hexxen.jaeger .sheet-header .combat {
+  grid-area: combat;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: auto;
+  justify-content: space-evenly;
+  border: var(--hexxen-table-border);
+}
+.hexxen.jaeger .sheet-header .combat .combat-value {
+  width: 150px;
+  line-height: 22px;
+  padding: 0px 5px;
+  margin: 2px 0px;
+}
+.hexxen.jaeger .sheet-header .combat .combat-value:hover {
+  background-color: var(--hexxen-highlight-hover-color) !important;
+}
+.hexxen.jaeger .sheet-header .stats {
+  grid-area: stats;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: auto;
+  justify-content: space-evenly;
+  border: var(--hexxen-table-border);
+  font-size: 1.4em;
+}
+.hexxen.jaeger .sheet-header .stats .stats-value {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 1fr 1fr 45px;
+  margin: auto 10px;
 }
 .hexxen.jaeger .sheet-header .stats .label,
 .hexxen.jaeger .sheet-header .stats .value,
@@ -33,13 +61,43 @@
   height: 28px;
   line-height: 28px;
 }
-.hexxen.jaeger .sheet-header .stats div.inc-btn div.controls .control {
-  top: 4px;
+.hexxen.jaeger .sheet-header .stats .stats-value:hover {
+  background-color: var(--hexxen-highlight-hover-color) !important;
 }
 
-.hexxen.jaeger .sheet-header .resources .label {
-  overflow: hidden;
-  text-overflow: ellipsis;
+.hexxen.jaeger .sheet-header .resources {
+  display:grid;
+  grid-auto-flow: column;
+  grid-template-columns: repeat(6, 1fr);
+  border: var(--hexxen-table-border);
+}
+.hexxen.jaeger .sheet-header .resources .resource:nth-child(2n) {
+  background-color: var(--hexxen-highlight-even-color);
+}
+.hexxen.jaeger .sheet-header .resources .resource:nth-child(2n+1) {
+  background-color: var(--hexxen-highlight-odd-color);
+}
+.hexxen.jaeger .sheet-header .resources .resource:hover {
+  background-color: var(--hexxen-highlight-hover-color) !important;
+}
+.hexxen.jaeger .sheet-header .resources .resource {
+  display: grid;
+  grid-template-areas:
+    'res-label res-label'
+    'res-value res-max';
+  padding: 2px 5px;
+}
+.hexxen.jaeger .sheet-header .resources .resource .label {
+  grid-area: res-label;
+  text-align: initial;
+  margin-inline-start: 10px;
+}
+.hexxen.jaeger .sheet-header .resources .resource .inc-btn {
+  grid-area: res-value;
+}
+.hexxen.jaeger .sheet-header .resources .resource .label.max {
+  grid-area: res-max;
+  margin: auto 0;
 }
 
 /******************/

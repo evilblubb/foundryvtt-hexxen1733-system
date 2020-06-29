@@ -48,18 +48,24 @@ class JaegerSheet extends HexxenActorSheet {
 
     // header resources
     let hres = {}
-    for( let key of [ "segnungen", "ideen", "coups" ] ) {
+    for( let key of [ "ideen", "coups", "segnungen", "rage", "ambition", "quintessenz" ] ) {
       // TODO: temporärer Code bis zur Änderung der Datenstruktur im Actor
       hres[key] = {value: out.data.resources[key]};
       // hres[key] = data.data.resources[key];
     }
     // TODO: temporärer Code bis zur Änderung der Datenstruktur im Actor
-    hres["segnungen"].label = "Segnungen";
-    hres["segnungen"].max = 5;
     hres["ideen"].label = "Ideen";
     hres["ideen"].default = out.data.attributes.WIS.value + out.data.temp["idee-bonus"];
     hres["coups"].label = "Coups";
     hres["coups"].default = out.data.attributes.ATH.value + out.data.temp["coup-bonus"];
+    hres["segnungen"].label = "Segnungen";
+    hres["segnungen"].max = 5;
+    hres["rage"].label = "Rage";
+    hres["rage"].max = 5;
+    hres["ambition"].label = "Ambitionen";
+    hres["ambition"].max = 5;
+    hres["quintessenz"].label = "Quintessenz";
+    hres["quintessenz"].max = 5;
     out["header-resources"] = hres;
 
     // TODO: hints auf localize umstellen
@@ -77,9 +83,9 @@ class JaegerSheet extends HexxenActorSheet {
     out.data["role-1"]["available-hint"] = "Keine Rolle ausgewählt";
     out.data["role-1"]["hint"] = "oops";
     out.data["role-2"]["available-hint"] = "Keine Rolle ausgewählt";
-    out.data["role-2"]["hint"] = "Verfügbar ab Level 2";
+    out.data["role-2"]["hint"] = "Verfügbar ab Jägerstufe 2";
     out.data["role-3"]["available-hint"] = "Keine Rolle ausgewählt";
-    out.data["role-3"]["hint"] = "Verfügbar ab Level 7";
+    out.data["role-3"]["hint"] = "Verfügbar ab Jägerstufe 7";
     // FIXME: das sollte (teilweise?) bereits im actor.prepare() passieren
     let role = this.actor.itemTypes.role; // returns items, not data
     switch (role.length) {
@@ -97,7 +103,7 @@ class JaegerSheet extends HexxenActorSheet {
 
     // TODO: hints auf localize umstellen
     out.data.profession["available-hint"] = "Keine Profession ausgewählt";
-    out.data.profession["hint"] = "oops";
+    out.data.profession["hint"] = "Verfügbar ab Jägerstufe 2";
     // FIXME: das sollte (teilweise?) bereits im actor.prepare() passieren
     let prof = this.actor.itemTypes.profession;
     prof = prof.length > 0 ? prof[0].data : undefined;
