@@ -105,6 +105,30 @@
 }
 
 /******************/
+/* Tab biography  */
+/******************/
+/* .tab[data-tab] notwendig wegen Priorisierung */
+.hexxen.jaeger .biography.tab[data-tab].active {
+  display:grid;
+}
+.hexxen.jaeger .biography {
+  align-content: start;
+  align-items: start;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 5px 10px;
+}
+.hexxen.jaeger .biography > * {
+  grid-column: 1/3;
+}
+.hexxen.jaeger .biography .table {
+  grid-column: auto;
+}
+.hexxen.jaeger .biography .table .tr .td:nth-child(1) {
+  width: 33%;
+  min-width: 100px;
+}
+
+/******************/
 /* Common section */
 /******************/
 .sheet.jaeger .list-header {
@@ -140,26 +164,6 @@
 
 .sheet.jaeger .roll {
   cursor: crosshair; /* TODO: curson icon erstellen */
-}
-
-/* TODO: teilweise nach hexxen.css auslagern? */
-.hexxen.sheet .biography.tab[data-tab].active {
-  display:grid;
-  align-content: start;
-  align-items: start;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 5px 10px;
-}
-.hexxen.sheet.jaeger .biography > * {
-  grid-column: 1/3;
-}
-.hexxen.sheet.jaeger .biography .table-1,
-.hexxen.sheet.jaeger .biography .table-2 {
-  grid-column: auto;
-}
-.hexxen.sheet.jaeger .biography .table .tr .td:nth-child(1) {
-  width: 25%;
-  min-width: 75px;
 }
 
 .sheet.jaeger .states .top {

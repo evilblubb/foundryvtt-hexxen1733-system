@@ -162,6 +162,47 @@
 
             <div class="seperator"></div>
 
+            {{!-- TODO: Temporäre Eingabemöglichkeit. Wird später (falls nötig) durch Buffs ersetzt. --}}
+            <header class="block-header">Temporäre Eingabefelder für Boni</header>
+            <div class="table table-3">
+                <div class="tr">
+                    <label class="td label" for="lep-bonus">LEP Max</label>
+                    <div class="td flexcol">
+                        {{>input id="lep-bonus" target="data.temp.lep-bonus" content=data.temp.lep-bonus dtype="Number" }}
+                        <div class="hint allow-break">Hinweis: Unempfindlichkeit ist bereits berücksichtigt.</div>
+                    </div>
+                </div>
+                <div class="tr">
+                    <label class="td label" for="ini-bonus">Initiative</label>
+                    <div class="td flexcol">
+                        {{>input id="ini-bonus" target="data.temp.ini-bonus" content=data.temp.ini-bonus dtype="Number" }}
+                        <div class="hint allow-break">Hinweis: Reflexe ist bereits berücksichtigt.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="table table-4">
+                <div class="tr">
+                    <label class="td label" for="idee-bonus">Ideen</label>
+                    <div class="td flexrow idee-bonus">
+                        {{>input id="idee-bonus" target="data.temp.idee-bonus" content=data.temp.idee-bonus dtype="Number" }}
+                    </div>
+                </div>
+                <div class="tr">
+                    <label class="td label" for="coup-bonus">Coups</label>
+                    <div class="td flexrow coup-bonus">
+                        {{>input id="coup-bonus" target="data.temp.coup-bonus" content=data.temp.coup-bonus dtype="Number" }}
+                    </div>
+                </div>
+                <div class="tr">
+                    <label class="td label" for="ap-bonus">Aktionspunkte</label>
+                    <div class="td flexrow ap-bonus">
+                        {{>input id="ap-bonus" target="data.temp.ap-bonus" content=data.temp.ap-bonus dtype="Number" }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="seperator"></div>
+
             <header class="block-header">Notizen</header>
             {{editor content=data.notes.biography.editor target="data.notes.biography.editor" button=true owner=owner editable=editable}}
         </div>
@@ -272,48 +313,6 @@
                     </li>
                 {{/each}}
                 </ol>
-            </div>
-
-            <div class="seperator"></div>
-
-            <header class="list-header flexrow">
-                <span class="header-label">Temporäre Eingabefelder für unberücksichtigte Boni</span>
-            </header>
-            <div class="temp flexrow">
-                <div class="flexcol">
-                    <ol class="list-body">
-                        <li class="flexrow">
-                            <label class="label" for="lep-bonus">LEP Max</label>
-                            <div class="flexcol">
-                                {{>input id="lep-bonus" target="data.temp.lep-bonus" content=data.temp.lep-bonus dtype="Number" }}
-                                <div class="hint allow-break">Hinweis: Unempfindlichkeit ist bereits berücksichtigt.</div>
-                            </div>
-                        </li>
-                        <li class="flexrow">
-                            <label class="label" for="ini-bonus">Initiative</label>
-                            <div class="flexcol">
-                                {{>input id="ini-bonus" target="data.temp.ini-bonus" content=data.temp.ini-bonus dtype="Number" }}
-                                <div class="hint allow-break">Hinweis: Reflexe ist bereits berücksichtigt.</div>
-                            </div>
-                        </li>
-                    </ol>
-                </div>
-                <div class="flexcol">
-                    <ol class="list-body">
-                        <li class="flexrow">
-                            <label class="label" for="idee-bonus">Ideen</label>
-                            {{>input id="idee-bonus" target="data.temp.idee-bonus" content=data.temp.idee-bonus dtype="Number" }}
-                        </li>
-                        <li class="flexrow">
-                            <label class="label" for="coup-bonus">Coups</label>
-                            {{>input id="coup-bonus" target="data.temp.coup-bonus" content=data.temp.coup-bonus dtype="Number" }}
-                        </li>
-                        <li class="flexrow">
-                            <label class="label" for="ap-bonus">Aktionspunkte</label>
-                            {{>input id="ap-bonus" target="data.temp.ap-bonus" content=data.temp.ap-bonus dtype="Number" }}
-                        </li>
-                    </ol>
-                </div>
             </div>
 
             <div class="seperator"></div>
