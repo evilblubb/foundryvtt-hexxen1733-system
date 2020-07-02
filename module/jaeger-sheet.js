@@ -24,6 +24,17 @@ class JaegerSheet extends HexxenActorSheet {
     return `${super.title} (Lv. ${this.actor.level})`;
   }
 
+  /** @override */
+  setPosition(options={}) {
+    const position = super.setPosition(options);
+    const sheetBody = this.element.find(".sheet-body");
+    const windowHeader = this.element.find(".window-header").css("height");
+    const sheetHeader = this.element.find(".sheet-header").css("height");
+    const sheetTabs = this.element.find(".sheet-tabs").css("height");
+    const bodyHeight = position.height - Number.parseInt(windowHeader) - Number.parseInt(sheetHeader) - Number.parseInt(sheetTabs);
+    sheetBody.css("height", bodyHeight);
+    return position;
+  }
 
   /* -------------------------------------------- */
 
@@ -202,15 +213,6 @@ class JaegerSheet extends HexxenActorSheet {
   }
 
   /* -------------------------------------------- */
-
-  /** @override */
-  setPosition(options={}) {
-    const position = super.setPosition(options);
-    const sheetBody = this.element.find(".sheet-body");
-    const bodyHeight = position.height - 255;
-    sheetBody.css("height", bodyHeight);
-    return position;
-  }
 
   /** @override */
   activateListeners(html) {
