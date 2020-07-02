@@ -102,8 +102,8 @@
         <a class="item" data-tab="biography"><div class="item-bg">Bio</div></a>
         <a class="item" data-tab="states"><div class="item-bg">Zustand</div></a>
         <a class="item" data-tab="skills"><div class="item-bg">Fertigkeiten</div></a>
-        <a class="item" data-tab="powers"><div class="item-bg">Jägerkräfte</div></a>
         <a class="item" data-tab="combat"><div class="item-bg">Kampf</div></a>
+        <a class="item" data-tab="powers"><div class="item-bg">Jägerkräfte</div></a>
         <a class="item" data-tab="items"><div class="item-bg">Besitz</div></a>
     </nav>
 
@@ -370,28 +370,6 @@
             {{editor content=data.notes.skills.editor target="data.notes.skills.editor" button=true owner=owner editable=editable}}
         </div>
 
-        {{!-- Jägerkräfte Tab --}}
-        <div class="tab powers scroll-y" data-group="primary" data-tab="powers">
-            <ol class="list-body">
-                <li class="flexrow">
-                    <label class="label" for="kp">Konstruktionspunkte</label>
-                    <input id="kp" class="value" type="text" name="data.resources.kp" value="{{data.resources.kp}}" data-dtype="Number" />
-                </li>
-            </ol>
-
-            <header class="list-header flexrow">
-                <span class="header-label">Jägerkräfte</span>
-            </header>
-            TODO: Jägerkräfte
-
-            <div class="seperator"></div>
-
-            <header class="list-header flexrow">
-                <span class="header-label">Notizen</span>
-            </header>
-            {{editor content=data.notes.powers.editor target="data.notes.powers.editor" button=true owner=owner editable=editable}}
-        </div>
-
         {{!-- Kampf Tab --}}
         <div class="tab combat scroll-y" data-group="primary" data-tab="combat">
             <header class="list-header flexrow">
@@ -426,6 +404,28 @@
                 <span class="header-label">Notizen</span>
             </header>
             {{editor content=data.notes.combat.editor target="data.notes.combat.editor" button=true owner=owner editable=editable}}
+        </div>
+
+        {{!-- Jägerkräfte Tab --}}
+        <div class="tab powers scroll-y" data-group="primary" data-tab="powers">
+            <ol class="list-body">
+                <li class="flexrow">
+                    <label class="label" for="kp">Konstruktionspunkte</label>
+                    <input id="kp" class="value" type="text" name="data.resources.kp" value="{{data.resources.kp}}" data-dtype="Number" />
+                </li>
+            </ol>
+
+            <header class="list-header flexrow">
+                <span class="header-label">Jägerkräfte</span>
+            </header>
+            TODO: Jägerkräfte
+
+            <div class="seperator"></div>
+
+            <header class="list-header flexrow">
+                <span class="header-label">Notizen</span>
+            </header>
+            {{editor content=data.notes.powers.editor target="data.notes.powers.editor" button=true owner=owner editable=editable}}
         </div>
 
         {{!-- Besitz Tab --}}
