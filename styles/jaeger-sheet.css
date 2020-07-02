@@ -2,6 +2,9 @@
   min-width: 600px;
   min-height: 500px;
 }
+.hexxen.jaeger .last {
+  height: 1px;
+}
 
 /************************/
 /* Sheet header section */
@@ -115,6 +118,7 @@
   align-content: start;
   align-items: start;
   grid-template-columns: 1fr 1fr;
+  grid-auto-rows: max-content;
   grid-gap: 5px 10px;
 }
 .hexxen.jaeger .biography > * {
