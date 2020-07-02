@@ -1,7 +1,7 @@
 ﻿<form class="{{cssClass}}" autocomplete="off">
 
     {{#*inline "item"}}
-    {{! > item id="rolle-1" class="td" type="role" content=data.rolle-1}}
+    {{! example: >item id="rolle-1" class="td" type="role" content=data.role-1}}
     {{! log "content:" content
         "editMode:" @root.editMode}}
     <div class="{{class}} flexrow item {{type}} allow-break"
@@ -21,7 +21,7 @@
     {{/inline}}
 
     {{#*inline "input"}}
-    {{! > input id="languages" class="foo" target="data.languages" content=data.languages}}
+    {{! example: >input id="languages" class="foo" target="data.languages" content=data.languages}}
     {{! log "root:" @root
         "this:" @this
         "editMode:" @root.editMode}}
@@ -89,7 +89,7 @@
         </div>
         {{/inline}}
 
-        <div class="resources" style="grid-area: res;">
+        <div class="resources">
             {{#each header-resources as |res key|}}
             {{>res key=key res=res}}
             {{/each}}
@@ -116,24 +116,24 @@
             <div class="table table-1">
                 <div class="tr">
                     <label class="td label" for="role-1">Rolle №1</label>
-                    {{> item id="role-1" class="td" type="role" content=data.role-1}}
+                    {{>item id="role-1" class="td" type="role" content=data.role-1}}
                 </div>
                 <div class="tr">
                     <label class="td label" for="role-2">Rolle №2</label>
-                    {{> item id="role-2" class="td" type="role" content=data.role-2}}
+                    {{>item id="role-2" class="td" type="role" content=data.role-2}}
                 </div>
                 <div class="tr">
                     <label class="td label" for="role-3">Rolle №3</label>
-                    {{> item id="role-3" class="td" type="role" content=data.role-3}}
+                    {{>item id="role-3" class="td" type="role" content=data.role-3}}
                 </div>
                 <div class="tr">
                     <label class="td label" for="profession">Profession</label>
-                    {{> item id="profession" class="td" type="profession" content=data.profession}}
+                    {{>item id="profession" class="td" type="profession" content=data.profession}}
                 </div>
                 <div class="tr">
                     <label class="td label" for="languages">Sprachen</label>
                     <div class="td flexrow languages">
-                        {{> input id="languages" target="data.languages" content=data.languages}}
+                        {{>input id="languages" target="data.languages" content=data.languages}}
                     </div>
                 </div>
             </div>
@@ -141,13 +141,13 @@
                 <div class="tr">
                     <label class="td label" for="level">Jägerstufe</label>
                     <div class="td flexrow level">
-                        {{> input id="level" target="data.level" content=data.level}}
+                        {{>input id="level" target="data.level" content=data.level}}
                     </div>
                 </div>
                 <div class="tr">
                     <label class="td label" for="motivation">Motivation</label>
                     <div class="td flexcol">
-                        {{> item id="motivation" type="motivation" content=data.motivation}}
+                        {{>item id="motivation" type="motivation" content=data.motivation}}
                         {{!-- using {{{ }}} to allow HTML code to pass through unescaped --}}
                         <div id="motivation-bonus" class="note allow-break">{{{data.motivation.bonus}}}</div>
                     </div>
@@ -155,7 +155,7 @@
                 <div class="tr">
                     <label class="td label" for="vitiation">Verderbnis</label>
                     <div class="td flexrow vitiation">
-                        {{> input id="vitiation" target="data.vitiation" content=data.vitiation}}
+                        {{>input id="vitiation" target="data.vitiation" content=data.vitiation}}
                     </div>
                 </div>
             </div>

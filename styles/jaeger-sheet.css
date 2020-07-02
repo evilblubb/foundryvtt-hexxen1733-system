@@ -3,6 +3,9 @@
   min-height: 500px;
 }
 
+/************************/
+/* Sheet header section */
+/************************/
 .hexxen.jaeger .sheet-header {
   display: grid;
   grid-template-columns: 115px 1fr;
@@ -66,6 +69,7 @@
 }
 
 .hexxen.jaeger .sheet-header .resources {
+  grid-area: res;
   display:grid;
   grid-auto-flow: column;
   grid-template-columns: repeat(6, 1fr);
@@ -138,89 +142,6 @@
 .sheet.jaeger .roll {
   cursor: crosshair; /* TODO: curson icon erstellen */
 }
-
-
-/************************/
-/* Sheet header section */
-/************************/
-/** TODO: prüfen, ob noch notwendig. (vgl. .hexxen.sheet .sheet-header) */
-.sheet.jaeger.x .sheet-header {
-  display: flex; /* override system preset */
-  flex-direction: column; /* override system preset */
-}
-/*.sheet.jaeger .sheet-header .label,
-.sheet.jaeger .sheet-header .value,
-.sheet.jaeger .sheet-header .control {
-  height: 20px;
-  line-height: 20px;
-}
-.sheet.jaeger .sheet-header span.value {
-  border-bottom: var(--hexxen-value-span-border);
-  background-color: var(--hexxen-value-span-bgcolor);
-  border-radius: 2px;
-  padding: 0 4px;
-}
-.sheet.jaeger .sheet-header input.value {
-  min-width: 50px;
-  padding: 0 3px;
-}*/
-
-/*.sheet.jaeger .sheet-header .top {
-  padding-bottom: 8px;
-  border-bottom: 1px solid #AAA;
-}*/
-/** TODO: prüfen, ob noch notwendig. (vgl. .hexxen.sheet .sheet-header h1 input) */
-/*.sheet.jaeger .sheet-header h1 input {
-  height: 42px;
-  line-height: 42px;
-  margin: unset;
-  width: 100%;
-}
-.sheet.jaeger .sheet-header .combat {
-  margin-top: 8px;
-  column-gap: 15%;
-}
-.sheet.jaeger .sheet-header .combat .value {
-  flex: 1.3;
-}
-.sheet.jaeger .sheet-header .lep {
-  margin-top: 8px;
-  column-gap: 8%;
-  font-size: 1.4em;
-}
-.sheet.jaeger .sheet-header .lep .label,
-.sheet.jaeger .sheet-header .lep .value,
-.sheet.jaeger .sheet-header .lep .control{
-  height: 28px;
-  line-height: 28px;
-}
-.sheet.jaeger .sheet-header .lep .label {
-  flex: 1.5;
-}
-.sheet.jaeger .sheet-header .lep .label.max {
-  flex: 0 0 40px;
-}
-
-.sheet.jaeger .sheet-header .attributes {
-  margin-top: 8px;
-  column-gap: 3%;
-}
-.sheet.jaeger .sheet-header .attribute .value {
-  flex: 1.6;
-}
-.sheet.jaeger .sheet-header.old .resources {
-  margin-top: 6px;
-  column-gap: 3%;
-}
-.sheet.jaeger .sheet-header .resource .label {
-  flex: 1.5;
-}
-.sheet.jaeger .sheet-header .resource .label.max {
-  flex: 0 0 15px;
-}
-.sheet.jaeger .sheet-header .resource .control {
-  flex: 0 0 20px;
-}*/
 
 /* TODO: teilweise nach hexxen.css auslagern? */
 .hexxen.sheet .biography.tab[data-tab].active {
