@@ -40,9 +40,6 @@
   padding: 0px 5px;
   margin: 2px 0px;
 }
-.hexxen.jaeger .sheet-header .combat .combat-value:hover {
-  background-color: var(--hexxen-highlight-hover-color) !important;
-}
 .hexxen.jaeger .sheet-header .stats {
   grid-area: stats;
   display: grid;
@@ -64,25 +61,12 @@
   height: 28px;
   line-height: 28px;
 }
-.hexxen.jaeger .sheet-header .stats .stats-value:hover {
-  background-color: var(--hexxen-highlight-hover-color) !important;
-}
-
 .hexxen.jaeger .sheet-header .resources {
   grid-area: res;
   display:grid;
   grid-auto-flow: column;
   grid-template-columns: repeat(6, 1fr);
   border: var(--hexxen-table-border);
-}
-.hexxen.jaeger .sheet-header .resources .resource:nth-child(2n) {
-  background-color: var(--hexxen-highlight-even-color);
-}
-.hexxen.jaeger .sheet-header .resources .resource:nth-child(2n+1) {
-  background-color: var(--hexxen-highlight-odd-color);
-}
-.hexxen.jaeger .sheet-header .resources .resource:hover {
-  background-color: var(--hexxen-highlight-hover-color) !important;
 }
 .hexxen.jaeger .sheet-header .resources .resource {
   display: grid;
@@ -103,11 +87,26 @@
   grid-area: res-max;
   margin: auto 0;
 }
+/** header section highlighting */
+.hexxen.jaeger .sheet-header .combat .combat-value:hover {
+  background-color: var(--hexxen-highlight-hover-color) !important;
+}
+.hexxen.jaeger .sheet-header .stats .stats-value:hover {
+  background-color: var(--hexxen-highlight-hover-color) !important;
+}
+.hexxen.jaeger .sheet-header .resources .resource:nth-child(2n) {
+  background-color: var(--hexxen-highlight-even-color);
+}
+.hexxen.jaeger .sheet-header .resources .resource:nth-child(2n+1) {
+  background-color: var(--hexxen-highlight-odd-color);
+}
+.hexxen.jaeger .sheet-header .resources .resource:hover {
+  background-color: var(--hexxen-highlight-hover-color) !important;
+}
 
 /******************/
 /* Common section */
 /******************/
-
 .sheet.jaeger .list-header {
   flex: 0;
   margin: 5px 0;
