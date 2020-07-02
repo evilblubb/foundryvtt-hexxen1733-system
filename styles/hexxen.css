@@ -71,12 +71,7 @@ img#hexxen-logo {
 .hexxen.app.minimized {
   background-color: var(--hexxen-minimized-title-color);
 }
-.hexxen.sheet .window-content {
-  background-image: var(--hexxen-sheet-background-image);
-  background-size: 100% 100%;
-  background-color: var(--hexxen-sheet-background-blend-color);
-  background-blend-mode: overlay;
-}
+
 .hexxen .allow-break {
   word-break: break-word;
 }
@@ -166,12 +161,13 @@ img#hexxen-logo {
 .hexxen .note {
   font-size: 0.8em;
   margin: 2px;
+  line-height: initial;
 }
 .hexxen .hint {
   font-size: 0.8em;
   color: var(--hexxen-hint-color);
   flex: unset;
-  line-height: unset;
+  line-height: initial;
   margin: unset;
 }
 
@@ -185,9 +181,6 @@ img#hexxen-logo {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-}
-.hexxen.sheet .seperator {
-  margin: 2px 0;
 }
 
 .hexxen div.inc-btn {
@@ -213,6 +206,13 @@ img#hexxen-logo {
   height: 100%;
   padding: 0px;
   overflow-y: hidden;
+  background-image: var(--hexxen-sheet-background-image);
+  background-size: 100% 100%;
+  background-color: var(--hexxen-sheet-background-blend-color);
+  background-blend-mode: overlay;
+}
+.hexxen.sheet .seperator {
+  margin: 2px 0;
 }
 
 .hexxen.sheet .sheet-header {
