@@ -122,7 +122,7 @@
   grid-gap: 5px 10px;
 }
 .hexxen.jaeger .biography > * {
-  grid-column: 1/3;
+  grid-column: 1 / span 2;
 }
 .hexxen.jaeger .biography .table {
   grid-column: auto;
@@ -130,6 +130,55 @@
 .hexxen.jaeger .biography .table .tr .td:nth-child(1) {
   width: 33%;
   min-width: 100px;
+}
+
+/******************/
+/* Tab states  */
+/******************/
+/* .tab[data-tab] notwendig wegen Priorisierung */
+.hexxen.jaeger .states.tab[data-tab].active {
+  display:grid;
+}
+.hexxen.jaeger .states {
+  align-content: start;
+  align-items: start;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: max-content;
+  grid-gap: 5px 10px;
+}
+.hexxen.jaeger .states > * {
+  grid-column: 1 / span 2;
+}
+.hexxen.jaeger .states .header-1 {
+  grid-area: 1 / 1 / span 1 / span 1;
+}
+.hexxen.jaeger .states .table-1 {
+  grid-area: 2 / 1 / span 1 / span 1;
+}
+.hexxen.jaeger .states .table-1 .control {
+  color: inherit;
+}
+.hexxen.jaeger .states .table-1 .tr .td.label {
+  width: 190px;
+}
+.hexxen.jaeger .states .header-2 {
+  grid-area: 1 / 2 / span 1 / span 1;
+}
+.hexxen.jaeger .states .table-2 {
+  grid-area: 2 / 2 / span 1 / span 1;
+}
+.hexxen.jaeger .states .table-3 {
+  grid-area: 5 / 1 / span 1 / span 2;
+}
+.hexxen.jaeger .states .table-3 .tr .td.label {
+  width: 190px;
+}
+.hexxen.jaeger .states .table-3 .control {
+  color: var(--hexxen-alert-color);
+}
+.hexxen.jaeger .states .table-3 .tr .td.note {
+  width: 50%;
+  padding-left: 12px; /* +6px */
 }
 
 /******************/
@@ -152,7 +201,7 @@
 .sheet.jaeger .list-body {
   list-style: none;
   margin: 0;
-  padding: 0 6px;
+  padding: 0;
 }
 .sheet.jaeger .list-body li:nth-of-type(2n) {
   background: var(--hexxen-highlight-even-color);
@@ -170,9 +219,6 @@
   cursor: crosshair; /* TODO: curson icon erstellen */
 }
 
-.sheet.jaeger .states .top {
-  column-gap: 8px;
-}
 .sheet.jaeger .states .list-body li > *,
 .sheet.jaeger .powers .list-body li > *,
 .sheet.jaeger .items .list-body li > * {
@@ -180,15 +226,8 @@
   line-height: 20px;
   text-align: inherit;
 }
-.sheet.jaeger .states .top .list-body .label {
-  flex: 1.5;
-}
-.sheet.jaeger .states .temp .list-body .label,
 .sheet.jaeger .items .top .list-body .label {
   flex: 0.5;
-}
-.sheet.jaeger .states .einfluesse .list-body .control {
-  color: red;
 }
 .sheet.jaeger .states .zustaende .checkbox {
   flex: 0 0 23px;
@@ -198,10 +237,6 @@
 }
 .sheet.jaeger .states .zustaende .list-body span {
   border-bottom: var(--hexxen-value-span-border);
-}
-.sheet.jaeger .states .temp .hint {
-  line-height: 0.9em;
-  padding: 3px;
 }
 
 .sheet.jaeger .flexrow .li-label {

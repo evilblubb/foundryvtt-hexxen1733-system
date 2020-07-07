@@ -42,6 +42,10 @@
     {{/if}}
     {{/inline}}
 
+    {{#*inline "seperator"}}
+    <div class="seperator">&nbsp;</div>
+    {{/inline}}
+
     {{!-- Sheet Header --}}
     <header class="sheet-header">
         <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
@@ -113,7 +117,8 @@
         {{!-- Bio Tab --}}
         <div class="tab biography scroll-y" data-group="primary" data-tab="biography">
             <header class="block-header">Basiswerte</header>
-            <div class="table table-1">
+            {{!-- TODO: mit oder ohne inputs (kompakter)? Im Firefox Probleme bei der Darstellung ohne. --}}
+            <div class="table inputs table-1">
                 <div class="tr">
                     <label class="td label" for="role-1">Rolle №1</label>
                     {{>item id="role-1" class="td" type="role" content=data.role-1}}
@@ -137,7 +142,7 @@
                     </div>
                 </div>
             </div>
-            <div class="table table-2">
+            <div class="table inputs table-2">
                 <div class="tr">
                     <label class="td label" for="level">Jägerstufe</label>
                     <div class="td flexrow level">
@@ -160,7 +165,7 @@
                 </div>
             </div>
 
-            <div class="seperator"></div>
+            {{>seperator}}
 
             {{!-- TODO: Temporäre Eingabemöglichkeit. Wird später (falls nötig) durch Buffs ersetzt. --}}
             <header class="block-header">Temporäre Eingabefelder für Boni</header>
@@ -201,9 +206,9 @@
                 </div>
             </div>
 
-            <div class="seperator"></div>
+            {{>seperator}}
 
-            <header class="block-header">Notizen</header>
+            <header class="block-header">Herkunft / Werdegang / Notizen</header>
             {{editor content=data.notes.biography.editor target="data.notes.biography.editor" button=true owner=owner editable=editable}}
 
             <div class="seperator"> </div>
@@ -211,99 +216,83 @@
         </div>
 
         {{!-- Zustand Tab --}}
+
+        {{#*inline "res-boxes"}}
+        <div class="{{class}}">
+            {{#repeat count}}
+            <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
+            {{/repeat}}
+        </div>
+        {{/inline}}
+
         <div class="tab states scroll-y" data-group="primary" data-tab="states">
-            <div class="top flexrow">
-                <div class="erste-hilfe flexcol">
-                    <header class="list-header flexrow">
-                        <span class="header-label">Heilfaktor</span>
-                    </header>
-
-                    <!-- TODO: dynamisch erzeugen -->
-                    <ol class="list-body">
-                        <li class="eh flexrow" data-key="data.resources.eh">
-                            <span class="label">Erste Hilfe [EH]</span>
-                            <span class="controls">
-                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
-                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
-                            </span>
-                            <input type="hidden" name="data.resources.eh" value={{data.resources.eh}} data-dtype="Number" />
-                        </li>
-                        <li class="mh flexrow" data-key="data.resources.mh">
-                            <span class="label">Mag. Heilung & Elixire [MH]</span>
-                            <span class="controls">
-                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
-                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
-                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
-                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
-                            </span>
-                            <input type="hidden" name="data.resources.mh" value={{data.resources.mh}} data-dtype="Number" />
-                        </li>
-                    </ol>
+            <header class="block-header header-1">Heilfaktoren</header>
+            <div class="erste-hilfe res-boxes table table-1">
+                <div class="tr eh" data-key="data.resources.eh">
+                    <label class="td label" for="first-aid">Erste Hilfe [EH]</label>
+                    {{>res-boxes class="td controls" count=2}}
+                    <input id="first-aid" type="hidden" name="data.resources.eh" value={{data.resources.eh}} data-dtype="Number" />
                 </div>
-                <div class="einfluesse flexcol">
-                    <header class="list-header flexrow">
-                        <span class="header-label">Anhaltende Einflüsse</span>
-                    </header>
-
-                    <!-- TODO: dynamisch erzeugen -->
-                    <ol class="list-body">
-                        <li class="odmg flexrow" data-key="data.resources.odmg">
-                            <span class="label">Äußerer Schaden</span>
-                            <span class="controls">
-                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
-                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
-                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
-                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
-                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
-                            </span>
-                            <input type="hidden" name="data.resources.odmg" value={{data.resources.odmg}} data-dtype="Number" />
-                        </li>
-                        <li class="idmg flexrow" data-key="data.resources.idmg">
-                            <span class="label">Innerer Schaden</span>
-                            <span class="controls">
-                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
-                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
-                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
-                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
-                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
-                            </span>
-                            <input type="hidden" name="data.resources.idmg" value={{data.resources.idmg}} data-dtype="Number" />
-                        </li>
-                        <li class="mdmg flexrow" data-key="data.resources.mdmg">
-                            <span class="label">Malusschaden</span>
-                            <span class="controls">
-                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
-                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
-                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
-                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
-                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
-                            </span>
-                            <input type="hidden" name="data.resources.mdmg" value={{data.resources.mdmg}} data-dtype="Number" />
-                        </li>
-                        <li class="ldmg flexrow" data-key="data.resources.ldmg">
-                            <span class="label">Lähmungsschaden</span>
-                            <span class="controls">
-                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
-                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
-                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
-                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
-                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
-                            </span>
-                            <input type="hidden" name="data.resources.ldmg" value={{data.resources.ldmg}} data-dtype="Number" />
-                        </li>
-                    </ol>
+                <div class="tr mh" data-key="data.resources.mh">
+                    <label class="td label" for="magical-healing">Mag. Heilung & Elixire [MH]</label>
+                    {{>res-boxes class="td controls" count=4}}
+                    <input id="magical-healing" type="hidden" name="data.resources.mh" value={{data.resources.mh}} data-dtype="Number" />
                 </div>
             </div>
-            <div class="zustaende flexcol">
-                <header class="list-header flexrow">
-                    <span class="checkbox"></span>
-                    <span class="label">Zustand</span>
-                    <span class="type">Typ</span>
-                    <span class="effekt">Nebeneffekt</span>
-                    <span class="abbau">Abbau</span>
-                    <span class="hilfe">Helfen</span>
-                </header>
 
+            <header class="block-header header-2">Regeneration</header>
+            <div class="regeneration table table-2">
+                <div class="tr">
+                    <div class="td">Durch Nachtruhe oder FZA Regeneration</div>
+                </div>
+                <div class="tr">
+                    <div class="td note">1 LEP unter freiem Himmel, 2 LEP im Zelt, 3 LEP auf dem Feldbett im Zelt, 4 LEP in einer Herberge</div>
+                </div>
+                <div class="tr">
+                    <div class="td note">Nach Nachtruhe / FZA Regeneration: Alle durchgestrichenen EH- und MH-Felder ausradieren.</div>
+                </div>
+            </div>
+
+            {{>seperator}}
+
+            <header class="block-header">Anhaltende Einflüsse</header>
+            <div class="einfluesse res-boxes table table-3">
+                <div class="tr odmg" data-key="data.resources.odmg">
+                    <label class="td label" for="odmg">Äußerer Schaden</label>
+                    {{>res-boxes class="td controls" count=5}}
+                    <div class="td note">In [INI-0]: 2 Schmerzschaden je Stufe</div>
+                    <input id="odmg" type="hidden" name="data.resources.odmg" value={{data.resources.odmg}} data-dtype="Number" />
+                </div>
+                <div class="tr idmg" data-key="data.resources.idmg">
+                    <label class="td label" for="idmg">Innerer Schaden</label>
+                    {{>res-boxes class="td controls" count=5}}
+                    <div class="td note">In [INI-0]: 2 Schmerzschaden je Stufe</div>
+                    <input id="idmg" type="hidden" name="data.resources.idmg" value={{data.resources.idmg}} data-dtype="Number" />
+                </div>
+                <div class="tr mdmg" data-key="data.resources.mdmg">
+                    <label class="td label" for="mdmg">Malusschaden</label>
+                    {{>res-boxes class="td controls" count=5}}
+                    <div class="td note">Maluswürfel bei allen Proben</div>
+                    <input id="mdmg" type="hidden" name="data.resources.mdmg" value={{data.resources.mdmg}} data-dtype="Number" />
+                </div>
+                <div class="tr ldmg" data-key="data.resources.ldmg">
+                    <label class="td label" for="ldmg">Lähmungsschaden</label>
+                    {{>res-boxes class="td controls" count=data.calc.ap}}
+                    <div class="td note">-1 AP je Stufe (max. AP)</div>
+                    <input id="ldmg" type="hidden" name="data.resources.ldmg" value={{data.resources.ldmg}} data-dtype="Number" />
+                </div>
+            </div>
+
+            <header class="zustaende block-header flexrow">
+                <span class="checkbox"></span>
+                <span class="label">Zustand</span>
+                <span class="type">Typ</span>
+                <span class="effekt">Nebeneffekt</span>
+                <span class="abbau">Abbau</span>
+                <span class="hilfe">Helfen</span>
+            </header>
+
+            <div class="zustaende table table-4">
                 <ol class="list-body">
                 {{#each data.states as |state key|}}
                     <li class="state flexrow" data-attribute="{{key}}">
@@ -318,12 +307,13 @@
                 </ol>
             </div>
 
-            <div class="seperator"></div>
+            {{>seperator}}
 
-            <header class="list-header flexrow">
-                <span class="header-label">Notizen</span>
-            </header>
+            <header class="block-header">Notizen</header>
             {{editor content=data.notes.states.editor target="data.notes.states.editor" button=true owner=owner editable=editable}}
+
+            {{>seperator}}
+            <div class="last"> </div>
         </div>
 
         {{!-- Fertigkeiten Tab --}}
@@ -365,12 +355,13 @@
             {{/each}}
             </ol>
 
-            <div class="seperator"></div>
+            {{>seperator}}
 
-            <header class="list-header flexrow">
-                <span class="header-label">Notizen</span>
-            </header>
+            <header class="block-header">Notizen</header>
             {{editor content=data.notes.skills.editor target="data.notes.skills.editor" button=true owner=owner editable=editable}}
+
+            {{>seperator}}
+            <div class="last"> </div>
         </div>
 
         {{!-- Kampf Tab --}}
@@ -401,12 +392,13 @@
             {{/each}}
             </ol>
 
-            <div class="seperator"></div>
+            {{>seperator}}
 
-            <header class="list-header flexrow">
-                <span class="header-label">Notizen</span>
-            </header>
+            <header class="block-header">Notizen</header>
             {{editor content=data.notes.combat.editor target="data.notes.combat.editor" button=true owner=owner editable=editable}}
+
+            {{>seperator}}
+            <div class="last"> </div>
         </div>
 
         {{!-- Jägerkräfte Tab --}}
@@ -423,12 +415,13 @@
             </header>
             TODO: Jägerkräfte
 
-            <div class="seperator"></div>
+            {{>seperator}}
 
-            <header class="list-header flexrow">
-                <span class="header-label">Notizen</span>
-            </header>
+            <header class="block-header">Notizen</header>
             {{editor content=data.notes.powers.editor target="data.notes.powers.editor" button=true owner=owner editable=editable}}
+
+            {{>seperator}}
+            <div class="last"> </div>
         </div>
 
         {{!-- Besitz Tab --}}
@@ -468,14 +461,15 @@
             {{/each}}
             </ol>
 
-            <div class="seperator"></div>
+            {{>seperator}}
 
-            <header class="list-header flexrow">
-                <span class="header-label">Notizen</span>
-            </header>
+            <header class="block-header">Notizen</header>
             {{editor content=data.notes.items.editor target="data.notes.items.editor" button=true owner=owner editable=editable}}
+
+            {{>seperator}}
+            <div class="last"> </div>
         </div>
 
-        </section>
+    </section>
 </form>
 

@@ -257,7 +257,7 @@ class JaegerSheet extends HexxenActorSheet {
     html.find(".sheet-header .inc-btn").on("click", ".control", HexxenIncDecHelper.onClickPlusMinus.bind(this));
     html.find(".sheet-header .set-default").on("click", HexxenIncDecHelper.onClickPlusMinus.bind(this));
     // Erste Hilfe, Mag. Heilung, Elixire
-    html.find(".states .top").on("click", ".control", HexxenIncDecHelper.onClickPlusMinus.bind(this));
+    html.find(".states .res-boxes").on("click", ".control", HexxenIncDecHelper.onClickPlusMinus.bind(this));
   }
 
   /* -------------------------------------------- */
