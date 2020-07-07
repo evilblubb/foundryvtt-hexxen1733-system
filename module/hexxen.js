@@ -55,8 +55,15 @@ Hooks.once("init", async function() {
     decimals: 0
   };
 
-  Handlebars.registerHelper('isDefined', function (value) {
+  Handlebars.registerHelper('isDefined', function(value) {
     return value !== undefined;
+  });
+  Handlebars.registerHelper('repeat', function(context, options) {
+    let out = "";
+    for (let i=0; i<context; i++) {
+      out += options.fn(this);
+    }
+    return out;
   });
 
   // TODO: preload some images
