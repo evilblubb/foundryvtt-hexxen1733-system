@@ -182,7 +182,7 @@
 }
 
 /******************/
-/* Common section */
+/* !!! ALT !!! Common section */
 /******************/
 .sheet.jaeger .list-header {
   flex: 0;
@@ -237,6 +237,12 @@
 }
 .sheet.jaeger .states .zustaende .list-body span {
   border-bottom: var(--hexxen-value-span-border);
+}
+.sheet.jaeger .states .table.zustaende .effekt,
+.sheet.jaeger .states .table.zustaende .abbau,
+.sheet.jaeger .states .table.zustaende .hilfe {
+  line-height: unset;
+  padding: 2px 0;
 }
 
 .sheet.jaeger .flexrow .li-label {
