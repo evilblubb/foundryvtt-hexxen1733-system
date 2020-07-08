@@ -133,7 +133,7 @@
 }
 
 /******************/
-/* Tab states  */
+/* Tab states     */
 /******************/
 /* .tab[data-tab] notwendig wegen Priorisierung */
 .hexxen.jaeger .states.tab[data-tab].active {
@@ -182,8 +182,45 @@
 }
 
 /******************/
-/* !!! ALT !!! Common section */
+/* Tab skills     */
 /******************/
+/* .tab[data-tab] notwendig wegen Priorisierung */
+.hexxen.jaeger .skills.tab[data-tab].active {
+  display:grid;
+}
+.hexxen.jaeger .skills {
+  align-content: start;
+  align-items: start;
+  grid-template-columns: 1fr;
+  grid-auto-rows: max-content;
+  grid-gap: 5px;
+}
+.hexxen.jaeger .skills .attributes {
+  display:grid;
+  grid-auto-flow: column;
+  grid-template-columns: repeat(6, 1fr);
+  border: var(--hexxen-table-border);
+}
+.hexxen.jaeger .skills .attributes .attribute {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 1fr 2fr;
+  padding: 2px 5px;
+}
+/** highlighting */
+.hexxen.jaeger .skills .attributes .attribute:nth-child(even) {
+  background-color: var(--hexxen-highlight-even-color);
+}
+.hexxen.jaeger .skills .attributes .attribute:nth-child(odd) {
+  background-color: var(--hexxen-highlight-odd-color);
+}
+.hexxen.jaeger .skills .attributes .attribute:hover {
+  background-color: var(--hexxen-highlight-hover-color) !important;
+}
+
+/************************************/
+/* !!! TODO: ALT !!! Common section */
+/************************************/
 .sheet.jaeger .list-header {
   flex: 0;
   margin: 5px 0;
@@ -281,7 +318,7 @@
   text-align: inherit;
   line-height: unset;
 }
-.sheet.jaeger .list-body span.li-text {
+.sheet.jaeger .list-body .li-text {
   border-bottom: var(--hexxen-value-span-border);
 }
 .sheet.jaeger .items-list {

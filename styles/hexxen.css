@@ -227,11 +227,12 @@ img#hexxen-logo {
   margin: unset;
   width: 100%;
 }
-.hexxen.sheet .sheet-header div.value {
+.hexxen.sheet div.value.value-box {
   border-bottom: var(--hexxen-value-span-border);
   background-color: var(--hexxen-value-span-bgcolor);
   border-radius: 2px;
   padding: 0 4px;
+  text-align: center;
 }
 .hexxen.sheet .tabs {
   height: 40px;

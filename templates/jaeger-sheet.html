@@ -29,7 +29,7 @@
     <input {{#if id}} id="{{id}}" {{/if}}
         class="{{#if (isDefined class)}}{{class}} {{/if}}value"
         type="text"
-        name="{{target}}{{#if (isDefined content.value)}}.value{{/if}}"
+        name="{{#if base-target}}{{base-target}}.{{/if}}{{target}}{{#if (isDefined content.value)}}.value{{/if}}"
         value="{{#if (isDefined content.value)}}{{content.value}}{{else}}{{content}}{{/if}}"
         {{! TODO: dtype besser lösen }}
         {{#if content.dtype}}data-dtype="{{content.dtype}}"{{/if}}
@@ -54,15 +54,15 @@
         <div class="combat">
             <div class="combat-value ini flexrow">
                 <label class="label" title="Initiative" for="ini">INI</label>
-                <div class="value" id="ini">{{data.ini.value}}</div>
+                <div class="value value-box" id="ini">{{data.ini.value}}</div>
             </div>
             <div class="combat-value pw flexrow">
                 <label class="label" title="Panzerwert" for="pw">PW</label>
-                {{dyn-input class="value" path="data.temp" key="pw" value=data.temp.pw}}
+                {{>input class="value-box" target="data.temp.pw" content=data.temp.pw dtype="Number"}}
             </div>
             <div class="combat-value ap flexrow">
                 <label class="label" title="Aktionspunkte" for="ap">AP</label>
-                <div class="value" id="ap">{{data.calc.ap}}</div>
+                <div class="value value-box" id="ap">{{data.calc.ap}}</div>
             </div>
         </div>
 
@@ -225,7 +225,7 @@
         </div>
         {{/inline}}
 
-        <div class="tab states scroll-y" data-group="primary" data-tab="states">
+            <div class="tab states scroll-y" data-group="primary" data-tab="states">
             <header class="block-header header-1">Heilfaktoren</header>
             <div class="erste-hilfe res-boxes table table-1">
                 <div class="tr eh" data-key="data.resources.eh">
@@ -283,6 +283,9 @@
                 </div>
             </div>
 
+            {{!-- TODO: Tabelle umbauen --}}
+            {{!-- TODO: selektierte Zustände zu den Einflüssen zuordnen --}}
+            {{!-- TODO: Zustandsvariante: normal/mächtig/fordernd/dauerhaft --}}
             <header class="zustaende block-header flexrow">
                 <span class="checkbox"></span>
                 <span class="label">Zustand</span>
@@ -318,16 +321,21 @@
 
         {{!-- Fertigkeiten Tab --}}
         <div class="tab skills scroll-y" data-group="primary" data-tab="skills">
-            <div class="attributes flexrow">
+            <header class="block-header flexrow"><span class="note">geistige (I)</span><span>Attribute</span><span class="note">körperliche (C)</span></header>
+            <div class="attributes">
                 {{#each data.attributes as |attr key|}}
-                    <div class="attribute flexrow" data-key="{{key}}">
+                    <div class="attribute" data-key="{{key}}">
+                        {{!-- TODO: Label im EditMode ausrichten --}}
                         <a class="label roll" title="{{attr.label}}" data-action="roll" data-type="attribute">{{key}}</a>
-                        {{dyn-input class="value" path="data.attributes" key=key target="value" value=attr.value}}
+                        {{>input class="value-box" base-target="data.attributes" target=key content=attr}}
                     </div>
                 {{/each}}
             </div>
 
-            <header class="list-header flexrow">
+            {{>seperator}}
+
+            {{!-- TODO: Tabelle umbauen --}}
+            <header class="block-header flexrow">
                 <span class="li-label">Fertigkeit</span>
                 <span class="li-value" title="Fertigkeitswert">FW</span>
                 <span class="li-attr">Attribut</span>
@@ -337,23 +345,25 @@
                 <a class="li-control" data-action="create"><i class="fas fa-plus"></i></a>
             </header>
 
-            <ol class="list-body">
-            {{#each data.skills as |skill key|}}
-                <li class="skill flexrow" data-key="{{key}}">
-                    <span class="li-label li-text">{{skill.label}}</span>
-                    {{dyn-input class="li-value li-text" path="data.skills" key=key target="value" value=skill.value}}
-                    <span class="li-attr li-text" title="{{skill.attrLabel}}: {{skill.attrValue}}">[ +{{skill.attribute}} ]</span>
-                    <span class="li-sum li-text">{{skill.summe}}</span>
-                    <a class="li-control roll" data-action="roll" data-type="skill"><i class="fas fa-dice"></i></a>
-                    <span class="li-control"></span>
-                    {{#if skill.isCustom}}
-                    <a class="li-control" data-action="delete"><i class="fas fa-trash"></i></a>
-                    {{else}}
-                    <span class="li-control"></span>
-                    {{/if}}
-                </li>
-            {{/each}}
-            </ol>
+            <div class="table table-21">
+                <ol class="list-body">
+                {{#each data.skills as |skill key|}}
+                    <li class="skill flexrow" data-key="{{key}}">
+                        <span class="li-label li-text">{{skill.label}}</span>
+                        {{dyn-input class="li-value li-text" path="data.skills" key=key target="value" value=skill.value}}
+                        <span class="li-attr li-text" title="{{skill.attrLabel}}: {{skill.attrValue}}">[ +{{skill.attribute}} ]</span>
+                        <span class="li-sum li-text">{{skill.summe}}</span>
+                        <a class="li-control roll" data-action="roll" data-type="skill"><i class="fas fa-dice"></i></a>
+                        <span class="li-control"></span>
+                        {{#if skill.isCustom}}
+                        <a class="li-control" data-action="delete"><i class="fas fa-trash"></i></a>
+                        {{else}}
+                        <span class="li-control"></span>
+                        {{/if}}
+                    </li>
+                {{/each}}
+                </ol>
+            </div>
 
             {{>seperator}}
 
