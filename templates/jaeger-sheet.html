@@ -439,15 +439,18 @@
 
         {{!-- Besitz Tab --}}
         <div class="tab items scroll-y" data-group="primary" data-tab="items">
-            <header class="list-header flexrow">
-                <span class="header-label">Vermögen & Unterhalt</span>
-            </header>
+            {{!-- TODO: Tabelle umbauen --}}
+            <header class="block-header">Vermögen & Unterhalt</header>
             <div class="top flexrow">
                 <div class="vermoegen flexcol">
                     <ol class="list-body">
                         <li class="flexrow">
                             <label class="label" for="vermoegen">Vermögen</label>
                             <input id="vermoegen" class="value" type="text" name="data.temp.vermoegen" value="{{data.temp.vermoegen}}" />
+                        </li>
+                        <li class="flexrow">
+                            <label class="label" for="loot">Beutegut</label>
+                            <input id="loot" class="value" type="text" name="data.temp.loot" value="{{data.temp.loot}}" />
                         </li>
                     </ol>
                 </div>
@@ -460,7 +463,7 @@
                     </ol>
                 </div>
             </div>
-            TODO: Beutegut, Kleidung, Rüstung, Ausrüstung
+            <header class="block-header">Waffen, Rüstung, Kleidung, Ausrüstung</header>
             <ol class="items-list">
             {{#each actor.items as |item id|}}
                 <li class="item flexrow" data-item-id="{{item._id}}">
