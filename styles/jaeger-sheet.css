@@ -149,34 +149,34 @@
 .hexxen.jaeger .states > * {
   grid-column: 1 / span 2;
 }
-.hexxen.jaeger .states .header-1 {
+.hexxen.jaeger .states .header-11 {
   grid-area: 1 / 1 / span 1 / span 1;
 }
-.hexxen.jaeger .states .table-1 {
+.hexxen.jaeger .states .table-11 {
   grid-area: 2 / 1 / span 1 / span 1;
 }
-.hexxen.jaeger .states .table-1 .control {
+.hexxen.jaeger .states .table-11 .control {
   color: inherit;
 }
-.hexxen.jaeger .states .table-1 .tr .td.label {
+.hexxen.jaeger .states .table-11 .tr .td.label {
   width: 190px;
 }
-.hexxen.jaeger .states .header-2 {
+.hexxen.jaeger .states .header-12 {
   grid-area: 1 / 2 / span 1 / span 1;
 }
-.hexxen.jaeger .states .table-2 {
+.hexxen.jaeger .states .table-12 {
   grid-area: 2 / 2 / span 1 / span 1;
 }
-.hexxen.jaeger .states .table-3 {
+.hexxen.jaeger .states .table-13 {
   grid-area: 5 / 1 / span 1 / span 2;
 }
-.hexxen.jaeger .states .table-3 .tr .td.label {
+.hexxen.jaeger .states .table-13 .tr .td.label {
   width: 190px;
 }
-.hexxen.jaeger .states .table-3 .control {
+.hexxen.jaeger .states .table-13 .control {
   color: var(--hexxen-alert-color);
 }
-.hexxen.jaeger .states .table-3 .tr .td.note {
+.hexxen.jaeger .states .table-13 .tr .td.note {
   width: 50%;
   padding-left: 12px; /* +6px */
 }

@@ -226,8 +226,8 @@
         {{/inline}}
 
             <div class="tab states scroll-y" data-group="primary" data-tab="states">
-            <header class="block-header header-1">Heilfaktoren</header>
-            <div class="erste-hilfe res-boxes table table-1">
+            <header class="block-header header-11">Heilfaktoren</header>
+            <div class="erste-hilfe res-boxes table table-11">
                 <div class="tr eh" data-key="data.resources.eh">
                     <label class="td label" for="first-aid">Erste Hilfe [EH]</label>
                     {{>res-boxes class="td controls" count=2}}
@@ -240,8 +240,8 @@
                 </div>
             </div>
 
-            <header class="block-header header-2">Regeneration</header>
-            <div class="regeneration table table-2">
+            <header class="block-header header-12">Regeneration</header>
+            <div class="regeneration table table-12">
                 <div class="tr">
                     <div class="td">Durch Nachtruhe oder FZA Regeneration</div>
                 </div>
@@ -255,8 +255,8 @@
 
             {{>seperator}}
 
-            <header class="block-header">Anhaltende Einflüsse</header>
-            <div class="einfluesse res-boxes table table-3">
+            <header class="block-header">Anhaltende Einflüsse und Zustände</header>
+            <div class="einfluesse res-boxes table table-13">
                 <div class="tr odmg" data-key="data.resources.odmg">
                     <label class="td label" for="odmg">Äußerer Schaden</label>
                     {{>res-boxes class="td controls" count=5}}
@@ -295,7 +295,7 @@
                 <span class="hilfe">Helfen</span>
             </header>
 
-            <div class="zustaende table table-4">
+            <div class="zustaende table table-14">
                 <ol class="list-body">
                 {{#each data.states as |state key|}}
                     <li class="state flexrow" data-attribute="{{key}}">
