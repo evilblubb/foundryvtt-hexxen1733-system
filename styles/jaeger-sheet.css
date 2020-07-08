@@ -233,6 +233,21 @@
   grid-gap: 5px;
 }
 
+/******************/
+/* Tab powers     */
+/******************/
+/* .tab[data-tab] notwendig wegen Priorisierung */
+.hexxen.jaeger .powers.tab[data-tab].active {
+  display:grid;
+}
+.hexxen.jaeger .powers {
+  align-content: start;
+  align-items: start;
+  grid-template-columns: 1fr;
+  grid-auto-rows: max-content;
+  grid-gap: 5px;
+}
+
 /************************************/
 /* !!! TODO: ALT !!! Common section */
 /************************************/
