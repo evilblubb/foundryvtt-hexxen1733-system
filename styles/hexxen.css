@@ -42,7 +42,7 @@ img#hexxen-logo {
   --hexxen-editor-border: 1px solid var(--hexxen-dark-color);
 
   --hexxen-box-border: 1px solid var(--hexxen-dark-color);
-  --hexxen-nav-background-image: url("../img/Rabenkasten_oben_small.png");
+  --hexxen-nav-background-image: url("../img/Rabenkasten_oben_small_braun.png");
   --hexxen-nav-bgcolor: rgba(80, 30, 0, 0.4);
   --hexxen-nav-border: 1px solid var(--hexxen-dark-color);
   --hexxen-header-color: var(--hexxen-dark-color);
@@ -50,7 +50,7 @@ img#hexxen-logo {
   --hexxen-header-border: 1px solid rgb(170, 120, 75);
   --hexxen-outline-color: var(--hexxen-light-color);
   --hexxen-table-border: 1px solid var(--hexxen-highlight-even-color);
-  --hexxen-seperator-image: url("../img/Rabenkasten_weit_unten_small.png");
+  --hexxen-seperator-image: url("../img/Rabenkasten_weit_unten_small_braun.png");
 
   scrollbar-color: var(--hexxen-light-color) var(--hexxen-dark-color);
 
