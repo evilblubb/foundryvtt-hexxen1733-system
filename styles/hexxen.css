@@ -136,7 +136,6 @@ img#hexxen-logo {
 .hexxen .editor {
   min-height: 100px;
   max-height: unset;
-  margin: 2px;
   padding: 5px;
   background: var(--hexxen-editor-bgcolor);
   border: var(--hexxen-editor-border);
