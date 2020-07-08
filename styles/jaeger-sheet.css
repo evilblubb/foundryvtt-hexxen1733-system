@@ -218,6 +218,21 @@
   background-color: var(--hexxen-highlight-hover-color) !important;
 }
 
+/******************/
+/* Tab combat     */
+/******************/
+/* .tab[data-tab] notwendig wegen Priorisierung */
+.hexxen.jaeger .combat.tab[data-tab].active {
+  display:grid;
+}
+.hexxen.jaeger .combat {
+  align-content: start;
+  align-items: start;
+  grid-template-columns: 1fr;
+  grid-auto-rows: max-content;
+  grid-gap: 5px;
+}
+
 /************************************/
 /* !!! TODO: ALT !!! Common section */
 /************************************/
