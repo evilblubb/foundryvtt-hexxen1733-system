@@ -175,8 +175,8 @@ img#hexxen-logo {
 .hexxen .seperator {
   display: block;
   width: 100%;
-  height: 20px;
-  min-height: 20px;
+  height: 12px;
+  min-height: 12px;
   margin: 10px 0;
   border: none;
   background-image: var(--hexxen-seperator-image);
