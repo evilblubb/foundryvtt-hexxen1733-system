@@ -264,9 +264,16 @@ img#hexxen-logo {
 .hexxen.sheet .sheet-body {
   overflow: hidden;
 }
-.hexxen.sheet .sheet-body .tab {
-  height: 100%;
+.hexxen.sheet .sheet-body .tab[data-tab].active {
+  display:grid;
+}
+.hexxen.sheet .sheet-body .tab[data-tab] {
+  align-content: start;
+  align-items: start;
+  grid-auto-rows: max-content;
+  grid-gap: 5px;
   overflow-y: auto;
+  height: 100%;
   padding: 8px;
 }
 .hexxen.sheet .sheet-body header {

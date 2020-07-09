@@ -107,19 +107,6 @@
   background-color: var(--hexxen-highlight-hover-color) !important;
 }
 
-/*********************/
-/* common tab styles */
-/*********************/
-/* .tab[data-tab] notwendig wegen Priorisierung */
-.hexxen.jaeger .tab[data-tab].active {
-  display:grid;
-}
-.hexxen.jaeger .tab[data-tab] {
-  align-content: start;
-  align-items: start;
-  grid-auto-rows: max-content;
-  grid-gap: 5px;
-}
 /******************/
 /* Tab biography  */
 /******************/
