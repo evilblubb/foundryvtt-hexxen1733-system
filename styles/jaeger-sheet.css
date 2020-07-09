@@ -1,13 +1,226 @@
-﻿.sheet.jaeger {
+﻿.hexxen.jaeger {
   min-width: 600px;
   min-height: 500px;
 }
+.hexxen.jaeger .last {
+  height: 1px;
+}
 
+/************************/
+/* Sheet header section */
+/************************/
+.hexxen.jaeger .sheet-header {
+  display: grid;
+  grid-template-columns: 115px 1fr;
+  grid-template-rows: auto auto 1fr auto;
+  grid-gap: 4px 6px;
+  grid-template-areas:
+    'img name'
+    'img combat'
+    'img stats'
+    'res res';
+  white-space: nowrap;
+}
+.hexxen.jaeger .sheet-header .profile-img {
+  grid-area: img;
+  height: 115px; /* override system preset */
+  border-color: var(--hexxen-input-bordercolor);
+}
+.hexxen.jaeger .sheet-header .actorname {
+  grid-area: name;
+}
+.hexxen.jaeger .sheet-header .combat {
+  grid-area: combat;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: auto;
+  justify-content: space-evenly;
+  border: var(--hexxen-table-border);
+}
+.hexxen.jaeger .sheet-header .combat .combat-value {
+  width: 150px;
+  line-height: 22px;
+  padding: 0px 5px;
+  margin: 2px 0px;
+}
+.hexxen.jaeger .sheet-header .stats {
+  grid-area: stats;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: auto;
+  justify-content: space-evenly;
+  border: var(--hexxen-table-border);
+  font-size: 1.4em;
+}
+.hexxen.jaeger .sheet-header .stats .stats-value {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 1fr 1fr 45px;
+  margin: auto 10px;
+}
+.hexxen.jaeger .sheet-header .stats .label,
+.hexxen.jaeger .sheet-header .stats .value,
+.hexxen.jaeger .sheet-header .stats .control {
+  height: 28px;
+  line-height: 28px;
+}
+.hexxen.jaeger .sheet-header .resources {
+  grid-area: res;
+  display:grid;
+  grid-auto-flow: column;
+  grid-template-columns: repeat(6, 1fr);
+  border: var(--hexxen-table-border);
+}
+.hexxen.jaeger .sheet-header .resources .resource {
+  display: grid;
+  grid-template-areas:
+    'res-label res-label'
+    'res-value res-max';
+  padding: 2px 5px;
+}
+.hexxen.jaeger .sheet-header .resources .resource .label {
+  grid-area: res-label;
+  text-align: initial;
+  margin-inline-start: 10px;
+}
+.hexxen.jaeger .sheet-header .resources .resource .inc-btn {
+  grid-area: res-value;
+}
+.hexxen.jaeger .sheet-header .resources .resource .label.max {
+  grid-area: res-max;
+  margin: auto 0;
+}
+/** header section highlighting */
+.hexxen.jaeger .sheet-header .combat .combat-value:hover {
+  background-color: var(--hexxen-highlight-hover-color) !important;
+}
+.hexxen.jaeger .sheet-header .stats .stats-value:hover {
+  background-color: var(--hexxen-highlight-hover-color) !important;
+}
+.hexxen.jaeger .sheet-header .resources .resource:nth-child(2n) {
+  background-color: var(--hexxen-highlight-even-color);
+}
+.hexxen.jaeger .sheet-header .resources .resource:nth-child(2n+1) {
+  background-color: var(--hexxen-highlight-odd-color);
+}
+.hexxen.jaeger .sheet-header .resources .resource:hover {
+  background-color: var(--hexxen-highlight-hover-color) !important;
+}
+
+/*********************/
+/* common tab styles */
+/*********************/
+/* .tab[data-tab] notwendig wegen Priorisierung */
+.hexxen.jaeger .tab[data-tab].active {
+  display:grid;
+}
+.hexxen.jaeger .tab[data-tab] {
+  align-content: start;
+  align-items: start;
+  grid-auto-rows: max-content;
+  grid-gap: 5px;
+}
+/******************/
+/* Tab biography  */
+/******************/
+.hexxen.jaeger .biography {
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 5px 10px !important;
+}
+.hexxen.jaeger .biography > * {
+  grid-column: 1 / span 2;
+}
+.hexxen.jaeger .biography .table {
+  grid-column: auto;
+}
+.hexxen.jaeger .biography .table .tr .td:nth-child(1) {
+  width: 33%;
+  min-width: 100px;
+}
 
 /******************/
-/* Common section */
+/* Tab states     */
+/******************/
+.hexxen.jaeger .states {
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 5px 10px !important;
+}
+.hexxen.jaeger .states > * {
+  grid-column: 1 / span 2;
+}
+.hexxen.jaeger .states .header-11 {
+  grid-area: 1 / 1 / span 1 / span 1;
+}
+.hexxen.jaeger .states .table-11 {
+  grid-area: 2 / 1 / span 1 / span 1;
+}
+.hexxen.jaeger .states .table-11 .control {
+  color: inherit;
+}
+.hexxen.jaeger .states .table-11 .tr .td.label {
+  width: 190px;
+}
+.hexxen.jaeger .states .header-12 {
+  grid-area: 1 / 2 / span 1 / span 1;
+}
+.hexxen.jaeger .states .table-12 {
+  grid-area: 2 / 2 / span 1 / span 1;
+}
+.hexxen.jaeger .states .table-13 {
+  grid-area: 5 / 1 / span 1 / span 2;
+}
+.hexxen.jaeger .states .table-13 .tr .td.label {
+  width: 190px;
+}
+.hexxen.jaeger .states .table-13 .control {
+  color: var(--hexxen-alert-color);
+}
+.hexxen.jaeger .states .table-13 .tr .td.note {
+  width: 50%;
+  padding-left: 12px; /* +6px */
+}
+
+/******************/
+/* Tab skills     */
+/******************/
+.hexxen.jaeger .skills .attributes {
+  display:grid;
+  grid-auto-flow: column;
+  grid-template-columns: repeat(6, 1fr);
+  border: var(--hexxen-table-border);
+}
+.hexxen.jaeger .skills .attributes .attribute {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 1fr 2fr;
+  padding: 2px 5px;
+}
+/** highlighting */
+.hexxen.jaeger .skills .attributes .attribute:nth-child(even) {
+  background-color: var(--hexxen-highlight-even-color);
+}
+.hexxen.jaeger .skills .attributes .attribute:nth-child(odd) {
+  background-color: var(--hexxen-highlight-odd-color);
+}
+.hexxen.jaeger .skills .attributes .attribute:hover {
+  background-color: var(--hexxen-highlight-hover-color) !important;
+}
+
+/******************/
+/* Tab combat     */
 /******************/
 
+/******************/
+/* Tab powers     */
+/******************/
+
+/******************/
+/* Tab items      */
+/******************/
+
+/************************************/
+/* !!! TODO: ALT !!! Common section */
+/************************************/
 .sheet.jaeger .list-header {
   flex: 0;
   margin: 5px 0;
@@ -25,7 +238,7 @@
 .sheet.jaeger .list-body {
   list-style: none;
   margin: 0;
-  padding: 0 6px;
+  padding: 0;
 }
 .sheet.jaeger .list-body li:nth-of-type(2n) {
   background: var(--hexxen-highlight-even-color);
@@ -43,116 +256,6 @@
   cursor: crosshair; /* TODO: curson icon erstellen */
 }
 
-
-/************************/
-/* Sheet header section */
-/************************/
-/** TODO: prüfen, ob noch notwendig. (vgl. .hexxen.sheet .sheet-header) */
-.sheet.jaeger .sheet-header {
-  display: flex; /* override system preset */
-  flex-direction: column; /* override system preset */
-}
-.sheet.jaeger .sheet-header .label,
-.sheet.jaeger .sheet-header .value,
-.sheet.jaeger .sheet-header .control {
-  height: 20px;
-  line-height: 20px;
-}
-.sheet.jaeger .sheet-header span.value {
-  border-bottom: var(--hexxen-value-span-border);
-  background-color: var(--hexxen-value-span-bgcolor);
-  border-radius: 2px;
-  padding: 0 4px;
-}
-.sheet.jaeger .sheet-header input.value {
-  min-width: 50px;
-  padding: 0 3px;
-}
-
-.sheet.jaeger .sheet-header .profile-img {
-  flex: 0;
-  height: 115px; /* override system preset */
-}
-.sheet.jaeger .sheet-header .top {
-  padding-bottom: 8px;
-  border-bottom: 1px solid #AAA;
-}
-/** TODO: prüfen, ob noch notwendig. (vgl. .hexxen.sheet .sheet-header h1 input) */
-.sheet.jaeger .sheet-header h1 input {
-  height: 42px;
-  line-height: 42px;
-  margin: unset;
-  width: 100%;
-}
-.sheet.jaeger .sheet-header .combat {
-  margin-top: 8px;
-  column-gap: 15%;
-}
-.sheet.jaeger .sheet-header .combat .value {
-  flex: 1.3;
-}
-.sheet.jaeger .sheet-header .lep {
-  margin-top: 8px;
-  column-gap: 8%;
-  font-size: 1.4em;
-}
-.sheet.jaeger .sheet-header .lep .label,
-.sheet.jaeger .sheet-header .lep .value,
-.sheet.jaeger .sheet-header .lep .control{
-  height: 28px;
-  line-height: 28px;
-}
-.sheet.jaeger .sheet-header .lep .label {
-  flex: 1.5;
-}
-.sheet.jaeger .sheet-header .lep .label.max {
-  flex: 0 0 40px;
-}
-
-.sheet.jaeger .sheet-header .attributes {
-  margin-top: 8px;
-  column-gap: 3%;
-}
-.sheet.jaeger .sheet-header .attribute .value {
-  flex: 1.6;
-}
-.sheet.jaeger .sheet-header .resources {
-  margin-top: 6px;
-  column-gap: 3%;
-}
-.sheet.jaeger .sheet-header .resource .label {
-  flex: 1.5;
-}
-.sheet.jaeger .sheet-header .resource .label.max {
-  flex: 0 0 15px;
-}
-.sheet.jaeger .sheet-header .resource .control {
-  flex: 0 0 20px;
-}
-
-/* TODO: teilweise nach hexxen.css auslagern? */
-.hexxen.sheet .biography.tab[data-tab].active {
-  display:grid;
-  align-content: start;
-  align-items: start;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 5px 10px;
-}
-.hexxen.sheet.jaeger .biography > * {
-  grid-column: 1/3;
-}
-.hexxen.sheet.jaeger .biography .table-1,
-.hexxen.sheet.jaeger .biography .table-2 {
-  grid-column: auto;
-}
-.hexxen.sheet.jaeger .biography .table .tr .td:nth-child(1) {
-  width: 25%;
-  min-width: 75px;
-}
-
-.sheet.jaeger .states .top {
-  column-gap: 8px;
-}
 .sheet.jaeger .states .list-body li > *,
 .sheet.jaeger .powers .list-body li > *,
 .sheet.jaeger .items .list-body li > * {
@@ -160,15 +263,8 @@
   line-height: 20px;
   text-align: inherit;
 }
-.sheet.jaeger .states .top .list-body .label {
-  flex: 1.5;
-}
-.sheet.jaeger .states .temp .list-body .label,
 .sheet.jaeger .items .top .list-body .label {
   flex: 0.5;
-}
-.sheet.jaeger .states .einfluesse .list-body .control {
-  color: red;
 }
 .sheet.jaeger .states .zustaende .checkbox {
   flex: 0 0 23px;
@@ -179,9 +275,11 @@
 .sheet.jaeger .states .zustaende .list-body span {
   border-bottom: var(--hexxen-value-span-border);
 }
-.sheet.jaeger .states .temp .hint {
-  line-height: 0.9em;
-  padding: 3px;
+.sheet.jaeger .states .table.zustaende .effekt,
+.sheet.jaeger .states .table.zustaende .abbau,
+.sheet.jaeger .states .table.zustaende .hilfe {
+  line-height: unset;
+  padding: 2px 0;
 }
 
 .sheet.jaeger .flexrow .li-label {
@@ -220,7 +318,7 @@
   text-align: inherit;
   line-height: unset;
 }
-.sheet.jaeger .list-body span.li-text {
+.sheet.jaeger .list-body .li-text {
   border-bottom: var(--hexxen-value-span-border);
 }
 .sheet.jaeger .items-list {

@@ -55,8 +55,15 @@ Hooks.once("init", async function() {
     decimals: 0
   };
 
-  Handlebars.registerHelper('isDefined', function (value) {
+  Handlebars.registerHelper('isDefined', function(value) {
     return value !== undefined;
+  });
+  Handlebars.registerHelper('repeat', function(context, options) {
+    let out = "";
+    for (let i=0; i<context; i++) {
+      out += options.fn(this);
+    }
+    return out;
   });
 
   // TODO: preload some images
@@ -66,6 +73,7 @@ Hooks.once("init", async function() {
     // TODO: besser actor.gameMode, aber dazu muss zuerst das Actor/Token-Objekt ermittelt werden
     // (actor ist nur das äußere Datenelement von Actor)
     const flags = options.data.root.actor.flags[Hexxen.scope] || {};
+    // TODO: editMode umstellen
     const editMode = flags.editMode || false;
     let name = [ options.hash.path, options.hash.key ];
     if ( options.hash.target ) name.push( options.hash.target);
@@ -76,14 +84,15 @@ Hooks.once("init", async function() {
     if (editMode) {
       return new Handlebars.SafeString(`<input class="${options.hash.class}" type="text" name="${name}" value="${options.hash.value}" data-dtype="Number"/>`);
     } else { // game mode
-      return new Handlebars.SafeString(`<span class="${options.hash.class}">${options.hash.value}</span>`);
+      return new Handlebars.SafeString(`<div class="${options.hash.class}">${options.hash.value}</div>`);
     }
   });
   // FIXME: richtiger Platz??
   Handlebars.registerHelper("inc-btn", function(options) {
     // FIXME: Template erstellen statt SafeString
+    options.hash.class = options.hash.class || "";
     return new Handlebars.SafeString(`
-      <div class="inc-btn">
+      <div class="${options.hash.class} inc-btn">
           ${options.fn(this)}
           <div class="controls">
               <a class="control left" data-action="decrease"><i class="fas fa-minus"></i></a>

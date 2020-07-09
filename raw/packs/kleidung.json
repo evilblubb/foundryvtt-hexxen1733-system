@@ -39,7 +39,8 @@
           }
     ],
     "description": "Wenn du diese Kleidung unter Tage trägst und Schaden durch Steinschlag, Nässe, Kälte, Abrutschen, Stürze oder ähnliche Gefahren erleidest, wird der Schaden jeweils um 3 Punkte reduziert.",
-    "summary": "Kosten: 12 Gulden."
+    "summary": "",
+    "cost":"12 Gulden."
   },
   "buergerliche-kleidung": {
     "name":"Bürgerliche Kleidung",
@@ -137,7 +138,8 @@
           }
     ],
     "description": "Wenn du in Kundschafterkleidung im Außenbereich übernachtest (unter freiem Himmel, im Zelt oder im Zelt mit Feldbett), regenerierst du zusätzlich +2 Lep und erhältst +1 Coup oder +1 Idee für die Dauer des nächsten Tages. Ist eine Herberge, Stadt oder sonstige stabile Unterkunft in der Nähe, kannst du Kundschafterkleidung nicht anwenden.",
-    "summary": "Kosten: 40 Gulden."
+    "summary": "",
+    "cost":"40 Gulden."
   },
   "landsknechtkleidung": {
     "name":"Landsknechtkleidung",
@@ -235,7 +237,8 @@
           }
     ],
     "description": "Schwere Rüstung, PW3",
-    "summary": "Kosten: 70 Gulden"
+    "summary": "",
+    "cost":"70"
   },
   "lederkoller": {
     "name":"Lederkoller",
@@ -249,7 +252,8 @@
           }
     ],
     "description": "Mittelschwere Rüstung, PW2",
-    "summary": "Kosten: 30 Gulden"
+    "summary": "",
+    "cost":"30"
   },
   "ross-harnisch": {
     "name":"Roß Harnisch",
@@ -263,6 +267,7 @@
           }
     ],
     "description": "Panzerung für Schlachtrösser, PW +1",
-    "summary": "Kosten: 80 Gulden"
+    "summary": "",
+    "cost":"80"
   }
 }

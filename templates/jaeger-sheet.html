@@ -1,7 +1,7 @@
 ﻿<form class="{{cssClass}}" autocomplete="off">
 
     {{#*inline "item"}}
-    {{! > item id="rolle-1" class="td" type="role" content=data.rolle-1}}
+    {{! example: >item id="rolle-1" class="td" type="role" content=data.role-1}}
     {{! log "content:" content
         "editMode:" @root.editMode}}
     <div class="{{class}} flexrow item {{type}} allow-break"
@@ -21,7 +21,7 @@
     {{/inline}}
 
     {{#*inline "input"}}
-    {{! > input id="languages" class="foo" target="data.languages" content=data.languages}}
+    {{! example: >input id="languages" class="foo" target="data.languages" content=data.languages}}
     {{! log "root:" @root
         "this:" @this
         "editMode:" @root.editMode}}
@@ -29,86 +29,86 @@
     <input {{#if id}} id="{{id}}" {{/if}}
         class="{{#if (isDefined class)}}{{class}} {{/if}}value"
         type="text"
-        name="{{target}}{{#if (isDefined content.value)}}.value{{/if}}"
+        name="{{#if base-target}}{{base-target}}.{{/if}}{{target}}{{#if (isDefined content.value)}}.value{{/if}}"
         value="{{#if (isDefined content.value)}}{{content.value}}{{else}}{{content}}{{/if}}"
         {{! TODO: dtype besser lösen }}
         {{#if content.dtype}}data-dtype="{{content.dtype}}"{{/if}}
         {{#if dtype}}data-dtype="{{dtype}}"{{/if}}
         {{#if placeholder}}placeholder="{{placeholder}}"{{/if}} />
     {{else}}
-    <span class="{{#if (isDefined class)}}{{class}} {{/if}}value">
+    <div class="{{#if (isDefined class)}}{{class}} {{/if}}value">
         {{#if (isDefined content.value)}}{{content.value}}{{else}}{{content}}{{/if}}
-    </span>
+    </div>
     {{/if}}
+    {{/inline}}
+
+    {{#*inline "seperator"}}
+    <div class="seperator">&nbsp;</div>
     {{/inline}}
 
     {{!-- Sheet Header --}}
     <header class="sheet-header">
-        <div class="flexrow">
-            <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
-            <div class="top flexcol">
-                <h1 class="actorname flexrow">{{>input target="name" content=actor.name placeholder="Name"}}</h1>
-                <div class="combat flexrow">
-                    <div class="ini flexrow">
-                        <label class="label" title="Initiative" for="ini">INI</label>
-                        <span class="value" id="ini">{{data.ini.value}}</span>
-                    </div>
-                    <div class="pw flexrow">
-                        <label class="label" title="Panzerwert" for="pw">PW</label>
-                        {{dyn-input class="value" path="data.temp" key="pw" value=data.temp.pw}}
-                    </div>
-                    <div class="ap flexrow">
-                        <label class="label" title="Aktionspunkte" for="ap">AP</label>
-                        <span class="value" id="ap">{{data.calc.ap}}</span>
-                    </div>
-                </div>
-                <div class="lep flexrow">
-                    <div class="basis-lep flexrow" data-key="data.health.value">
-                        <label class="label" for="basis-lep">Basis-LEP</label>
-                        {{#inc-btn}}<input class="value" type="text" name="data.health.value" value="{{data.health.value}}" data-dtype="Number" id="basis-lep" />{{/inc-btn}}
-                        <span class="label max" title="Maximum"> / {{data.health.max}}</span>
-                    </div>
-                    <div class="puffer-lep flexrow" data-key="data.power.value">
-                        <label class="label" for="puffer-lep">Puffer-LEP</label>
-                        {{#inc-btn}}<input class="value" type="text" name="data.power.value" value="{{data.power.value}}" data-dtype="Number" id="puffer-lep" />{{/inc-btn}}
-                        <span class="label max" title="Maximum"> / {{data.power.max}}</span>
-                    </div>
-                </div>
+        <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
+        <h1 class="actorname">{{>input class="value-box" target="name" content=actor.name placeholder="Name"}}</h1>
+
+        <div class="combat">
+            <div class="combat-value ini flexrow">
+                <label class="label" title="Initiative" for="ini">INI</label>
+                <div class="value value-box" id="ini">{{data.ini.value}}</div>
+            </div>
+            <div class="combat-value pw flexrow">
+                <label class="label" title="Panzerwert" for="pw">PW</label>
+                {{>input class="value-box" target="data.temp.pw" content=data.temp.pw dtype="Number"}}
+            </div>
+            <div class="combat-value ap flexrow">
+                <label class="label" title="Aktionspunkte" for="ap">AP</label>
+                <div class="value value-box" id="ap">{{data.calc.ap}}</div>
             </div>
         </div>
-        <div class="attributes flexrow">
-        {{#each data.attributes as |attr key|}}
-            <div class="attribute flexrow" data-key="{{key}}">
-                <a class="label roll" title="{{attr.label}}" data-action="roll" data-type="attribute">{{key}}</a>
-                {{dyn-input class="value" path="data.attributes" key=key target="value" value=attr.value}}
+
+        <div class="stats">
+            <div class="stats-value health" data-key="data.health.value">
+                <label class="label" for="health">Basis-LEP</label>
+                {{#inc-btn}}<input class="value" type="text" name="data.health.value" value="{{data.health.value}}" data-dtype="Number" id="health" />{{/inc-btn}}
+                <div class="label max" title="Maximum"> / {{data.health.max}}</div>
             </div>
-        {{/each}}
+            <div class="stats-value power" data-key="data.power.value">
+                <label class="label" for="power">Puffer-LEP</label>
+                {{#inc-btn}}<input class="value" type="text" name="data.power.value" value="{{data.power.value}}" data-dtype="Number" id="power" />{{/inc-btn}}
+                <div class="label max" title="Maximum"> / {{data.power.max}}</div>
+            </div>
         </div>
-        <div class="resources flexrow">
-                <!-- TODO: <span class="fa-stack"><i class="fas fa-stack-1x fa-circle" style="color:yellow"></i><i class="fas fa-stack-1x">I</i></span>-->
+
+        {{#*inline "res"}}
+        <div class="resource" data-key="data.resources.{{key}}">
+            <label class="label" for="{{key}}">{{res.label}}</label>
+            {{#inc-btn}}<input class="value" type="text" name="data.resources.{{key}}" value="{{res.value}}" data-default="{{res.default}}" data-dtype="Number" id="{{key}}" />{{/inc-btn}}
+            {{#if res.max}}
+            <div class="label max" title="Maximum">&nbsp;/&nbsp;{{res.max}}</div>
+            {{else if res.default}}
+            <div class="label max" title="Default - Zum Setzen klicken">&nbsp;<a class="set-default" data-action="default">(&nbsp;{{res.default}}&nbsp;)</a></div>
+            {{else}}
+            <div class="label max"></div>
+            {{/if}}
+        </div>
+        {{/inline}}
+
+        <div class="resources">
             {{#each header-resources as |res key|}}
-            <div class="resource flexrow" data-key="data.resources.{{key}}">
-                <label class="label" for="{{key}}">{{res.label}}</label>
-                {{#inc-btn}}<input class="value" type="text" name="data.resources.{{key}}" value="{{res.value}}" data-default="{{res.default}}" data-dtype="Number" id="{{key}}" />{{/inc-btn}}
-                {{#if res.max}}
-                <span class="label max" title="Maximum">&nbsp;/&nbsp;{{res.max}}</span>
-                {{else if res.default}}
-                <span class="label max" title="Default - Zum Setzen klicken">&nbsp;/&nbsp;<a class="set-default" data-action="default">{{res.default}}</a></span>
-                {{else}}
-                <span class="label max"></span>
-                {{/if}}
-            </div>
+            {{>res key=key res=res}}
             {{/each}}
         </div>
     </header>
 
+
     {{!-- Sheet Tab Navigation --}}
+    {{!-- TODO: Navbar auf grid-Layout umstellen? }}
     <nav class="sheet-tabs tabs" data-group="primary">
         <a class="item" data-tab="biography"><div class="item-bg">Bio</div></a>
         <a class="item" data-tab="states"><div class="item-bg">Zustand</div></a>
         <a class="item" data-tab="skills"><div class="item-bg">Fertigkeiten</div></a>
-        <a class="item" data-tab="powers"><div class="item-bg">Jägerkräfte</div></a>
         <a class="item" data-tab="combat"><div class="item-bg">Kampf</div></a>
+        <a class="item" data-tab="powers"><div class="item-bg">Jägerkräfte</div></a>
         <a class="item" data-tab="items"><div class="item-bg">Besitz</div></a>
     </nav>
 
@@ -118,41 +118,42 @@
         {{!-- Bio Tab --}}
         <div class="tab biography scroll-y" data-group="primary" data-tab="biography">
             <header class="block-header">Basiswerte</header>
-            <div class="table table-1">
+            {{!-- TODO: mit oder ohne inputs (kompakter)? Im Firefox Probleme bei der Darstellung ohne. --}}
+            <div class="table inputs table-1">
                 <div class="tr">
                     <label class="td label" for="role-1">Rolle №1</label>
-                    {{> item id="role-1" class="td" type="role" content=data.role-1}}
+                    {{>item id="role-1" class="td" type="role" content=data.role-1}}
                 </div>
                 <div class="tr">
                     <label class="td label" for="role-2">Rolle №2</label>
-                    {{> item id="role-2" class="td" type="role" content=data.role-2}}
+                    {{>item id="role-2" class="td" type="role" content=data.role-2}}
                 </div>
                 <div class="tr">
                     <label class="td label" for="role-3">Rolle №3</label>
-                    {{> item id="role-3" class="td" type="role" content=data.role-3}}
+                    {{>item id="role-3" class="td" type="role" content=data.role-3}}
                 </div>
                 <div class="tr">
                     <label class="td label" for="profession">Profession</label>
-                    {{> item id="profession" class="td" type="profession" content=data.profession}}
+                    {{>item id="profession" class="td" type="profession" content=data.profession}}
                 </div>
                 <div class="tr">
                     <label class="td label" for="languages">Sprachen</label>
                     <div class="td flexrow languages">
-                        {{> input id="languages" target="data.languages" content=data.languages}}
+                        {{>input id="languages" target="data.languages" content=data.languages}}
                     </div>
                 </div>
             </div>
-            <div class="table table-2">
+            <div class="table inputs table-2">
                 <div class="tr">
                     <label class="td label" for="level">Jägerstufe</label>
                     <div class="td flexrow level">
-                        {{> input id="level" target="data.level" content=data.level}}
+                        {{>input id="level" target="data.level" content=data.level}}
                     </div>
                 </div>
                 <div class="tr">
                     <label class="td label" for="motivation">Motivation</label>
                     <div class="td flexcol">
-                        {{> item id="motivation" type="motivation" content=data.motivation}}
+                        {{>item id="motivation" type="motivation" content=data.motivation}}
                         {{!-- using {{{ }}} to allow HTML code to pass through unescaped --}}
                         <div id="motivation-bonus" class="note allow-break">{{{data.motivation.bonus}}}</div>
                     </div>
@@ -160,111 +161,142 @@
                 <div class="tr">
                     <label class="td label" for="vitiation">Verderbnis</label>
                     <div class="td flexrow vitiation">
-                        {{> input id="vitiation" target="data.vitiation" content=data.vitiation}}
+                        {{>input id="vitiation" target="data.vitiation" content=data.vitiation}}
                     </div>
                 </div>
             </div>
 
-            <div class="seperator"></div>
+            {{>seperator}}
 
-            <header class="block-header">Notizen</header>
+            {{!-- TODO: Temporäre Eingabemöglichkeit. Wird später (falls nötig) durch Buffs ersetzt. --}}
+            <header class="block-header">Temporäre Eingabefelder für Boni</header>
+            <div class="table table-3">
+                <div class="tr">
+                    <label class="td label" for="lep-bonus">LEP Max</label>
+                    <div class="td flexcol">
+                        {{>input id="lep-bonus" target="data.temp.lep-bonus" content=data.temp.lep-bonus dtype="Number" }}
+                        <div class="hint allow-break">Hinweis: Unempfindlichkeit ist bereits berücksichtigt.</div>
+                    </div>
+                </div>
+                <div class="tr">
+                    <label class="td label" for="ini-bonus">Initiative</label>
+                    <div class="td flexcol">
+                        {{>input id="ini-bonus" target="data.temp.ini-bonus" content=data.temp.ini-bonus dtype="Number" }}
+                        <div class="hint allow-break">Hinweis: Reflexe ist bereits berücksichtigt.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="table table-4">
+                <div class="tr">
+                    <label class="td label" for="idee-bonus">Ideen</label>
+                    <div class="td flexrow idee-bonus">
+                        {{>input id="idee-bonus" target="data.temp.idee-bonus" content=data.temp.idee-bonus dtype="Number" }}
+                    </div>
+                </div>
+                <div class="tr">
+                    <label class="td label" for="coup-bonus">Coups</label>
+                    <div class="td flexrow coup-bonus">
+                        {{>input id="coup-bonus" target="data.temp.coup-bonus" content=data.temp.coup-bonus dtype="Number" }}
+                    </div>
+                </div>
+                <div class="tr">
+                    <label class="td label" for="ap-bonus">Aktionspunkte</label>
+                    <div class="td flexrow ap-bonus">
+                        {{>input id="ap-bonus" target="data.temp.ap-bonus" content=data.temp.ap-bonus dtype="Number" }}
+                    </div>
+                </div>
+            </div>
+
+            {{>seperator}}
+
+            <header class="block-header">Herkunft / Werdegang / Notizen</header>
             {{editor content=data.notes.biography.editor target="data.notes.biography.editor" button=true owner=owner editable=editable}}
+
+            <div class="seperator"> </div>
+            <div class="last"> </div>
         </div>
 
         {{!-- Zustand Tab --}}
-        <div class="tab states scroll-y" data-group="primary" data-tab="states">
-            <div class="top flexrow">
-                <div class="erste-hilfe flexcol">
-                    <header class="list-header flexrow">
-                        <span class="header-label">Heilfaktor</span>
-                    </header>
 
-                    <!-- TODO: dynamisch erzeugen -->
-                    <ol class="list-body">
-                        <li class="eh flexrow" data-key="data.resources.eh">
-                            <span class="label">Erste Hilfe [EH]</span>
-                            <span class="controls">
-                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
-                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
-                            </span>
-                            <input type="hidden" name="data.resources.eh" value={{data.resources.eh}} data-dtype="Number" />
-                        </li>
-                        <li class="mh flexrow" data-key="data.resources.mh">
-                            <span class="label">Mag. Heilung & Elixire [MH]</span>
-                            <span class="controls">
-                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
-                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
-                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
-                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
-                            </span>
-                            <input type="hidden" name="data.resources.mh" value={{data.resources.mh}} data-dtype="Number" />
-                        </li>
-                    </ol>
+        {{#*inline "res-boxes"}}
+        <div class="{{class}}">
+            {{#repeat count}}
+            <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
+            {{/repeat}}
+        </div>
+        {{/inline}}
+
+            <div class="tab states scroll-y" data-group="primary" data-tab="states">
+            <header class="block-header header-11">Heilfaktoren</header>
+            <div class="erste-hilfe res-boxes table table-11">
+                <div class="tr eh" data-key="data.resources.eh">
+                    <label class="td label" for="first-aid">Erste Hilfe [EH]</label>
+                    {{>res-boxes class="td controls" count=2}}
+                    <input id="first-aid" type="hidden" name="data.resources.eh" value={{data.resources.eh}} data-dtype="Number" />
                 </div>
-                <div class="einfluesse flexcol">
-                    <header class="list-header flexrow">
-                        <span class="header-label">Anhaltende Einflüsse</span>
-                    </header>
-
-                    <!-- TODO: dynamisch erzeugen -->
-                    <ol class="list-body">
-                        <li class="odmg flexrow" data-key="data.resources.odmg">
-                            <span class="label">Äußerer Schaden</span>
-                            <span class="controls">
-                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
-                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
-                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
-                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
-                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
-                            </span>
-                            <input type="hidden" name="data.resources.odmg" value={{data.resources.odmg}} data-dtype="Number" />
-                        </li>
-                        <li class="idmg flexrow" data-key="data.resources.idmg">
-                            <span class="label">Innerer Schaden</span>
-                            <span class="controls">
-                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
-                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
-                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
-                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
-                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
-                            </span>
-                            <input type="hidden" name="data.resources.idmg" value={{data.resources.idmg}} data-dtype="Number" />
-                        </li>
-                        <li class="mdmg flexrow" data-key="data.resources.mdmg">
-                            <span class="label">Malusschaden</span>
-                            <span class="controls">
-                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
-                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
-                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
-                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
-                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
-                            </span>
-                            <input type="hidden" name="data.resources.mdmg" value={{data.resources.mdmg}} data-dtype="Number" />
-                        </li>
-                        <li class="ldmg flexrow" data-key="data.resources.ldmg">
-                            <span class="label">Lähmungsschaden</span>
-                            <span class="controls">
-                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
-                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
-                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
-                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
-                                <a class="control" data-action="increase"><i class="fas fa-times fa-lg fa-inverse"></i></a>
-                            </span>
-                            <input type="hidden" name="data.resources.ldmg" value={{data.resources.ldmg}} data-dtype="Number" />
-                        </li>
-                    </ol>
+                <div class="tr mh" data-key="data.resources.mh">
+                    <label class="td label" for="magical-healing">Mag. Heilung & Elixire [MH]</label>
+                    {{>res-boxes class="td controls" count=4}}
+                    <input id="magical-healing" type="hidden" name="data.resources.mh" value={{data.resources.mh}} data-dtype="Number" />
                 </div>
             </div>
-            <div class="zustaende flexcol">
-                <header class="list-header flexrow">
-                    <span class="checkbox"></span>
-                    <span class="label">Zustand</span>
-                    <span class="type">Typ</span>
-                    <span class="effekt">Nebeneffekt</span>
-                    <span class="abbau">Abbau</span>
-                    <span class="hilfe">Helfen</span>
-                </header>
 
+            <header class="block-header header-12">Regeneration</header>
+            <div class="regeneration table table-12">
+                <div class="tr">
+                    <div class="td">Durch Nachtruhe oder FZA Regeneration</div>
+                </div>
+                <div class="tr">
+                    <div class="td note">1 LEP unter freiem Himmel, 2 LEP im Zelt, 3 LEP auf dem Feldbett im Zelt, 4 LEP in einer Herberge</div>
+                </div>
+                <div class="tr">
+                    <div class="td note">Nach Nachtruhe / FZA Regeneration: Alle durchgestrichenen EH- und MH-Felder ausradieren.</div>
+                </div>
+            </div>
+
+            {{>seperator}}
+
+            <header class="block-header">Anhaltende Einflüsse und Zustände</header>
+            <div class="einfluesse res-boxes table table-13">
+                <div class="tr odmg" data-key="data.resources.odmg">
+                    <label class="td label" for="odmg">Äußerer Schaden</label>
+                    {{>res-boxes class="td controls" count=5}}
+                    <div class="td note">In [INI-0]: 2 Schmerzschaden je Stufe</div>
+                    <input id="odmg" type="hidden" name="data.resources.odmg" value={{data.resources.odmg}} data-dtype="Number" />
+                </div>
+                <div class="tr idmg" data-key="data.resources.idmg">
+                    <label class="td label" for="idmg">Innerer Schaden</label>
+                    {{>res-boxes class="td controls" count=5}}
+                    <div class="td note">In [INI-0]: 2 Schmerzschaden je Stufe</div>
+                    <input id="idmg" type="hidden" name="data.resources.idmg" value={{data.resources.idmg}} data-dtype="Number" />
+                </div>
+                <div class="tr mdmg" data-key="data.resources.mdmg">
+                    <label class="td label" for="mdmg">Malusschaden</label>
+                    {{>res-boxes class="td controls" count=5}}
+                    <div class="td note">Maluswürfel bei allen Proben</div>
+                    <input id="mdmg" type="hidden" name="data.resources.mdmg" value={{data.resources.mdmg}} data-dtype="Number" />
+                </div>
+                <div class="tr ldmg" data-key="data.resources.ldmg">
+                    <label class="td label" for="ldmg">Lähmungsschaden</label>
+                    {{>res-boxes class="td controls" count=data.calc.ap}}
+                    <div class="td note">-1 AP je Stufe (max. AP)</div>
+                    <input id="ldmg" type="hidden" name="data.resources.ldmg" value={{data.resources.ldmg}} data-dtype="Number" />
+                </div>
+            </div>
+
+            {{!-- TODO: Tabelle umbauen --}}
+            {{!-- TODO: selektierte Zustände zu den Einflüssen zuordnen --}}
+            {{!-- TODO: Zustandsvariante: normal/mächtig/fordernd/dauerhaft --}}
+            <header class="zustaende block-header flexrow">
+                <span class="checkbox"></span>
+                <span class="label">Zustand</span>
+                <span class="type">Typ</span>
+                <span class="effekt">Nebeneffekt</span>
+                <span class="abbau">Abbau</span>
+                <span class="hilfe">Helfen</span>
+            </header>
+
+            <div class="zustaende table table-14">
                 <ol class="list-body">
                 {{#each data.states as |state key|}}
                     <li class="state flexrow" data-attribute="{{key}}">
@@ -279,59 +311,32 @@
                 </ol>
             </div>
 
-            <div class="seperator"></div>
+            {{>seperator}}
 
-            <header class="list-header flexrow">
-                <span class="header-label">Temporäre Eingabefelder für unberücksichtigte Boni</span>
-            </header>
-            <div class="temp flexrow">
-                <div class="flexcol">
-                    <ol class="list-body">
-                        <li class="flexrow">
-                            <label class="label" for="lep-bonus">LEP Max</label>
-                            <div class="flexcol">
-                                {{>input id="lep-bonus" target="data.temp.lep-bonus" content=data.temp.lep-bonus dtype="Number" }}
-                                <div class="hint allow-break">Hinweis: Unempfindlichkeit ist bereits berücksichtigt.</div>
-                            </div>
-                        </li>
-                        <li class="flexrow">
-                            <label class="label" for="ini-bonus">Initiative</label>
-                            <div class="flexcol">
-                                {{>input id="ini-bonus" target="data.temp.ini-bonus" content=data.temp.ini-bonus dtype="Number" }}
-                                <div class="hint allow-break">Hinweis: Reflexe ist bereits berücksichtigt.</div>
-                            </div>
-                        </li>
-                    </ol>
-                </div>
-                <div class="flexcol">
-                    <ol class="list-body">
-                        <li class="flexrow">
-                            <label class="label" for="idee-bonus">Ideen</label>
-                            {{>input id="idee-bonus" target="data.temp.idee-bonus" content=data.temp.idee-bonus dtype="Number" }}
-                        </li>
-                        <li class="flexrow">
-                            <label class="label" for="coup-bonus">Coups</label>
-                            {{>input id="coup-bonus" target="data.temp.coup-bonus" content=data.temp.coup-bonus dtype="Number" }}
-                        </li>
-                        <li class="flexrow">
-                            <label class="label" for="ap-bonus">Aktionspunkte</label>
-                            {{>input id="ap-bonus" target="data.temp.ap-bonus" content=data.temp.ap-bonus dtype="Number" }}
-                        </li>
-                    </ol>
-                </div>
-            </div>
-
-            <div class="seperator"></div>
-
-            <header class="list-header flexrow">
-                <span class="header-label">Notizen</span>
-            </header>
+            <header class="block-header">Notizen</header>
             {{editor content=data.notes.states.editor target="data.notes.states.editor" button=true owner=owner editable=editable}}
+
+            {{>seperator}}
+            <div class="last"> </div>
         </div>
 
         {{!-- Fertigkeiten Tab --}}
         <div class="tab skills scroll-y" data-group="primary" data-tab="skills">
-            <header class="list-header flexrow">
+            <header class="block-header flexrow"><span class="note">geistige (I)</span><span>Attribute</span><span class="note">körperliche (C)</span></header>
+            <div class="attributes">
+                {{#each data.attributes as |attr key|}}
+                    <div class="attribute" data-key="{{key}}">
+                        {{!-- TODO: Label im EditMode ausrichten --}}
+                        <a class="label roll" title="{{attr.label}}" data-action="roll" data-type="attribute">{{key}}</a>
+                        {{>input class="value-box" base-target="data.attributes" target=key content=attr}}
+                    </div>
+                {{/each}}
+            </div>
+
+            {{>seperator}}
+
+            {{!-- TODO: Tabelle umbauen --}}
+            <header class="block-header flexrow">
                 <span class="li-label">Fertigkeit</span>
                 <span class="li-value" title="Fertigkeitswert">FW</span>
                 <span class="li-attr">Attribut</span>
@@ -341,57 +346,39 @@
                 <a class="li-control" data-action="create"><i class="fas fa-plus"></i></a>
             </header>
 
-            <ol class="list-body">
-            {{#each data.skills as |skill key|}}
-                <li class="skill flexrow" data-key="{{key}}">
-                    <span class="li-label li-text">{{skill.label}}</span>
-                    {{dyn-input class="li-value li-text" path="data.skills" key=key target="value" value=skill.value}}
-                    <span class="li-attr li-text" title="{{skill.attrLabel}}: {{skill.attrValue}}">[ +{{skill.attribute}} ]</span>
-                    <span class="li-sum li-text">{{skill.summe}}</span>
-                    <a class="li-control roll" data-action="roll" data-type="skill"><i class="fas fa-dice"></i></a>
-                    <span class="li-control"></span>
-                    {{#if skill.isCustom}}
-                    <a class="li-control" data-action="delete"><i class="fas fa-trash"></i></a>
-                    {{else}}
-                    <span class="li-control"></span>
-                    {{/if}}
-                </li>
-            {{/each}}
-            </ol>
+            <div class="table table-21">
+                <ol class="list-body">
+                {{#each data.skills as |skill key|}}
+                    <li class="skill flexrow" data-key="{{key}}">
+                        <span class="li-label li-text">{{skill.label}}</span>
+                        {{dyn-input class="li-value li-text" path="data.skills" key=key target="value" value=skill.value}}
+                        <span class="li-attr li-text" title="{{skill.attrLabel}}: {{skill.attrValue}}">[ +{{skill.attribute}} ]</span>
+                        <span class="li-sum li-text">{{skill.summe}}</span>
+                        <a class="li-control roll" data-action="roll" data-type="skill"><i class="fas fa-dice"></i></a>
+                        <span class="li-control"></span>
+                        {{#if skill.isCustom}}
+                        <a class="li-control" data-action="delete"><i class="fas fa-trash"></i></a>
+                        {{else}}
+                        <span class="li-control"></span>
+                        {{/if}}
+                    </li>
+                {{/each}}
+                </ol>
+            </div>
 
-            <div class="seperator"></div>
+            {{>seperator}}
 
-            <header class="list-header flexrow">
-                <span class="header-label">Notizen</span>
-            </header>
+            <header class="block-header">Notizen</header>
             {{editor content=data.notes.skills.editor target="data.notes.skills.editor" button=true owner=owner editable=editable}}
-        </div>
 
-        {{!-- Jägerkräfte Tab --}}
-        <div class="tab powers scroll-y" data-group="primary" data-tab="powers">
-            <ol class="list-body">
-                <li class="flexrow">
-                    <label class="label" for="kp">Konstruktionspunkte</label>
-                    <input id="kp" class="value" type="text" name="data.resources.kp" value="{{data.resources.kp}}" data-dtype="Number" />
-                </li>
-            </ol>
-
-            <header class="list-header flexrow">
-                <span class="header-label">Jägerkräfte</span>
-            </header>
-            TODO: Jägerkräfte
-
-            <div class="seperator"></div>
-
-            <header class="list-header flexrow">
-                <span class="header-label">Notizen</span>
-            </header>
-            {{editor content=data.notes.powers.editor target="data.notes.powers.editor" button=true owner=owner editable=editable}}
+            {{>seperator}}
+            <div class="last"> </div>
         </div>
 
         {{!-- Kampf Tab --}}
         <div class="tab combat scroll-y" data-group="primary" data-tab="combat">
-            <header class="list-header flexrow">
+            {{!-- TODO: Tabelle umbauen --}}
+            <header class="block-header flexrow">
                 <span class="li-label">Waffe</span>
                 <span class="li-schaden" title="Basis-Schaden">SCH</span>
                 <span class="li-ap" title="Aktionspunkte">AP</span>
@@ -402,40 +389,69 @@
                 <span class="li-anmerkung">Anmerkung</span>
             </header>
 
-            <ol class="list-body">
-            {{#each data.combat as |skill key|}}
-                <li class="skill flexrow" data-key="{{key}}">
-                    <span class="li-label li-text">{{skill.label}}</span>
-                    <span class="li-schaden li-text">{{skill.schaden}}</span>
-                    <span class="li-ap li-text">{{skill.ap}}</span>
-                    {{dyn-input class="li-value li-text" path="data.combat" key=key target="value" value=skill.value}}
-                    <span class="li-attr li-text" title="{{skill.attrLabel}}: {{skill.attrValue}}">[ +{{skill.attribute}} ]</span>
-                    <span class="li-sum li-text">{{skill.summe}}</span>
-                    <a class="li-control roll" data-action="roll" data-type="combat"><i class="fas fa-dice"></i></a>
-                    <span class="li-anmerkung li-text">{{skill.anmerkung}}</span>
-                </li>
-            {{/each}}
-            </ol>
+            <div class="table table-31">
+                <div style="display: table-row;"><div style="display: table-cell;">
+                <ol class="list-body">
+                {{#each data.combat as |skill key|}}
+                    <li class="skill flexrow" data-key="{{key}}">
+                        <span class="li-label li-text">{{skill.label}}</span>
+                        <span class="li-schaden li-text">{{skill.schaden}}</span>
+                        <span class="li-ap li-text">{{skill.ap}}</span>
+                        {{dyn-input class="li-value li-text" path="data.combat" key=key target="value" value=skill.value}}
+                        <span class="li-attr li-text" title="{{skill.attrLabel}}: {{skill.attrValue}}">[ +{{skill.attribute}} ]</span>
+                        <span class="li-sum li-text">{{skill.summe}}</span>
+                        <a class="li-control roll" data-action="roll" data-type="combat"><i class="fas fa-dice"></i></a>
+                        <span class="li-anmerkung li-text">{{skill.anmerkung}}</span>
+                    </li>
+                {{/each}}
+                </ol>
+                </div></div>
+            </div>
 
-            <div class="seperator"></div>
+            {{>seperator}}
 
-            <header class="list-header flexrow">
-                <span class="header-label">Notizen</span>
-            </header>
+            <header class="block-header">Notizen</header>
             {{editor content=data.notes.combat.editor target="data.notes.combat.editor" button=true owner=owner editable=editable}}
+
+            {{>seperator}}
+            <div class="last"> </div>
+        </div>
+
+        {{!-- Jägerkräfte Tab --}}
+        <div class="tab powers scroll-y" data-group="primary" data-tab="powers">
+            {{!-- TODO: Tabelle umbauen --}}
+            <header class="block-header">Jägerkräfte</header>
+            <ol class="list-body">
+                <li class="flexrow">
+                    <label class="label" for="kp">Konstruktionspunkte</label>
+                    <input id="kp" class="value" type="text" name="data.resources.kp" value="{{data.resources.kp}}" data-dtype="Number" />
+                </li>
+            </ol>
+            TODO: Jägerkräfte
+
+            {{>seperator}}
+
+            <header class="block-header">Notizen</header>
+            {{editor content=data.notes.powers.editor target="data.notes.powers.editor" button=true owner=owner editable=editable}}
+
+            {{>seperator}}
+            <div class="last"> </div>
         </div>
 
         {{!-- Besitz Tab --}}
         <div class="tab items scroll-y" data-group="primary" data-tab="items">
-            <header class="list-header flexrow">
-                <span class="header-label">Vermögen & Unterhalt</span>
-            </header>
+            {{!-- TODO: Tabelle umbauen --}}
+            <header class="block-header">Vermögen & Unterhalt</header>
             <div class="top flexrow">
                 <div class="vermoegen flexcol">
                     <ol class="list-body">
                         <li class="flexrow">
                             <label class="label" for="vermoegen">Vermögen</label>
                             <input id="vermoegen" class="value" type="text" name="data.temp.vermoegen" value="{{data.temp.vermoegen}}" />
+                        </li>
+                        <li class="flexrow">
+                            <label class="label" for="loot">Beutegut</label>
+                            <input id="loot" class="value" type="text" name="data.temp.loot" value="{{data.temp.loot}}" />
                         </li>
                     </ol>
                 </div>
@@ -448,7 +464,7 @@
                     </ol>
                 </div>
             </div>
-            TODO: Beutegut, Kleidung, Rüstung, Ausrüstung
+            <header class="block-header">Waffen, Rüstung, Kleidung, Ausrüstung</header>
             <ol class="items-list">
             {{#each actor.items as |item id|}}
                 <li class="item flexrow" data-item-id="{{item._id}}">
@@ -462,14 +478,15 @@
             {{/each}}
             </ol>
 
-            <div class="seperator"></div>
+            {{>seperator}}
 
-            <header class="list-header flexrow">
-                <span class="header-label">Notizen</span>
-            </header>
+            <header class="block-header">Notizen</header>
             {{editor content=data.notes.items.editor target="data.notes.items.editor" button=true owner=owner editable=editable}}
+
+            {{>seperator}}
+            <div class="last"> </div>
         </div>
 
-        </section>
+    </section>
 </form>
 

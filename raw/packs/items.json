@@ -12,7 +12,8 @@
       }
     ],
     "description": "Erforderlich für verschiedene Herstellungsprozesse (Elixiere, Gifte, Wurfgeschosse etc.)",
-    "summary": "Kosten: 60 Gulden"
+    "summary": "",
+    "cost": "60"
   },
   "biologisches-laboratorium": {
     "name": "Biologisches Laboratorium",
@@ -27,7 +28,8 @@
       }
     ],
     "description": "Das Biologische Laboratorium kann als transportables Laboratorium verwendet werden. Es gibt einen zusätzlichen Bonus +1 beim Nehmen von natürlichen Proben und beim Herstellen von Elixieren und Giften. Du kannst immer nur ein Laboratorium mit dir führen. Wird es mit einem Fahrzeug befördert, zählt es als Gewicht wie 3 Beutegutpakete.",
-    "summary": "Kosten: 270 Gulden"
+    "summary": "",
+    "cost": "270"
   },
   "mineralisches-laboratorium": {
     "name": "Mineralisches Laboratorium",
@@ -42,7 +44,8 @@
       }
     ],
     "description": "Das Mineralische Laboratorium kann als transportables Laboratorium verwendet werden. Es gibt einen zusätzlichen Bonus +1 beim Nehmen von mineralischen Proben und beim Herstellen von Wurfgeschossen und Speziellem Schießpulver. Du kannst immer nur ein Laboratorium tragen. Wird es mit einem Fahrzeug befördert, zählt es als Gewicht wie 3 Beutegutpakete.",
-    "summary": "Kosten: 270 Gulden"
+    "summary": "",
+    "cost": "270"
   },
   "werkzeugkiste": {
     "name": "Werkzeugkiste",
@@ -57,7 +60,8 @@
       }
     ],
     "description": "Erforderlich für diverse handwerkliche Tätigkeiten",
-    "summary": "Kosten: 25 Gulden"
+    "summary": "",
+    "cost": "25"
   },
   "fackel": {
     "name": "Fackel",
@@ -72,7 +76,8 @@
       }
     ],
     "description": "Schwaches Licht für 1 Stunde",
-    "summary": "Kosten: 1 Gulden"
+    "summary": "",
+    "cost": "1"
   },
   "fernrohr": {
     "name": "Fernrohr",
@@ -87,7 +92,8 @@
       }
     ],
     "description": "Bonus von +2 auf Erkennen von weit entfernten Objekten (nicht im Kampf)",
-    "summary": "Kosten: 70 Gulden"
+    "summary": "",
+    "cost": "70"
   },
   "kletterhaken": {
     "name": "Kletterhacken",
@@ -102,7 +108,8 @@
       }
     ],
     "description": "Bonus von +2 auf Akrobatik-Proben beim Klettern mit Seilen oder ähnliche Tätigkeit",
-    "summary": "Kosten: 10 Gulden"
+    "summary": "",
+    "cost": "10"
   },
   "kompass": {
     "name": "Kompass",
@@ -117,7 +124,8 @@
       }
     ],
     "description": "Bestimmt automatisch Norden",
-    "summary": "Kosten: 25 Gulden"
+    "summary": "",
+    "cost": "25"
   },
   "landkarte": {
     "name": "Landkarte",
@@ -132,7 +140,8 @@
       }
     ],
     "description": "Gebiet: ca. 50x50km, Automatisches Finden von Städten, Herbergen, Burgen etc.",
-    "summary": "Kosten: 15 Gulden"
+    "summary": "",
+    "cost": "15"
   },
   "oellampe": {
     "name": "Öllampe",
@@ -147,7 +156,8 @@
       }
     ],
     "description": "Erfordert Öl (Unterhalt +10)",
-    "summary": "Kosten: 10 Gulden"
+    "summary": "",
+    "cost": "10"
   },
   "rueckentrage": {
     "name": "Rückentrage",
@@ -162,7 +172,8 @@
       }
     ],
     "description": "Träger kann 2 Beutegut-Pakete tragen",
-    "summary": "Kosten: 8 Gulden"
+    "summary": "",
+    "cost": "8"
   },
   "schlafsack": {
     "name": "Schlafsack",
@@ -177,7 +188,8 @@
       }
     ],
     "description": "Erforderlich, um im Freien Lep zu regenerieren",
-    "summary": "Kosten: 7 Gulden"
+    "summary": "",
+    "cost": "7"
   },
   "seil": {
     "name": "Seil",
@@ -192,7 +204,8 @@
       }
     ],
     "description": "5m, vielsetiig einsetzbar",
-    "summary": "Kosten: 10 Gulden"
+    "summary": "",
+    "cost": "10"
   },
   "schreibutensilien": {
     "name": "Schreibutensilien",
@@ -207,7 +220,8 @@
       }
     ],
     "description": "Papier, Silberstift, Feder und Tinte für eigene Notizen",
-    "summary": "Kosten: 15 Gulden"
+    "summary": "",
+    "cost": "15"
   },
   "alkohol": {
     "name": "Alkohol",
@@ -222,7 +236,8 @@
       }
     ],
     "description": "Vorrat an Schnaps, Wein, Likör",
-    "summary": "Kosten: 15 Gulden"
+    "summary": "",
+    "cost": "15"
   },
   "zelt": {
     "name": "Zelt",
@@ -237,7 +252,8 @@
       }
     ],
     "description": "Erforderlich, um im Freien Lep zu regenerieren",
-    "summary": "Kosten: 20 Gulden"
+    "summary": "",
+    "cost": "20"
   },
   "feldbett": {
     "name": "Feldbett",
@@ -252,7 +268,8 @@
       }
     ],
     "description": "Verbesserte Regeneration von Lep",
-    "summary": "Kosten: 15 Gulden"
+    "summary": "",
+    "cost": "15"
   },
   "handschellen": {
     "name": "Handschellen",
@@ -267,7 +284,8 @@
       }
     ],
     "description": "Fesseln von besiegten menschenähnlichen Gegnern möglich",
-    "summary": "Kosten: 22 Gulden"
+    "summary": "",
+    "cost": "22"
   },
   "vorhaengeschloss": {
     "name": "Vorhängeschloss",
@@ -282,7 +300,8 @@
       }
     ],
     "description": "Zum Abschließen von Türen und Truhen",
-    "summary": "Kosten: 17 Gulden"
+    "summary": "",
+    "cost": "17"
   },
   "truhe": {
     "name": "Truhe",
@@ -297,7 +316,8 @@
       }
     ],
     "description": "Mit Schlüssel und Schloss. Zum sicheren Verwahren von Wertgegenständen oder Münzen (max. 1000 Gulden in Münzen passen in eine durchschnittliche kleine Truhe)",
-    "summary": "Kosten: 33 Gulden"
+    "summary": "",
+    "cost": "33"
   },
   "buschmesser": {
     "name": "Buschmesser",
@@ -312,7 +332,8 @@
       }
     ],
     "description": "Das Buschmesser zählt als Waffe wie ein Säbel, gibt aber beim Durchschneiden von Ranken, Wurzeln und ähnlichem einen Bonus +1.",
-    "summary": "Kosten: 90 Gulden"
+    "summary": "",
+    "cost": "90"
   },
   "gezaehe": {
     "name": "Gezähe",
@@ -327,7 +348,8 @@
       }
     ],
     "description": "Das Gezähe gibt einen Bonus +2 bei allen handwerklichen Tätigkeiten unter Tage.",
-    "summary": "Kosten: 35 Gulden"
+    "summary": "",
+    "cost": "35"
   },
   "klettergeschirr": {
     "name": "Klettergeschirr",
@@ -342,7 +364,8 @@
       }
     ],
     "description": "Um Klettergeschirr zu erwerben, musst du mehrere Märkte bereisen. An jedem Markt darfst du als Fza einen Marktbesuch zum Einkaufen vornehmen und kannst dabei 1 Teil des Klettergeschirrs für 10 Gulden kaufen. Sobald du mindestens 1 Teil erworben hast, musst du beim nächsten Teil mit einem W6 würfeln: Entspricht die Augenzahl der Anzahl erworbener Teil oder ist niedriger, so kannst du auf diesem Markt nichts passendes finden. Ist die Augenzahl höher, konntest du ein weiteres Teil finden und für 10 Gulden kaufen. Jedes Teil gibt beim Klettern +1 auf Akrobatik (max. +5). Bei einem Bonus von +3 kann der HeXXenmeister entscheiden, dass die Probe automatisch gelingt.",
-    "summary": "Kosten: 10 Gulden pro Teil"
+    "summary": "",
+    "cost": "10"
   },
   "probentasche": {
     "name": "Probentasche",
@@ -357,7 +380,8 @@
       }
     ],
     "description": "\tDie Probentasche erhöht die Menge an Verbrauchsgegenständen, die man mit in den Kampf führen kann um +5 (wenn nach den im Buch der Regeln angegebenen Richtlinien für Tragkapazität gespielt wird). Wird nicht nach diesen Richtlinien gespielt, erhöht die Tasche die Tragkraft des Jägers um +1 Beutegutpaket. Man kann immer nur eine Probentasche tragen.",
-    "summary": "Kosten: 27 Gulden"
+    "summary": "",
+    "cost": "27"
   },
   "spitzhacke": {
     "name": "Spitzhacke",
@@ -372,7 +396,8 @@
       }
     ],
     "description": "Eine Spitzhacke zählt in jeder Hinsicht als Schlagwaffe und kann mit denselben Werten verwendet werden.",
-    "summary": "Kosten: 50 Gulden"
+    "summary": "",
+    "cost": "50"
   },
   "schutzamulett": {
     "name": "Schutzamulett",
@@ -387,7 +412,8 @@
       }
     ],
     "description": "Sobald der Träger des Schutzamuletts zum Ziel eines von einer wahren Hexe gewirkten Zaubers wird, darf er mit 2 Blutwürfeln würfeln. Erzielt er insgesamt 5 oder mehr Blutstropfensymbole, wird der Zaubereffekt für ihn annulliert. Sobald das geschieht, ist das Amulett kraftlos, bis der Träger seine nächste Fza (mit beliebiger Tätigkeit) ausführt. Ein Jäger kann mehrere Schutzamulette kaufen, das hat jedoch nur rollenspielerische Auswirkungen; mehrere Amulette erhöhen weder die Zahl der Blutwürfel noch die der Aufladungen. Die Gesamtheit aller getragenen Schutzamulette zählt wie 1 Amulett.",
-    "summary": "Kosten: 15 Gulden"
+    "summary": "",
+    "cost": "15"
   },
   "kochstelle": {
     "name": "Kochstelle",
@@ -402,7 +428,8 @@
       }
     ],
     "description": "Will ein Jäger die Kochstelle verwenden, um die Gruppe zu versorgen, muss er seinen Unterhalt um 20 Gulden erhöhen (für Zutaten und Gewürze). Benutzt er sie ausschließlich, um Kräutermittel zu produzieren, sind die Unterhaltskosten in der entsprechenden Jägerkraft beschrieben (Kräuterwissen) und die zusätzlichen Kosten zum Kochen entfallen. Um eine schmackhafte Mahlzeit zuzubereiten, ist eine Fza erforderlich sowie eine Koch-Probe auf Wissensgebiete (Rezepte aus Büchern), Land und Leute (überlieferte Rezepte) oder Hexenkunst (uralte oder exotische Rezepte). Teile die Erfolge auf die Gruppenmitglieder auf. Für 1 Erfolg erhält ein Jäger 1 Coup oder 1 Idee, für 3 Erfolge darf er 1 Eh-Kästchen neu benutzen. Jeder Effekt darf pro Jäger nur einmal pro Probe und einmal pro Tag verwendet werden. Für das Maximum von 5 Erfolgen pro Person würde man demnach 1 Coup und 1 Idee erhalten und 1 Eh-Kästchen reaktivieren.",
-    "summary": "Kosten: 18 Gulden"
+    "summary": "",
+    "cost": "18"
   },
   "hasenpfote ": {
     "name": "Hasenpfote",

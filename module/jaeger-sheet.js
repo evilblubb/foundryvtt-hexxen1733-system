@@ -24,6 +24,17 @@ class JaegerSheet extends HexxenActorSheet {
     return `${super.title} (Lv. ${this.actor.level})`;
   }
 
+  /** @override */
+  setPosition(options={}) {
+    const position = super.setPosition(options);
+    const sheetBody = this.element.find(".sheet-body");
+    const windowHeader = this.element.find(".window-header").css("height");
+    const sheetHeader = this.element.find(".sheet-header").css("height");
+    const sheetTabs = this.element.find(".sheet-tabs").css("height");
+    const bodyHeight = position.height - Number.parseInt(windowHeader) - Number.parseInt(sheetHeader) - Number.parseInt(sheetTabs);
+    sheetBody.css("height", bodyHeight);
+    return position;
+  }
 
   /* -------------------------------------------- */
 
@@ -48,18 +59,24 @@ class JaegerSheet extends HexxenActorSheet {
 
     // header resources
     let hres = {}
-    for( let key of [ "segnungen", "ideen", "coups" ] ) {
+    for( let key of [ "ideen", "coups", "segnungen", "rage", "ambition", "quintessenz" ] ) {
       // TODO: temporärer Code bis zur Änderung der Datenstruktur im Actor
       hres[key] = {value: out.data.resources[key]};
       // hres[key] = data.data.resources[key];
     }
     // TODO: temporärer Code bis zur Änderung der Datenstruktur im Actor
+    hres["ideen"].label = "Ideen";
+    hres["ideen"].default = out.data.attributes.WIS.value + out.data.temp["idee-bonus"];
+    hres["coups"].label = "Coups";
+    hres["coups"].default = out.data.attributes.ATH.value + out.data.temp["coup-bonus"];
     hres["segnungen"].label = "Segnungen";
     hres["segnungen"].max = 5;
-    hres["ideen"].label = "Ideen [=WIS]";
-    hres["ideen"].default = out.data.attributes.WIS.value + out.data.temp["idee-bonus"];
-    hres["coups"].label = "Coups [=ATH]";
-    hres["coups"].default = out.data.attributes.ATH.value + out.data.temp["coup-bonus"];
+    hres["rage"].label = "Rage";
+    hres["rage"].max = 5;
+    hres["ambition"].label = "Ambitionen";
+    hres["ambition"].max = 5;
+    hres["quintessenz"].label = "Quintessenz";
+    hres["quintessenz"].max = 5;
     out["header-resources"] = hres;
 
     // TODO: hints auf localize umstellen
@@ -77,9 +94,9 @@ class JaegerSheet extends HexxenActorSheet {
     out.data["role-1"]["available-hint"] = "Keine Rolle ausgewählt";
     out.data["role-1"]["hint"] = "oops";
     out.data["role-2"]["available-hint"] = "Keine Rolle ausgewählt";
-    out.data["role-2"]["hint"] = "Verfügbar ab Level 2";
+    out.data["role-2"]["hint"] = "Verfügbar ab Jägerstufe 2";
     out.data["role-3"]["available-hint"] = "Keine Rolle ausgewählt";
-    out.data["role-3"]["hint"] = "Verfügbar ab Level 7";
+    out.data["role-3"]["hint"] = "Verfügbar ab Jägerstufe 7";
     // FIXME: das sollte (teilweise?) bereits im actor.prepare() passieren
     let role = this.actor.itemTypes.role; // returns items, not data
     switch (role.length) {
@@ -97,7 +114,7 @@ class JaegerSheet extends HexxenActorSheet {
 
     // TODO: hints auf localize umstellen
     out.data.profession["available-hint"] = "Keine Profession ausgewählt";
-    out.data.profession["hint"] = "oops";
+    out.data.profession["hint"] = "Verfügbar ab Jägerstufe 2";
     // FIXME: das sollte (teilweise?) bereits im actor.prepare() passieren
     let prof = this.actor.itemTypes.profession;
     prof = prof.length > 0 ? prof[0].data : undefined;
@@ -198,15 +215,6 @@ class JaegerSheet extends HexxenActorSheet {
   /* -------------------------------------------- */
 
   /** @override */
-  setPosition(options={}) {
-    const position = super.setPosition(options);
-    const sheetBody = this.element.find(".sheet-body");
-    const bodyHeight = position.height - 255;
-    sheetBody.css("height", bodyHeight);
-    return position;
-  }
-
-  /** @override */
   activateListeners(html) {
     super.activateListeners(html);
 
@@ -249,7 +257,7 @@ class JaegerSheet extends HexxenActorSheet {
     html.find(".sheet-header .inc-btn").on("click", ".control", HexxenIncDecHelper.onClickPlusMinus.bind(this));
     html.find(".sheet-header .set-default").on("click", HexxenIncDecHelper.onClickPlusMinus.bind(this));
     // Erste Hilfe, Mag. Heilung, Elixire
-    html.find(".states .top").on("click", ".control", HexxenIncDecHelper.onClickPlusMinus.bind(this));
+    html.find(".states .res-boxes").on("click", ".control", HexxenIncDecHelper.onClickPlusMinus.bind(this));
   }
 
   /* -------------------------------------------- */

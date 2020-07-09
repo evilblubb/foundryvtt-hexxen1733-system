@@ -23,13 +23,14 @@ img#hexxen-logo {
 
   --hexxen-title-color: var(--hexxen-dark-color);
   --hexxen-minimized-title-color: rgba(120, 55, 60, 0.75);
-  --hexxen-sheet-background-image: url("../img/Hex_Pokerkarte_front_hell.png");
+  --hexxen-sheet-background-image: url("/systems/hexxen-1733/img/Hex_Pokerkarte_front_hell.png");
   --hexxen-sheet-background-blend-color: rgba(160, 125, 110, 0.7);
 
   --hexxen-hint-color: var(--hexxen-dark-color);
+  --hexxen-alert-color: red;
 
   --hexxen-highlight-even-color: rgba(255, 255, 255, 0.5);
-  --hexxen-highlight-odd-color: rgba(140, 40, 20, 0.1);
+  --hexxen-highlight-odd-color: rgba(140, 40, 20, 0.15);
   --hexxen-highlight-hover-color:rgba(140, 40, 20, 0.3);
 
   --hexxen-value-span-bgcolor: rgba(255, 255, 255, 0.3);
@@ -41,7 +42,7 @@ img#hexxen-logo {
   --hexxen-editor-border: 1px solid var(--hexxen-dark-color);
 
   --hexxen-box-border: 1px solid var(--hexxen-dark-color);
-  --hexxen-nav-background-image: url("../img/Rabenkasten_oben_small.png");
+  --hexxen-nav-background-image: url("/systems/hexxen-1733/img/Rabenkasten_oben_small_braun.png");
   --hexxen-nav-bgcolor: rgba(80, 30, 0, 0.4);
   --hexxen-nav-border: 1px solid var(--hexxen-dark-color);
   --hexxen-header-color: var(--hexxen-dark-color);
@@ -49,9 +50,11 @@ img#hexxen-logo {
   --hexxen-header-border: 1px solid rgb(170, 120, 75);
   --hexxen-outline-color: var(--hexxen-light-color);
   --hexxen-table-border: 1px solid var(--hexxen-highlight-even-color);
-  --hexxen-seperator-image: url("../img/Rabenkasten_weit_unten_small.png");
+  --hexxen-seperator-image: url("/systems/hexxen-1733/img/Rabenkasten_weit_unten_small_braun.png");
 
   scrollbar-color: var(--hexxen-light-color) var(--hexxen-dark-color);
+
+  /* TODO: Absolute Pfadangaben für Grafiken wegen Safari. Pfad validieren! */
 
   /* alte Farben:
   --hexxen-light-color: #bcceb9;
@@ -71,12 +74,7 @@ img#hexxen-logo {
 .hexxen.app.minimized {
   background-color: var(--hexxen-minimized-title-color);
 }
-.hexxen.sheet .window-content {
-  background-image: var(--hexxen-sheet-background-image);
-  background-size: 100% 100%;
-  background-color: var(--hexxen-sheet-background-blend-color);
-  background-blend-mode: overlay;
-}
+
 .hexxen .allow-break {
   word-break: break-word;
 }
@@ -101,9 +99,9 @@ img#hexxen-logo {
 }
 .hexxen .table .td {
   display: table-cell;
-  padding: 0px 6px;
+  padding: 2px 6px;
 }
-.hexxen .table .td:nth-child(1) { /* adjust for first column */
+.hexxen .table.inputs .td.label {
   padding: 5px 6px;
 }
 .hexxen .table .td.flexrow {
@@ -139,7 +137,7 @@ img#hexxen-logo {
 
 .hexxen .editor {
   min-height: 100px;
-  margin: 2px;
+  max-height: unset;
   padding: 5px;
   background: var(--hexxen-editor-bgcolor);
   border: var(--hexxen-editor-border);
@@ -150,7 +148,7 @@ img#hexxen-logo {
 }
 .hexxen .editor .tox.tox-tinymce {
   min-height: 150px;
-  max-height: 250px;
+  max-height: 350px;
 }
 /* TODO: auch Chat berücksichtigen */
 .hexxen .editor .hex-roll,
@@ -166,28 +164,27 @@ img#hexxen-logo {
 .hexxen .note {
   font-size: 0.8em;
   margin: 2px;
+  line-height: initial;
 }
 .hexxen .hint {
   font-size: 0.8em;
   color: var(--hexxen-hint-color);
   flex: unset;
-  line-height: unset;
+  line-height: initial;
   margin: unset;
 }
 
 .hexxen .seperator {
   display: block;
   width: 100%;
-  min-height: 20px;
+  height: 12px;
+  min-height: 12px;
   margin: 10px 0;
   border: none;
   background-image: var(--hexxen-seperator-image);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-}
-.hexxen.sheet .seperator {
-  margin: 2px 0;
 }
 
 .hexxen div.inc-btn {
@@ -199,7 +196,8 @@ img#hexxen-logo {
 }
 .hexxen div.inc-btn div.controls .control {
   position: absolute;
-  top: 0;
+  line-height: 24px;
+  top: 0px;
 }
 .hexxen div.inc-btn div.controls .left {
   left: 7px;
@@ -212,6 +210,13 @@ img#hexxen-logo {
   height: 100%;
   padding: 0px;
   overflow-y: hidden;
+  background-image: var(--hexxen-sheet-background-image);
+  background-size: 100% 100%;
+  background-color: var(--hexxen-sheet-background-blend-color);
+  background-blend-mode: overlay;
+}
+.hexxen.sheet .seperator {
+  margin: 2px 0;
 }
 
 .hexxen.sheet .sheet-header {
@@ -223,6 +228,13 @@ img#hexxen-logo {
   line-height: 42px;
   margin: unset;
   width: 100%;
+}
+.hexxen.sheet div.value.value-box {
+  border-bottom: var(--hexxen-value-span-border);
+  background-color: var(--hexxen-value-span-bgcolor);
+  border-radius: 2px;
+  padding: 0 4px;
+  text-align: center;
 }
 .hexxen.sheet .tabs {
   height: 40px;
