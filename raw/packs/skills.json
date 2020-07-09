@@ -704,7 +704,7 @@
         }
       }
     },
-    "Fechter": {
+    "fechter": {
       "esprit": {
         "esprit1": {
           "name": "Duellant",
@@ -1184,7 +1184,7 @@
         }
       }
     },
-    "Hexenmystiker": {
+    "hexenmystiker": {
       "jaeger": {
         "jaeger1": {
           "name": "Hand auflegen",
@@ -1406,7 +1406,7 @@
         }
       }
     },
-    "Konstrukteur": {
+    "konstrukteur": {
       "esprit": {
         "esprit1": {
           "name": "Effizientes Arbeiten",
@@ -2639,7 +2639,7 @@
         }
       }
     },
-    "Hexenrichter": {
+    "hexenrichter": {
       "jaeger": {
         "jaeger1": {
           "name": "Brennen soll die Hex",
@@ -3127,7 +3127,7 @@
         }
       }
     },
-    "Metallurge": {
+    "metallurge": {
       "esprit": {
         "esprit1": {
           "name": "Metallkonstruktionen",
@@ -3282,7 +3282,7 @@
         }
       }
     },
-    "ordernskrieger": {
+    "ordenskrieger": {
       "esprit": {
         "esprit1": {
           "name": "Spirituelle Reinigung",
@@ -3435,7 +3435,7 @@
         }
       }
     },
-    "Spion": {
+    "spion": {
       "jaeger": {
         "jaeger1": {
           "name": "Einschmeicheln",
