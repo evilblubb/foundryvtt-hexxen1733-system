@@ -220,8 +220,9 @@ img#hexxen-logo {
 }
 
 .hexxen.sheet .sheet-header {
-  padding: 8px;
+  display: grid;
   text-align: center;
+  padding: 8px;
 }
 .hexxen.sheet .sheet-header h1 .value {
   height: 42px;
@@ -271,7 +272,7 @@ img#hexxen-logo {
   align-content: start;
   align-items: start;
   grid-auto-rows: max-content;
-  grid-gap: 5px;
+  grid-gap: 4px;
   overflow-y: auto;
   height: 100%;
   padding: 8px;
@@ -297,11 +298,35 @@ img#hexxen-logo {
   min-width: 450px;
   min-height: 400px;
 }
+.hexxen.sheet.rule .sheet-header {
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto;
+  grid-gap: 4px 6px;
+  grid-template-areas:
+    'img name'
+    'img ref';
+  white-space: nowrap;
+}
 .hexxen.sheet.rule .sheet-header .type-img {
+  grid-area: img;
   border: none;
+  margin-right: unset;
+}
+.hexxen.sheet.rule .sheet-header .actorname {
+  grid-area: name;
 }
 .hexxen.sheet.rule .sheet-header .sources {
-  margin-top: 5px;
+  grid-area: ref;
   text-align: right;
   font-size: 0.8em;
+}
+.hexxen.sheet.rule .powers {
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 4px 10px !important;
+}
+.hexxen.sheet.rule .powers > * {
+  grid-column: 1 / span 2;
+}
+.hexxen.sheet.rule .powers div {
+  grid-column: auto;
 }

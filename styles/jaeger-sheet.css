@@ -10,7 +10,6 @@
 /* Sheet header section */
 /************************/
 .hexxen.jaeger .sheet-header {
-  display: grid;
   grid-template-columns: 115px 1fr;
   grid-template-rows: auto auto 1fr auto;
   grid-gap: 4px 6px;
@@ -112,7 +111,7 @@
 /******************/
 .hexxen.jaeger .biography {
   grid-template-columns: 1fr 1fr;
-  grid-gap: 5px 10px !important;
+  grid-gap: 4px 10px !important;
 }
 .hexxen.jaeger .biography > * {
   grid-column: 1 / span 2;
@@ -130,7 +129,7 @@
 /******************/
 .hexxen.jaeger .states {
   grid-template-columns: 1fr 1fr;
-  grid-gap: 5px 10px !important;
+  grid-gap: 4px 10px !important;
 }
 .hexxen.jaeger .states > * {
   grid-column: 1 / span 2;

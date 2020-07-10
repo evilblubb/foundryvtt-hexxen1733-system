@@ -3,13 +3,13 @@
   /**
    * Static callback helper function to work with {{inc-btn}} and similar templates.
    * Shows/hides the +/- buttons on mouseenter/mouseleave.
-   * 
+   *
    * The buttons are expected to be contained in an element with class ".controls",
    * which has to be a child of the element the callback is registered on.
    * The buttons are expected to be hidden by default.
-   * 
+   *
    * Example:
-   * 
+   *
    * html.find(".inc-btn").hover(HexxenIncDecHelper.onHoverPlusMinus.bind(this));
    *
    * <div class="inc-btn">
@@ -19,7 +19,7 @@
    *     <a class="control ..." data-action="decrease">...</a>
    *   </div>
    * </div>
-   * 
+   *
    * @param {MouseEvent} event    The mouseenter/mouseleave event
    */
   static onHoverPlusMinus(event) {
@@ -33,21 +33,21 @@
   }
 
   /**
-   * Static callback helper function for onClick events to increment/decrement a value 
+   * Static callback helper function for onClick events to increment/decrement a value
    * or set it to default.
    * The callback function expects the originating element to contain the attribute "data-action"
-   * with a value of either "increase", "decrease" or "default". The originating element or one of 
-   * it's parents must also contain the attribute "data-key", which must identify the element to be 
-   * modified. 
+   * with a value of either "increase", "decrease" or "default". The originating element or one of
+   * it's parents must also contain the attribute "data-key", which must identify the element to be
+   * modified.
    * The target element must have a 'name' attribute corresponding to the 'data-key' value. It must
    * also have a 'data-dtype' attribute with value "Number". When using with the "default" action,
    * the target element must also have a 'data-default' attribute.
-   * 
-   * The originating element does not necessarily have to be an <a> element. It is recommended for 
+   *
+   * The originating element does not necessarily have to be an <a> element. It is recommended for
    * the "data-key" attribute to not be too far up the tree to avoid side-effects.
-   * 
+   *
    * Example:
-   * 
+   *
    * html.find(".inc-btn").on("click", ".control", HexxenIncDecHelper.onClickPlusMinus.bind(this));
    *
    * <div class="..." data-key="data.resources.coups">
@@ -55,7 +55,7 @@
    *   <a class="..." data-action="increase">...</a>
    *   <a class="..." data-action="decrease">...</a>
    * </div>
-   * 
+   *
    * @param {MouseEvent} event    The originating left click event
    */
   static onClickPlusMinus(event) {
@@ -117,9 +117,9 @@
   /**
    * Helper function for use in onClickPlusMinus callback.
    * TODO: Beschreibung vervollständigen, falls Funktion erhalten bleibt.
-   * 
-   * @param {HTMLElement} parentEl 
-   * @param {String} key 
+   *
+   * @param {HTMLElement} parentEl
+   * @param {String} key
    */
   static _findTarget(parentEl, key) {
     // TODO: evtl. integrieren, abhängig von den value spezifischen Anpassungen, die oben noch gemacht werden müssen.
@@ -130,10 +130,19 @@
 
 class HexxenCompendiumHelper {
 
-  /** 
+  /**
+   * Wrapper for use as a listener.
+   *
+   * @param {Event} event
+   */
+  static onClickOpenCompendium(event) {
+    HexxenCompendiumHelper.openCompendium(event.currentTarget.dataset.type);
+  }
+
+  /**
    * Helper callback function. Opens compendia of a certain Item subtype.
    * To match, a compendium has to be of entity-type "Item" and it's name must contain "-<type>".
-   * 
+   *
    * @param {String} type       Subtype of the items.
    */
   static openCompendium(type) {
@@ -143,7 +152,7 @@ class HexxenCompendiumHelper {
       packs.forEach(pack => {
         pack.render(true);
       });
-    } 
+    }
     else {
       ui.notifications.info(`Kein passendes Compendium gefunden.`);
     }
@@ -151,10 +160,22 @@ class HexxenCompendiumHelper {
 
   /**
    * Wrapper for use as a listener.
-   * 
-   * @param {Event} event 
+   *
+   * @param {Event} event
    */
-  static onClickOpenCompendium(event) {
-    HexxenCompendiumHelper.openCompendium(event.currentTarget.dataset.type);
+  static onClickOpenPower(event) {
+    HexxenCompendiumHelper.openEntity("skills", event.currentTarget.dataset.lookup);
+  }
+
+  // TODO: zur Zeit ungenutzt. (via foundry listener)
+  // TODO: doc
+  static async openEntity(type, name) {
+    console.log(arguments);
+    //foundry.js:14288
+    const pack = game.packs.get("hexxen-1733.hexxen-skills");
+    if ( !pack.index.length ) await pack.getIndex();
+    const entry = pack.index.find(i => (i.name === name));
+    const entity = entry ? await pack.getEntity(entry._id) : null;
+    return entity ? entity.sheet.render(true) : false;
   }
 }

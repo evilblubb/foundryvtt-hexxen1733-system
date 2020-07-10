@@ -1,26 +1,27 @@
 ﻿<form class="{{cssClass}}" autocomplete="off">
     <header class="sheet-header">
         <img class="type-img" src="{{img}}" title="{{type}}"/>
-        <div class="header-fields">
-            <h1 class="name"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
-            <div class="sources">
-                [ Quelle(n):
-                {{#each item.data.references}}
-                <span class="source">
-                    {{#if this.link}}<a href="{{this.link}}">{{/if
-                    }}{{this.source}}{{#if this.page}}, Seite {{this.page}}{{/if
-                    }}{{#if this.link}}</a>{{/if}}
-                </span>
-                {{#unless @last}} | {{/unless}}
-                {{/each}}
-                ]
-            </div>
+        <h1 class="name"><input class="value value-box" name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
+        <div class="sources">
+            [ Quelle(n):
+            {{#each item.data.references}}
+            <span class="source">
+                {{#if this.link}}<a href="{{this.link}}">{{/if
+                }}{{this.source}}{{#if this.page}}, Seite {{this.page}}{{/if
+                }}{{#if this.link}}</a>{{/if}}
+            </span>
+            {{#unless @last}} | {{/unless}}
+            {{/each}}
+            ]
         </div>
     </header>
 
     {{!-- Sheet Tab Navigation --}}
     <nav class="sheet-tabs tabs" data-group="primary">
         <a class="item" data-tab="description"><div class="item-bg">Beschreibung</div></a>
+        {{#if data.powers}}
+        <a class="item" data-tab="powers"><div class="item-bg">Jägerkräfte</div></a>
+        {{/if}}
         <!--<a class="item" data-tab="extras"><div class="item-bg">Extras</div></a>-->
         <!--<a class="item" data-tab="rules"><div class="item-bg">Regeln</div></a>-->
     </nav>
@@ -30,15 +31,62 @@
 
         {{!-- Description Tab --}}
         <div class="tab" data-group="primary" data-tab="description">
-            <header class="list-header flexrow">
-                <span class="block-header">Beschreibung</span>
-            </header>
+            <header class="block-header">Beschreibung</header>
             {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
 
-            <header class="list-header flexrow">
-                <span class="block-header">Zusammenfassung</span>
-            </header>
+            <header class="block-header">Zusammenfassung</header>
             {{editor content=data.summary target="data.summary" button=true owner=owner editable=editable}}
+
+            <div class="last"> </div>
+        </div>
+
+        {{!-- Jägerkräfte Tab --}}
+
+        {{#*inline "powers"}}
+        {{#each data.powers}}
+            {{#if (eq this.type filter)}}
+                <div>{{this.name}} ({{this.type}})</div>
+                {{#if (eq this.type "ausbau")}}
+                    {{#each this.features}}
+                    <div>{{this.name}} ({{this.type}})</div>
+                    {{/each}}
+                {{/if}}
+            {{/if}}
+        {{/each}}
+        {{/inline}}
+
+        {{!-- FIXME: Name des Packs anpassen --> powers --}}
+        <div class="tab powers" data-group="primary" data-tab="powers">
+            <header class="block-header">Allgemeine Jägerkräfte (2 JP)</header>
+            {{#each data.powers}}
+            {{#if (eq this.type "jaeger")}}
+            <div><a class="entity-link" data-action="open" data-pack="hexxen-1733.hexxen-skills" data-lookup="{{this.name}}" draggable="true">{{this.name}}</a></div>
+            {{/if}}
+            {{/each}}
+            {{!-- TODO: warum geht das nicht? >powers filter="jaeger" --}}
+
+            <header class="block-header">Espritkräfte (3 JP)</header>
+            {{#each data.powers}}
+            {{#if (eq this.type "esprit")}}
+            <div><a class="entity-link" data-action="open" data-pack="hexxen-1733.hexxen-skills" data-lookup="{{this.name}}" draggable="true">{{this.name}}</a></div>
+            {{/if}}
+            {{/each}}
+            {{!-- TODO: warum geht das nicht? >powers filter="esprit" --}}
+
+            <header class="block-header">Ausbaukräfte (1 JP / Feature)</header>
+            {{#each data.powers}}
+            {{#if (eq this.type "ausbau")}}
+            <div>
+                <div><a class="entity-link" data-action="open" data-pack="hexxen-1733.hexxen-skills" data-lookup="{{this.name}}" draggable="true">{{this.name}}</a></div>
+                {{#each this.features}}
+                <div><a class="entity-link" data-action="open" data-pack="hexxen-1733.hexxen-skills" data-lookup="{{this.name}}" draggable="true">{{this.name}} ({{this.type}})</a></div>
+                {{/each}}
+            </div>
+            {{/if}}
+            {{/each}}
+            {{!-- TODO: warum geht das nicht? >powers filter="ausbau" --}}
+
+            <div class="last"> </div>
         </div>
 
         {{!-- Extras Tab --}}
@@ -48,6 +96,6 @@
         {{!-- Rules Tab --}}
         <div class="tab rules" data-group="primary" data-tab="rules">
         </div>
-        
+
     </section>
 </form>
