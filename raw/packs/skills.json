@@ -1053,132 +1053,132 @@
             }
           }
         }
+      }
+    },
+    "hexenfeind": {
+      "esprit": {
+        "esprit1": {
+          "name": "Geistiger Schutz",
+          "text": "Bei Geistesstärke-Proben zählt jeder gewürfelte Espritstern als Erfolg.",
+          "summary": "Espritkraft. Als Startkraft: Du erhältst ein Schutzamulett, dessen Wirkung unabhängig von dieser Jägerkraft ist.",
+          "references": [
+            {
+              "source": "Wiki",
+              "link": "http://hexxen1733-regelwiki.de/index.php/ek_geistiger_schutz.html"
+            },
+            {
+              "source": "Hexenjagd ",
+              "page": "108"
+            }
+          ]
+        }
       },
-      "hexenfeind": {
-        "esprit": {
-          "esprit1": {
-            "name": "Geistiger Schutz",
-            "text": "Bei Geistesstärke-Proben zählt jeder gewürfelte Espritstern als Erfolg.",
-            "summary": "Espritkraft. Als Startkraft: Du erhältst ein Schutzamulett, dessen Wirkung unabhängig von dieser Jägerkraft ist.",
-            "references": [
-              {
-                "source": "Wiki",
-                "link": "http://hexxen1733-regelwiki.de/index.php/ek_geistiger_schutz.html"
-              },
-              {
-                "source": "Hexenjagd ",
-                "page": "108"
-              }
-            ]
-          }
+      "jaeger": {
+        "jaeger1": {
+          "name": "Das Gezücht herausfordern",
+          "text": "Du kannst einen Anführergegner herausfordern, um seine Aufmerksamkeit auf dich zu lenken, indem du ihn beleidigst, schmähst oder dich auf eine Weise bewegst, dass er dich als erstes wahrnimmt. Diese Jägerkraft funktioniert im Grunde wie die Jägerkraft Leibgarde aus der Rolle des Beschützers: Sobald sich ein Anführer auf einen Jäger zubewegt, kannst du ihn als freie Reaktion an dich ziehen und binden (falls er sich binden lässt; ansonsten kannst du ihn nicht an dich ziehen). Darüber hinaus gilt: Erleidest du direkten Schaden (also nicht durch anhaltende Einflüsse) von einem Anführergegner, darfst du als freie Reaktion 1 Blutwürfel würfeln und den Schaden um die Zahl der Blutstropfensymbole reduzieren (gilt für alle Schadensklassen). Handelt es sich bei dem Gegner um einen Erzfeind, darfst du auf das Ergebnis des Blutwürfels +1 addieren. Diese Jägerkraft kann nicht gegen Bandengegner oder andere Schadensquellen angewendet werden.",
+          "summary": "Jägerkraft",
+          "references": [
+            {
+              "source": "Wiki",
+              "link": "http://hexxen1733-regelwiki.de/index.php/ajk_das_gezuecht_herausfordern.html"
+            },
+            {
+              "source": "Hexenjagd ",
+              "page": "108"
+            }
+          ]
         },
-        "jaeger": {
-          "jaeger1": {
-            "name": "Das Gezücht herausfordern",
-            "text": "Du kannst einen Anführergegner herausfordern, um seine Aufmerksamkeit auf dich zu lenken, indem du ihn beleidigst, schmähst oder dich auf eine Weise bewegst, dass er dich als erstes wahrnimmt. Diese Jägerkraft funktioniert im Grunde wie die Jägerkraft Leibgarde aus der Rolle des Beschützers: Sobald sich ein Anführer auf einen Jäger zubewegt, kannst du ihn als freie Reaktion an dich ziehen und binden (falls er sich binden lässt; ansonsten kannst du ihn nicht an dich ziehen). Darüber hinaus gilt: Erleidest du direkten Schaden (also nicht durch anhaltende Einflüsse) von einem Anführergegner, darfst du als freie Reaktion 1 Blutwürfel würfeln und den Schaden um die Zahl der Blutstropfensymbole reduzieren (gilt für alle Schadensklassen). Handelt es sich bei dem Gegner um einen Erzfeind, darfst du auf das Ergebnis des Blutwürfels +1 addieren. Diese Jägerkraft kann nicht gegen Bandengegner oder andere Schadensquellen angewendet werden.",
-            "summary": "Jägerkraft",
-            "references": [
-              {
-                "source": "Wiki",
-                "link": "http://hexxen1733-regelwiki.de/index.php/ajk_das_gezuecht_herausfordern.html"
-              },
-              {
-                "source": "Hexenjagd ",
-                "page": "108"
-              }
-            ]
-          },
-          "jaeger2": {
-            "name": "Hexenwerk durchkreuzen",
-            "text": "Umso mehr faule Hexerei ein Gegner anwendet – umso mehr fühlst du dich angestachelt, ihn zu töten. Immer wenn ein Anführergegner Hex-Punkte für einen sichtbaren Effekt ausgibt (im Zweifelsfall muss der HeXXenmeister entscheiden, ob der Zauber eine sichtbare Wirkung hat), erhältst du 1 Ambition. Handelt es sich um eine wahre Hexe, erhältst du 1 Ambition pro ausgegebenem Hex-Punkt. Solltest du den Effekt „Ambitioniertes Vorbild“ (Jägerkraft „Ambition des Hexenjägers“) besitzen, darfst du die erhaltenen Punkte an andere Jäger abgeben, wenn dein Maximum an Ambition erreicht ist.",
-            "summary": "Jägerkraft",
-            "references": [
-              {
-                "source": "Wiki",
-                "link": ""
-              },
-              {
-                "source": "Hexenjagd ",
-                "page": "108"
-              }
-            ]
-          },
-          "jaeger3": {
-            "name": "Kreaturenwissen: Hexen",
-            "text": "Mittels Kreaturenwissen kannst du eine Wissensgebiete-Probe durchführen, um dir ein bestimmtes Detail über Hexen ins Gedächtnis zu rufen. Alternativ kann dir der Spielleiter nach eigenem Ermessen auch einen Bonus auf eine Wissensgebiete- Probe verleihen, die etwas mit Hexen zu tun hat. Würfelst du bei einer solchen speziellen Wissensgebiete-Probe mindestens 3 Erfolge und erfährst ein relevantes Detail, erhältst du 2 Ideen oder 2 Ambition.",
-            "summary": "Jägerkraft",
-            "references": [
-              {
-                "source": "Wiki",
-                "link": "http://hexxen1733-regelwiki.de/index.php/ajk_kreaturenwissen_hexen.html"
-              },
-              {
-                "source": "Hexenjagd ",
-                "page": "108"
-              }
-            ]
-          }
+        "jaeger2": {
+          "name": "Hexenwerk durchkreuzen",
+          "text": "Umso mehr faule Hexerei ein Gegner anwendet – umso mehr fühlst du dich angestachelt, ihn zu töten. Immer wenn ein Anführergegner Hex-Punkte für einen sichtbaren Effekt ausgibt (im Zweifelsfall muss der HeXXenmeister entscheiden, ob der Zauber eine sichtbare Wirkung hat), erhältst du 1 Ambition. Handelt es sich um eine wahre Hexe, erhältst du 1 Ambition pro ausgegebenem Hex-Punkt. Solltest du den Effekt „Ambitioniertes Vorbild“ (Jägerkraft „Ambition des Hexenjägers“) besitzen, darfst du die erhaltenen Punkte an andere Jäger abgeben, wenn dein Maximum an Ambition erreicht ist.",
+          "summary": "Jägerkraft",
+          "references": [
+            {
+              "source": "Wiki",
+              "link": ""
+            },
+            {
+              "source": "Hexenjagd ",
+              "page": "108"
+            }
+          ]
         },
-        "aufbau": {
-          "aufbau1": {
-            "name": "Ambition des Hexenjägers",
-            "text": "Du hast gelernt, dein ganzes Streben nach Gerechtigkeit, Rache oder Vergeltung in eine Art innere Kraft umzuwandeln. Diese Ambition kann dich zu höheren Taten antreiben.",
-            "summary": "Ausbaukraft/Ambition. Als Startkraft: Wähle eine Fechtwaffe, ein Schwert, einen Säbel oder eine Schlagwaffe als Startausrüstung.",
-            "references": [
-              {
-                "source": "Wiki",
-                "link": "http://hexxen1733-regelwiki.de/index.php/abk_Ambition_des_Hexenj%C3%A4gers.html"
-              },
-              {
-                "source": "Hexenjagd",
-                "page": "107"
-              }
-            ],
-            "stammeffekt": {
-              "name": "Erzfeind",
-              "text": "Definiere Hexen sowie eine zweite Kreaturenkategorie (z. B. Wandler, Schwarzmagier, Dämonen, Vampire, Wiedergänger, Alben) als Erzfeind. Immer wenn du im Kampf mindestens einem Erzfeind gegenüberstehst bzw. zu dem Zeitpunkt, da er sich als solcher zu erkennen gibt, erhältst du 3 Ambition."
+        "jaeger3": {
+          "name": "Kreaturenwissen: Hexen",
+          "text": "Mittels Kreaturenwissen kannst du eine Wissensgebiete-Probe durchführen, um dir ein bestimmtes Detail über Hexen ins Gedächtnis zu rufen. Alternativ kann dir der Spielleiter nach eigenem Ermessen auch einen Bonus auf eine Wissensgebiete- Probe verleihen, die etwas mit Hexen zu tun hat. Würfelst du bei einer solchen speziellen Wissensgebiete-Probe mindestens 3 Erfolge und erfährst ein relevantes Detail, erhältst du 2 Ideen oder 2 Ambition.",
+          "summary": "Jägerkraft",
+          "references": [
+            {
+              "source": "Wiki",
+              "link": "http://hexxen1733-regelwiki.de/index.php/ajk_kreaturenwissen_hexen.html"
             },
-            "gesellen": {
-              "gesellen1": {
-                "name": "Waffenambition",
-                "text": "Immer wenn du bei einem Angriff gegen einen Erzfeind oder einem mit dem Erzfeind in Verbindung stehenden Gegner (z. B. durch Hexen beschworene Bandengegner) 1 Ambition opferst, um 2 HeXXenwürfel neu zu würfeln, darfst du stattdessen 1 bis 4 HeXXenwürfel oder Januswürfel (oder eine Mischung) neu würfeln (freie Reaktion, 0 Ap)."
-              },
-              "gesellen2": {
-                "name": "Ambitionierter Schaden",
-                "text": "Immer wenn du bei einem Anführer- Erzfeind oder einem mit dem Erzfeind in Verbindung stehenden Gegner direkten Schaden anrichtest – durch Angriffe oder Effekte, aber nicht durch anhaltende Einflüsse –, darfst du als freie Reaktion (0 Ap) 1 Ambition opfern, um den Schaden um 2 zu erhöhen."
-              },
-              "gesellen3": {
-                "name": "Vielseitige Ambition",
-                "text": "Du kanalisierst deine Konzentration auf deinen inneren Antrieb. Das kann jederzeit geschehen, erfordert im Kampf aber eine Aktion mit 1 Ap. Tausche 1 Coup + 1 Idee in 1 Ambition um."
-              }
+            {
+              "source": "Hexenjagd ",
+              "page": "108"
+            }
+          ]
+        }
+      },
+      "aufbau": {
+        "aufbau1": {
+          "name": "Ambition des Hexenjägers",
+          "text": "Du hast gelernt, dein ganzes Streben nach Gerechtigkeit, Rache oder Vergeltung in eine Art innere Kraft umzuwandeln. Diese Ambition kann dich zu höheren Taten antreiben.",
+          "summary": "Ausbaukraft/Ambition. Als Startkraft: Wähle eine Fechtwaffe, ein Schwert, einen Säbel oder eine Schlagwaffe als Startausrüstung.",
+          "references": [
+            {
+              "source": "Wiki",
+              "link": "http://hexxen1733-regelwiki.de/index.php/abk_Ambition_des_Hexenj%C3%A4gers.html"
             },
-            "expert": {
-              "expert1": {
-                "name": "Ambitioniertes Vorbild",
-                "text": "Solltest du Ambition über das erlaubte Maximum von 5 bekommen, so darfst du diese Punkte sofort bei Erhalt an einen oder mehrere andere Jäger abgeben."
-              },
-              "expert2": {
-                "name": "Dritter Erzfeind",
-                "text": "Definiere eine dritte Gegnerklasse als Erzfeind."
-              },
-              "expert3": {
-                "name": "Feindeskunde I",
-                "text": "Du erhältst zu Beginn eines relevanten Kampfes +1 Ambition."
-              }
+            {
+              "source": "Hexenjagd",
+              "page": "107"
+            }
+          ],
+          "stammeffekt": {
+            "name": "Erzfeind",
+            "text": "Definiere Hexen sowie eine zweite Kreaturenkategorie (z. B. Wandler, Schwarzmagier, Dämonen, Vampire, Wiedergänger, Alben) als Erzfeind. Immer wenn du im Kampf mindestens einem Erzfeind gegenüberstehst bzw. zu dem Zeitpunkt, da er sich als solcher zu erkennen gibt, erhältst du 3 Ambition."
+          },
+          "gesellen": {
+            "gesellen1": {
+              "name": "Waffenambition",
+              "text": "Immer wenn du bei einem Angriff gegen einen Erzfeind oder einem mit dem Erzfeind in Verbindung stehenden Gegner (z. B. durch Hexen beschworene Bandengegner) 1 Ambition opferst, um 2 HeXXenwürfel neu zu würfeln, darfst du stattdessen 1 bis 4 HeXXenwürfel oder Januswürfel (oder eine Mischung) neu würfeln (freie Reaktion, 0 Ap)."
             },
-            "meister": {
-              "meister1": {
-                "name": "Vierter Erzfeind",
-                "text": "Definiere eine vierte Gegnerklasse als Erzfeind."
-              },
-              "meister2": {
-                "name": "Feindeskunde II",
-                "text": "Du erhältst zu Beginn eines relevanten Kampfes +1 Ambition."
-              },
-              "meister3": {
-                "name": "Nemesis",
-                "text": "obald dir ein Anführergegner (es muss sich dabei nicht um einen Erzfeind handeln) mit einem einzelnen Angriff mindestens 5 Schadenspunkte zugefügt hat (nach Abzug des Pw; Puffer-Lep zählen nicht) oder bei einer einzelnen Vergleichsprobe gegen dich mindestens 5 Differenzerfolge erzielte (z. B. bei Zaubern), kannst du als freie Reaktion (0 Ap) beliebig viele Ambition opfern. Der Gegner erleidet 4 Schadenspunkte (Schmerzschaden) pro geopferter Ambition. Handelt es sich um einen Erzfeind, erleidet er 6 Schadenspunkte pro Ambition."
-              }
+            "gesellen2": {
+              "name": "Ambitionierter Schaden",
+              "text": "Immer wenn du bei einem Anführer- Erzfeind oder einem mit dem Erzfeind in Verbindung stehenden Gegner direkten Schaden anrichtest – durch Angriffe oder Effekte, aber nicht durch anhaltende Einflüsse –, darfst du als freie Reaktion (0 Ap) 1 Ambition opfern, um den Schaden um 2 zu erhöhen."
+            },
+            "gesellen3": {
+              "name": "Vielseitige Ambition",
+              "text": "Du kanalisierst deine Konzentration auf deinen inneren Antrieb. Das kann jederzeit geschehen, erfordert im Kampf aber eine Aktion mit 1 Ap. Tausche 1 Coup + 1 Idee in 1 Ambition um."
+            }
+          },
+          "expert": {
+            "expert1": {
+              "name": "Ambitioniertes Vorbild",
+              "text": "Solltest du Ambition über das erlaubte Maximum von 5 bekommen, so darfst du diese Punkte sofort bei Erhalt an einen oder mehrere andere Jäger abgeben."
+            },
+            "expert2": {
+              "name": "Dritter Erzfeind",
+              "text": "Definiere eine dritte Gegnerklasse als Erzfeind."
+            },
+            "expert3": {
+              "name": "Feindeskunde I",
+              "text": "Du erhältst zu Beginn eines relevanten Kampfes +1 Ambition."
+            }
+          },
+          "meister": {
+            "meister1": {
+              "name": "Vierter Erzfeind",
+              "text": "Definiere eine vierte Gegnerklasse als Erzfeind."
+            },
+            "meister2": {
+              "name": "Feindeskunde II",
+              "text": "Du erhältst zu Beginn eines relevanten Kampfes +1 Ambition."
+            },
+            "meister3": {
+              "name": "Nemesis",
+              "text": "obald dir ein Anführergegner (es muss sich dabei nicht um einen Erzfeind handeln) mit einem einzelnen Angriff mindestens 5 Schadenspunkte zugefügt hat (nach Abzug des Pw; Puffer-Lep zählen nicht) oder bei einer einzelnen Vergleichsprobe gegen dich mindestens 5 Differenzerfolge erzielte (z. B. bei Zaubern), kannst du als freie Reaktion (0 Ap) beliebig viele Ambition opfern. Der Gegner erleidet 4 Schadenspunkte (Schmerzschaden) pro geopferter Ambition. Handelt es sich um einen Erzfeind, erleidet er 6 Schadenspunkte pro Ambition."
             }
           }
         }
@@ -1909,7 +1909,7 @@
           },
           "expert": {
             "expert1": {
-              "name": "Stangenkunde I:",
+              "name": "Stangenkunde I",
               "text": "Coups +1."
             },
             "expert2": {
@@ -1927,7 +1927,7 @@
               "text": "(Gestik): Opfere 1 Coup, bevor du einen Angriff mit einer Stangenwaffe ausführst. Der Grundschaden erhöht sich um 2."
             },
             "meister2": {
-              "name": "",
+              "name": "Stangenkunde II",
               "text": "Coups +1."
             },
             "meister3": {
@@ -2686,56 +2686,56 @@
             }
           ]
         }
+      }
+    },
+    "inquisitor": {
+      "esprit": {
+        "esprit1": {
+          "name": "Strafe Gottes",
+          "text": "Opfere als Aktion 3 Ap und würfele auf Wil + Fw (Redekunst). Für jeden Espritstern verliert das Ziel 5 Lep (heiliger Schaden), für jeden Erfolg zusätzlich 1 Lep (heiliger Schaden). Strafe Gottes wirkt nur bei widernatürlichen Kreaturen. Der HeXXenmeister kann aber grausame oder skrupellose Menschen ebenfalls dazu zählen. Strafe Gottes hat keine Wirkung außerhalb von Kämpfen.",
+          "summary": "Sprache",
+          "references": [
+            {
+              "source": "Wiki",
+              "link": "http://hexxen1733-regelwiki.de/index.php/inqu_strafe_gottes.html"
+            },
+            {
+              "source": "Das Buch der Regeln ",
+              "page": "170"
+            }
+          ]
+        }
       },
-      "inquisitor": {
-        "esprit": {
-          "esprit1": {
-            "name": "Strafe Gottes",
-            "text": "Opfere als Aktion 3 Ap und würfele auf Wil + Fw (Redekunst). Für jeden Espritstern verliert das Ziel 5 Lep (heiliger Schaden), für jeden Erfolg zusätzlich 1 Lep (heiliger Schaden). Strafe Gottes wirkt nur bei widernatürlichen Kreaturen. Der HeXXenmeister kann aber grausame oder skrupellose Menschen ebenfalls dazu zählen. Strafe Gottes hat keine Wirkung außerhalb von Kämpfen.",
-            "summary": "Sprache",
-            "references": [
-              {
-                "source": "Wiki",
-                "link": "http://hexxen1733-regelwiki.de/index.php/inqu_strafe_gottes.html"
-              },
-              {
-                "source": "Das Buch der Regeln ",
-                "page": "170"
-              }
-            ]
-          }
+      "jaeger": {
+        "jaeger1": {
+          "name": "Befragung",
+          "text": "Wenn du Informationen von direkten Gesprächspartnern oder durch Massenbefragungen erhalten möchtest, erhältst du einen Bonus von +3 auf Redekunst bzw. Land und Leute. Würfelst du dabei 5 oder mehr Erfolge und erfährst etwas, das für das Abenteuer oder deine persönliche Entwicklung von Belang ist, erhältst du 1 Segnung dazu (maximal einmal pro Tag). Du kannst die erhaltene Segnung direkt bei Erhalt an einen anderen Jäger abgeben, der aber an dem Gespräch beteiligt gewesen sein muss.",
+          "summary": "Sozial / Sprache",
+          "references": [
+            {
+              "source": "Wiki",
+              "link": "http://hexxen1733-regelwiki.de/index.php/inqu_befragung.html"
+            },
+            {
+              "source": "Das Buch der Regeln",
+              "page": "170"
+            }
+          ]
         },
-        "jaeger": {
-          "jaeger1": {
-            "name": "Befragung",
-            "text": "Wenn du Informationen von direkten Gesprächspartnern oder durch Massenbefragungen erhalten möchtest, erhältst du einen Bonus von +3 auf Redekunst bzw. Land und Leute. Würfelst du dabei 5 oder mehr Erfolge und erfährst etwas, das für das Abenteuer oder deine persönliche Entwicklung von Belang ist, erhältst du 1 Segnung dazu (maximal einmal pro Tag). Du kannst die erhaltene Segnung direkt bei Erhalt an einen anderen Jäger abgeben, der aber an dem Gespräch beteiligt gewesen sein muss.",
-            "summary": "Sozial / Sprache",
-            "references": [
-              {
-                "source": "Wiki",
-                "link": "http://hexxen1733-regelwiki.de/index.php/inqu_befragung.html"
-              },
-              {
-                "source": "Das Buch der Regeln",
-                "page": "170"
-              }
-            ]
-          },
-          "jaeger2": {
-            "name": "Tod der Ungerechten",
-            "text": "Bete zu den himmlischen Heerscharen und führe als Aktion für 3 Ap eine Probe Wis + Fw (Wissensgebiete) durch. Bei Erfolg darfst du Bandengegner aus dem Kampfgebiet entfernen, deren addierte Bandenstufe der Zahl deiner Erfolge entspricht – vorausgesetzt, es handelt sich um widernatürliche Kreaturen. So könntest du beispielsweise für 4 Erfolge 1 widernatürliche Kreatur mit Bandenstufe 3 und 1 Kreatur mit Bandenstufe 1 entfernen. Dies zählt als Angriffsprobe.",
-            "summary": "Bande / Sicht / Sprache",
-            "references": [
-              {
-                "source": "Wiki",
-                "link": "http://hexxen1733-regelwiki.de/index.php/inqu_tod_der_ungerechten.html"
-              },
-              {
-                "source": "Das Buch der Regeln",
-                "page": "170"
-              }
-            ]
-          }
+        "jaeger2": {
+          "name": "Tod der Ungerechten",
+          "text": "Bete zu den himmlischen Heerscharen und führe als Aktion für 3 Ap eine Probe Wis + Fw (Wissensgebiete) durch. Bei Erfolg darfst du Bandengegner aus dem Kampfgebiet entfernen, deren addierte Bandenstufe der Zahl deiner Erfolge entspricht – vorausgesetzt, es handelt sich um widernatürliche Kreaturen. So könntest du beispielsweise für 4 Erfolge 1 widernatürliche Kreatur mit Bandenstufe 3 und 1 Kreatur mit Bandenstufe 1 entfernen. Dies zählt als Angriffsprobe.",
+          "summary": "Bande / Sicht / Sprache",
+          "references": [
+            {
+              "source": "Wiki",
+              "link": "http://hexxen1733-regelwiki.de/index.php/inqu_tod_der_ungerechten.html"
+            },
+            {
+              "source": "Das Buch der Regeln",
+              "page": "170"
+            }
+          ]
         }
       }
     },
