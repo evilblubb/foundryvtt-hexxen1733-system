@@ -507,10 +507,12 @@
     "attributes": {}
   },
   "role": {
-    "templates": [ "core" ]
+    "templates": [ "core" ],
+    "powers": []
   },
   "profession": {
-    "templates": [ "core" ]
+    "templates": [ "core" ],
+    "powers": []
   },
   "motivation": {
     "templates": [ "core" ]

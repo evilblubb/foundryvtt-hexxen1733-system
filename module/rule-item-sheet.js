@@ -23,6 +23,21 @@ class RuleItemSheet extends ItemSheet {
   }
 
   /** @override */
+  setPosition(options={}) {
+    // TODO: nach HexxenItemSheet verschieben (Mixin? - ActorSheet)
+    const position = super.setPosition(options);
+    const sheetBody = this.element.find(".sheet-body");
+    const windowHeader = this.element.find(".window-header").css("height");
+    const sheetHeader = this.element.find(".sheet-header").css("height");
+    const sheetTabs = this.element.find(".sheet-tabs").css("height");
+    const bodyHeight = position.height - Number.parseInt(windowHeader) - Number.parseInt(sheetHeader) - Number.parseInt(sheetTabs);
+    sheetBody.css("height", bodyHeight);
+    return position;
+  }
+
+  /* -------------------------------------------- */
+
+  /** @override */
   getData() {
     const data = super.getData();
     data.type = data.item.type.capitalize();
@@ -38,20 +53,10 @@ class RuleItemSheet extends ItemSheet {
   /* -------------------------------------------- */
 
   /** @override */
-  setPosition(options={}) {
-    // TODO: Höhenanpassung automatisieren
-    const position = super.setPosition(options);
-    const sheetBody = this.element.find(".sheet-body");
-    const bodyHeight = position.height - 149;
-    sheetBody.css("height", bodyHeight);
-    return position;
-  }
-
-  /* -------------------------------------------- */
-
-  /** @override */
 	activateListeners(html) {
     super.activateListeners(html);
+
+    // html.find("a[data-action='open']").on("click", HexxenCompendiumHelper.onClickOpenPower);
 
     // Everything below here is only needed if the sheet is editable
     if (!this.options.editable) return;

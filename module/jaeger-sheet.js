@@ -26,6 +26,7 @@ class JaegerSheet extends HexxenActorSheet {
 
   /** @override */
   setPosition(options={}) {
+    // TODO: nach HexxenActorSheet verschieben (Mixin? - ItemSheet)
     const position = super.setPosition(options);
     const sheetBody = this.element.find(".sheet-body");
     const windowHeader = this.element.find(".window-header").css("height");
@@ -161,6 +162,7 @@ class JaegerSheet extends HexxenActorSheet {
     }
 
     // TODO: data.items filtern, sobald alle anderen subtypen abgehandelt
+    out.actor.powers = out.actor.items.filter(i => { return "skills" === i.type; });
     out.actor.items = out.actor.items.filter(i => { return "item" === i.type; });
 
     return out;
