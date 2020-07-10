@@ -26,6 +26,7 @@ class JaegerSheet extends HexxenActorSheet {
 
   /** @override */
   setPosition(options={}) {
+    // TODO: nach HexxenActorSheet verschieben (Mixin? - ItemSheet)
     const position = super.setPosition(options);
     const sheetBody = this.element.find(".sheet-body");
     const windowHeader = this.element.find(".window-header").css("height");
