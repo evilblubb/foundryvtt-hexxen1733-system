@@ -218,6 +218,7 @@ class HexxenActor extends Actor {
         // TODO: Voraussetzungen prüfen
         // TODO: id eintragen
       }
+      // TODO: Jägerkräfte behandeln
     }
 
     super.createEmbeddedEntity(embeddedName, newItemData, options);
