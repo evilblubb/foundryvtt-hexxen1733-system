@@ -83,6 +83,7 @@ img#hexxen-logo {
 }
 .hexxen .table {
   display: table;
+  width: 100%;
   border: var(--hexxen-table-border);
 }
 .hexxen .table .tr {
