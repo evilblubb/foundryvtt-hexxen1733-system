@@ -177,6 +177,10 @@ Hooks.once("init", async function() {
   // });
 });
 
+Hooks.once("ready", async function() {
+  HexxenRollHelper.checkSystemReqirements();
+});
+
 class HexxenAbout extends Application {
 
   static get defaultOptions() {
