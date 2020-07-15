@@ -5,7 +5,8 @@
         "esprit1": {
           "name": "Medicus",
           "text": "Jeder Espritstern, den du bei einem Wurf auf Erste Hilfe würfelst, zählt als Erfolg.",
-          "summary": "Gestik",
+          "summary": "",
+          "tags": [ "Gestik" ],
           "upkeep": "25",
           "references": [
             {
@@ -21,7 +22,8 @@
         "esprit2": {
           "name": "Unscheinbar",
           "text": "Immer, wenn du eine defensive Reaktion ausführst (Ausweichen, Parieren, Schildblock), erhältst du für jeden gewürfelten Espritstern entweder einen zusätzlichen Erfolg oder darfst dich nach dem Angriff von einem gebundenen Gegner lösen. Du kannst die Effekte auch aufteilen: Für 2 Espritsterne könntest du a) 1 Erfolg generieren und dich b) nach dem Angriff von einem Gegner lösen.",
-          "summary": "Beweglichkeit",
+          "summary": "",
+          "tags": [ "Beweglichkeit" ],
           "references": [
             {
               "source": "Wiki",
@@ -38,7 +40,8 @@
         "jaeger1": {
           "name": "Tödliche Substanzen",
           "text": "Du kannst eine besondere Angriffsaktion ausführen, um einem Bandengegner tödliche Substanzen zu verabreichen und ihn damit sofort zu töten. Elixiere können dabei nur im Nahkampf eingesetzt werden, Wurfgeschosse nur über Distanz (entsprechend einem Schleuder-Angriff). Der jeweilige Angriff erfordert keine Probe, kostet jedoch Ap in Höhe der Stufe des Bandengegners (1-3) und verbraucht eine Anzahl Elixiere oder Wurfgeschosse in gleicher Höhe. Um einen Bandengegner der Stufe 2 zu töten, kostet dich das im Nahkampf 2 Ap und 2 Elixiere oder im Fernkampf 2 Ap und 2 Wurfgeschosse.",
-          "summary": "Gestik und Beweglichkeit / Bande",
+          "summary": "",
+          "tags": [ "Beweglichkeit", "Gestik", "Bande" ],
           "references": [
             {
               "source": "Wiki",
@@ -55,7 +58,9 @@
         "aufbau1": {
           "name": "Wurfgeschosse herstellen",
           "text": "Als Freizeitaktion kannst du auf Ges + Fw (Handwerken) würfeln und erhältst für jeden Erfolg ein Geschoss, dessen Anleitung du vorher über die entsprechenden Ausbaueffekte gelernt haben musst. Auf dem freien Markt kannst du Geschosse für 5 Gulden pro Stück verkaufen. Um ein Wurfgeschoss zu schleudern, ist ein Fernkampfangriff (2 Ap) mit einer Probe auf Ges + Fw (Schleudern) nötig. Für den Angriff gelten alle Einschränkungen für Schleudern. Willst du das Wurfgeschoss mit bloßen Händen werfen, wird der Fw (Schleudern) ignoriert, aber alle anderen Angriffswerte (Ap-Kosten, Schaden, eventuelle Einschränkungen) der Schleuderwaffe gelten. Ist der Angriff erfolgreich, verursacht er zunächst ganz normal den Grund-  schaden der Schleuder plus weiteren Schaden durch Treffererfolge; danach tritt der Nebeneffekt des Wurfgeschosses ein (beim Brandgeschoss beispielsweise Brandstufen). Die Chemikalien zur Herstellung von Wurfgeschossen sind selten und gefährlich. Um einen steten Vorrat an Chemikalien zu gewährleisten, wird der Unterhalt um 80 Gulden erhöht.",
-          "summary": "Als Startkraft: Du erhältst ein transportables Labor als Startausrüstung.\nAusbau/Handw. (Gestik)",
+          "summary": "",
+          "create": "Du erhältst ein transportables Labor als Startausrüstung.",
+          "tags": [ "Handwerk (Gestik)" ],
           "upkeep": "80",
           "references": [
             {
@@ -117,7 +122,9 @@
         "aufbau2": {
           "name": "Elexiere herstellen",
           "text": "Führe als Freizeitaktion eine Probe auf Wis + Fw (Wissensgebiete) durch. Für jeden Erfolg erhältst du ein Elixier aus den gelernten Effekten. Wenn du beispielsweise die Effekte „Elixiere des Geistes“ und „Elixiere der Heilung“ gelernt hast und beim Erschaffungsvorgang 4 Erfolge würfelst, könntest du 2 Heil-Elixiere, 1 Ideen-Elixier und 1 Mut-Elixier herstellen. Um einen ständigen Vorrat teurer Ingredienzen zu sichern, erhöht sich der Unterhalt bei Erwerb des Stammeffekts um 100 Gulden. Alle Elixiere können für je 5 Gulden pro Stück über den freien Markt verkauft werden. Um ein Elixier selbst einzunehmen, musst du 1 Aktionspunkt (Ap) als Reaktion opfern. Willst du einem anderen Charakter ein Elixier einflößen, erfordert das eine Aktion mit 2 Ap. Im Kampf ein Elixier an einen anderen Charakter abzugeben, erfordert ebenso eine Aktion mit 2 Ap. Wichtig: Alle Anwendungen von Elixieren zählen als Magische Heilung (MH), auch wenn sie keinen Heil-Effekt haben. Das führt dazu, dass ein Jäger maximal viermal pro Tag ein Elixier konsumieren kann (der Empfänger streicht jeweils ein MH-Kästchen durch).",
-          "summary": "Als Startkraft: Du erhältst ein tragbares Labor als Startausrüstung.\nHandwerk (Gestik)",
+          "summary": "",
+          "create": "Du erhältst ein tragbares Labor als Startausrüstung.",
+          "tags": [ "Handwerk (Gestik)" ],
           "upkeep": "100",
           "references": [
             {
@@ -183,7 +190,9 @@
         "esprit1": {
           "name": "Meuchelmord",
           "text": "Der feige, aber effektive Mord ist dein Markenzeichen! Jeder Espritstern, den du bei einer heimtückischen Attacke mit einer beliebigen Nahkampfwaffe würfelst, zählt als Erfolg.",
-          "summary": "Gestik / Beweglichkeit. Als Startkraft: Du erhältst einen Dolch oder eine Fechtwaffe als Startausrüstung.",
+          "summary": "",
+          "create": "Du erhältst einen Dolch oder eine Fechtwaffe als Startausrüstung.",
+          "tags": [ "Beweglichkeit", "Gestik" ],
           "references": [
             {
               "source": "Wiki",
@@ -197,8 +206,10 @@
         },
         "esprit2": {
           "name": "Meister der Dolche",
-          "text": "Dolche sind die Waffen, mit denen sich viele Attentäter am besten auskennen. Sie sind klein und lassen sich daher leicht verstecken, können aber in kundigen Händen genauso tödlich sein wie ein mit Kraft geführter Säbel. Man kann sie auf kurze Distanz werfen, und ihre Klinge lässt sich hervorragend mit Gift präparieren. Würfelst du bei einem Angriff mit einem Dolch 1 oder mehrere Espritsterne, kannst du für 1 Stern die Waffe für den laufenden Angriff kostenlos mit Gift bestreichen (das verbraucht dennoch eine Giftphiole) oder pro Stern 1 Treffererfolg addieren. Du kannst die Effekte auch aufteilen: Für 3 Espritsterne könntest du a) 1 Stern zum Bestreichen mit Gift aufwenden und b) 2 Erfolge addieren. Das gilt auch, wenn du den Dolch wirfst.",
-          "summary": "Gestik. Als Startkraft: Du erhältst einen Dolch und fünf Phiolen einfaches Waffengift als Startausrüstung. Vergiftete Dolche: Solange keine Waffenverbesserungen oder Jägerkräfte zum Einsatz kommen, können nur Waffen der Kategorie „Dolche und Messer“ mit Gift bestrichen werden. Dolche und Messer lassen sich auch werfen.",
+          "text": "Dolche sind die Waffen, mit denen sich viele Attentäter am besten auskennen. Sie sind klein und lassen sich daher leicht verstecken, können aber in kundigen Händen genauso tödlich sein wie ein mit Kraft geführter Säbel. Man kann sie auf kurze Distanz werfen, und ihre Klinge lässt sich hervorragend mit Gift präparieren. Würfelst du bei einem Angriff mit einem Dolch 1 oder mehrere Espritsterne, kannst du für 1 Stern die Waffe für den laufenden Angriff kostenlos mit Gift bestreichen (das verbraucht dennoch eine Giftphiole) oder pro Stern 1 Treffererfolg addieren. Du kannst die Effekte auch aufteilen: Für 3 Espritsterne könntest du a) 1 Stern zum Bestreichen mit Gift aufwenden und b) 2 Erfolge addieren. Das gilt auch, wenn du den Dolch wirfst.\nVergiftete Dolche: Solange keine Waffenverbesserungen oder Jägerkräfte zum Einsatz kommen, können nur Waffen der Kategorie „Dolche und Messer“ mit Gift bestrichen werden. Dolche und Messer lassen sich auch werfen.",
+          "summary": "",
+          "create": "Du erhältst einen Dolch und fünf Phiolen einfaches Waffengift als Startausrüstung.",
+          "tags": [ "Gestik" ],
           "references": [
             {
               "source": "Wiki",
@@ -215,7 +226,8 @@
         "jaeger1": {
           "name": "Schneller Tod",
           "text": "Wenn du einen Bandengegner durch Waffenschaden tötest, darfst du sofort einen Blutwürfel würfeln. Töte einen beliebigen Bandengegner auf dem Kampfschauplatz mit einer Bandenstufe in maximaler Höhe der gewürfelten Blutstropfensymbole. Schneller Tod kann mehrfach pro Spielrunde aktiviert werden (immer wenn du einen Gegner durch Schaden tötest) und zählt nicht gegen das Angriffslimit.",
-          "summary": "Jägerkraft / Beweglichkeit / Bande",
+          "summary": "",
+          "tags": [ "Beweglichkeit", "Bande" ],
           "references": [
             {
               "source": "Wiki",
@@ -232,7 +244,9 @@
         "aufbau1": {
           "name": "Gifte herstellen",
           "text": "Du kannst für dich oder deine Gefährten Gifte aller Art herstellen. Führe einmal täglich als Freizeitaktion mit Hilfe eines Labors oder tragbaren Laboratoriums eine Probe Ges + Fw (Fingerfertigkeit) durch. Für jeden Erfolg erhältst du eine Phiole mit einem frei wählbaren Gift, dessen Rezept du beherrschst. (Mehr zum Einsatz von Giften siehe „Gifte und Waffen“). Giftphiolen können auf dem freien Markt für 5 Gulden pro Stück verkauft werden.",
-          "summary": "Ausbau/Handw. (Gestik). Als Startkraft: Du erhältst ein transportables Laboratorium als Startausrüstung.",
+          "summary": "",
+          "create": "Du erhältst ein transportables Laboratorium als Startausrüstung.",
+          "tags": [ "Handwerk (Gestik)" ],
           "upkeep": "90",
           "references": [
             {
@@ -294,7 +308,8 @@
         "aufbau2": {
           "name": "Wie ein Schatten",
           "text": "Du hast gelernt, dich lautlos und unauffällig zu bewegen. Die Nacht ist ein wertvoller Verbündeter. Du kannst die unten beschriebenen Coupeffekte nutzen (kombinierbar), sobald du sie erlernt hast.",
-          "summary": "Ausbaukraft/Coup/Beweglichkeit",
+          "summary": "",
+          "tags": [ "Beweglichkeit", "Coup" ],
           "references": [
             {
               "source": "Wiki",
@@ -359,7 +374,9 @@
         "esprit1": {
           "name": "Hart wie Stahl",
           "text": "Für jeden Espritstern, den du bei einer defensiven Reaktion (Schildblock, Ausweichen, Parieren) würfelst, erhältst du sofort (noch vor der Schadensverrechnung) 1 Puffer- Lep (bis zum Maximum von 10 Puffer-Lep). Wie üblich werden alle Puffer-Lep am Ende des Kampfes auf 0 gesetzt.",
-          "summary": "Gestik. Als Startkraft: Du erhältst wahlweise eine mittelschwere Panzerung (Lederkoller) oder eine schwere Panzerung (Kürass) als Startausrüstung.",
+          "summary": "",
+          "create": "Du erhältst wahlweise eine mittelschwere Panzerung (Lederkoller) oder eine schwere Panzerung (Kürass) als Startausrüstung.",
+          "tags": [ "Gestik" ],
           "references": [
             {
               "source": "Wiki",
@@ -376,7 +393,8 @@
         "jaeger1": {
           "name": "Gegenschlag",
           "text": "Immer wenn du einen Angriff von einem an dich gebundenen Bandengegner nicht parierst, mit dem Schild blockst oder ihm ausweichst und Schaden durch diesen Angriff nimmst (gleichgültig ob Lep oder Puffer-Lep), darfst du als freie Reaktion mit einem Blutwürfel würfeln. Entspricht die Zahl der Blutstropfensymbole der Bandenstufe des Gegners (oder ist höher), so wird der Gegner besiegt.",
-          "summary": "Bande / Gestik",
+          "summary": "",
+          "tags": [ "Bande", "Gestik" ],
           "references": [
             {
               "source": "Wiki",
@@ -391,7 +409,9 @@
         "jaeger2": {
           "name": "Leibgarde",
           "text": "Sobald sich ein Gegner auf einen deiner Mitstreiter zubewegt, um ihn im Nahkampf zu attackieren, darfst du den Gegner stattdessen an dich binden. Ziehe das Gegnerplättchen einfach an dein Plättchen (das geht auch, wenn du fixiert bist). Du kannst diesen Effekt nicht mehr anwenden, wenn 4 oder mehr Bandengegner oder 2 oder mehr Anführergegner an dich gebunden sind (was immer zuerst eintrifft). Beachte, dass einige Effekte aus der Beschützer-Rolle und die Sonderregel der Landsknechtkleidung dieses Maximum erhöhen können. Du kannst Leibgarde nicht gegen Einheiten anwenden, die nicht gebunden werden können, wie z. B. fliegende, riesige oder berittene Gegner.",
-          "summary": "Beweglichkeit. Als Startkraft: Du erhältst eine schwere Panzerung (Kürass) sowie einen Schild als Startausrüstung.",
+          "summary": "",
+          "create": "Du erhältst eine schwere Panzerung (Kürass) sowie einen Schild als Startausrüstung.",
+          "tags": [ "Beweglichkeit" ],
           "references": [
             {
               "source": "Wiki",
@@ -408,7 +428,9 @@
         "aufbau1": {
           "name": "Herausforderung",
           "text": "Indem du deine Gegner anschreist und durch Spottrufe oder unflätige Gesten auf dich aufmerksam machst, provozierst du ihre Angriffe. Du kannst die unten beschriebenen Ideeneffekte nutzen (kombinierbar), sobald du sie erlernt hast.",
-          "summary": "Ausbaukraft/Idee. Als Startkraft: Du erhältst eine mittelschwere Panzerung (Lederkoller) als Startausrüstung.",
+          "summary": "",
+          "create": "Du erhältst eine mittelschwere Panzerung (Lederkoller) als Startausrüstung.",
+          "tags": [ "Idee" ],
           "references": [
             {
               "source": "Wiki",
@@ -469,7 +491,8 @@
         "aufbau2": {
           "name": "Standhaftigkeit",
           "text": "Nichts bringt dich ins Wanken! Fest wie ein Felsen verharrst du selbst bei übermächtigen Gegnern auf dem Schlachtfeld. Du kannst die unten beschriebenen Coupeffekte nutzen (kombinierbar), sobald du sie erlernt hast.",
-          "summary": "Ausbaukraft/Coup",
+          "summary": "",
+          "tags": [ "Coup" ],
           "references": [
             {
               "source": "Wiki",
@@ -534,7 +557,8 @@
         "esprit1": {
           "name": "Teufelsaustreibung",
           "text": "Für jeden Espritstern, den du bei einem Angriff gegen ein widernatürliches Wesen würfelst, erhältst du 1 Segnung (bis zum erlaubten Maximum an Segnungen). Du erhältst die Segnung aber erst dann, wenn die Probe und ihre Auswirkungen komplett abgeschlossen sind. Du kannst die erhaltene Segnung nicht benutzen, um für die gerade ausgeführte Probe einen Segnungswürfel nachzuwürfeln.",
-          "summary": "Gestik",
+          "summary": "",
+          "tags": [ "Gestik" ],
           "references": [
             {
               "source": "Wiki",
@@ -551,7 +575,8 @@
         "jaeger1": {
           "name": "Gerechter Zorn",
           "text": "Du kannst als freie Aktion (0 Ap) 1 oder mehrere Segnungen opfern, um entsprechend viele Bandenstufen widernatürlicher Kreaturen automatisch zu besiegen. So kannst du z. B. 4 Segnungen opfern und dafür 2 widernatürliche Bande- 2-Gegner oder 4 Bande-1-Gegner besiegen. Gerechter Zorn zählt als Angriff.",
-          "summary": "Bande",
+          "summary": "",
+          "tags": [ "Bande" ],
           "references": [
             {
               "source": "Wiki",
@@ -566,7 +591,8 @@
         "jaeger2": {
           "name": "Ikone",
           "text": "Du kannst jederzeit als Aktion (1 Ap) 1 Segnung an einen anderen Jäger abgeben. Pro Runde ist das bis zu zweimal möglich. Du kannst diesen Effekt nicht außerhalb von Kämpfen anwenden.",
-          "summary": "Sprache",
+          "summary": "",
+          "tags": [ "Sprache" ],
           "references": [
             {
               "source": "Wiki",
@@ -583,7 +609,9 @@
         "aufbau1": {
           "name": "Gesegnete Waffe",
           "text": "Fechtwaffen, Säbel oder Schwerter im Besitz des Eiferers gelten als gesegnete Waffen, ebenso die eigenen Fäuste.",
-          "summary": "Ausbaukraft/Idee. Als Startkraft: Du erhältst eine Fechtwaffe, einen Säbel oder ein Schwert als Startausrüstung.",
+          "summary": "",
+          "create": "Du erhältst eine Fechtwaffe, einen Säbel oder ein Schwert als Startausrüstung.",
+          "tags": [ "Idee" ],
           "references": [
             {
               "source": "Wiki",
@@ -644,7 +672,9 @@
         "aufbau2": {
           "name": "Schutz vor dem Teuefel",
           "text": "Allein durch deinen festen Willen, deine Überzeugung oder deinen Glauben fühlst du dich gegen jegliche Unbill gewappnet. Du kannst die unten beschriebenen Coupeffekte nutzen (kombinierbar), sobald du sie erlernt hast.",
-          "summary": "Ausbaukraft/Coup. Als Startkraft: Du erhältst eine schwere Panzerung (Kürass).",
+          "summary": "",
+          "create": "Du erhältst eine schwere Panzerung (Kürass).",
+          "tags": [ "Coup" ],
           "references": [
             {
               "source": "Wiki",
@@ -709,7 +739,9 @@
         "esprit1": {
           "name": "Duellant",
           "text": "Du bist es gewohnt, Fechtduelle nach den Regeln der gehobenen Gesellschaft auszutragen. Duellant ist nur dann wirksam, wenn exakt ein maximal menschengroßer Gegner an dich gebunden ist und sonst kein weiterer Verbündeter an den Gegner gebunden ist. Attackierst du diesen Gegner mit einem Dolch, einer Fechtwaffe, einer Pistole, einem Säbel oder einem Schwert, zählen alle beim Angriffswurf erzielten Espritsterne als Erfolge.",
-          "summary": "Beweglichkeit. Als Startkraft: Du erhältst einen Dolch, eine Fechtwaffe oder eine Pistole als Startausrüstung.",
+          "summary": "",
+          "create": "Du erhältst einen Dolch, eine Fechtwaffe oder eine Pistole als Startausrüstung.",
+          "tags": [ "Beweglichkeit" ],
           "references": [
             {
               "source": "Wiki",
@@ -724,7 +756,9 @@
         "esprit2": {
           "name": "Voll Bewaffnet",
           "text": "Diese Kraft wird erst beim dritten Angriff in einer Kampfrunde wirksam. Zudem musst du in dieser Kampfrunde mit mindestens zwei verschiedenen Waffen aus unterschiedlichen Kategorien attackiert haben. Für jeden Espritstern, den du bei deinem dritten Angriff würfelst, erhältst du 1 Coup oder 1 Idee (auch über das Maximum). Solltest du in der Lage sein, einen vierten Angriff (auch außerhalb der Reihe) auszuführen, gilt der Effekt auch bei diesem vierten Angriff. Am Ende des Konflikts werden die Coups/Ideen entsprechend des Grundwerts zurückgesetzt. Beispiel: Maria Hexenfluch attackiert in ihrer Ini-Phase zweimal mit einem Degen, als Drittes mit einer Schlagwaffe. Sie hat nun Angriffe aus zwei verschiedenen Waffenkategorien ausgeführt und damit die Voraussetzung erfüllt. Für alle Espritsterne, die sie bei ihrem Angriff mit der Schlagwaffe würfelt, erhält sie wahlweise 1 Coup oder 1 Idee.",
-          "summary": "Gestik. Als Startkraft: Du erhältst zwei beliebige Waffen, die jeweils maximal 2 Ap zur Benutzung erfordern, als Startausrüstung.",
+          "summary": "",
+          "create": "Du erhältst zwei beliebige Waffen, die jeweils maximal 2 Ap zur Benutzung erfordern, als Startausrüstung.",
+          "tags": [ "Gestik" ],
           "references": [
             {
               "source": "Wiki",
@@ -741,7 +775,8 @@
         "jaeger1": {
           "name": "Überlegene Fechtkunst",
           "text": "Sobald du bei einem Angriff mit einer Fechtwaffe gegen einen Bandengegner der Stufe 1 mindestens 1 Erfolg würfelst, gilt der Gegner automatisch als besiegt, gleichgültig, wie hoch der Schaden wäre. Um einen Gegner der Bandenstufe 2 auf diese Weise zu töten, benötigst du 3 Erfolge, für einen Gegner der Bandenstufe 3 sogar 5 Erfolge. Auch wenn du nicht genug Erfolge würfelst, um den Bandengegner aus dem Spiel zu nehmen, zählt der Angriff wie ein normaler Fechtwaffen-Angriff und verursacht bei einem Treffer den üblichen Schaden.",
-          "summary": "Bande / Gestik",
+          "summary": "",
+          "tags": [ "Bande", "Gestik" ],
           "references": [
             {
               "source": "Wiki",
@@ -758,7 +793,9 @@
         "aufbau1": {
           "name": "Fechtmeister",
           "text": "Du hattest das Privileg, von einem Meister seines Fachs in der Kunst des Fechtkampfes ausgebildet worden zu sein, und beherrschst die wichtigsten Kampfmanöver des Fechtkampfes. Du kannst die unten beschriebenen Coupeffekte nutzen (kombinierbar), sobald du sie erlernt hast.",
-          "summary": "Ausbaukraft/Coup. Als Startkraft: Du erhältst eine Fechtwaffe als Startausrüstung.",
+          "summary": "",
+          "create": "Du erhältst eine Fechtwaffe als Startausrüstung.",
+          "tags": [ "Coup" ],
           "references": [
             {
               "source": "Wiki",
@@ -819,7 +856,9 @@
         "aufbau2": {
           "name": "Schwertmeister",
           "text": "Du bist besonders gut im Umgang mit Säbeln und Schwertern. Das ermöglicht es dir, tiefe Wunden zu verursachen und gegnerische Angriffe besser zu parieren. Du kannst die unten beschriebenen Coupeffekte nutzen (kombinierbar), sobald du sie erlernt hast.",
-          "summary": "Ausbaukraft/Coup. Als Startkraft: Du erhältst einen Säbel oder ein Schwert als Startausrüstung.",
+          "summary": "",
+          "create": "Du erhältst einen Säbel oder ein Schwert als Startausrüstung.",
+          "tags": [ "Coup" ],
           "references": [
             {
               "source": "Wiki",
@@ -884,7 +923,9 @@
         "esprit1": {
           "name": "Scharfschütze",
           "text": "Jeder Espritstern, den du beim Angriff mit einer Schusswaffe (Armbrust, Muskete, Pistole) würfelst, zählt als Erfolg.",
-          "summary": "Gestik und Sicht. Als Startkraft: Du erhältst eine Muskete oder eine Pistole als Startausrüstung.",
+          "summary": "",
+          "create": "Du erhältst eine Muskete oder eine Pistole als Startausrüstung.",
+          "tags": [ "Gestik", "Sicht" ],
           "references": [
             {
               "source": "Wiki",
@@ -901,7 +942,8 @@
         "jaeger1": {
           "name": "Feuerregen",
           "text": "Führe mit der Muskete einen Schuss in die Luft aus. Wie bei einem normalen Schuss mit der Muskete musst du dafür freistehen und 3 Ap opfern. Würfele auf Sin + Fw (Muskete). Effekte aus der Jägerkraft „Musketen-Meisterschaft“ kannst du für diesen Schuss nicht anwenden. Der Schuss verursacht keinen Schaden, entferne aber für jeden Erfolg auf der Angriffsprobe einen freistehenden Gegner der Bandenstufe 1. Für jeweils 2 Erfolge darfst du einen freistehenden Gegner der Bandenstufe 2 entfernen, und für jeweils 3 Erfolge einen freistehenden Gegner der Bandenstufe 3. Die Stufen der Getroffenen können auch gemischt sein.",
-          "summary": "Bande / Sicht und Gestik",
+          "summary": "",
+          "tags": [ "Bande", "Gestik", "Sicht" ],
           "references": [
             {
               "source": "Wiki",
@@ -917,6 +959,8 @@
           "name": "Schießpulver herstellen",
           "text": "Du bist in der Lage, mächtiges Schießpulver für alle gängigen Feuerwaffen herzustellen. Führe einmal pro Tag als Freizeitaktion in einem Labor oder mit Hilfe eines transportablen Laboratoriums eine Probe Ges + Fw (Handwerken) durch. Du erhältst für jeden Erfolg 1 Einheit mächtiges Schießpulver, das du auch an deine Gefährten weitergeben kannst. Vor jedem Schuss mit einer Pistole oder einer Muskete kann ein Schütze bestimmen, ob er mächtiges Schießpulver nutzen möchte (verbraucht eine Einheit, kostet keine zusätzlichen Ap). In diesem Fall würfelt er beim Angriffswurf einen Blutwürfel mit. Die Zahl der Blutstropfensymbole wird zum Schaden des Angriffs addiert. Mit mächtigem Schießpulver können auch Explosionen ausgelöst werden, wenn beispielsweise das Schloss an einer Schatulle gesprengt werden soll (verbraucht 1 Einheit) oder eine Holztür (verbraucht 5 Einheiten). Zum Herstellen von mächtigem Schießpulver benötigst du einen steten Vorrat an Chemikalien, was deinen Unterhalt um 50 Gulden erhöht.",
           "summary": "",
+          "create": "Du erhältst ein transportables Laboratorium als Startausrüstung.",
+          "tags": [ "Handwerk (Gestik)" ],
           "upkeep": "50",
           "references": [
             {
@@ -934,7 +978,9 @@
         "aufbau1": {
           "name": "Musketen-Meisterschaft",
           "text": "Du bist geübt im Umgang mit der Muskete, entweder durch lange Kampfpraxis gegen die Kreaturen der Nacht oder weil du bei einem Musketier- Kommando deine Künste gelernt hast. Du kannst die unten beschriebenen Ideeneffekte nutzen (kombinierbar), sobald du sie erlernt hast.",
-          "summary": "Ausbaukraft/Idee. Als Startkraft: Du erhältst eine Muskete als Startausrüstung.",
+          "summary": "",
+          "create": "Du erhältst eine Muskete als Startausrüstung.",
+          "tags": [ "Idee" ],
           "references": [
             {
               "source": "Wiki",
@@ -995,7 +1041,9 @@
         "aufbau2": {
           "name": "Pistolero",
           "text": "Du bist gut darin, Pistolen einzusetzen. Du kannst die unten beschriebenen Ideeneffekte nutzen (kombinierbar), sobald du sie erlernt hast.",
-          "summary": "Ausbaukraft/Idee. Als Startkraft: Du erhältst eine Pistole als Startausrüstung.",
+          "summary": "",
+          "create": "Du erhältst eine Pistole als Startausrüstung.",
+          "tags": [ "Idee" ],
           "references": [
             {
               "source": "Wiki",
@@ -1060,7 +1108,8 @@
         "esprit1": {
           "name": "Geistiger Schutz",
           "text": "Bei Geistesstärke-Proben zählt jeder gewürfelte Espritstern als Erfolg.",
-          "summary": "Espritkraft. Als Startkraft: Du erhältst ein Schutzamulett, dessen Wirkung unabhängig von dieser Jägerkraft ist.",
+          "summary": "",
+          "create": "Du erhältst ein Schutzamulett, dessen Wirkung unabhängig von dieser Jägerkraft ist.",
           "references": [
             {
               "source": "Wiki",
@@ -1077,7 +1126,7 @@
         "jaeger1": {
           "name": "Das Gezücht herausfordern",
           "text": "Du kannst einen Anführergegner herausfordern, um seine Aufmerksamkeit auf dich zu lenken, indem du ihn beleidigst, schmähst oder dich auf eine Weise bewegst, dass er dich als erstes wahrnimmt. Diese Jägerkraft funktioniert im Grunde wie die Jägerkraft Leibgarde aus der Rolle des Beschützers: Sobald sich ein Anführer auf einen Jäger zubewegt, kannst du ihn als freie Reaktion an dich ziehen und binden (falls er sich binden lässt; ansonsten kannst du ihn nicht an dich ziehen). Darüber hinaus gilt: Erleidest du direkten Schaden (also nicht durch anhaltende Einflüsse) von einem Anführergegner, darfst du als freie Reaktion 1 Blutwürfel würfeln und den Schaden um die Zahl der Blutstropfensymbole reduzieren (gilt für alle Schadensklassen). Handelt es sich bei dem Gegner um einen Erzfeind, darfst du auf das Ergebnis des Blutwürfels +1 addieren. Diese Jägerkraft kann nicht gegen Bandengegner oder andere Schadensquellen angewendet werden.",
-          "summary": "Jägerkraft",
+          "summary": "",
           "references": [
             {
               "source": "Wiki",
@@ -1092,7 +1141,7 @@
         "jaeger2": {
           "name": "Hexenwerk durchkreuzen",
           "text": "Umso mehr faule Hexerei ein Gegner anwendet – umso mehr fühlst du dich angestachelt, ihn zu töten. Immer wenn ein Anführergegner Hex-Punkte für einen sichtbaren Effekt ausgibt (im Zweifelsfall muss der HeXXenmeister entscheiden, ob der Zauber eine sichtbare Wirkung hat), erhältst du 1 Ambition. Handelt es sich um eine wahre Hexe, erhältst du 1 Ambition pro ausgegebenem Hex-Punkt. Solltest du den Effekt „Ambitioniertes Vorbild“ (Jägerkraft „Ambition des Hexenjägers“) besitzen, darfst du die erhaltenen Punkte an andere Jäger abgeben, wenn dein Maximum an Ambition erreicht ist.",
-          "summary": "Jägerkraft",
+          "summary": "",
           "references": [
             {
               "source": "Wiki",
@@ -1107,7 +1156,7 @@
         "jaeger3": {
           "name": "Kreaturenwissen: Hexen",
           "text": "Mittels Kreaturenwissen kannst du eine Wissensgebiete-Probe durchführen, um dir ein bestimmtes Detail über Hexen ins Gedächtnis zu rufen. Alternativ kann dir der Spielleiter nach eigenem Ermessen auch einen Bonus auf eine Wissensgebiete- Probe verleihen, die etwas mit Hexen zu tun hat. Würfelst du bei einer solchen speziellen Wissensgebiete-Probe mindestens 3 Erfolge und erfährst ein relevantes Detail, erhältst du 2 Ideen oder 2 Ambition.",
-          "summary": "Jägerkraft",
+          "summary": "",
           "references": [
             {
               "source": "Wiki",
@@ -1124,7 +1173,9 @@
         "aufbau1": {
           "name": "Ambition des Hexenjägers",
           "text": "Du hast gelernt, dein ganzes Streben nach Gerechtigkeit, Rache oder Vergeltung in eine Art innere Kraft umzuwandeln. Diese Ambition kann dich zu höheren Taten antreiben.",
-          "summary": "Ausbaukraft/Ambition. Als Startkraft: Wähle eine Fechtwaffe, ein Schwert, einen Säbel oder eine Schlagwaffe als Startausrüstung.",
+          "summary": "",
+          "create": "Wähle eine Fechtwaffe, ein Schwert, einen Säbel oder eine Schlagwaffe als Startausrüstung.",
+          "tags": [ "Ambition" ],
           "references": [
             {
               "source": "Wiki",
@@ -1189,7 +1240,8 @@
         "jaeger1": {
           "name": "Hand auflegen",
           "text": "Wie bei einer Anwendung von Erste Hilfe kostet Hand auflegen im Kampf 3 Ap, und profitiert von allen Vorteilen und Kräften, die diese Kosten für Erste- Hilfe-Proben reduzieren. Anders als bei Erste Hilfe kann sich der Anwender nicht selbst heilen. Führe eine Hexenkunst-Probe aus und bestimme danach, wie viele Mh-Kästchen des Ziels die Anwendung verbraucht (minimal 1, maximal 4; der Patient muss eine entsprechende Anzahl an Mh-Kästchen zur Verfügung haben). Der Betroffene regeneriert pro Erfolg 1 Lep x Anzahl der Kästchen. Würfelst du keinen Erfolg, muss der Patient 1 Mh-Kästchen ohne Effekt durchstreichen, anschließend kann die Probe wiederholt werden.",
-          "summary": "Gestik",
+          "summary": "",
+          "tags": [ "Gestik" ],
           "references": [
             {
               "source": "Wiki",
@@ -1221,7 +1273,9 @@
         "aufbau1": {
           "name": "Kräuterwissen",
           "text": "Kräuterwissen erlaubt es dir, mithilfe einer Kochstelle verschiedene Kräutermittel herzustellen. Führe dazu im Rahmen einer Fza eine Probe auf Wis + Fw (Hexenkunst) aus. Für jeden Erfolg erhältst du ein Kräutermittel, dessen Rezept du kennst. Um dir einen ständigen Vorrat an Rohstoffen zu sichern, erhöht sich der Unterhalt bei Erwerb des Stammeffekts um 80 Gulden. Jedes Kräutermittel kann auf dem Markt für 5 Gulden verkauft werden.",
-          "summary": "Ausbaukraft/Handwerk (Gestik). Als Startkraft: Du erhältst eine Kochstelle, sowie ein Messer bzw. einen Dolch als Startausrüstung.",
+          "summary": "",
+          "create": "Du erhältst eine Kochstelle, sowie ein Messer bzw. einen Dolch als Startausrüstung.",
+          "tags": [ "Handwerk (Gestik)" ],
           "upkeep": "80",
           "references": [
             {
@@ -1283,7 +1337,9 @@
         "aufbau2": {
           "name": "Mystische Rituale",
           "text": "Für die Rituale benötigst du einen Vorrat an Ingredienzen, dein Unterhalt steigt um 15 Gulden.",
-          "summary": "Ausbaukraft/Rage. Als Startkraft: Du erhältst einen Dolch oder ein Messer.",
+          "summary": "",
+          "create": "Du erhältst einen Dolch oder ein Messer.",
+          "tags": [ "Rage" ],
           "upkeep": "15",
           "references": [
             {
@@ -1345,7 +1401,8 @@
         "aufbau3": {
           "name": "Volksflüche",
           "text": "Einige Flüche müssen in Form eines Rituals durchgeführt werden. Ein solches Ritual erfordert immer 1 Fza, eine Hexenkunst-Probe und das Opfern von mindestens 1 Rage. Verfügst du über ein persönliches Objekt der Zielperson, darfst du den Elixierwürfel würfeln (der im Zusammenhang mit dieser Kraft auch als „Fluchwürfel“ bezeichnet wird) und erhältst einen Bonus in Höhe der gewürfelten Zahl.",
-          "summary": "Ausbaukraft/Rage",
+          "summary": "",
+          "tags": [ "Rage" ],
           "upkeep": "30",
           "references": [
             {
@@ -1411,7 +1468,8 @@
         "esprit1": {
           "name": "Effizientes Arbeiten",
           "text": "Du hast gelernt, systematisch und strukturiert zu arbeiten, um Ressourcen und Zeit zu sparen. Von diesem Wissen können auch andere Mitglieder deiner Gruppe profitieren. Sobald du oder ein Mitglied deiner Gruppe auf eine Jägerkraft mit der Kennung „Handwerk“ würfeln, zählen alle erzielten Espritsterne als Erfolg.",
-          "summary": "Sprache",
+          "summary": "",
+          "tags": [ "Sprache" ],
           "references": [
             {
               "source": "Wiki",
@@ -1428,7 +1486,9 @@
         "jaeger1": {
           "name": "Praktische Helfer",
           "text": "Du kannst 5 Kp in kleine, praktische Erfindungen oder Helfer umtauschen. Definiere für den praktischen Helfer eine Fertigkeit (ausgenommen Waffenfertigkeiten, Ausweichen oder Schildbenutzung). Der Helfer verleiht dir (oder einem Mitglied deiner Gruppe) bei Benutzung der Fertigkeit einen Bonus von +1. Um einen praktischen Helfer anwenden zu können, muss er vorher aufgeladen werden, wobei jeder Helfer maximal 3 Ladungen aufweisen kann. Jede Ladung kostet dich 1 Kp. Das Aufladen erfordert nur wenig Zeit (keine Freizeitaktion), kann aber nicht während des Kampfes erfolgen. Du kannst nur Helfer laden, die du selbst gebaut hast. Du kannst den Helfer für 10 Kp auf Stufe 2 ausbauen, was dir einen Bonus von insgesamt +2 gewährt, und danach für 20 Kp auf Stufe 3 ausbauen, was dir einen Bonus von insgesamt +3 gewährt. Die genaue Gestalt und Funktionsweise eines Helfers bleibt dir überlassen. Praktische Helfer können nicht mit Mechanikum-Apparaten kombiniert werden, die ebenfalls einen Bonus auf die ausgewählte Fertigkeit geben. Praktische Helfer kosten keinen Unterhalt, stattdessen verbrauchen sie, wie oben beschrieben, Kp.",
-          "summary": "Handwerk / Erlaubt das Sammeln von Kp. Als Startkraft: Du startest mit einem voll geladenen praktischen Helfer (3 Ladungen) mit beliebiger Funktion auf Stufe 1.",
+          "summary": "",
+          "create": "Du startest mit einem voll geladenen praktischen Helfer (3 Ladungen) mit beliebiger Funktion auf Stufe 1.",
+          "tags": [ "Handwerk (Erlaubt das Sammeln von Kp)" ],
           "references": [
             {
               "source": "Wiki",
@@ -1443,7 +1503,8 @@
         "jaeger2": {
           "name": "Schredderwaffen",
           "text": "Du bist in der Lage, die Feuerwaffen deiner Freunde so umzubauen, dass sie mehr Schaden gegen Bandengegner anrichten. Immer, wenn du oder ein Gefährte auf dem Kampfschauplatz mit einer Pistole oder einer Muskete schießt und dabei mindestens 5 Erfolge würfelt, kannst du als Reaktion 1 Ap ausgeben: Entferne einen beliebigen Bandengegner. Das Entfernen zählt nicht als Angriff.",
-          "summary": "Bande",
+          "summary": "",
+          "tags": [ "Bande" ],
           "references": [
             {
               "source": "Wiki",
@@ -1460,7 +1521,9 @@
         "aufbau1": {
           "name": "Mechanikum",
           "text": "Die maximale Anzahl an eingebauten Apparaten entspricht dem Fw (Handwerken) +2, d. h. bei einem Fw von 3 können 5 Apparate eingebaut sein. Diese Anzahl kann zusätzlich durch Ausbaueffekte (siehe unten) erhöht werden. Jeder Apparat darf nur einmal in einem Mechanikum eingebaut sein, aber mit der Zeit kann man Apparate verbessern. Jeder neu eingebaute Apparat startet auf Ausbaustufe 1 und kann bis Ausbaustufe 3 verbessert werden. Für jeden eingebauten Apparat erhöht sich der Unterhalt um 15 Gulden (unabhängig von der Ausbaustufe). Der Einbau eines Apparats erfordert Konstruktionspunkte (siehe Seite 138): Für den Ersteinbau auf Stufe 1 sind stets 12 Kp nötig, die Verbesserung von Stufe 1 auf Stufe 2 kostet weitere 12 Kp, die von Stufe 2 auf 3 nochmals 12 Kp. Vorhandene Apparate können als Freizeitaktion ohne Probe und zusätzliche Kp-Kosten ausgebaut und durch andere ersetzt werden.",
-          "summary": "Ausbau/Handwerk/Unterhalt +15 pro Apparatur/Erlaubt das Sammeln von Kp. Als Startkraft: Du erhältst eine Werkzeugkiste als Startausrüstung. Du startest automatisch mit einem fertigen Grundgerüst (siehe unten) sowie einem Apparat pro Fw-Punkt (Handwerken), jeweils auf Ausbaustufe 1. Du darfst nur Apparate auswählen, die du laut der von dir erlernten Ausbaueffekte herstellen kannst, und es darf sich nicht um Seelenlicht-Apparate handeln.",
+          "summary": "",
+          "create": "Als Startkraft: Du erhältst eine Werkzeugkiste als Startausrüstung. Du startest automatisch mit einem fertigen Grundgerüst (siehe unten) sowie einem Apparat pro Fw-Punkt (Handwerken), jeweils auf Ausbaustufe 1. Du darfst nur Apparate auswählen, die du laut der von dir erlernten Ausbaueffekte herstellen kannst, und es darf sich nicht um Seelenlicht-Apparate handeln.",
+          "tags": [ "Handwerk (Erlaubt das Sammeln von Kp)" ],
           "upkeep": "15",
           "references": [
             {
@@ -1525,7 +1588,9 @@
         "aufbau2": {
           "name": "Unikate produzieren",
           "text": "Weil du einen Vorrat an hochwertigen Bauteilen und Bauplänen benötigst und dich permanent weiterbilden musst, erhöht diese Kraft deinen Unterhalt um 20 Gulden. Um ein Unikat herzustellen, benötigst du zunächst eine normale Panzerung oder Waffe. Für diese wählst du dann eine Unikat-Wirkung aus, für die du den dazugehörigen Ausbaueffekt erlernt hast und opferst die in der Unikat-Liste angegebenen Kp. Um das Unikat entsprechend zu würdigen, solltest du dir einen besonderen Namen dafür ausdenken. Unikat-Waffen und -Panzerungen erhöhen den Unterhalt. Dieser Unterhalt muss von dem jeweiligen Besitzer des Unikats bezahlt werden.",
-          "summary": "Ausbaukraft/Handwerk/Erlaubt das Sammeln von Kp. Als Startkraft: Du erhältst eine Werkzeugkiste als Startausrüstung und darfst eine Startpanzerung bzw. Startwaffe als Unikat mit einer Unikat-Wirkung für maximal 20 Kp definieren. Du musst über den zur Unikat-Wirkung gehörenden Ausbaueffekt verfügen",
+          "summary": "",
+          "create": "Du erhältst eine Werkzeugkiste als Startausrüstung und darfst eine Startpanzerung bzw. Startwaffe als Unikat mit einer Unikat-Wirkung für maximal 20 Kp definieren. Du musst über den zur Unikat-Wirkung gehörenden Ausbaueffekt verfügen.",
+          "tags": [ "Handwerk (Erlaubt das Sammeln von Kp)" ],
           "upkeep": "20",
           "references": [
             {
@@ -1592,7 +1657,8 @@
         "esprit1": {
           "name": "Gefahreninstinkt",
           "text": "Bei allen Aufmerksamkeits- und Erkennen-Proben in natürlicher Umgebung (ober- und unterirdisch), die etwas damit zu tun haben, eine Gefahr zu erkennen oder ein verborgenes Detail zu entdecken, zählen alle Espritsterne als Erfolg.",
-          "summary": "Sicht",
+          "summary": "",
+          "tags": [ "Sicht" ],
           "references": [
             {
               "source": "Wiki",
@@ -1609,7 +1675,8 @@
         "jaeger1": {
           "name": "Proben nehmen",
           "text": "Du kannst als Freizeitaktion Proben von potenziell wertvollen Substanzen oder Gesteinen nehmen. Bei den Proben kann es sich beispielsweise um Baumharze handeln oder Mineralien, um seltene Pflanzen oder kostbare Kristalle, um konservierte Tiere oder Fossilien – alles, was selten ist, kann von dir entdeckt werden. Führe im Rahmen einer Fza in entlegenen, verlassenen oder unerforschten Gebieten eine Probe auf Erkennen durch. Jeder Erfolg bringt dir eine Einheit Rohstoffe (definiere selbst, um welchen Rohstoff es sich handelt). Zehn Einheiten Rohstoffe ergeben ein Beutegut-Paket im Wert von 100 Gulden, das du auf dem nächsten Markt verkaufen kannst. Denke aber auch daran, dass das Beutegut transportiert werden muss. Optional: Du kannst dich auf eines der beiden Gebiete Wildnis oder Bergbau spezialisieren. Wenn du das tust, erhältst du auf alle Proben im spezialisierten Gebiet (Überirdisch für Wildnis, unterirdisch für Bergbau) einen Bonus +2, gleichzeitig jedoch im anderen Gebiet einen Malus -2.",
-          "summary": "Sozial",
+          "summary": "",
+          "tags": [ "Sozial" ],
           "references": [
             {
               "source": "Wiki",
@@ -1624,7 +1691,8 @@
         "jaeger2": {
           "name": "Proben nehmen",
           "text": "Sollte sich deine Gruppe durch ein solches Land bewegen und vom HeXXenmeister 3 oder mehr Freizeitaktionen bekommen (meistens aufgrund von „Abschnitt beendet“ oder „Ruhephase“), kannst du einen Elixierwürfel würfeln und die gewürfelten Symbole einigermaßen gleichmäßig auf die Gruppenmitglieder aufteilen. Jeder Jäger erhält pro zugeteiltem Symbol eine zusätzliche Fza.",
-          "summary": "Sozial",
+          "summary": "",
+          "tags": [ "Sozial" ],
           "references": [
             {
               "source": "Wiki",
@@ -1641,7 +1709,9 @@
         "aufbau1": {
           "name": "Tunnelkampf",
           "text": "Tunnelkampf beschreibt den Kampf in beengter, meist dunkler Umgebung, also typischerweise in Höhlen, Stollen und engen Gängen. Dabei kommen nur Nahkampfwaffen zur Anwendung.",
-          "summary": "Ausbaukraft / Coups / Beweglichkeit und Gestik. Als Startkraft: Du erhältst eine Schlagwaffe als Startausrüstung",
+          "summary": "",
+          "create": "Du erhältst eine Schlagwaffe als Startausrüstung.",
+          "tags": [ "Beweglichkeit", "Coup", "Gestik" ],
           "references": [
             {
               "source": "Wiki",
@@ -1702,7 +1772,9 @@
         "aufbau2": {
           "name": "Wildniskampf",
           "text": "Diese Ausbaukraft beschreibt Kampftechniken, die dir beim Kampf in der Wildnis helfen. Die meisten Effekte dieser Kraft beziehen sich auf den Fernkampf und thematisieren die Jagd mit einfachen Waffen wie Bögen oder Armbrüsten.",
-          "summary": "Ausbaukraft / Ideen / Beweglichkeit, Gestik und Sicht. Als Startkraft: Du erhältst eine Armbrust als Startausrüstung.",
+          "summary": "",
+          "create": "Du erhältst eine Armbrust als Startausrüstung.",
+          "tags": [ "Beweglichkeit", "Gestik", "Idee", "Sicht" ],
           "references": [
             {
               "source": "Wiki",
@@ -1767,7 +1839,8 @@
         "esprit1": {
           "name": "Feldsanitäter",
           "text": "Immer wenn du die Fertigkeit „Erste Hilfe“ anwendest und dabei mindestens 1 Espritstern würfelst, kannst du die Versorgung als Magische Heilung (MH) gelten lassen. Würfelst du 2 Espritsterne, muss für die Heilung weder ein EH- noch ein MH-Kästchen durchgestrichen werden. Die gewürfelten Espritsterne gelten durch diese Espritkraft nicht als benutzt, sondern entfalten zusätzlich noch ihre eigene Wirkung. Du kannst Feld-Sanitäter nicht bei einem Patienten anwenden, der beide EH-Kästchen durchgestrichen hat.",
-          "summary": "Unterhalt +5 / Gestik. Publikation: Das Buch der Regeln | Seite 142",
+          "summary": "",
+          "tags": [ "Gestik" ],
           "upkeep": "5",
           "references": [
             {
@@ -1783,7 +1856,9 @@
         "esprit2": {
           "name": "Mächtiger Hieb",
           "text": "Sobald du mit einer Schlagwaffe oder einer Stangenwaffe attackierst, zählen alle gewürfelten Espritsterne als Erfolg.",
-          "summary": "Gestik. Als Startkraft: Du erhältst wahlweise eine Schlagwaffe oder eine Stangenwaffe als Startausrüstung.",
+          "summary": "",
+          "create": "Du erhältst wahlweise eine Schlagwaffe oder eine Stangenwaffe als Startausrüstung.",
+          "tags": [ "Gestik" ],
           "references": [
             {
               "source": "Wiki",
@@ -1800,7 +1875,8 @@
         "jaeger1": {
           "name": "Feuer und Stahl",
           "text": "Immer wenn du bei einem Angriff mit einer Schlagwaffe, einer Stangenwaffe oder einer Muskete gegen einen Bande-1-Gegner mindestens 2 Erfolge würfelst, hast du den Bandengegner besiegt. Für einen Bande-2-Gegner benötigst du 3 Erfolge, für einen Bande-3-Gegner 4 Erfolge. Reichen die Erfolge nicht aus, es wurde aber ein Treffer erzielt, richtest du normal Schaden an.",
-          "summary": "Bande",
+          "summary": "",
+          "tags": [ "Bande" ],
           "references": [
             {
               "source": "Wiki",
@@ -1817,7 +1893,9 @@
         "aufbau1": {
           "name": "Hammer-Handwerk",
           "text": "Wenn es darum geht, mit schweren Nahkampfwaffen wie z. B. Äxten, Flegelwaffen und Kriegshämmern umzugehen, kann dir kaum jemand das Wasser reichen. Du kannst die unten beschriebenen Coupeffekte nutzen (kombinierbar), sobald du sie erlernt hast.",
-          "summary": "Ausbaukraft / Coup. Als Startkraft: Du erhältst eine Schlagwaffe als Startausrüstung.",
+          "summary": "",
+          "create": "Du erhältst eine Schlagwaffe als Startausrüstung.",
+          "tags": [ "Coup" ],
           "references": [
             {
               "source": "Wiki",
@@ -1878,7 +1956,9 @@
         "aufbau2": {
           "name": "Stangen-Handwerk",
           "text": "Du bist im Umgang mit der Stangenwaffe geübt und kannst die unten beschriebenen Coupeffekte nutzen (kombinierbar), sobald du sie erlernt hast.",
-          "summary": "Ausbaukraft/Coup. Als Startkraft: Du erhältst eine Stangenwaffe als Startausrüstung.",
+          "summary": "",
+          "create": "Du erhältst eine Stangenwaffe als Startausrüstung.",
+          "tags": [ "Coup" ],
           "references": [
             {
               "source": "Wiki",
@@ -1943,7 +2023,8 @@
         "esprit1": {
           "name": "Segnung Gottes",
           "text": "Immer, wenn du während eines Kampfes eine Nicht-Angriffsprobe ausführst, erhältst du für jeden gewürfelten Espritstern 1 Segnung. Segnung Gottes wird üblicherweise bei defensiven Handlungen wie Parieren aktiviert, oder auch durch unterstützende Handlungen wie Erste Hilfe. Du kannst aber auch wahlweise für 1 Ap ein Stoßgebet sprechen und auf Wil + Fw (Redekunst) würfeln; auch hierbei generiert jeder Espritstern 1 Segnung, ansonsten hat das Stoßgebet keinen Effekt. Das Stoßgebet ist pro Runde nur einmal möglich.",
-          "summary": "Gestik / Sprache",
+          "summary": "",
+          "tags": [ "Gestik", "Sprache" ],
           "references": [
             {
               "source": "Wiki",
@@ -1960,7 +2041,8 @@
         "jaeger1": {
           "name": "Worte des Herrn",
           "text": "Als Aktion mit 2 Ap kannst du auf Wil + Fw (Redekunst) würfeln. Bestimme für jeden Erfolg einen widernatürlichen Bandengegner der Stufe 1, für 2 Erfolge einen widernatürlichen Bandengegner der Stufe 2, oder für 3 Erfolge einen widernatürlichen Bandengegner der Stufe 3. Die ausgesuchten Bandengegner können in ihrer nächsten Ini-Phase (auch wenn diese in der nächsten Kampfrunde eintritt) keinen Angriff ausführen.",
-          "summary": "Bande / Sprache",
+          "summary": "",
+          "tags": [ "Bande", "Sprache" ],
           "references": [
             {
               "source": "Wiki",
@@ -1975,7 +2057,8 @@
         "jaeger2": {
           "name": "Wunden versorgen",
           "text": "Du kannst Wunden, die bereits versorgt wurden, noch einmal versorgen. Behandle deinen Patienten außerhalb eines Konfliktes. Anschließend würfele auf Wis + Fw (Erste Hilfe): Pro Erfolg darf der Patient bei einem bereits durchgestrichenenEH-Kästchen die Durchstreichung entfernen; für 2 Erfolge darf er bei einem bereits durchgestrichenen MH-Kästchen die Durchstreichung entfernen. Pro Patient ist einmal am Tag eine Anwendung von Wunden versorgen möglich. Diese Kraft erfordert einen Vorrat an Heilkräutern, Salben und Bandagen, daher erhöht sich der Unterhalt um 25 Gulden.",
-          "summary": "Gestik",
+          "summary": "",
+          "tags": [ "Gestik" ],
           "upkeep": "25",
           "references": [
             {
@@ -1993,7 +2076,8 @@
         "aufbau1": {
           "name": "Heilige Aura",
           "text": "Du kannst über Ideen Auren generieren, die dich oder deine Mitstreiter schützen, wobei jeder Charakter immer nur von einer Aura geschützt werden darf. Auren haben keine sichtbaren optischen Effekte, aber der Träger einer Aura spürt, welche Aura ihn kräftigt. Erhält ein Jäger eine neue Aura, erlischt die alte. Andernfalls bleiben Auren bis zum Ende des Konfliktes aktiv.",
-          "summary": "Ausbaukraft / Idee",
+          "summary": "",
+          "tags": [ "Idee" ],
           "references": [
             {
               "source": "Wiki",
@@ -2054,7 +2138,8 @@
         "aufbau2": {
           "name": "Predigt",
           "text": "Du kannst deine Gefährten mit guten Ratschlägen und wichtigen Hinweisen anleiten. Du kannst die unten beschriebenen Ideeneffekte nutzen (kombinierbar), sobald du sie erlernt hast.",
-          "summary": "Ausbaukraft/Idee",
+          "summary": "",
+          "tags": [ "Idee" ],
           "references": [
             {
               "source": "Wiki",
@@ -2119,7 +2204,8 @@
         "esprit1": {
           "name": "Glanzvolles Vorbild",
           "text": "Du kannst als Aktion mit 1 Ap deine Mitstreiter motivieren. Würfele auf Wil + Fw (Redekunst). Für jeden Espritstern, den du dabei würfelst, erhältst du entweder 1 Coup oder 1 Idee. Bist du an einen oder mehrere Gegner gebunden, erhältst du 1 zusätzlichen Espritstern. Teile die erhaltenen Coups und Ideen möglichst gleichmäßig auf deine Mitstreiter auf. Du kannst dich nicht selbst motivieren, also erhältst du selbst keine Coups oder Ideen aus dieser Kraft. Glanzvolles Vorbild kann pro Runde einmal ausgelöst werden.",
-          "summary": "Sprache",
+          "summary": "",
+          "tags": [ "Sprache" ],
           "references": [
             {
               "source": "Wiki",
@@ -2136,7 +2222,8 @@
         "jaeger1": {
           "name": "Neu formieren",
           "text": "Neu formieren kann einmal pro Kampf in einer Ini-0-Phase kostenfrei aktiviert werden. Jeder Charakter in der Gruppe kann sofort 0-3 Coups oder 0-3 Ideen an einen anderen beliebigen Charakter abgeben. Man kann nicht gleichzeitig Coups und Ideen abgeben, aber ein Charakter kann aus verschiedenen Quellen Coups und Ideen empfangen. Die Zielcharaktere dürfen auf diese Weise maximal 5 Coups und 5 Ideen erhalten. Die erhaltenen Coups/Ideen dürfen das Maximum überschreiten, werden aber am Ende des Kampfes wieder auf den Basiswert zurückgesetzt.",
-          "summary": "Sprache",
+          "summary": "",
+          "tags": [ "Sprache" ],
           "references": [
             {
               "source": "Wiki",
@@ -2151,7 +2238,8 @@
         "jaeger2": {
           "name": "Schlachtgetümmel",
           "text": "Als Stratege erkennst du Vorteile und Schwachstellen in der Positionierung aller am Kampf beteiligten Parteien. Wenn du Bandenfreunde einsetzt, um Bandengegner auszuschalten, kannst du stets den riskanten Ansatz wählen und Bandengegner entsprechend der Summe der Stufe der Bandenfreunde aus dem Spiel nehmen; würfele anschließend nicht, ob die Bandenfreunde überleben – sie bleiben stets unverletzt (dennoch kannst du deine Bandenfreunde nur einmal pro Kampf einsetzen). Du kannst aber auch andere Jäger dazu anleiten, besser gegen Bandengegner vorzugehen. Einmal pro Kampf kannst du so viele Bandengegner aus dem Kampf entfernen, wie Jäger vorhanden sind (einschließlich dir selbst). Das erfordert eine Aktion mit 2 Ap, aber keine Probe. Die ausgesuchten Bandengegner können jede beliebige Stufe aufweisen.",
-          "summary": "Bande / Sicht",
+          "summary": "",
+          "tags": [ "Bande", "Sicht" ],
           "references": [
             {
               "source": "Wiki",
@@ -2168,7 +2256,8 @@
         "aufbau1": {
           "name": "Fortgeschrittene Kriegstaktik",
           "text": "Du gehörst zu den wenigen Jägern, die eine Ausbildung in hohen Kreisen des Militärs genossen haben. Mit dieser Ausbildung bist du in der Lage, die Vorteile aller Kampfteilnehmer bzw. aller Waffengattungen auf sowohl großen Schlachtfeldern als auch in kleinen Scharmützeln anzuwenden. Du kannst die unten beschriebenen Ideeneffekte nutzen (kombinierbar), sobald du sie erlernt hast.",
-          "summary": "Ausbaukraft/Idee",
+          "summary": "",
+          "tags": [ "Idee" ],
           "references": [
             {
               "source": "Wiki",
@@ -2229,7 +2318,8 @@
         "aufbau2": {
           "name": "Schwachstelle erkennen",
           "text": "Durch Beobachten eines Feindes kannst du dessen Schwachstelle wie Lücken in der Panzerung, Anfälligkeiten oder sonstige Einschränkungen erkennen. Du kannst die unten beschriebenen Ideeneffekte nutzen (kombinierbar), sobald du sie erlernt hast",
-          "summary": "Ausbaukraft / Idee / Sicht",
+          "summary": "",
+          "tags": [ "Idee", "Sicht" ],
           "references": [
             {
               "source": "Wiki",
@@ -2296,7 +2386,8 @@
         "esprit1": {
           "name": "Ins leere laufen lassen",
           "text": "Wenn du bei einer Ausweichen-Probe Espritsterne in Höhe der Bandenstufe des Angreifers würfelst, geht dessen Angriff automatisch ins Leere (gleichgültig wie viele Angriffserfolge der Bandengegner hat). Gegen Angriffe von Anführern zählen stattdessen alle Espritsterne als Erfolg.",
-          "summary": "Beweglichkeit",
+          "summary": "",
+          "tags": [ "Beweglichkeit" ],
           "references": [
             {
               "source": "Wiki",
@@ -2313,7 +2404,8 @@
         "jaeger1": {
           "name": "Einfaches Geflogen",
           "text": "Du kannst einmal pro Tag als Freizeitaktion in einer städtischen Umgebung Gefolge anwerben. Würfele auf Wil + Fw (Redekunst). Für jeden Erfolg erhältst du 1 Bandenfreund der Bandenstufe 1. Zahle sofort bei der Rekrutierung 10 Gulden pro neuem Bandenfreund und erhöhe deinen Unterhalt um 5 für jeden Bandenfreund (Achtung: Dieser Unterhaltsmodifikator gilt stets nur für die aktuelle Zahl an Gefolge). Dein maximales Gefolge entspricht deinem Fw (Redekunst) mal 2.",
-          "summary": "Sozial / Sprache",
+          "summary": "",
+          "tags": [ "Sozial", "Sprache" ],
           "upkeep": "5",
           "references": [
             {
@@ -2329,7 +2421,8 @@
         "jaeger2": {
           "name": "Offensive!",
           "text": "Immer wenn du in Ini 0 Aktionspunkte ausgibst, um einen Überblick über das Schlachtfeld zu bekommen (Seite 71), zählt der erhaltene Initiativ-Bonus für die ganze Gruppe (maximal bis zu 5 weitere Jäger). Andere Gruppenmitglieder können durch eigene Ap ihren eigenen Initiativ-Bonus weiter erhöhen, aber der Gesamtbonus darf +6 nicht übersteigen. Wenn du 1 Ap ausgibst und dadurch die Initiative aller Gruppenmitglieder um +3 erhöhst, so könnte ein einzelnes Gruppenmitglied 1 weiteren Ap ausgeben, um seine persönliche Initiative nochmals auf den Maximalwert von +6 zu steigern.",
-          "summary": "Sprache",
+          "summary": "",
+          "tags": [ "Sprache" ],
           "references": [
             {
               "source": "Wiki",
@@ -2348,7 +2441,8 @@
         "jaeger1": {
           "name": "Flammenexplosion",
           "text": "Die Kraft erfordert eine Angriffsaktion mit 3 Ap. Bestimme eine beliebige Anzahl von Gegnern; für je 3 gewählte Gegner musst du dich oder einen anderen Jäger benennen, der ebenfalls betroffen wird (du kannst keinen Jäger mehrfach auswählen). Würfele mit einem Elixierwürfel. Jeder ausgesuchte Kampfteilnehmer erleidet Feuerschaden in Höhe des Ergebnisses. Zusätzlich darfst du unter den ausgesuchten Gegnern Bandenstufen in Höhe der ausgewürfelten Elixierziffer besiegen.",
-          "summary": "Allgemeine Jägerkraft/Gestik/Bande",
+          "summary": "",
+          "tags": [ "Bande", "Gestik" ],
           "references": [
             {
               "source": "Wiki",
@@ -2363,7 +2457,8 @@
         "jaeger2": {
           "name": "Reinigende Flammen",
           "text": "Füge dir selbst Feuerschaden zu, um Leib und Seele zu reinigen. Du kannst jederzeit als Reaktion (1 Ap) 1 Eh-Kästchen durchstreichen. Wenn du das tust, würfele mit einem Blutwürfel und reduziere einen beliebigen anhaltenden Einfluss um 1 Stufe pro Blutstropfensymbol. Das kann auch außerhalb von Kämpfen geschehen, um dauerhafte Einflüsse (auch durch den Zustand Fluch) zu heilen.",
-          "summary": "Allgemeine Jägerkraft/Gestik",
+          "summary": "",
+          "tags": [ "Gestik" ],
           "references": [
             {
               "source": "Wiki",
@@ -2378,7 +2473,7 @@
         "jaeger3": {
           "name": "Schutz vor den Elementen",
           "text": "Du bist in die geheimen Herstellungsprozesse von Schutzsalben und alchemistischen Substanzen eingeweiht, die nach Aussage deines Ordens zwar nur gegen Feuer schützen sollen, in Wahrheit aber die Haut vor jeder Form elementaren Schadens bewahren. Wirke diese Jägerkraft entweder vor einem Kampf (wenn du nicht überrascht wurdest) oder währenddessen als Aktion mit 1 Ap. Du kannst auch andere Jäger gleichzeitig als Ziel benennen, das kostet dich jedoch pro Anwendung zusätzlich 1 Idee. Immer wenn du (bzw. die geschützte Person) Feuer-, Blitz-, Frost- oder Säureschaden erleidest – direkt oder durch anhaltende Einflüsse –, darfst du den Schaden um das Ergebnis eines Blutwürfels reduzieren, noch bevor er von evtl. vorhandenen Puffer-Lep abgezogen wird. Die Wirkung hält bis zum Ende des Kampfes an, wird aber vorzeitig aufgehoben, wenn der Blutwürfel die leere Seite zeigt. In diesem Fall kann sie erneut auf das gleiche Ziel gewirkt werden, kostet aber wieder Ap und Ideen. Schutz vor den Elementen erfordert einen ständigen Vorrat an Ingredienzen für Salben und alchemistische Mittel, daher erhöht sich der Unterhalt um 40 Gulden.",
-          "summary": "Allgemeine Jägerkraft",
+          "summary": "",
           "upkeep": "40",
           "references": [
             {
@@ -2398,7 +2493,8 @@
         "jaeger1": {
           "name": "Brennen soll die Hex",
           "text": "Mit einer flammenden Rede kannst du leidgeplagte Menschen aufwiegeln, um gemeinsam Forken und Fackeln zu erheben und geschlossen gegen eine Bedrohung loszuziehen. Damit du diese Kraft anwenden kannst, müssen bestimmte Voraussetzungen gegeben sein. So muss innerhalb der Bevölkerung klar sein, von wem die Bedrohung ausgeht (dabei muss es sich nicht zwangsweise um eine Hexe handeln, die Kraft wirkt auch bei anderen Gegnern). Außerdem müssen du und deine Gefährten das Vertrauen der Menschen gewonnen haben, z. B. durch vorherige gute Taten. Sind diese Voraussetzungen erfüllt, kannst du eine mitreißende Rede vor Publikum halten. Das erfordert eine Redekunst-Probe, wobei der Spielleiter entsprechend der Skepsis oder Hilfsbereitschaft der Menschen einen Malus oder Bonus vergeben kann. Die erzielten Erfolge x 5 entsprechen der Anzahl von Menschen, die sich deinem Feldzug anschließen (Bande-1-Freunde). Die Bandenfreunde müssen nicht bezahlt werden und erhöhen auch nicht deinen Unterhalt, sind jedoch eher wankelmütig und folgen dir nur für wenige Tage. Dauert die Reise zu lange, reduziert sich die Zahl deiner Gefolgschaft (Richtlinie: jeweils einmal pro Tag um 1 Elixierwürfel). Die Gruppe löst sich auf, sobald der erhoffte Sieg errungen wurde.",
-          "summary": "Allgemeine Jägerkraft/Sprache, Gestik",
+          "summary": "",
+          "tags": [ "Gestik", "Sprache" ],
           "references": [
             {
               "source": "Wiki",
@@ -2413,7 +2509,7 @@
         "jaeger2": {
           "name": "Groll gegen Hexen",
           "text": "Ob du die Hexen im Allgemeinen hasst oder nur eine bestimmte von ihnen – in jedem Fall erregt der Anblick einer wahren Hexe tiefe Abscheu in dir. Sobald sich eine wahre Hexe in deiner Nähe befindet oder du ihr im Kampf gegenüberstehst, erhältst du einen Bonus von +2 auf alle deine Proben. Sind ausschließlich Diener einer Hexe anwesend (aber nicht die Hexe selbst), beträgt der Bonus +1.",
-          "summary": "Allgemeine Jägerkraft",
+          "summary": "",
           "references": [
             {
               "source": "Wiki",
@@ -2430,7 +2526,8 @@
         "aufbau1": {
           "name": "Breche den Bann",
           "text": "Mit dieser Jägerkraft bist du in der Lage, das Band zwischen einer Hexe und den von ihr kontrollierten oder verzauberten Geschöpfen zu durchbrechen.",
-          "summary": "Ausbaukraft/Ambition/Sozial",
+          "summary": "",
+          "tags": [ "Ambition", "Sozial" ],
           "references": [
             {
               "source": "Wiki",
@@ -2495,7 +2592,8 @@
         "esprit1": {
           "name": "Panzermeister",
           "text": "Du kannst Panzermeister nur dann anwenden, wenn du eine mittelschwere oder schwere Panzerung trägst. Einmal pro Kampfrunde in Ini 0 darfst du HeXXenwürfel in Höhe deines doppelten Pw würfeln (demnach 4 Würfel bei einer mittelschweren Panzerung, 6 Würfel bei einer schweren Panzerung). Für jeden gewürfelten Espritstern erhältst du sofort 1 Coup, auch über das Maximum hinaus.",
-          "summary": "Beweglichkeit",
+          "summary": "",
+          "tags": [ "Beweglichkeit" ],
           "references": [
             {
               "source": "Wiki",
@@ -2512,7 +2610,8 @@
         "jaeger1": {
           "name": "Aufbegehren",
           "text": "Du kannst Aufbegehren einmal pro Kampf als freie Reaktion aktivieren und erhältst dann für jeden an dich gebundenen Gegner 1 Coup oder 1 Idee. Alternativ erhältst du für jeden an dich gebundenen Gegner 2 Puffer-Lep. Du kannst die Effekte auch aufteilen. Bist du beispielsweise an 3 Gegner gebunden, kannst du 2 Coups und 2 Puffer-Lep erhalten. Beachte das Maximum von 10 Puffer-Lep.",
-          "summary": "Beweglichkeit",
+          "summary": "",
+          "tags": [ "Beweglichkeit" ],
           "references": [
             {
               "source": "Wiki",
@@ -2527,7 +2626,8 @@
         "jaeger2": {
           "name": "Gardehandwerk",
           "text": "Wenn du in einem städtischen Gebiet (ab Kleinstadt) die Freizeitaktion „Geld verdienen“ benutzt, kannst du den Multiplikator automatisch um 2 erhöhen, also Erfolge x 4 in der Kleinstadt, x 5 in der Großstadt, x 6 in der Metropole. Für je 2 Erfolge bei der Geld-verdienen-Probe erhältst du 1 zusätzlichen Coup (auch über das Maximum hinaus). Du kannst auf diese Weise nicht mehr als 3 zusätzliche Coups besitzen.",
-          "summary": "Sozial",
+          "summary": "",
+          "tags": [ "Sozial" ],
           "references": [
             {
               "source": "Wiki",
@@ -2546,7 +2646,8 @@
         "jaeger1": {
           "name": "Hals durchtrennen",
           "text": "Gegen humanoide Gegner (die einen Hals haben) wirst du automatisch versuchen, den Hals zu  durchtrennen. Wenn du mit einer Schlagwaffe, einem Schwert oder einem Säbel einen Angriff ausführst, generierst du automatisch für je 5 (volle) angerichtete Lep Schaden 1 äußere Schadensstufe.",
-          "summary": "Allgemeine Jägerkraft/Gestik",
+          "summary": "",
+          "tags": [ "Gestik" ],
           "references": [
             {
               "source": "Wiki",
@@ -2561,7 +2662,8 @@
         "jaeger2": {
           "name": "Im Leben und im Tod",
           "text": "Viele Henker sind in den Grundlagen der Heilkunst geschult. Die tieferen Kenntnisse der Heilkunst sind den Henkern zwar verwehrt, jedoch kennen sie sich gut genug aus, um automatisch +3 auf jede Anwendung von Erste Hilfe zu erhalten. Zudem kennen sie sich gut mit Leichen aus. Sie sind in der Lage, Leichen besser als andere zu untersuchen, um grob den Todeszeitpunkt zu bestimmen (wenn dieser nicht mehr als ein paar Tage zurückliegt) oder die Todesursache, evtl. auch weitere Gebrechen und Krankheiten. Bei entsprechenden Proben (z. B. Wissensgebiete, Erkennen) darf der Henker ebenfalls +3 addieren.",
-          "summary": "Allgemeine Jägerkraft/Gestik",
+          "summary": "",
+          "tags": [ "Gestik" ],
           "references": [
             {
               "source": "Wiki",
@@ -2578,7 +2680,8 @@
         "aufbau1": {
           "name": "Körper verwerten",
           "text": "Zu den Aufgaben eines Henkers gehört nicht nur die Hinrichtung von Menschen; sie müssen auch die Körper entfernen. Einige Henker verdienen sich Geld dazu, indem sie die toten Körper verwerten und daraus Medizin, Talismane oder Kunstobjekte herstellen. Um Körper verwerten zu können, musst du vorher Rohstoffe sammeln. Nach jedem siegreichen Kampf kannst du je nach Art der Besiegten Ingredienzen erhalten. Würfele auf Erkennen, um die benutzbaren, gut erhaltenen Teile zu identifizieren und notiere für jeden Erfolge TierischeIngredienzen (Ti), Menschliche Ingredienzen (Mi) oder Widernatürliche Ingredienzen (Wi) – je nachdem, gegen welche Gegner du kämpftest. Nahmen verschiedene Kreaturenarten am Kampf teil, kannst du die Erfolge auch aufteilen. Das Sammeln selbst erfordert nur wenig Zeit, für die Herstellung musst du jedoch eine Fza aufwenden und ein transportables Laboratorium besitzen oder Zugang zu einem Labor haben. Du musst nicht würfeln, allerdings kannst du pro Fza immer nur maximal 8 Ingredienzen verarbeiten. Für Objekte, die mehr als 8 Ingredienzen benötigen, musst du mehrere Fza aufbringen. Da du zur Herstellung der Objekte zusätzliche Chemikalien und Materialien benötigst, steigt der Unterhalt um 30 Gulden.",
-          "summary": "Ausbaukraft, Handwerk",
+          "summary": "",
+          "tags": [ "Handwerk" ],
           "upkeep": "30",
           "references": [
             {
@@ -2644,7 +2747,8 @@
         "jaeger1": {
           "name": "Brennen soll die Hex",
           "text": "Mit einer flammenden Rede kannst du leidgeplagte Menschen aufwiegeln, um gemeinsam Forken und Fackeln zu erheben und geschlossen gegen eine Bedrohung loszuziehen. Damit du diese Kraft anwenden kannst, müssen bestimmte Voraussetzungen gegeben sein. So muss innerhalb der Bevölkerung klar sein, von wem die Bedrohung ausgeht (dabei muss es sich nicht zwangsweise um eine Hexe handeln, die Kraft wirkt auch bei anderen Gegnern). Außerdem müssen du und deine Gefährten das Vertrauen der Menschen gewonnen haben, z. B. durch vorherige gute Taten. Sind diese Voraussetzungen erfüllt, kannst du eine mitreißende Rede vor Publikum halten. Das erfordert eine Redekunst-Probe, wobei der Spielleiter entsprechend der Skepsis oder Hilfsbereitschaft der Menschen einen Malus oder Bonus vergeben kann. Die erzielten Erfolge x 5 entsprechen der Anzahl von Menschen, die sich deinem Feldzug anschließen (Bande-1-Freunde). Die Bandenfreunde müssen nicht bezahlt werden und erhöhen auch nicht deinen Unterhalt, sind jedoch eher wankelmütig und folgen dir nur für wenige Tage. Dauert die Reise zu lange, reduziert sich die Zahl deiner Gefolgschaft (Richtlinie: jeweils einmal pro Tag um 1 Elixierwürfel). Die Gruppe löst sich auf, sobald der erhoffte Sieg errungen wurde.",
-          "summary": "Allgemeine Jägerkraft/Sprache, Gestik",
+          "summary": "",
+          "tags": [ "Gestik", "Sprache" ],
           "references": [
             {
               "source": "Wiki",
@@ -2659,7 +2763,8 @@
         "jaeger2": {
           "name": "Schuldig!",
           "text": "Um eine Hexe zu richten, musst du Zeuge ihrer Schuld werden – denn je größer die Schuld, desto höher die Strafe! Diese Jägerkraft entfaltet sich im Laufe eines Kampfes und kann nur in einem solchen eingesetzt werden. Immer wenn die Hexe eine aggressive oder destruktive Nsc-Handlung mit sichtbaren Effekten ausführt (dazu zählen auch Beschwörungen), kannst du als freie Reaktion (0 Ap) laut die Schandtat aussprechen und zur Liste der Verfehlungen hinzufügen. Dafür erhältst du jedes Mal 1 Schuld-Punkt, den du in Form eines Markers vor dir auslegen solltest. Hast du doppelt so viele Schuld-Punkte angehäuft, wie Jäger am Kampf teilnehmen (also beispielsweise 8 Punkte bei 4 Jägern), steigt deren Anzahl nicht weiter. Du kannst nun als Aktion mit 3 Ap alle vorhandenen Schuld-Punkte verbrauchen, um einen Schuldspruch zu sprechen. Die Hexe erleidet dadurch heiligen Schaden in Höhe der Schuld-Punkte x 3 (oder x 4 bei einer Anfälligkeit gegen heiligen Schaden). Diese Kraft kann auch gegen andere Kreaturen der Nacht eingesetzt werden, verursacht dann jedoch nur Schuld-Punkte x 2 Schaden (oder x 3 bei einer Anfälligkeit gegen heiligen Schaden).",
-          "summary": "Allgemeine Jägerkraft/Sprache",
+          "summary": "",
+          "tags": [ "Sprache" ],
           "references": [
             {
               "source": "Wiki",
@@ -2674,7 +2779,8 @@
         "jaeger3": {
           "name": "Urteil vollstrecken",
           "text": "Am besten lässt sich eine Hexe töten, indem man ihren Kopf mit einem einzigen Streich vom Leib trennt. Das ist natürlich am einfachsten, wenn die Kreatur stillhält (z. B. weil sie an einen Richtblock gefesselt ist), doch diesen Luxus hast du nur selten. Um diese Kraft anzuwenden, musst du der Hexe Auge in Auge gegenübertreten und laut das Urteil aussprechen. Das erfordert eine Aktion mit 2 Ap, kann aber auch vor Kampfbeginn ohne Ap-Kosten geschehen, wenn du nicht überrascht bist. Für die Dauer des Kampfes erhältst du jedes Mal, wenn du die Hexe mit einer Schlagwaffe, Stangenwaffe, einem Schwert oder einem Säbel angreifst, einen Bonus von +3. Urteil vollstrecken funktioniert auch bei anderen Gegnern, der Bonus beträgt dann jedoch nur +1.",
-          "summary": "Allgemeine Jägerkraft/Sprache",
+          "summary": "",
+          "tags": [ "Sprache" ],
           "references": [
             {
               "source": "Wiki",
@@ -2693,7 +2799,8 @@
         "esprit1": {
           "name": "Strafe Gottes",
           "text": "Opfere als Aktion 3 Ap und würfele auf Wil + Fw (Redekunst). Für jeden Espritstern verliert das Ziel 5 Lep (heiliger Schaden), für jeden Erfolg zusätzlich 1 Lep (heiliger Schaden). Strafe Gottes wirkt nur bei widernatürlichen Kreaturen. Der HeXXenmeister kann aber grausame oder skrupellose Menschen ebenfalls dazu zählen. Strafe Gottes hat keine Wirkung außerhalb von Kämpfen.",
-          "summary": "Sprache",
+          "summary": "",
+          "tags": [ "Sprache" ],
           "references": [
             {
               "source": "Wiki",
@@ -2710,7 +2817,8 @@
         "jaeger1": {
           "name": "Befragung",
           "text": "Wenn du Informationen von direkten Gesprächspartnern oder durch Massenbefragungen erhalten möchtest, erhältst du einen Bonus von +3 auf Redekunst bzw. Land und Leute. Würfelst du dabei 5 oder mehr Erfolge und erfährst etwas, das für das Abenteuer oder deine persönliche Entwicklung von Belang ist, erhältst du 1 Segnung dazu (maximal einmal pro Tag). Du kannst die erhaltene Segnung direkt bei Erhalt an einen anderen Jäger abgeben, der aber an dem Gespräch beteiligt gewesen sein muss.",
-          "summary": "Sozial / Sprache",
+          "summary": "",
+          "tags": [ "Sozial", "Sprache" ],
           "references": [
             {
               "source": "Wiki",
@@ -2725,7 +2833,8 @@
         "jaeger2": {
           "name": "Tod der Ungerechten",
           "text": "Bete zu den himmlischen Heerscharen und führe als Aktion für 3 Ap eine Probe Wis + Fw (Wissensgebiete) durch. Bei Erfolg darfst du Bandengegner aus dem Kampfgebiet entfernen, deren addierte Bandenstufe der Zahl deiner Erfolge entspricht – vorausgesetzt, es handelt sich um widernatürliche Kreaturen. So könntest du beispielsweise für 4 Erfolge 1 widernatürliche Kreatur mit Bandenstufe 3 und 1 Kreatur mit Bandenstufe 1 entfernen. Dies zählt als Angriffsprobe.",
-          "summary": "Bande / Sicht / Sprache",
+          "summary": "",
+          "tags": [ "Sicht", "Sprache" ],
           "references": [
             {
               "source": "Wiki",
@@ -2744,7 +2853,8 @@
         "esprit1": {
           "name": "Verhör",
           "text": "Immer wenn du eine Redekunst-Probe ablegst, zählt jeder gewürfelte Espritstern als Erfolg. Solltest du eine Einschüchterungsprobe (Redekunst oder Muskelspiel) ausführen, zählt jeder Espritstern sogar als 2 Erfolge. Für ein reguläres Verhör musst du die Zielperson in geeigneter Weise festsetzen, 1 Fza aufwenden und eine Einschüchterungsprobe (Redekunst oder Muskelspiel) durchführen. Für jeden Differenzerfolg bringst du eine relevante Information von der Zielperson in Erfahrung (vorausgesetzt, dass diese über entsprechend viele verfügt). Zusätzlich erhältst du Ideen in Höhe eines Elixierwürfels, jedoch nur einmal pro Zielperson.",
-          "summary": "Espritkraft/Sozial",
+          "summary": "",
+          "tags": [ "Sozial" ],
           "references": [
             {
               "source": "Wiki",
@@ -2761,7 +2871,7 @@
         "jaeger1": {
           "name": "Wiederholungstäter",
           "text": "Sobald ein Anführergegner eine Handlung zum zweiten Mal ausführt (z. B. der zweite Krallenangriff, die zweite Beschwörung, der zweite Feuerreigen), erhält er automatisch 1 Malusstufe; für jede weitere Wiederholung 1 zusätzliche Malusstufe. Führt ein Gefährte eine aggressive Aktion gegen diesen Gegner aus, kannst du als freie Reaktion alle Malusstufen des Gegners entfernen (gleichgültig aus welchen Quelle sie erzeugt wurden), dafür erhält der Jäger pro entfernter Malusstufe einen Bonus von +1 auf seine Aktion.",
-          "summary": "Allgemeine Jägerkraft",
+          "summary": "",
           "references": [
             {
               "source": "Wiki",
@@ -2778,7 +2888,8 @@
         "aufbau1": {
           "name": "Offenbarungen",
           "text": "Es heißt, dass einem Investigator nichts entgehe, dass er Augen wie ein Adler habe und Ohren wie ein Luchs. Tatsächlich sind diese Ermittler darauf trainiert, ihre Umgebung ständig im Blick zu haben und zu analysieren. Einige Investigatoren bitten auch Gott um Erleuchtung und Führung.",
-          "summary": "Ausbaukraft/Sicht/Idee",
+          "summary": "",
+          "tags": [ "Idee", "Sicht" ],
           "references": [
             {
               "source": "Wiki",
@@ -2843,7 +2954,8 @@
         "jaeger1": {
           "name": "Blick für die Natur",
           "text": "Du kennst dich aus mit Flora und Fauna, kannst das Wetter vorhersagen, Himmelsrichtungen bestimmen und weißt, wo seltene Kräuter zu finden sind. Dieses und ähnliches Wissen über die natürliche Welt kannst du anwenden, ohne dafür eine Probe ablegen zu müssen. Sollte es aber darum gehen, widernatürliche Einflüsse zu erkennen – z. B. eine seltene Rankenpflanze als Hexengezücht zu identifizieren oder einen Nebel als Zauberei zu durchschauen –, ist eine Probe auf Hexenkunst notwendig. Gelingt dir die Probe und du erhältst eine wichtige Information, erhältst du 2 Ideen. Blick für die Natur wirkt bei allen widernatürlichen Einflüssen, nicht nur solchen, die von Hexen ausgehen.",
-          "summary": "Allgemeine Jägerkraft/Sicht",
+          "summary": "",
+          "tags": [ "Sicht" ],
           "references": [
             {
               "source": "Wiki",
@@ -2858,7 +2970,7 @@
         "jaeger2": {
           "name": "Kräuteressenzen",
           "text": "Du verbrennst Kräutermittel, um durch die Inhalation des Rauchs eine Eingebung zu erlangen. Opfere 1 Kräutermittel und erhalte dadurch 1 Idee. Im Kampf erfordert dieser Vorgang eine Aktion mit 1 Ap. Bedenke auch, dass du für gewöhnlich nur 15 Verbrauchsgüter (also auch Kräutermittel) mitführen kannst. Kräuteressenzen wirkt nur auf dich selbst.",
-          "summary": "Allgemeine Jägerkraft",
+          "summary": "",
           "references": [
             {
               "source": "Wiki",
@@ -2873,7 +2985,7 @@
         "jaeger3": {
           "name": "Mystische Heilung",
           "text": "Indem du dich in einen Rauschzustand versetzt, kannst du mit den Seelen der Toten, Naturgeistern oder Heiligen in Kontakt treten, um dich und deine Gefährten auf mystische Weise zu heilen. Die Anwendung erfordert 1 Fza und verbraucht 3 Drogen (Irrwischkraut oder Rauschkraut). Kannst du keine Drogen über die Kraft „Kräuterwissen“ herstellen, erhöht sich stattdessen dein Unterhalt um 15 Gulden (bis du Drogen herstellen kannst). An der Prozedur können bis zu 5 weitere Jäger teilnehmen, die ebenfalls je 1 Fza aufwenden müssen. Alle Beteiligten (auch du) regenerieren alle Lep, verlieren alle dauerhaften Zustände und erlangen sämtliche Eh-Kästchen zurück.",
-          "summary": "Allgemeine Jägerkraft",
+          "summary": "",
           "references": [
             {
               "source": "Wiki",
@@ -2892,7 +3004,8 @@
         "jaeger1": {
           "name": "Heilung durch Marias Wort",
           "text": "Diese Jägerkraft ist identisch mit der Jägerkraft „Hand auflegen“, nur dass du auf Wissensgebiete würfelst statt auf Hexenkunst. Hast du den Effekt „Kirchenlehre“ erhältst du einen Gesamtbonus von +3.",
-          "summary": "Allgemeine Jägerkraft/Gestik",
+          "summary": "",
+          "tags": [ "Gestik" ],
           "references": [
             {
               "source": "Wiki",
@@ -2909,7 +3022,8 @@
         "aufbau1": {
           "name": "Inneres Feuer",
           "text": "Du nutzt deine Rage inneren Antrieb, um im Kampf standhafter zu sein, deine Mitstreiter zu beschützen und kräftig auszuteilen.",
-          "summary": "Ausbaukraft/Gestik/Beweglichkeit/Rage",
+          "summary": "",
+          "tags": [ "Beweglichkeit", "Gestik", "Rage" ],
           "references": [
             {
               "source": "Wiki",
@@ -2970,7 +3084,8 @@
         "aufbau2": {
           "name": "Lehren der Mariannen",
           "text": "Unabhängig von dem inneren Feuer, das in dir brennt, hast du dein Leben den pflegenden und seelsorgerischen Arbeiten innerhalb der Schwesternschaft gewidmet.",
-          "summary": "Ausbaukraft/Gestik, Sicht, Beweglichkeit/Idee",
+          "summary": "",
+          "tags": [ "Beweglichkeit", "Gestik", "Idee", "Sicht" ],
           "references": [
             {
               "source": "Wiki",
@@ -3035,7 +3150,8 @@
         "jaeger1": {
           "name": "Flexibler Kampf",
           "text": "Du kannst jederzeit in Ini 0 deinen Pw auf 3 oder 2 setzen, ungeachtet deiner Panzerung. Setzt du ihn auf 3, erhältst du fortan 3 Ap, setzt du ihn auf 2, stehen dir 4 Ap zur Verfügung. Das kannst du in Ini 0 wiederholen. Flexibler Kampf kann nicht eingesetzt werden, wenn du nicht eine mittelschwere oder schwere Panzerung trägst. Einmal pro Kampf darfst du in Ini 0 deine Panzerung ganz ausziehen, fortan kämpfst du mit 5 Ap und Pw 1 – für den restlichen Kampf kannst du die Kraft nicht mehr anwenden.",
-          "summary": "Allgemeine Jägerkraft/Beweglichkeit",
+          "summary": "",
+          "tags": [ "Beweglichkeit" ],
           "references": [
             {
               "source": "Wiki",
@@ -3050,7 +3166,8 @@
         "jaeger2": {
           "name": "Verderben der Mariannen",
           "text": "Du gehörst zu jenen Mariannen, die sich kopfüber ins Gefecht stürzen. Aktivierst du diese Kraft als freie Reaktion (0 AP), erhältst du einmal pro Kampf 1 Mariannen-Verderbnis. Bis zum Ende des Kampfes darfst du auf alle Angriffsproben sowie jede defensive Reaktion (Ausweichen, Parieren, Schildblock) einen Bonus von +1 pro Verderbnis addieren (gleichgültig ob Mariannen- oder normale Verderbnis). Eine Mariannen-Verderbnis wirkt sich zunächst genauso aus wie jede andere Verderbnis (und mag eine Ordensschwester vom rechten Weg abbringen), kann jedoch von einer Marianne durch Gebete und Meditation wieder entfernt werden. Das kostet 1 Fza pro entfernter Mariannen-Verderbnis; normale Verderbnisse lassen sich auf diese Weise nicht entfernen.",
-          "summary": "Allgemeine Jägerkraft/Rage",
+          "summary": "",
+          "tags": [ "Rage" ],
           "references": [
             {
               "source": "Wiki",
@@ -3067,7 +3184,8 @@
         "aufbau1": {
           "name": "Inneres Feuer",
           "text": "Du nutzt deine Rage inneren Antrieb, um im Kampf standhafter zu sein, deine Mitstreiter zu beschützen und kräftig auszuteilen.",
-          "summary": "Ausbaukraft/Gestik/Beweglichkeit/Rage",
+          "summary": "",
+          "tags": [ "Beweglichkeit", "Gestik", "Rage" ],
           "references": [
             {
               "source": "Wiki",
@@ -3132,7 +3250,8 @@
         "esprit1": {
           "name": "Metallkonstruktionen",
           "text": "Du bist in der Lage, metallene Gegenstände oder Objekte, die zum Teil aus Metall bestehen, besser zu bearbeiten. Immer, wenn du bei einer Probe mit einem solchen Objekt eine Probe ausführst (z. B. Fingerfertigkeit zum Knacken eines Schlosses, Muskelkraft zum Aufbrechen einer Metallschatulle, Handwerken zum Reparieren einer Metallpanzerung), zählen alle gewürfelten Espritsterne als Erfolg. Metallkonstruktionen ist auch anwendbar bei Handwerken-Proben zum Erschaffen von Konstruktionspunkten (Kp).",
-          "summary": "Gestik",
+          "summary": "",
+          "tags": [ "Gestik" ],
           "references": [
             {
               "source": "Wiki",
@@ -3149,7 +3268,8 @@
         "jaeger1": {
           "name": "Gehärtete Geschosse",
           "text": "Du kannst im Rahmen einer Freizeitaktion gehärtete Geschosse herstellen. Dazu brauchst du Zugang zu einer Werkstatt, einem Labor oder einem Laboratorium. Für jeden Erfolg auf einer Handwerksprobe erhältst du entweder eine Musketenkugel, eine Pistolenkugel oder einen Bolzen bzw. Pfeil. Das Laden einer Waffe mit dem passenden Geschoss ist in den Ap-Kosten zum Abfeuern der Waffe enthalten. Ein gehärtetes Geschoss ignoriert automatisch 2 Pw des Gegners.",
-          "summary": "Handwerk",
+          "summary": "",
+          "tags": [ "Handwerk" ],
           "upkeep": "30",
           "references": [
             {
@@ -3165,7 +3285,8 @@
         "jaeger2": {
           "name": "Veredeln",
           "text": "Du kannst versuchen, wertlose Gegenstände zu veredeln, indem du sie in eine bessere, wertvollere Variante umwandelst. Um das zu tun, benötigst du 1 Beutegut-Paket (Wert: 100 Gulden). Führe eine Probe auf Wissensgebiete aus. Für jeden Erfolg wird das Beutegut-Paket um 5 Gulden wertvoller. Pro Beutegut-Paket ist dieser Vorgang einmal möglich. Du kannst täglich eine solche Probe ausführen, ohne dass dies viel Zeit verbrauchen würde (du musst allerdings Zugang zu einer Werkstatt, einem Labor oder einem transportablen Laboratorium besitzen). Du kannst aber auch eine Fza opfern und dafür bis zu 5 Beutegut-Pakete auf einen Schlag veredeln (würfele einmal für alle).",
-          "summary": "Handwerk",
+          "summary": "",
+          "tags": [ "Handwerk" ],
           "upkeep": "50",
           "references": [
             {
@@ -3185,7 +3306,8 @@
         "esprit1": {
           "name": "Stets Alarmbereit",
           "text": "Immer, wenn du eine Probe auf Aufmerksamkeit ausführst, zählen alle Espritsterne als 2 Erfolge. Zudem steigt bei Erwerb dieser Jägerkraft deine Ini einmalig um 1.",
-          "summary": "Sozial",
+          "summary": "",
+          "tags": [ "Sozial" ],
           "references": [
             {
               "source": "Wiki",
@@ -3202,7 +3324,8 @@
         "jaeger1": {
           "name": "Gelände sondieren",
           "text": "Wenn du nicht überrascht bist, kannst du vor Kampfbeginn einen Wurf auf Sin + Fw (Erkennen) durchführen. Für jeden Erfolg erhältst du 1 Idee oder 1 Coup (oder eine Mischung aus beidem), welche du möglichst gleichmäßig auf alle Gefährten und dich selbst aufteilen musst. Die erhaltenen Ideen oder Coups dürfen das Maximum überschreiten. Wie üblich wird am Ende des Kampfes die Zahl der Ideen und Coups wieder auf den Basiswert gesetzt.",
-          "summary": "Sicht",
+          "summary": "",
+          "tags": [ "Sicht" ],
           "references": [
             {
               "source": "Wiki",
@@ -3217,7 +3340,8 @@
         "jaeger2": {
           "name": "Pulverdampf",
           "text": "Jedes Mal, wenn du eine Muskete abfeuerst, steigt dein Pw um 1 gegen Distanzangriffe (auch auf Sicht eingesetzte Zauber; die Ap sinken dadurch nicht). In Ini 0 sinkt der Pw wieder auf den normalen Wert. Pulverdampf kann mit anderen Jägerkräften kombiniert werden, die auf der Benutzung von Musketen beruhen, wie z. B. Feuerregen.",
-          "summary": "Sicht / Beweglichkeit",
+          "summary": "",
+          "tags": [ "Beweglichkeit", "Sicht" ],
           "references": [
             {
               "source": "Wiki",
@@ -3236,7 +3360,8 @@
         "esprit1": {
           "name": "Infiltration",
           "text": "Führt ein Okuluth eine Heimlichkeit- Probe aus, zählt jeder gewürfelte Espritstern als Erfolg. Das Gleiche gilt für Proben auf Redekunst, um das Vertrauen eines Nsc zu gewinnen oder ihn zu überreden, auf Fingerfertigkeit, um Schlösser zu knacken, sowie auf Land und Leute, um bei einer Massenbefragung Informationen zu erlangen. Je nach den Umständen und dem Ermessen des HeXXenmeisters kann ein Jäger mit Infiltration Hintergrundwissen zu Kulten besitzen (im Allgemeinen oder im Besonderen), ohne eine Probe würfeln zu müssen oder zu recherchieren.",
-          "summary": "Espritkraft/Sozial",
+          "summary": "",
+          "tags": [ "Sozial" ],
           "references": [
             {
               "source": "Wiki",
@@ -3253,7 +3378,8 @@
         "jaeger1": {
           "name": "Diener des Bösen kontrollieren",
           "text": "Einmal pro relevantem Kampf darfst du als Aktion (3 Ap) auf Hexenkunst (bei widernatürlichen Gegnern) oder Redekunst (bei menschlichen und menschenähnlichen Gegnern) würfeln. Gegen Tiere wirkt die Kraft nicht. Für jeden Erfolg bringst du 1 Bandenstufe des gewählten Gegnertyps unter Kontrolle (um einen Bandengegner der Stufe 2 unter Kontrolle zu bringen, musst du 2 Erfolge aufbringen). Kontrollierte Bandengegner werden sofort zu Bandenfreunden, ohne dabei ihre Stufe zu verlieren, und können nach den üblichen Regeln in Ini 0 eingesetzt werden. Alle nicht eingesetzten kontrollierten Bandengegner verschwinden nach Ende des Konflikts.",
-          "summary": "Allgemeine Jägerkraft/Bande",
+          "summary": "",
+          "tags": [ "Bande" ],
           "references": [
             {
               "source": "Wiki",
@@ -3268,7 +3394,8 @@
         "jaeger2": {
           "name": "Kraft aus Verderbnis",
           "text": "Sobald ein Okuluth so viele Verderbnisse angesammelt hat, dass er dem Bösen verfallen würde (Verderbnisse > Wil-Wert), darf er mit einem Segnungswürfel würfeln. Zeigt dieser das doppelte Erfolgssymbol, verliert der Jäger 2 Verderbnisse. Zeigt er ein beliebiges anderes Symbol, verliert der Okuluth 1 Verderbnis. Zeigt er die leere Seite, verfällt der Charakter dem Bösen, allerdings erst nach dem aktuellen Abenteuer. Sollte der Jäger die Möglichkeit besitzen, Verderbnisse auf eine andere Art und Weise abzubauen, kann der HeXXenmeister dem Spieler gewähren, diese vorher auszuschöpfen. Sobald ein Okuluth Zeuge einer grausamen Tat, eines bösartigen Rituals oder anderer blasphemischer Dinge wird, darf er freiwillig die Zahl seiner Verderbnisse permanent um 1 erhöhen, jedoch nur einmal pro Abenteuer bzw. Abenteuerabschnitt (die vom HeXXenmeister verteilten Verderbnisse sind davon nicht betroffen). Im Zuge einer Fza, bei der der Okuluth entweder meditiert, okkulte Bücher studiert oder ein geheimnisvolles Ritual ausführt, erhält er für jede Verderbnis 1 Rage.",
-          "summary": "Allgemeine Jägerkraft/Sozial",
+          "summary": "",
+          "tags": [ "Sozial" ],
           "references": [
             {
               "source": "Wiki",
@@ -3287,7 +3414,8 @@
         "esprit1": {
           "name": "Spirituelle Reinigung",
           "text": "Immer wenn du Erste Hilfe anwendest, erhält der Patient für jeden von dir gewürfelten Espritstern 1 Segnung, oder für 1 Espritstern zählt die Heilung als Magische Heilung (MH). Du kannst die Espritsterne auch auf beide Effekte aufteilen. Würfelst du 3 Espritsterne, könnte der Patient 2 Segnungen erhalten, und die Heilung zählt als Magische Heilung. Diese Magische Heilung kann nur einmal pro Tag auf einen Patienten angewendet werden und auch nur dann, wenn noch nicht beide EH-Kästchen durchgestrichen sind. Du kannst dich damit nicht selbst heilen.",
-          "summary": "Gestik und Sprache",
+          "summary": "",
+          "tags": [ "Gestik", "Sprache" ],
           "references": [
             {
               "source": "Wiki",
@@ -3304,7 +3432,8 @@
         "jaeger1": {
           "name": "Glorreicher Sieg",
           "text": "Jeweils in Ini 0 erhältst du 1 Segnung, die du sofort bei Erhalt an einen Gefährten abgeben oder wahlweise behalten darfst.",
-          "summary": "Sprache",
+          "summary": "",
+          "tags": [ "Sprache" ],
           "references": [
             {
               "source": "Wiki",
@@ -3319,7 +3448,8 @@
         "jaeger2": {
           "name": "Kontemplation",
           "text": "Kontemplation kann einmal pro Tag als Freizeitaktion durchgeführt werden. Während dieser Zeit kannst du beliebig viele Segnungen opfern: Erhalte pro Segnung wahlweise entweder 1 Coup oder 1 Idee oder entferne die Durchstreichung eines EH oder MH-Kästchens. Gewonnene Coups und/oder Ideen werden zu deinen aktuellen Coups/Ideen addiert, auch über das Maximum hinaus. Ungenutzte Coups und Ideen über dem Maximum werden erst zu Beginn des nächsten Tages entfernt.",
-          "summary": "Sozial",
+          "summary": "",
+          "tags": [ "Sozial" ],
           "references": [
             {
               "source": "Wiki",
@@ -3338,7 +3468,8 @@
         "esprit1": {
           "name": "Lerne und Studiere",
           "text": "Immer wenn du oder einer deiner Gefährten bei einer Fertigkeitsprobe kein einziges Erfolgssymbol würfelt (HeXXensymbol oder Janussymbol auf einem Bonuswürfel), zählt jeder gewürfelte Espritstern als Erfolg (sofern er nicht für Espritkräfte verwendet wird). Wurde mindestens 1 Erfolgssymbol gewürfelt, gelten die üblichen Regeln.",
-          "summary": "Espritkraft/Sprache",
+          "summary": "",
+          "tags": [ "Sprache" ],
           "references": [
             {
               "source": "Wiki",
@@ -3355,7 +3486,8 @@
         "jaeger1": {
           "name": "Schriftgeleherter",
           "text": "Du erhältst einen permanenten Bonus von +3 auf alle Proben, die etwas mit schriftlichen Darlegungen zu tun haben (in der Regel Wissensgebiete-Proben). Darüber hinaus kannst du das aus Büchern gewonnene Wissen besser einsetzen. Wenn du dich einem Buch widmest, dessen Studium Freizeitaktionen benötigt, kannst du einmal pro Tag eine Sammelprobe ausführen, ohne Fza aufzuwenden (du kannst jedoch freiwillig 1 Fza opfern, um eine zweite Sammelprobe abzulegen). Zudem ignorierst du die schädlichen Auswirkungen des Studiums (z. B. Verderbnis) und erhältst für jedes vollständig gelesene Werk die maximale Menge an Segnungen. Darüber hinaus führst du stets einen Vorrat wichtiger Schriften mit dir, oft auch eine Sammlung eigener Notizen. Immer wenn du eine Probe auf Redekunst, Land und Leute oder Wissensgebiete ablegst, darfst du mit einem Blutwürfel würfeln und erhältst einen Bonus in Höhe der Blutstropfensymbole (im Falle von Wissensgebiete zählt dies zusätzlich zum Bonus +3). Zeigt der Blutwürfel die leere Seite, konntest du kein Buch mit passendem Inhalt in deinem Bestand finden. Da du stets auf der Suche nach neuen Werken und neuem Wissen bist, steigt dein Unterhalt um 40 Gulden an.",
-          "summary": "Allgemeine Jägerkraft/Sozial",
+          "summary": "",
+          "tags": [ "Sozial" ],
           "upkeep": "40",
           "references": [
             {
@@ -3371,7 +3503,8 @@
         "jaeger2": {
           "name": "Wertvolle Aufzeichnungen",
           "text": "Du dokumentierst permanent sämtliche deiner Erlebnisse, Erfahrungen und Erkenntnisse. Vor allem wenn du dich auf einem Außeneinsatz befindest, hältst du in Form eines Tagebuchs oder von Notizen alle wichtigen und unwichtigen Fakten fest. Wertvolle Aufzeichnungen kann im erzählerischen Rollenspiel verwendet werden, um sich vergangene Ereignisse und Einsichten möglichst detailgetreu in Erinnerung zu rufen. In aller Regel muss dir der HeXXenmeister auf die Sprünge helfen und frühere Beschreibungen wiederholen, die die Jäger (oder Spieler) bereits vergessen haben oder an die sie sich falsch erinnern. Außerdem erhältst du immer 1 Idee pro gewürfeltem Erfolg, wenn ein Jäger durch eine Probe auf Redekunst, Land und Leute oder Wissensgebiete eine wichtige Information in Erfahrung bringt (z. B. durch eine Massenbefragung). Wurden Informationen durch freies Rollenspiel erlangt, bestimmst du die Anzahl der Ideen mit einem Elixierwürfel. Die Besonderheit an diesen Ideen ist, dass du sie in deinen Aufzeichnungen zwischenspeichern kannst (maximal 5 gleichzeitig). Sie verfallen erst, wenn sie benutzt werden. Als freie Reaktion (0 Ap) kannst du sie jederzeit einsetzen oder an einen deiner Mitstreiter weitergeben. Diese Jägerkraft erfordert einen ständigen Vorrat an Papier und Tinte, wodurch dein Unterhalt um 15 Gulden steigt (bei Erwerb dieser Kraft erhältst du Schreibutensilien kostenfrei).",
-          "summary": "Allgemeine Jägerkraft/Gestik, Sicht",
+          "summary": "",
+          "tags": [ "Gestik", "Sicht" ],
           "upkeep": "15",
           "references": [
             {
@@ -3391,7 +3524,8 @@
         "jaeger1": {
           "name": "Anatomische Kenntnisse",
           "text": "Du bist mit der Anatomie von Mensch und Tier gut vertraut und kannst sogar Rückschlüsse auf den Aufbau widernatürlicher Wesen ziehen. Immer, wenn du oder ein Gefährte einen Blutwürfel würfelt (gleichgültig für welchen Zweck), kannst du 1 Idee opfern: Der Blutwürfel darf sofort erneut gewürfelt werden und das bessere Ergebnis zählt. Wendest du Anatomische Kenntnisse auf andere Jäger an, erfordert dies das Merkmal „Sprache“.",
-          "summary": "Sprache / Sicht / Gestik",
+          "summary": "",
+          "tags": [ "Gestik", "Sicht", "Sprache" ],
           "references": [
             {
               "source": "Wiki",
@@ -3406,7 +3540,8 @@
         "jaeger2": {
           "name": "Aufwiegeln",
           "text": "Es fällt dir leicht, Menschen aufzuwiegeln und sie für deine Sache zu begeistern. Als Freizeitaktion darfst du einen Wurf auf Wil + Fw (Redekunst) ausführen. Für jeden Erfolg generierst du 1 Bande-1-Freund, der dich bei deinem Vorhaben unterstützt. Du musst für diese Bandenfreunde keinen Unterhalt bezahlen; dafür verlassen sie dich aber nach Abschluss des Vorhabens, spätestens nach einem Tag.",
-          "summary": "Sozial / Sprache",
+          "summary": "",
+          "tags": [ "Sozial", "Sprache" ],
           "references": [
             {
               "source": "Wiki",
@@ -3421,7 +3556,8 @@
         "jaeger3": {
           "name": "Verkrüppeln",
           "text": "Wenn du bei einem Angriff einem Gegner mindestens 1 Malusstufe zufügst, kannst du 1 Coup opfern und entscheiden, dass der Pw des Gegners dauerhaft um 1 gesenkt oder die Resistenz (Malusstufen) bis zum Ende des Kampfes annulliert wird. Pro Gegner sind beide Effekte nur einmal pro Kampf möglich.",
-          "summary": "Gestik",
+          "summary": "",
+          "tags": [ "Gestik" ],
           "references": [
             {
               "source": "Wiki",
@@ -3440,7 +3576,8 @@
         "jaeger1": {
           "name": "Einschmeicheln",
           "text": "Ignoriere jeden Malus bei Redekunst- oder Land-und-Leute-Proben im Zusammenhang mit Massenbefragungen. Wenn du eine Massenbefragung ausführst, bei der du eine für das Abenteuer oder für deine persönliche Entwicklung relevante Information herausfindest, erhältst du zusätzlich 1 Idee. Dasselbe gilt für Redekunst-Proben, bei denen du im Gespräch mit einem wichtigen Nsc eine relevante Information erhalten hast. Die erhaltenen Ideen werden nicht durch das Maximum an Ideen limitiert, allerdings kannst du durch Einschmeicheln maximal +3 Ideen pro Tag erhalten.",
-          "summary": "Sozial",
+          "summary": "",
+          "tags": [ "Sozial" ],
           "references": [
             {
               "source": "Wiki",
@@ -3455,7 +3592,8 @@
         "jaeger2": {
           "name": "Gift versprühen",
           "text": "Opfere als Angriffsaktion für 2 Ap eine beliebige Giftphiole und würfele mit dem Blutwürfel. Du darfst Bandengegner aus dem Kampfgebiet entfernen, deren addierte Bandenstufe der Zahl der Blutstropfensymbole entspricht. Bei 3 Blutstropfensymbolen könntest du z. B. 3 Bande-1-Gegner oder 1 Bande-3-Gegner entfernen. Bist du im Nahkampf gebunden, musst du als erstes die Gegner wählen, an die du gebunden bist.",
-          "summary": "Bande / Gestik / Sicht",
+          "summary": "",
+          "tags": [ "Bande", "Gestik", "Sicht" ],
           "references": [
             {
               "source": "Wiki",
@@ -3470,7 +3608,8 @@
         "jaeger3": {
           "name": "Verstecke auskundschaften",
           "text": "Du kannst zu Beginn eines Kampfes, wenn du nicht überrascht bist, deine Ini um 3 senken und eine Probe auf Ath + Fw (Heimlichkeit) ausführen. Pro Erfolg bei der Probe erhältst du für den Kampf entweder 1 Coup oder 1 Idee (auch über das Maximum hinaus).",
-          "summary": "Sicht",
+          "summary": "",
+          "tags": [ "Sicht" ],
           "references": [
             {
               "source": "Wiki",
@@ -3489,7 +3628,8 @@
         "esprit1": {
           "name": "Stimme verstärken",
           "text": "Immer, wenn du eine Redekunstprobe in beengten Verhältnissen ausführst, zählen alle gewürfelten Espritsterne als Erfolg.",
-          "summary": "Sprache",
+          "summary": "",
+          "tags": [ "Sprache" ],
           "references": [
             {
               "source": "Wiki",
@@ -3506,7 +3646,8 @@
         "jaeger1": {
           "name": "Bergbauwissen",
           "text": "Du kannst einen unterirdischen Bereich so präparieren, dass du und deine Gruppe sämtliche natürlichen Begebenheiten optimal ausnutzen. Das kann jederzeit vor einem Kampf geschehen, solange du nicht überrascht bist, kostet dich dann aber in der ersten Kampfrunde -3 Ini. Es kostet keine Ini, wenn du ausreichend Zeit hast, den Ort zu präparieren, beispielsweise, weil eure Gruppe dort eine Rast einlegt. Sobald ein Gegner zum ersten Mal im Kampf agiert, erhält dieser wahlweise 1 Malusstufe oder 1 äußere Schadensstufe. Jeder Gegner kann nur einmal bestimmt werden.",
-          "summary": "Sozial",
+          "summary": "",
+          "tags": [ "Sozial" ],
           "references": [
             {
               "source": "Wiki",
@@ -3521,7 +3662,8 @@
         "jaeger2": {
           "name": "Hoffnung in der Dunkelheit",
           "text": "Sobald es zu einem unterirdischen Unglück oder zu einem Angriff schier unüberwindlicher Gegner kommt, darfst du auf Redekunst würfeln. Bestimme für jeden Erfolg einen Gefährten und/oder dich selbst. Alle ausgesuchten Jäger erhalten die volle Menge an Segnungen (normalerweise 5). Der HeXXenmeister kann bestimmen, dass die Gefahr nicht so hoch ist. In diesem Fall kann er entweder den Wurf verbieten oder die Höhe der erhaltenen Segnungen beschränken. Er könnte alternativ bestimmen, dass die Zahl der Segnungen von einem Blutwürfel oder Segnungswürfel abhängig ist.",
-          "summary": "Sprache",
+          "summary": "",
+          "tags": [ "Sprache" ],
           "references": [
             {
               "source": "Wiki",
@@ -3540,7 +3682,8 @@
         "jaeger1": {
           "name": "Erwischt!",
           "text": "Immer wenn du eine Angriffsprobe gegen einen Gegner ausführst, dessen Initiative mindestens 4 Punkte geringer ist als deine, darfst du die Ap-Kosten des Angriffs als Bonus auf den Angriffswurf addieren. Ein Schuss mit einer Muskete würde dann einen Bonus von +3 bringen.",
-          "summary": "Gestik / Sicht",
+          "summary": "",
+          "tags": [ "Gestik", "Sicht" ],
           "references": [
             {
               "source": "Wiki",
@@ -3555,7 +3698,8 @@
         "jaeger2": {
           "name": "Schnelle Erholung",
           "text": "Nach jeder Nachtruhe und jeder Freizeitaktion „Regeneration“ heilst du zusätzlich 5 Lep. Das zählt nicht als EH oder MH.",
-          "summary": "Sozial",
+          "summary": "",
+          "tags": [ "Sozial" ],
           "references": [
             {
               "source": "Wiki",
@@ -3589,7 +3733,8 @@
         "jaeger1": {
           "name": "Orientierung unter Tage",
           "text": "Die Jägerkraft erlaubt u. a. Proben auf Wis + Fw (Wissensgebiete), um Informationen über Tiefe, Himmelsrichtung, Steigungswinkel von Gängen u.ä. zu erhalten. Darüber hinaus kannst du weniger leicht in die Irre geführt werden. Wenn du beispielsweise einen Weg durch ein Labyrinth suchst, kannst du ihn mit einer Probe auf Wissensgebiete oder Erkennen leichter entdecken (der HeXXenmeister vergibt hierfür einen angemessenen Bonus von +1 bis +3). Orientierung unter Tage hilft dir und deiner Gruppe zudem dabei, schneller ein Höhlensystem zu erkunden. Solange sich mindestens ein Charakter mit Orientierung in der Gruppe befindet, kann die Gruppe eine zusätzliche Rast einlegen bzw. erhält eine zusätzliche Freizeitaktion pro Höhlenerforschung (normalerweise ist nur eine solche Fza pro Höhlenerforschung gestattet). Du kannst als Freizeitaktion zudem Karten deiner Umgebung anfertigen oder vorhandene Karten vervollständigen. Dies erfordert eine Probe auf Wissensgebiete; für jeden Erfolg generierst du 1 Idee (auch über das Maximum hinaus). Die Freizeitaktion Karten anfertigen kann erst nach dem nächsten Konflikt wiederholt werden (wenn die Ideen wieder auf das Maximum zurückgesetzt wurden).",
-          "summary": "Sozial / Sicht",
+          "summary": "",
+          "tags": [ "Sicht", "Sozial" ],
           "references": [
             {
               "source": "Wiki",
@@ -3639,7 +3784,8 @@
         "esprit1": {
           "name": "Perfektion",
           "text": "Sobald du oder ein Gefährte auf dem Kampfschauplatz eine Probe ausführt, die auf einem Gegenstand basiert (meistens: Angriffswurf oder Parade/Schildblock), und dabei 3 oder mehr Espritsterne erwürfelt, erhält derjenige, der die Probe ablegte, 1 Idee. Die gewürfelten Espritsterne gelten dadurch nicht als verbraucht.",
-          "summary": "Sicht / Sprache",
+          "summary": "",
+          "tags": [ "Sicht", "Sprache" ],
           "references": [
             {
               "source": "Wiki",
@@ -3656,7 +3802,8 @@
         "jaeger1": {
           "name": "Experimentelle Schusswaffe",
           "text": "Immer, wenn du eine Schusswaffe abfeuerst, kannst du vor dem Abfeuern entweder 1 Konstruktionspunkt (Kp) oder 1 Idee opfern. Würfele den Blutwürfel mit und zähle alle Blutstropfensymbole als Erfolg. Zeigt der Blutwürfel jedoch die leere Seite, so geht der Schuss nach hinten los und du verlierst Lep in Höhe eines Blutwürfels (Feuerschaden).",
-          "summary": "Gestik / Sicht",
+          "summary": "",
+          "tags": [ "Gestik", "Sicht" ],
           "references": [
             {
               "source": "Wiki",
@@ -3671,7 +3818,8 @@
         "jaeger2": {
           "name": "Zeitplanung",
           "text": "Du kannst das Vorgehen deiner Gruppe koordinieren, sodass sich die Aktivitäten der Gruppenmitglieder besser ergänzen. Dies erlaubt es dir, einmal pro Tag 3 Ideen zu opfern und eine zusätzliche Freizeitaktion zu generieren, die sofort von dir oder einem anderen Jäger genutzt werden muss. Zeitplanung hat keine Wirkung bei längerfristigen Phasen (Ruhephase, Abschnittsende etc.).",
-          "summary": "Sozial / Sprache",
+          "summary": "",
+          "tags": [ "Sozial", "Sprache" ],
           "references": [
             {
               "source": "Wiki",
@@ -3690,7 +3838,8 @@
         "esprit1": {
           "name": "Der Wissenschaft verschrieben",
           "text": "Immer wenn du außerhalb von Kämpfen einen Wurf auf Wissensgebiete oder Land und Leute ausführst, der nichts mit der Herstellung von Gegenständen zu tun hat, zählen alle gewürfelten Espritsterne wie 2 Erfolge. Solltest du durch eine solche Probe ein für das Abenteuer oder deine persönliche Entwicklung wichtige Information erhalten, bekommst du zusätzlich 1 Idee (auch über das Maximum hinaus). Du kannst auf diese Weise nicht mehr als 3 zusätzliche Ideen haben.",
-          "summary": "Sicht / Sprache",
+          "summary": "",
+          "tags": [ "Sicht", "Sprache" ],
           "references": [
             {
               "source": "Wiki",
@@ -3707,7 +3856,8 @@
         "jaeger1": {
           "name": "Astrologie",
           "text": "Wenn du in Ini 0 noch 1 oder 2 Ap übrig hast, kannst du sie ausgeben, um die Zukunft für die Gruppe zu bestimmen. Opfere 1 bzw. 2 Ap: In der nächsten Kampfrunde erhalten alle Gruppenmitglieder (außer dir selbst) einen Bonus von +1 bzw. +2 auf alle Proben.",
-          "summary": "Sprache",
+          "summary": "",
+          "tags": [ "Sprache" ],
           "references": [
             {
               "source": "Wiki",
@@ -3722,7 +3872,8 @@
         "jaeger2": {
           "name": "Stein der Weisen",
           "text": "Einmal pro Tag kannst du bis zu 3 Wurfgeschosse, Elixiere, Gifte oder mächtige Schießpulver in andere Verbrauchsgüter umwandeln (z. B. 3 Elixiere in 3 Gifte oder 3 Heil-Elixiere in 3 Coup-Elixiere). Das Endprodukt muss eines sein, das du selbst herstellen kannst, oder das ein Mitglied deiner Gruppe herstellen kann. Bei jedem Umwandlungsprozess darfst du maximal eines dieser Ausgangsmaterialien in 3 Konstruktionspunkte (Kp) umwandeln, vorausgesetzt du oder ein Gruppenmitglied kann Kp benutzen (über die Rolle des Konstrukteurs). Die Verwandlung erfordert nur wenig Zeit und keine Fza. Du kannst allerdings eine Fza verwenden, um bis zu 10 Produkte umzuwandeln.",
-          "summary": "Handwerk (Gestik)",
+          "summary": "",
+          "tags": [ "Handwerk (Gestik)" ],
           "references": [
             {
               "source": "Wiki",
@@ -3741,7 +3892,8 @@
         "jaeger1": {
           "name": "Geld öffnet Wege",
           "text": "Du bist es gewohnt, Dinge zu regeln, indem du die richtigen Personen mit der passenden Summe bezahlst. Durch diese Kraft weißt du immer, wie viel Geld für eine bestimmte Dienstleistung oder einen Gefallen angemessen ist. Du kannst zudem mithilfe einer Vergleichsprobe auf Sin + Fw (Erkennen) gegen den Wil-Wert des Ziels erkennen, ob eine Person bestechlich ist und wie viel Geld sie in etwa für einen Gefallen verlangen würde. Darüber hinaus kannst du bei allen sozialen Handlungen (meist Redekunst-Proben oder Massenbefragungen) einen Bonus von +1 bis +5 erkaufen, unabhängig davon, ob die Person oder der Personenkreis bestechlich ist oder nicht. Die Kosten entsprechen dem Bonus hoch 2, multipliziert mit 10 (entspricht 10, 40, 90, 160, 250 Gulden).",
-          "summary": "Allgemeine Jägerkraft/Sozial",
+          "summary": "",
+          "tags": [ "Sozial" ],
           "references": [
             {
               "source": "Wiki",
@@ -3756,7 +3908,8 @@
         "jaeger2": {
           "name": "Habsburger Einfluss",
           "text": "Du bist bestens unterrichtet über die Vorgänge des Habsburger Herrscherhauses, kennst so gut wie jeden Angehörigen der engeren Familie, aber auch viele weitere hochgestellte Persönlichkeiten wie Generäle, Schatzmeister, Herolde etc. Überdies bist du mit den Formen der gehobenen Etikette ebenso vertraut wie mit der Heraldik, den feinen Künsten, der Geschichte Europas etc.. Habsburger Einfluss gibt dir einen Bonus von +5 auf jede Probe, die etwas mit dem Geschlecht der Habsburger oder dem europäischen Adel zu tun hat. Das betrifft z. B. Wissensgebiete-Proben, um dir Details aus der Habsburger Geschichte in Erinnerung zu rufen, Redekunst-Proben, um das Vertrauen eines beliebigen Adeligen zu gewinnen, oder Land-und-Leute-Proben, um dich bei Hofe umzuhören. Darüber hinaus stehst du mit Adeligen und Verbündeten in ganz Europa in Kontakt, hast überall Beziehungen, und viele einflussreiche Menschen schulden dir einen Gefallen. Immer wenn du mindestens 3 Fza auf einen Schlag bekommst, generiert jedes Mitglied deiner Gruppe 1 zusätzliche Fza. Außerdem kannst du in jeder Stadt, jeder Burg oder jedem Schloss einmal pro Abenteuer bzw. Abenteuerabschnitt einen Gefallen einlösen. Dieser ist zumeist rollenspielerischer Natur, z. B. könnte man dir Unterschlupf gewähren, lokale Geheimnisse anvertrauen oder Zugang zu gesicherten Räumen verschaffen. Eine Probe sollte dafür nicht nötig sein, der HeXXenmeister kann jedoch die Einlösung des Gefallens verweigern, falls ihm die Forderung als unangemessen erscheint oder sie den Verlauf des Abenteuers empfindlich stört. Alternativ kannst du als Gefallen auch Diener, Helfer und Söldner akquirieren. Du erhältst Bandenfreunde in Höhe der Erfolge einer Redekunst-Probe x2, ohne dass dein Unterhalt steigt.",
-          "summary": "Allgemeine Jägerkraft/Sozial",
+          "summary": "",
+          "tags": [ "Sozial" ],
           "references": [
             {
               "source": "Wiki",
@@ -3773,7 +3926,8 @@
         "aufbau1": {
           "name": "Graue Eminenz",
           "text": "Du bist darin geübt, abzutauchen, dich vor deinen Feinden zu verbergen und andere aus dem Hintergrund zu manipulieren.",
-          "summary": "Ausbaukraft/Ambition",
+          "summary": "",
+          "tags": [ "Ambition" ],
           "references": [
             {
               "source": "Wiki",

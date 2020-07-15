@@ -223,7 +223,7 @@ class JaegerSheet extends HexxenActorSheet {
     // Add roll listener
     // TODO: permissions??
     if (game.user.isGM || this.actor.owner) {
-      html.find(".sheet-header .attributes").on("click", ".roll", this._onClickRoll.bind(this));
+      html.find(".skills .attributes").on("click", ".roll", this._onClickRoll.bind(this));
       html.find(".skills").on("click", ".li-control", this._onClickRoll.bind(this));
       html.find(".combat").on("click", ".li-control", this._onClickRoll.bind(this));
     }
@@ -302,7 +302,7 @@ class JaegerSheet extends HexxenActorSheet {
       if (target.schaden) label += ` (SCH +${target.schaden})`;
     }
 
-    ChatMessage.create({speaker: { actor: this.actor._id }, content: "/hex " + rolls + "h # " + label });
+    HexxenRollHelper.rollToChat(this.actor, { h: rolls }, label)
   }
 
   /* -------------------------------------------- */

@@ -1,4 +1,85 @@
 ﻿/**
+ * TODO: doc
+ */
+class HexxenRollHelper {
+
+  static checkSystemReqirements() {
+    // special-dice-roller
+    const foundry = game.data.version;
+    const sdr = game.modules.get("special-dice-roller");
+    if (sdr && sdr.active) {
+      const version = sdr.data.version;
+      // Foundry 0.6.5 and higher --> 0.11.2 or higher
+      if (isNewerVersion(foundry, "0.6.4") && !isNewerVersion(version, "0.11.1")) {
+        if (game.user.isGM) {
+          ui.notifications.error("Kein kompatibles Würfeltool gefunden! Seit \"Foundry 0.6.5\" wird mindestens Version \"0.11.2\" des Add-On \"special-dice-roller\" benötigt.",
+                                  {permanent: true});
+        }
+        return;
+      }
+      // Foundry up to 0.6.4 --> 0.11.0 or higher
+      else {
+        if (!isNewerVersion(version, "0.11")) { // 0.11.0 is newer than 0.11
+          if (game.user.isGM) {
+            ui.notifications.error("Kein kompatibles Würfeltool gefunden! Es wird mindestens Version \"0.11.0\" des Add-On \"special-dice-roller\" benötigt.",
+                                    {permanent: true});
+          }
+          return;
+        }
+      }
+
+      this.delegate = HexxenSpecialDiceRollerHelper;
+    } else if (false) {
+      // TODO: dice-so-nice??
+    } else {
+      if (game.user.isGM) {
+        ui.notifications.error("Kein kompatibles Würfeltool gefunden! Stellen Sie sicher, dass das Add-On \"special-dice-roller\" installiert und in der Welt aktiviert ist.",
+                                {permanent: true});
+      }
+    }
+  }
+
+  static rollToChat(actor, roll={}, flavour=null, options={}) {
+    if (!this.delegate) {
+      ui.notifications.error("Kein kompatibles Würfeltool gefunden!");
+      return false;
+    }
+    return this.delegate.roll(actor, roll, flavour, options);
+  }
+
+}
+
+class HexxenSpecialDiceRollerHelper extends HexxenRollHelper {
+
+  static roll(actor, roll={}, flavour=null, options={}) {
+    const roller = game.specialDiceRoller.heXXen;
+
+    let empty = true;
+    let command = "/hex ";
+    for ( let die of Object.keys(roll) ) {
+      let count = roll[die];
+      if ( count > 0 ) {
+        empty = false;
+        command += count;
+        command += die;
+      }
+    }
+
+    if (empty) return false;
+
+    if (flavour) {
+      command += ` # ${flavour}`;
+    }
+
+    const message = roller.rollCommand(command);
+    ChatMessage.create( { speaker: { actor: actor._id, alias: actor.name }, // TODO: scene_id, token_id
+                          content: message });
+
+    return {}; // TODO: result und chatId zurückgeben
+  }
+}
+
+/**
  * HeXXen Roller Application
  * @type {FormApplication}
  * @param entity {Entity}      The Entity object for which the sheet is being configured
@@ -13,12 +94,12 @@ class HexxenRoller extends FormApplication {
       this.options.closeOnSubmit = false;
     }
   }
-  
+
 	static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["hexxen", "roller"],
       id: "roller",
-      template: Hexxen.basepath + "templates/roller.html", // FIXME basepath klären
+      template: Hexxen.basepath + "templates/roller.html",
       width: 300,
     });
   }
@@ -29,7 +110,7 @@ class HexxenRoller extends FormApplication {
   get id() {
     return "roller-" + this.appId;
   }
-  
+
   /**
    * Add the Entity name into the window title
    * @type {String}
@@ -47,11 +128,11 @@ class HexxenRoller extends FormApplication {
   getData() {
     let data = super.getData() // object == entity, options == options
     data.hints = this.hints;
-    
+
     let type = this.hints.type;
     let key = this.hints.key;
     data.manual = key ? false : true;
-    
+
     let result = {};
     data.data = result;
     let dice = { "h": { label: "Hexxen", count: 0 },
@@ -63,14 +144,14 @@ class HexxenRoller extends FormApplication {
                  "f": { label: "Fluch", count: 0 }
                 };
     result.dice = dice;
-    
+
     result.type = type;
     result.key = key;
     result.label = key;
     result.modifier = 0;
     result.value = 0;
-    
-    
+
+
     if ("attribute" === type) {
       let attribute = data.object.data.attributes[key]
       result.value = attribute.value;
@@ -94,9 +175,9 @@ class HexxenRoller extends FormApplication {
       result.label = combat.label;
       if (combat.schaden) result.label += ` (SCH +${combat.schaden})`;
     }
-    
+
     return data;
-    
+
 /*     const entityName = this.object.entity;
     const config = CONFIG[entityName];
     const type = this.object.data.type || CONST.BASE_ENTITY_TYPE;
@@ -118,19 +199,19 @@ class HexxenRoller extends FormApplication {
   /** @override */
   activateListeners(html) {
     super.activateListeners(html);
-    
+
     html.find(".dice").on("click", ".control", this._onClickPlusMinus.bind(this));
   }
 
   async _onClickPlusMinus(event) {
     event.preventDefault();
-    
+
     const a = event.currentTarget;
     const action = a.dataset.action;
     const inc = "increase" === action ? 1 : -1;
     const target = a.parentNode.dataset.key;
     const form = this.form;
-    
+
     let e = form.elements["dice." + target];
     e.value = Number(e.value) + inc;
   }
@@ -143,35 +224,17 @@ class HexxenRoller extends FormApplication {
    */
   async _updateObject(event, formData) {
     event.preventDefault();
-    
-    let empty = true;
-    let roll = "/hex ";
+
+    const roll = {};
     for ( let key of Object.keys(formData) ) {
       if ( key.startsWith("dice.") ) {
-        let die = key.substr(5);
-        let count = formData[key];
-        if ( count > 0 ) {
-          empty = false;
-          roll += count;
-          roll += die;
-        }
+        const die = key.substr(5);
+        const count = formData[key];
+        roll[die] = count;
       }
     }
+    HexxenRollHelper.rollToChat(this.object, roll, formData.comment)
 
-    if (empty) return;
-
-    if (formData.comment) {
-      roll += ` # ${formData.comment}`;
-    }
-    
-    console.log(roll);
-    if (this.object instanceof Actor) {
-      ChatMessage.create({ speaker: { actor: this.object._id }, content: roll });
-    } else {
-      ChatMessage.create({ content: roll });
-    }
-    //ui.chat.processMessage(roll);
-    
 /*     const original = this.getData();
 
     // De-register the current sheet class
