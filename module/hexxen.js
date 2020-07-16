@@ -52,7 +52,7 @@ Hooks.once("init", async function() {
 	 */
 	CONFIG.Combat.initiative = {
 	  formula: "@ini.value",
-    decimals: 0
+    decimals: 1 // TODO: 0, sobald SC INI Vorrang im CombatTracker
   };
 
   Handlebars.registerHelper('isDefined', function(value) {
