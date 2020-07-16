@@ -172,9 +172,9 @@ Hooks.once("init", async function() {
     hint: "Adjust position of game pause indicator.",
     scope: "client",
     config: true,
-    default: "vtt",
+    default: "fvtt",
     type: String,
-    choices: { vtt: "FVTT default", centered: "Centered" },
+    choices: { fvtt: "FVTT default", centered: "Centered" },
     onChange: pos => ui.pause.render()
   });
 });
