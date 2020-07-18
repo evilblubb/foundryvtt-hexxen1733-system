@@ -56,8 +56,10 @@ Hooks.once("init", async function() {
   };
 
   Handlebars.registerHelper('isDefined', function(value) {
-    return value !== undefined;
+    // Caution: in case of (isDefined foo.bar): if foo === null --> value === null
+    return value !== undefined && value !== null;
   });
+
   Handlebars.registerHelper('repeat', function(context, options) {
     let out = "";
     for (let i=0; i<context; i++) {
