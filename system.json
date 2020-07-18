@@ -73,6 +73,14 @@
       "module": "hexxen-1733",
       "path": "packs/macros.db",
       "entity": "Macro"
+    },
+    {
+      "name": "hexxen-gm-macros",
+      "label": "GM Makros",
+      "system": "hexxen-1733",
+      "module": "hexxen-1733",
+      "path": "packs/gm-macros.db",
+      "entity": "Macro"
     }
   ],
   "languages": [],
