@@ -2,7 +2,7 @@
   "name": "hexxen-1733",
   "title": "HeXXen 1733",
   "description": "<p>Spielsystem für HeXXen 1733. Enthält Charakterblätter und Einbindung von Hexxenwürfeln.</p><p><em>Erfordert das Add-on Modul \"Special Dice Roller\".</em></p><p><br></p><p style='font-size:0.9em'>Dieses Produkt wurde unter Lizenz erstellt. HeXXen 1733&trade; und sein Logo sind eingetragene Marken von Ulisses Spiele Deutschland, den U.S.A. und anderen Ländern. Ulisses Spiele und sein Logo sind eingetragene Marken der Ulisses Medien und Spiele Distribution GmbH.<br>Dieses Werk enthält Material, das durch Ulisses Spiele und/oder andere Autoren urheberrechtlich geschützt ist. Solches Material wird mit Erlaubnis im Rahmen der Vereinbarung über Gemeinschaftsinhalte für HeXXen-1733-Scriptorium verwendet.<br>Alle anderen Originalmaterialien in diesem Werk sind Copyright 2020 von Martin Brunninger und werden im Rahmen der Vereinbarung über Gemeinschaftsinhalte für HeXXen-1733-Scriptorium veröffentlicht.</p>",
-  "version": "0.5.8",
+  "version": "0.5.9",
   "minimumCoreVersion": "0.6.0",
   "compatibleCoreVersion": "0.6.5",
   "author": "Martin Brunninger",
