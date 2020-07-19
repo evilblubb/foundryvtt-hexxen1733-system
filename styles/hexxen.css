@@ -302,6 +302,9 @@ img#hexxen-logo {
   min-width: 450px;
   min-height: 400px;
 }
+.hexxen.sheet.rule .editor {
+  min-height: 50px;
+}
 .hexxen.sheet.rule .sheet-header {
   grid-template-columns: auto 1fr;
   grid-template-rows: auto;
@@ -323,6 +326,10 @@ img#hexxen-logo {
   grid-area: ref;
   text-align: right;
   font-size: 0.8em;
+}
+.hexxen.sheet.rule .create .label {
+  flex: 0;
+  margin-right: 6px;
 }
 .hexxen.sheet.rule .powers {
   grid-template-columns: 1fr 1fr;

@@ -17,8 +17,53 @@ function generateID(count, k) {
   return str;
 }
 
-const powers = JSON.parse(fs.readFileSync(`${__dirname}/packs/skills.json`, "utf8"));
+function checkTodo(data, path="") {
+  let count = 0;
+  if (data.hasOwnProperty("@todo")) {
+    count++;
+    console.info(`  @TODO\:${path}: ${data["@todo"]}`);
+  };
+  for (const key in data) {
+    if ("@todo" !== key && data.hasOwnProperty(key)) {
+      const value = data[key];
+      if (value instanceof Object) {
+        count += checkTodo(value, `${path}/${key}`);
+      }
+    }
+  }
+  return count;
+}
+
+function checkRefs(data, path="") {
+  let count = 0;
+  for (const key in data) {
+    if (data.hasOwnProperty(key)) {
+      const value = data[key];
+      if (value instanceof Object) {
+        count += checkRefs(value, `${path}/${key}`);
+      } else if (typeof(value) === "string") {
+        count += _findRefs(value, `${path}/${key}`);
+      }
+    }
+  }
+  return count;
+}
+
+function _findRefs(data, path="") {
+  if (!data || typeof(data) !== "string") return 0;
+  const regEx = /\[(.*?)\]/g;
+  const iterator = data.matchAll(regEx);
+  const matches = [];
+  for (const match of iterator) {
+    matches.push(match[1]);
+  }
+  if (matches && matches.length) {
+    console.info(`  @REF:${path}: ${matches}`);
+  }
+}
+
 function getPowers(type, role) {
+  const powers = input.skills;
   const out = [];
   const set = powers[type][role];
   if (! set) {
@@ -52,15 +97,94 @@ function getPowers(type, role) {
   return out;
 }
 
-const list = ["motivation", "role", "profession"];
-for (const key in list) {
-  if (list.hasOwnProperty(key)) {
-    const type = list[key];
+function convertItem(key, type, item) {
+  const out = {};
+  out._id = generateID(16);
+  out.name = item.name;
+  out.permission = { "default": 0 };
+  out.type = type;
+  out.data = {};
+  out.data.references = item.references || [];
+  out.data.description = item.description || "";
+  out.data.summary = item.summary || "";
+  out.flags = {};
+  out.img = "systems/hexxen-1733/img/Siegel-Rabe-small.png";
+
+  if ("role" === type) {
+    _convertRoleItem(key, type, item, out);
+  } else if ("profession" === type) {
+    _convertProfessionItem(key, type, item, out);
+  }
+
+  return out;
+}
+
+function _convertRoleItem(key, type, item, out) {
+  out.data.create = item.create || "";
+  out.data.powers = getPowers(type, key);
+}
+
+function _convertProfessionItem(key, type, item, out) {
+  out.data.powers = getPowers(type, key);
+}
+
+/********************
+ * main code        *
+ ********************/
+
+ // preload files
+const filesIn = { "motivation": "motivation", "skills": "power", "role": "role", "profession": "profession" };
+const input = {};
+let error = false;
+for (const key in filesIn) {
+  if (filesIn.hasOwnProperty(key)) {
+    const file = key;
+
+    console.log(`Loading ${file}.json ...`);
+    try {
+      const data = JSON.parse(fs.readFileSync(`${__dirname}/packs/${file}.json`, "utf8"));
+      input[file] = data;
+    }
+    catch (err) {
+      console.error(err);
+      error = true;
+    }
+  }
+}
+if (error) {
+  console.error("Errors occured, exiting.");
+  return false;
+}
+
+// validate files
+for (const key in input) {
+  if (input.hasOwnProperty(key)) {
+    const file = key;
+    const data = input[key].content || input[key];
+    const type = filesIn[key];
+
+    console.log(`Validating ${file}.json ...`);
+    const todo = checkTodo(data, `${file}.json`);
+    const refs = checkRefs(data, `${file}.json`);
+    // TODO: weitere Prüfungen auf Vollständigkeit
+    if (todo > 0) console.log(`  ${todo} TODO(s) found!`);
+  }
+}
+if (error) {
+  console.error("Errors occured, exiting.");
+  return false;
+}
+
+// convert files
+for (const key in input) {
+  if (input.hasOwnProperty(key)) {
+    const file = key;
+    const data = input[key].content || input[key];
+    const type = filesIn[key];
+
+    if ("power" === type) continue; // TODO: vorübergehend noch keine DB erzeugen
 
     console.log(`Converting ${type} ...`);
-    const content = fs.readFileSync(`${__dirname}/packs/${type}.json`, "utf8");
-    const data = JSON.parse(content);
-
     let fd;
     try {
       fd = fs.openSync(`${__dirname}/../packs/${type}.db`, 'w'); // alte Datei überschreiben
@@ -71,20 +195,7 @@ for (const key in list) {
           const item = data[key];
           console.log(`Converting   ${item.name} ...`);
 
-          const out = {};
-          out._id = generateID(16);
-          out.name = item.name;
-          out.permission = { "default": 0 };
-          out.type = type;
-          out.data = {};
-          out.data.references = item.references;
-          out.data.description = item.description;
-          out.data.summary = item.summary;
-          if ("role" === type || "profession" === type) {
-            out.data.powers = getPowers(type, key);
-          }
-          out.flags = {};
-          out.img = "systems/hexxen-1733/img/Siegel-Rabe-small.png";
+          const out = convertItem(key, type, item);
 
           fs.appendFileSync(fd, JSON.stringify(out), 'utf8');
           fs.appendFileSync(fd, '\n', 'utf8');

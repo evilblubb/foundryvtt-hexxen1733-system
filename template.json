@@ -508,6 +508,7 @@
   },
   "role": {
     "templates": [ "core" ],
+    "create": "",
     "powers": []
   },
   "profession": {

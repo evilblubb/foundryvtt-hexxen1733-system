@@ -33,8 +33,14 @@
         <div class="tab" data-group="primary" data-tab="description">
             <header class="block-header">Beschreibung</header>
             {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+            {{#if (isDefined data.create)}}
+            <div class="create flexrow"><label class="label" for="create">Startausrüstung:</label><div id="create">{{data.create}}</div></div>
+            {{/if}}
 
-            <header class="block-header">Zusammenfassung</header>
+            <header class="block-header">
+                Zusammenfassung für Charakterbogen
+                <i class="fas fa-info-circle" title="Ist eine Zusammenfassung vorhanden, so wird diese anstelle der Beschreibung im Charkterbogen angezeigt."></i>
+            </header>
             {{editor content=data.summary target="data.summary" button=true owner=owner editable=editable}}
 
             {{!-- TODO: create, unterhalt, tags --}}
