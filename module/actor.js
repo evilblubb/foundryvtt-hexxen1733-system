@@ -253,6 +253,11 @@ class HexxenActor extends Actor {
   getRollData() {
     const data = super.getRollData();
 
+    // TODO: temporäre Modifikation, um SCs bei gleicher INI Vorrang vor NSCs zu geben.
+    if ("character" === this.type) {
+      data.ini.value += 0.1;
+    }
+
     // TODO: temporärer Konvertierungscode für INI bei NPCs, durch migration ersetzen
     if ("character" !== this.type) {
       data.ini = data.ini || {};

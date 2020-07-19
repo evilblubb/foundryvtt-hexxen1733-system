@@ -52,12 +52,14 @@ Hooks.once("init", async function() {
 	 */
 	CONFIG.Combat.initiative = {
 	  formula: "@ini.value",
-    decimals: 0
+    decimals: 1 // TODO: 0, sobald SC INI Vorrang im CombatTracker
   };
 
   Handlebars.registerHelper('isDefined', function(value) {
-    return value !== undefined;
+    // Caution: in case of (isDefined foo.bar): if foo === null --> value === null
+    return value !== undefined && value !== null;
   });
+
   Handlebars.registerHelper('repeat', function(context, options) {
     let out = "";
     for (let i=0; i<context; i++) {
@@ -166,19 +168,32 @@ Hooks.once("init", async function() {
     ChatMessage.create({speaker: { actor: speaker }, content: message });
   });
 
-  // // Register system settings
-  // game.settings.register("worldbuilding", "macroShorthand", {
-  //   name: "Shortened Macro Syntax",
-  //   hint: "Enable a shortened macro syntax which allows referencing attributes directly, for example @str instead of @attributes.str.value. Disable this setting if you need the ability to reference the full attribute model, for example @attributes.str.label.",
-  //   scope: "world",
-  //   type: Boolean,
-  //   default: true,
-  //   config: true
-  // });
+  // Register system settings
+  game.settings.register("hexxen-1733", "pausePosition", {
+    name: "Game Pause Indicator Position",
+    hint: "Adjust position of game pause indicator.",
+    scope: "client",
+    config: true,
+    default: "fvtt",
+    type: String,
+    choices: { fvtt: "FVTT default", centered: "Centered" },
+    onChange: pos => ui.pause.render()
+  });
 });
 
 Hooks.once("ready", async function() {
   HexxenRollHelper.checkSystemReqirements();
+});
+
+Hooks.on("renderPause", async function() {
+  const pos = game.settings.get("hexxen-1733", "pausePosition");
+  if (pos === "vtt") return;
+
+  let app = $.find("#pause");
+  if (app && app[0]) {
+    app = app[0];
+    app.classList.add(`hexxen-${pos}`);
+  }
 });
 
 class HexxenAbout extends Application {

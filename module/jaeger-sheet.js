@@ -307,10 +307,20 @@ class JaegerSheet extends HexxenActorSheet {
 
   /* -------------------------------------------- */
 
-  // TODO: ungültige Eingaben in numerischen Textfeldern filtern
-
   /** @override */
   _updateObject(event, formData) {
+    // TODO: ungültige Eingaben in numerischen Textfeldern filtern (NaN oder null)
+    for (const key in formData) {
+      if (formData.hasOwnProperty(key)) {
+        const data = formData[key];
+        // if (data === null) formData[key] = 0; // TODO: Defaultwert?
+        // else
+        if (typeof(data) === "number" && isNaN(data)) {
+          ui.notifications.warn(`Ungültige Eingabe für ${key}`); // TODO: was machen?
+          // delete formData[key];
+        }
+      }
+    }
 
     // TODO: temporary code until data structure change in actor
     if (formData.hasOwnProperty("data.languages.value")){
