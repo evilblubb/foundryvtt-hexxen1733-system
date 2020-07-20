@@ -96,8 +96,8 @@ function convertItem(key, type, item) {
   out.type = type;
   out.data = {};
   out.data.references = item.references || [];
-  out.data.description = item.description || "";
-  out.data.summary = item.summary || "";
+  out.data.description = _convertMultilineText(item.description) || "";
+  out.data.summary = _convertMultilineText(item.summary) || "";
   out.flags = {};
   out.img = "systems/hexxen-1733/img/Siegel-Rabe-small.png";
 
@@ -110,8 +110,19 @@ function convertItem(key, type, item) {
   return out;
 }
 
+function _convertMultilineText(text) {
+  const lines = text.split('\n');
+  if (lines.length > 0) {
+    text = lines.reduce((out, line) => {
+      out += `<p>${line}</p>`;
+      return out;
+    }, "");
+  }
+  return text;
+}
+
 function _convertRoleItem(key, type, item, out) {
-  out.data.create = item.create || "";
+  out.data.create = item.create || ""; // no multi-paragraph support for now
   out.data.powers = getPowers(type, key);
 }
 
