@@ -190,6 +190,9 @@ img#hexxen-logo {
   background-repeat: no-repeat;
   background-position: center;
 }
+.hexxen .last {
+  height: 1px;
+}
 
 .hexxen div.inc-btn {
   position: relative;
@@ -338,6 +341,9 @@ img#hexxen-logo {
 .hexxen.sheet.rule .powers > * {
   grid-column: 1 / span 2;
 }
-.hexxen.sheet.rule .powers div {
+.hexxen.sheet.rule .powers div.power {
   grid-column: auto;
+}
+.hexxen.sheet.rule .powers div.power .learned {
+  background: lime;
 }

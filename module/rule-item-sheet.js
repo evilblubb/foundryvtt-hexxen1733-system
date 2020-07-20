@@ -19,7 +19,14 @@ class RuleItemSheet extends ItemSheet {
   /* -------------------------------------------- */
 
   get title() {
-    return super.title + " (" + this.item.data.type.capitalize() + ")";
+    // TODO: localize
+    let type = "";
+    if ("role" === this.item.data.type) {
+      type = "Rolle";
+    } else {
+      type = this.item.data.type.capitalize();
+    }
+    return `${super.title} (${type})`;
   }
 
   /** @override */
@@ -37,14 +44,43 @@ class RuleItemSheet extends ItemSheet {
 
   /* -------------------------------------------- */
 
+  // TODO: nach HexxenItemSheet verschieben
+  get actor() {
+    return this.object.options.actor || null;
+  }
+
+  // TODO: nach HexxenItemSheet verschieben
+  get compendium() {
+    return this.object.compendium || null;
+  }
+
   /** @override */
   getData() {
     const data = super.getData();
+    data.actor = this.actor;
+    data.compendium = this.compendium;
+
     data.type = data.item.type.capitalize();
     data.img = data.item.img; // TODO: basepath??
 
-    if ("motivation" === data.item.type) {
-
+    if ( ["role", "profession"].includes(data.item.type) ) {
+      const marker = {"stammeffekt": "S", "geselle": "G", "experte": "E", "meister": "M"};
+      const powers = data.data.powers;
+      powers.forEach(power => {
+        const learned = this.actor ? this.actor.data.items.filter(i => i.type === "skills") : []; // TODO: power statt skill
+        if (this.actor && learned.filter(i => i.name === power.name).length != 0) {
+          power.learned = true;
+        }
+        // TODO: schon gelernt?
+        if ("ausbau" === power.type) {
+          power.features.forEach(feature => {
+            if (this.actor && learned.filter(i => i.name === feature.name) != 0) {
+              feature.learned = true;
+            }
+            feature.marker = marker[feature.type];
+          });
+        }
+      });
     }
 
     return data;
