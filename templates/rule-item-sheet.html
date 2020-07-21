@@ -36,7 +36,10 @@
             {{#if (isDefined data.create)}}
             {{!-- create might contain HTML-Markup, therefore tripple {} --}}
             <div class="create flexrow">
-                <label class="label" for="create">Startausrüstung:</label>
+                <label class="label" for="create">
+                    Startausrüstung
+                    <i class="fas fa-info-circle" title="Nur für Rolle №1."></i>:
+                </label>
                 <div id="create">
                     {{{data.create}}}<br>
                     <span class="hint">(Zum Ausrüsten den Gegenstand auf den Charakterbogen ziehen.)</span>

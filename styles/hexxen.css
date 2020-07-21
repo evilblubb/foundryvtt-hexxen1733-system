@@ -177,7 +177,10 @@ img#hexxen-logo {
   line-height: initial;
   margin: unset;
 }
-
+.hexxen i.fa-info-circle {
+  font-size: 0.8em;
+  vertical-align: top;
+}
 .hexxen .seperator {
   display: block;
   width: 100%;
