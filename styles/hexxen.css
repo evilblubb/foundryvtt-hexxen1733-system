@@ -336,6 +336,7 @@ img#hexxen-logo {
 .hexxen.sheet.rule .create .label {
   flex: 0;
   margin-right: 6px;
+  white-space: nowrap;
 }
 /* TODO: verallgemeinern und konfigurierbar machen */
 .hexxen.sheet.rule a.entity-link {
