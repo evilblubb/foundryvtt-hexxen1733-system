@@ -20,7 +20,6 @@ function generateID(count, k) {
 
 function checkIDs(data, path="") {
   let count = 0;
-  if (data.content) data = data.content;
 
   // TODO: Sonderfallbehandlung "powers": 2 Hauptkategorien
 
@@ -32,12 +31,42 @@ function checkIDs(data, path="") {
         if (generatedIDs.includes(id)){
           delete value._id;
           count++;
-          console.warn(`  @_ID\:${path}/${key}: Duplicate id found! Will be randomly created!`);
+          console.warn(`  @_ID:${path}/${key}: Duplicate id found! Will be randomly created!`);
+        } else {
+          generatedIDs.push(id);
         }
-        generatedIDs.push(id);
       } else {
         count++;
-        console.warn(`  @_ID\:${path}/${key}: No id found! Will be randomly created!`);
+        console.warn(`  @_ID:${path}/${key}: No id found! Will be randomly created!`);
+      }
+    }
+  }
+  return count;
+}
+
+function checkSources(data, path="") {
+  let count = 0;
+
+  // TODO: Sonderfallbehandlung "powers": 2 Hauptkategorien
+
+  for (const key in data) {
+    if (data.hasOwnProperty(key)) {
+      const value = data[key];
+      const sources = value.references;
+      if (!sources || sources.length == 0) {
+        count++;
+        console.warn(`  @SOURCE:${path}/${key}: No source references found!`);
+      }
+      else {
+        const filtered = sources.filter(source => "Wiki" === source.source);
+        if (filtered.length == 0) {
+          count++;
+          console.error(`  @SOURCE:${path}/${key}: No "Scriptorium Wiki" references found!`);
+        }
+        else if (sources.length - filtered.length == 0) {
+          count++;
+          console.warn(`  @SOURCE:${path}/${key}: No book or other source references found!`);
+        }
       }
     }
   }
@@ -239,20 +268,17 @@ for (const key in input) {
     const type = key;
     const file = filesIn[type];
     const data = input[type].content;
+    const checks = {};
 
     console.log(`Validating ${type} ...`);
-    const ids = checkIDs(data, file);
-    const todo = checkTodo(data, file);
-    const refs = checkRefs(data, file);
+    checks.ids = checkIDs(data, file);
+    checks.sources = checkSources(data, file);
+    checks.todo = checkTodo(data, file);
+    checks.refs = checkRefs(data, file);
     // TODO: weitere Prüfungen auf Vollständigkeit
-    if (ids > 0) {
-      input[type].ids = ids;
-      console.warn(`  Missing ${ids} IDs!`);
-    }
-    if (todo > 0) {
-      input[type].todo = todo;
-      console.log(`  ${todo} TODO(s) found!`);
-    }
+
+    input[type].checks = checks;
+    // TODO: Abbruch entscheiden
   }
 }
 if (error) {
@@ -284,8 +310,7 @@ for (const key in input) {
       }
     }
     output[type].content = content;
-    if (input[type].todo) output[type].todo = input[type].todo;
-    if (input[type].ids) output[type].ids = input[type].ids;
+    output[type].checks = input[type].checks;
   }
 }
 
@@ -298,33 +323,40 @@ for (const key in output) {
     const file = filesOut[type] || null;
     const data = output[type].content;
 
-    if (!file) {
+    if (file) {
+      console.log(`Creating ${file} ...`);
+      let fd;
+      try {
+        fd = fs.openSync(`${__dirname}/../packs/${type}.db`, 'w'); // alte Datei überschreiben
+
+        data.forEach(item => {
+          fs.appendFileSync(fd, JSON.stringify(item), 'utf8');
+          fs.appendFileSync(fd, '\n', 'utf8');
+        });
+      } catch (err) {
+        /* Handle the error */
+        console.error(err);
+      } finally {
+        if (fd !== undefined)
+        fs.closeSync(fd);
+      }
+      console.log(`  ${data.length} entries created.`);
+    }
+    else {
       console.log(`Skipping ${file}.`);
       continue;
     }
 
-    console.log(`Creating ${file} ...`);
-    let fd;
-    try {
-      fd = fs.openSync(`${__dirname}/../packs/${type}.db`, 'w'); // alte Datei überschreiben
-
-      data.forEach(item => {
-        fs.appendFileSync(fd, JSON.stringify(item), 'utf8');
-        fs.appendFileSync(fd, '\n', 'utf8');
-      });
-    } catch (err) {
-      /* Handle the error */
-      console.error(err);
-    } finally {
-      if (fd !== undefined)
-        fs.closeSync(fd);
-    }
-    console.log(`  ${data.length} entries created.`);
-    if (output[type].ids) {
-      console.warn(`  Missing ${output[type].ids} IDs! Created new random IDs!`)
-    }
-    if (output[type].todo) {
-      console.info(`  ${output[type].todo} TODOs pending!`)
+    with (output[type].checks) {
+      if (ids) {
+        console.warn(`  Missing ${ids} IDs! Created new random IDs!`);
+      }
+      if (sources) {
+        console.warn(`  Missing ${sources} source references!`);
+      }
+      if (todo) {
+        console.info(`  ${todo} TODOs pending!`);
+      }
     }
   }
 }
