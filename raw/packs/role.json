@@ -51,7 +51,7 @@
           "page": "127"
         }
       ],
-      "description": "[!fehlt im Wiki]",
+      "description": "[!Beschreibung fehlt im Wiki]",
       "@todo": "Beschreibung fehlt (auch im Wiki)",
       "summary": "",
       "create": "[Gardeuniform] oder [Landsknechtkleidung]"
@@ -69,7 +69,7 @@
           "page": "134"
         }
       ],
-      "description": "[!fehlt im Wiki]",
+      "description": "[!Beschreibung fehlt im Wiki]",
       "@todo": "Beschreibung fehlt (auch im Wiki)",
       "summary": "",
       "create": "[Kriegeruntergewand], [Reisekleidung] oder [Mönchs-/Nonnenkleidung]"
@@ -104,10 +104,10 @@
           "page": "132"
         }
       ],
-      "description": "[!fehlt im Wiki]",
+      "description": "[!Beschreibung fehlt im Wiki]",
       "@todo": "Beschreibung und Startset fehlen (auch im Wiki)",
       "summary": "",
-      "create": "[!fehlt im Wiki]"
+      "create": "[!Startausrüstung fehlt im Wiki]"
     },
     "hexenfeind": {
       "name": "Hexenfeind",
@@ -174,7 +174,7 @@
           "page": "81"
         }
       ],
-      "description": "[!fehlt im Wiki]",
+      "description": "[!Beschreibung fehlt im Wiki]",
       "@todo": "Beschreibung fehlt (auch im Wiki)",
       "summary": "",
       "create": "[Reisekleidung] oder [Kundschafterkleidung]"
@@ -192,7 +192,7 @@
           "page": "142"
         }
       ],
-      "description": "[!fehlt im Wiki]",
+      "description": "[!Beschreibung fehlt im Wiki]",
       "@todo": "Beschreibung fehlt (auch im Wiki)",
       "summary": "",
       "create": "[Kriegeruntergewand], [Landsknechtkleidung] oder [Söldnerkleidung]"
@@ -206,10 +206,10 @@
           "link": "http://hexxen1733-regelwiki.de/index.php/Rolle_Priester.html"
         }
       ],
-      "description": "[!fehlt im Wiki]",
-      "@todo": "Beschreibung und Startset fehlen (auch im Wiki)",
+      "description": "[!Beschreibung fehlt im Wiki]",
+      "@todo": "Beschreibung, Startset und Buchquelle fehlen (auch im Wiki)",
       "summary": "",
-      "create": "[!fehlt im Wiki]"
+      "create": "[!Startausrüstung fehlt im Wiki]"
     },
     "stratege": {
       "name": "Stratege",
@@ -220,10 +220,10 @@
           "link": "hhttp://hexxen1733-regelwiki.de/index.php/Rolle_Stratege.html"
         }
       ],
-      "description": "[!fehlt im Wiki]",
-      "@todo": "Beschreibung und Startset fehlen (auch im Wiki)",
+      "description": "[!Beschreibung fehlt im Wiki]",
+      "@todo": "Beschreibung, Startset und Buchquelle fehlen (auch im Wiki)",
       "summary": "",
-      "create": "[!fehlt im Wiki]"
+      "create": "[!Startausrüstung fehlt im Wiki]"
     }
   }
 }
