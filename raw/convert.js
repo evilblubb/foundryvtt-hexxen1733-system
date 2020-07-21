@@ -1,5 +1,6 @@
 const fs = require('fs');
 
+const vttSystemName = "hexxen-1733";
 const generatedIDs = [];
 function generateID(count, k) {
   const _sym = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
@@ -85,7 +86,9 @@ function _findRefs(data, path="") {
   }
   if (matches && matches.length) {
     console.info(`  @REF:${path}: ${matches}`);
+    return matches.length;
   }
+  return 0;
 }
 
 function convertItem(key, type, item) {
@@ -99,7 +102,7 @@ function convertItem(key, type, item) {
   out.data.description = _convertMultilineText(item.description) || "";
   out.data.summary = _convertMultilineText(item.summary) || "";
   out.flags = {};
-  out.img = "systems/hexxen-1733/img/Siegel-Rabe-small.png";
+  out.img = `systems/${vttSystemName}/img/Siegel-Rabe-small.png`;
 
   if ("role" === type) {
     _convertRoleItem(key, type, item, out);
@@ -121,8 +124,27 @@ function _convertMultilineText(text) {
   return text;
 }
 
+function _convertRefs(text) {
+  if (!text || typeof(text) !== "string") return 0;
+  const regEx = /\[(.*?)\]/g;
+  text = text.replace(regEx, (match, p1, offset, string) => {
+    return _replaceRef(p1);
+  });
+  return text;
+}
+
+function _replaceRef(ref) {
+  if (ref.startsWith('!')) {
+    // ignore !refs
+    return `[${ref}]`;
+  } else {
+    // TODO: ref über lookup-Liste einem pack zuordnen
+    return `@Compendium[${vttSystemName}.hexxen-items.${ref}]`;
+  }
+}
+
 function _convertRoleItem(key, type, item, out) {
-  out.data.create = item.create || ""; // no multi-paragraph support for now
+  out.data.create = _convertRefs(item.create || ""); // no multi-paragraph support for now
   out.data.powers = getPowers(type, key);
 }
 
@@ -266,6 +288,8 @@ for (const key in input) {
     if (input[type].ids) output[type].ids = input[type].ids;
   }
 }
+
+// return 0;
 
 // create db files
 for (const key in output) {

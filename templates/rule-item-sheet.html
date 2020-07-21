@@ -34,7 +34,14 @@
             <header class="block-header">Beschreibung</header>
             {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
             {{#if (isDefined data.create)}}
-            <div class="create flexrow"><label class="label" for="create">Startausrüstung:</label><div id="create">{{data.create}}</div></div>
+            {{!-- create might contain HTML-Markup, therefore tripple {} --}}
+            <div class="create flexrow">
+                <label class="label" for="create">Startausrüstung:</label>
+                <div id="create">
+                    {{{data.create}}}<br>
+                    <span class="hint">(Zum Ausrüsten den Gegenstand auf den Charakterbogen ziehen.)</span>
+                </div>
+            </div>
             {{/if}}
 
             <header class="block-header">
@@ -65,7 +72,7 @@
         {{!-- FIXME: Name des Packs anpassen --> powers --}}
         <div class="tab powers" data-group="primary" data-tab="powers">
             {{!-- TODO: Darstellung --}}
-            <div class="hint">Jägerkräfte können durch Ziehen auf den Charakterbogen gelernt werden.</div>
+            <div class="hint">Zum Lernen die Jägerkraft auf den Charakterbogen ziehen.</div>
             <header class="block-header">Allgemeine Jägerkräfte (2 JP)</header>
             {{#each data.powers}}
             {{#if (eq this.type "jaeger")}}
@@ -88,7 +95,7 @@
             <div class="power">
                 <div><a class="entity-link{{#if this.learned}} learned{{/if}}" data-action="open" data-pack="hexxen-1733.hexxen-skills" data-lookup="{{this.name}}" draggable="true">{{this.name}}</a></div>
                 {{#each this.features}}
-                <div><a class="entity-link{{#if this.learned}} learned{{/if}}" data-action="open" data-pack="hexxen-1733.hexxen-skills" data-lookup="{{this.name}}" draggable="true">({{this.marker}}) {{this.name}}</a></div>
+                <div>({{this.marker}}) <a class="entity-link{{#if this.learned}} learned{{/if}}" data-action="open" data-pack="hexxen-1733.hexxen-skills" data-lookup="{{this.name}}" draggable="true">{{this.name}}</a></div>
                 {{/each}}
             </div>
             {{/if}}

@@ -334,7 +334,20 @@ img#hexxen-logo {
   flex: 0;
   margin-right: 6px;
 }
-.hexxen.sheet.rule .powers {
+/* TODO: verallgemeinern und konfigurierbar machen */
+.hexxen.sheet.rule a.entity-link {
+  background: unset;
+  padding: unset;
+  border: unset;
+  display: inline-block;
+}
+.hexxen.sheet.rule .create a.entity-link::before {
+  content: "[ ";
+}
+.hexxen.sheet.rule .create a.entity-link::after {
+  content: " ]";
+}
+  .hexxen.sheet.rule .powers {
   grid-template-columns: 1fr 1fr;
   grid-gap: 4px 10px !important;
 }

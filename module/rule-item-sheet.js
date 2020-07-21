@@ -63,6 +63,10 @@ class RuleItemSheet extends ItemSheet {
     data.type = data.item.type.capitalize();
     data.img = data.item.img; // TODO: basepath??
 
+    if (data.data.create){
+      data.data.create = TextEditor.enrichHTML(data.data.create);
+    }
+
     if ( ["role", "profession"].includes(data.item.type) ) {
       const marker = {"stammeffekt": "S", "geselle": "G", "experte": "E", "meister": "M"};
       const powers = data.data.powers;
