@@ -43,6 +43,7 @@ function checkData(type, data, path, checks) {
   checks.sources = (checks.sources || 0) + checkSources(data, path);
   checks.todo = (checks.todo || 0) + checkTodo(data, path);
   checks.refs = (checks.refs || 0) + checkRefs(data, path);
+  // TODO: tags
   // TODO: weitere Prüfungen auf Vollständigkeit
 }
 
@@ -54,7 +55,7 @@ function checkIDs(data, path="") {
       const value = data[key];
       if (value.hasOwnProperty("_id")) {
         const id = value._id;
-        if (!id.match(`[${_sym}]{16}`)) {
+        if (!id.match(`^[${_sym}]{${_len}}$`)) {
           delete value._id;
           count++;
           console.warn(`  @_ID:${path}/${key}: Invalid id found! Will be randomly created!`);
@@ -69,7 +70,17 @@ function checkIDs(data, path="") {
         count++;
         console.warn(`  @_ID:${path}/${key}: No id found! Will be randomly created!`);
       }
-      // TODO: _ids von Ausbaukraft-Features
+      // TODO: Sonderfall: _ids von Ausbaukraft-Features
+      if (path.match(/ausbau$/)) {
+        const featureKeys = [ "stammeffekt", "geselle", "experte", "meister" ];
+        featureKeys.forEach(fKey => {
+          if ("stammeffekt" === fKey) {
+            count += checkIDs({ "stammeffekt": value.stammeffekt }, `${path}/${key}`);
+          } else {
+            count += checkIDs(value[fKey], `${path}/${key}/${fKey}`);
+          }
+        });
+      }
     }
   }
   return count;

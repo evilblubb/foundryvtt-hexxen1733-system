@@ -41,7 +41,7 @@ function walk(item, key, fn) {
 
 function fixIDs(item) {
   if (item.hasOwnProperty("_id")) {
-    if (! item._id.match(`[${_sym}]{${_len}}`)) {
+    if (! item._id.match(`^[${_sym}]{${_len}}$`)) {
       item._id = generateID();
     }
   }
