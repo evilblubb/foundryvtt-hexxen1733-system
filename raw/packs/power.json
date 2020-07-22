@@ -77,7 +77,7 @@
             "_id": "z7h1shj8NipzqV8M",
             "description": "Als Freizeitaktion kannst du auf Ges + Fw (Handwerken) würfeln und erhältst für jeden Erfolg ein Geschoss, dessen Anleitung du vorher über die entsprechenden Ausbaueffekte gelernt haben musst. Auf dem freien Markt kannst du Geschosse für 5 Gulden pro Stück verkaufen. Um ein Wurfgeschoss zu schleudern, ist ein Fernkampfangriff (2 Ap) mit einer Probe auf Ges + Fw (Schleudern) nötig. Für den Angriff gelten alle Einschränkungen für Schleudern. Willst du das Wurfgeschoss mit bloßen Händen werfen, wird der Fw (Schleudern) ignoriert, aber alle anderen Angriffswerte (Ap-Kosten, Schaden, eventuelle Einschränkungen) der Schleuderwaffe gelten. Ist der Angriff erfolgreich, verursacht er zunächst ganz normal den Grund-  schaden der Schleuder plus weiteren Schaden durch Treffererfolge; danach tritt der Nebeneffekt des Wurfgeschosses ein (beim Brandgeschoss beispielsweise Brandstufen). Die Chemikalien zur Herstellung von Wurfgeschossen sind selten und gefährlich. Um einen steten Vorrat an Chemikalien zu gewährleisten, wird der Unterhalt um 80 Gulden erhöht.",
             "summary": "",
-            "create": "Du erhältst ein transportables Labor als Startausrüstung.",
+            "create": "Du erhältst ein [Transportables Labor] als Startausrüstung.",
             "tags": [
               "Handwerk (Gestik)"
             ],
@@ -154,7 +154,7 @@
             "_id": "TEXZwH5TZ0ngtBLn",
             "description": "Führe als Freizeitaktion eine Probe auf Wis + Fw (Wissensgebiete) durch. Für jeden Erfolg erhältst du ein Elixier aus den gelernten Effekten. Wenn du beispielsweise die Effekte „Elixiere des Geistes“ und „Elixiere der Heilung“ gelernt hast und beim Erschaffungsvorgang 4 Erfolge würfelst, könntest du 2 Heil-Elixiere, 1 Ideen-Elixier und 1 Mut-Elixier herstellen. Um einen ständigen Vorrat teurer Ingredienzen zu sichern, erhöht sich der Unterhalt bei Erwerb des Stammeffekts um 100 Gulden. Alle Elixiere können für je 5 Gulden pro Stück über den freien Markt verkauft werden. Um ein Elixier selbst einzunehmen, musst du 1 Aktionspunkt (Ap) als Reaktion opfern. Willst du einem anderen Charakter ein Elixier einflößen, erfordert das eine Aktion mit 2 Ap. Im Kampf ein Elixier an einen anderen Charakter abzugeben, erfordert ebenso eine Aktion mit 2 Ap. Wichtig: Alle Anwendungen von Elixieren zählen als Magische Heilung (MH), auch wenn sie keinen Heil-Effekt haben. Das führt dazu, dass ein Jäger maximal viermal pro Tag ein Elixier konsumieren kann (der Empfänger streicht jeweils ein MH-Kästchen durch).",
             "summary": "",
-            "create": "Du erhältst ein tragbares Labor als Startausrüstung.",
+            "create": "Du erhältst ein [Tragbares Labor] als Startausrüstung.",
             "tags": [
               "Handwerk (Gestik)"
             ],
@@ -235,7 +235,7 @@
             "_id": "wNSgbAPabXwuP6ir",
             "description": "Der feige, aber effektive Mord ist dein Markenzeichen! Jeder Espritstern, den du bei einer heimtückischen Attacke mit einer beliebigen Nahkampfwaffe würfelst, zählt als Erfolg.",
             "summary": "",
-            "create": "Du erhältst einen Dolch oder eine Fechtwaffe als Startausrüstung.",
+            "create": "Du erhältst einen [Dolch] oder eine [Fechtwaffe] als Startausrüstung.",
             "tags": [
               "Beweglichkeit",
               "Gestik"
@@ -256,7 +256,7 @@
             "_id": "tZNkUhIlEjmekVD6",
             "description": "Dolche sind die Waffen, mit denen sich viele Attentäter am besten auskennen. Sie sind klein und lassen sich daher leicht verstecken, können aber in kundigen Händen genauso tödlich sein wie ein mit Kraft geführter Säbel. Man kann sie auf kurze Distanz werfen, und ihre Klinge lässt sich hervorragend mit Gift präparieren. Würfelst du bei einem Angriff mit einem Dolch 1 oder mehrere Espritsterne, kannst du für 1 Stern die Waffe für den laufenden Angriff kostenlos mit Gift bestreichen (das verbraucht dennoch eine Giftphiole) oder pro Stern 1 Treffererfolg addieren. Du kannst die Effekte auch aufteilen: Für 3 Espritsterne könntest du a) 1 Stern zum Bestreichen mit Gift aufwenden und b) 2 Erfolge addieren. Das gilt auch, wenn du den Dolch wirfst.\nVergiftete Dolche: Solange keine Waffenverbesserungen oder Jägerkräfte zum Einsatz kommen, können nur Waffen der Kategorie „Dolche und Messer“ mit Gift bestrichen werden. Dolche und Messer lassen sich auch werfen.",
             "summary": "",
-            "create": "Du erhältst einen Dolch und fünf Phiolen einfaches Waffengift als Startausrüstung.",
+            "create": "Du erhältst einen [Dolch] und fünf Phiolen [Einfaches Waffengift] als Startausrüstung.",
             "tags": [
               "Gestik"
             ],
@@ -300,7 +300,7 @@
             "_id": "9S67u69pqOVj5ZZr",
             "description": "Du kannst für dich oder deine Gefährten Gifte aller Art herstellen. Führe einmal täglich als Freizeitaktion mit Hilfe eines Labors oder tragbaren Laboratoriums eine Probe Ges + Fw (Fingerfertigkeit) durch. Für jeden Erfolg erhältst du eine Phiole mit einem frei wählbaren Gift, dessen Rezept du beherrschst. (Mehr zum Einsatz von Giften siehe „Gifte und Waffen“). Giftphiolen können auf dem freien Markt für 5 Gulden pro Stück verkauft werden.",
             "summary": "",
-            "create": "Du erhältst ein transportables Laboratorium als Startausrüstung.",
+            "create": "Du erhältst ein [Transportables Laboratorium] als Startausrüstung.",
             "tags": [
               "Handwerk (Gestik)"
             ],
@@ -457,7 +457,7 @@
             "_id": "wSzIITDkDQ4oZ8G4",
             "description": "Für jeden Espritstern, den du bei einer defensiven Reaktion (Schildblock, Ausweichen, Parieren) würfelst, erhältst du sofort (noch vor der Schadensverrechnung) 1 Puffer- Lep (bis zum Maximum von 10 Puffer-Lep). Wie üblich werden alle Puffer-Lep am Ende des Kampfes auf 0 gesetzt.",
             "summary": "",
-            "create": "Du erhältst wahlweise eine mittelschwere Panzerung (Lederkoller) oder eine schwere Panzerung (Kürass) als Startausrüstung.",
+            "create": "Du erhältst wahlweise eine mittelschwere Panzerung ([Lederkoller]) oder eine schwere Panzerung ([Kürass]) als Startausrüstung.",
             "tags": [
               "Gestik"
             ],
@@ -499,7 +499,7 @@
             "_id": "gciebBCkqYNOJBQm",
             "description": "Sobald sich ein Gegner auf einen deiner Mitstreiter zubewegt, um ihn im Nahkampf zu attackieren, darfst du den Gegner stattdessen an dich binden. Ziehe das Gegnerplättchen einfach an dein Plättchen (das geht auch, wenn du fixiert bist). Du kannst diesen Effekt nicht mehr anwenden, wenn 4 oder mehr Bandengegner oder 2 oder mehr Anführergegner an dich gebunden sind (was immer zuerst eintrifft). Beachte, dass einige Effekte aus der Beschützer-Rolle und die Sonderregel der Landsknechtkleidung dieses Maximum erhöhen können. Du kannst Leibgarde nicht gegen Einheiten anwenden, die nicht gebunden werden können, wie z. B. fliegende, riesige oder berittene Gegner.",
             "summary": "",
-            "create": "Du erhältst eine schwere Panzerung (Kürass) sowie einen Schild als Startausrüstung.",
+            "create": "Du erhältst eine schwere Panzerung ([Kürass]) sowie einen [Schild] als Startausrüstung.",
             "tags": [
               "Beweglichkeit"
             ],
@@ -521,7 +521,7 @@
             "_id": "qhZ1rmiOeRHpcC3M",
             "description": "Indem du deine Gegner anschreist und durch Spottrufe oder unflätige Gesten auf dich aufmerksam machst, provozierst du ihre Angriffe. Du kannst die unten beschriebenen Ideeneffekte nutzen (kombinierbar), sobald du sie erlernt hast.",
             "summary": "",
-            "create": "Du erhältst eine mittelschwere Panzerung (Lederkoller) als Startausrüstung.",
+            "create": "Du erhältst eine mittelschwere Panzerung ([Lederkoller]) als Startausrüstung.",
             "tags": [
               "Idee"
             ],
@@ -549,7 +549,10 @@
               "geselle2": {
                 "name": "Pariermeister",
                 "_id": "ajotB8tQ6tTRk0cY",
-                "description": "(Gestik): Du bist in der Lage, Hieb- und Stichwaffen besser zum Parieren einzusetzen. Der Parade-Malus jeder von dir zum Parieren benutzten Waffe verringert sich um 1."
+                "description": "(Gestik): Du bist in der Lage, Hieb- und Stichwaffen besser zum Parieren einzusetzen. Der Parade-Malus jeder von dir zum Parieren benutzten Waffe verringert sich um 1.",
+                "tags": [
+                  "Gestik"
+                ]
               },
               "geselle3": {
                 "name": "Winken",
@@ -737,7 +740,7 @@
             "_id": "9e5DDkwiUlW50hYY",
             "description": "Fechtwaffen, Säbel oder Schwerter im Besitz des Eiferers gelten als gesegnete Waffen, ebenso die eigenen Fäuste.",
             "summary": "",
-            "create": "Du erhältst eine Fechtwaffe, einen Säbel oder ein Schwert als Startausrüstung.",
+            "create": "Du erhältst eine [Fechtwaffe], einen [Säbel] oder ein [Schwert] als Startausrüstung.",
             "tags": [
               "Idee"
             ],
@@ -813,7 +816,7 @@
             "_id": "7y0PWOyLDNBo6TCg",
             "description": "Allein durch deinen festen Willen, deine Überzeugung oder deinen Glauben fühlst du dich gegen jegliche Unbill gewappnet. Du kannst die unten beschriebenen Coupeffekte nutzen (kombinierbar), sobald du sie erlernt hast.",
             "summary": "",
-            "create": "Du erhältst eine schwere Panzerung (Kürass).",
+            "create": "Du erhältst eine schwere Panzerung ([Kürass]).",
             "tags": [
               "Coup"
             ],
@@ -893,7 +896,7 @@
             "_id": "nbBwHY78bWnTzXMl",
             "description": "Du bist es gewohnt, Fechtduelle nach den Regeln der gehobenen Gesellschaft auszutragen. Duellant ist nur dann wirksam, wenn exakt ein maximal menschengroßer Gegner an dich gebunden ist und sonst kein weiterer Verbündeter an den Gegner gebunden ist. Attackierst du diesen Gegner mit einem Dolch, einer Fechtwaffe, einer Pistole, einem Säbel oder einem Schwert, zählen alle beim Angriffswurf erzielten Espritsterne als Erfolge.",
             "summary": "",
-            "create": "Du erhältst einen Dolch, eine Fechtwaffe oder eine Pistole als Startausrüstung.",
+            "create": "Du erhältst einen [Dolch], eine [Fechtwaffe] oder eine [Pistole] als Startausrüstung.",
             "tags": [
               "Beweglichkeit"
             ],
@@ -912,6 +915,7 @@
             "name": "Voll Bewaffnet",
             "_id": "4w2insvLSqWTM5QJ",
             "description": "Diese Kraft wird erst beim dritten Angriff in einer Kampfrunde wirksam. Zudem musst du in dieser Kampfrunde mit mindestens zwei verschiedenen Waffen aus unterschiedlichen Kategorien attackiert haben. Für jeden Espritstern, den du bei deinem dritten Angriff würfelst, erhältst du 1 Coup oder 1 Idee (auch über das Maximum). Solltest du in der Lage sein, einen vierten Angriff (auch außerhalb der Reihe) auszuführen, gilt der Effekt auch bei diesem vierten Angriff. Am Ende des Konflikts werden die Coups/Ideen entsprechend des Grundwerts zurückgesetzt. Beispiel: Maria Hexenfluch attackiert in ihrer Ini-Phase zweimal mit einem Degen, als Drittes mit einer Schlagwaffe. Sie hat nun Angriffe aus zwei verschiedenen Waffenkategorien ausgeführt und damit die Voraussetzung erfüllt. Für alle Espritsterne, die sie bei ihrem Angriff mit der Schlagwaffe würfelt, erhält sie wahlweise 1 Coup oder 1 Idee.",
+            "@todo": "Mögliche Startausrüstung auflisten?",
             "summary": "",
             "create": "Du erhältst zwei beliebige Waffen, die jeweils maximal 2 Ap zur Benutzung erfordern, als Startausrüstung.",
             "tags": [
@@ -957,7 +961,7 @@
             "_id": "CUKpYITxfaSuLDhg",
             "description": "Du hattest das Privileg, von einem Meister seines Fachs in der Kunst des Fechtkampfes ausgebildet worden zu sein, und beherrschst die wichtigsten Kampfmanöver des Fechtkampfes. Du kannst die unten beschriebenen Coupeffekte nutzen (kombinierbar), sobald du sie erlernt hast.",
             "summary": "",
-            "create": "Du erhältst eine Fechtwaffe als Startausrüstung.",
+            "create": "Du erhältst eine [Fechtwaffe] als Startausrüstung.",
             "tags": [
               "Coup"
             ],
@@ -1033,7 +1037,7 @@
             "_id": "AgT3aqqHK0Ub5myK",
             "description": "Du bist besonders gut im Umgang mit Säbeln und Schwertern. Das ermöglicht es dir, tiefe Wunden zu verursachen und gegnerische Angriffe besser zu parieren. Du kannst die unten beschriebenen Coupeffekte nutzen (kombinierbar), sobald du sie erlernt hast.",
             "summary": "",
-            "create": "Du erhältst einen Säbel oder ein Schwert als Startausrüstung.",
+            "create": "Du erhältst einen [Säbel] oder ein [Schwert] als Startausrüstung.",
             "tags": [
               "Coup"
             ],
@@ -1113,7 +1117,7 @@
             "_id": "Zlz3VYfh0rEbrREC",
             "description": "Jeder Espritstern, den du beim Angriff mit einer Schusswaffe (Armbrust, Muskete, Pistole) würfelst, zählt als Erfolg.",
             "summary": "",
-            "create": "Du erhältst eine Muskete oder eine Pistole als Startausrüstung.",
+            "create": "Du erhältst eine [Muskete] oder eine [Pistole] als Startausrüstung.",
             "tags": [
               "Gestik",
               "Sicht"
@@ -1157,7 +1161,7 @@
             "_id": "56kheI459wBZxLop",
             "description": "Du bist in der Lage, mächtiges Schießpulver für alle gängigen Feuerwaffen herzustellen. Führe einmal pro Tag als Freizeitaktion in einem Labor oder mit Hilfe eines transportablen Laboratoriums eine Probe Ges + Fw (Handwerken) durch. Du erhältst für jeden Erfolg 1 Einheit mächtiges Schießpulver, das du auch an deine Gefährten weitergeben kannst. Vor jedem Schuss mit einer Pistole oder einer Muskete kann ein Schütze bestimmen, ob er mächtiges Schießpulver nutzen möchte (verbraucht eine Einheit, kostet keine zusätzlichen Ap). In diesem Fall würfelt er beim Angriffswurf einen Blutwürfel mit. Die Zahl der Blutstropfensymbole wird zum Schaden des Angriffs addiert. Mit mächtigem Schießpulver können auch Explosionen ausgelöst werden, wenn beispielsweise das Schloss an einer Schatulle gesprengt werden soll (verbraucht 1 Einheit) oder eine Holztür (verbraucht 5 Einheiten). Zum Herstellen von mächtigem Schießpulver benötigst du einen steten Vorrat an Chemikalien, was deinen Unterhalt um 50 Gulden erhöht.",
             "summary": "",
-            "create": "Du erhältst ein transportables Laboratorium als Startausrüstung.",
+            "create": "Du erhältst ein [Transportables Laboratorium] als Startausrüstung.",
             "tags": [
               "Handwerk (Gestik)"
             ],
@@ -1180,7 +1184,7 @@
             "_id": "bOkNcSpIHVh9ugxs",
             "description": "Du bist geübt im Umgang mit der Muskete, entweder durch lange Kampfpraxis gegen die Kreaturen der Nacht oder weil du bei einem Musketier- Kommando deine Künste gelernt hast. Du kannst die unten beschriebenen Ideeneffekte nutzen (kombinierbar), sobald du sie erlernt hast.",
             "summary": "",
-            "create": "Du erhältst eine Muskete als Startausrüstung.",
+            "create": "Du erhältst eine [Muskete] als Startausrüstung.",
             "tags": [
               "Idee"
             ],
@@ -1256,7 +1260,7 @@
             "_id": "b0oEQfPqZTb0ke5t",
             "description": "Du bist gut darin, Pistolen einzusetzen. Du kannst die unten beschriebenen Ideeneffekte nutzen (kombinierbar), sobald du sie erlernt hast.",
             "summary": "",
-            "create": "Du erhältst eine Pistole als Startausrüstung.",
+            "create": "Du erhältst eine [Pistole] als Startausrüstung.",
             "tags": [
               "Idee"
             ],
@@ -1336,7 +1340,7 @@
             "_id": "IwmEkcvRP85ZsqKB",
             "description": "Bei Geistesstärke-Proben zählt jeder gewürfelte Espritstern als Erfolg.",
             "summary": "",
-            "create": "Du erhältst ein Schutzamulett, dessen Wirkung unabhängig von dieser Jägerkraft ist.",
+            "create": "Du erhältst ein [Schutzamulett], dessen Wirkung unabhängig von dieser Jägerkraft ist.",
             "references": [
               {
                 "source": "Wiki",
@@ -1405,7 +1409,7 @@
             "_id": "4mST4dGJLlJ8Pkwh",
             "description": "Du hast gelernt, dein ganzes Streben nach Gerechtigkeit, Rache oder Vergeltung in eine Art innere Kraft umzuwandeln. Diese Ambition kann dich zu höheren Taten antreiben.",
             "summary": "",
-            "create": "Wähle eine Fechtwaffe, ein Schwert, einen Säbel oder eine Schlagwaffe als Startausrüstung.",
+            "create": "Wähle eine [Fechtwaffe], ein [Schwert], einen [Säbel] oder eine [Schlagwaffe] als Startausrüstung.",
             "tags": [
               "Ambition"
             ],
@@ -1522,7 +1526,7 @@
             "_id": "layCevBj1l6YJK4v",
             "description": "Kräuterwissen erlaubt es dir, mithilfe einer Kochstelle verschiedene Kräutermittel herzustellen. Führe dazu im Rahmen einer Fza eine Probe auf Wis + Fw (Hexenkunst) aus. Für jeden Erfolg erhältst du ein Kräutermittel, dessen Rezept du kennst. Um dir einen ständigen Vorrat an Rohstoffen zu sichern, erhöht sich der Unterhalt bei Erwerb des Stammeffekts um 80 Gulden. Jedes Kräutermittel kann auf dem Markt für 5 Gulden verkauft werden.",
             "summary": "",
-            "create": "Du erhältst eine Kochstelle, sowie ein Messer bzw. einen Dolch als Startausrüstung.",
+            "create": "Du erhältst eine [Kochstelle], sowie ein [Messer] bzw. einen [Dolch] als Startausrüstung.",
             "tags": [
               "Handwerk (Gestik)"
             ],
@@ -1599,7 +1603,7 @@
             "_id": "iRfIckTIpgZIizuy",
             "description": "Für die Rituale benötigst du einen Vorrat an Ingredienzen, dein Unterhalt steigt um 15 Gulden.",
             "summary": "",
-            "create": "Du erhältst einen Dolch oder ein Messer.",
+            "create": "Du erhältst einen [Dolch] oder ein [Messer].",
             "tags": [
               "Rage"
             ],
@@ -1777,7 +1781,7 @@
             "_id": "MIQNzJTb15gyoNoE",
             "description": "Du kannst 5 Kp in kleine, praktische Erfindungen oder Helfer umtauschen. Definiere für den praktischen Helfer eine Fertigkeit (ausgenommen Waffenfertigkeiten, Ausweichen oder Schildbenutzung). Der Helfer verleiht dir (oder einem Mitglied deiner Gruppe) bei Benutzung der Fertigkeit einen Bonus von +1. Um einen praktischen Helfer anwenden zu können, muss er vorher aufgeladen werden, wobei jeder Helfer maximal 3 Ladungen aufweisen kann. Jede Ladung kostet dich 1 Kp. Das Aufladen erfordert nur wenig Zeit (keine Freizeitaktion), kann aber nicht während des Kampfes erfolgen. Du kannst nur Helfer laden, die du selbst gebaut hast. Du kannst den Helfer für 10 Kp auf Stufe 2 ausbauen, was dir einen Bonus von insgesamt +2 gewährt, und danach für 20 Kp auf Stufe 3 ausbauen, was dir einen Bonus von insgesamt +3 gewährt. Die genaue Gestalt und Funktionsweise eines Helfers bleibt dir überlassen. Praktische Helfer können nicht mit Mechanikum-Apparaten kombiniert werden, die ebenfalls einen Bonus auf die ausgewählte Fertigkeit geben. Praktische Helfer kosten keinen Unterhalt, stattdessen verbrauchen sie, wie oben beschrieben, Kp.",
             "summary": "",
-            "create": "Du startest mit einem voll geladenen praktischen Helfer (3 Ladungen) mit beliebiger Funktion auf Stufe 1.",
+            "create": "Du startest mit einem voll geladenen [Praktischer Helfer] (3 Ladungen) mit beliebiger Funktion auf Stufe 1.",
             "tags": [
               "Handwerk (Erlaubt das Sammeln von Kp)"
             ],
@@ -1818,7 +1822,7 @@
             "_id": "3fRdNiomfBgSOik5",
             "description": "Die maximale Anzahl an eingebauten Apparaten entspricht dem Fw (Handwerken) +2, d. h. bei einem Fw von 3 können 5 Apparate eingebaut sein. Diese Anzahl kann zusätzlich durch Ausbaueffekte (siehe unten) erhöht werden. Jeder Apparat darf nur einmal in einem Mechanikum eingebaut sein, aber mit der Zeit kann man Apparate verbessern. Jeder neu eingebaute Apparat startet auf Ausbaustufe 1 und kann bis Ausbaustufe 3 verbessert werden. Für jeden eingebauten Apparat erhöht sich der Unterhalt um 15 Gulden (unabhängig von der Ausbaustufe). Der Einbau eines Apparats erfordert Konstruktionspunkte (siehe Seite 138): Für den Ersteinbau auf Stufe 1 sind stets 12 Kp nötig, die Verbesserung von Stufe 1 auf Stufe 2 kostet weitere 12 Kp, die von Stufe 2 auf 3 nochmals 12 Kp. Vorhandene Apparate können als Freizeitaktion ohne Probe und zusätzliche Kp-Kosten ausgebaut und durch andere ersetzt werden.",
             "summary": "",
-            "create": "Als Startkraft: Du erhältst eine Werkzeugkiste als Startausrüstung. Du startest automatisch mit einem fertigen Grundgerüst (siehe unten) sowie einem Apparat pro Fw-Punkt (Handwerken), jeweils auf Ausbaustufe 1. Du darfst nur Apparate auswählen, die du laut der von dir erlernten Ausbaueffekte herstellen kannst, und es darf sich nicht um Seelenlicht-Apparate handeln.",
+            "create": "Als Startkraft: Du erhältst eine [Werkzeugkiste] als Startausrüstung. Du startest automatisch mit einem fertigen [Grundgerüst] (siehe unten) sowie einem [Apparat] pro [Fw-Punkt (Handwerken)], jeweils auf Ausbaustufe 1. Du darfst nur Apparate auswählen, die du laut der von dir erlernten Ausbaueffekte herstellen kannst, und es darf sich nicht um Seelenlicht-Apparate handeln.",
             "tags": [
               "Handwerk (Erlaubt das Sammeln von Kp)"
             ],
@@ -1898,7 +1902,7 @@
             "_id": "gCAlr3RL7WSoB6Cz",
             "description": "Weil du einen Vorrat an hochwertigen Bauteilen und Bauplänen benötigst und dich permanent weiterbilden musst, erhöht diese Kraft deinen Unterhalt um 20 Gulden. Um ein Unikat herzustellen, benötigst du zunächst eine normale Panzerung oder Waffe. Für diese wählst du dann eine Unikat-Wirkung aus, für die du den dazugehörigen Ausbaueffekt erlernt hast und opferst die in der Unikat-Liste angegebenen Kp. Um das Unikat entsprechend zu würdigen, solltest du dir einen besonderen Namen dafür ausdenken. Unikat-Waffen und -Panzerungen erhöhen den Unterhalt. Dieser Unterhalt muss von dem jeweiligen Besitzer des Unikats bezahlt werden.",
             "summary": "",
-            "create": "Du erhältst eine Werkzeugkiste als Startausrüstung und darfst eine Startpanzerung bzw. Startwaffe als Unikat mit einer Unikat-Wirkung für maximal 20 Kp definieren. Du musst über den zur Unikat-Wirkung gehörenden Ausbaueffekt verfügen.",
+            "create": "Du erhältst eine [Werkzeugkiste] als Startausrüstung und darfst eine [Startpanzerung] bzw. [Startwaffe] als [Unikat] mit einer Unikat-Wirkung für maximal 20 Kp definieren. Du musst über den zur Unikat-Wirkung gehörenden Ausbaueffekt verfügen.",
             "tags": [
               "Handwerk (Erlaubt das Sammeln von Kp)"
             ],
@@ -2041,7 +2045,7 @@
             "_id": "j3ydf4uOq1Gr3B7T",
             "description": "Tunnelkampf beschreibt den Kampf in beengter, meist dunkler Umgebung, also typischerweise in Höhlen, Stollen und engen Gängen. Dabei kommen nur Nahkampfwaffen zur Anwendung.",
             "summary": "",
-            "create": "Du erhältst eine Schlagwaffe als Startausrüstung.",
+            "create": "Du erhältst eine [Schlagwaffe] als Startausrüstung.",
             "tags": [
               "Beweglichkeit",
               "Coup",
@@ -2119,7 +2123,7 @@
             "_id": "W7g3RN86mPyqOkj1",
             "description": "Diese Ausbaukraft beschreibt Kampftechniken, die dir beim Kampf in der Wildnis helfen. Die meisten Effekte dieser Kraft beziehen sich auf den Fernkampf und thematisieren die Jagd mit einfachen Waffen wie Bögen oder Armbrüsten.",
             "summary": "",
-            "create": "Du erhältst eine Armbrust als Startausrüstung.",
+            "create": "Du erhältst eine [Armbrust] als Startausrüstung.",
             "tags": [
               "Beweglichkeit",
               "Gestik",
@@ -2222,7 +2226,7 @@
             "_id": "6W45oNUJbPLXLV9L",
             "description": "Sobald du mit einer Schlagwaffe oder einer Stangenwaffe attackierst, zählen alle gewürfelten Espritsterne als Erfolg.",
             "summary": "",
-            "create": "Du erhältst wahlweise eine Schlagwaffe oder eine Stangenwaffe als Startausrüstung.",
+            "create": "Du erhältst wahlweise eine [Schlagwaffe] oder eine [Stangenwaffe] als Startausrüstung.",
             "tags": [
               "Gestik"
             ],
@@ -2265,7 +2269,7 @@
             "_id": "w1rXn9ygwmgmnjXh",
             "description": "Wenn es darum geht, mit schweren Nahkampfwaffen wie z. B. Äxten, Flegelwaffen und Kriegshämmern umzugehen, kann dir kaum jemand das Wasser reichen. Du kannst die unten beschriebenen Coupeffekte nutzen (kombinierbar), sobald du sie erlernt hast.",
             "summary": "",
-            "create": "Du erhältst eine Schlagwaffe als Startausrüstung.",
+            "create": "Du erhältst eine [Schlagwaffe] als Startausrüstung.",
             "tags": [
               "Coup"
             ],
@@ -2341,7 +2345,7 @@
             "_id": "LOSL2pFmcUyIrIs1",
             "description": "Du bist im Umgang mit der Stangenwaffe geübt und kannst die unten beschriebenen Coupeffekte nutzen (kombinierbar), sobald du sie erlernt hast.",
             "summary": "",
-            "create": "Du erhältst eine Stangenwaffe als Startausrüstung.",
+            "create": "Du erhältst eine [Stangenwaffe] als Startausrüstung.",
             "tags": [
               "Coup"
             ],

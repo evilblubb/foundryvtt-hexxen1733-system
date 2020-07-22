@@ -43,7 +43,7 @@ function checkData(type, data, path, checks) {
   checks.sources = (checks.sources || 0) + checkSources(data, path);
   checks.todo = (checks.todo || 0) + checkTodo(data, path);
   checks.refs = (checks.refs || 0) + checkRefs(data, path);
-  // TODO: tags
+  checks.tags = (checks.tags || 0) + checkTags(data, path);
   // TODO: weitere Prüfungen auf Vollständigkeit
 }
 
@@ -118,11 +118,11 @@ function checkTodo(data, path="") {
   if (data.hasOwnProperty("@todo")) {
     count++;
     console.info(`  @TODO\:${path}: ${data["@todo"]}`);
-  };
+  }
   for (const key in data) {
     if ("@todo" !== key && data.hasOwnProperty(key)) {
       const value = data[key];
-      if (value instanceof Object) {
+      if (typeof(value) === "object") {
         count += checkTodo(value, `${path}/${key}`);
       }
     }
@@ -135,7 +135,7 @@ function checkRefs(data, path="") {
   for (const key in data) {
     if (data.hasOwnProperty(key)) {
       const value = data[key];
-      if (value instanceof Object) {
+      if (typeof(value) === "object") {
         count += checkRefs(value, `${path}/${key}`);
       } else if (typeof(value) === "string") {
         count += _findRefs(value, `${path}/${key}`);
@@ -158,6 +158,32 @@ function _findRefs(data, path="") {
     return matches.length;
   }
   return 0;
+}
+
+function checkTags(data, path="") {
+  let count = 0;
+  for (const key in data) {
+    if (data.hasOwnProperty(key)) {
+      const value = data[key];
+      if (value.hasOwnProperty("tags")) {
+        count++;
+        console.info(`  @TAG\:${path}/${key}: ${value.tags}`);
+      }
+
+      // TODO: Sonderfall: Ausbaukraft-Features
+      if (path.match(/ausbau$/)) {
+        const featureKeys = [ "stammeffekt", "geselle", "experte", "meister" ];
+        featureKeys.forEach(fKey => {
+          if ("stammeffekt" === fKey) {
+            count += checkTags({ "stammeffekt": value.stammeffekt }, `${path}/${key}`);
+          } else {
+            count += checkTags(value[fKey], `${path}/${key}/${fKey}`);
+          }
+        });
+      }
+    }
+  }
+  return count;
 }
 
 function convertItem(key, type, item) {
@@ -400,6 +426,12 @@ for (const key in output) {
       }
       if (todo) {
         console.info(`  ${todo} TODOs pending!`);
+      }
+      if (refs) {
+        console.info(`  ${refs} unmatched item refs found!`);
+      }
+      if (tags) {
+        console.info(`  ${tags} unmatched tags!`);
       }
     }
   }
