@@ -1,9 +1,10 @@
 const fs = require('fs');
 
 const vttSystemName = "hexxen-1733";
+const _sym = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+const _len = 16;
 const generatedIDs = [];
-function generateID(count, k) {
-  const _sym = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+function generateID(count = _len) {
   let str;
 
   do {
@@ -18,17 +19,46 @@ function generateID(count, k) {
   return str;
 }
 
+function walk(type, data, path, regEx, checkFn, checks) {
+  if (data["@target"]) {
+    regEx = data["@target"];
+  }
+  new Map(Object.entries(data)).forEach((value, key) => {
+    if ("@target" === key) {
+      // ignore
+    } else if (key.match(regEx)) {
+      checkFn(type, value, `${path}/${key}`, checks);
+    }
+    else if (typeof(value) === "object") {
+      walk(type, value, `${path}/${key}`, regEx, checkFn, checks);
+    }
+    else {
+      console.error(`  @@:${path}/${key}: No target key found!`);
+    }
+  });
+}
+
+function checkData(type, data, path, checks) {
+  checks.ids = (checks.ids || 0) + checkIDs(data, path);
+  checks.sources = (checks.sources || 0) + checkSources(data, path);
+  checks.todo = (checks.todo || 0) + checkTodo(data, path);
+  checks.refs = (checks.refs || 0) + checkRefs(data, path);
+  // TODO: weitere Prüfungen auf Vollständigkeit
+}
+
 function checkIDs(data, path="") {
   let count = 0;
-
-  // TODO: Sonderfallbehandlung "powers": 2 Hauptkategorien
 
   for (const key in data) {
     if (data.hasOwnProperty(key)) {
       const value = data[key];
       if (value.hasOwnProperty("_id")) {
         const id = value._id;
-        if (generatedIDs.includes(id)){
+        if (!id.match(`[${_sym}]{16}`)) {
+          delete value._id;
+          count++;
+          console.warn(`  @_ID:${path}/${key}: Invalid id found! Will be randomly created!`);
+        } else if (generatedIDs.includes(id)){
           delete value._id;
           count++;
           console.warn(`  @_ID:${path}/${key}: Duplicate id found! Will be randomly created!`);
@@ -39,6 +69,7 @@ function checkIDs(data, path="") {
         count++;
         console.warn(`  @_ID:${path}/${key}: No id found! Will be randomly created!`);
       }
+      // TODO: _ids von Ausbaukraft-Features
     }
   }
   return count;
@@ -46,8 +77,6 @@ function checkIDs(data, path="") {
 
 function checkSources(data, path="") {
   let count = 0;
-
-  // TODO: Sonderfallbehandlung "powers": 2 Hauptkategorien
 
   for (const key in data) {
     if (data.hasOwnProperty(key)) {
@@ -221,13 +250,13 @@ function getPowers(type, role) {
  ********************/
 const filesIn = {
   "motivation": "motivation.json",
-  "power": "skills.json",
+  "power": "power.json",
   "role": "role.json",
   "profession": "profession.json"
 };
 const filesOut = {
   "motivation": "motivation.db",
-  // "power": "skills.db",
+  "power": null, //"skills.db",
   "role": "role.db",
   "profession": "profession.db"
 };
@@ -271,11 +300,13 @@ for (const key in input) {
     const checks = {};
 
     console.log(`Validating ${type} ...`);
-    checks.ids = checkIDs(data, file);
-    checks.sources = checkSources(data, file);
-    checks.todo = checkTodo(data, file);
-    checks.refs = checkRefs(data, file);
-    // TODO: weitere Prüfungen auf Vollständigkeit
+    // handle files with global structure elements
+    if (data["@target"]) {
+      walk(type, data, file, null, checkData, checks);
+    }
+    else {
+      checkData(type, data, file, checks);
+    }
 
     input[type].checks = checks;
     // TODO: Abbruch entscheiden
@@ -314,16 +345,19 @@ for (const key in input) {
   }
 }
 
-// return 0;
-
 // create db files
+const dryRun = true;
+if (dryRun) {
+  console.warn("DryRun, no DB creation.")
+}
+
 for (const key in output) {
   if (input.hasOwnProperty(key)) {
     const type = key;
     const file = filesOut[type] || null;
     const data = output[type].content;
 
-    if (file) {
+    if (!dryRun && file) {
       console.log(`Creating ${file} ...`);
       let fd;
       try {
@@ -343,8 +377,7 @@ for (const key in output) {
       console.log(`  ${data.length} entries created.`);
     }
     else {
-      console.log(`Skipping ${file}.`);
-      continue;
+      console.warn(`Skipping ${file}.`);
     }
 
     with (output[type].checks) {
