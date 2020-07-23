@@ -150,7 +150,7 @@
             }
           },
           "ausbau2": {
-            "name": "Elexiere herstellen",
+            "name": "Elixiere herstellen",
             "_id": "TEXZwH5TZ0ngtBLn",
             "description": "Führe als Freizeitaktion eine Probe auf Wis + Fw (Wissensgebiete) durch. Für jeden Erfolg erhältst du ein Elixier aus den gelernten Effekten. Wenn du beispielsweise die Effekte „Elixiere des Geistes“ und „Elixiere der Heilung“ gelernt hast und beim Erschaffungsvorgang 4 Erfolge würfelst, könntest du 2 Heil-Elixiere, 1 Ideen-Elixier und 1 Mut-Elixier herstellen. Um einen ständigen Vorrat teurer Ingredienzen zu sichern, erhöht sich der Unterhalt bei Erwerb des Stammeffekts um 100 Gulden. Alle Elixiere können für je 5 Gulden pro Stück über den freien Markt verkauft werden. Um ein Elixier selbst einzunehmen, musst du 1 Aktionspunkt (Ap) als Reaktion opfern. Willst du einem anderen Charakter ein Elixier einflößen, erfordert das eine Aktion mit 2 Ap. Im Kampf ein Elixier an einen anderen Charakter abzugeben, erfordert ebenso eine Aktion mit 2 Ap. Wichtig: Alle Anwendungen von Elixieren zählen als Magische Heilung (MH), auch wenn sie keinen Heil-Effekt haben. Das führt dazu, dass ein Jäger maximal viermal pro Tag ein Elixier konsumieren kann (der Empfänger streicht jeweils ein MH-Kästchen durch).",
             "summary": "",
