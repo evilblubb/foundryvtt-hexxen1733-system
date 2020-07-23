@@ -1,9 +1,32 @@
 const fs = require('fs');
 
 const vttSystemName = "hexxen-1733";
+const HEXXEN_JAEGER_ICON = `systems/${vttSystemName}/img/Siegel-Rabe-small.png`;
+const HEXXEN_EXPRIT_ICON = `systems/${vttSystemName}/img/Siegel-Esprit-small.png`;
+const HEXXEN_AUSBAU_ICON = `systems/${vttSystemName}/img/Siegel-Ausbaukraft-small.png`;;
+const HEXXEN_DEFAULT_ICON = HEXXEN_JAEGER_ICON;
+const input = {};
+const output = {};
+
+const filesIn = {
+  "motivation": "motivation.json",
+  "power": "power.json",
+  "role": "role.json",
+  "profession": "profession.json"
+};
+const filesOut = {
+  "motivation": "motivation.db",
+  "power": "power.db",
+  "role": "role.db",
+  "profession": "profession.db"
+};
+
+let error = false;
+
 const _sym = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
 const _len = 16;
 const generatedIDs = [];
+
 function generateID(count = _len) {
   let str;
 
@@ -19,7 +42,7 @@ function generateID(count = _len) {
   return str;
 }
 
-function walk(type, data, path, regEx, checkFn, checks) {
+function walk(type, data, path, regEx, checkFn, extras) {
   if (data["@target"]) {
     regEx = data["@target"];
   }
@@ -27,10 +50,10 @@ function walk(type, data, path, regEx, checkFn, checks) {
     if ("@target" === key) {
       // ignore
     } else if (key.match(regEx)) {
-      checkFn(type, value, `${path}/${key}`, checks);
+      checkFn(type, value, `${path}/${key}`, extras);
     }
     else if (typeof(value) === "object") {
-      walk(type, value, `${path}/${key}`, regEx, checkFn, checks);
+      walk(type, value, `${path}/${key}`, regEx, checkFn, extras);
     }
     else {
       console.error(`  @@:${path}/${key}: No target key found!`);
@@ -38,12 +61,12 @@ function walk(type, data, path, regEx, checkFn, checks) {
   });
 }
 
-function checkData(type, data, path, checks) {
-  checks.ids = (checks.ids || 0) + checkIDs(data, path);
-  checks.sources = (checks.sources || 0) + checkSources(data, path);
-  checks.todo = (checks.todo || 0) + checkTodo(data, path);
-  checks.refs = (checks.refs || 0) + checkRefs(data, path);
-  checks.tags = (checks.tags || 0) + checkTags(data, path);
+function checkItem(type, item, path, checks) {
+  checks.ids = (checks.ids || 0) + checkIDs(item, path);
+  checks.sources = (checks.sources || 0) + checkSources(item, path);
+  checks.todo = (checks.todo || 0) + checkTodo(item, path);
+  checks.refs = (checks.refs || 0) + checkRefs(item, path);
+  checks.tags = (checks.tags || 0) + checkTags(item, path);
   // TODO: weitere Prüfungen auf Vollständigkeit
 }
 
@@ -70,7 +93,7 @@ function checkIDs(data, path="") {
         count++;
         console.warn(`  @_ID:${path}/${key}: No id found! Will be randomly created!`);
       }
-      // TODO: Sonderfall: _ids von Ausbaukraft-Features
+      // Sonderfall: _ids von Ausbaukraft-Features
       if (path.match(/ausbau$/)) {
         const featureKeys = [ "stammeffekt", "geselle", "experte", "meister" ];
         featureKeys.forEach(fKey => {
@@ -170,7 +193,7 @@ function checkTags(data, path="") {
         console.info(`  @TAG\:${path}/${key}: ${value.tags}`);
       }
 
-      // TODO: Sonderfall: Ausbaukraft-Features
+      // Sonderfall: Ausbaukraft-Features
       if (path.match(/ausbau$/)) {
         const featureKeys = [ "stammeffekt", "geselle", "experte", "meister" ];
         featureKeys.forEach(fKey => {
@@ -186,29 +209,8 @@ function checkTags(data, path="") {
   return count;
 }
 
-function convertItem(key, type, item) {
-  const out = {};
-  out._id = item._id || generateID(16);
-  out.name = item.name;
-  out.permission = { "default": 0 };
-  out.type = type;
-  out.data = {};
-  out.data.references = item.references || [];
-  out.data.description = _convertMultilineText(item.description) || "";
-  out.data.summary = _convertMultilineText(item.summary) || "";
-  out.flags = {};
-  out.img = `systems/${vttSystemName}/img/Siegel-Rabe-small.png`;
-
-  if ("role" === type) {
-    _convertRoleItem(key, type, item, out);
-  } else if ("profession" === type) {
-    _convertProfessionItem(key, type, item, out);
-  }
-
-  return out;
-}
-
 function _convertMultilineText(text) {
+  if (!text || typeof(text) !== "string") return text;
   const lines = text.split('\n');
   if (lines.length > 0) {
     text = lines.reduce((out, line) => {
@@ -238,41 +240,124 @@ function _replaceRef(ref) {
   }
 }
 
-function _convertRoleItem(key, type, item, out) {
-  out.data.create = _convertRefs(item.create || ""); // no multi-paragraph support for now
-  out.data.powers = getPowers(type, key);
+function convertList(type, data, path, content) {
+  for (const key in data) {
+    if (data.hasOwnProperty(key)) {
+      const item = data[key];
+      console.log(`  Converting ${item.name} ...`);
+      const out = convertItem(type, item, key, path);
+      content.push(...out);
+    }
+  }
 }
 
-function _convertProfessionItem(key, type, item, out) {
-  out.data.powers = getPowers(type, key);
+function convertItem(type, item, key, path) {
+  const out = {};
+  let extras = undefined; // in case item produces more than one db item
+  out._id = item._id || generateID(16);
+  out.name = item.name;
+  out.permission = { "default": 0 };
+  out.type = type;
+  out.data = {};
+  out.data.references = item.references || [];
+  out.data.description = _convertMultilineText(item.description) || ""; // TODO: Refs konvertieren
+  out.data.summary = _convertMultilineText(item.summary) || ""; // TODO: Refs konvertieren
+  if (item.create) out.data.create = _convertRefs(item.create); // no multi-paragraph support for now
+  if (item.upkeep) out.data.upkeep = item.upkeep;
+
+  if ("power" === type) {
+    extras = _convertPowerItem(type, item, key, path, out);
+  } else if ("role" === type) {
+    _convertRoleItem(type, item, key, path, out);
+  } else if ("profession" === type) {
+    _convertProfessionItem(type, item, key, path, out);
+  }
+
+  if (item.tags) out.data.tags = item.tags;
+  out.flags = {};
+  out.flags[vttSystemName] = { compendium: { id: out._id, name: out.name }};
+  out.img = item.img || out.img || HEXXEN_DEFAULT_ICON;
+  return extras ? [ out, ...extras ] : [ out ];
 }
 
-function getPowers(type, role) {
-  const powers = input.power.content;
+function _convertPowerItem(type, item, key, path, out) {
+  const pathArray = path.split('/');
+
+  let extras = undefined;
+  const subtype = pathArray[3]; // jaeger/esprit/ausbau
+  const originType = pathArray[1];
+  const o = input[originType].content || input[originType]; // Liste der Rollen/Professionen
+  const originName = o[pathArray[2]].name; // Name der Rolle/Profession
+
+  // modify icon
+  out.img = "jaeger" === subtype ? HEXXEN_JAEGER_ICON :
+            "esprit" === subtype ? HEXXEN_EXPRIT_ICON :
+            "ausbau" === subtype ? HEXXEN_AUSBAU_ICON : HEXXEN_DEFAULT_ICON;
+
+  // modify compendium name (add role)
+  out.data.name = out.name;
+  out.name = `${out.name} (${originName})`;
+  out.data.type = subtype;
+  out.data.origin = {type: originType, name: originName};
+
+  // Ausbaufeatures
+  // avoid infinite loop
+  if ("ausbau" === pathArray[pathArray.length-1]) {
+    extras = [];
+
+    // stammeffekt/geselle/experte/meister
+    const featureKeys = [ "stammeffekt", "geselle", "experte", "meister" ];
+    featureKeys.forEach(fKey => {
+      new Map(Object.entries("stammeffekt" === fKey ? { stammeffekt: item[fKey] } : item[fKey])).forEach((value, lKey) => {
+        const extra = convertItem("power", value, lKey, `${path}/${key}/${fKey}`)[0];
+        if (extra) {
+          extra.img = HEXXEN_AUSBAU_ICON;
+          extra.data.subtype = fKey; // stammeffekt/geselle/experte/meister
+          extra.data.references = item.references;
+          extra.data.origin.power = out.data.name; // Name der Ausbaukraft
+          extra.data.origin.powerC = out.name; // Name der Ausbaukraft (Kompendium)
+          extra.data.origin.powerId = out._id; // ID der Ausbaukraft (Kompendium)
+
+          extras.push(extra);
+        }
+      });
+    });
+  }
+
+  return extras;
+}
+
+function _convertRoleItem(type, item, key, path, out) {
+  out.data.powers = _getPowers(type, key, path);
+}
+
+function _convertProfessionItem(type, item, key, path, out) {
+  out.data.powers = _getPowers(type, key, path);
+}
+
+function _getPowers(type, role) {
   const out = [];
+  const powers = input.power.content;
   const set = powers[type][role];
   if (! set) {
     console.error(`  Jägerkräfte für Rolle ${role} nicht gefunden!`);
     return [];
   }
+  const o = input[type].content || input[type]; // Liste der Rollen/Professionen
+  const originName = o[role].name; // Name der Rolle/Profession
+
   new Map(Object.entries(set)).forEach((value, key) => {
     new Map(Object.entries(value)).forEach(value => {
-      const power = { name: value.name, type: key };
-      if ("aufbau" === key) {
-        power.type = "ausbau"; // TODO: Fix für skills.json
+      const power = { name: value.name, nameC: `${value.name} (${originName})`, id: value._id, type: key };
+      if ("ausbau" === key) {
+        power.type = "ausbau";
         power.features = [];
         const stammeffekt = value.stammeffekt;
         power.features.push({name: stammeffekt.name, type: "stammeffekt"});
-        const features = ["gesellen", "expert", "meister"];
+        const features = ["geselle", "experte", "meister"];
         features.forEach(feature => {
           new Map(Object.entries(value[feature])).forEach(value => {
-            let type = "";
-            switch (feature) { // TODO: Fix für skills.json
-              case "gesellen": type = "geselle"; break;
-              case "expert": type = "experte"; break;
-              default: type = feature;
-            }
-            power.features.push({name: value.name, type: type});
+            power.features.push({name: value.name, nameC: `${value.name} (${originName})`, id: value._id, type: feature});
           });
         });
       }
@@ -285,23 +370,8 @@ function getPowers(type, role) {
 /********************
  * main code        *
  ********************/
-const filesIn = {
-  "motivation": "motivation.json",
-  "power": "power.json",
-  "role": "role.json",
-  "profession": "profession.json"
-};
-const filesOut = {
-  "motivation": "motivation.db",
-  "power": null, //"skills.db",
-  "role": "role.db",
-  "profession": "profession.db"
-};
-const input = {};
-const output = {};
-let error = false;
 
-// preload files
+ // preload files
 for (const key in filesIn) {
   if (filesIn.hasOwnProperty(key)) {
     const type = key;
@@ -327,6 +397,7 @@ if (error) {
   console.error("Errors occured, exiting.");
   return false;
 }
+console.log(`Loading done.\n`);
 
 // validate files
 for (const key in input) {
@@ -339,10 +410,10 @@ for (const key in input) {
     console.log(`Validating ${type} ...`);
     // handle files with global structure elements
     if (data["@target"]) {
-      walk(type, data, file, null, checkData, checks);
+      walk(type, data, file, null, checkItem, checks);
     }
     else {
-      checkData(type, data, file, checks);
+      checkItem(type, data, file, checks);
     }
 
     input[type].checks = checks;
@@ -353,37 +424,35 @@ if (error) {
   console.error("Errors occured, exiting.");
   return false;
 }
+console.log(`Validating done.\n`);
 
 // convert files
 for (const key in input) {
   if (input.hasOwnProperty(key)) {
     const type = key;
+    const file = filesIn[type];
     const data = input[type].content;
-
-    if ("power" === type) {
-      console.log("Skipping powers.");
-      continue; // TODO: vorübergehend noch nicht konvertieren
-    }
 
     output[type] = {}
     const content = [];
     console.log(`Converting ${type} ...`);
-    for (const key in data) {
-      if (data.hasOwnProperty(key)) {
-        const item = data[key];
 
-        console.log(`  Converting ${item.name} ...`);
-        const out = convertItem(key, type, item);
-        content.push(out);
-      }
+    // handle files with global structure elements
+    if (data["@target"]) {
+      walk(type, data, file, null, convertList, content);
     }
+    else {
+      convertList(type, data, file, content);
+    }
+
     output[type].content = content;
     output[type].checks = input[type].checks;
   }
 }
+console.log(`Converting done.\n`);
 
 // create db files
-const dryRun = true;
+const dryRun = false;
 if (dryRun) {
   console.warn("DryRun, no DB creation.")
 }
@@ -414,7 +483,7 @@ for (const key in output) {
       console.log(`  ${data.length} entries created.`);
     }
     else {
-      console.warn(`Skipping ${file}.`);
+      console.warn(`Skipping ${type}.`);
     }
 
     with (output[type].checks) {
