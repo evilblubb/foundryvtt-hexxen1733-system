@@ -13,6 +13,7 @@
                 "module/jaeger-sheet.js",
                 "module/npc-bande-sheet.js",
                 "module/npc-leader-sheet.js",
+                "module/item.js",
                 "module/item-sheet.js",
                 "module/rule-item-sheet.js",
                 "module/roller.js"

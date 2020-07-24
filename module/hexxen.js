@@ -105,6 +105,7 @@ Hooks.once("init", async function() {
 
 	// Define custom Entity classes
   CONFIG.Actor.entityClass = HexxenActor;
+  CONFIG.Item.entityClass = HexxenItem;
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
@@ -168,6 +169,7 @@ Hooks.once("init", async function() {
     ChatMessage.create({speaker: { actor: speaker }, content: message });
   });
 
+  // TODO: Verschiebung Pause-Markierer wäre ein Kandidat für ein TweakVTT Modul
   // Register system settings
   game.settings.register("hexxen-1733", "pausePosition", {
     name: "Game Pause Indicator Position",
@@ -185,6 +187,7 @@ Hooks.once("ready", async function() {
   HexxenRollHelper.checkSystemReqirements();
 });
 
+// TODO: Verschiebung Pause-Markierer wäre ein Kandidat für ein TweakVTT Modul (inkl. CSS und Konfiguration)
 Hooks.on("renderPause", async function() {
   const pos = game.settings.get("hexxen-1733", "pausePosition");
   if (pos === "vtt") return;

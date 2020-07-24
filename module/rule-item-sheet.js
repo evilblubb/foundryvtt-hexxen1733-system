@@ -19,14 +19,19 @@ class RuleItemSheet extends ItemSheet {
   /* -------------------------------------------- */
 
   get title() {
+    // TODO: nach HexxenItemSheet verschieben??
     // TODO: localize
+    // TODO: Markierung Compendium-Eintrag wäre ein Kandidat für ein TweakVTT Modul
+    const compendium = this.compendium ? "[Compendium] " : "";
     let type = "";
     if ("role" === this.item.data.type) {
       type = "Rolle";
+    } else if ("power" === this.item.data.type) {
+      type = "Jägerkraft";
     } else {
       type = this.item.data.type.capitalize();
     }
-    return `${super.title} (${type})`;
+    return `${compendium}${super.title} (${type})`;
   }
 
   /** @override */
