@@ -79,7 +79,7 @@
             <header class="block-header">Allgemeine Jägerkräfte (2 JP)</header>
             {{#each data.powers}}
             {{#if (eq this.type "jaeger")}}
-            <div class="power"><a class="entity-link{{#if this.learned}} learned{{/if}}" data-action="open" data-pack="hexxen-1733.hexxen-power" data-lookup="{{this.name}}" draggable="true">{{this.name}}</a></div>
+            <div class="power"><a class="entity-link{{#if this.learned}} learned{{/if}}" data-action="open" data-pack="{{this.pack}}" data-lookup="{{this.nameC}}" draggable="true">{{this.name}}</a></div>
             {{/if}}
             {{/each}}
             {{!-- TODO: warum geht das nicht? >powers filter="jaeger" --}}
@@ -88,19 +88,19 @@
             <header class="block-header">Espritkräfte (3 JP)</header>
             {{#each data.powers}}
             {{#if (eq this.type "esprit")}}
-            <div class="power"><a class="entity-link{{#if this.learned}} learned{{/if}}" data-action="open" data-pack="hexxen-1733.hexxen-power" data-lookup="{{this.name}}" draggable="true">{{this.name}}</a></div>
+            <div class="power"><a class="entity-link{{#if this.learned}} learned{{/if}}" data-action="open" data-pack="{{this.pack}}" data-lookup="{{this.nameC}}" draggable="true">{{this.name}}</a></div>
             {{/if}}
             {{/each}}
             {{!-- TODO: warum geht das nicht? >powers filter="esprit" --}}
             {{!-- TODO: Hinweis, falls keine Kraft in dieser Kategorie vorhanden --}}
 
-            <header class="block-header">Ausbaukräfte (1 JP / Feature)</header>
+            <header class="block-header">Ausbaukräfte (1 JP / Effekt)</header>
             {{#each data.powers}}
             {{#if (eq this.type "ausbau")}}
             <div class="power">
-                <div><a class="entity-link{{#if this.learned}} learned{{/if}}" data-action="open" data-pack="hexxen-1733.hexxen-power" data-lookup="{{this.name}}" draggable="true">{{this.name}}</a></div>
+                <div><a class="entity-link{{#if this.learned}} learned{{/if}}" data-action="open" data-pack="{{this.pack}}" data-lookup="{{this.nameC}}" draggable="true">{{this.name}}</a></div>
                 {{#each this.features}}
-                <div>({{this.marker}}) <a class="entity-link{{#if this.learned}} learned{{/if}}" data-action="open" data-pack="hexxen-1733.hexxen-power" data-lookup="{{this.name}}" draggable="true">{{this.name}}</a></div>
+                <div>({{this.marker}}) <a class="entity-link{{#if this.learned}} learned{{/if}}" data-action="open" data-pack="{{this.pack}}" data-lookup="{{this.nameC}}" draggable="true">{{this.name}}</a></div>
                 {{/each}}
             </div>
             {{/if}}
