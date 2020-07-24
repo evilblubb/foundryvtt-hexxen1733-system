@@ -111,7 +111,7 @@ Hooks.once("init", async function() {
 //  Actors.registerSheet("simple", SimpleActorSheet, { types: ["npc"] });
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("simple", SimpleItemSheet, { types: ["item"], makeDefault: true });
-  Items.registerSheet("hexxen", RuleItemSheet, { types: ["role", "profession", "motivation","skills"], makeDefault: true });
+  Items.registerSheet("hexxen", RuleItemSheet, { types: ["role", "profession", "motivation", "power", "skills"], makeDefault: true });
 
   // Inject system logo
   // TODO: wohin mit solchen Sachen. Macht den Hook zu unübersichtlich.

@@ -486,7 +486,7 @@
   }
 },
 "Item": {
-  "types": ["item", "role", "profession", "motivation", "skills"],
+  "types": ["item", "role", "profession", "motivation", "power", "skills"],
   "templates": {
     "core": {
       "references": [
@@ -516,6 +516,9 @@
     "powers": []
   },
   "motivation": {
+    "templates": [ "core" ]
+  },
+  "power": {
     "templates": [ "core" ]
   },
   "skills": {

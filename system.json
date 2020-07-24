@@ -59,11 +59,11 @@
       "entity": "Item"
     },
     {
-      "name": "hexxen-skills",
+      "name": "hexxen-power",
       "label": "Jägerkräfte",
       "system": "hexxen-1733",
       "module": "hexxen-1733",
-      "path": "packs/skills.db",
+      "path": "packs/power.db",
       "entity": "Item"
     },
     {

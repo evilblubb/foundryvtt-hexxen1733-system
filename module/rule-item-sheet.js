@@ -71,7 +71,7 @@ class RuleItemSheet extends ItemSheet {
       const marker = {"stammeffekt": "S", "geselle": "G", "experte": "E", "meister": "M"};
       const powers = data.data.powers;
       powers.forEach(power => {
-        const learned = this.actor ? this.actor.data.items.filter(i => i.type === "skills") : []; // TODO: power statt skill
+        const learned = this.actor ? this.actor.data.items.filter(i => i.type === "power") : []; // TODO: power statt skill
         if (this.actor && learned.filter(i => i.name === power.name).length != 0) {
           power.learned = true;
         }
