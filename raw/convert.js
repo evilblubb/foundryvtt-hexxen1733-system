@@ -1,6 +1,7 @@
 const fs = require('fs');
 
 const vttSystemName = "hexxen-1733";
+const packPrefix = "hexxen";
 const HEXXEN_JAEGER_ICON = `systems/${vttSystemName}/img/Siegel-Rabe-small.png`;
 const HEXXEN_EXPRIT_ICON = `systems/${vttSystemName}/img/Siegel-Esprit-small.png`;
 const HEXXEN_AUSBAU_ICON = `systems/${vttSystemName}/img/Siegel-Ausbaukraft-small.png`;;
@@ -26,6 +27,10 @@ let error = false;
 const _sym = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
 const _len = 16;
 const generatedIDs = [];
+
+function getPackName(type) {
+  return `${vttSystemName}.${packPrefix}-${type}`;
+}
 
 function generateID(count = _len) {
   let str;
@@ -236,7 +241,7 @@ function _replaceRef(ref) {
     return `[${ref}]`;
   } else {
     // TODO: ref über lookup-Liste einem pack zuordnen
-    return `@Compendium[${vttSystemName}.hexxen-items.${ref}]`;
+    return `@Compendium[${getPackName("items")}.${ref}]`;
   }
 }
 
@@ -275,7 +280,7 @@ function convertItem(type, item, key, path) {
 
   if (item.tags) out.data.tags = item.tags;
   out.flags = {};
-  out.flags[vttSystemName] = { compendium: { id: out._id, name: out.name }};
+  out.flags[vttSystemName] = { compendium: { pack: getPackName(type), id: out._id, name: out.name }};
   out.img = item.img || out.img || HEXXEN_DEFAULT_ICON;
   return extras ? [ out, ...extras ] : [ out ];
 }
@@ -348,16 +353,15 @@ function _getPowers(type, role) {
 
   new Map(Object.entries(set)).forEach((value, key) => {
     new Map(Object.entries(value)).forEach(value => {
-      const power = { name: value.name, nameC: `${value.name} (${originName})`, id: value._id, type: key };
+      const power = { name: value.name, nameC: `${value.name} (${originName})`, id: value._id, pack: getPackName("power"), type: key };
       if ("ausbau" === key) {
-        power.type = "ausbau";
         power.features = [];
         const stammeffekt = value.stammeffekt;
-        power.features.push({name: stammeffekt.name, nameC: `${stammeffekt.name} (${originName})`, id: stammeffekt._id, type: "stammeffekt"});
+        power.features.push({name: stammeffekt.name, nameC: `${stammeffekt.name} (${originName})`, id: stammeffekt._id, pack: getPackName("power"), type: "stammeffekt"});
         const features = ["geselle", "experte", "meister"];
         features.forEach(feature => {
           new Map(Object.entries(value[feature])).forEach(value => {
-            power.features.push({name: value.name, nameC: `${value.name} (${originName})`, id: value._id, type: feature});
+            power.features.push({name: value.name, nameC: `${value.name} (${originName})`, id: value._id, pack: getPackName("power"), type: feature});
           });
         });
       }
