@@ -353,7 +353,7 @@ function _getPowers(type, role) {
         power.type = "ausbau";
         power.features = [];
         const stammeffekt = value.stammeffekt;
-        power.features.push({name: stammeffekt.name, type: "stammeffekt"});
+        power.features.push({name: stammeffekt.name, nameC: `${stammeffekt.name} (${originName})`, id: stammeffekt._id, type: "stammeffekt"});
         const features = ["geselle", "experte", "meister"];
         features.forEach(feature => {
           new Map(Object.entries(value[feature])).forEach(value => {
