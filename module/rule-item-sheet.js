@@ -23,15 +23,7 @@ class RuleItemSheet extends ItemSheet {
     // TODO: localize
     // TODO: Markierung Compendium-Eintrag wäre ein Kandidat für ein TweakVTT Modul
     const compendium = this.compendium ? "[Compendium] " : "";
-    let type = "";
-    if ("role" === this.item.data.type) {
-      type = "Rolle";
-    } else if ("power" === this.item.data.type) {
-      type = "Jägerkraft";
-    } else {
-      type = this.item.data.type.capitalize();
-    }
-    return `${compendium}${super.title} (${type})`;
+    return `${compendium}${super.title} (${this.locType})`;
   }
 
   /** @override */
@@ -54,6 +46,33 @@ class RuleItemSheet extends ItemSheet {
     return this.object.options.actor || null;
   }
 
+  get locType() {
+    return this.localizeType(this.item.data.type);
+  }
+
+  localizeType(type) {
+    if ("role" === type) {
+      type = "Rolle";
+    } else if ("power" === type) {
+      type = "Jägerkraft";
+    } else if ("jaeger" === type) {
+      type = "Allgemeine Jägerkraft";
+    } else if ("esprit" === type) {
+      type = "Espritkraft";
+    } else if ("ausbau" === type) {
+      type = "Ausbaukraft";
+    } else if ("geselle" === type) {
+      type = "Geselleneffekt";
+    } else if ("experte" === type) {
+      type = "Experteneffekt";
+    } else if ("meister" === type) {
+      type = "Meistereffekt";
+    } else {
+      type = type.capitalize();
+    }
+    return type
+  }
+
   // TODO: nach HexxenItemSheet verschieben
   get compendium() {
     return this.object.compendium || null;
@@ -67,6 +86,17 @@ class RuleItemSheet extends ItemSheet {
 
     data.type = data.item.type.capitalize();
     data.img = data.item.img; // TODO: basepath??
+
+    // origin data for sheet header
+    data.origin = [];
+    if (data.data.origin) data.origin.push(data.data.origin.name);
+    if (data.data.subtype) {
+      data.origin.push(data.data.origin.power);
+      data.origin.push(this.localizeType(data.data.subtype));
+    } else if (data.data.type) {
+      data.origin.push(this.localizeType(data.data.type));
+    }
+    data.origin = data.origin.join(" / ");
 
     if (data.data.create){
       data.data.create = TextEditor.enrichHTML(data.data.create);

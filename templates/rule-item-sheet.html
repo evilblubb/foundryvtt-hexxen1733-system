@@ -2,17 +2,20 @@
     <header class="sheet-header">
         <img class="type-img" src="{{img}}" title="{{type}}"/>
         <h1 class="name"><input class="value value-box" name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
-        <div class="sources">
-            [ Quelle(n):
-            {{#each item.data.references}}
-            <span class="source">
-                {{#if this.link}}<a href="{{this.link}}">{{/if
-                }}{{this.source}}{{#if this.page}}, Seite {{this.page}}{{/if
-                }}{{#if this.link}}</a>{{/if}}
-            </span>
-            {{#unless @last}} | {{/unless}}
-            {{/each}}
-            ]
+        <div class="refs flexrow">
+            <div class="origin">{{origin}}</div>
+            <div class="sources">
+                [ Quelle(n):
+                {{#each item.data.references}}
+                <span class="source">
+                    {{#if this.link}}<a href="{{this.link}}">{{/if
+                    }}{{this.source}}{{#if this.page}}, Seite {{this.page}}{{/if
+                    }}{{#if this.link}}</a>{{/if}}
+                </span>
+                {{#unless @last}} | {{/unless}}
+                {{/each}}
+                ]
+            </div>
         </div>
     </header>
 

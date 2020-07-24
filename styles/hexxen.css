@@ -332,10 +332,19 @@ img#hexxen-logo {
 .hexxen.sheet.rule .sheet-header .actorname {
   grid-area: name;
 }
-.hexxen.sheet.rule .sheet-header .sources {
+.hexxen.sheet.rule .sheet-header .refs {
   grid-area: ref;
+  flex-wrap: wrap;
+}
+.hexxen.sheet.rule .sheet-header .origin {
+  flex: unset;
+  text-align: initial;
+  white-space: normal;
+}
+.hexxen.sheet.rule .sheet-header .sources {
   text-align: right;
   font-size: 0.8em;
+  color: var(--hexxen-hint-color);
 }
 .hexxen.sheet.rule .create .label {
   flex: 0;
@@ -355,7 +364,7 @@ img#hexxen-logo {
 .hexxen.sheet.rule .create a.entity-link::after {
   content: " ]";
 }
-  .hexxen.sheet.rule .powers {
+.hexxen.sheet.rule .powers {
   grid-template-columns: 1fr 1fr;
   grid-gap: 4px 10px !important;
 }
