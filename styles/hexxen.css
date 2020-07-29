@@ -339,6 +339,7 @@ img#hexxen-logo {
 .hexxen.sheet.rule .sheet-header .origin {
   flex: unset;
   text-align: initial;
+  font-style: italic;
   white-space: normal;
 }
 .hexxen.sheet.rule .sheet-header .sources {

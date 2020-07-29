@@ -23,7 +23,7 @@ class RuleItemSheet extends ItemSheet {
     // TODO: localize
     // TODO: Markierung Compendium-Eintrag wäre ein Kandidat für ein TweakVTT Modul
     const compendium = this.compendium ? "[Compendium] " : "";
-    return `${compendium}${super.title} (${this.locType})`;
+    return `${compendium}${super.title}`;
   }
 
   /** @override */
@@ -70,7 +70,7 @@ class RuleItemSheet extends ItemSheet {
     } else {
       type = type.capitalize();
     }
-    return type
+    return type;
   }
 
   // TODO: nach HexxenItemSheet verschieben
@@ -84,17 +84,21 @@ class RuleItemSheet extends ItemSheet {
     data.actor = this.actor;
     data.compendium = this.compendium;
 
-    data.type = data.item.type.capitalize();
+    data.type = this.localizeType(data.item.type); // motivation/role/profession/power
     data.img = data.item.img; // TODO: basepath??
 
     // origin data for sheet header
     data.origin = [];
-    if (data.data.origin) data.origin.push(data.data.origin.name);
-    if (data.data.subtype) {
-      data.origin.push(data.data.origin.power.name);
-      data.origin.push(this.localizeType(data.data.subtype));
-    } else if (data.data.type) {
-      data.origin.push(this.localizeType(data.data.type));
+    if ("power" !== data.item.type) {
+      data.origin.push(data.type);
+    } else {
+      if (data.data.subtype) {
+        data.origin.push(this.localizeType(data.data.subtype)); // stammeffekt/geselle/experte/meister
+        data.origin.push(`${this.localizeType(data.data.type)}: ${data.data.origin.power.name}`);
+      } else {
+        data.origin.push(this.localizeType(data.data.type)); // jaeger/esprit/ausbau
+      }
+      data.origin.push(data.data.origin.name);
     }
     data.origin = data.origin.join(" / ");
 
