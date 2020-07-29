@@ -32,6 +32,21 @@ function getPackName(type) {
   return `${vttSystemName}.${packPrefix}-${type}`;
 }
 
+function getItemId(type, nameC) {
+  const pack = input[type];
+  if (!pack) {
+    console.error(`unknown type: ${type}`);
+    return "";
+  }
+  const item = pack.content[nameC]; // TODO: packs mit höherer Hierarchietiefe
+  if (!item) {
+    console.error(`unknown item: ${type}/${nameC}`);
+    return "";
+  }
+
+  return item._id;
+}
+
 function generateID(count = _len) {
   let str;
 
@@ -280,7 +295,7 @@ function convertItem(type, item, key, path) {
 
   if (item.tags) out.data.tags = item.tags;
   out.flags = {};
-  out.flags[vttSystemName] = { compendium: { pack: getPackName(type), id: out._id, name: out.name }};
+  out.flags[vttSystemName] = { compendium: { pack: getPackName(type), id: out._id, nameC: out.name }};
   out.img = item.img || out.img || HEXXEN_DEFAULT_ICON;
   return extras ? [ out, ...extras ] : [ out ];
 }
@@ -291,8 +306,9 @@ function _convertPowerItem(type, item, key, path, out) {
   let extras = undefined;
   const subtype = pathArray[3]; // jaeger/esprit/ausbau
   const originType = pathArray[1];
+  const rawName = pathArray[2];
   const o = input[originType].content || input[originType]; // Liste der Rollen/Professionen
-  const originName = o[pathArray[2]].name; // Name der Rolle/Profession
+  const originName = o[rawName].name; // Name der Rolle/Profession
 
   // modify icon
   out.img = "jaeger" === subtype ? HEXXEN_JAEGER_ICON :
@@ -303,11 +319,17 @@ function _convertPowerItem(type, item, key, path, out) {
   out.data.name = out.name;
   out.name = `${out.name} (${originName})`;
   out.data.type = subtype;
-  out.data.origin = {type: originType, name: originName};
+  out.data.origin = {};
+  out.data.origin.type = originType;
+  out.data.origin.name = originName;
+  out.data.origin.nameC = originName;
+  out.data.origin.pack = getPackName(originType);
+  out.data.origin.id = getItemId(originType, rawName);
 
   // Ausbaufeatures
-  // avoid infinite loop
+  // to avoid infinite loop check against last element, not [3]
   if ("ausbau" === pathArray[pathArray.length-1]) {
+    out.data.features = [];
     extras = [];
 
     // stammeffekt/geselle/experte/meister
@@ -316,13 +338,23 @@ function _convertPowerItem(type, item, key, path, out) {
       new Map(Object.entries("stammeffekt" === fKey ? { stammeffekt: item[fKey] } : item[fKey])).forEach((value, lKey) => {
         const extra = convertItem("power", value, lKey, `${path}/${key}/${fKey}`)[0];
         if (extra) {
+          const feature = {};
+          feature.name = extra.data.name;
+          feature.nameC = extra.name;
+          feature.id = extra._id;
+          feature.pack = getPackName(extra.type);
+          feature.type = fKey;
+          out.data.features.push(feature);
+
           extra.img = HEXXEN_AUSBAU_ICON;
           extra.data.subtype = fKey; // stammeffekt/geselle/experte/meister
           extra.data.references = item.references;
-          extra.data.origin.power = out.data.name; // Name der Ausbaukraft
-          extra.data.origin.powerC = out.name; // Name der Ausbaukraft (Kompendium)
-          extra.data.origin.powerId = out._id; // ID der Ausbaukraft (Kompendium)
-
+          extra.data.origin.power = {};
+          extra.data.origin.power.type = subtype;
+          extra.data.origin.power.name = out.data.name; // Name der Ausbaukraft
+          extra.data.origin.power.nameC = out.name; // Name der Ausbaukraft (Kompendium)
+          extra.data.origin.power.pack = getPackName("power"); // Name des Kompendium
+          extra.data.origin.power.id = out._id; // ID der Ausbaukraft (Kompendium)
           extras.push(extra);
         }
       });
