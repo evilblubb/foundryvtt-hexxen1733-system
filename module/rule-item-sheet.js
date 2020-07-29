@@ -91,7 +91,7 @@ class RuleItemSheet extends ItemSheet {
     data.origin = [];
     if (data.data.origin) data.origin.push(data.data.origin.name);
     if (data.data.subtype) {
-      data.origin.push(data.data.origin.power);
+      data.origin.push(data.data.origin.power.name);
       data.origin.push(this.localizeType(data.data.subtype));
     } else if (data.data.type) {
       data.origin.push(this.localizeType(data.data.type));
