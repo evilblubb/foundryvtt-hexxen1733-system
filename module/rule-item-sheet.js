@@ -4,6 +4,15 @@
  */
 class RuleItemSheet extends ItemSheet {
 
+  constructor(...args) {
+    super(...args);
+
+    if (this.compendium) {
+      // inject additional class to enable compendium-specific styles
+      this.options.classes.push("compendium");
+    }
+  }
+
   /** @override */
 	static get defaultOptions() {
 	  return mergeObject(super.defaultOptions, {

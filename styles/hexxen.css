@@ -70,6 +70,12 @@ img#hexxen-logo {
   */
 }
 
+.hexxen.compendium {
+  --hexxen-title-color: #666;
+  --hexxen-minimized-title-color: rgba(96, 96, 96, 0.75);
+  --hexxen-sheet-background-blend-color: #bbb;
+}
+
 .hexxen.app {
   background: unset;
   background-color: var(--hexxen-title-color);
