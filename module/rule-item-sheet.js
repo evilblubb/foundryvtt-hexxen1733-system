@@ -80,12 +80,17 @@ class RuleItemSheet extends ItemSheet {
 
   /** @override */
   getData() {
+    const marker = {"stammeffekt": "S", "geselle": "G", "experte": "E", "meister": "M"};
     const data = super.getData();
     data.actor = this.actor;
     data.compendium = this.compendium;
-
     data.type = this.localizeType(data.item.type); // motivation/role/profession/power
     data.img = data.item.img; // TODO: basepath??
+
+    // data.item.type: motivation/role/profession/power
+    // data.type: localized(data.item.type)
+    // data.data.type === data.item.data.type: jaeger/esprit/ausbau
+    // data.data.subtype === data.item.data.subtype: stammeffekt/geselle/experte/meister
 
     // origin data for sheet header
     data.origin = [];
@@ -107,14 +112,12 @@ class RuleItemSheet extends ItemSheet {
     }
 
     if ( ["role", "profession"].includes(data.item.type) ) {
-      const marker = {"stammeffekt": "S", "geselle": "G", "experte": "E", "meister": "M"};
       const powers = data.data.powers;
       powers.forEach(power => {
-        const learned = this.actor ? this.actor.data.items.filter(i => i.type === "power") : []; // TODO: power statt skill
+        const learned = this.actor ? this.actor.data.items.filter(i => i.type === "power") : [];
         if (this.actor && learned.filter(i => i.name === power.name).length != 0) {
           power.learned = true;
         }
-        // TODO: schon gelernt?
         if ("ausbau" === power.type) {
           power.features.forEach(feature => {
             if (this.actor && learned.filter(i => i.name === feature.name) != 0) {
@@ -123,6 +126,16 @@ class RuleItemSheet extends ItemSheet {
             feature.marker = marker[feature.type];
           });
         }
+      });
+    }
+
+    if ("power" === data.item.type && "ausbau" === data.data.type) {
+      const learned = this.actor ? this.actor.data.items.filter(i => i.type === "power") : [];
+      data.data.features.forEach(feature => {
+        if (this.actor && learned.filter(i => i.name === feature.name) != 0) {
+          feature.learned = true;
+        }
+        feature.marker = marker[feature.type];
       });
     }
 

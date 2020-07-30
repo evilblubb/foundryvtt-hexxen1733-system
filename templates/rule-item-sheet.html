@@ -25,6 +25,9 @@
         {{#if data.powers}}
         <a class="item" data-tab="powers"><div class="item-bg">Jägerkräfte</div></a>
         {{/if}}
+        {{#if data.features}}
+        <a class="item" data-tab="features"><div class="item-bg">Effekte</div></a>
+        {{/if}}
         <!--<a class="item" data-tab="extras"><div class="item-bg">Extras</div></a>-->
         <!--<a class="item" data-tab="rules"><div class="item-bg">Regeln</div></a>-->
     </nav>
@@ -112,6 +115,15 @@
             {{!-- TODO: Hinweis, falls keine Kraft in dieser Kategorie vorhanden --}}
 
             <div class="last"> </div>
+        </div>
+
+        {{!-- Effekte Tab --}}
+        <div class="tab features" data-group="primary" data-tab="features">
+            <div class="hint">Zum Lernen den Effekt auf den Charakterbogen ziehen.</div>
+            <header class="block-header">Effekte (1 JP)</header>
+            {{#each data.features}}
+            <div>({{this.marker}}) <a class="entity-link{{#if this.learned}} learned{{/if}}" data-action="open" data-pack="{{this.pack}}" data-lookup="{{this.nameC}}" draggable="true">{{this.name}}</a></div>
+            {{/each}}
         </div>
 
         {{!-- Extras Tab --}}
