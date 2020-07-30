@@ -138,7 +138,7 @@ class RuleItemSheet extends ItemSheet {
       });
     }
 
-    if ("power" === data.item.type && "ausbau" === data.data.type) {
+    if ("power" === data.item.type && data.data.features) {
       const learned = this.actor ? this.actor.data.items.filter(i => i.type === "power") : [];
       data.data.features.forEach(feature => {
         if (this.actor && learned.filter(i => i.name === feature.name) != 0) {
