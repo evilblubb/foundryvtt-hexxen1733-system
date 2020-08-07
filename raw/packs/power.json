@@ -2858,7 +2858,7 @@
       "aristokrat": {
         "esprit": {
           "esprit1": {
-            "name": "Ins leere laufen lassen",
+            "name": "Ins Leere laufen lassen",
             "_id": "XHTSX3038Kn4NQGZ",
             "description": "Wenn du bei einer Ausweichen-Probe Espritsterne in Höhe der Bandenstufe des Angreifers würfelst, geht dessen Angriff automatisch ins Leere (gleichgültig wie viele Angriffserfolge der Bandengegner hat). Gegen Angriffe von Anführern zählen stattdessen alle Espritsterne als Erfolg.",
             "summary": "",
@@ -2879,7 +2879,7 @@
         },
         "jaeger": {
           "jaeger1": {
-            "name": "Einfaches Geflogen",
+            "name": "Einfaches Gefolge",
             "_id": "X1sMofpEiJvzVcgv",
             "description": "Du kannst einmal pro Tag als Freizeitaktion in einer städtischen Umgebung Gefolge anwerben. Würfele auf Wil + Fw (Redekunst). Für jeden Erfolg erhältst du 1 Bandenfreund der Bandenstufe 1. Zahle sofort bei der Rekrutierung 10 Gulden pro neuem Bandenfreund und erhöhe deinen Unterhalt um 5 für jeden Bandenfreund (Achtung: Dieser Unterhaltsmodifikator gilt stets nur für die aktuelle Zahl an Gefolge). Dein maximales Gefolge entspricht deinem Fw (Redekunst) mal 2.",
             "summary": "",
