@@ -36,22 +36,27 @@
     <section class="sheet-body">
 
         {{!-- Description Tab --}}
-        <div class="tab" data-group="primary" data-tab="description">
+        <div class="tab description" data-group="primary" data-tab="description">
             <header class="block-header">Beschreibung</header>
             {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
-            {{#if (isDefined data.create)}}
-            {{!-- create might contain HTML-Markup, therefore tripple {} --}}
-            <div class="create flexrow">
+
+            <div class="extras">
+                {{#if (isDefined data.create)}}
                 <label class="label" for="create">
                     Startausrüstung
                     <i class="fas fa-info-circle" title="Nur für Rolle №1."></i>:
                 </label>
-                <div id="create">
+                <div id="create" class="create">
+                    {{!-- create might contain HTML-Markup, therefore tripple {} --}}
                     {{{data.create}}}<br>
                     <span class="hint">(Zum Ausrüsten den Gegenstand auf den Charakterbogen ziehen.)</span>
                 </div>
+                {{/if}}
+                {{#if (isDefined data.upkeep)}}
+                <label class="label" for="upkeep">Unterhalt:</label>
+                <div id="upkeep" class="upkeep">{{data.upkeep}} Gulden</div>
+                {{/if}}
             </div>
-            {{/if}}
 
             <header class="block-header">
                 Zusammenfassung für Charakterbogen

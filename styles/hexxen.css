@@ -353,9 +353,14 @@ img#hexxen-logo {
   font-size: 0.8em;
   color: var(--hexxen-hint-color);
 }
-.hexxen.sheet.rule .create .label {
-  flex: 0;
-  margin-right: 6px;
+.hexxen.sheet.rule .extras {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-gap: 0px 6px;
+  margin: 0px 6px;
+}
+.hexxen.sheet.rule .extras .label {
+  min-width: 100px;
   white-space: nowrap;
 }
 /* TODO: verallgemeinern und konfigurierbar machen */
