@@ -222,6 +222,7 @@
       }
     ],
     "description": "Immer wenn du deine Aktivität außerhalb von Kämpfen in Form einer Vorführung in Szene setzen kannst (das muss plausibel beschrieben werden), erhältst du einen Bonus von +2 auf die Probe. Das kann Akrobatik- Proben betreffen, aber auch Proben auf Redekunst, Land und Leute oder andere Fertigkeiten. Oft stehen diese mit der Freizeitaktion „Geld verdienen“ in Zusammenhang. Der Spielleiter kann entscheiden, dass eine Vorführung unangebracht ist. Für deine Darbietungen benötigst du einen Vorrat an Utensilien wie Schminke, besondere Kleidungsstücke oder artistisches Gerät, was deinen Unterhalt um 15 Gulden erhöht.",
+    "upkeep": "15",
     "summary": ""
   },
   "gottesfuerchtig": {
