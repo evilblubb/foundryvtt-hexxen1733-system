@@ -295,7 +295,7 @@ function convertItem(type, item, key, path) {
 
   if (item.tags) out.data.tags = item.tags;
   out.flags = {};
-  out.flags[vttSystemName] = { compendium: { pack: getPackName(type), id: out._id, nameC: out.name }};
+  out.flags[vttSystemName] = { compendium: { pack: getPackName(type), id: out._id, nameC: out.name, "data-revision": item["@rev"] }};
   out.img = item.img || out.img || HEXXEN_DEFAULT_ICON;
   return extras ? [ out, ...extras ] : [ out ];
 }
