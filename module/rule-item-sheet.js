@@ -78,6 +78,8 @@ class RuleItemSheet extends ItemSheet {
       type = "Experteneffekt";
     } else if ("meister" === type) {
       type = "Meistereffekt";
+    } else if ("meisterprofession" === type) {
+      type = "Meisterprofession";
     } else {
       type = type.capitalize();
     }
@@ -96,6 +98,9 @@ class RuleItemSheet extends ItemSheet {
     data.actor = this.actor;
     data.compendium = this.compendium;
     data.type = this.localizeType(data.item.type); // motivation/role/profession/power
+    if ("profession" === data.item.type && data.item.data.type) {
+      data.type = this.localizeType(data.item.data.type);
+    }
     data.img = data.item.img; // TODO: basepath??
 
     // data.item.type: motivation/role/profession/power
