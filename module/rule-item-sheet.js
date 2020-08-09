@@ -60,6 +60,8 @@ class RuleItemSheet extends ItemSheet {
   }
 
   localizeType(type) {
+    if (!type) return type;
+
     if ("role" === type) {
       type = "Rolle";
     } else if ("power" === type) {
