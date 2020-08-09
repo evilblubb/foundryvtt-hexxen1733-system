@@ -370,6 +370,7 @@ function _convertRoleItem(type, item, key, path, out) {
 
 function _convertProfessionItem(type, item, key, path, out) {
   if (item.type) out.data.type = item.type;
+  out.data.qualification = item.qualification; // TODO: Refs konvertieren
   out.data.powers = _getPowers(type, key, path);
 }
 
