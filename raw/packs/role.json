@@ -7,6 +7,7 @@
     "alchemist": {
       "name": "Alchemist",
       "_id": "xYgBWaVGK7e4hj66",
+      "@rev": 1,
       "references": [
         {
           "source": "Wiki",
@@ -24,6 +25,7 @@
     "attentaeter": {
       "name": "Attentäter",
       "_id": "qjt6PQNyflsqqGpE",
+      "@rev": 1,
       "references": [
         {
           "source": "Wiki",
@@ -41,6 +43,7 @@
     "beschuetzer": {
       "name": "Beschützer",
       "_id": "cFaEaiRJwbqPqYLh",
+      "@rev": 1,
       "references": [
         {
           "source": "Wiki",
@@ -59,6 +62,7 @@
     "eiferer": {
       "name": "Eiferer",
       "_id": "6BR17J8Mk4gHDISQ",
+      "@rev": 1,
       "references": [
         {
           "source": "Wiki",
@@ -77,6 +81,7 @@
     "fechter": {
       "name": "Fechter",
       "_id": "JsChG5efmAXFxZcG",
+      "@rev": 1,
       "references": [
         {
           "source": "Wiki",
@@ -94,6 +99,7 @@
     "fernkaempfer": {
       "name": "Fernkämpfer",
       "_id": "d2VQ03hkff4Cb1kS",
+      "@rev": 1,
       "references": [
         {
           "source": "Wiki",
@@ -112,6 +118,7 @@
     "hexenfeind": {
       "name": "Hexenfeind",
       "_id": "AlLtHdoBVceXUICL",
+      "@rev": 1,
       "references": [
         {
           "source": "Wiki",
@@ -129,6 +136,7 @@
     "hexenmystiker": {
       "name": "Hexenmystiker",
       "_id": "vHCcTEKASdWf60r9",
+      "@rev": 1,
       "references": [
         {
           "source": "Wiki",
@@ -146,6 +154,7 @@
     "konstrukteur": {
       "name": "Konstrukteur",
       "_id": "NX4pfa9GU89kDoJV",
+      "@rev": 1,
       "references": [
         {
           "source": "Wiki",
@@ -164,6 +173,7 @@
     "kundschafter": {
       "name": "Kundschafter",
       "_id": "CUGKZ5DoYtoVa3nN",
+      "@rev": 1,
       "references": [
         {
           "source": "Wiki",
@@ -182,6 +192,7 @@
     "nahkaempfer": {
       "name": "Nahkämpfer",
       "_id": "tVjqal2mb3b1Hs20",
+      "@rev": 1,
       "references": [
         {
           "source": "Wiki",
@@ -200,6 +211,7 @@
     "priester": {
       "name": "Priester",
       "_id": "WONQZE4gPf0zqUlH",
+      "@rev": 1,
       "references": [
         {
           "source": "Wiki",
@@ -214,6 +226,7 @@
     "stratege": {
       "name": "Stratege",
       "_id": "ZrhyT64qQoaKXIku",
+      "@rev": 1,
       "references": [
         {
           "source": "Wiki",
