@@ -41,6 +41,10 @@
             {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
 
             <div class="extras">
+                {{#if (isDefined data.qualification)}}
+                <label class="label" for="qualification">Voraussetzung:</label>
+                <div id="qualification" class="qualification">{{data.qualification}}</div>
+                {{/if}}
                 {{#if (isDefined data.create)}}
                 <label class="label" for="create">
                     Startausrüstung
