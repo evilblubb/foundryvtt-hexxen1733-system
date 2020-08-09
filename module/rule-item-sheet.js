@@ -131,12 +131,12 @@ class RuleItemSheet extends ItemSheet {
       const powers = data.data.powers;
       powers.forEach(power => {
         const learned = this.actor ? this.actor.data.items.filter(i => i.type === "power") : [];
-        if (this.actor && learned.filter(i => i.name === power.name).length != 0) {
+        if (this.actor && learned.filter(i => i.data.name === power.name).length != 0) {
           power.learned = true;
         }
         if ("ausbau" === power.type) {
           power.features.forEach(feature => {
-            if (this.actor && learned.filter(i => i.name === feature.name) != 0) {
+            if (this.actor && learned.filter(i => i.data.name === feature.name).length != 0) {
               feature.learned = true;
             }
             feature.marker = marker[feature.type];
@@ -148,7 +148,7 @@ class RuleItemSheet extends ItemSheet {
     if ("power" === data.item.type && data.data.features) {
       const learned = this.actor ? this.actor.data.items.filter(i => i.type === "power") : [];
       data.data.features.forEach(feature => {
-        if (this.actor && learned.filter(i => i.name === feature.name) != 0) {
+        if (this.actor && learned.filter(i => i.data.name === feature.name).length != 0) {
           feature.learned = true;
         }
         feature.marker = marker[feature.type];

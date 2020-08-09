@@ -363,12 +363,15 @@ img#hexxen-logo {
   min-width: 100px;
   white-space: nowrap;
 }
-/* TODO: verallgemeinern und konfigurierbar machen */
+/* TODO: verallgemeinern und Darstellung konfigurierbar machen */
 .hexxen.sheet.rule a.entity-link {
   background: unset;
   padding: unset;
   border: unset;
   display: inline-block;
+}
+.hexxen.sheet.rule a.entity-link.learned {
+  background: lime;
 }
 .hexxen.sheet.rule .create a.entity-link::before {
   content: "[ ";
@@ -385,7 +388,4 @@ img#hexxen-logo {
 }
 .hexxen.sheet.rule .powers div.power {
   grid-column: auto;
-}
-.hexxen.sheet.rule .powers div.power .learned {
-  background: lime;
 }
