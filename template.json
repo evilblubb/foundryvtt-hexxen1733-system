@@ -517,6 +517,8 @@
   "profession": {
     "templates": [ "core" ],
     "template-revision": 1,
+    "type": null,
+    "qualification": "",
     "upkeep": null,
     "powers": []
   },
