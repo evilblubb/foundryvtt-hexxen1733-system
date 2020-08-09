@@ -496,6 +496,7 @@
           "page": ""
         }
       ],
+      "name": null,
       "description": "",
       "summary": ""
     }
@@ -508,18 +509,32 @@
   },
   "role": {
     "templates": [ "core" ],
-    "create": "",
+    "template-revision": 1,
+    "create": null,
+    "upkeep": null,
     "powers": []
   },
   "profession": {
     "templates": [ "core" ],
+    "template-revision": 1,
+    "upkeep": null,
     "powers": []
   },
   "motivation": {
-    "templates": [ "core" ]
+    "templates": [ "core" ],
+    "template-revision": 1,
+    "upkeep": null
   },
   "power": {
-    "templates": [ "core" ]
+    "templates": [ "core" ],
+    "template-revision": 1,
+    "type": "",
+    "subtype": null,
+    "create": null,
+    "upkeep": null,
+    "features": null,
+    "tags": [],
+    "origin": {}
   },
   "skills": {
     "templates": [ "core" ]
