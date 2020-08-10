@@ -122,10 +122,15 @@ img#hexxen-logo {
   margin-right: -3px;
 }
 
-.hexxen .control {
+.hexxen a.control {
   flex: 0 0 20px;
   text-align: center;
   color: var(--hexxen-dark-color);
+}
+.hexxen a.item-edit,
+.hexxen a.hint {
+  text-decoration: underline;
+  text-decoration-style: dotted;
 }
 
 .hexxen input {
