@@ -1,362 +1,468 @@
 {
-  "aristokrat": {
-    "name": "Aristokrat",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/prof_aristokrat.html"
-      },
-      {
-        "source": "Das Buch der Regeln",
-        "page": "167"
-      }
+  "@source": {
+    "link": [
+      "http://hexxen1733-regelwiki.de/index.php/jgk_professionen.html",
+      "http://hexxen1733-regelwiki.de/index.php/jgk_Meisterprofessionen.html"
     ],
-    "description": "Voraussetzungen: Rolle „Fechter“ (Jägerkraft „Fechtmeister“, Stammeffekt), Rolle „Stratege“",
-    "summary": ""
+    "lastChecked": "2020-07-16T13-50-00+0200"
   },
-  "feuerprediger": {
-    "name": "Feuerprediger",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/prof_Feuerprediger.html"
-      },
-      {
-        "source": "Hexenjagd",
-        "page": "113"
-      }
-    ],
-    "description": "Voraussetzungen: Rolle „Alchemist“ (Jägerkraft „Wurfgeschosse herstellen“, Stammeffekt), Rolle „Hexenfeind“",
-    "summary": ""
-  },
-  "freischaffender-hexenjaeger": {
-    "name": "Freischaffender Hexenjäger",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/prof_Freischaffender_Hexenj%C3%A4ger.html"
-      },
-      {
-        "source": "Hexenjagd",
-        "page": "116"
-      }
-    ],
-    "description": "Voraussetzungen: Rolle „Hexenfeind“ (Jägerkraft „Ambition des Hexenjägers“, Stammeffekt), Rolle „Fechter“",
-    "summary": ""
-  },
-  "gardist": {
-    "name": "Gardist",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/prof_gardist.html"
-      },
-      {
-        "source": "Das Buch der Regeln",
-        "page": "168"
-      }
-    ],
-    "description": "Voraussetzungen: Rolle „Beschützer“ (Jägerkraft „Leibgarde“), Rolle „Nahkämpfer“",
-    "summary": ""
-  },
-  "henker": {
-    "name": "Henker",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/prof_Henker.html"
-      },
-      {
-        "source": "Archiv des Wächterbunds II",
-        "page": "58"
-      }
-    ],
-    "description": "Voraussetzungen: Rolle „Nahkämpfer“ (Jägerkraft „Hammer-Handwerk“, Stammeffekt), Rolle „Hexenmystiker“",
-    "summary": "Zusatzregel: Eine Henkersmaske bzw. -kapuze kann auf dem freien Markt für 5 Gulden erworben werden. Der Träger der Maske erhält einen Bonus von +2, wenn er eine defensive Probe auf Geistesstärke zur Abwendung feindlicher Zauber ausführt. Er erhält zudem einen Bonus +2 bei allen Einschüchterungsversuchen, die auf Muskelspiel ausgetragen werden. Nur Jäger mit der Profession Henker können die Maske auf diese Weise anwenden."
-  },
-  "hexenrichter": {
-    "name": "Hexenrichter",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/prof_Hexenrichter.html"
-      },
-      {
-        "source": "Hexenjagd",
-        "page": "118"
-      }
-    ],
-    "description": "Voraussetzungen: Rolle „Hexenfeind“ (Jägerkraft „Kreaturenwissen: Hexen“), Rolle „Nahkämpfer“",
-    "summary": ""
-  },
-  "inquisitor": {
-    "name": "Inquisitor",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/prof_inquisitor.html"
-      },
-      {
-        "source": "Das Buch der Regeln",
-        "page": "170"
-      }
-    ],
-    "description": "Voraussetzungen: Rolle „Priester“ (Jägerkraft „Heilige Aura“, Stammkraft), Rolle „Eiferer“",
-    "summary": ""
-  },
-  "investigator": {
-    "name": "Investigator",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/prof_Investigator.html"
-      },
-      {
-        "source": "Hexenjagd",
-        "page": "111"
-      }
-    ],
-    "description": "Voraussetzungen: Rolle „Hexenfeind“ (Jägerkraft „Kreaturenwissen: Hexen“, Stammeffekt), Rolle „Priester“",
-    "summary": ""
-  },
-  "kraeuterkundler": {
-    "name": "Kräuterkundler",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/prof_Kr%C3%A4uterkundler.html"
-      },
-      {
-        "source": "Hexenjagd",
-        "page": "119"
-      }
-    ],
-    "description": "Voraussetzungen: Rolle „Hexenmystiker“ (Jägerkraft „Kräuterwissen“), Rolle „Priester“",
-    "summary": ""
-  },
-  "mariannen-seelsorgerin": {
-    "name": "Mariannen Seelsorgerin",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/prof_Mariannen-Seelsorgerin.html"
-      },
-      {
-        "source": "Hexenjagd",
-        "page": "115"
-      }
-    ],
-    "description": "Voraussetzungen: Rolle „Priester“ (Jägerkraft „Heilige Aura“, Stammeffekt), Rolle „Fechter“, Charakter muss weiblich sein",
-    "summary": ""
-  },
-  "mariannen-streiterin": {
-    "name": "Mariannen Streiterin",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/prof_Mariannen-Streiterin.html"
-      },
-      {
-        "source": "Hexenjagd",
-        "page": "114"
-      }
-    ],
-    "description": "Voraussetzungen: Rolle „Eiferer“ (Jägerkraft „Gesegnete Waffe“, Stammeffekt), Rolle „Fechter“, Charakter muss weiblich sein",
-    "summary": ""
-  },
-  "metallurge": {
-    "name": "Metallurge",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/prof_metallurge.html"
-      },
-      {
-        "source": "Archiv des Wächterbundes 1",
-        "page": "84"
-      }
-    ],
-    "description": "Voraussetzungen: Rolle „Kundschafter“ (Jägerkraft „Proben nehmen“), Rolle Alchemist",
-    "summary": ""
-  },
-  "musketier": {
-    "name": "Musketier",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/prof_musketier.html"
-      },
-      {
-        "source": "Das Buch der Regeln",
-        "page": "171"
-      }
-    ],
-    "description": "Voraussetzungen: Rolle „Fernkämpfer“ (Jägerkraft „Musketen-Meisterschaft“, Stammeffekt), Rolle „Stratege“",
-    "summary": ""
-  },
-  "okuluth": {
-    "name": "Okuluth",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/prof_Okuluth.html"
-      },
-      {
-        "source": "Hexenjagd",
-        "page": "110"
-      }
-    ],
-    "description": "Voraussetzungen: Rolle „Hexenmystiker“ (Jägerkraft „Mystische Rituale“), Rolle „Attentäter“",
-    "summary": ""
-  },
-  "ordenskrieger": {
-    "name": "Ordenskrieger",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/prof_ordenskrieger.html"
-      },
-      {
-        "source": "Das Buch der Regeln",
-        "page": "172"
-      }
-    ],
-    "description": "Voraussetzungen: Rolle „Eiferer“ (Jägerkraft „Gesegnete Waffe“, Stammeffekt), Rolle „Beschützer“",
-    "summary": ""
-  },
-  "purgator": {
-    "name": "Purgator",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/prof_Purgator.html"
-      },
-      {
-        "source": "Hexenjagd",
-        "page": "109"
-      }
-    ],
-    "description": "Voraussetzungen: Rolle „Hexenfeind“ (Jägerkraft „Kreaturenwissen: Hexen“), Rolle „Hexenmystiker“",
-    "summary": ""
-  },
-  "raecher": {
-    "name": "Rächer",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/prof_raecher.html"
-      },
-      {
-        "source": "Das Buch der Regeln",
-        "page": "173"
-      }
-    ],
-    "description": "Voraussetzungen: Rolle „Attentäter“ (Jägerkraft „Wie ein Schatten“, Stammeffekt), Rolle „Fechter“",
-    "summary": ""
-  },
-  "spion": {
-    "name": "Spion",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/prof_spion.html"
-      },
-      {
-        "source": "Das Buch der Regeln",
-        "page": "175"
-      }
-    ],
-    "description": "Voraussetzungen: Rolle „Attentäter“ (Jägerkraft „Gift herstellen“, Stammeffekt), Rolle „Stratege“",
-    "summary": ""
-  },
-  "steiger": {
-    "name": "Steiger",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/prof_steiger.html"
-      },
-      {
-        "source": "Archiv des Wächterbundes 1",
-        "page": "86"
-      }
-    ],
-    "description": "Voraussetzung: Rolle Priester (Jägerkraft „Predigt“, Stammkraft), Rolle Kundschafter",
-    "summary": ""
-  },
-  "soeldner": {
-    "name": "Söldner",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/prof_soeldner.html"
-      },
-      {
-        "source": "Das Buch der Regeln",
-        "page": "174"
-      }
-    ],
-    "description": "Voraussetzungen: Rolle „Nahkämpfer“ (Jägerkraft „Hammer-Handwerk“, Stammeffekt), Rolle „Fernkämpfer“",
-    "summary": ""
-  },
-  "tunnelpionier": {
-    "name": "Tunnelpionier",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/prof_tunnelpionier.html"
-      },
-      {
-        "source": "Publikation: Archiv des Wächterbundes 1",
-        "page": "85"
-      }
-    ],
-    "description": "Voraussetzungen: Rolle „Kundschafter“ (Jägerkraft „Tunnelkampf“, Stammeffekt), Rolle „Stratege“",
-    "summary": ""
-  },
-  "tueftler": {
-    "name": "Tüftler",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/prof_tueftler.html"
-      },
-      {
-        "source": "Publikation: Das Buch der Regeln",
-        "page": "176"
-      }
-    ],
-    "description": "Voraussetzungen: Rolle „Konstrukteur“ (Jägerkraft „Mechanikum“, Stammeffekt), Rolle „Fernkämpfer“",
-    "summary": ""
-  },
-  "universalgelehrter": {
-    "name": "Universalgelehrter",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/prof_universalgelehrter.html"
-      },
-      {
-        "source": "Das Buch der Regeln",
-        "page": "166"
-      }
-    ],
-    "description": "Voraussetzungen: Rolle „Alchemist“ (Jägerkraft „Elixiere herstellen“, Stammeffekt), Rolle „Konstrukteur“",
-    "summary": ""
-  },
-  "vigilant": {
-    "name": "Vigilant",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/prof_Vigilant.html"
-      },
-      {
-        "source": "Hexenjagd",
-        "page": "120"
-      }
-    ],
-    "description": "Voraussetzungen: Rolle „Hexenfeind“ (Jägerkraft „Kreaturenwissen: Hexen“), Profession „Aristokrat“",
-    "summary": ""
+  "content": {
+    "aristokrat": {
+      "name": "Aristokrat",
+      "_id": "ha0YIDhkyMjfyb7D",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/prof_aristokrat.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "167"
+        }
+      ],
+      "description": "[!Beschreibung fehlt im Wiki]",
+      "@todo": "Beschreibung fehlt (auch im Wiki)",
+      "qualification": "Rolle „Fechter“ (Jägerkraft „Fechtmeister“, Stammeffekt), Rolle „Stratege“",
+      "summary": ""
+    },
+    "feuerprediger": {
+      "name": "Feuerprediger",
+      "_id": "krpiiwkYRAxABC35",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/prof_Feuerprediger.html"
+        },
+        {
+          "source": "Hexenjagd",
+          "page": "113"
+        }
+      ],
+      "description": "[!Beschreibung fehlt im Wiki]",
+      "@todo": "Beschreibung fehlt (auch im Wiki)",
+      "qualification": "Rolle „Alchemist“ (Jägerkraft „Wurfgeschosse herstellen“, Stammeffekt), Rolle „Hexenfeind“",
+      "summary": ""
+    },
+    "freischaffender-hexenjaeger": {
+      "name": "Freischaffender Hexenjäger",
+      "_id": "lGBln3OnDYKNhnA5",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/prof_Freischaffender_Hexenj%C3%A4ger.html"
+        },
+        {
+          "source": "Hexenjagd",
+          "page": "116"
+        }
+      ],
+      "description": "[!Beschreibung fehlt im Wiki]",
+      "@todo": "Beschreibung fehlt (auch im Wiki)",
+      "qualification": "Rolle „Hexenfeind“ (Jägerkraft „Ambition des Hexenjägers“, Stammeffekt), Rolle „Fechter“",
+      "summary": ""
+    },
+    "gardist": {
+      "name": "Gardist",
+      "_id": "mNVvQZpVYGQ13X9b",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/prof_gardist.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "168"
+        }
+      ],
+      "description": "[!Beschreibung fehlt im Wiki]",
+      "@todo": "Beschreibung fehlt (auch im Wiki)",
+      "qualification": "Rolle „Beschützer“ (Jägerkraft „Leibgarde“), Rolle „Nahkämpfer“",
+      "summary": ""
+    },
+    "henker": {
+      "name": "Henker",
+      "_id": "EnjZXfbVJCp7nnG6",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/prof_Henker.html"
+        },
+        {
+          "source": "Archiv des Wächterbunds II",
+          "page": "58"
+        }
+      ],
+      "description": "[!Beschreibung fehlt im Wiki]\nZusatzregel: Eine Henkersmaske bzw. -kapuze kann auf dem freien Markt für 5 Gulden erworben werden. Der Träger der Maske erhält einen Bonus von +2, wenn er eine defensive Probe auf Geistesstärke zur Abwendung feindlicher Zauber ausführt. Er erhält zudem einen Bonus +2 bei allen Einschüchterungsversuchen, die auf Muskelspiel ausgetragen werden. Nur Jäger mit der Profession Henker können die Maske auf diese Weise anwenden.",
+      "@todo": "Beschreibung fehlt (auch im Wiki)",
+      "qualification": "Rolle „Nahkämpfer“ (Jägerkraft „Hammer-Handwerk“, Stammeffekt), Rolle „Hexenmystiker“",
+      "summary": ""
+    },
+    "hexenrichter": {
+      "name": "Hexenrichter",
+      "_id": "Hj2bcO7lY0TkWab9",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/prof_Hexenrichter.html"
+        },
+        {
+          "source": "Hexenjagd",
+          "page": "118"
+        }
+      ],
+      "description": "[!Beschreibung fehlt im Wiki]",
+      "@todo": "Beschreibung fehlt (auch im Wiki)",
+      "qualification": "Rolle „Hexenfeind“ (Jägerkraft „Kreaturenwissen: Hexen“), Rolle „Nahkämpfer“",
+      "summary": ""
+    },
+    "inquisitor": {
+      "name": "Inquisitor",
+      "_id": "B2Pu9Ob4kHxAbVOl",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/prof_inquisitor.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "170"
+        }
+      ],
+      "description": "[!Beschreibung fehlt im Wiki]",
+      "@todo": "Beschreibung fehlt (auch im Wiki)",
+      "qualification": "Rolle „Priester“ (Jägerkraft „Heilige Aura“, Stammkraft), Rolle „Eiferer“",
+      "summary": ""
+    },
+    "investigator": {
+      "name": "Investigator",
+      "_id": "TOXTmJa70Ag0EGyl",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/prof_Investigator.html"
+        },
+        {
+          "source": "Hexenjagd",
+          "page": "111"
+        }
+      ],
+      "description": "[!Beschreibung fehlt im Wiki]",
+      "@todo": "Beschreibung fehlt (auch im Wiki)",
+      "qualification": "Rolle „Hexenfeind“ (Jägerkraft „Kreaturenwissen: Hexen“, Stammeffekt), Rolle „Priester“",
+      "summary": ""
+    },
+    "kraeuterkundler": {
+      "name": "Kräuterkundler",
+      "_id": "8Pr6WIOdVRsX6M7e",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/prof_Kr%C3%A4uterkundler.html"
+        },
+        {
+          "source": "Hexenjagd",
+          "page": "119"
+        }
+      ],
+      "description": "[!Beschreibung fehlt im Wiki]",
+      "@todo": "Beschreibung fehlt (auch im Wiki)",
+      "qualification": "Rolle „Hexenmystiker“ (Jägerkraft „Kräuterwissen“), Rolle „Priester“",
+      "summary": ""
+    },
+    "mariannen-seelsorgerin": {
+      "name": "Mariannen Seelsorgerin",
+      "_id": "nCKmWvV823ShLxBR",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/prof_Mariannen-Seelsorgerin.html"
+        },
+        {
+          "source": "Hexenjagd",
+          "page": "115"
+        }
+      ],
+      "description": "[!Beschreibung fehlt im Wiki]",
+      "@todo": "Beschreibung fehlt (auch im Wiki)",
+      "qualification": "Rolle „Priester“ (Jägerkraft „Heilige Aura“, Stammeffekt), Rolle „Fechter“, Charakter muss weiblich sein",
+      "summary": ""
+    },
+    "mariannen-streiterin": {
+      "name": "Mariannen Streiterin",
+      "_id": "9u9YFNMjnWJBAWhT",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/prof_Mariannen-Streiterin.html"
+        },
+        {
+          "source": "Hexenjagd",
+          "page": "114"
+        }
+      ],
+      "description": "[!Beschreibung fehlt im Wiki]",
+      "@todo": "Beschreibung fehlt (auch im Wiki)",
+      "qualification": "Rolle „Eiferer“ (Jägerkraft „Gesegnete Waffe“, Stammeffekt), Rolle „Fechter“, Charakter muss weiblich sein",
+      "summary": ""
+    },
+    "metallurge": {
+      "name": "Metallurge",
+      "_id": "7RiMYqiZTX9Rk7Oy",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/prof_metallurge.html"
+        },
+        {
+          "source": "Archiv des Wächterbundes 1",
+          "page": "84"
+        }
+      ],
+      "description": "[!Beschreibung fehlt im Wiki]",
+      "@todo": "Beschreibung fehlt (auch im Wiki)",
+      "qualification": "Rolle „Kundschafter“ (Jägerkraft „Proben nehmen“), Rolle Alchemist",
+      "summary": ""
+    },
+    "musketier": {
+      "name": "Musketier",
+      "_id": "fv0AM8nDSCEuro9w",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/prof_musketier.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "171"
+        }
+      ],
+      "description": "[!Beschreibung fehlt im Wiki]",
+      "@todo": "Beschreibung fehlt (auch im Wiki)",
+      "qualification": "Rolle „Fernkämpfer“ (Jägerkraft „Musketen-Meisterschaft“, Stammeffekt), Rolle „Stratege“",
+      "summary": ""
+    },
+    "okuluth": {
+      "name": "Okuluth",
+      "_id": "RFrGp1VMxAUQYrTj",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/prof_Okuluth.html"
+        },
+        {
+          "source": "Hexenjagd",
+          "page": "110"
+        }
+      ],
+      "description": "[!Beschreibung fehlt im Wiki]",
+      "@todo": "Beschreibung fehlt (auch im Wiki)",
+      "qualification": "Rolle „Hexenmystiker“ (Jägerkraft „Mystische Rituale“), Rolle „Attentäter“",
+      "summary": ""
+    },
+    "ordenskrieger": {
+      "name": "Ordenskrieger",
+      "_id": "YjbZo39q0m4g0yZ3",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/prof_ordenskrieger.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "172"
+        }
+      ],
+      "description": "[!Beschreibung fehlt im Wiki]",
+      "@todo": "Beschreibung fehlt (auch im Wiki)",
+      "qualification": "Rolle „Eiferer“ (Jägerkraft „Gesegnete Waffe“, Stammeffekt), Rolle „Beschützer“",
+      "summary": ""
+    },
+    "purgator": {
+      "name": "Purgator",
+      "_id": "qGCH00IqlSBppunD",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/prof_Purgator.html"
+        },
+        {
+          "source": "Hexenjagd",
+          "page": "109"
+        }
+      ],
+      "description": "[!Beschreibung fehlt im Wiki]",
+      "@todo": "Beschreibung fehlt (auch im Wiki)",
+      "qualification": "Rolle „Hexenfeind“ (Jägerkraft „Kreaturenwissen: Hexen“), Rolle „Hexenmystiker“",
+      "summary": ""
+    },
+    "raecher": {
+      "name": "Rächer",
+      "_id": "KMkdWLccum5XwsBY",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/prof_raecher.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "173"
+        }
+      ],
+      "description": "[!Beschreibung fehlt im Wiki]",
+      "@todo": "Beschreibung fehlt (auch im Wiki)",
+      "qualification": "Rolle „Attentäter“ (Jägerkraft „Wie ein Schatten“, Stammeffekt), Rolle „Fechter“",
+      "summary": ""
+    },
+    "spion": {
+      "name": "Spion",
+      "_id": "eEqbEwdfonT7r8hf",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/prof_spion.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "175"
+        }
+      ],
+      "description": "[!Beschreibung fehlt im Wiki]",
+      "@todo": "Beschreibung fehlt (auch im Wiki)",
+      "qualification": "Rolle „Attentäter“ (Jägerkraft „Gift herstellen“, Stammeffekt), Rolle „Stratege“",
+      "summary": ""
+    },
+    "steiger": {
+      "name": "Steiger",
+      "_id": "rIvbdTe40FvMgOKV",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/prof_steiger.html"
+        },
+        {
+          "source": "Archiv des Wächterbundes 1",
+          "page": "86"
+        }
+      ],
+      "description": "[!Beschreibung fehlt im Wiki]",
+      "@todo": "Beschreibung fehlt (auch im Wiki)",
+      "qualification": "Rolle Priester (Jägerkraft „Predigt“, Stammkraft), Rolle Kundschafter",
+      "summary": ""
+    },
+    "soeldner": {
+      "name": "Söldner",
+      "_id": "601I9d8NE8VbkAgh",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/prof_soeldner.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "174"
+        }
+      ],
+      "description": "[!Beschreibung fehlt im Wiki]",
+      "@todo": "Beschreibung fehlt (auch im Wiki)",
+      "qualification": "Rolle „Nahkämpfer“ (Jägerkraft „Hammer-Handwerk“, Stammeffekt), Rolle „Fernkämpfer“",
+      "summary": ""
+    },
+    "tunnelpionier": {
+      "name": "Tunnelpionier",
+      "_id": "Yt7UKDz7dE44Kcje",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/prof_tunnelpionier.html"
+        },
+        {
+          "source": "Publikation: Archiv des Wächterbundes 1",
+          "page": "85"
+        }
+      ],
+      "description": "[!Beschreibung fehlt im Wiki]",
+      "@todo": "Beschreibung fehlt (auch im Wiki)",
+      "qualification": "Rolle „Kundschafter“ (Jägerkraft „Tunnelkampf“, Stammeffekt), Rolle „Stratege“",
+      "summary": ""
+    },
+    "tueftler": {
+      "name": "Tüftler",
+      "_id": "TxEhi0AF2R24BTz8",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/prof_tueftler.html"
+        },
+        {
+          "source": "Publikation: Das Buch der Regeln",
+          "page": "176"
+        }
+      ],
+      "description": "[!Beschreibung fehlt im Wiki]",
+      "@todo": "Beschreibung fehlt (auch im Wiki)",
+      "qualification": "Rolle „Konstrukteur“ (Jägerkraft „Mechanikum“, Stammeffekt), Rolle „Fernkämpfer“",
+      "summary": ""
+    },
+    "universalgelehrter": {
+      "name": "Universalgelehrter",
+      "_id": "0CEVX6Ql8vfunC8K",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/prof_universalgelehrter.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "166"
+        }
+      ],
+      "description": "[!Beschreibung fehlt im Wiki]",
+      "@todo": "Beschreibung fehlt (auch im Wiki)",
+      "qualification": "Rolle „Alchemist“ (Jägerkraft „Elixiere herstellen“, Stammeffekt), Rolle „Konstrukteur“",
+      "summary": ""
+    },
+    "vigilant": {
+      "name": "Vigilant",
+      "_id": "Dtl0IXMOSRQpRP3i",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/prof_Vigilant.html"
+        },
+        {
+          "source": "Hexenjagd",
+          "page": "120"
+        }
+      ],
+      "description": "[!Beschreibung fehlt im Wiki]",
+      "@todo": "Beschreibung fehlt (auch im Wiki)",
+      "qualification": "Rolle „Hexenfeind“ (Jägerkraft „Kreaturenwissen: Hexen“), Profession „Aristokrat“",
+      "summary": "",
+      "type": "meisterprofession"
+    }
   }
 }

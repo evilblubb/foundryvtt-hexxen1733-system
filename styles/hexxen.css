@@ -70,6 +70,12 @@ img#hexxen-logo {
   */
 }
 
+.hexxen.compendium {
+  --hexxen-title-color: #666;
+  --hexxen-minimized-title-color: rgba(96, 96, 96, 0.75);
+  --hexxen-sheet-background-blend-color: #bbb;
+}
+
 .hexxen.app {
   background: unset;
   background-color: var(--hexxen-title-color);
@@ -116,10 +122,15 @@ img#hexxen-logo {
   margin-right: -3px;
 }
 
-.hexxen .control {
+.hexxen a.control {
   flex: 0 0 20px;
   text-align: center;
   color: var(--hexxen-dark-color);
+}
+.hexxen a.item-edit,
+.hexxen a.hint {
+  text-decoration: underline;
+  text-decoration-style: dotted;
 }
 
 .hexxen input {
@@ -177,7 +188,11 @@ img#hexxen-logo {
   line-height: initial;
   margin: unset;
 }
-
+.hexxen i.fa-info-circle {
+  font-size: 0.8em;
+  vertical-align: top;
+  color: #666;
+}
 .hexxen .seperator {
   display: block;
   width: 100%;
@@ -189,6 +204,9 @@ img#hexxen-logo {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+}
+.hexxen .last {
+  height: 1px;
 }
 
 .hexxen div.inc-btn {
@@ -289,6 +307,9 @@ img#hexxen-logo {
   text-align: center;
   font-weight: bold;
 }
+.hexxen.sheet .sheet-body header i.fa-info-circle {
+  color: inherit;
+}
 .hexxen.sheet .sheet-body .block-header {
   margin: 0px -3px;
   padding: 4px 8px 3px;
@@ -301,6 +322,9 @@ img#hexxen-logo {
 .hexxen.sheet.rule {
   min-width: 450px;
   min-height: 400px;
+}
+.hexxen.sheet.rule .editor {
+  min-height: 50px;
 }
 .hexxen.sheet.rule .sheet-header {
   grid-template-columns: auto 1fr;
@@ -319,10 +343,46 @@ img#hexxen-logo {
 .hexxen.sheet.rule .sheet-header .actorname {
   grid-area: name;
 }
-.hexxen.sheet.rule .sheet-header .sources {
+.hexxen.sheet.rule .sheet-header .refs {
   grid-area: ref;
+  flex-wrap: wrap;
+}
+.hexxen.sheet.rule .sheet-header .origin {
+  flex: unset;
+  text-align: initial;
+  font-style: italic;
+  white-space: normal;
+}
+.hexxen.sheet.rule .sheet-header .sources {
   text-align: right;
   font-size: 0.8em;
+  color: var(--hexxen-hint-color);
+}
+.hexxen.sheet.rule .extras {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-gap: 0px 6px;
+  margin: 0px 6px;
+}
+.hexxen.sheet.rule .extras .label {
+  min-width: 100px;
+  white-space: nowrap;
+}
+/* TODO: verallgemeinern und Darstellung konfigurierbar machen */
+.hexxen.sheet.rule a.entity-link {
+  background: unset;
+  padding: unset;
+  border: unset;
+  display: inline-block;
+}
+.hexxen.sheet.rule a.entity-link.learned {
+  background: lime;
+}
+.hexxen.sheet.rule .create a.entity-link::before {
+  content: "[ ";
+}
+.hexxen.sheet.rule .create a.entity-link::after {
+  content: " ]";
 }
 .hexxen.sheet.rule .powers {
   grid-template-columns: 1fr 1fr;
@@ -331,6 +391,6 @@ img#hexxen-logo {
 .hexxen.sheet.rule .powers > * {
   grid-column: 1 / span 2;
 }
-.hexxen.sheet.rule .powers div {
+.hexxen.sheet.rule .powers div.power {
   grid-column: auto;
 }

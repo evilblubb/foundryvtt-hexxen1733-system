@@ -164,7 +164,7 @@ class HexxenCompendiumHelper {
    * @param {Event} event
    */
   static onClickOpenPower(event) {
-    HexxenCompendiumHelper.openEntity("skills", event.currentTarget.dataset.lookup);
+    HexxenCompendiumHelper.openEntity("power", event.currentTarget.dataset.lookup);
   }
 
   // TODO: zur Zeit ungenutzt. (via foundry listener)
@@ -172,7 +172,7 @@ class HexxenCompendiumHelper {
   static async openEntity(type, name) {
     console.log(arguments);
     //foundry.js:14288
-    const pack = game.packs.get("hexxen-1733.hexxen-skills");
+    const pack = game.packs.get("hexxen-1733.hexxen-power");
     if ( !pack.index.length ) await pack.getIndex();
     const entry = pack.index.find(i => (i.name === name));
     const entity = entry ? await pack.getEntity(entry._id) : null;

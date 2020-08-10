@@ -2,17 +2,20 @@
     <header class="sheet-header">
         <img class="type-img" src="{{img}}" title="{{type}}"/>
         <h1 class="name"><input class="value value-box" name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
-        <div class="sources">
-            [ Quelle(n):
-            {{#each item.data.references}}
-            <span class="source">
-                {{#if this.link}}<a href="{{this.link}}">{{/if
-                }}{{this.source}}{{#if this.page}}, Seite {{this.page}}{{/if
-                }}{{#if this.link}}</a>{{/if}}
-            </span>
-            {{#unless @last}} | {{/unless}}
-            {{/each}}
-            ]
+        <div class="refs flexrow">
+            <div class="origin">{{origin}}</div>
+            <div class="sources">
+                [ Quelle(n):
+                {{#each item.data.references}}
+                <span class="source">
+                    {{#if this.link}}<a href="{{this.link}}">{{/if
+                    }}{{this.source}}{{#if this.page}}, Seite {{this.page}}{{/if
+                    }}{{#if this.link}}</a>{{/if}}
+                </span>
+                {{#unless @last}} | {{/unless}}
+                {{/each}}
+                ]
+            </div>
         </div>
     </header>
 
@@ -22,6 +25,9 @@
         {{#if data.powers}}
         <a class="item" data-tab="powers"><div class="item-bg">Jägerkräfte</div></a>
         {{/if}}
+        {{#if data.features}}
+        <a class="item" data-tab="features"><div class="item-bg">Effekte</div></a>
+        {{/if}}
         <!--<a class="item" data-tab="extras"><div class="item-bg">Extras</div></a>-->
         <!--<a class="item" data-tab="rules"><div class="item-bg">Regeln</div></a>-->
     </nav>
@@ -30,11 +36,36 @@
     <section class="sheet-body">
 
         {{!-- Description Tab --}}
-        <div class="tab" data-group="primary" data-tab="description">
+        <div class="tab description" data-group="primary" data-tab="description">
             <header class="block-header">Beschreibung</header>
             {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
 
-            <header class="block-header">Zusammenfassung</header>
+            <div class="extras">
+                {{#if (isDefined data.qualification)}}
+                <label class="label" for="qualification">Voraussetzung:</label>
+                <div id="qualification" class="qualification">{{data.qualification}}</div>
+                {{/if}}
+                {{#if (isDefined data.create)}}
+                <label class="label" for="create">
+                    Startausrüstung
+                    <i class="fas fa-info-circle" title="Nur für Rolle №1."></i>:
+                </label>
+                <div id="create" class="create">
+                    {{!-- create might contain HTML-Markup, therefore tripple {} --}}
+                    {{{data.create}}}<br>
+                    <span class="hint">(Zum Ausrüsten den Gegenstand auf den Charakterbogen ziehen.)</span>
+                </div>
+                {{/if}}
+                {{#if (isDefined data.upkeep)}}
+                <label class="label" for="upkeep">Unterhalt:</label>
+                <div id="upkeep" class="upkeep">{{data.upkeep}} Gulden</div>
+                {{/if}}
+            </div>
+
+            <header class="block-header">
+                Zusammenfassung für Charakterbogen
+                <i class="fas fa-info-circle" title="Ist eine Zusammenfassung vorhanden, so wird diese anstelle der Beschreibung im Charkterbogen angezeigt."></i>
+            </header>
             {{editor content=data.summary target="data.summary" button=true owner=owner editable=editable}}
 
             {{!-- TODO: create, unterhalt, tags --}}
@@ -49,7 +80,7 @@
                 <div>{{this.name}} ({{this.type}})</div>
                 {{#if (eq this.type "ausbau")}}
                     {{#each this.features}}
-                    <div>{{this.name}} ({{this.type}})</div>
+                    <div>({{this.marker}}) {{this.name}}</div>
                     {{/each}}
                 {{/if}}
             {{/if}}
@@ -59,37 +90,49 @@
         {{!-- FIXME: Name des Packs anpassen --> powers --}}
         <div class="tab powers" data-group="primary" data-tab="powers">
             {{!-- TODO: Darstellung --}}
-            {{!-- TODO: bereits erlernte markieren --}}
+            <div class="hint">Zum Lernen die Jägerkraft auf den Charakterbogen ziehen.</div>
             <header class="block-header">Allgemeine Jägerkräfte (2 JP)</header>
             {{#each data.powers}}
             {{#if (eq this.type "jaeger")}}
-            <div><a class="entity-link" data-action="open" data-pack="hexxen-1733.hexxen-skills" data-lookup="{{this.name}}" draggable="true">{{this.name}}</a></div>
+            <div class="power"><a class="entity-link{{#if this.learned}} learned{{/if}}" data-action="open" data-pack="{{this.pack}}" data-lookup="{{this.nameC}}" draggable="true">{{this.name}}</a></div>
             {{/if}}
             {{/each}}
             {{!-- TODO: warum geht das nicht? >powers filter="jaeger" --}}
+            {{!-- TODO: Hinweis, falls keine Kraft in dieser Kategorie vorhanden --}}
 
             <header class="block-header">Espritkräfte (3 JP)</header>
             {{#each data.powers}}
             {{#if (eq this.type "esprit")}}
-            <div><a class="entity-link" data-action="open" data-pack="hexxen-1733.hexxen-skills" data-lookup="{{this.name}}" draggable="true">{{this.name}}</a></div>
+            <div class="power"><a class="entity-link{{#if this.learned}} learned{{/if}}" data-action="open" data-pack="{{this.pack}}" data-lookup="{{this.nameC}}" draggable="true">{{this.name}}</a></div>
             {{/if}}
             {{/each}}
             {{!-- TODO: warum geht das nicht? >powers filter="esprit" --}}
+            {{!-- TODO: Hinweis, falls keine Kraft in dieser Kategorie vorhanden --}}
 
-            <header class="block-header">Ausbaukräfte (1 JP / Feature)</header>
+            <header class="block-header">Ausbaukräfte (1 JP / Effekt)</header>
             {{#each data.powers}}
             {{#if (eq this.type "ausbau")}}
-            <div>
-                <div><a class="entity-link" data-action="open" data-pack="hexxen-1733.hexxen-skills" data-lookup="{{this.name}}" draggable="true">{{this.name}}</a></div>
+            <div class="power">
+                <div><a class="entity-link{{#if this.learned}} learned{{/if}}" data-action="open" data-pack="{{this.pack}}" data-lookup="{{this.nameC}}" draggable="true">{{this.name}}</a></div>
                 {{#each this.features}}
-                <div><a class="entity-link" data-action="open" data-pack="hexxen-1733.hexxen-skills" data-lookup="{{this.name}}" draggable="true">{{this.name}} ({{this.type}})</a></div>
+                <div>({{this.marker}}) <a class="entity-link{{#if this.learned}} learned{{/if}}" data-action="open" data-pack="{{this.pack}}" data-lookup="{{this.nameC}}" draggable="true">{{this.name}}</a></div>
                 {{/each}}
             </div>
             {{/if}}
             {{/each}}
             {{!-- TODO: warum geht das nicht? >powers filter="ausbau" --}}
+            {{!-- TODO: Hinweis, falls keine Kraft in dieser Kategorie vorhanden --}}
 
             <div class="last"> </div>
+        </div>
+
+        {{!-- Effekte Tab --}}
+        <div class="tab features" data-group="primary" data-tab="features">
+            <div class="hint">Zum Lernen den Effekt auf den Charakterbogen ziehen.</div>
+            <header class="block-header">Effekte (1 JP)</header>
+            {{#each data.features}}
+            <div>({{this.marker}}) <a class="entity-link{{#if this.learned}} learned{{/if}}" data-action="open" data-pack="{{this.pack}}" data-lookup="{{this.nameC}}" draggable="true">{{this.name}}</a></div>
+            {{/each}}
         </div>
 
         {{!-- Extras Tab --}}

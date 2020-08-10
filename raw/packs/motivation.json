@@ -1,437 +1,502 @@
 {
-  "abtruenning": {
-    "name": "Abtrünnig",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/motivation_abtruennig.html"
-      },
-      {
-        "source": "Das Buch der Regeln",
-        "page": "116"
-      }
-    ],
-    "description": "Du erhältst automatisch eine [Verderbnis]. Für diese und jede weitere im Spiel gewonnene Verderbnis erhältst du jeweils 2 Lep. Solltest du Verderbnisse verlieren – aus welchen Gründen auch immer – verlierst du die Lep nicht, aber du erhältst erst dann neue Lep durch Abtrünnig dazu, wenn du eine neue, zuvor nicht erreichte Höhe an Verderbnissen hast.",
-    "summary": ""
+  "@source": {
+    "link": "http://hexxen1733-regelwiki.de/index.php/Hex_Motivationen.html",
+    "lastChecked": "2020-07-16T13-50-00+0200"
   },
-  "aufopferungsvoll": {
-    "name": "Aufopferungsvoll",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/motivation_aufopferungsvoll.html"
-      },
-      {
-        "source": "Das Buch der Regeln",
-        "page": "116"
-      }
-    ],
-    "description": "Wenn deine Lep in den Minusbereich sinken und du daher alle Coups/ Ideen abgeben musst, darfst du jeweils bis zu 3 Coups und 3 Ideen behalten.",
-    "summary": ""
-  },
-  "dominant": {
-    "name": "Dominant",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/motivation_dominant.html"
-      },
-      {
-        "source": "Das Buch der Regeln",
-        "page": "116"
-      }
-    ],
-    "description": "Immer, wenn der Jäger eine Idee opfert, kann er einen einzelnen HeXXenwürfel würfeln. Bei einem HeXXensymbol erhält er die Idee sofort zurück. Durch die Wahl des Motivationsvorteils steigt der Unterhalt um +20 Gulden an, um den elitären Lebensstil dominanter Charaktere zu reflektieren.",
-    "summary": ""
-  },
-  "durstig": {
-    "name": "Durstig",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/motivation_durstig.html"
-      },
-      {
-        "source": "Archiv des Wächterbunds 1",
-        "page": "78"
-      }
-    ],
-    "description": "Wenn du dich in der Nähe eines Wirtshauses oder Alkoholvorrats aufhältst, kannst du eine Fza verwenden, um deinen Durst zu stillen. Du erhältst dadurch Segnungen in Höhe eines Elixierwürfels.",
-    "summary": ""
-  },
-  "einschüchternd": {
-    "name": "Einschüchternd",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/motivation_Einsch%C3%BCchternd.html"
-      },
-      {
-        "source": "Hexenjagd",
-        "page": "125"
-      }
-    ],
-    "description": "Du darfst alle Redekunst- Proben auf Muskelspiel ausführen und erhältst dabei sogar einen Bonus von +2, allerdings wirst du auf diese Weise niemals das Vertrauen eines Nsc erlangen. Zwar kannst du dieselben Informationen in Erfahrung bringen wie durch eine normale Redekunst-Probe, anschließend wird der Nsc aber nicht mehr bereit sein, dir weiterzuhelfen.",
-    "summary": ""
-  },
-  "erkundend": {
-    "name": "Erkundend",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/motivation_erkundend.html"
-      },
-      {
-        "source": "Archiv des Wächterbunds 1",
-        "page": "78"
-      }
-    ],
-    "description": "Sobald du eine Freizeitaktion in einem menschenleeren, natürlichen Umfeld bekommst (dazu zählen auch Höhlensystem und verlassene Bergwerke) darfst du mit dem Blutwürfel würfeln. Für jedes Blutstropfensymbol erhältst du eine Segnung oder einen Coup oder eine Idee (oder eine Mischung daraus).",
-    "summary": ""
-  },
-  "fanatisch": {
-    "name": "Fanatisch",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/motivation_fanatisch.html"
-      },
-      {
-        "source": "Das Buch der Regeln",
-        "page": "116"
-      }
-    ],
-    "description": "Du kannst zu Beginn eines Konflikts oder in Ini 0 (einmal pro Kampf) bis zu 3 Coups in Segnungen umtauschen oder umgekehrt.",
-    "summary": ""
-  },
-  "fatalistisch": {
-    "name": "Fatalistisch",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/motivation_fatalistisch.html"
-      },
-      {
-        "source": "Archiv des Wächterbunds 1",
-        "page": "79"
-      }
-    ],
-    "description": "Du kannst jederzeit ein oder mehrere Kästchen EH oder MH durchstreichen (im Kampf als freie Reaktion). Für jedes Kästchen erhältst du 1 Coup oder 1 Idee.",
-    "summary": ""
-  },
-  "fuersorglich": {
-    "name": "Fürsorglich",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/motivation_fuersorglich.html"
-      },
-      {
-        "source": "Das Buch der Regeln",
-        "page": "116"
-      }
-    ],
-    "description": "Immer, wenn du einen positiven Effekt auf einen Mitstreiter wirkst (z. B. Erste Hilfe, Ausschlagen von Brandstufen etc.), erhältst du einen Bonus von +2 auf die Probe.",
-    "summary": ""
-  },
-  "gebeutelt": {
-    "name": "Gebeutelt",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/motivation_gebeutelt.html"
-      },
-      {
-        "source": "Das Buch der Regeln",
-        "page": "116"
-      }
-    ],
-    "description": "Wenn du eine Probe über einen Coup fokussierst, kann du einen zweiten Coup opfern. Du erhältst dann einen Gesamtbonus von +5.",
-    "summary": ""
-  },
-  "gelangweilt": {
-    "name": "Gelangweilt",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/motivation_gelangweilt.html"
-      },
-      {
-        "source": "Das Buch der Regeln",
-        "page": "117"
-      }
-    ],
-    "description": "Wenn du eine Probe über eine Idee fokussierst, kann du eine zweite Idee opfern. Du erhältst dann einen Gesamtbonus von +5.",
-    "summary": ""
-  },
-  "gesandter": {
-    "name": "Gesandter",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/motivation_gesandter.html"
-      },
-      {
-        "source": "Das Buch der Regeln",
-        "page": "117"
-      }
-    ],
-    "description": "Als Gesandter bist du mit zusätzlichen Geldmitteln ausgestattet und bekommst in regelmäßigen Abständen weitere Geldmittel zugeschickt. Immer, wenn du Unterhalt zahlen musst, erhältst du gleichzeitig 10 Gulden pro Idee (d. h. bei einem Ideenwert von 5 erhältst du 50 Gulden)",
-    "summary": ""
-  },
-  "geschaeftstuechtig": {
-    "name": "Geschäftstüchtig",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/motivation_geschaeftstuechtig.html"
-      },
-      {
-        "source": "Das Buch der Regeln",
-        "page": "117"
-      }
-    ],
-    "description": "Beutegut-Pakete, die von dir verkauft werden, bringen 120 Gulden ein. Die Belohnung für offizielle Aufträge steigt um 20% (auch wenn es sich um Gruppenbelohnungen handelt).",
-    "summary": ""
-  },
-  "getrieben": {
-    "name": "Getrieben",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/motivation_Getrieben.html"
-      },
-      {
-        "source": "Hexenjagd",
-        "page": "125"
-      }
-    ],
-    "description": "Du erhältst 1 Rage- oder Ambition zu Beginn jedes relevanten Konflikts.",
-    "summary": ""
-  },
-  "glamouroes": {
-    "name": "Glamourös",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/motivation_Glamour%C3%B6s.html"
-      },
-      {
-        "source": "Hexenjagd",
-        "page": "125"
-      }
-    ],
-    "description": "Immer wenn du deine Aktivität außerhalb von Kämpfen in Form einer Vorführung in Szene setzen kannst (das muss plausibel beschrieben werden), erhältst du einen Bonus von +2 auf die Probe. Das kann Akrobatik- Proben betreffen, aber auch Proben auf Redekunst, Land und Leute oder andere Fertigkeiten. Oft stehen diese mit der Freizeitaktion „Geld verdienen“ in Zusammenhang. Der Spielleiter kann entscheiden, dass eine Vorführung unangebracht ist. Für deine Darbietungen benötigst du einen Vorrat an Utensilien wie Schminke, besondere Kleidungsstücke oder artistisches Gerät, was deinen Unterhalt um 15 Gulden erhöht.",
-    "summary": ""
-  },
-  "gottesfuerchtig": {
-    "name": "Gottesfürchtig",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/motivation_gottesfuerchtig.html"
-      },
-      {
-        "source": "Das Buch der Regeln",
-        "page": "117"
-      }
-    ],
-    "description": "Du kannst zu Beginn eines Konflikts oder in Ini 0 (einmalig pro Kampf) bis zu 3 Ideen in Segnungen umtauschen oder umgekehrt.",
-    "summary": ""
-  },
-  "heimatsuchend": {
-    "name": "Heimatsuchend",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/motivation_heimatsuchend.html"
-      },
-      {
-        "source": "Archiv des Wächterbunds 1",
-        "page": "79"
-      }
-    ],
-    "description": "Dein Ziel muss es sein, Freunde und Verbündete in der Fremde zu finden. Immer, wenn du oder ein Mitglied deiner Gruppe über eine Redekunstprobe (Vertrauensprobe) oder über Rollenspiel das Vertrauen eines NSC erhält, bekommst du Segnungen in Höhe eines Blutwürfels.",
-    "summary": ""
-  },
-  "heimatvertrieben": {
-    "name": "Heimatvertriben",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/motivation_heimatvertrieben.html"
-      },
-      {
-        "source": "Das Buch der Regeln",
-        "page": "117"
-      }
-    ],
-    "description": "Du kannst zu Beginn eines Konflikts oder in Ini 0 (einmalig pro Kampf) bis zu 3 Ideen in Coups umtauschen oder umgekehrt.",
-    "summary": ""
-  },
-  "hoffnungsvoll": {
-    "name": "Hoffnungsvoll",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/motivation_hoffnungsvoll.html"
-      },
-      {
-        "source": "Das Buch der Regeln",
-        "page": "117"
-      }
-    ],
-    "description": "Würfle einmal pro Tag mit zwei HeXXenwürfeln. Bei einem HeXXensymbol oder einem Espritstern erhältst du je eine Segnung.",
-    "summary": ""
-  },
-  "kontakfreudig": {
-    "name": "Kontakfreudig",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/motivation_kontaktfreudig.html"
-      },
-      {
-        "source": "Das Buch der Regeln",
-        "page": "117"
-      }
-    ],
-    "description": "In Ini 0 kannst du eine eigene Idee an einen anderen Charakter abgeben.",
-    "summary": ""
-  },
-  "neugierig": {
-    "name": "Neugierig",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/motivation_neugierig.html"
-      },
-      {
-        "source": "Das Buch der Regeln",
-        "page": "118"
-      }
-    ],
-    "description": "Ideenwert +1.",
-    "summary": ""
-  },
-  "profilierungssuechtig": {
-    "name": "Profilierungssüchtig",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/motivation_profilierungssuechtig.html"
-      },
-      {
-        "source": "Das Buch der Regeln",
-        "page": "118"
-      }
-    ],
-    "description": "Du erhältst +1 Attributpunkt auf dein niedrigstes Attribut. Sind mehrere Attribute gleich niedrig, darfst du dir eines aussuchen. Die Motivation hat im späteren Verlauf des Spiels keine Effekte mehr; das gewählte Attribut darf nicht gewechselt werden.",
-    "summary": ""
-  },
-  "rebellisch": {
-    "name": "Rebellisch",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/motivation_rebellisch.html"
-      },
-      {
-        "source": "Das Buch der Regeln",
-        "page": "118"
-      }
-    ],
-    "description": "Niemand hält dich auf: In Ini 0 kannst du dich von einem an dich gebundenen Gegner trennen.",
-    "summary": ""
-  },
-  "umherziehend": {
-    "name": "Umherziehend",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/motivation_umherziehend.html"
-      },
-      {
-        "source": "Das Buch der Regeln",
-        "page": "118"
-      }
-    ],
-    "description": "Dein Unterhalt wird um 10 Gulden pro Coup reduziert (nicht unter Null).",
-    "summary": ""
-  },
-  "unbeugsam": {
-    "name": "Unbeugsam",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/motivation_unbeugsam.html"
-      },
-      {
-        "source": "Das Buch der Regeln",
-        "page": "118"
-      }
-    ],
-    "description": "Coupwert +1",
-    "summary": ""
-  },
-  "verbissen": {
-    "name": "Verbissen",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/motivation_verbissen.html"
-      },
-      {
-        "source": "Das Buch der Regeln",
-        "page": "118"
-      }
-    ],
-    "description": "Bei jedem Stufenaufstieg und zu Beginn eines neuen Abenteuers erhältst du die maximale Menge an Segnungen (normalerweise 5).",
-    "summary": ""
-  },
-  "wachsam": {
-    "name": "Wachsam",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/motivation_wachsam.html"
-      },
-      {
-        "source": "Das Buch der Regeln",
-        "page": "118"
-      }
-    ],
-    "description": "Deine Initiative steigt um +1.",
-    "summary": ""
-  },
-  "wahrheitssuchend": {
-    "name": "Warheitssuchend",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/motivation_Wahrheitssuchend.html"
-      },
-      {
-        "source": "Hexenjagd",
-        "page": "125"
-      }
-    ],
-    "description": "Immer wenn du ein bedeutsames Beweisstück gefunden oder eine relevante und dir vorher nicht bekannte Information erfahren hast (nach Ermessen des HeXXenmeisters), erhältst du 2 Ideen. Erfährst du durch eine Probe auf Redekunst oder Land und Leute (Massenbefragung) mehr als 1 Information, erhältst du dennoch nur 2 Ideen pro Probe, nicht pro Information.",
-    "summary": ""
-  },
-  "zurueckfordernd": {
-    "name": "Zurückfordernd",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/motivation_zurueckfordernd.html"
-      },
-      {
-        "source": "Archiv des Wächterbunds 1",
-        "page": "79"
-      }
-    ],
-    "description": "Immer, wenn es in deiner Heimatregion oder gegen einen gewählten Gegner zu einem Kampf kommst, bist du doppelt motiviert. Du kannst freiwillig zu Beginn des Kampfes einen Blutwürfel würfeln: Du erhältst so viele Coups oder Ideen dazu (oder eine Mischung aus beiden) wie du Blutstropfensymbole würfelst. Würfelst du aber die leere Seite des Blutwürfels, steigerst du dich zu sehr in dein Vorhaben hinein. Streiche ein Kästchen EH durch. Du erhältst dann keine Coups/Ideen dazu. Sollten zu Beginn eines Kampfes alle Kästchen EH durchgestrichen sein, bist du zu erschöpft und kannst den Motivationsvorteil nicht anwenden.",
-    "summary": ""
+  "content": {
+    "abtruenning": {
+      "name": "Abtrünnig",
+      "_id": "n9gQLaXZHBacItWB",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/motivation_abtruennig.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "116"
+        }
+      ],
+      "description": "Du erhältst automatisch eine [Verderbnis]. Für diese und jede weitere im Spiel gewonnene Verderbnis erhältst du jeweils 2 Lep. Solltest du Verderbnisse verlieren – aus welchen Gründen auch immer – verlierst du die Lep nicht, aber du erhältst erst dann neue Lep durch Abtrünnig dazu, wenn du eine neue, zuvor nicht erreichte Höhe an Verderbnissen hast.",
+      "summary": ""
+    },
+    "aufopferungsvoll": {
+      "name": "Aufopferungsvoll",
+      "_id": "4BP8e9GQDTr0RiNn",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/motivation_aufopferungsvoll.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "116"
+        }
+      ],
+      "description": "Wenn deine Lep in den Minusbereich sinken und du daher alle Coups/ Ideen abgeben musst, darfst du jeweils bis zu 3 Coups und 3 Ideen behalten.",
+      "summary": ""
+    },
+    "dominant": {
+      "name": "Dominant",
+      "_id": "Ay2rAyVzH2ajMo4i",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/motivation_dominant.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "116"
+        }
+      ],
+      "description": "Immer, wenn der Jäger eine Idee opfert, kann er einen einzelnen HeXXenwürfel würfeln. Bei einem HeXXensymbol erhält er die Idee sofort zurück. Durch die Wahl des Motivationsvorteils steigt der Unterhalt um +20 Gulden an, um den elitären Lebensstil dominanter Charaktere zu reflektieren.",
+      "summary": ""
+    },
+    "durstig": {
+      "name": "Durstig",
+      "_id": "ARXbZ8eSmbF3GG9Q",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/motivation_durstig.html"
+        },
+        {
+          "source": "Archiv des Wächterbunds 1",
+          "page": "78"
+        }
+      ],
+      "description": "Wenn du dich in der Nähe eines Wirtshauses oder Alkoholvorrats aufhältst, kannst du eine Fza verwenden, um deinen Durst zu stillen. Du erhältst dadurch Segnungen in Höhe eines Elixierwürfels.",
+      "summary": ""
+    },
+    "einschüchternd": {
+      "name": "Einschüchternd",
+      "_id": "q5ezEoeCmk1woZm3",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/motivation_Einsch%C3%BCchternd.html"
+        },
+        {
+          "source": "Hexenjagd",
+          "page": "125"
+        }
+      ],
+      "description": "Du darfst alle Redekunst- Proben auf Muskelspiel ausführen und erhältst dabei sogar einen Bonus von +2, allerdings wirst du auf diese Weise niemals das Vertrauen eines Nsc erlangen. Zwar kannst du dieselben Informationen in Erfahrung bringen wie durch eine normale Redekunst-Probe, anschließend wird der Nsc aber nicht mehr bereit sein, dir weiterzuhelfen.",
+      "summary": ""
+    },
+    "erkundend": {
+      "name": "Erkundend",
+      "_id": "vldIrrcVaTrxiK8U",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/motivation_erkundend.html"
+        },
+        {
+          "source": "Archiv des Wächterbunds 1",
+          "page": "78"
+        }
+      ],
+      "description": "Sobald du eine Freizeitaktion in einem menschenleeren, natürlichen Umfeld bekommst (dazu zählen auch Höhlensystem und verlassene Bergwerke) darfst du mit dem Blutwürfel würfeln. Für jedes Blutstropfensymbol erhältst du eine Segnung oder einen Coup oder eine Idee (oder eine Mischung daraus).",
+      "summary": ""
+    },
+    "fanatisch": {
+      "name": "Fanatisch",
+      "_id": "qoPkMJfu1ofkBzrM",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/motivation_fanatisch.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "116"
+        }
+      ],
+      "description": "Du kannst zu Beginn eines Konflikts oder in Ini 0 (einmal pro Kampf) bis zu 3 Coups in Segnungen umtauschen oder umgekehrt.",
+      "summary": ""
+    },
+    "fatalistisch": {
+      "name": "Fatalistisch",
+      "_id": "3anM72kudmr3aVML",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/motivation_fatalistisch.html"
+        },
+        {
+          "source": "Archiv des Wächterbunds 1",
+          "page": "79"
+        }
+      ],
+      "description": "Du kannst jederzeit ein oder mehrere Kästchen EH oder MH durchstreichen (im Kampf als freie Reaktion). Für jedes Kästchen erhältst du 1 Coup oder 1 Idee.",
+      "summary": ""
+    },
+    "fuersorglich": {
+      "name": "Fürsorglich",
+      "_id": "uG18RVbSGo7KO4f8",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/motivation_fuersorglich.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "116"
+        }
+      ],
+      "description": "Immer, wenn du einen positiven Effekt auf einen Mitstreiter wirkst (z. B. Erste Hilfe, Ausschlagen von Brandstufen etc.), erhältst du einen Bonus von +2 auf die Probe.",
+      "summary": ""
+    },
+    "gebeutelt": {
+      "name": "Gebeutelt",
+      "_id": "OxZl54qatU5V3D1V",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/motivation_gebeutelt.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "116"
+        }
+      ],
+      "description": "Wenn du eine Probe über einen Coup fokussierst, kann du einen zweiten Coup opfern. Du erhältst dann einen Gesamtbonus von +5.",
+      "summary": ""
+    },
+    "gelangweilt": {
+      "name": "Gelangweilt",
+      "_id": "5zaTkZKU09GqNLl2",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/motivation_gelangweilt.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "117"
+        }
+      ],
+      "description": "Wenn du eine Probe über eine Idee fokussierst, kann du eine zweite Idee opfern. Du erhältst dann einen Gesamtbonus von +5.",
+      "summary": ""
+    },
+    "gesandter": {
+      "name": "Gesandter",
+      "_id": "zc4aCcyHgkyg0BgR",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/motivation_gesandter.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "117"
+        }
+      ],
+      "description": "Als Gesandter bist du mit zusätzlichen Geldmitteln ausgestattet und bekommst in regelmäßigen Abständen weitere Geldmittel zugeschickt. Immer, wenn du Unterhalt zahlen musst, erhältst du gleichzeitig 10 Gulden pro Idee (d. h. bei einem Ideenwert von 5 erhältst du 50 Gulden)",
+      "summary": ""
+    },
+    "geschaeftstuechtig": {
+      "name": "Geschäftstüchtig",
+      "_id": "nAt6llfJSMUz8efz",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/motivation_geschaeftstuechtig.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "117"
+        }
+      ],
+      "description": "Beutegut-Pakete, die von dir verkauft werden, bringen 120 Gulden ein. Die Belohnung für offizielle Aufträge steigt um 20% (auch wenn es sich um Gruppenbelohnungen handelt).",
+      "summary": ""
+    },
+    "getrieben": {
+      "name": "Getrieben",
+      "_id": "rx0O9tCX5b5M6kZ3",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/motivation_Getrieben.html"
+        },
+        {
+          "source": "Hexenjagd",
+          "page": "125"
+        }
+      ],
+      "description": "Du erhältst 1 Rage- oder Ambition zu Beginn jedes relevanten Konflikts.",
+      "summary": ""
+    },
+    "glamouroes": {
+      "name": "Glamourös",
+      "_id": "shSfKIQvoB7cS5Vo",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/motivation_Glamour%C3%B6s.html"
+        },
+        {
+          "source": "Hexenjagd",
+          "page": "125"
+        }
+      ],
+      "description": "Immer wenn du deine Aktivität außerhalb von Kämpfen in Form einer Vorführung in Szene setzen kannst (das muss plausibel beschrieben werden), erhältst du einen Bonus von +2 auf die Probe. Das kann Akrobatik- Proben betreffen, aber auch Proben auf Redekunst, Land und Leute oder andere Fertigkeiten. Oft stehen diese mit der Freizeitaktion „Geld verdienen“ in Zusammenhang. Der Spielleiter kann entscheiden, dass eine Vorführung unangebracht ist. Für deine Darbietungen benötigst du einen Vorrat an Utensilien wie Schminke, besondere Kleidungsstücke oder artistisches Gerät, was deinen Unterhalt um 15 Gulden erhöht.",
+      "upkeep": "15",
+      "summary": ""
+    },
+    "gottesfuerchtig": {
+      "name": "Gottesfürchtig",
+      "_id": "iaJesDaai8lSPn10",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/motivation_gottesfuerchtig.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "117"
+        }
+      ],
+      "description": "Du kannst zu Beginn eines Konflikts oder in Ini 0 (einmalig pro Kampf) bis zu 3 Ideen in Segnungen umtauschen oder umgekehrt.",
+      "summary": ""
+    },
+    "heimatsuchend": {
+      "name": "Heimatsuchend",
+      "_id": "u9gTIVWE8cMfz3aq",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/motivation_heimatsuchend.html"
+        },
+        {
+          "source": "Archiv des Wächterbunds 1",
+          "page": "79"
+        }
+      ],
+      "description": "Dein Ziel muss es sein, Freunde und Verbündete in der Fremde zu finden. Immer, wenn du oder ein Mitglied deiner Gruppe über eine Redekunstprobe (Vertrauensprobe) oder über Rollenspiel das Vertrauen eines NSC erhält, bekommst du Segnungen in Höhe eines Blutwürfels.",
+      "summary": ""
+    },
+    "heimatvertrieben": {
+      "name": "Heimatvertriben",
+      "_id": "sY4WqC2nEUP0O3Mk",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/motivation_heimatvertrieben.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "117"
+        }
+      ],
+      "description": "Du kannst zu Beginn eines Konflikts oder in Ini 0 (einmalig pro Kampf) bis zu 3 Ideen in Coups umtauschen oder umgekehrt.",
+      "summary": ""
+    },
+    "hoffnungsvoll": {
+      "name": "Hoffnungsvoll",
+      "_id": "iTI5INrdiC1WAKQs",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/motivation_hoffnungsvoll.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "117"
+        }
+      ],
+      "description": "Würfle einmal pro Tag mit zwei HeXXenwürfeln. Bei einem HeXXensymbol oder einem Espritstern erhältst du je eine Segnung.",
+      "summary": ""
+    },
+    "kontakfreudig": {
+      "name": "Kontakfreudig",
+      "_id": "GUwHECCdSkiKoJXs",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/motivation_kontaktfreudig.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "117"
+        }
+      ],
+      "description": "In Ini 0 kannst du eine eigene Idee an einen anderen Charakter abgeben.",
+      "summary": ""
+    },
+    "neugierig": {
+      "name": "Neugierig",
+      "_id": "3kaFL9KEUWW3HMbU",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/motivation_neugierig.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "118"
+        }
+      ],
+      "description": "Ideenwert +1.",
+      "summary": ""
+    },
+    "profilierungssuechtig": {
+      "name": "Profilierungssüchtig",
+      "_id": "NeNj3N20Nev3BkCj",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/motivation_profilierungssuechtig.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "118"
+        }
+      ],
+      "description": "Du erhältst +1 Attributpunkt auf dein niedrigstes Attribut. Sind mehrere Attribute gleich niedrig, darfst du dir eines aussuchen. Die Motivation hat im späteren Verlauf des Spiels keine Effekte mehr; das gewählte Attribut darf nicht gewechselt werden.",
+      "summary": ""
+    },
+    "rebellisch": {
+      "name": "Rebellisch",
+      "_id": "15pyfHBxCw6u1NhJ",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/motivation_rebellisch.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "118"
+        }
+      ],
+      "description": "Niemand hält dich auf: In Ini 0 kannst du dich von einem an dich gebundenen Gegner trennen.",
+      "summary": ""
+    },
+    "umherziehend": {
+      "name": "Umherziehend",
+      "_id": "xmo8I94TBbZy0uiW",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/motivation_umherziehend.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "118"
+        }
+      ],
+      "description": "Dein Unterhalt wird um 10 Gulden pro Coup reduziert (nicht unter Null).",
+      "summary": ""
+    },
+    "unbeugsam": {
+      "name": "Unbeugsam",
+      "_id": "KNebfsCqdhnMX9Uh",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/motivation_unbeugsam.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "118"
+        }
+      ],
+      "description": "Coupwert +1",
+      "summary": ""
+    },
+    "verbissen": {
+      "name": "Verbissen",
+      "_id": "v0qvX0Bj7GE5Apek",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/motivation_verbissen.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "118"
+        }
+      ],
+      "description": "Bei jedem Stufenaufstieg und zu Beginn eines neuen Abenteuers erhältst du die maximale Menge an Segnungen (normalerweise 5).",
+      "summary": ""
+    },
+    "wachsam": {
+      "name": "Wachsam",
+      "_id": "riAKc0SrFndl8V50",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/motivation_wachsam.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "118"
+        }
+      ],
+      "description": "Deine Initiative steigt um +1.",
+      "summary": ""
+    },
+    "wahrheitssuchend": {
+      "name": "Warheitssuchend",
+      "_id": "1yMx0hPgYVBBA672",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/motivation_Wahrheitssuchend.html"
+        },
+        {
+          "source": "Hexenjagd",
+          "page": "125"
+        }
+      ],
+      "description": "Immer wenn du ein bedeutsames Beweisstück gefunden oder eine relevante und dir vorher nicht bekannte Information erfahren hast (nach Ermessen des HeXXenmeisters), erhältst du 2 Ideen. Erfährst du durch eine Probe auf Redekunst oder Land und Leute (Massenbefragung) mehr als 1 Information, erhältst du dennoch nur 2 Ideen pro Probe, nicht pro Information.",
+      "summary": ""
+    },
+    "zurueckfordernd": {
+      "name": "Zurückfordernd",
+      "_id": "O0zwnosOysurPwiR",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/motivation_zurueckfordernd.html"
+        },
+        {
+          "source": "Archiv des Wächterbunds 1",
+          "page": "79"
+        }
+      ],
+      "description": "Immer, wenn es in deiner Heimatregion oder gegen einen gewählten Gegner zu einem Kampf kommst, bist du doppelt motiviert. Du kannst freiwillig zu Beginn des Kampfes einen Blutwürfel würfeln: Du erhältst so viele Coups oder Ideen dazu (oder eine Mischung aus beiden) wie du Blutstropfensymbole würfelst. Würfelst du aber die leere Seite des Blutwürfels, steigerst du dich zu sehr in dein Vorhaben hinein. Streiche ein Kästchen EH durch. Du erhältst dann keine Coups/Ideen dazu. Sollten zu Beginn eines Kampfes alle Kästchen EH durchgestrichen sein, bist du zu erschöpft und kannst den Motivationsvorteil nicht anwenden.",
+      "summary": ""
+    }
   }
 }

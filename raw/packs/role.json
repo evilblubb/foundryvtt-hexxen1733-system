@@ -1,189 +1,242 @@
 {
-  "alchemist": {
-    "name": "Alchemist",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/Rolle_Alchemist.html"
-      },
-      {
-        "source": "Das Buch der Regeln",
-        "page": "120"
-      }
-    ],
-    "description": "Elixiere dienen in erster Linie dazu, Mitstreiter zu heilen oder zu verbessern, während Wurfgeschosse den Gegnern schaden oder sie behindern. Hinzu kommen Kräfte wie „Unscheinbar“, mit der sich der Alchemist vor gegnerischen Angreifern verbergen kann. Zudem üben viele Alchemisten die Funktion eines Heilers aus und sind daher mit der Jägerkraft „Medicus“ gut beraten.",
-    "summary": "Kleidungsset beim Start: Gelehrtenkleidung oder bürgerliche Kleidung (suche dir ein Set aus)."
+  "@source": {
+    "link": "http://hexxen1733-regelwiki.de/index.php/jgk_rollen.html",
+    "lastChecked": "2020-07-16T13-50-00+0200"
   },
-  "attentaeter": {
-    "name": "Attentäter",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/Rolle_Attent%C3%A4ter.html"
-      },
-      {
-        "source": "Das Buch der Regeln",
-        "page": "124"
-      }
-    ],
-    "description": "Diese Rolle ist ideal für die „Schweinehunde“ unter den Jägern – jene Individuen, die gerne von hinten zustechen und sich anschließend in die Schatten zurückziehen. Ob sie dabei einen vergifteten Dolch einsetzen oder lieber schwere Nahkampfwaffen, liegt allein an ihnen. Die meisten sind geübt darin, sich verstohlen und leise zu bewegen und den Gegner mit einem Messer oder Dolch aus dem Hinterhalt niederzustrecken.",
-    "summary": "Kleidungsset beim Start: Reisekleidung oder Söldnerkleidung (suche dir ein Set aus)."
-  },
-  "beschuetzer": {
-    "name": "Beschützer",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/Rolle_Besch%C3%BCtzer.html"
-      },
-      {
-        "source": "Das Buch der Regeln",
-        "page": "127"
-      }
-    ],
-    "description": "",
-    "summary": "Kleidungsset bei Start: Gardeuniform oder Landsknechtkleidung (suche dir ein Set aus)."
-  },
-  "eiferer": {
-    "name": "Eiferer",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/Rolle_Eiferer.html"
-      },
-      {
-        "source": "Das Buch der Regeln",
-        "page": "134"
-      }
-    ],
-    "description": "",
-    "summary": "Kleidungsset beim Start: Kriegeruntergewand, Reisekleidung oder Mönchs-/Nonnenkleidung (suche dir ein Set aus)."
-  },
-  "fechter": {
-    "name": "Fechter",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/Rolle_Fechter.html"
-      },
-      {
-        "source": "Das Buch der Regeln",
-        "page": "129"
-      }
-    ],
-    "description": "Die Jägerkräfte in der Fechter-Rolle beschreiben den Umgang mit Fechtwaffen, Schwertern und Säbeln, um sie zu bestem Nutzen einzusetzen. Fechtwaffen richten zwar nicht viel Schaden an, sind aber leichte, schnelle Waffen, mit denen sich so manche Kunststücke ausführen lassen. Schwerter hingegen sind eher zum Parieren geeignet – beides zusammen ergibt eine ideale Kombination.",
-    "summary": "Kleidungsset beim Start: Aristokratische Kleidung oder Reisekleidung (suche dir ein Set aus)."
-  },
-  "fernkaempfer": {
-    "name": "Fernkämpfer",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/Rolle_Fernk%C3%A4mpfer.html"
-      },
-      {
-        "source": "Das Buch der Regeln",
-        "page": "132"
-      }
-    ],
-    "description": "",
-    "summary": ""
-  },
-  "hexenfeind": {
-    "name": "Hexenfeind",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/Rolle_Hexenfeind.html"
-      },
-      {
-        "source": "Hexenjagd",
-        "page": "107"
-      }
-    ],
-    "description": "Während der Hexenmystiker einen Einblick in das Wirken und Wissen von Hexenkräften erlangt hat, versucht der Hexenfeind aktiv, diese unheiligen Kreaturen zu bekämpfen und ihre Pläne zu durchkreuzen. Diese Rolle repräsentiert in erster Linie die Grundausbildung von Hexenjägern, Hexenrichtern und anderer auf die Hexenjagd spezialisierter Charaktere.",
-    "summary": "Kleidungsset beim Start: Bürgerliche Kleidung, Reisekleidung oder Söldnerkleidung (suche dir ein Set aus)."
-  },
-  "hexenmystiker": {
-    "name": "Hexenmystiker",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/Rolle_Hexenmystiker.html"
-      },
-      {
-        "source": "Hexenjagd",
-        "page": "102"
-      }
-    ],
-    "description": "Die Hexenmystik umfasst das Wissen über die obskuren und teilweise unerforschten Vorgänge der Natur, wie die Kräuterkunde und Heilkunst, aber auch ein grundlegendes Verständnis für das Wirken der Hexerei. Diese Kräfte sollte nicht als „Zauber“ missverstanden werden. Jäger, die sich auf Hexenmystik verstehen, sind zum einen Gelehrte, die sich der Erforschung der Hexen und ihrer Kräfte gewidmet haben, und zum anderen Menschen, die intuitiv oder durch gelerntes Wissen grundlegende Hexenkräfte anwenden können (z. B. Kräuterkundler oder weiße Hexen).",
-    "summary": "Kleidungsset beim Start: Bürgerliche Kleidung, Kultrobe oder Bauerntracht (suche dir ein Set aus)."
-  },
-  "konstrukteur": {
-    "name": "Konstrukteur",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/Rolle_Konstrukteur.html"
-      },
-      {
-        "source": "Das Buch der Regeln",
-        "page": "137"
-      }
-    ],
-    "description": "",
-    "summary": "Kleidungsset beim Start: Bürgerliche Kleidung, Handwerkerkleidung oder Reisekleidung (suche dir ein Set aus)."
-  },
-  "kundschafter": {
-    "name": "Kundschafter",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/Rolle_Kundschafter.html"
-      },
-      {
-        "source": "Archiv des Wächterbundes 1",
-        "page": "81"
-      }
-    ],
-    "description": "",
-    "summary": "Kleidungsset beim Start: Reisekleidung oder Kundschafterkleidung"
-  },
-  "nahkaempfer": {
-    "name": "Nahkämpfer",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/Rolle_Nahk%C3%A4mpfer.html"
-      },
-      {
-        "source": "Das Buch der Regeln",
-        "page": "142"
-      }
-    ],
-    "description": "",
-    "summary": "Kleidungsset beim Start: Kriegeruntergewand, Landsknechtkleidung oder Söldnerkleidung (suche dir ein Set aus)"
-  },
-  "priester": {
-    "name": "Priester",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "http://hexxen1733-regelwiki.de/index.php/Rolle_Priester.html"
-      }
-    ],
-    "description": "",
-    "summary": ""
-  },
-  "stratege": {
-    "name": "Stratege",
-    "references": [
-      {
-        "source": "Wiki",
-        "link": "hhttp://hexxen1733-regelwiki.de/index.php/Rolle_Stratege.html"
-      }
-    ],
-    "description": "",
-    "summary": ""
+  "content": {
+    "alchemist": {
+      "name": "Alchemist",
+      "_id": "xYgBWaVGK7e4hj66",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/Rolle_Alchemist.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "120"
+        }
+      ],
+      "description": "Elixiere dienen in erster Linie dazu, Mitstreiter zu heilen oder zu verbessern, während Wurfgeschosse den Gegnern schaden oder sie behindern. Hinzu kommen Kräfte wie „Unscheinbar“, mit der sich der Alchemist vor gegnerischen Angreifern verbergen kann. Zudem üben viele Alchemisten die Funktion eines Heilers aus und sind daher mit der Jägerkraft „Medicus“ gut beraten.",
+      "summary": "",
+      "create": "[Gelehrtenkleidung] oder [Bürgerliche Kleidung]"
+    },
+    "attentaeter": {
+      "name": "Attentäter",
+      "_id": "qjt6PQNyflsqqGpE",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/Rolle_Attent%C3%A4ter.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "124"
+        }
+      ],
+      "description": "Diese Rolle ist ideal für die „Schweinehunde“ unter den Jägern – jene Individuen, die gerne von hinten zustechen und sich anschließend in die Schatten zurückziehen. Ob sie dabei einen vergifteten Dolch einsetzen oder lieber schwere Nahkampfwaffen, liegt allein an ihnen. Die meisten sind geübt darin, sich verstohlen und leise zu bewegen und den Gegner mit einem Messer oder Dolch aus dem Hinterhalt niederzustrecken.",
+      "summary": "",
+      "create": "[Reisekleidung] oder [Söldnerkleidung]"
+    },
+    "beschuetzer": {
+      "name": "Beschützer",
+      "_id": "cFaEaiRJwbqPqYLh",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/Rolle_Besch%C3%BCtzer.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "127"
+        }
+      ],
+      "description": "[!Beschreibung fehlt im Wiki]",
+      "@todo": "Beschreibung fehlt (auch im Wiki)",
+      "summary": "",
+      "create": "[Gardeuniform] oder [Landsknechtkleidung]"
+    },
+    "eiferer": {
+      "name": "Eiferer",
+      "_id": "6BR17J8Mk4gHDISQ",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/Rolle_Eiferer.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "134"
+        }
+      ],
+      "description": "[!Beschreibung fehlt im Wiki]",
+      "@todo": "Beschreibung fehlt (auch im Wiki)",
+      "summary": "",
+      "create": "[Kriegeruntergewand], [Reisekleidung] oder [Mönchs-/Nonnenkleidung]"
+    },
+    "fechter": {
+      "name": "Fechter",
+      "_id": "JsChG5efmAXFxZcG",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/Rolle_Fechter.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "129"
+        }
+      ],
+      "description": "Die Jägerkräfte in der Fechter-Rolle beschreiben den Umgang mit Fechtwaffen, Schwertern und Säbeln, um sie zu bestem Nutzen einzusetzen. Fechtwaffen richten zwar nicht viel Schaden an, sind aber leichte, schnelle Waffen, mit denen sich so manche Kunststücke ausführen lassen. Schwerter hingegen sind eher zum Parieren geeignet – beides zusammen ergibt eine ideale Kombination.",
+      "summary": "",
+      "create": "[Aristokratische Kleidung] oder [Reisekleidung]"
+    },
+    "fernkaempfer": {
+      "name": "Fernkämpfer",
+      "_id": "d2VQ03hkff4Cb1kS",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/Rolle_Fernk%C3%A4mpfer.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "132"
+        }
+      ],
+      "description": "[!Beschreibung fehlt im Wiki]",
+      "@todo": "Beschreibung und Startset fehlen (auch im Wiki)",
+      "summary": "",
+      "create": "[!Startausrüstung fehlt im Wiki]"
+    },
+    "hexenfeind": {
+      "name": "Hexenfeind",
+      "_id": "AlLtHdoBVceXUICL",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/Rolle_Hexenfeind.html"
+        },
+        {
+          "source": "Hexenjagd",
+          "page": "107"
+        }
+      ],
+      "description": "Während der [Hexenmystiker] einen Einblick in das Wirken und Wissen von Hexenkräften erlangt hat, versucht der Hexenfeind aktiv, diese unheiligen Kreaturen zu bekämpfen und ihre Pläne zu durchkreuzen. Diese Rolle repräsentiert in erster Linie die Grundausbildung von [Hexenjägern], [Hexenrichtern] und anderer auf die Hexenjagd spezialisierter Charaktere.",
+      "summary": "",
+      "create": "[Bürgerliche Kleidung], [Reisekleidung] oder [Söldnerkleidung]"
+    },
+    "hexenmystiker": {
+      "name": "Hexenmystiker",
+      "_id": "vHCcTEKASdWf60r9",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/Rolle_Hexenmystiker.html"
+        },
+        {
+          "source": "Hexenjagd",
+          "page": "102"
+        }
+      ],
+      "description": "Die Hexenmystik umfasst das Wissen über die obskuren und teilweise unerforschten Vorgänge der Natur, wie die Kräuterkunde und Heilkunst, aber auch ein grundlegendes Verständnis für das Wirken der Hexerei. Diese Kräfte sollte nicht als „Zauber“ missverstanden werden. Jäger, die sich auf Hexenmystik verstehen, sind zum einen [Gelehrte], die sich der Erforschung der Hexen und ihrer Kräfte gewidmet haben, und zum anderen Menschen, die intuitiv oder durch gelerntes Wissen grundlegende Hexenkräfte anwenden können (z. B. [Kräuterkundler] oder [weiße Hexen]).",
+      "summary": "",
+      "create": "[Bürgerliche Kleidung], [Kultrobe] oder [Bauerntracht]"
+    },
+    "konstrukteur": {
+      "name": "Konstrukteur",
+      "_id": "NX4pfa9GU89kDoJV",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/Rolle_Konstrukteur.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "137"
+        }
+      ],
+      "description": "[!Allgemeine Beschreibung fehlt im Wiki]\nKonstruktionspunkte ([Kp])\nDie Konstrukteur-Rolle weist eine Besonderheit auf. Drei Kräfte dieser Rolle (Mechanikum, Praktische Helfer und Unikate produzieren) funktionieren durch den Einsatz von Konstruktionspunkten ([Kp]). Hat man mindestens eine der oben genannten Kräfte, kann man Konstruktionspunkte herstellen und sammeln. [Kp] sind eine Art undefinierte Ressource für alle technischen Apparate oder Konstrukte. Man sammelt [Kp] so lange an, bis man die erforderliche Menge beisammen hat, die zum Bau eines Geräts benötigt wird. Diese Summe gibt man zu einem beliebigen Zeitpunkt für die Erschaffung eines Geräts aus, das dann sofort fertiggestellt ist.\nUm [Kp] zu erzeugen, würfelt der Jäger als [Freizeitaktion] auf [Ges + Fw (Handwerken)]. Jeder Erfolg generiert 1 [Kp], der zur Zahl der bereits gesammelten [Kp] addiert wird [!(dies kann man auf dem Jägerbogen unter „Notizen“ vermerken)]. Welche Apparate, Geräte, Konstrukte und/oder Waffen man herstellen kann, hängt davon ab, welche Konstrukteur-Kräfte man gewählt hat. Die Kosten für die jeweiligen Produkte variieren ebenfalls. Die Erschaffung eines Geräts darf nicht mitten in einem Konflikt geschehen, sondern nur dann, wenn der Konstrukteur genügend Zeit dafür zur Verfügung hat (also in der Regel außerhalb von Kampfhandlungen). Für jede Konstruktion wird eine Werkstatt oder eine [Werkzeugkiste] benötigt.\nBegriffe des Konstrukteurs\nApparat: Ein Teil einer mechanischen Körperapparatur (Mechanikum).\nKonstruktionspunkte ([Kp]): Ressource, die der Konstrukteur generiert.\nMechanikum: Alle Apparate, die am Körper befestigt sind.\nSeelenmotor: Aggregat mit einem [Seelensplitter] als Kern, das die Energie für Seelenapparate generiert.\nUnikat: Herausragende Waffe oder Panzerung mit besonderen Effekten.",
+      "@todo": "Beschreibung fehlt (auch im Wiki); Formatierung Begriffe des Konstrukteurs, Konstruktionspunkte",
+      "summary": "",
+      "create": "[Bürgerliche Kleidung], [Handwerkerkleidung] oder [Reisekleidung]"
+    },
+    "kundschafter": {
+      "name": "Kundschafter",
+      "_id": "CUGKZ5DoYtoVa3nN",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/Rolle_Kundschafter.html"
+        },
+        {
+          "source": "Archiv des Wächterbundes 1",
+          "page": "81"
+        }
+      ],
+      "description": "[!Beschreibung fehlt im Wiki]",
+      "@todo": "Beschreibung fehlt (auch im Wiki)",
+      "summary": "",
+      "create": "[Reisekleidung] oder [Kundschafterkleidung]"
+    },
+    "nahkaempfer": {
+      "name": "Nahkämpfer",
+      "_id": "tVjqal2mb3b1Hs20",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/Rolle_Nahk%C3%A4mpfer.html"
+        },
+        {
+          "source": "Das Buch der Regeln",
+          "page": "142"
+        }
+      ],
+      "description": "[!Beschreibung fehlt im Wiki]",
+      "@todo": "Beschreibung fehlt (auch im Wiki)",
+      "summary": "",
+      "create": "[Kriegeruntergewand], [Landsknechtkleidung] oder [Söldnerkleidung]"
+    },
+    "priester": {
+      "name": "Priester",
+      "_id": "WONQZE4gPf0zqUlH",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/Rolle_Priester.html"
+        }
+      ],
+      "description": "[!Beschreibung fehlt im Wiki]",
+      "@todo": "Beschreibung, Startset und Buchquelle fehlen (auch im Wiki)",
+      "summary": "",
+      "create": "[!Startausrüstung fehlt im Wiki]"
+    },
+    "stratege": {
+      "name": "Stratege",
+      "_id": "ZrhyT64qQoaKXIku",
+      "@rev": 1,
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "hhttp://hexxen1733-regelwiki.de/index.php/Rolle_Stratege.html"
+        }
+      ],
+      "description": "[!Beschreibung fehlt im Wiki]",
+      "@todo": "Beschreibung, Startset und Buchquelle fehlen (auch im Wiki)",
+      "summary": "",
+      "create": "[!Startausrüstung fehlt im Wiki]"
+    }
   }
 }
