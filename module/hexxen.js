@@ -156,7 +156,7 @@ Hooks.once("init", async function() {
     speaker = idx === -1 ? speaker : speaker.substring(0, idx);
     const message = event.currentTarget.dataset.message;
     // TODO: Überprüfungen und Rechte?
-    ChatMessage.create({speaker: { actor: speaker }, content: "/hex " + message });
+    HexxenRollHelper.rollToChat(speaker, message); // TODO: rollCommand und flavour trennen?
   });
   $("body").on("click", "a.hex-chat", (event) => {
     let speaker = $(event.currentTarget).closest("div.app")[0].id.replace("actor-", "") || undefined;

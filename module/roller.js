@@ -56,12 +56,17 @@ class HexxenSpecialDiceRollerHelper extends HexxenRollHelper {
 
     let empty = true;
     let command = "/hex ";
-    for ( let die of Object.keys(roll) ) {
-      let count = roll[die];
-      if ( count > 0 ) {
-        empty = false;
-        command += count;
-        command += die;
+    if ("string" === typeof(roll)) {
+      empty = false;
+      command += roll;
+    } else if ("object" === typeof(roll)) {
+      for ( let die of Object.keys(roll) ) {
+        let count = roll[die];
+        if ( count > 0 ) {
+          empty = false;
+          command += count;
+          command += die;
+        }
       }
     }
 
@@ -237,7 +242,7 @@ class HexxenRoller extends FormApplication {
         roll[die] = count;
       }
     }
-    HexxenRollHelper.rollToChat(this.object, roll, formData.comment)
+    HexxenRollHelper.rollToChat(this.object, roll, formData.comment);
 
 /*     const original = this.getData();
 
