@@ -72,8 +72,12 @@ class HexxenSpecialDiceRollerHelper extends HexxenRollHelper {
     }
 
     const message = roller.rollCommand(command);
-    ChatMessage.create( { speaker: { actor: actor._id, alias: actor.name }, // TODO: scene_id, token_id
-                          content: message });
+    if (actor) {
+      ChatMessage.create( { speaker: { actor: actor._id, alias: actor.name }, // TODO: scene_id, token_id
+                            content: message } );
+    } else {
+      ChatMessage.create( { content: message } );
+    }
 
     return {}; // TODO: result und chatId zurückgeben
   }
