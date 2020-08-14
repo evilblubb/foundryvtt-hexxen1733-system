@@ -502,6 +502,7 @@
     }
   },
   "item": {
+    "_template-revision": 1,
     "description": "",
     "quantity": 1,
     "weight": 0,
@@ -509,14 +510,14 @@
   },
   "role": {
     "templates": [ "core" ],
-    "template-revision": 1,
+    "_template-revision": 1,
     "create": null,
     "upkeep": null,
     "powers": []
   },
   "profession": {
     "templates": [ "core" ],
-    "template-revision": 1,
+    "_template-revision": 1,
     "type": null,
     "qualification": "",
     "upkeep": null,
@@ -524,12 +525,12 @@
   },
   "motivation": {
     "templates": [ "core" ],
-    "template-revision": 1,
+    "_template-revision": 1,
     "upkeep": null
   },
   "power": {
     "templates": [ "core" ],
-    "template-revision": 1,
+    "_template-revision": 1,
     "type": "",
     "subtype": null,
     "create": null,
