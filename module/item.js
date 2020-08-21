@@ -14,7 +14,8 @@ class HexxenItem extends Item {
   /** @override */
   initialize() {
     // to avoid multiple migration runs, migration is only done by gamemaster
-    if (game.user.isGM) {
+    // do not run for compendium items
+    if (!this.compendium && game.user.isGM) {
       // TODO: Check if item data have to be migrated, otherwise immediately call super.initialize()
       // FIXME: issue FVTT#3107, FVTT#3407
       HexxenUpdateQueue.enqueue(async () => {
