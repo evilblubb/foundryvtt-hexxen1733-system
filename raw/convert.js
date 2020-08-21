@@ -285,12 +285,19 @@ function convertItem(type, item, key, path) {
   if (item.create) out.data.create = _convertRefs(item.create); // no multi-paragraph support for now
   if (item.upkeep) out.data.upkeep = item.upkeep;
 
-  if ("power" === type) {
-    extras = _convertPowerItem(type, item, key, path, out);
+  if ("item" === type) {
+    out.data["_template-revision"] = 1;
+  } else if ("motivation" === type) {
+    out.data["_template-revision"] = 1;
   } else if ("role" === type) {
+    out.data["_template-revision"] = 1;
     _convertRoleItem(type, item, key, path, out);
   } else if ("profession" === type) {
+    out.data["_template-revision"] = 1;
     _convertProfessionItem(type, item, key, path, out);
+  } else if ("power" === type) {
+    out.data["_template-revision"] = 1;
+    extras = _convertPowerItem(type, item, key, path, out);
   }
 
   if (item.tags) out.data.tags = item.tags;
