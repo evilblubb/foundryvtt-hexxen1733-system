@@ -21,12 +21,13 @@ class HexxenActor extends Actor {
   /** @override */
   initialize() {
     // TODO: Check if actor data have to be migrated, otherwise immediately call super.initialize()
-    // TODO: ist async/await hier notwenig?
-    // FIXME: issue #3107
-    setTimeout(async () => {
+    // FIXME: issue FVTT#3107, FVTT#3407
+    HexxenUpdateQueue.enqueue(async () => {
       await this._migrateData();
+      // TODO: vorgelagerte Prüfung (z.B. _needToMigrate())
+
       super.initialize();
-    }, 500);
+    });
   }
 
   // TODO: wann genau wird _onCreate() aufgerufen
@@ -293,6 +294,10 @@ class HexxenActor extends Actor {
   }
 
   async _migrateData() {
+    // console.info("Processing", this.isToken ? "Token" : "", this.data.name); // FIXME: entfernen
+
+    // TODO: auf Loop (wie bei Items) umstellen
+
     // early actors did not have a "_data-revision" attribute (but is added through the template),
     // so check for "core" and "calc" which do not appear in later revisions
     const legacy = (this.data.data.core !== undefined) && (this.data.data.calc !== undefined);

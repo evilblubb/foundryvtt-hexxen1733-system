@@ -8,6 +8,7 @@
   "author": "Martin Brunninger",
   "scripts": [  "module/hexxen.js",
                 "module/utils.js",
+                "module/migrate.js",
                 "module/actor.js",
                 "module/actor-sheet.js",
                 "module/jaeger-sheet.js",

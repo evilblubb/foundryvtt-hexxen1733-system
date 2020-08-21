@@ -184,6 +184,7 @@ Hooks.once("init", async function() {
 });
 
 Hooks.once("ready", async function() {
+  console.log("ready hook called");
   HexxenRollHelper.checkSystemReqirements();
 });
 
