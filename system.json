@@ -23,6 +23,7 @@
   "styles": [ "styles/simple.css",
               "styles/hexxen.css",
               "styles/jaeger-sheet.css",
+              "styles/item-sheet.css",
               "styles/roller.css",
               "styles/npc-bande.css",
               "styles/npc-leader.css"
