@@ -123,7 +123,7 @@ class HexxenItem extends Item {
 
         // compare data revisions
         const cFlags = cItem.flags[Hexxen.scope];
-        const dataRev = this.getFlag(Hexxen.scope, "data-revision");
+        const dataRev = this.getFlag(Hexxen.scope, "compendium.data-revision");
         const cRev = cFlags.compendium["data-revision"];
         if (!dataRev || dataRev < cRev) {
           updates = {};
