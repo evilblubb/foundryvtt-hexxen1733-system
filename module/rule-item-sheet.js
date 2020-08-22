@@ -96,12 +96,20 @@ class RuleItemSheet extends ItemSheet {
     const marker = {"stammeffekt": "S", "geselle": "G", "experte": "E", "meister": "M"};
     const data = super.getData();
     data.actor = this.actor;
-    data.compendium = this.compendium;
+    data.img = data.item.img; // TODO: basepath??
     data.type = this.localizeType(data.item.type); // motivation/role/profession/power
     if ("profession" === data.item.type && data.item.data.type) {
-      data.type = this.localizeType(data.item.data.type);
+      data.type = this.localizeType(data.item.data.type); // meisterprofession
     }
-    data.img = data.item.img; // TODO: basepath??
+    data.compendium = this.compendium;
+
+    data.warnings = {};
+    data.warnings.deprecated = this.item.getFlag(Hexxen.scope, "deprecated");
+    data.warnings.bad = this.item.getFlag(Hexxen.scope, "badCompendiumId");
+    data.warnings.update = this.item.getFlag(Hexxen.scope, "update");
+    const custom = this.item.getFlag(Hexxen.scope, "custom");
+    const modified = this.item.getFlag(Hexxen.scope, "modified");
+    if (!data.warnings.deprecated && !data.warnings.bad && !data.warnings.update) delete data.warnings;
 
     // data.item.type: motivation/role/profession/power
     // data.type: localized(data.item.type)

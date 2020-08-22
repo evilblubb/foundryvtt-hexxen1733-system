@@ -17,6 +17,17 @@
                 ]
             </div>
         </div>
+        <div class="warnings" {{#unless warnings}}style="display:none"{{/unless}}>
+            {{#with warnings}}
+            {{#if deprecated}}
+            <i class="fas fa-exclamation-triangle"></i> Veraltet! Bitte aktualisieren!
+            {{else if bad}}
+            <i class="fas fa-unlink"></i> Fehlerhafte oder unvollständige Compendium Info! Es kann keine Prüfung auf Updates durchgeführt werden!
+            {{else if update}}
+            <i class="fas fa-cloud-upload-alt"></i> Update verfügbar!
+            {{/if}}
+            {{/with}}
+        </div>
     </header>
 
     {{!-- Sheet Tab Navigation --}}

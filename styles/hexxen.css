@@ -31,6 +31,8 @@ img#hexxen-logo {
 
   --hexxen-hint-color: var(--hexxen-dark-color);
   --hexxen-alert-color: red;
+  --hexxen-warning-bgcolor: yellow;
+  --hexxen-warning-border: 1px solid orange;
 
   --hexxen-highlight-even-color: rgba(255, 255, 255, 0.5);
   --hexxen-highlight-odd-color: rgba(140, 40, 20, 0.15);
@@ -330,9 +332,11 @@ img#hexxen-logo {
   grid-template-columns: auto 1fr;
   grid-template-rows: auto;
   grid-gap: 4px 6px;
+  padding-bottom: 0px;
   grid-template-areas:
     'img name'
-    'img ref';
+    'img ref'
+    'warnings warnings';
   white-space: nowrap;
 }
 .hexxen.sheet.rule .sheet-header .type-img {
@@ -357,6 +361,14 @@ img#hexxen-logo {
   text-align: right;
   font-size: 0.8em;
   color: var(--hexxen-hint-color);
+}
+.hexxen.sheet.rule .sheet-header .warnings {
+  grid-area: warnings;
+  background: var(--hexxen-warning-bgcolor);
+  border: var(--hexxen-warning-border);
+  margin: 0px -8px 2px;
+  padding: 2px 10px;
+  white-space: normal;
 }
 .hexxen.sheet.rule .extras {
   display: grid;
