@@ -1,5 +1,6 @@
 {
   "name": "hexxen-1733",
+  "type": "system",
   "title": "HeXXen 1733",
   "description": "<p>Spielsystem für HeXXen 1733. Enthält Charakterblätter und Einbindung von Hexxenwürfeln.</p><p><em>Erfordert das Add-on Modul \"Special Dice Roller\".</em></p><p><br></p><p style='font-size:0.9em'>Dieses Produkt wurde unter Lizenz erstellt. HeXXen 1733&trade; und sein Logo sind eingetragene Marken von Ulisses Spiele Deutschland, den U.S.A. und anderen Ländern. Ulisses Spiele und sein Logo sind eingetragene Marken der Ulisses Medien und Spiele Distribution GmbH.<br>Dieses Werk enthält Material, das durch Ulisses Spiele und/oder andere Autoren urheberrechtlich geschützt ist. Solches Material wird mit Erlaubnis im Rahmen der Vereinbarung über Gemeinschaftsinhalte für HeXXen-1733-Scriptorium verwendet.<br>Alle anderen Originalmaterialien in diesem Werk sind Copyright 2020 von Martin Brunninger und werden im Rahmen der Vereinbarung über Gemeinschaftsinhalte für HeXXen-1733-Scriptorium veröffentlicht.</p>",
   "version": "0.5.10",
@@ -91,6 +92,12 @@
   "gridUnits": "ft",
   "primaryTokenAttribute": "health",
   "secondaryTokenAttribute": "power",
+  "dependencies": [
+    {
+      "name": "special-dice-roller",
+      "type": "module"
+    }
+  ],
   "url": "https://github.com/gizmo2342/foundryvtt-hexxen1733-system/",
   "manifest": "https://github.com/gizmo2342/foundryvtt-hexxen1733-system/raw/develop/system.json",
   "download": "https://github.com/gizmo2342/foundryvtt-hexxen1733-system/archive/develop.zip",
