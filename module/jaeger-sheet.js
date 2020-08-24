@@ -28,12 +28,14 @@ class JaegerSheet extends HexxenActorSheet {
   setPosition(options={}) {
     // TODO: nach HexxenActorSheet verschieben (Mixin? - ItemSheet)
     const position = super.setPosition(options);
+    // IMPORTANT: when used with Popout-Addon, position might not contain the correct dimensions!
     const sheetBody = this.element.find(".sheet-body");
-    const windowHeader = this.element.find(".window-header").css("height");
-    const sheetHeader = this.element.find(".sheet-header").css("height");
-    const sheetTabs = this.element.find(".sheet-tabs").css("height");
-    const bodyHeight = position.height - Number.parseInt(windowHeader) - Number.parseInt(sheetHeader) - Number.parseInt(sheetTabs);
-    sheetBody.css("height", bodyHeight);
+    const windowHeader = this.element.find(".window-header").outerHeight(true);
+    const sheetHeader = this.element.find(".sheet-header").outerHeight(true);
+    const sheetTabs = this.element.find(".sheet-tabs").outerHeight(true);
+    const bodyHeight = this.element.innerHeight() - windowHeader - sheetHeader - sheetTabs;
+    // TODO: stimmt bei initialer Anzeige in Popout noch nicht --> Popout-Problem?
+    sheetBody.outerHeight(bodyHeight, true);
     return position;
   }
 
