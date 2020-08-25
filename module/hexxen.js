@@ -121,9 +121,12 @@ Hooks.once("init", async function() {
   // TODO: eigenes left, #navigation left und #loading left/width dynamisch berechnen?
   $($.find("a.hexxen-logo")).on("click", () => { new HexxenAbout().render(true); } );
 
+  // Inject application alignment code into FVTT event listener (entity-link)
+  HexxenAppAlignmentHelper.inject();
+
   // Inject custom roll command
   // TODO: wohin mit solchen Sachen. Macht den Hook zu unübersichtlich.
-  const oldFn = TextEditor._replaceInlineRolls;
+  const oldReplaceInlineRolls = TextEditor._replaceInlineRolls;
   TextEditor._replaceInlineRolls = ((match, command, formula, ...args) => {
     // TODO: auf Templates umstellen
     // TODO: Rechte?
@@ -132,10 +135,11 @@ Hooks.once("init", async function() {
     } else if ("/hc " === command) {
       return `<a class="hex-chat" title="Im Chat anzeigen" data-message="${formula}"><i class="fas fa-comments"></i> ${formula}</a>`;
     } else {
-      return oldFn(match, command, formula, ...args);
+      return oldReplaceInlineRolls(match, command, formula, ...args);
     }
   });
   $("body").on("click", "a.hex-roll", (event) => {
+    // TODO: ID Ermittlung könnte Probleme mit Popout verursachen!
     let speaker = $(event.currentTarget).closest("div.app")[0].id.replace("actor-", "") || undefined;
     // TODO: HexxenRoller einbinden, sobald dieser an die Übergabe eines roll-Strings angepasst ist.
     // if ( event.originalEvent.shiftKey || event.originalEvent.ctrlKey ) {
@@ -159,6 +163,7 @@ Hooks.once("init", async function() {
     HexxenRollHelper.rollToChat(speaker, message); // TODO: rollCommand und flavour trennen?
   });
   $("body").on("click", "a.hex-chat", (event) => {
+    // TODO: ID Ermittlung könnte Probleme mit Popout verursachen!
     let speaker = $(event.currentTarget).closest("div.app")[0].id.replace("actor-", "") || undefined;
     // TODO: Tokens besser berücksichtigen (game.actors.get() berücksichtigt keine Tokens)
     // maybe a token, check for another -
@@ -181,6 +186,7 @@ Hooks.once("init", async function() {
     choices: { fvtt: "FVTT default", centered: "Centered" },
     onChange: pos => ui.pause.render()
   });
+  HexxenAppAlignmentHelper.registerSettings();
 });
 
 Hooks.once("ready", async function() {

@@ -238,7 +238,8 @@ class JaegerSheet extends HexxenActorSheet {
       // TODO: Überprüfungen
       const li = $(ev.currentTarget).parents(".item");
       const item = this.actor.getOwnedItem(li.data("itemId"));
-      item.sheet.render(true);
+      const app = item.sheet.render(true);
+      HexxenAppAlignmentHelper.align(app, ev);
     });
 
     // Delete Inventory Item

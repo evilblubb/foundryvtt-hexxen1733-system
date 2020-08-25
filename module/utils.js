@@ -179,3 +179,54 @@ class HexxenCompendiumHelper {
     return entity ? entity.sheet.render(true) : false;
   }
 }
+
+class HexxenAppAlignmentHelper {
+
+  static get ALIGNMENT_SETTING_KEY() { return "appAlignment" }
+
+  static registerSettings() {
+    game.settings.register(Hexxen.scope, this.ALIGNMENT_SETTING_KEY, {
+      name: "Dialog Alignment",
+      hint: "Arranges Item dialogs to improve their visibility (not putting them into the exact same position).",
+      scope: "client",
+      config: true,
+      default: true,
+      type: Boolean
+    });
+  }
+
+  static inject() {
+    const oldOnClickEntityLink = TextEditor._onClickEntityLink;
+    TextEditor._onClickEntityLink = async (event) => {
+      const ret = await oldOnClickEntityLink(event);
+      if (ret) HexxenAppAlignmentHelper.align(ret, event);
+      return ret;
+    };
+  }
+
+  static get enabled() {
+    return game.settings.get(Hexxen.scope, this.ALIGNMENT_SETTING_KEY);
+  }
+
+  static align(app, event) {
+    if (this.enabled && app instanceof ItemSheet) {
+      const appEl = event.target.closest(".app");
+      const appId = appEl ? appEl.dataset.appid : undefined;
+      const caller = appId ? ui.windows[appId] : undefined;
+      if (caller) {
+        const popoutModule = false; // TODO: prüfen und für indent berücksichtigen
+        const callerOffset = caller.element.offset();
+        let indentLeft = 0, indentTop = 0;
+        if (caller instanceof ActorSheet) {
+          indentLeft = -300;
+          indentTop = 100;
+        } else if (caller instanceof ItemSheet) {
+          indentLeft = callerOffset.left > 50 ? 50 : 0;
+        }
+        const left = callerOffset.left + indentLeft;
+        app.position.left = Math.max(0, left);
+        app.position.top = caller.element.find(".window-content").offset().top + indentTop - 2; // compensate for top margin
+      }
+    }
+  }
+}
