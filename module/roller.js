@@ -51,6 +51,7 @@ class HexxenRollHelper {
       ui.notifications.error("Kein kompatibles Würfeltool gefunden!");
       return false;
     }
+    // TODO: Umleitung über WürfelTool-Dialog implementieren (options.showDialog: true)
     return this.delegate.roll(actor, roll, flavour, options);
   }
 
@@ -83,10 +84,11 @@ class HexxenSpecialDiceRollerHelper extends HexxenRollHelper {
       command += ` # ${flavour}`;
     }
 
+    const speaker = ChatMessage.getSpeaker({actor: actor, token: actor ? actor.token : undefined});
     const message = roller.rollCommand(command);
+
     if (actor) {
-      ChatMessage.create( { speaker: { actor: actor._id, alias: actor.name }, // TODO: scene_id, token_id
-                            content: message } );
+      ChatMessage.create( { speaker: speaker, content: message } );
     } else {
       ChatMessage.create( { content: message } );
     }

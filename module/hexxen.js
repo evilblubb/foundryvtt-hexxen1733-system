@@ -49,54 +49,7 @@ Hooks.once("init", async function() {
   HexxenAppAlignmentHelper.inject();
 
   // Inject custom roll command
-  // TODO: wohin mit solchen Sachen. Macht den Hook zu unübersichtlich.
-  const oldReplaceInlineRolls = TextEditor._replaceInlineRolls;
-  TextEditor._replaceInlineRolls = ((match, command, formula, ...args) => {
-    // TODO: auf Templates umstellen
-    // TODO: Rechte?
-    if ("/hex " === command) {
-      return `<a class="hex-roll" title="Würfeln" data-message="${formula}"><i class="fas fa-dice"></i> ${formula}</a>`;
-    } else if ("/hc " === command) {
-      return `<a class="hex-chat" title="Im Chat anzeigen" data-message="${formula}"><i class="fas fa-comments"></i> ${formula}</a>`;
-    } else {
-      return oldReplaceInlineRolls(match, command, formula, ...args);
-    }
-  });
-  $("body").on("click", "a.hex-roll", (event) => {
-    // TODO: ID Ermittlung könnte Probleme mit Popout verursachen!
-    let speaker = $(event.currentTarget).closest("div.app")[0].id.replace("actor-", "") || undefined;
-    // TODO: HexxenRoller einbinden, sobald dieser an die Übergabe eines roll-Strings angepasst ist.
-    // if ( event.originalEvent.shiftKey || event.originalEvent.ctrlKey ) {
-    //   new HexxenRoller(undefined, /* options */ {
-    //     top: this.position.top + 40,
-    //     left: this.position.left + ((this.position.width - 400) / 2)
-    //   }, /* hints */ {
-    //     type: type,
-    //     key: key
-    //   }).render(true);
-    //   return;
-    // }
-
-    // TODO: Tokens besser berücksichtigen (game.actors.get() berücksichtigt keine Tokens)
-    // maybe a token, check for another -
-    // FIXME: Verwendung in einem Item Sheet verursacht eine defekte Actor-ID, welche den Chat kaputt macht. (Foundry Bug #3056)
-    let idx = speaker.lastIndexOf('-');
-    speaker = idx === -1 ? speaker : speaker.substring(0, idx);
-    const message = event.currentTarget.dataset.message;
-    // TODO: Überprüfungen und Rechte?
-    HexxenRollHelper.rollToChat(speaker, message); // TODO: rollCommand und flavour trennen?
-  });
-  $("body").on("click", "a.hex-chat", (event) => {
-    // TODO: ID Ermittlung könnte Probleme mit Popout verursachen!
-    let speaker = $(event.currentTarget).closest("div.app")[0].id.replace("actor-", "") || undefined;
-    // TODO: Tokens besser berücksichtigen (game.actors.get() berücksichtigt keine Tokens)
-    // maybe a token, check for another -
-    let idx = speaker.lastIndexOf('-');
-    speaker = idx === -1 ? speaker : speaker.substring(0, idx);
-    const message = event.currentTarget.dataset.message;
-    // TODO: Überprüfungen und Rechte?
-    ChatMessage.create({speaker: { actor: speaker }, content: message });
-  });
+  HexxenSpecialCommandHelper.inject();
 
   // TODO: Verschiebung Pause-Markierer wäre ein Kandidat für ein TweakVTT Modul
   // Register system settings
@@ -117,7 +70,9 @@ Hooks.once("init", async function() {
 
 Hooks.once("ready", async function() {
   console.log(`${Hexxen.logPrefix}Ready Hook called`);
+
   HexxenRollHelper.checkSystemReqirements();
+
   console.log(`${Hexxen.logPrefix}Ready Hook done`);
 });
 

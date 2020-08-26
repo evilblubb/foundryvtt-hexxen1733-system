@@ -5,6 +5,22 @@
  * Software License: GNU GPLv3
  */
 
+class HexxenDOMHelper {
+
+  static deriveActorFromEvent(event) {
+    const app = this.deriveAppFromEvent(event);
+    const actor = app.actor || undefined;
+    return actor;
+  }
+
+  static deriveAppFromEvent(event) {
+    const appEl = event.target.closest(".app");
+    const appId = appEl ? appEl.dataset.appid : undefined;
+    const app = appId ? ui.windows[appId] : undefined;
+    return app;
+  }
+}
+
 class HexxenIncDecHelper {
 
   /**
@@ -217,9 +233,7 @@ class HexxenAppAlignmentHelper {
 
   static align(app, event) {
     if (this.enabled && app instanceof ItemSheet) {
-      const appEl = event.target.closest(".app");
-      const appId = appEl ? appEl.dataset.appid : undefined;
-      const caller = appId ? ui.windows[appId] : undefined;
+      const caller = HexxenDOMHelper.deriveAppFromEvent(event);
       if (caller) {
         const callerOffset = caller.element.offset();
         let indentLeft = 0, indentTop = 0;
@@ -236,5 +250,47 @@ class HexxenAppAlignmentHelper {
         app.position.top = caller.element.find(".window-content").offset().top + indentTop - 2; // compensate for top margin
       }
     }
+  }
+}
+
+class HexxenSpecialCommandHelper {
+
+  static inject() {
+    const oldReplaceInlineRolls = TextEditor._replaceInlineRolls;
+    TextEditor._replaceInlineRolls = ((match, command, formula, ...args) => {
+      // TODO: auf Templates umstellen
+      // TODO: Rechte?
+      if ("/hex " === command) {
+        return `<a class="hex-roll" title="Würfeln" data-message="${formula}"><i class="fas fa-dice"></i> ${formula}</a>`;
+      } else if ("/hc " === command) {
+        return `<a class="hex-chat" title="Im Chat anzeigen" data-message="${formula}"><i class="fas fa-comments"></i> ${formula}</a>`;
+      } else {
+        return oldReplaceInlineRolls(match, command, formula, ...args);
+      }
+    });
+
+    $("body").on("click", "a.hex-roll", (event) => {
+      const actor = HexxenDOMHelper.deriveActorFromEvent(event);
+      const message = event.currentTarget.dataset.message;
+      const showDialog = event.originalEvent.shiftKey || event.originalEvent.ctrlKey;
+      // TODO: Überprüfungen und Rechte?
+      // TODO: rollCommand und flavour trennen?
+
+      HexxenRollHelper.rollToChat(actor, message, null, {showDialog: showDialog});
+    });
+
+    $("body").on("click", "a.hex-chat", (event) => {
+      const actor = HexxenDOMHelper.deriveActorFromEvent(event);
+      const speaker = ChatMessage.getSpeaker({actor: actor, token: actor ? actor.token : undefined});
+      const message = event.currentTarget.dataset.message;
+      // TODO: Überprüfungen und Rechte?
+
+      if (speaker) {
+        ChatMessage.create({ speaker: speaker, content: message });
+      } else {
+        ChatMessage.create({ content: message });
+      }
+    });
+
   }
 }
