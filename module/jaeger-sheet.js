@@ -335,11 +335,3 @@ class JaegerSheet extends HexxenActorSheet {
     return this.object.update(formData);
   }
 }
-
-/**
- * An important step is to register your sheet so it can be used
- */
-Actors.registerSheet("hexxen", JaegerSheet, {
-  types: ["character"], // Use this sheet for all types of actors, or just a specific type?
-  makeDefault: true     // Make this sheet the default choice for these types of actors?
-});

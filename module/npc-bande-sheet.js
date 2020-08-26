@@ -48,10 +48,3 @@ class NpcBandeSheet extends HexxenActorSheet {
     });
   }
 }
-/**
- * An important step is to register your sheet so it can be used
- */
-Actors.registerSheet("hexxen", NpcBandeSheet, {
-  types: ["npc-bande"], // Use this sheet for all types of actors, or just a specific type?
-  makeDefault: true     // Make this sheet the default choice for these types of actors?
-});

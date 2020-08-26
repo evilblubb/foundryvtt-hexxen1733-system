@@ -93,7 +93,10 @@ Hooks.once("init", async function() {
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
-//  Actors.registerSheet("simple", SimpleActorSheet, { types: ["npc"] });
+  Actors.registerSheet("hexxen", JaegerSheet, { types: ["character"], makeDefault: true });
+  Actors.registerSheet("hexxen", NpcLeaderSheet, { types: ["npc-leader"], makeDefault: true });
+  Actors.registerSheet("hexxen", NpcBandeSheet, { types: ["npc-bande"], makeDefault: true });
+
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("simple", SimpleItemSheet, { types: ["item"], makeDefault: true });
   Items.registerSheet("hexxen", RuleItemSheet, { types: ["role", "profession", "motivation", "power"], makeDefault: true });
