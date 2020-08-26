@@ -1,4 +1,11 @@
 ﻿/**
+ * Implementation of the german RPG HeXXen 1733 (c) under the license of https://ulissesspiele.zendesk.com/hc/de/articles/360017969212-Inhaltsrichtlinien-f%C3%BCr-HeXXen-1733-Scriptorium.
+ * Implementation based on the content of http://hexxen1733-regelwiki.de/
+ * Author: Martin Brunninger
+ * Software License: GNU GPLv3
+ */
+
+/**
  * Extend the basic ItemSheet with some very simple modifications
  * @extends {ItemSheet}
  */
@@ -104,7 +111,7 @@ class SimpleItemSheet extends ItemSheet {
         obj[k] = v;
         return obj;
       }, {});
-      
+
       // Remove attributes which are no longer used
       for ( let k of Object.keys(this.object.data.data.attributes) ) {
         if ( !attributes.hasOwnProperty(k) ) attributes[`-=${k}`] = null;
