@@ -18,24 +18,8 @@ class Hexxen {
     return game.system.data.title;
   }
 
-  // FIXME: log, info, warn, error: der ursprüngliche Aufrufspunkt geht verloren
-  static log(...args) {
-    // TODO: deaktivierbar machen
-    console.log(...args);
-  }
-
-  static info(...args) {
-    console.info(...args);
-  }
-
-  static warn(...args) {
-    // TODO: Warnmeldung in UI
-    console.warn(...args);
-  }
-
-  static error(...args) {
-    // TODO: Fehlermeldung in UI
-    console.error(...args);
+  static get logPrefix() {
+    return `${this.title} | `;
   }
 }
 
@@ -44,7 +28,7 @@ class Hexxen {
 /* -------------------------------------------- */
 
 Hooks.once("init", async function() {
-  console.info(`HeXXen 1733 | Initializing system`);
+  console.log(`${Hexxen.logPrefix}Initializing system`);
 
 	/**
 	 * Set an initiative formula for the system
@@ -187,11 +171,14 @@ Hooks.once("init", async function() {
     onChange: pos => ui.pause.render()
   });
   HexxenAppAlignmentHelper.registerSettings();
+
+  console.log(`${Hexxen.logPrefix}Initialization done`);
 });
 
 Hooks.once("ready", async function() {
-  console.log("ready hook called");
+  console.log(`${Hexxen.logPrefix}Ready Hook called`);
   HexxenRollHelper.checkSystemReqirements();
+  console.log(`${Hexxen.logPrefix}Ready Hook done`);
 });
 
 // TODO: Verschiebung Pause-Markierer wäre ein Kandidat für ein TweakVTT Modul (inkl. CSS und Konfiguration)

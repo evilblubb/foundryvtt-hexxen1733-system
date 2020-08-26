@@ -70,7 +70,7 @@
     const actions = ["increase", "decrease", "default"];
     const action = el.dataset.action;
     if (!action || !actions.includes(action)) {
-      Hexxen.warn("Error in template: The invoking element must have the attribute 'data-action' with one of the following values: [%s]",
+      console.warn("Error in template: The invoking element must have the attribute 'data-action' with one of the following values: [%s]",
         actions.join(", "), $(el).parents(), event);
       return;
     }
@@ -80,7 +80,7 @@
     const key = parentEl ? parentEl.dataset.key : undefined;
     const targetEl = key ? HexxenIncDecHelper._findTarget(parentEl, key) : undefined;
     if (!parentEl || !targetEl || "Number" !== targetEl.dataset.dtype) {
-      Hexxen.warn("Error in template: A parent of the invoking element must have the attribute 'data-key' and also contain the target element with this name and 'data-dtype'=='Number'.",
+      console.warn("Error in template: A parent of the invoking element must have the attribute 'data-key' and also contain the target element with this name and 'data-dtype'=='Number'.",
         $(el).parents(), event);
       return;
     }
@@ -89,7 +89,7 @@
     // TODO: Ermittlung des Werts ist abhängig vom Typ des Elements
     const value = Number.parseInt(targetEl.value); // getProperty(this.actor.data, key); // returns undefined if key does not exist
     if (isNaN(value)) {
-      Hexxen.warn("Error in template: Bad value.", targetEl, $(el).parents(), event);
+      console.warn("Error in template: Bad value.", targetEl, $(el).parents(), event);
       return;
     }
 
@@ -97,7 +97,7 @@
     if ("default" === action) {
       const defval = targetEl.dataset.default ? Number.parseInt(targetEl.dataset.default) : undefined;
       if (isNaN(defval)) {
-        Hexxen.warn("Error in template: Bad default value.", targetEl, $(el).parents(), event)
+        console.warn("Error in template: Bad default value.", targetEl, $(el).parents(), event)
       }
       // TODO: Änderung des Werts ist abhängig vom Typ des Elements
       targetEl.value = defval;
