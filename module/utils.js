@@ -222,6 +222,8 @@ class HexxenAppAlignmentHelper {
           indentTop = 100;
         } else if (caller instanceof ItemSheet) {
           indentLeft = callerOffset.left > 50 ? 50 : 0;
+        } else {
+          return;
         }
         const left = callerOffset.left + indentLeft;
         app.position.left = Math.max(0, left);
