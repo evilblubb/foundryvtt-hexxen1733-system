@@ -5,25 +5,6 @@
  * Software License: GNU GPLv3
  */
 
-class Hexxen {
-  static get scope() {
-    return game.system.id;
-  }
-
-  static get basepath() {
-    // TODO: evtl. so machen: https://stackoverflow.com/questions/2255689/how-to-get-the-file-path-of-the-currently-executing-javascript-code/2255727
-    return "/systems/" + Hexxen.scope + "/";
-  }
-
-  static get title() {
-    return game.system.data.title;
-  }
-
-  static get logPrefix() {
-    return `${this.title} | `;
-  }
-}
-
 /* -------------------------------------------- */
 /*  Foundry VTT Initialization                  */
 /* -------------------------------------------- */
@@ -57,16 +38,10 @@ Hooks.once("init", async function() {
   Items.registerSheet("simple", SimpleItemSheet, { types: ["item"], makeDefault: true });
   Items.registerSheet("hexxen", RuleItemSheet, { types: ["role", "profession", "motivation", "power"], makeDefault: true });
 
-
   // TODO: preload some images
 
-
-  // Inject system logo
-  // TODO: wohin mit solchen Sachen. Macht den Hook zu unübersichtlich.
-  $("<a class='hexxen-logo'><img id='hexxen-logo' src='" + Hexxen.basepath + "img/HeXXen1733_scriptorium_small_outline.png' height='65px' /></a>")
-      .insertAfter("img#logo");
-  // TODO: eigenes left, #navigation left und #loading left/width dynamisch berechnen?
-  $($.find("a.hexxen-logo")).on("click", () => { new HexxenAbout().render(true); } );
+  // Inject system logo and register listener to show an About dialog
+  HexxenLogo.inject();
 
   // Inject application alignment code into FVTT event listener (entity-link)
   HexxenAppAlignmentHelper.inject();
@@ -155,6 +130,38 @@ Hooks.on("renderPause", async function() {
     app.classList.add(`hexxen-${pos}`);
   }
 });
+
+class Hexxen {
+  static get scope() {
+    return game.system.id;
+  }
+
+  static get basepath() {
+    // TODO: evtl. so machen: https://stackoverflow.com/questions/2255689/how-to-get-the-file-path-of-the-currently-executing-javascript-code/2255727
+    return "/systems/" + Hexxen.scope + "/";
+  }
+
+  static get title() {
+    return game.system.data.title;
+  }
+
+  static get logPrefix() {
+    return `${this.title} | `;
+  }
+}
+
+class HexxenLogo {
+
+  static inject() {
+    // use jQuery to inject the logo into the DOM
+    $("<a class='hexxen-logo'><img id='hexxen-logo' src='" + Hexxen.basepath + "img/HeXXen1733_scriptorium_small_outline.png' height='65px' /></a>")
+        .insertAfter("img#logo");
+
+    // TODO: eigenes left, #navigation left und #loading left/width dynamisch berechnen? Aktuell fix in hexxen.css eingetragen.
+
+    $($.find("a.hexxen-logo")).on("click", () => { new HexxenAbout().render(true); } );
+  }
+}
 
 class HexxenAbout extends Application {
 
