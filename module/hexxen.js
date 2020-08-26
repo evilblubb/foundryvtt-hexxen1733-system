@@ -12,15 +12,6 @@
 Hooks.once("init", async function() {
   console.log(`${Hexxen.logPrefix}Initializing system`);
 
-	/**
-	 * Set an initiative formula for the system
-	 * @type {String}
-	 */
-	CONFIG.Combat.initiative = {
-	  formula: "@ini.value",
-    decimals: 1 // TODO: 0, sobald SC INI Vorrang im CombatTracker
-  };
-
 	// Define custom Entity classes
   CONFIG.Actor.entityClass = HexxenActor;
   CONFIG.Item.entityClass = HexxenItem;
@@ -37,6 +28,12 @@ Hooks.once("init", async function() {
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("simple", SimpleItemSheet, { types: ["item"], makeDefault: true });
   Items.registerSheet("hexxen", RuleItemSheet, { types: ["role", "profession", "motivation", "power"], makeDefault: true });
+
+  // Configure initiative for CombatTracker
+	CONFIG.Combat.initiative = {
+	  formula: "@ini.value",
+    decimals: 1 // TODO: 0, sobald SC INI Vorrang im CombatTracker
+  };
 
   // TODO: preload some images
 
