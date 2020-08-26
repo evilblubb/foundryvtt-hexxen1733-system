@@ -35,7 +35,12 @@ Hooks.once("init", async function() {
     decimals: 1 // TODO: 0, sobald SC INI Vorrang im CombatTracker
   };
 
-  // TODO: preload some images
+  // preload some images
+  Hexxen.preload(
+    `${Hexxen.basepath}/img/Hex_Pokerkarte_front_hell.png`,
+    `${Hexxen.basepath}/img/Rabenkasten_oben_small_braun.png`,
+    `${Hexxen.basepath}/img/Rabenkasten_weit_unten_small_braun.png`
+  );
 
   // Inject system logo and register listener to show an About dialog
   HexxenLogo.inject();
@@ -144,6 +149,15 @@ class Hexxen {
 
   static get logPrefix() {
     return `${this.title} | `;
+  }
+
+  static preload() {
+    for (let i = 0; i < arguments.length; i++) {
+      const img = arguments[i];
+      console.log(`${Hexxen.logPrefix}Preloading ${img}`)
+      const image = new Image();
+      image.src = img;
+    };
   }
 }
 
