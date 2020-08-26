@@ -16,9 +16,6 @@ img#hexxen-logo {
   left: 240px;
   width: calc(100% - 560px);
 }
-#pause.hexxen-centered {
-  bottom: calc(50% - 50px);
-}
 
 .hexxen {
   --hexxen-light-color: rgb(185, 145, 95);

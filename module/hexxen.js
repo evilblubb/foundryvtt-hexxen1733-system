@@ -47,23 +47,10 @@ Hooks.once("init", async function() {
 
   // Inject application alignment code into FVTT event listener (entity-link)
   HexxenAppAlignmentHelper.inject();
+  HexxenAppAlignmentHelper.registerSettings();
 
   // Inject custom roll command
   HexxenSpecialCommandHelper.inject();
-
-  // TODO: Verschiebung Pause-Markierer wäre ein Kandidat für ein TweakVTT Modul
-  // Register system settings
-  game.settings.register("hexxen-1733", "pausePosition", {
-    name: "Game Pause Indicator Position",
-    hint: "Adjust position of game pause indicator.",
-    scope: "client",
-    config: true,
-    default: "fvtt",
-    type: String,
-    choices: { fvtt: "FVTT default", centered: "Centered" },
-    onChange: pos => ui.pause.render()
-  });
-  HexxenAppAlignmentHelper.registerSettings();
 
   console.log(`${Hexxen.logPrefix}Initialization done`);
 });
@@ -74,18 +61,6 @@ Hooks.once("ready", async function() {
   HexxenRollHelper.checkSystemReqirements();
 
   console.log(`${Hexxen.logPrefix}Ready Hook done`);
-});
-
-// TODO: Verschiebung Pause-Markierer wäre ein Kandidat für ein TweakVTT Modul (inkl. CSS und Konfiguration)
-Hooks.on("renderPause", async function() {
-  const pos = game.settings.get("hexxen-1733", "pausePosition");
-  if (pos === "vtt") return;
-
-  let app = $.find("#pause");
-  if (app && app[0]) {
-    app = app[0];
-    app.classList.add(`hexxen-${pos}`);
-  }
 });
 
 class Hexxen {
