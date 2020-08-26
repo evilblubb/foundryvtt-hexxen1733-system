@@ -214,7 +214,6 @@ class HexxenAppAlignmentHelper {
       const appId = appEl ? appEl.dataset.appid : undefined;
       const caller = appId ? ui.windows[appId] : undefined;
       if (caller) {
-        const popoutModule = false; // TODO: prüfen und für indent berücksichtigen
         const callerOffset = caller.element.offset();
         let indentLeft = 0, indentTop = 0;
         if (caller instanceof ActorSheet) {
