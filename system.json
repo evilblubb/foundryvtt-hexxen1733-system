@@ -8,6 +8,7 @@
   "compatibleCoreVersion": "0.6.5",
   "author": "Martin Brunninger",
   "scripts": [  "module/hexxen.js",
+                "module/handlebars.js",
                 "module/utils.js",
                 "module/migrate.js",
                 "module/actor.js",

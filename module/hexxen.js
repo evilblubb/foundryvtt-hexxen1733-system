@@ -39,57 +39,12 @@ Hooks.once("init", async function() {
     decimals: 1 // TODO: 0, sobald SC INI Vorrang im CombatTracker
   };
 
-  Handlebars.registerHelper('isDefined', function(value) {
-    // Caution: in case of (isDefined foo.bar): if foo === null --> value === null
-    return value !== undefined && value !== null;
-  });
-
-  Handlebars.registerHelper('repeat', function(context, options) {
-    let out = "";
-    for (let i=0; i<context; i++) {
-      out += options.fn(this);
-    }
-    return out;
-  });
-
-  // TODO: preload some images
-
-  // FIXME: richtiger Platz??
-  Handlebars.registerHelper("dyn-input", function(options) {
-    // TODO: besser actor.gameMode, aber dazu muss zuerst das Actor/Token-Objekt ermittelt werden
-    // (actor ist nur das äußere Datenelement von Actor)
-    const flags = options.data.root.actor.flags[Hexxen.scope] || {};
-    // TODO: editMode umstellen
-    const editMode = flags.editMode || false;
-    let name = [ options.hash.path, options.hash.key ];
-    if ( options.hash.target ) name.push( options.hash.target);
-    name = name.join(".");
-
-    // FIXME: Überarbeiten: u.a. id="foo" für <label for="foo"> bereitstellen
-    // FIXME: Template erstellen statt SafeString
-    if (editMode) {
-      return new Handlebars.SafeString(`<input class="${options.hash.class}" type="text" name="${name}" value="${options.hash.value}" data-dtype="Number"/>`);
-    } else { // game mode
-      return new Handlebars.SafeString(`<div class="${options.hash.class}">${options.hash.value}</div>`);
-    }
-  });
-  // FIXME: richtiger Platz??
-  Handlebars.registerHelper("inc-btn", function(options) {
-    // FIXME: Template erstellen statt SafeString
-    options.hash.class = options.hash.class || "";
-    return new Handlebars.SafeString(`
-      <div class="${options.hash.class} inc-btn">
-          ${options.fn(this)}
-          <div class="controls">
-              <a class="control left" data-action="decrease"><i class="fas fa-minus"></i></a>
-              <a class="control right" data-action="increase"><i class="fas fa-plus"></i></a>
-          </div>
-      </div>`);
-  });
-
 	// Define custom Entity classes
   CONFIG.Actor.entityClass = HexxenActor;
   CONFIG.Item.entityClass = HexxenItem;
+
+  // Register Handlebars helper for use in HTML templates
+  HexxenHandlebarsHelper.registerHelpers();
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
@@ -100,6 +55,10 @@ Hooks.once("init", async function() {
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("simple", SimpleItemSheet, { types: ["item"], makeDefault: true });
   Items.registerSheet("hexxen", RuleItemSheet, { types: ["role", "profession", "motivation", "power"], makeDefault: true });
+
+
+  // TODO: preload some images
+
 
   // Inject system logo
   // TODO: wohin mit solchen Sachen. Macht den Hook zu unübersichtlich.
