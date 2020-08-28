@@ -38,6 +38,7 @@ class HexxenItem extends Item {
   }
 
   // FIXME: vielleicht lässt sich in händisch erstellte Items ein "custom" Flag einfügen
+  // TODO: sicherstellen, dass data.name existiert
 
   async _migrateData() {
     // console.info("Processing", this.options.actor?.name, "[Item]", this.data.name);

@@ -100,6 +100,7 @@ class RuleItemSheet extends ItemSheet {
   getData() {
     const data = super.getData();
     data.actor = this.actor;
+    data.name = data.item.data.name || data.item.name; // TODO: via Item?
     data.img = data.item.img; // TODO: basepath??
     data.type = this.localizeType(data.item.type); // motivation/role/profession/power
     if ("profession" === data.item.type && data.item.data.type) {
@@ -153,8 +154,15 @@ class RuleItemSheet extends ItemSheet {
   }
 
   _preparePowers(data, powers) {
+    // TODO: Filter code für gelernte Kräfte gehört in den Actor
     const learned = this.actor ? this.actor.data.items.filter(i => i.type === "power") : [];
+    data.powers = { "jaeger": [], "esprit": [], "ausbau": [] };
+
     powers.forEach(power => {
+      // filter by type
+      data.powers[power.type].push(power);
+
+      // mark learned powers
       if (this.actor && learned.filter(i => i.data.name === power.name).length != 0) {
         power.learned = true;
       }
@@ -162,9 +170,13 @@ class RuleItemSheet extends ItemSheet {
         this._prepareFeatures(data, power.features);
       }
     });
+
+    // sort filtered lists
+    Object.values(data.powers).forEach(p => p.sort((a,b) => a.name.localeCompare(b.name)));
   }
 
   _prepareFeatures(data, features) {
+    // TODO: Filter code für gelernte Kräfte gehört in den Actor
     const learned = this.actor ? this.actor.data.items.filter(i => i.type === "power") : [];
     features.forEach(feature => {
       if (this.actor && learned.filter(i => i.data.name === feature.name).length != 0) {

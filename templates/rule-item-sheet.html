@@ -85,64 +85,51 @@
 
         {{!-- Jägerkräfte Tab --}}
 
-        {{#*inline "powers"}}
-        {{#each data.powers}}
-            {{#if (eq this.type filter)}}
-                <div>{{this.name}} ({{this.type}})</div>
-                {{#if (eq this.type "ausbau")}}
-                    {{#each this.features}}
-                    <div>({{this.marker}}) {{this.name}}</div>
-                    {{/each}}
-                {{/if}}
-            {{/if}}
-        {{/each}}
+        {{#*inline "entity-link"}}
+        <a class="entity-link{{#if this.learned}} learned{{/if}}" data-action="open" data-pack="{{this.pack}}" data-lookup="{{this.id}}" draggable="true">{{this.name}}</a>
         {{/inline}}
 
-        {{!-- FIXME: Name des Packs anpassen --> powers --}}
         <div class="tab powers" data-group="primary" data-tab="powers">
             {{!-- TODO: Darstellung --}}
-            <div class="hint">Zum Lernen die Jägerkraft auf den Charakterbogen ziehen.</div>
+            <div class="hint"><i class="fas fa-info-circle"></i> Zum Lernen die Jägerkraft auf den Charakterbogen ziehen.</div>
             <header class="block-header">Allgemeine Jägerkräfte (2 JP)</header>
-            {{#each data.powers}}
-            {{#if (eq this.type "jaeger")}}
-            <div class="power"><a class="entity-link{{#if this.learned}} learned{{/if}}" data-action="open" data-pack="{{this.pack}}" data-lookup="{{this.nameC}}" draggable="true">{{this.name}}</a></div>
-            {{/if}}
+            {{#each powers.jaeger}}
+            <div class="power">{{>entity-link this}}</div>
             {{/each}}
-            {{!-- TODO: warum geht das nicht? >powers filter="jaeger" --}}
-            {{!-- TODO: Hinweis, falls keine Kraft in dieser Kategorie vorhanden --}}
+            {{#unless powers.jaeger}}
+            <div class="hint">Die {{type}} {{name}} enthält keine Allgemeinen Jägerkräfte.</div>
+            {{/unless}}
 
             <header class="block-header">Espritkräfte (3 JP)</header>
-            {{#each data.powers}}
-            {{#if (eq this.type "esprit")}}
-            <div class="power"><a class="entity-link{{#if this.learned}} learned{{/if}}" data-action="open" data-pack="{{this.pack}}" data-lookup="{{this.nameC}}" draggable="true">{{this.name}}</a></div>
-            {{/if}}
+            {{#each powers.esprit}}
+            <div class="power">{{>entity-link this}}</div>
             {{/each}}
-            {{!-- TODO: warum geht das nicht? >powers filter="esprit" --}}
-            {{!-- TODO: Hinweis, falls keine Kraft in dieser Kategorie vorhanden --}}
+            {{#unless powers.esprit}}
+            <div class="hint">Die {{type}} {{name}} enthält keine Espritkräfte.</div>
+            {{/unless}}
 
             <header class="block-header">Ausbaukräfte (1 JP / Effekt)</header>
-            {{#each data.powers}}
-            {{#if (eq this.type "ausbau")}}
+            {{#each powers.ausbau}}
             <div class="power">
-                <div><a class="entity-link{{#if this.learned}} learned{{/if}}" data-action="open" data-pack="{{this.pack}}" data-lookup="{{this.nameC}}" draggable="true">{{this.name}}</a></div>
+                <div>{{>entity-link this}}</div>
                 {{#each this.features}}
-                <div>({{this.marker}}) <a class="entity-link{{#if this.learned}} learned{{/if}}" data-action="open" data-pack="{{this.pack}}" data-lookup="{{this.nameC}}" draggable="true">{{this.name}}</a></div>
+                <div>({{this.marker}}) {{>entity-link this}}</div>
                 {{/each}}
             </div>
-            {{/if}}
             {{/each}}
-            {{!-- TODO: warum geht das nicht? >powers filter="ausbau" --}}
-            {{!-- TODO: Hinweis, falls keine Kraft in dieser Kategorie vorhanden --}}
+            {{#unless powers.ausbau}}
+            <div class="hint">Die {{type}} {{name}} enthält keine Ausbaukräfte.</div>
+            {{/unless}}
 
             <div class="last"> </div>
         </div>
 
         {{!-- Effekte Tab --}}
         <div class="tab features" data-group="primary" data-tab="features">
-            <div class="hint">Zum Lernen den Effekt auf den Charakterbogen ziehen.</div>
+            <div class="hint"><i class="fas fa-info-circle"></i> Zum Lernen den Effekt auf den Charakterbogen ziehen.</div>
             <header class="block-header">Effekte (1 JP)</header>
             {{#each data.features}}
-            <div>({{this.marker}}) <a class="entity-link{{#if this.learned}} learned{{/if}}" data-action="open" data-pack="{{this.pack}}" data-lookup="{{this.nameC}}" draggable="true">{{this.name}}</a></div>
+            <div>({{this.marker}}) {{>entity-link this}}</div>
             {{/each}}
         </div>
 
