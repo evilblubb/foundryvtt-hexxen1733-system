@@ -219,15 +219,6 @@ class HexxenAppAlignmentHelper {
     });
   }
 
-  static inject() {
-    const oldOnClickEntityLink = TextEditor._onClickEntityLink;
-    TextEditor._onClickEntityLink = async (event) => {
-      const ret = await oldOnClickEntityLink(event);
-      if (ret) HexxenAppAlignmentHelper.align(ret, event);
-      return ret;
-    };
-  }
-
   static get choice() {
     return game.settings.get(Hexxen.scope, HexxenAppAlignmentHelper.ALIGNMENT_SETTING_KEY);
   }
@@ -235,6 +226,19 @@ class HexxenAppAlignmentHelper {
   static get enabled() {
     const choice = HexxenAppAlignmentHelper.choice;
     return "never" !== choice;
+  }
+
+  static install() {
+    HexxenAppAlignmentHelper._fvttFn = TextEditor._onClickEntityLink;
+    TextEditor._onClickEntityLink = HexxenAppAlignmentHelper._onClickEntityLink;
+  }
+
+  static async _onClickEntityLink(event) {
+    // IMPORTANT: this function is called in the context of an Application instance,
+    // therefore "this" will point to that instance!
+    const ret = await HexxenAppAlignmentHelper._fvttFn.bind(this)(event);
+    if (ret) HexxenAppAlignmentHelper.align(ret, event);
+    return ret;
   }
 
   static align(app, event) {

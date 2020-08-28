@@ -46,8 +46,8 @@ Hooks.once("init", async function() {
   HexxenLogo.inject();
 
   // Inject application alignment code into FVTT event listener (entity-link)
-  HexxenAppAlignmentHelper.inject();
   HexxenAppAlignmentHelper.registerSettings();
+  HexxenAppAlignmentHelper.install();
 
   // Inject custom roll command
   HexxenSpecialCommandHelper.inject();
