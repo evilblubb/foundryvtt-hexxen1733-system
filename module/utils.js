@@ -208,13 +208,14 @@ class HexxenAppAlignmentHelper {
   static get ALIGNMENT_SETTING_KEY() { return "appAlignment" }
 
   static registerSettings() {
-    game.settings.register(Hexxen.scope, this.ALIGNMENT_SETTING_KEY, {
+    game.settings.register(Hexxen.scope, HexxenAppAlignmentHelper.ALIGNMENT_SETTING_KEY, {
       name: "Dialog Alignment",
       hint: "Arranges Item dialogs to improve their visibility (not putting them into the exact same position).",
       scope: "client",
       config: true,
-      default: true,
-      type: Boolean
+      default: "onCreate",
+      type: String,
+      choices: { never: "Never", onCreate: "On Create", always: "Always" }
     });
   }
 
@@ -227,12 +228,18 @@ class HexxenAppAlignmentHelper {
     };
   }
 
+  static get choice() {
+    return game.settings.get(Hexxen.scope, HexxenAppAlignmentHelper.ALIGNMENT_SETTING_KEY);
+  }
+
   static get enabled() {
-    return game.settings.get(Hexxen.scope, this.ALIGNMENT_SETTING_KEY);
+    const choice = HexxenAppAlignmentHelper.choice;
+    return "never" !== choice;
   }
 
   static align(app, event) {
-    if (this.enabled && app instanceof ItemSheet) {
+    if (HexxenAppAlignmentHelper.enabled && app instanceof ItemSheet) {
+      if ("onCreate" === HexxenAppAlignmentHelper.choice && app._element !== null) return;
       const caller = HexxenDOMHelper.deriveAppFromEvent(event);
       if (caller) {
         const callerOffset = caller.element.offset();
