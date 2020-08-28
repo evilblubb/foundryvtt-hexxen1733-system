@@ -42,10 +42,10 @@ class SimpleItemSheet extends ItemSheet {
 
   /** @override */
   setPosition(options={}) {
+    // TODO: nach HexxenItemSheet verschieben (Mixin? - ActorSheet)
+    // IMPORTANT: when used with Popout-Addon, position might not contain the correct dimensions!
     const position = super.setPosition(options);
-    const sheetBody = this.element.find(".sheet-body");
-    const bodyHeight = position.height - 192;
-    sheetBody.css("height", bodyHeight);
+    HexxenDOMHelper.calcSheetBodyHeight(this.element);
     return position;
   }
 

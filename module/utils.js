@@ -19,6 +19,16 @@ class HexxenDOMHelper {
     const app = appId ? ui.windows[appId] : undefined;
     return app;
   }
+
+  static calcSheetBodyHeight(html) {
+    const sheetBody = html.find(".sheet-body");
+    if (!sheetBody.length) return;
+    const windowHeader = html.find(".window-header").outerHeight(true);
+    const sheetHeader = html.find(".sheet-header").outerHeight(true);
+    const sheetTabs = html.find(".sheet-tabs").outerHeight(true);
+    const bodyHeight = html.innerHeight() - windowHeader - sheetHeader - sheetTabs;
+    sheetBody.outerHeight(bodyHeight, true);
+  }
 }
 
 class HexxenIncDecHelper {
