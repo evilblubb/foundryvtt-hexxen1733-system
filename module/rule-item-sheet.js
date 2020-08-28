@@ -94,9 +94,10 @@ class RuleItemSheet extends ItemSheet {
     return this.object.compendium || null;
   }
 
+  get MARKER() { return {"stammeffekt": "S", "geselle": "G", "experte": "E", "meister": "M"}; }
+
   /** @override */
   getData() {
-    const marker = {"stammeffekt": "S", "geselle": "G", "experte": "E", "meister": "M"};
     const data = super.getData();
     data.actor = this.actor;
     data.img = data.item.img; // TODO: basepath??
@@ -106,12 +107,13 @@ class RuleItemSheet extends ItemSheet {
     }
     data.compendium = this.compendium;
 
+    // TODO: besser ins Item? Dadurch auch für Markierung in Übersichtslisten nutzbar
     data.warnings = {};
     data.warnings.deprecated = this.item.getFlag(Hexxen.scope, "deprecated");
     data.warnings.bad = this.item.getFlag(Hexxen.scope, "badCompendiumId");
     data.warnings.update = this.item.getFlag(Hexxen.scope, "update");
-    const custom = this.item.getFlag(Hexxen.scope, "custom");
-    const modified = this.item.getFlag(Hexxen.scope, "modified");
+    // const custom = this.item.getFlag(Hexxen.scope, "custom");
+    // const modified = this.item.getFlag(Hexxen.scope, "modified");
     if (!data.warnings.deprecated && !data.warnings.bad && !data.warnings.update) delete data.warnings;
 
     // data.item.type: motivation/role/profession/power
@@ -138,36 +140,39 @@ class RuleItemSheet extends ItemSheet {
       data.data.create = TextEditor.enrichHTML(data.data.create);
     }
 
+    // prepare powers and features
     if ( ["role", "profession"].includes(data.item.type) ) {
-      const powers = data.data.powers;
-      powers.forEach(power => {
-        const learned = this.actor ? this.actor.data.items.filter(i => i.type === "power") : [];
-        if (this.actor && learned.filter(i => i.data.name === power.name).length != 0) {
-          power.learned = true;
-        }
-        if ("ausbau" === power.type) {
-          power.features.forEach(feature => {
-            if (this.actor && learned.filter(i => i.data.name === feature.name).length != 0) {
-              feature.learned = true;
-            }
-            feature.marker = marker[feature.type];
-          });
-        }
-      });
+      this._preparePowers(data, data.data.powers);
     }
 
     if ("power" === data.item.type && data.data.features) {
-      const learned = this.actor ? this.actor.data.items.filter(i => i.type === "power") : [];
-      data.data.features.forEach(feature => {
-        if (this.actor && learned.filter(i => i.data.name === feature.name).length != 0) {
-          feature.learned = true;
-        }
-        feature.marker = marker[feature.type];
-      });
+      this._prepareFeatures(data, data.data.features);
     }
 
     return data;
   }
+
+  _preparePowers(data, powers) {
+    const learned = this.actor ? this.actor.data.items.filter(i => i.type === "power") : [];
+    powers.forEach(power => {
+      if (this.actor && learned.filter(i => i.data.name === power.name).length != 0) {
+        power.learned = true;
+      }
+      if ("ausbau" === power.type) {
+        this._prepareFeatures(data, power.features);
+      }
+    });
+  }
+
+  _prepareFeatures(data, features) {
+    const learned = this.actor ? this.actor.data.items.filter(i => i.type === "power") : [];
+    features.forEach(feature => {
+      if (this.actor && learned.filter(i => i.data.name === feature.name).length != 0) {
+        feature.learned = true;
+      }
+      feature.marker = this.MARKER[feature.type];
+    });
+}
 
   /* -------------------------------------------- */
 
