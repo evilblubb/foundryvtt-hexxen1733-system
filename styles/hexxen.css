@@ -190,7 +190,6 @@ img#hexxen-logo {
 .hexxen i.fa-info-circle {
   font-size: 0.8em;
   vertical-align: top;
-  color: #666;
 }
 .hexxen .seperator {
   display: block;
@@ -305,9 +304,6 @@ img#hexxen-logo {
   border-radius: 4px;
   text-align: center;
   font-weight: bold;
-}
-.hexxen.sheet .sheet-body header i.fa-info-circle {
-  color: inherit;
 }
 .hexxen.sheet .sheet-body .block-header {
   margin: 0px -3px;

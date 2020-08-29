@@ -57,6 +57,9 @@
   min-width: 100px;
   white-space: nowrap;
 }
+.hexxen.sheet.rule .extras .label i.fa-info-circle {
+  color: #666;
+}
 /* TODO: verallgemeinern und Darstellung konfigurierbar machen */
 .hexxen.sheet.rule a.entity-link {
   background: unset;
