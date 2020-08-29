@@ -38,6 +38,7 @@
   text-align: initial;
   font-style: italic;
   white-space: normal;
+  padding-right: 15px;
 }
 .hexxen.sheet.rule .sheet-header .sources {
   text-align: right;
