@@ -47,6 +47,7 @@ img#hexxen-logo {
   --hexxen-nav-background-image: url("/systems/hexxen-1733/img/Rabenkasten_oben_small_braun.png");
   --hexxen-nav-bgcolor: rgba(80, 30, 0, 0.4);
   --hexxen-nav-border: 1px solid var(--hexxen-dark-color);
+  --hexxen-nav-active-bgcolor: var(--hexxen-nav-bgcolor);
   --hexxen-header-color: var(--hexxen-dark-color);
   --hexxen-header-bgcolor: rgba(130, 50, 0, 0.3);
   --hexxen-header-border: 1px solid rgb(170, 120, 75);
@@ -262,13 +263,17 @@ img#hexxen-logo {
   background: var(--hexxen-nav-bgcolor);
   border-top: var(--hexxen-nav-border);
   border-bottom: var(--hexxen-nav-border);
+  padding: 0px 10px;
+
 }
 .hexxen.sheet .tabs .item {
   font-size: 1.15em;
-  line-height: 40px;
+  line-height: 39px;
   font-weight: bold;
 }
 .hexxen.sheet .tabs .item.active .item-bg {
+  background-color: var(--hexxen-nav-active-bgcolor);
+  border-radius: 10px 10px 0px 0px;
   background-image: var(--hexxen-nav-background-image);
   background-size: cover;
   background-repeat: no-repeat;
