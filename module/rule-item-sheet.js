@@ -207,6 +207,9 @@ class RuleItemSheet extends ItemSheet {
   /** @override */
   _updateObject(event, formData) {
 
+    // TODO: name Updates behandeln, falls Änderung erlaubt
+    // TODO: img ändern, falls erlaubt
+
     if ("motivation" === this.item.data.type) {
 
     }
