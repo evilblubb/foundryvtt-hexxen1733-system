@@ -1,7 +1,9 @@
 ﻿<form class="{{cssClass}}" autocomplete="off">
     <header class="sheet-header">
         <img class="type-img" src="{{img}}" title="{{type}}"/>
-        <h1 class="name"><input class="value value-box" name="name" type="text" value="{{name}}" placeholder="Name"/></h1>
+        <h1 class="name">
+            <div class="value value-box">{{name}}</div>
+        </h1>
         <div class="refs flexrow">
             <div class="origin">{{origin}}</div>
             <div class="sources">
@@ -49,6 +51,7 @@
         {{!-- Description Tab --}}
         <div class="tab description" data-group="primary" data-tab="description">
             <header class="block-header">Beschreibung</header>
+            {{!-- TODO: Workaround für editable=false via CSS display:none, da editable=false den Editor aktiviert --}}
             {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
 
             <div class="extras">
@@ -79,7 +82,7 @@
             </header>
             {{editor content=data.summary target="data.summary" button=true owner=owner editable=editable}}
 
-            {{!-- TODO: create, unterhalt, tags --}}
+            {{!-- TODO: tags --}}
             <div class="last"> </div>
         </div>
 
@@ -90,8 +93,8 @@
         {{/inline}}
 
         <div class="tab powers" data-group="primary" data-tab="powers">
-            {{!-- TODO: Darstellung --}}
             <div class="hint"><i class="fas fa-info-circle"></i> Zum Lernen die Jägerkraft auf den Charakterbogen ziehen.</div>
+            {{!-- TODO: Darstellung learned, noch nicht lernbar --}}
             <header class="block-header">Allgemeine Jägerkräfte (2 JP)</header>
             {{#each powers.jaeger}}
             <div class="power">{{>entity-link this}}</div>
@@ -112,6 +115,7 @@
             {{#each powers.ausbau}}
             <div class="power">
                 <div>{{>entity-link this}}</div>
+                {{!-- TODO: Darstellung der Features --}}
                 {{#each this.features}}
                 <div>({{this.marker}}) {{>entity-link this}}</div>
                 {{/each}}
@@ -127,6 +131,8 @@
         {{!-- Effekte Tab --}}
         <div class="tab features" data-group="primary" data-tab="features">
             <div class="hint"><i class="fas fa-info-circle"></i> Zum Lernen den Effekt auf den Charakterbogen ziehen.</div>
+            {{!-- TODO: Darstellung learned, noch nicht lernbar --}}
+            {{!-- TODO: Darstellung der Features --}}
             <header class="block-header">Effekte (1 JP)</header>
             {{#each data.features}}
             <div>({{this.marker}}) {{>entity-link this}}</div>

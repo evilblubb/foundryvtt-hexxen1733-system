@@ -83,6 +83,9 @@ img#hexxen-logo {
 .hexxen.app.minimized {
   background-color: var(--hexxen-minimized-title-color);
 }
+.hexxen img {
+  max-width: unset;
+}
 
 .hexxen .allow-break {
   word-break: break-word;
