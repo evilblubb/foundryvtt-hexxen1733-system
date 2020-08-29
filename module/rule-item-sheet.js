@@ -178,11 +178,19 @@ class RuleItemSheet extends ItemSheet {
   _prepareFeatures(data, features) {
     // TODO: Filter code für gelernte Kräfte gehört in den Actor
     const learned = this.actor ? this.actor.data.items.filter(i => i.type === "power") : [];
+    if ("power" === data.item.type) data.features = { "S": [], "G": [], "E": [], "M": [] };
+
     features.forEach(feature => {
+      feature.marker = this.MARKER[feature.type];
+      if (data.features) data.features[feature.marker].push(feature);
+
       if (this.actor && learned.filter(i => i.data.name === feature.name).length != 0) {
         feature.learned = true;
       }
-      feature.marker = this.MARKER[feature.type];
+      // TODO: Voraussetzung prüfen
+      if (false) {
+        feature.locked = true;
+      }
     });
 }
 

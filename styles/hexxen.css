@@ -191,6 +191,10 @@ img#hexxen-logo {
   line-height: initial;
   margin: unset;
 }
+.hexxen .hint .inline {
+  display: inline-block;
+  width: calc(100% - 15px);
+}
 .hexxen i.fa-info-circle {
   font-size: 0.8em;
   vertical-align: top;

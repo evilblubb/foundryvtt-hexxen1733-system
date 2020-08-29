@@ -76,9 +76,6 @@
   border: unset;
   display: inline-block;
 }
-.hexxen.sheet.rule a.entity-link.learned {
-  background: lime;
-}
 .hexxen.sheet.rule .create a.entity-link::before {
   content: "[ ";
 }
@@ -94,4 +91,25 @@
 }
 .hexxen.sheet.rule .powers div.power {
   grid-column: auto;
+}
+.hexxen.sheet.rule .powers .marker {
+  display: inline-block;
+  width: 25px;
+}
+.hexxen.sheet.rule .features {
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 4px 25px !important;
+  text-align: center;
+}
+.hexxen.sheet.rule .features > * ,
+.hexxen.sheet.rule .features .feature.stamm {
+  grid-column: 1 / span 3;
+}
+.hexxen.sheet.rule .features div.feature {
+  grid-column: auto;
+}
+.hexxen.sheet.rule .features div.feature .entity-link {
+  white-space: normal;
+  word-break: normal;
+  word-wrap: break-word;
 }
