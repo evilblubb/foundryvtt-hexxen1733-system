@@ -163,6 +163,11 @@ class HexxenIncDecHelper {
 
 class HexxenCompendiumHelper {
 
+  static preloadIndexes() {
+    const packs = game.packs.entries.filter(el => el.index.length === 0);
+    packs.forEach(pack => pack.getIndex());
+  }
+
   /**
    * Wrapper for use as a listener.
    *

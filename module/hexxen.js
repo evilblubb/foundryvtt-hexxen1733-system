@@ -60,6 +60,9 @@ Hooks.once("ready", async function() {
 
   HexxenRollHelper.checkSystemReqirements();
 
+  // preload compendium indexes
+  HexxenCompendiumHelper.preloadIndexes();
+
   console.log(`${Hexxen.logPrefix}Ready Hook done`);
 });
 
