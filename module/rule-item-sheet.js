@@ -17,6 +17,8 @@ class RuleItemSheet extends ItemSheet {
     if (this.compendium) {
       // inject additional class to enable compendium-specific styles
       this.options.classes.push("compendium");
+    } else if (!this.actor) {
+      this.options.classes.push("world");
     }
   }
 
@@ -38,8 +40,9 @@ class RuleItemSheet extends ItemSheet {
     // TODO: nach HexxenItemSheet verschieben??
     // TODO: localize
     // TODO: Markierung Compendium-Eintrag wäre ein Kandidat für ein TweakVTT Modul
-    const compendium = this.compendium ? "[Compendium] " : "";
-    return `${compendium}${super.title}`;
+    // Falls Tweak: this.actor ist nicht allgemein verfügbar!
+    const prefix = this.compendium ? "[Compendium] " : (!this.actor ? "[World] " : "");
+    return `${prefix}${super.title}`;
   }
 
   /** @override */
