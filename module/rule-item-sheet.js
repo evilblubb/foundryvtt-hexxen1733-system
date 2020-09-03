@@ -207,7 +207,7 @@ class RuleItemSheet extends ItemSheet {
 
     // html.find("a[data-action='open']").on("click", HexxenCompendiumHelper.onClickOpenPower);
     html.find(".entity-link").on("click", (event => {
-      if (!this.actor && !this.actor.items) return;
+      if (!this.actor || !this.actor.items) return;
 
       // TODO: via OwnedItemID identifizieren
       const pack = event.target.dataset.pack;
