@@ -227,9 +227,6 @@ class JaegerSheet extends HexxenActorSheet {
       html.find(".combat").on("click", ".li-control", this._onClickRoll.bind(this));
     }
 
-    // Everything below here is only needed if the sheet is editable
-    if (!this.options.editable) return;
-
     // Update Inventory Item
     html.find('.item-edit').click(ev => {
       // TODO: Überprüfungen
@@ -238,6 +235,9 @@ class JaegerSheet extends HexxenActorSheet {
       const app = item.sheet.render(true);
       HexxenAppAlignmentHelper.align(app, ev);
     });
+
+    // Everything below here is only needed if the sheet is editable
+    if (!this.options.editable) return;
 
     // Delete Inventory Item
     // TODO: Listener von class item-delete auf data-action delete umstellen, auch .html
