@@ -5,6 +5,17 @@
  * Software License: GNU GPLv3
  */
 
+class HexxenEntityHelper {
+
+  static addCustomFlag(data) {
+    if ("array" !== typeof(data)) data = [data];
+    data.forEach(d => {
+      d.flags = {};
+      d.flags[Hexxen.scope] = { custom: true };
+    });
+    return data;
+  }
+}
 class HexxenDOMHelper {
 
   static deriveActorFromEvent(event) {

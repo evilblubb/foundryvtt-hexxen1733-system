@@ -11,6 +11,12 @@ class HexxenItem extends Item {
     super(...args);
   }
 
+  static async create(data, options={}) {
+    // inject custom flag
+    data = HexxenEntityHelper.addCustomFlag(data);
+    return await super.create(data, options);
+  }
+
   get name() {
     // take name from data section in preference to entity name
     return this.data.data.name || super.name;

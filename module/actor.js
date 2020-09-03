@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Implementation of the german RPG HeXXen 1733 (c) under the license of https://ulissesspiele.zendesk.com/hc/de/articles/360017969212-Inhaltsrichtlinien-f%C3%BCr-HeXXen-1733-Scriptorium.
  * Implementation based on the content of http://hexxen1733-regelwiki.de/
  * Author: Martin Brunninger
@@ -13,6 +13,12 @@ class HexxenActor extends Actor {
     // The actor is either created with it's saved data or with the associated template data.
     // Entity.constructor calls this.initialize() which calls this.prepareData() before and after
     // this.prepareEmbeddedEntities().
+  }
+
+  static async create(data, options={}) {
+    // inject custom flag
+    data = HexxenEntityHelper.addCustomFlag(data);
+    return await super.create(data, options);
   }
 
   get type() {
