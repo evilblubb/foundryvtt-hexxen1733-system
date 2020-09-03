@@ -199,15 +199,15 @@ class HexxenActor extends Actor {
       }
       else if ("role" === newItemData.type) {
         // TODO: check if an additional role is allowed (Lv. 1/2/7)
-        // TODO: check for duplicates
         const level = this.level;
         const max = level >= 7 ? 3 : ( level >= 2 ? 2 : 1 );
         const roles = this.data.items
-            .filter( i => "role" === i.type );
+        .filter( i => "role" === i.type );
         if (roles.length >= max) {
           ui.notifications.warn(`Es wurden bereits ${max} Rollen zugewiesen.`); // TODO: singular
           return;
         }
+        // TODO: check for duplicates überarbeiten (Kriterium?)
         else if (roles.filter( i => i.name === newItemData.name).length) {
           ui.notifications.warn(`Die Rolle ${newItemData.name} ist bereits zugewiesen.`);
           return;
@@ -224,8 +224,18 @@ class HexxenActor extends Actor {
         // TODO: Voraussetzungen prüfen
         // TODO: id eintragen
       }
-      // TODO: Jägerkräfte behandeln
-    }
+      else if ("power" === newItemData.type) {
+        const powers = this.data.items
+            .filter( i => "power" === i.type );
+        // TODO: check for duplicates überarbeiten (Kriterium?)
+        if (powers.filter( i => i.name === newItemData.name).length) {
+          ui.notifications.warn(`Die Jägerkraft ${newItemData.name} ist bereits zugewiesen.`);
+          return;
+        }
+        // TODO: Voraussetzungen prüfen
+      }
+
+    } // end if character
 
     super.createEmbeddedEntity(embeddedName, newItemData, options);
   }
