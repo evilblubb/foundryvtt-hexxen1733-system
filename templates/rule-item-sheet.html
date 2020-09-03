@@ -99,7 +99,7 @@
 
         <div class="tab powers" data-group="primary" data-tab="powers">
             <div class="hint"><i class="fas fa-info-circle"></i> Zum Lernen die gewünschte Jägerkraft auf den Charakterbogen ziehen.</div>
-            <header class="block-header">Allgemeine Jägerkräfte (2 JP)</header>
+            <header class="block-header hint">Allgemeine Jägerkräfte (2 JP)</header>
             {{#each powers.jaeger}}
             <div class="power">{{>entity-link this}}</div>
             {{/each}}
@@ -107,7 +107,7 @@
             <div class="hint">Die {{type}} {{name}} enthält keine Allgemeinen Jägerkräfte.</div>
             {{/unless}}
 
-            <header class="block-header">Espritkräfte (3 JP)</header>
+            <header class="block-header hint">Espritkräfte (3 JP)</header>
             {{#each powers.esprit}}
             <div class="power">{{>entity-link this}}</div>
             {{/each}}
@@ -115,7 +115,7 @@
             <div class="hint">Die {{type}} {{name}} enthält keine Espritkräfte.</div>
             {{/unless}}
 
-            <header class="block-header">Ausbaukräfte (1 JP / Effekt)</header>
+            <header class="block-header hint">Ausbaukräfte (1 JP / Effekt)</header>
             <div class="hint">
                 <i class="fas fa-info-circle"></i>
                 <div class="inline">Voraussetzungen: (G)eselleneffekt: Stammeffekt , (E)xperteneffekt: mind. 2 Geselleneffekte,
@@ -139,19 +139,19 @@
         {{!-- Effekte Tab --}}
         <div class="tab features" data-group="primary" data-tab="features">
             <div class="hint"><i class="fas fa-info-circle"></i> Zum Lernen den Effekt auf den Charakterbogen ziehen.</div>
-            <header class="block-header">Stammeffekt (1 JP)</header>
+            <header class="block-header hint">Stammeffekt (1 JP)</header>
             {{#each features.S}}
             <div class="feature stamm">{{>entity-link this}}</div>
             {{/each}}
-            <header class="block-header">Geselleneffekte (1 JP, Stammeffekt)</header>
+            <header class="block-header hint">Geselleneffekte (1 JP, Stammeffekt)</header>
             {{#each features.G}}
             <div class="feature geselle">{{>entity-link this}}</div>
             {{/each}}
-            <header class="block-header">Experteneffekte (1 JP, mind. 2 Geselleneffekte)</header>
+            <header class="block-header hint">Experteneffekte (1 JP, mind. 2 Geselleneffekte)</header>
             {{#each features.E}}
             <div class="feature experte">{{>entity-link this}}</div>
             {{/each}}
-            <header class="block-header">Meistereffekte (1 JP, mind. 2 Experteneffekte)</header>
+            <header class="block-header hint">Meistereffekte (1 JP, mind. 2 Experteneffekte)</header>
             {{#each features.M}}
             <div class="feature meister">{{>entity-link this}}</div>
             {{/each}}
