@@ -168,6 +168,7 @@ class RuleItemSheet extends ItemSheet {
       // mark learned powers
       if (this.actor && learned.filter(i => i.data.name === power.name).length != 0) {
         power.learned = true;
+        // TODO: +OwnedItemID
       }
       if ("ausbau" === power.type) {
         this._prepareFeatures(data, power.features);
@@ -189,6 +190,7 @@ class RuleItemSheet extends ItemSheet {
 
       if (this.actor && learned.filter(i => i.data.name === feature.name).length != 0) {
         feature.learned = true;
+        // TODO: +OwnedItemID
       }
       // TODO: Voraussetzung prüfen
       if (false) {
@@ -204,6 +206,27 @@ class RuleItemSheet extends ItemSheet {
     super.activateListeners(html);
 
     // html.find("a[data-action='open']").on("click", HexxenCompendiumHelper.onClickOpenPower);
+    html.find(".entity-link").on("click", (event => {
+      if (!this.actor && !this.actor.items) return;
+
+      // TODO: via OwnedItemID identifizieren
+      const pack = event.target.dataset.pack;
+      const lookup = event.target.dataset.lookup;
+      const entity = this.actor.items.filter(i => {
+        const p = i.getFlag("hexxen-1733", "compendium.pack") === pack;
+        const id = i.getFlag("hexxen-1733", "compendium.id") === lookup;
+        const n = i.getFlag("hexxen-1733", "compendium.name") === lookup;
+        return (p && (id || n));
+      });
+
+      if (entity.length) {
+        const app = entity[0].sheet;
+        app.render(true);
+        HexxenAppAlignmentHelper.align(app, event);
+        event.preventDefault();
+        event.stopImmediatePropagation();
+      }
+    }).bind(this));
 
     // Everything below here is only needed if the sheet is editable
     if (!this.options.editable) return;
