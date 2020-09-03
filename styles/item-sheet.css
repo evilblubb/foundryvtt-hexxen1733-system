@@ -53,6 +53,10 @@
   padding: 2px 10px;
   white-space: normal;
 }
+/** TODO: Workaround, da Editierbarkeit des Editor nicht direkt erkennbar */
+.hexxen.sheet.rule .tab.description .editor:first-of-type {
+  background: var(--hexxen-value-span-bgcolor);
+}
 /** TODO: Workaround für Problem mit editable=false bei Editor */
 .hexxen.sheet.rule .editor:hover .editor-content[data-edit="data.description"] + .editor-edit {
   display: none;

@@ -40,7 +40,7 @@ img#hexxen-logo {
   --hexxen-input-bgcolor: rgba(255, 255, 255, 0.8);
   --hexxen-input-bordercolor: var(--hexxen-dark-color);
   --hexxen-input-placeholder-color: var(--hexxen-light-color);
-  --hexxen-editor-bgcolor: var(--hexxen-highlight-even-color);
+  --hexxen-editor-bgcolor: var(--hexxen-input-bgcolor);
   --hexxen-editor-border: 1px solid var(--hexxen-dark-color);
 
   --hexxen-box-border: 1px solid var(--hexxen-dark-color);
@@ -157,10 +157,11 @@ img#hexxen-logo {
 .hexxen .editor {
   min-height: 100px;
   max-height: unset;
-  padding: 5px;
+  padding: 5px 10px;
   background: var(--hexxen-editor-bgcolor);
   border: var(--hexxen-editor-border);
   border-radius: 3px;
+  text-align: justify;
 }
 .hexxen .editor .editor-content {
   height: 100%;
@@ -168,6 +169,12 @@ img#hexxen-logo {
 .hexxen .editor .tox.tox-tinymce {
   min-height: 150px;
   max-height: 350px;
+}
+.hexxen .editor p:first-of-type {
+  margin-top: unset;
+}
+.hexxen .editor p:last-of-type {
+  margin-bottom: unset;
 }
 /* TODO: auch Chat berücksichtigen */
 .hexxen .editor .hex-roll,
