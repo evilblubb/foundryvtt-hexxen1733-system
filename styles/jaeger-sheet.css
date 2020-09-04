@@ -311,10 +311,11 @@
   overflow-y: auto;
 }
 .sheet.jaeger .items-list .item {
-  height: 30px;
-  line-height: 24px;
-  padding: 3px 0;
   border-bottom: var(--hexxen-value-span-border);
+}
+.sheet.jaeger .items-list .item h4 {
+  height: 30px;
+  line-height: 28px;
 }
 .sheet.jaeger .items-list .item img {
   flex: 0 0 24px;
@@ -323,6 +324,17 @@
 .sheet.jaeger .items-list .item-name {
   margin: 0;
 }
+.sheet.jaeger .items-list .item-description {
+  display: none;
+  border-top: 1px solid var(--hexxen-light-color);
+}
+.sheet.jaeger .items-list .item-description p:first-of-type {
+  margin-top: unset;
+}
+.sheet.jaeger .items-list .item-description p:last-of-type {
+  margin-bottom: unset;
+}
 .sheet.jaeger .items-list .item-controls {
-  flex: 0 0 36px;
+  flex: 0 0 auto;
+  line-height: 28px;
 }

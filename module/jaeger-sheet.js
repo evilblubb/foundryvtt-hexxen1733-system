@@ -236,6 +236,12 @@ class JaegerSheet extends HexxenActorSheet {
       HexxenAppAlignmentHelper.align(app, ev);
     });
 
+    // Toggle description
+    html.find('.items-list .item h4').on("click", ev => {
+      // TODO: Zielelement sicherer identifizieren
+      $(ev.currentTarget.nextElementSibling).toggle();
+    });
+
     // Everything below here is only needed if the sheet is editable
     if (!this.options.editable) return;
 
