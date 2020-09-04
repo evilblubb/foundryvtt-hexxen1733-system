@@ -57,6 +57,11 @@ class JaegerSheet extends HexxenActorSheet {
     // (from HexxenActorSheet)
     //   editMode: boolean; (full set (true) or limited set (false) of form elements)
 
+    // TODO: verallgemeinern (alle Items)
+    out.actor.items.forEach(i => {
+      i.data.description = i.data.summary ? i.data.summary : i.data.description;
+    });
+
     // header resources
     let hres = {}
     for( let key of [ "ideen", "coups", "segnungen", "rage", "ambition", "quintessenz" ] ) {
