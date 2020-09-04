@@ -326,6 +326,7 @@
 }
 .sheet.jaeger .items-list .item-description {
   display: none;
+  text-align: justify;
   border-top: 1px solid var(--hexxen-light-color);
 }
 .sheet.jaeger .items-list .item-description p:first-of-type {

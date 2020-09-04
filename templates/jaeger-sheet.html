@@ -434,7 +434,7 @@
                         <img src="{{item.img}}" title="{{item.name}}" width="30" height="30"/>
                         <div>
                             <h4 class="item-name">{{item.name}}</h4>
-                            <div class="item-description">{{{item.data.description}}}</div>
+                            <div class="item-description note">{{{item.data.description}}}</div>
                         </div>
                         <div class="item-controls">
                             <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
@@ -486,7 +486,7 @@
                     <img src="{{item.img}}" title="{{item.name}}" width="30" height="30"/>
                     <div>
                         <h4 class="item-name">{{item.name}}{{#if (gt item.data.quantity 1)}} ({{item.data.quantity}}){{/if}}</h4>
-                        <div class="item-description">{{{item.data.description}}}</div>
+                        <div class="item-description note">{{{item.data.description}}}</div>
                     </div>
                 <div class="item-controls">
                         <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
