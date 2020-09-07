@@ -185,6 +185,10 @@ class HexxenActor extends Actor {
 
   // TODO: temporär für Breakpoint
   async createOwnedItem(itemData, options = {}) {
+    // TODO: Prüfung auf Custom-Markierung von data auf flags.hexxen-1733.compendium umstellen
+    if (!itemData.data) {
+      HexxenEntityHelper.addCustomFlag(itemData);
+    }
     super.createOwnedItem(itemData, options);
   }
 

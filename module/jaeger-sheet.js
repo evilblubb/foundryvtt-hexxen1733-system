@@ -250,6 +250,9 @@ class JaegerSheet extends HexxenActorSheet {
     // Everything below here is only needed if the sheet is editable
     if (!this.options.editable) return;
 
+    // Create OwnedItem
+    html.find('.item-create').click(this._onItemCreate.bind(this));
+
     // Delete Inventory Item
     // TODO: Listener von class item-delete auf data-action delete umstellen, auch .html
     html.find('.item-delete').click(ev => {
@@ -274,6 +277,13 @@ class JaegerSheet extends HexxenActorSheet {
   }
 
   /* -------------------------------------------- */
+
+  // TODO: async notwendig?
+  async _onItemCreate(event) {
+    console.log(event);
+    // TODO: unterschiedliche Typen auswählbar machen
+    this.actor.createOwnedItem({name: "New Item", type: "item"}, {renderSheet: true});
+  }
 
   async _onClickRoll(event) {
     event.preventDefault();

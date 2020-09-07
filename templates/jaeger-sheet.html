@@ -343,7 +343,7 @@
                 <span class="li-sum">Summe</span>
                 <span class="li-control"></span>
                 <span class="li-control"></span>
-                <a class="li-control" data-action="create"><i class="fas fa-plus"></i></a>
+                <span class="li-control"></span>
             </header>
 
             <div class="table table-21">
@@ -479,7 +479,10 @@
                     </ol>
                 </div>
             </div>
-            <header class="block-header">Waffen, Rüstung, Kleidung, Ausrüstung</header>
+            <header class="block-header flexrow">
+                <span class="li-label">Waffen, Rüstung, Kleidung, Ausrüstung</span>
+                <a class="item-create li-control" data-action="create"><i class="fas fa-plus"></i></a>
+            </header>
             <ol class="items-list">
             {{#each actor.items as |item id|}}
                 <li class="item flexrow" data-item-id="{{item._id}}">
@@ -490,7 +493,7 @@
                     </div>
                 <div class="item-controls">
                         <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-                        {{#if ../editMode}}<a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>{{/if}}
+                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
                     </div>
                 </li>
             {{/each}}
