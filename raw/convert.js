@@ -1,3 +1,10 @@
+/**
+ * Implementation of the german RPG HeXXen 1733 (c) under the license of https://ulissesspiele.zendesk.com/hc/de/articles/360017969212-Inhaltsrichtlinien-f%C3%BCr-HeXXen-1733-Scriptorium.
+ * Implementation based on the content of http://hexxen1733-regelwiki.de/
+ * Author: Martin Brunninger
+ * Software License: GNU GPLv3
+ */
+
 const fs = require('fs');
 
 const vttSystemName = "hexxen-1733";
@@ -285,12 +292,19 @@ function convertItem(type, item, key, path) {
   if (item.create) out.data.create = _convertRefs(item.create); // no multi-paragraph support for now
   if (item.upkeep) out.data.upkeep = item.upkeep;
 
-  if ("power" === type) {
-    extras = _convertPowerItem(type, item, key, path, out);
+  if ("item" === type) {
+    out.data["_template-revision"] = 1;
+  } else if ("motivation" === type) {
+    out.data["_template-revision"] = 1;
   } else if ("role" === type) {
+    out.data["_template-revision"] = 1;
     _convertRoleItem(type, item, key, path, out);
   } else if ("profession" === type) {
+    out.data["_template-revision"] = 1;
     _convertProfessionItem(type, item, key, path, out);
+  } else if ("power" === type) {
+    out.data["_template-revision"] = 1;
+    extras = _convertPowerItem(type, item, key, path, out);
   }
 
   if (item.tags) out.data.tags = item.tags;

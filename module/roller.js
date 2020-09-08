@@ -1,4 +1,11 @@
 ﻿/**
+ * Implementation of the german RPG HeXXen 1733 (c) under the license of https://ulissesspiele.zendesk.com/hc/de/articles/360017969212-Inhaltsrichtlinien-f%C3%BCr-HeXXen-1733-Scriptorium.
+ * Implementation based on the content of http://hexxen1733-regelwiki.de/
+ * Author: Martin Brunninger
+ * Software License: GNU GPLv3
+ */
+
+/**
  * TODO: doc
  */
 class HexxenRollHelper {
@@ -44,6 +51,7 @@ class HexxenRollHelper {
       ui.notifications.error("Kein kompatibles Würfeltool gefunden!");
       return false;
     }
+    // TODO: Umleitung über WürfelTool-Dialog implementieren (options.showDialog: true)
     return this.delegate.roll(actor, roll, flavour, options);
   }
 
@@ -56,12 +64,17 @@ class HexxenSpecialDiceRollerHelper extends HexxenRollHelper {
 
     let empty = true;
     let command = "/hex ";
-    for ( let die of Object.keys(roll) ) {
-      let count = roll[die];
-      if ( count > 0 ) {
-        empty = false;
-        command += count;
-        command += die;
+    if ("string" === typeof(roll)) {
+      empty = false;
+      command += roll;
+    } else if ("object" === typeof(roll)) {
+      for ( let die of Object.keys(roll) ) {
+        let count = roll[die];
+        if ( count > 0 ) {
+          empty = false;
+          command += count;
+          command += die;
+        }
       }
     }
 
@@ -71,9 +84,14 @@ class HexxenSpecialDiceRollerHelper extends HexxenRollHelper {
       command += ` # ${flavour}`;
     }
 
+    const speaker = ChatMessage.getSpeaker({actor: actor, token: actor ? actor.token : undefined});
     const message = roller.rollCommand(command);
-    ChatMessage.create( { speaker: { actor: actor._id, alias: actor.name }, // TODO: scene_id, token_id
-                          content: message });
+
+    if (actor) {
+      ChatMessage.create( { speaker: speaker, content: message } );
+    } else {
+      ChatMessage.create( { content: message } );
+    }
 
     return {}; // TODO: result und chatId zurückgeben
   }
@@ -233,7 +251,7 @@ class HexxenRoller extends FormApplication {
         roll[die] = count;
       }
     }
-    HexxenRollHelper.rollToChat(this.object, roll, formData.comment)
+    HexxenRollHelper.rollToChat(this.object, roll, formData.comment);
 
 /*     const original = this.getData();
 

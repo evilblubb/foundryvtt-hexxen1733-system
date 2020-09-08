@@ -1,3 +1,10 @@
+/**
+ * Implementation of the german RPG HeXXen 1733 (c) under the license of https://ulissesspiele.zendesk.com/hc/de/articles/360017969212-Inhaltsrichtlinien-f%C3%BCr-HeXXen-1733-Scriptorium.
+ * Implementation based on the content of http://hexxen1733-regelwiki.de/
+ * Author: Martin Brunninger
+ * Software License: GNU GPLv3
+ */
+
 class HexxenActorSheet extends ActorSheet {
 
   /** @override */
@@ -21,7 +28,7 @@ class HexxenActorSheet extends ActorSheet {
 
   _onToggleEditMode(event) {
     event.preventDefault();
-    
+
     let mode = this.editMode;
     // toggle mode
     mode = !mode;
@@ -161,7 +168,7 @@ class SimpleActorSheet extends HexxenActorSheet {
       obj[k] = v;
       return obj;
     }, {});
-    
+
     // Remove attributes which are no longer used
     for ( let k of Object.keys(this.object.data.data.attributes) ) {
       if ( !attributes.hasOwnProperty(k) ) attributes[`-=${k}`] = null;
@@ -172,7 +179,7 @@ class SimpleActorSheet extends HexxenActorSheet {
       obj[e[0]] = e[1];
       return obj;
     }, {_id: this.object._id, "data.attributes": attributes});
-    
+
     // Update the Actor
     return this.object.update(formData);
   }

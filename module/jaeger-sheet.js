@@ -1,7 +1,10 @@
 ﻿/**
- * Extend the basic ActorSheet with some very simple modifications
- * @extends {ActorSheet}
+ * Implementation of the german RPG HeXXen 1733 (c) under the license of https://ulissesspiele.zendesk.com/hc/de/articles/360017969212-Inhaltsrichtlinien-f%C3%BCr-HeXXen-1733-Scriptorium.
+ * Implementation based on the content of http://hexxen1733-regelwiki.de/
+ * Author: Martin Brunninger
+ * Software License: GNU GPLv3
  */
+
 class JaegerSheet extends HexxenActorSheet {
 
   /** @override */
@@ -27,13 +30,9 @@ class JaegerSheet extends HexxenActorSheet {
   /** @override */
   setPosition(options={}) {
     // TODO: nach HexxenActorSheet verschieben (Mixin? - ItemSheet)
+    // IMPORTANT: when used with Popout-Addon, position might not contain the correct dimensions!
     const position = super.setPosition(options);
-    const sheetBody = this.element.find(".sheet-body");
-    const windowHeader = this.element.find(".window-header").css("height");
-    const sheetHeader = this.element.find(".sheet-header").css("height");
-    const sheetTabs = this.element.find(".sheet-tabs").css("height");
-    const bodyHeight = position.height - Number.parseInt(windowHeader) - Number.parseInt(sheetHeader) - Number.parseInt(sheetTabs);
-    sheetBody.css("height", bodyHeight);
+    HexxenDOMHelper.calcSheetBodyHeight(this.element);
     return position;
   }
 
@@ -57,6 +56,11 @@ class JaegerSheet extends HexxenActorSheet {
     //   items: any; (alias for actor.items; data only, not the Item instance; sorted, contains all subtypes)
     // (from HexxenActorSheet)
     //   editMode: boolean; (full set (true) or limited set (false) of form elements)
+
+    // TODO: verallgemeinern (alle Items)
+    out.actor.items.forEach(i => {
+      i.data.description = i.data.summary ? i.data.summary : i.data.description;
+    });
 
     // header resources
     let hres = {}
@@ -228,16 +232,26 @@ class JaegerSheet extends HexxenActorSheet {
       html.find(".combat").on("click", ".li-control", this._onClickRoll.bind(this));
     }
 
-    // Everything below here is only needed if the sheet is editable
-    if (!this.options.editable) return;
-
     // Update Inventory Item
     html.find('.item-edit').click(ev => {
       // TODO: Überprüfungen
       const li = $(ev.currentTarget).parents(".item");
       const item = this.actor.getOwnedItem(li.data("itemId"));
-      item.sheet.render(true);
+      const app = item.sheet.render(true);
+      HexxenAppAlignmentHelper.align(app, ev);
     });
+
+    // Toggle description
+    html.find('.items-list .item h4').on("click", ev => {
+      // TODO: Zielelement sicherer identifizieren
+      $(ev.currentTarget.nextElementSibling).toggle();
+    });
+
+    // Everything below here is only needed if the sheet is editable
+    if (!this.options.editable) return;
+
+    // Create OwnedItem
+    html.find('.item-create').click(this._onItemCreate.bind(this));
 
     // Delete Inventory Item
     // TODO: Listener von class item-delete auf data-action delete umstellen, auch .html
@@ -263,6 +277,13 @@ class JaegerSheet extends HexxenActorSheet {
   }
 
   /* -------------------------------------------- */
+
+  // TODO: async notwendig?
+  async _onItemCreate(event) {
+    console.log(event);
+    // TODO: unterschiedliche Typen auswählbar machen
+    this.actor.createOwnedItem({name: "New Item", type: "item"}, {renderSheet: true});
+  }
 
   async _onClickRoll(event) {
     event.preventDefault();
@@ -332,11 +353,3 @@ class JaegerSheet extends HexxenActorSheet {
     return this.object.update(formData);
   }
 }
-
-/**
- * An important step is to register your sheet so it can be used
- */
-Actors.registerSheet("hexxen", JaegerSheet, {
-  types: ["character"], // Use this sheet for all types of actors, or just a specific type?
-  makeDefault: true     // Make this sheet the default choice for these types of actors?
-});

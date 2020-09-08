@@ -1,4 +1,11 @@
 /**
+ * Implementation of the german RPG HeXXen 1733 (c) under the license of https://ulissesspiele.zendesk.com/hc/de/articles/360017969212-Inhaltsrichtlinien-f%C3%BCr-HeXXen-1733-Scriptorium.
+ * Implementation based on the content of http://hexxen1733-regelwiki.de/
+ * Author: Martin Brunninger, @evilblubb
+ * Software License: GNU GPLv3
+ */
+
+/**
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
  */
@@ -48,10 +55,3 @@ class NpcBandeSheet extends HexxenActorSheet {
     });
   }
 }
-/**
- * An important step is to register your sheet so it can be used
- */
-Actors.registerSheet("hexxen", NpcBandeSheet, {
-  types: ["npc-bande"], // Use this sheet for all types of actors, or just a specific type?
-  makeDefault: true     // Make this sheet the default choice for these types of actors?
-});
