@@ -1,4 +1,9 @@
-﻿
+/**
+ * Implementation of the german RPG HeXXen 1733 (c) under the license of https://ulissesspiele.zendesk.com/hc/de/articles/360017969212-Inhaltsrichtlinien-f%C3%BCr-HeXXen-1733-Scriptorium.
+ * Implementation based on the content of http://hexxen1733-regelwiki.de/
+ * Author: Martin Brunninger
+ * Software License: GNU GPLv3
+ */
 
 class HexxenActor extends Actor {
 
@@ -8,6 +13,12 @@ class HexxenActor extends Actor {
     // The actor is either created with it's saved data or with the associated template data.
     // Entity.constructor calls this.initialize() which calls this.prepareData() before and after
     // this.prepareEmbeddedEntities().
+  }
+
+  static async create(data, options={}) {
+    // inject custom flag
+    data = HexxenEntityHelper.addCustomFlag(data);
+    return await super.create(data, options);
   }
 
   get type() {
@@ -21,12 +32,13 @@ class HexxenActor extends Actor {
   /** @override */
   initialize() {
     // TODO: Check if actor data have to be migrated, otherwise immediately call super.initialize()
-    // TODO: ist async/await hier notwenig?
-    // FIXME: issue #3107
-    setTimeout(async () => {
+    // FIXME: issue FVTT#3107, FVTT#3407
+    HexxenUpdateQueue.enqueue(async () => {
       await this._migrateData();
+      // TODO: vorgelagerte Prüfung (z.B. _needToMigrate())
+
       super.initialize();
-    }, 500);
+    });
   }
 
   // TODO: wann genau wird _onCreate() aufgerufen
@@ -173,6 +185,10 @@ class HexxenActor extends Actor {
 
   // TODO: temporär für Breakpoint
   async createOwnedItem(itemData, options = {}) {
+    // TODO: Prüfung auf Custom-Markierung von data auf flags.hexxen-1733.compendium umstellen
+    if (!itemData.data) {
+      HexxenEntityHelper.addCustomFlag(itemData);
+    }
     super.createOwnedItem(itemData, options);
   }
 
@@ -193,15 +209,15 @@ class HexxenActor extends Actor {
       }
       else if ("role" === newItemData.type) {
         // TODO: check if an additional role is allowed (Lv. 1/2/7)
-        // TODO: check for duplicates
         const level = this.level;
         const max = level >= 7 ? 3 : ( level >= 2 ? 2 : 1 );
         const roles = this.data.items
-            .filter( i => "role" === i.type );
+        .filter( i => "role" === i.type );
         if (roles.length >= max) {
           ui.notifications.warn(`Es wurden bereits ${max} Rollen zugewiesen.`); // TODO: singular
           return;
         }
+        // TODO: check for duplicates überarbeiten (Kriterium?)
         else if (roles.filter( i => i.name === newItemData.name).length) {
           ui.notifications.warn(`Die Rolle ${newItemData.name} ist bereits zugewiesen.`);
           return;
@@ -218,8 +234,18 @@ class HexxenActor extends Actor {
         // TODO: Voraussetzungen prüfen
         // TODO: id eintragen
       }
-      // TODO: Jägerkräfte behandeln
-    }
+      else if ("power" === newItemData.type) {
+        const powers = this.data.items
+            .filter( i => "power" === i.type );
+        // TODO: check for duplicates überarbeiten (Kriterium?)
+        if (powers.filter( i => i.name === newItemData.name).length) {
+          ui.notifications.warn(`Die Jägerkraft ${newItemData.name} ist bereits zugewiesen.`);
+          return;
+        }
+        // TODO: Voraussetzungen prüfen
+      }
+
+    } // end if character
 
     super.createEmbeddedEntity(embeddedName, newItemData, options);
   }
@@ -293,6 +319,10 @@ class HexxenActor extends Actor {
   }
 
   async _migrateData() {
+    // console.info("Processing", this.isToken ? "Token" : "", this.data.name); // FIXME: entfernen
+
+    // TODO: auf Loop (wie bei Items) umstellen
+
     // early actors did not have a "_data-revision" attribute (but is added through the template),
     // so check for "core" and "calc" which do not appear in later revisions
     const legacy = (this.data.data.core !== undefined) && (this.data.data.calc !== undefined);

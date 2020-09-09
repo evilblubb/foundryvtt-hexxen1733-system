@@ -1,4 +1,11 @@
 ﻿/**
+ * Implementation of the german RPG HeXXen 1733 (c) under the license of https://ulissesspiele.zendesk.com/hc/de/articles/360017969212-Inhaltsrichtlinien-f%C3%BCr-HeXXen-1733-Scriptorium.
+ * Implementation based on the content of http://hexxen1733-regelwiki.de/
+ * Author: Martin Brunninger
+ * Software License: GNU GPLv3
+ */
+
+/**
  * Extend the basic ItemSheet with some very simple modifications
  * @extends {ItemSheet}
  */
@@ -35,10 +42,10 @@ class SimpleItemSheet extends ItemSheet {
 
   /** @override */
   setPosition(options={}) {
+    // TODO: nach HexxenItemSheet verschieben (Mixin? - ActorSheet)
+    // IMPORTANT: when used with Popout-Addon, position might not contain the correct dimensions!
     const position = super.setPosition(options);
-    const sheetBody = this.element.find(".sheet-body");
-    const bodyHeight = position.height - 192;
-    sheetBody.css("height", bodyHeight);
+    HexxenDOMHelper.calcSheetBodyHeight(this.element);
     return position;
   }
 
@@ -104,7 +111,7 @@ class SimpleItemSheet extends ItemSheet {
         obj[k] = v;
         return obj;
       }, {});
-      
+
       // Remove attributes which are no longer used
       for ( let k of Object.keys(this.object.data.data.attributes) ) {
         if ( !attributes.hasOwnProperty(k) ) attributes[`-=${k}`] = null;

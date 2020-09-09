@@ -1,0 +1,120 @@
+.hexxen.sheet.rule {
+  min-width: 450px;
+  min-height: 400px;
+}
+.hexxen.sheet.rule .editor {
+  min-height: 50px;
+}
+.hexxen.sheet.rule .sheet-header {
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto;
+  grid-gap: 4px 6px;
+  padding-bottom: 0px;
+  grid-template-areas:
+    'img name'
+    'img ref'
+    'warnings warnings';
+  white-space: nowrap;
+}
+.hexxen.sheet.rule .sheet-header .type-img {
+  grid-area: img;
+  border: none;
+  margin-right: unset;
+}
+.hexxen.sheet.rule .sheet-header .name {
+  grid-area: name;
+  overflow: hidden;
+}
+.hexxen.sheet.rule .sheet-header .name .value-box {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.hexxen.sheet.rule .sheet-header .refs {
+  grid-area: ref;
+  flex-wrap: wrap;
+}
+.hexxen.sheet.rule .sheet-header .origin {
+  flex: unset;
+  text-align: initial;
+  font-style: italic;
+  white-space: normal;
+  padding-right: 15px;
+}
+.hexxen.sheet.rule .sheet-header .sources {
+  text-align: right;
+  font-size: 0.8em;
+  color: var(--hexxen-hint-color);
+}
+.hexxen.sheet.rule .sheet-header .warnings {
+  grid-area: warnings;
+  background: var(--hexxen-warning-bgcolor);
+  border: var(--hexxen-warning-border);
+  margin: 0px -8px 2px;
+  padding: 2px 10px;
+  white-space: normal;
+}
+/** TODO: Workaround, da Editierbarkeit des Editor nicht direkt erkennbar */
+.hexxen.sheet.rule .tab.description .editor:first-of-type {
+  background: var(--hexxen-value-span-bgcolor);
+}
+/** TODO: Workaround für Problem mit editable=false bei Editor */
+.hexxen.sheet.rule .editor:hover .editor-content[data-edit="data.description"] + .editor-edit {
+  display: none;
+}
+.hexxen.sheet.rule .extras {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-gap: 0px 6px;
+  margin: 0px 6px;
+}
+.hexxen.sheet.rule .extras .label {
+  min-width: 100px;
+  white-space: nowrap;
+}
+.hexxen.sheet.rule .extras .label i.fa-info-circle {
+  color: #666;
+}
+/* TODO: verallgemeinern und Darstellung konfigurierbar machen */
+.hexxen.sheet.rule a.entity-link {
+  background: unset;
+  padding: unset;
+  border: unset;
+  display: inline-block;
+}
+.hexxen.sheet.rule .create a.entity-link::before {
+  content: "[ ";
+}
+.hexxen.sheet.rule .create a.entity-link::after {
+  content: " ]";
+}
+.hexxen.sheet.rule .powers {
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 4px 10px !important;
+}
+.hexxen.sheet.rule .powers > * {
+  grid-column: 1 / span 2;
+}
+.hexxen.sheet.rule .powers div.power {
+  grid-column: auto;
+}
+.hexxen.sheet.rule .powers .marker {
+  display: inline-block;
+  width: 25px;
+}
+.hexxen.sheet.rule .features {
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 4px 25px !important;
+  text-align: center;
+}
+.hexxen.sheet.rule .features > * ,
+.hexxen.sheet.rule .features .feature.stamm {
+  grid-column: 1 / span 3;
+}
+.hexxen.sheet.rule .features div.feature {
+  grid-column: auto;
+}
+.hexxen.sheet.rule .features div.feature .entity-link {
+  white-space: normal;
+  word-break: normal;
+  word-wrap: break-word;
+}
