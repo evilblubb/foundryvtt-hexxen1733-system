@@ -362,12 +362,12 @@
           "raw": "Lep-Verlust erzeugt 1 Blutmarker; 1 Blutmarker heilt alle Lep des Nsc"
         }
       ],
-      "environment-effect": {
-        "BLUTIGES SCHICKSAL": {
+      "environment-effect": [
+        {
+          "name": "Blutiges Schicksal",
           "raw": "In diesem Kampf versuchen die Blutwichtel, von den Jägern Blutmarker zu ergattern und damit einen der vorgestickten Schicksalsrahmen zu erreichen. Dazu muss der Blutwichtel 1 Blutmarker erzeugen und sich in der nächsten Runde mittels Absetzen vom Nsc trennen. Noch in derselben Ini-Phase erreicht er als kostenlose Bewegung einen zufällig bestimmten Schicksalsrahmen und aktiviert das in ihm gespeicherte Bild. Jedes Bild kann nur einmal aktiviert werden; es verliert danach seine magische Kraft. Die aktivierten Bilder haben folgende Bedeutung.\nEin Jäger stolpert über seine eigenen Beine: Der Jäger erleidet die maximal möglich Zahl Lähmungsstufen und den Zustand Taumeln.\nEin Jäger lässt seine Waffe bzw. alle in Händen getragene Ausrüstung fallen: Der Jäger verliert alle Waffen, Rüstungen und sonstigen Ausrüstungsgegenstände (auch ein Mechanikum!). Das Aufhaben einer Waffe erfordert 2 Ap, einer Rüstung 3 Ap, eines Mechanikums 5 Ap der Jäger kann sich aber auch mittels Fausthieben zur Wehr setzen.\nEin Jäger hält sich den Arm, aus dem Blut tropft: Der Jäger erleidet Elixierwürfel äußeren Schaden und den Zustand Blutung.Bei einem Jäger sind die Augen geschlossen, und er scheint um sich zu tasten: Der Jäger erleidet Elixierwürfel Malusschaden und den Zustand „Blindheit“.\nEine Meute kleiner Gestalten stürzt sich auf den Jäger: Es werden sofort zusätzlich Jz Blutwichtel ausgelegt, die in dieser Runde aber nicht mehr agieren können."
         }
-      },
-      "@todo": "Umgebungseffekte",
+      ],
       "loot": {
         "raw": "4 Gulden (Beutegut: Tand) "
       },
@@ -1849,17 +1849,16 @@
           "raw": "„Valac“, Espritsymbol: 2 Erfolge"
         }
       ],
-      "environment-effect1": {
-        "Manifestationen des Hasses": {
+      "environment-effect": [
+        {
+          "name": "Manifestationen des Hasses",
           "raw": "Direkt nach Kampfbeginn manifestiert sich für jeden teilnehmenden Jäger 1 Hassobjekt in Form einer geisterhaften Gestalt einige Meter abseits des Pfeilers. Jeder Spieler sollte definieren, wie sein Hassobjekt aussieht; es kann sich um Personen oder Monster handeln, die in der Vorgeschichte des Charakters eine Rolle spielten oder in der Kampagne vorkamen. Ist Amalie bei den Jägern, manifestieren sich gleich 3 Hassobjekte: der Fürstbischof von Köln, der Landgraf von Kassel und ein reicher Patrizier aus Dortmund. Sind die 5 Mitglieder der Jagdgesellschaft anwesend, manifestieren sich 2 preußische und 2 schwedische Soldaten sowie ein Mann in der Kluft eines Lehrers (der „Mann seines Vaters“). Will ein Jäger agieren, stellt sich ihm sein Hassobjekt automatisch in den Weg, selbst dann, wenn er an einen Feind gebunden ist. Der Jäger hat pro Runde die Wahl, entweder sein Hassobjekt zu attackieren oder versuchen, es zu ignorieren.\n\nIgnorieren: Dies erfordert eine hohe geistige Anstrengung (Geistesstärke (–5)). Die Probe kann nicht fokussiert werden. Ein Erfolg reicht, um das Hassobjekt zu ignorieren. Ansonsten muss er es attackieren, statt den Aspekt des Hasses.\n\nAngreifen: Sämtliche physischen Attacken gegen das Hassobjekt durchdringen die Geistergestalt, ohne Schaden anzurichten. Um das Hassobjekt zu vernichten, muss sich der Jäger seinem Hass stellen. Dies kann über Redekunst bewerkstelligt werden: Der Jäger redet entweder auf das Hassobjekt ein oder spricht zu sich selbst. Die genaue Anwendung ist dem Spieler überlassen, der Vorgang verbraucht in jedem Fall 3 Ap und erfordert eine Redekunst-Probe. Für jeden Erfolg erhält das Hassobjekt 1 Hass-Marker. Bei 10 Hass-Markern erlischt das Objekt."
-        }
-      },
-      "environment-effect2": {
-        "Amalies Hass": {
+        },
+        {
+          "name": "Amalies Hass",
           "raw": "Auch Amalie wird vom Hass überwältigt, aber die große Zahl potenzieller Ziele irritiert sie. Hinzu kommt, dass sie zwar selbst eine Jägerin ist, aber aufgrund der Erlebnisse in ihrer Vergangenheit tiefen Hass gegen andere Jäger, insbesondere Söldner und anderes Kriegsvolk, hegt. Der HeXXenmeister kann Amalie in einer beliebigen Ini 0-Phase aktivieren, um einen anderen Jäger zu attackieren, der ihrer Vorstellung eines Söldners am nächsten kommt (oder ihn zufällig bestimmen). Amalie stößt einen Schrei aus, der eher an ein Tier erinnert und stürzt sich auf dich. Sie sticht mit ihrem Messer auf dich ein. Ihr Gesicht ist von Wut und Abscheu verzehrt und sie brüllt: „Du Monster, ich war ein Kind!“ Amalies Angriff fügt dem Jäger 2 Blutwürfel Schmerzschaden zu. Noch im selben Zug wirft sie sich wieder herum und attackiert eines ihrer Hassobjekte. Der HeXXenmeister kann diesen Vorgang in jeder Runde wiederholen."
         }
-      },
-      "@todo": "2 Umgebungseffekte",
+      ],
       "references": [
         {
           "source": "Wiki",
@@ -1918,17 +1917,17 @@
           "raw": "„Valac“, Espritsymbol: 2 Erfolge"
         }
       ],
-      "environment-effect1": {
-        "Blitze": {
+      "environment-effect": [
+        {
+          "name": "Blitze",
           "raw": "In jeder Runde kann jeder Blitzwirbel 1 Blitz abschießen, und jeder Blitz verursacht 1 Blutwürfel Blitzschaden. Pro Runde werden nur so viele Blitze aktiv, wie Jäger am Kampf beteiligt sind; die Ziele der Blitze werden zufällig ermittelt, aber ein Beschützer kann Blitze mittels Leibgarde oder anderer Kräfte auf sich ziehen."
-        }
-      },
-      "environment-effect2": {
-        "Blitzwirbel verschließen": {
+        },
+        {
+          "name": "Blitzwirbel verschließen",
           "raw": "Trifft ein Projektil einen Blitzwirbel, so verschwindet das Projektil im Inneren und tritt an einer anderen Stelle wieder hervor, wo es einen anderen Wirbel trifft und anschließend verschwindet. Es empfiehlt sich, die Blitzwirbel in Form von Plättchen auszulegen und durchzunummerieren. Immer, wenn ein Wirbel getroffen wird, würfelt der HeXXenmeister mit einem Blutwürfel und ermittelt das Ziel anhand des Ergebnisses. Eine leere Seite bedeutet, dass der getroffene Wirbel Schaden nimmt, eine 1, 2 oder 3 bedeutet, dass der 1., 2. oder 3. Wirbel im Uhrzeigersinn getroffen wird. Es ist nicht nötig, den exakten Schaden zu bestimmen. Getroffene Wirbel erhalten, gleichgültig wie hoch der eigentliche Schaden wäre, 1 Schadensmarker, und wenn deren Anzahl der Jz entspricht, wird der Wirbel inaktiv. Wird ein inaktiver Wirbel initial getroffen, leitet er das Projektil wie üblich weiter, wird ein inaktiver Wirbel jedoch durch Weiterleitung getroffen, verpufft der Angriff."
         }
-      },
-      "@todo": "Dynamischer Pw, 2 Umgebungseffekte",
+      ],
+      "@todo": "Dynamischer Pw",
       "references": [
         {
           "source": "Wiki",
@@ -2041,11 +2040,12 @@
           "raw": "Malusschaden"
         }
       ],
-      "environment-effect1": {
-        "Rankenplage": {
+      "environment-effect": [
+        {
+          "name": "Rankenplage",
           "raw": "Maximal Jz Dornenranken geben jeweils in Ini 0 eine Giftwolke ab, die den gleichen Effekt hat wie die Nsc-Kraft Giftwolke, wobei die Stärke der Wolke den aktiven Dornenranken (max. Jz) entspricht. Danach verwelken alle Ranken in Windeseile, nur um in Ini 0 wieder neu zu entstehen. Auch von Jägern vernichtete Ranken entstehen dann neu; allerdings konnten diese Ranken nicht zur Giftwolke beitragen."
         }
-      },
+      ],
       "references": [
         {
           "source": "Wiki",
@@ -2112,22 +2112,22 @@
           "raw": "N|F: 12 gegen Geistesstärke, 1 Malusstufe (Zorn) pro Differenzerfolg, 1 Hex pro Ziel (1–3 Ziele)"
         }
       ],
-      "environment-effect1": {
-        "Dämonischer Schlund": {
+      "environment-effect": [
+        {
+          "name": "Dämonischer Schlund",
           "raw": "Diese Erdlöcher sind keine Kreaturen und können daher auch nicht mit normalen Mitteln getötet werden. Um ein Erdloch zu „stopfen“, muss es mit Erde, Pflanzen, Gestein oder ähnlichem gefüllt werden. Ein freistehender Jäger kann dies tun, indem er 3 Ap für eine Aktion ausgibt und wahlweise auf Fingerfertigkeit, Muskelspiel oder Unempfindlichkeit würfelt, wobei der HeXXenmeister auch andere Proben zulassen kann, wenn der Jäger eine erfolgsversprechende Methode nennt. Jeder Erfolg platziert einen Marker auf einem Schlund. Befinden sich Jz Marker auf einem Schlund, schließt er sich vorübergehend. Jeweils in Ini 0 würfelt der HeXXenmeister mit einem Elixierwürfel für jeden Schlund (auch für geschlossene), wie er sich verhält, jedoch würfelt er insgesamt nicht häufiger als die Jz angibt (bei 3 Jägern sucht sich der HeXXenmeister 3 Schlünde aus, deren Verhalten er auswürfelt)."
-        }
-      },
-      "environment-effect2": {
-        "Pfeiler Attackieren": {
+        },
+        {
+          "name": "Pfeiler Attackieren",
           "raw": "Jäger können den Holzpfeiler attackieren. Der Pfeiler hat eine Schadensresistenz von 5 gegenüber allen Angriffen außer gegen Angriffe, die Feuerschaden anrichten. Der Pfeiler ist immun gegen alle Schadensarten und anhaltende Einflüsse mit Ausnahme von äußerem Schaden in Verbindung mit dem Zustand Verbrennung. Schaden, der gegen den Pfeiler gerichtet ist, wird von den Lep des Aspekts des Zorns abgezogen."
         }
-      },
+      ],
       "feature": {
         "Schlund Verhalten": {
           "raw": "Elixierwürfel\n\n1 oder 5 Ist der Schlund offen, speit er Jz Myrmidonen-Larven aus.\n\n2 Ist der Schlund offen, speit er einen Säureklumpen gegen einen zufällig ermittelten freistehenden Jäger aus. Der Jäger erleidet 1 Blutwürfel Säureschaden. Wird das Symbol für 3 Blutstropfen gewürfelt, wird seine Panzerung beschädigt und verliert 1 Pw, ohne dass der Jäger als Ausgleich 1 Ap erhalten würde.\n\n3 Ist der Schlund geschlossen, bricht er wieder auf. Sämtliche Marker werden entfernt.\n\n4 Ist der Schlund offen, speit er eine giftige Wolke aus, die in der Umgebung +1 Giftstufe anrichtet, so als ob die Nsc-Kraft GiftwolkeBdR gewirkt worden wäre. Anders als die Nsc-Kraft kann dieser Effekt mehrfach gewirkt werden, jedoch steigt die Giftstufe der Umgebung niemals über Stufe 3."
         }
       },
-      "@todo": "Schlund Verhalten, 2 Umgebungseffekte",
+      "@todo": "Schlund Verhalten",
       "references": [
         {
           "source": "Wiki",
@@ -2194,17 +2194,17 @@
           "raw": "N|F: 11 gegen Geistesstärke, 1 Malusstufe (Furcht, 5: MFD) pro Differenzerfolg, 1 Hex pro Ziel (1 - 3 Ziele)"
         }
       ],
-      "environment-effect": {
-        "Exorzismus": {
+      "environment-effect": [
+        {
+          "name": "Exorzismus",
           "raw": "Der Spielleiter legt einen Stapel von Exorzismusmarkern aus (z.B. Hexmarker oder Pokerchips). Die Marker entsprechen der Zahl der Jäger x5 (also 20 bei 4 Jägern). Wird der Vorrat an Exorzismusmarkern später reduziert, merken die Jäger, dass das Wüten des besessenen Jungen langsam nachlässt. Alle Jäger können eine besondere Exorzismusprobe ablegen. Diese kostet 2 AP und erfordert eine Wissensprobe. Für jeden Espritstern, der gewürfelt wird, wird der Stapel an Exorzismusmarkern um 1 reduziert (Erfolge haben keine Wirkung). Der Jäger, der den Wahren Namen des Dämons aufsagt (UshShabarBaalShaitur) und/oder das Holzkreuz des Paters in den Händen hält, darf alle Espritsymbole verdoppeln. Das Kreuz kann nach den normalen Regeln für Gegenstände im Kampf weitergegeben werden (Abgabe kostet 2 AP für den Geber, bzw. 1 AP für Geber und 1 AP für Nehmer). Die Atmosphäre des Kampfes verdichtet sich, sobald die Zahl an Exorzismusmarkern sinkt. Diese Auswirkungen haben keine regeltechnischen Folgen sondern dienen nur dem Ambiente. Ab etwa 66% der Exorzismusmarker stößt Balizius einen mark- und beinerschütternden Schrei aus und eine schleichende Dunkelheit breitet sich in der Kammer aus. Ab 50% der Exorzismusmarker jault Balizius im Körper des Jungen wie wild. Das Zimmer verdunkelt sich noch mehr, grausame Schatten wuchern aus den Zimmerecken, ein trocken-heißer Wind zieht durch den Raum. Ab 33% der Marker hebt das Bett mitsamt Jonas vom Boden ab und schwebt in der Raummitte."
-        }
-      },
-      "optional-environment-effect": {
-        "Diener des Bösen": {
+        },
+        {
+          "name": "Diener des Bösen",
+          "optional": true,
           "raw": "Der folgende Effekt kann verwendet werden, wenn die Jäger allzu leichtes Spiel haben oder durch gutes Würfeln schnell Exorzismusmarker abbauen. Der HeXXenmeister kann erst im Laufe des Kampfes entscheiden, ob er den Effekt anwendet. Ruchholtz wird versuchen, die Bemühungen der Jäger zu vereiteln. Durch Beschwörungen von Krötendienern wird er eine Art „böse Gegenkraft“ aufbauen.\nEs gilt optional: Die Zahl der Exorzismusmarker darf nie unter die Zahl der aktuell vorhandenen Krötendiener sinken. Heißt: Bei 6 Krötendienern kann man keine Exorzismusmarker abbauen, falls diese bereits bei 6 oder weniger liegen (im Spiel könnte man diesen Zusammenhang daran erkennen, dass immer wieder Krötendiener um das Bett des Kindes herumtanzen und über das Kind hinweghüpfen, so als wollten sie „schlechte Energie“ aufsaugen - zur Not kann der HeXXenmeister auch eine Wissensprobe fordern). Man kann aber in einer Runde erst Krötendiener dezimieren und sofort Exorzismusmarker abbauen."
         }
-      },
-      "@todo": "Umgebungseffekte",
+      ],
       "references": [
         {
           "source": "Wiki",
@@ -3353,42 +3353,38 @@
           "raw": "„Valac“, Espritsymbol: 2 Erfolge"
         }
       ],
-      "environment-effect1": {
-        "Wahrer Name": {
+      "environment-effect": [
+        {
+          "name": "Wahrer Name",
           "raw": "Äußern die Jäger den wahren Namen des Dämons (Valac), genießen sie gegen alle Wächter den Bonus von „Wahrer Name“, d. h. alle Espritsterne zählen wie 2 Erfolge. Schmettern sie dem Dämon in der Mitte der Halle diesen Namen entgegen, wird Valac in seiner Konzentration empfindlich gestört. Er windet sich wie unter Schmerzen – hält aber die Stellung. Jeder Jäger darf 1 Idee opfern und eine Probe auf Geistesstärke ablegen: Für je 3 gesammelte Erfolge wird 1 Bedrohungsstufe abgebaut."
-        }
-      },
-      "environment-effect2": {
-        "Pfeilermacht": {
+        },
+        {
+          "name": "Pfeilermacht",
           "raw": "Der Wächter des Steins hat jeweils eine besondere Kraft, abhängig davon, an welchem Pfeiler er gerade angegriffen wird. Wird ein Wächter des Steins getötet, fließt seine jeweilige Macht auf alle anderen Wächter über. Das hat zur Folge, dass jeder Wächter ein bisschen mächtiger wird als derjenige zuvor.\n\nBeispiel: Der Wächter des Zorns hat die Kraft „Zorn erwecken“. Nach seinem Tod haben alle anderen Wächter ebenfalls Zorn erwecken.\n\nZudem steigt mit jedem gefallenen Pfeiler die Anführerstufe des nächsten Wächters um 1, was folgende Auswirkungen hat:"
-        }
-      },
-      "environment-effect3": {
-        "Besiegte Wächter": {
+        },
+        {
+          "name": "Besiegte Wächter",
           "raw": "Sobald ein Wächter besiegt wurde, zerbröckelt der jeweilige Felsenpfeiler zu Geröll und Staub, und die von ihm ausgehende Lichtbahn zum Dämon erlischt. Das wird Valac dazu antreiben, das Tor noch schneller zu öffnen, wodurch die Bedrohungsstufe um +1 steigt."
-        }
-      },
-      "environment-effect4": {
-        "Keine Zeit": {
+        },
+        {
+          "name": "Keine Zeit",
           "raw": "Den Jägern bleibt keine Zeit, um sich hier auszuruhen. Nach jedem Kampf und jedem Toreffekt (siehe unten) müssen sie weiter. Sie können zwischen den Kämpfen Heilmittel oder Erste Hilfe anwenden, regenerieren aber stets nur die Hälfte der ausgegebenen Coups und Ideen. Wollen sie dennoch eine Verschnaufpause einlegen, wenn auch nur wenige Minuten, regenerieren sie alle Coups und Ideen, die Bedrohungsstufe erhöht sich jedoch zusätzlich um +1."
-        }
-      },
-      "environment-effect5": {
-        "Unerwartete Hilfe": {
+        },
+        {
+          "name": "Unerwartete Hilfe",
           "raw": "Zu einem richtigen Showdown gehört es, dass die Protagonisten unerwartete Hilfe von alten Bekannten bekommen. Der HeXXenmeister kann die folgenden Begegnungen einstreuen, vor allem dann, wenn es für die Jäger brenzlig wird.\n\nAmalie: Sollte sich Amalie auf den Myrmidonen-Fürsten gestürzt haben, könnte sie plötzlich wieder auftauchen. Sie ist schwer verwundet, doch das hält sie nicht davon ab, zu Beginn einer Kampfrunde einem Wächter ihre Klinge in den Rücken zu rammen. Der Wächter verliert in dieser Runde 1 Handlung. Er schüttelt Amalie von seinem Rücken ab wie eine lästige Fliege. Sie kann sich gerade noch an der Kante des Felsvorsprungs festhalten. Ein Jäger muss ihr in dieser Runde mittels Muskelspiel und 3 Ap helfen, ansonsten rutscht sie ab und stürzt in den Tod.\nEmmerich Freiherr Raitz von Frentz: Nahmen die Ritter des Deutschen Ordens am Angriff auf Pungelscheid teil, könnte ihr Kommandant in Begleitung einer Handvoll überlebender Ritter auftauchen, laut Deus lo vult schreien und den Wächter zu Beginn einer Kampfrunde im Handgemenge attackieren. Der Wächter verliert diese Runde seine Handlungen, wischt die Ritter aber hinfort, und sie stürzen in den Abgrund. Raitz von Frentz wird hingegen gegen die Felswand geschleudert, wo er stark blutend liegenbleibt. Er wird sterben, sollte er nicht mittels Erste Hilfe und 3 Ap noch in dieser Kampfrunde verarztet werden.\nHeinrich Eduard von Landsberg: Nahmen die Hessischen Soldaten am Angriff teil, könnte deren Kommandant mit einer kleinen Schar Soldaten auftauchen. Er wird „Deckung“ schreien, und sie werden den Wächter mit einer aus Musketen abgefeuerten Salve attackieren. Der Wächter verliert Jz x 5 Lep, aber alle Jäger erleiden 1 Blutwürfel Schmerzschaden, aufgrund von Munitions- und Felssplittern. Anschließend wird ein Teil der Felsendecke über den Soldaten einbrechen und sie zum Rückzug zwingen.\nDer Zirkel des Horus: Haben die Jäger die Anerkennung des Zirkels des Horus oder sich allgemein bei dessen Bekämpfung zurückgehalten, können drei Zirkelmitglieder in den Kampf eingreifen. Sie tauchen buchstäblich aus dem Nichts auf, murmeln arkane Worte und halten ihre Horus-Anhänger in die Luft. Die Jäger werden von einer Welle der Vitalität erfasst und regenerieren alle Eh-/Mh-Kästchen sowie alle Coups und Ideen. Die Zirkelmagier und deren Amulette sind danach wie ausgebrannt; die Magier brechen bewusstlos zusammen.\nUnd die Dortmunder? Die meisten Söldner sind nicht bekannt für mutiges Verhalten. Sie werden diese infernalische Umgebung so schnell wie möglich verlassen."
-        }
-      },
-      "environment-effect6": {
-        "Das Tor öffnet sich": {
+        },
+        {
+          "name": "Das Tor öffnet sich",
           "raw": "Nach jedem Kampf steigt die Bedrohungsstufe um +1 durch den Effekt „Besiegte Wächter“, wodurch sich die Zahl der ausliegenden Bedrohungsmarker erhöht; zusätzlich kann der HeXXenmeister nach jedem Kampf einen Toreffekt aussuchen; jeder Toreffekt kostet 1–4 Bedrohungsmarker, wobei die bei der Erstürmung der Burg aufgebauten Bedrohungsmarker ebenfalls zählen.\n\n1 Marker: Leichtes Erdbeben. Ein schwerer Schlag erschüttert den Fels, lässt Steine bröckeln und auf die Jäger herabregnen. Jeder Jäger erleidet 1 Blutwürfel Schmerzschaden.\n2 Marker: Unterstützung aus Phthia. Aus dem Reich der Myrmidonen, bzw. aus dem Portal in der Decke der Kammer, kommen fliegende Myrmidonen geflogen. Zu Beginn des nächsten Kampfes werden Bandengegnerstufen (beliebige Myrmidonen) in Höhe der Jz x 2 ausgelegt. Bei 4 Jägern könnten somit 4 Myrmidonen-Krieger erscheinen oder 8 Myrmidonen-Larven.\n3 Marker: Valacs Aufmerksamkeit. Der Dämon bemerkt die Jäger und stößt ein infernalisches Brüllen aus. Er führt Terrorwelle mit 12 Würfeln gegen jeden Jäger aus und aktiviert sofort den nächsten Wächter. Die Jäger können die Malussstufen erst im nun beginnenden neuen Kampf abbauen.\n4 Marker (optional): Das Tor ist offen. Dieser Effekt kann erst nach dem Sieg über Torwächter Nr. 4 ausgelöst werden und auch nur dann, wenn die Jäger keine großen Schwierigkeiten gegen die Wächter haben. Mit einem knirschenden Geräusch brechen große Teile der Decke ein und stürzen um den Dämon herum in die Tiefe. Das Portal nach Phthia hat sich erheblich vergrößert, und die Myrmidonen stürzen sich scharenweise in die Höhle. Im Kampf gegen den letzten Wächter erscheinen jeweils in Ini 0 Jz x 2 Bandengegnerstufen (Myrmidonen). Wenn das immer noch zu leicht erscheint, kann der HeXXenmeister die Höhe der Bandegegnerstufen auf Jz x 3 oder x 4 erhöhen."
         }
-      },
+      ],
       "feature": {
         "Schlund Verhalten": {
           "raw": "Elixierwürfel\n\n1 oder 5 Ist der Schlund offen, speit er Jz Myrmidonen-Larven aus.\n\n2 Ist der Schlund offen, speit er einen Säureklumpen gegen einen zufällig ermittelten freistehenden Jäger aus. Der Jäger erleidet 1 Blutwürfel Säureschaden. Wird das Symbol für 3 Blutstropfen gewürfelt, wird seine Panzerung beschädigt und verliert 1 Pw, ohne dass der Jäger als Ausgleich 1 Ap erhalten würde.\n\n3 Ist der Schlund geschlossen, bricht er wieder auf. Sämtliche Marker werden entfernt.\n\n4 Ist der Schlund offen, speit er eine giftige Wolke aus, die in der Umgebung +1 Giftstufe anrichtet, so als ob die Nsc-Kraft GiftwolkeBdR gewirkt worden wäre. Anders als die Nsc-Kraft kann dieser Effekt mehrfach gewirkt werden, jedoch steigt die Giftstufe der Umgebung niemals über Stufe 3."
         }
       },
-      "@todo": "Mehrere Umgebungseffekte, was machen wir mit den einzelnen Pfeilern und den Pfeilermächten ?",
+      "@todo": "was machen wir mit den einzelnen Pfeilern und den Pfeilermächten ?",
       "references": [
         {
           "source": "Wiki",
@@ -3649,11 +3645,12 @@
       "loot": {
         "raw": "500 Gulden (Beutegut, z. B. magischer Tand)"
       },
-      "environment-effect": {
-        "Hände im Wasser": {
+      "environment-effect": [
+        {
+          "name": "Hände im Wasser",
           "raw": "Sollte ein Jäger in den Bach springen oder in den Bach fallen, wird er durch Wasserklauen attackiert. Für jeden Jäger erscheinen anfangs Jz Wasserklauen, aber die Brückenhexe kann weitere Wasserklauen herbeibeschwören."
         }
-      },
+      ],
       "references": [
         {
           "source": "Wiki",
@@ -5727,12 +5724,12 @@
           "raw": "N|F: Angriff 6, Schaden 3 +Lähmung (je 1 pro Lep-Verlust, Fixierung) 1 Hex pro Ziel (1–3 Ziele)"
         }
       ],
-      "environment-effect": {
-        "Die Vettelnemesis verbannen": {
+      "environment-effect": [
+        {
+          "name": "Die Vettelnemesis verbannen",
           "raw": "Sollte es zum Kampf gegen die untoten Hexen kommen und Lyra ist anwesend, wird diese etwas abseits des Kampfgebiets stehen bleiben. Sie hat die Augen geschlossen und flüstert immer wieder einen Namen „Hekate“. Ab der zweiten Kampfrunde wird sie lauter, und ab der dritten Kampfrunde schreit sie „Hekate“ aus voller Seele. Jedesmal, wenn sie das tut, geht ein Zittern und Wabern durch den Körper des Phantomraben. Der HeXXenmeister legt ab der dritten Kampfrunde einen Bannmarker (z. B Marker mit Rankensymbol) aus. Sobald 10 Bannmarker ausliegen, ist die Vettelnemesis verbannt und die untoten Hexen brechen leblos zusammen. Die Jäger können Lyra unterstützen und einmal pro Kampfrunde als kostenfreie Aktion „Hekate“ rufen; jeder Ruf erhöht die Bannmarker um 1; aber sobald ein Jäger mindestens dreimal Hekate anrief, erhält er 1 Verderbnis."
         }
-      },
-      "@todo": "Umgebungseffekte",
+      ],
       "references": [
         {
           "source": "Wiki",
@@ -9753,12 +9750,13 @@
           "raw": "Gift"
         }
       ],
-      "optional-environment-effect": {
-        "Etwas Großes kommt": {
+      "environment-effect": [
+        {
+          "name": "Etwas Großes kommt",
+          "optional": true,
           "raw": "Am Ende jeder Runde werden automatisch alle aktiven Dornenwandler aus dem Kampf genommen. Die Jäger sehen, dass die Kreaturen auseinanderbrechen, und sich die Einzelteile (Wurzeln, Ranken, ect.) in den Boden zurückziehen. Für jeden auf diese Weise entfernten Dornenwandler wird ein Lähmungs-Marker (Rankensymbol, enthalten in Werkzeuge des HeXXenmeisters) in die Tischmitte gelegt. Mit jedem weiteren Lähmungs-Marker vibriert der Boden ein bisschen stärker. Nach Runde 4 bricht der Boden auf, und ein riesiger Dornenwandler erscheint. Seine Größe und Stärke ist abhängig von der Anzahl der gesammelten Lähmungs-Marker (LM)."
         }
-      },
-      "@todo": "Umgebungseffekte",
+      ],
       "references": [
         {
           "source": "Wiki",
@@ -15741,17 +15739,18 @@
           "raw": "Körper regeneriert nach wenigen Stunden"
         }
       ],
-      "environment-effect": {
-        "Den Täter schützen": {
+      "environment-effect": [
+        {
+          "name": "Den Täter schützen",
           "raw": "Winfried wird als zusätzliches Plättchen oder als universeller Marker mit auf dem Kampfgebiet ausgelegt. Er selbst kann nicht handeln oder fliehen. Karlstein wird versuchen, Winfried persönlich zu erreichen und seine beschworenen Raben auf ihn zu lenken. Sobald Karlstein Winfried mit einer Nahkampfattacke attackiert, stirbt Winfried. Karlsteins Rachefeldzug hat ein Ende (wie oben beschrieben), aber Winfried ist ebenfalls tot. Um das zu verhindern, muss sich ein Jäger stets im Nahkampf mit Karlstein aufhalten, nur dann kann sich der Wiedergänger nicht frei bewegen. Die beschworenen Raben werden sich einigermaßen gleichmäßig auf die Jäger und Winfried verteilen. Für jeden Raben, der in Ini0 an Winfried gebunden ist, legt man einen Marker auf Winfrieds Plättchen. Bei 5 Markern stirbt Winfried ebenfalls."
-        }
-      },
-      "optional-environment-effect": {
-        "heiliger Boden": {
+        },
+        {
+          "name": "heiliger Boden",
+          "optional": true,
           "raw": "Karlstein ist ein Untoter, der auf heiligem Boden kämpft. Jäger können als Aktion für 3 AP die spirituelle Macht dieses Ortes anrufen (z. B. durch ein Gebet) und eine Probe Wis + Fw (Wissensgebiete) ablegen. Für jeden Erfolg auf der Probe erhält Karlstein 1 Malusstufe. Führt ein Jäger mit dem Kruzifix diese Probe ab, erhält er einen Bonus +2."
         }
-      },
-      "@todo": "Umgebungseffekte, mehrere Quellen",
+      ],
+      "@todo": "mehrere Quellen",
       "references": [
         {
           "source": "Wiki",
@@ -15920,32 +15919,30 @@
           "raw": "N|F: 9 gegen Geistesstärke, 1 Malusstufe (Taubheit, 5: MFD) pro Differenzerfolg, 1 Hex pro Ziel (1–3 Ziele)"
         }
       ],
-      "environment-effect1": {
-        "Verbarrikardieren": {
+      "environment-effect": [
+        {
+          "name": "Verbarrikardieren",
           "raw": "Jäger können jederzeit, auch während des Kampfes, Zugänge verbarrikadieren. Haben sie Vorsorge getroffen und sich bereits vor dem Angriff der Horde in einem sicheren Gebäude verschanzt, gelten alle Zugänge (außer einem) als verbarrikadiert. Während des Kampfs kann ein Jäger als Aktion (2 Ap) und einer erfolgreichen Probe auf Muskelspiel oder Handwerken 1 offenen Zugang verbarrikadieren oder (falls erforderlich) öffnen. Ein Zugang gilt auch dann als verbarrikadiert, wenn sich ein Jäger freiwillig hineinstellt. Er kann dann aber normal von außen attackiert werden."
-        }
-      },
-      "environment-effect2": {
-        "eindringende Leichen": {
+        },
+        {
+          "name": "eindringende Leichen",
           "raw": "Jeweils in der Ini-Phase der Leichen (Ini 1) werden automatisch so viele verbarrikadierte Zugänge aufgestoßen wie ein Blutwürfel angibt. Danach dringen untote Leichen in Höhe der Anzahl offener Zugänge ein und attackieren die Jäger."
-        }
-      },
-      "environment-effect3": {
-        "Kilian erscheint": {
+        },
+        {
+          "name": "Kilian erscheint",
           "raw": "Der Ghul Kilian erscheint entweder, wenn er als folgenschweres Ereignis ausgewürfelt wurde oder sobald nur noch ca. 25% der Horde anwesend ist. Der HeXXenmeister tauscht eines der Plättchen für Wandelnde Leichen gegen das von Kilian aus."
-        }
-      },
-      "environment-effect4": {
-        "Leichen attackieren": {
+        },
+        {
+          "name": "Leichen attackieren",
           "raw": "Solange mindestens 1 Zugang offen ist, können die Jäger von innen auf die Untoten ohne Einschränkungen Fernkampfattacken ausführen. Sie können Nahkampfattacken nur dann ausführen, wenn sie sich in derselben Kampfhälfte wie das Ziel befinden (entweder innerhalb des Gebäudes oder außerhalb)."
-        }
-      },
-      "optional-environment-effect": {
-        "unerwartete Ereignisse": {
+        },
+        {
+          "name": "unerwartete Ereignisse",
+          "optional": true,
           "raw": "Die folgende optionale Regel macht den Kampf gegen die Horde noch etwas spannender und abwechslungsreicher. Jeweils in Ini0 würfelt der HeXXenmeister mit einem W6 eines der unten angegebenen Ereignisse aus oder bestimmt es selbst."
         }
-      },
-      "@todo": "Umgebungseffekte mit unter Efekten, bitte nachschauen",
+      ],
+      "@todo": "Umgebungseffekte mit unter Efekten, bitte nachschauen, evtl. Rolltable",
       "references": [
         {
           "source": "Wiki",
@@ -16111,11 +16108,12 @@
           "raw": "Immunität Gift, Anfälligkeit Heiliger Schaden, in INI 0: -2 Einflussstufen pro 1 Hex"
         }
       ],
-      "environment-effect": {
-        "Lyra grift ein": {
+      "environment-effect": [
+        {
+          "name": "Lyra grift ein",
           "raw": "Lyra wird als Nichtkombattantin behandelt, d.h. solange mindestens 1 Jäger aktiv ist, wird sie nicht vom Reiter attackiert. Der HeXXenmeister muss auch kein Plättchen auslegen, das Lyra repräsentiert – sollten alle Jäger sterben, stirbt auch Lyra, aber das Abenteuer wäre dann ohnehin beendet. Im Kampf gegen den Kopflosen wird Lyra erstmals ihre neu gewonnenen Kräfte einsetzen. Lyra gebietet instinktiv über die Nsc-Kraft „Arkanes Leuchtfeuer“ aus dem Repertoire für weiße Hexen. Dieses wird sie aktivieren, wenn einer von zwei Fällen eintritt: /nJäger siegen: Beflügelt vom Erfolg der Jäger wird Lyra ebenfalls in den Kampf eingreifen und das Arkane Leuchtfeuer zünden. Das geschieht, wenn entweder die Lep des Reiters oder des Rosses auf 0 sinken (das Ross wird dann nicht durch Aufbäumen fliehen). /nJäger verlieren: Durch die wachsende Angst wird Lyra die Kraft des Arkanen Leuchtfeuers instinktiv aktivieren. Das geschieht, wenn mindestens die Hälfte aller Jäger (aufgerundet) weniger als 0 Lep haben.         /nWirkung: Lyra agiert zu einem beliebigen Zeitpunkt. Sie wird plötzlich von einem hellen, weithin strahlenden Licht umgeben, das Ross und Reiter sichtbar zurückdrängt. Das Ross wird aufbäumen, der Reiter wird sich nur mit Mühe am Zügel festhalten können. Ross und Reiter erleiden 5 Malusstufen (so als ob Lyra auf Hexenkunst 5 Erfolge gewürfelt hätte, siehe arkanes Leuchtfeuer), der Reiter verliert 5 Hex und jeder Jäger heilt 5 Lep (zählt nicht als Eh/Mh). Danach fällt Lyra bewusstlos um (regeltechnisch sinken ihre Lep auf unter –11). Lyras Eingreifen sollte bewirken, dass die Jäger den Kampf schneller beenden oder wieder die Oberhand gewinnen, so dass sie den kopflosen Reiter in die Flucht schlagen."
         }
-      },
+      ],
       "loot": {
         "raw": "400 Gulden (inkl. Waffen)"
       },
