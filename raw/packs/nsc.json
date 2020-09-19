@@ -1637,6 +1637,7 @@
           "raw": "F: Erfolge 1, Schaden 3"
         }
       ],
+      "powers": [],
       "loot": {
         "raw": "3 Gulden (Beutegut:Tand, Kräuter)"
       },
@@ -3200,6 +3201,7 @@
           "raw": "N: Angriff 6, Schaden 5"
         }
       ],
+      "powers": [],
       "loot": {
         "raw": "25 Gulden (Beutegut: giftige Substanzen)"
       },
@@ -6844,6 +6846,7 @@
         "value": 2
       },
       "ini": 7,
+      "attacks": [],
       "powers": [
         {
           "name": "Eisexplosion",
@@ -6875,12 +6878,13 @@
         "value": 2
       },
       "ini": 7,
-      "powers": [
+      "attacks": [
         {
           "name": "Biss",
           "raw": "N: Erfolge 1, Schaden 3 +Panzerdurchdringer (−1)"
         }
       ],
+      "powers": [],
       "references": [
         {
           "source": "Wiki",
@@ -7200,6 +7204,7 @@
           "raw": "N: Erfolge 2, Schaden 3"
         }
       ],
+      "powers": [],
       "references": [
         {
           "source": "Wiki",
@@ -7297,6 +7302,7 @@
           "raw": "N: Erfolge 1, Schaden 1 FE"
         }
       ],
+      "powers": [],
       "@todo": "2 Quellenangaben",
       "references": [
         {
@@ -8549,6 +8555,7 @@
           "raw": "F: Erfolge 1, Schaden 3"
         }
       ],
+      "powers": [],
       "loot": {
         "raw": "5 Gulden als Beutegut"
       },
@@ -9062,6 +9069,7 @@
           "raw": "N: Erfolge 4, Schaden 3"
         }
       ],
+      "powers": [],
       "loot": {
         "raw": "15 Gulden"
       },
@@ -9113,6 +9121,7 @@
           "raw": "F: Angriff 4, Schaden 3"
         }
       ],
+      "powers": [],
       "loot": {
         "raw": "120 Gulden (inkl. Besitztümer)"
       },
@@ -9151,6 +9160,7 @@
           "raw": "F: Erfolge 3, Schaden 3"
         }
       ],
+      "powers": [],
       "loot": {
         "raw": "20 Gulden"
       },
@@ -9189,6 +9199,7 @@
           "raw": "F: Erfolge 3, Schaden 3"
         }
       ],
+      "powers": [],
       "loot": {
         "raw": "10 Gulden (Gulden, Beutegut: Ausrüstung)"
       },
@@ -9298,6 +9309,7 @@
           "raw": "N: Erfolge 4, Schaden 2"
         }
       ],
+      "powers": [],
       "loot": {
         "raw": "jeweils 20 Gulden (Beutegut)"
       },
@@ -9385,6 +9397,7 @@
           "raw": "F: Erfolge 2, Schaden 8"
         }
       ],
+      "powers": [],
       "references": [
         {
           "source": "Wiki",
@@ -9412,6 +9425,7 @@
           "raw": "N: Erfolge 2, Schaden 2"
         }
       ],
+      "powers": [],
       "loot": {
         "raw": "3 Gulden (Beutegut, Tand)"
       },
@@ -12250,6 +12264,7 @@
           "raw": "N: Erfolge 2, Schaden 2, +innerer Schaden (je 2 bei Lep-Verlust, Vergiftung)"
         }
       ],
+      "powers": [],
       "references": [
         {
           "source": "Wiki",
@@ -12281,6 +12296,7 @@
           "raw": "N: Erfolge 2, Schaden 2 SC"
         }
       ],
+      "powers": [],
       "references": [
         {
           "source": "Wiki",
