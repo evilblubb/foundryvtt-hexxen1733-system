@@ -11345,7 +11345,7 @@
       "unnatural": false,
       "level": 1,
       "health": {
-        "formula": "85"
+        "value": 85
       },
       "attributes": {
         "SIN": 6,
@@ -11416,7 +11416,7 @@
           "raw": "N|F: 3 Schaden pro Hex, 1-5 Hex pro Ziel (1 Ziel), reduzierbar über Ausweichen, Schildblock"
         }
       ],
-      "@todo": "feste LeP ohne Formel, Unterschiedliches HEX Wachstum",
+      "@todo": "Unterschiedliches HEX Wachstum",
       "loot": {
         "raw": "820 Gulden (inkl. Besitztümer)"
       },
@@ -15058,7 +15058,7 @@
       "unnatural": true,
       "level": 2,
       "health": {
-        "formula": "120"
+        "value": 120
       },
       "attributes": {
         "SIN": 5,
@@ -15126,7 +15126,6 @@
           "raw": "Immunität Gift, Anfälligkeit Heiliger Schaden, in INI 0: -2 Einflussstufen pro 1 Hex"
         }
       ],
-      "@todo": "feste Lep",
       "references": [
         {
           "source": "Wiki",
@@ -15145,7 +15144,7 @@
       "unnatural": true,
       "level": 2,
       "health": {
-        "formula": "120"
+        "value": 120
       },
       "attributes": {
         "SIN": 5,
@@ -15209,7 +15208,6 @@
           "raw": "Immunität Gift, Anfälligkeit Heiliger Schaden, in INI 0: -2 Einflussstufen pro 1 Hex"
         }
       ],
-      "@todo": "feste Lep",
       "references": [
         {
           "source": "Wiki",
@@ -15379,7 +15377,7 @@
       "unnatural": true,
       "level": 2,
       "health": {
-        "formula": "120"
+        "value": 120
       },
       "attributes": {
         "SIN": 5,
@@ -15455,7 +15453,6 @@
           "raw": "Immunität Gift, Anfälligkeit Heiliger Schaden, in INI 0: -2 Einflussstufen pro 1 Hex"
         }
       ],
-      "@todo": "feste Lep",
       "references": [
         {
           "source": "Wiki",
@@ -15961,7 +15958,7 @@
       "unnatural": true,
       "level": 2,
       "health": {
-        "formula": "120"
+        "value": 120
       },
       "attributes": {
         "SIN": 5,
@@ -16017,7 +16014,6 @@
           "raw": "Immunität Gift, Anfälligkeit Heiliger Schaden, in INI 0: -2 Einflussstufen pro 1 Hex"
         }
       ],
-      "@todo": "feste Lep",
       "references": [
         {
           "source": "Wiki",
