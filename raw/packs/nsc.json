@@ -1,4 +1,5 @@
 {
+  "$schema": "./nsc.schema.json",
   "@template": {
     "name": {
       "__hint": "Name des NSC",
@@ -454,10 +455,11 @@
         },
         {
           "name": "Hex-Wachstum",
-          "raw": [
-            "Jz -2 Hex in Ini 0",
-            "+2 Hex in Ini 0 wenn Nsc im Wasser steht oder schwimmt"
-          ]
+          "raw": "Jz -2 Hex in Ini 0"
+        },
+        {
+          "name": "Hex-Wachstum",
+          "raw": "+2 Hex in Ini 0 wenn Nsc im Wasser steht oder schwimmt"
         },
         {
           "name": "Immunität",
@@ -627,10 +629,12 @@
         },
         {
           "name": "Hex-Wachstum",
-          "raw": [
-            "+1 Hex in Ini 0",
-            "+2 Hex in Ini 0 wenn Nacht"
-          ]
+          "raw": "+1 Hex in Ini 0"
+        },
+        {
+          "name": "Hex-Wachstum",
+          "raw": "+2 Hex in Ini 0 wenn Nacht",
+          "@todo": "zusätzlich?"
         },
         {
           "name": "Hinterhalt",
@@ -792,10 +796,11 @@
         },
         {
           "name": "Hex-Wachstum",
-          "raw": [
-            "+1 Hex in Ini 0",
-            "+3 Hex in Ini 0 wenn Nsc im Wasser steht oder schwimmt"
-          ]
+          "raw": "1 Hex in Ini 0"
+        },
+        {
+          "name": "Hex-Wachstum",
+          "raw": "+3 Hex in Ini 0 wenn Nsc im Wasser steht oder schwimmt"
         },
         {
           "name": "Immunität",
@@ -986,7 +991,9 @@
           "raw": "N|F: Jäger mit Zustand „Furcht“ verlieren alle Malusstufen, Nsc regeneriert pro Malusstufe 3 Lep und erhält 1 Hex"
         },
         {
-          "name": "Ersticken**",
+          "name": "Ersticken",
+          "note": "Der Nachtmahr führt Ersticken nicht mittels Kkr aus, sondern mittels Wil.",
+          "@todo": "müsste es dann nicht 12 gegen Muskelspiel heißen??",
           "raw": "N: 9 gegen Muskelspiel, 1 innere Schadensstufe (Atemnot) pro Differenzerfolg"
         },
         {
@@ -1027,7 +1034,7 @@
       "loot": {
         "raw": "40 Gulden (Beutegut, Schmuck und Tand, nur im Versteck des Nachtmahrs)"
       },
-      "feature": "*Der Nachtmahr ist ein Alb und daher nicht widernatürlich\n**Der Nachtmahr führt Ersticken nicht mittels Kkr aus, sondern mittels Wil.",
+      "feature": "*Der Nachtmahr ist ein Alb und daher nicht widernatürlich",
       "@todo": "Unterschiedliches HEX-Wachstum",
       "references": [
         {
@@ -1843,6 +1850,7 @@
         },
         {
           "name": "Maulsperre",
+          "@todo": "Mundsperre??",
           "raw": "N|F: 12 gegen Geistesstärke, 1 Malusstufe (Stummheit, 5: MFD) pro Differenzerfolg, 1 Hex pro Ziel (1–3 Ziele)"
         },
         {
@@ -3704,10 +3712,12 @@
         },
         {
           "name": "Blutfeuer",
+          "@todo": "fehlt",
           "raw": "N|F: Ziel verliert 1 Coup oder Lep pro Lähmungsstufe, Malusstufe und äußere Schadensstufe"
         },
         {
           "name": "Blutkokon",
+          "@todo": "fehlt",
           "raw": "F: 13 gegen Geistesstärke, 1 Lähmungsstufe (Taumeln, 5: MFD) pro Differenzerfolg, 1 Hex pro Ziel (1 - 3 Ziele)"
         },
         {
@@ -5140,7 +5150,9 @@
           "raw": "N|F: Kegeleffekt, Angriff 11, Schaden 2 Un, 1 Hex pro Ziel (1–3 Ziele)"
         },
         {
-          "name": "Verwandlung Rabe*",
+          "name": "Verwandlung Rabe",
+          "note": "Schneller Gestaltwechsel bereits berücksichtigt.",
+          "@todo": "Verwandlung??",
           "raw": "N|F: Kkr −1, Ath +2, Ges −2, Sin +2; zusätzliche Kräfte: Flieger, Immunität (Malusschaden); Krallenangriff (Ath) Angriff 9, Schaden 2"
         }
       ],
@@ -5158,7 +5170,6 @@
       "loot": {
         "raw": "50 Gulden (Beutegut, z. B. billiger Schmuck oder seltsame Steine)"
       },
-      "feature": "* Schneller Gestaltwechsel bereits berücksichtigt",
       "references": [
         {
           "source": "Wiki",
@@ -5707,6 +5718,7 @@
       "powers": [
         {
           "name": "Anfälligkeit",
+          "@todo": "Anfällig??",
           "raw": "heiliger Schaden, Feuerschaden"
         },
         {
@@ -6695,6 +6707,7 @@
         },
         {
           "name": "Dornenschmetterschlag",
+          "@todo": "fehlt",
           "raw": "Angriff mit Schlagwaffe, -2 Pw bis Ini 0: Ziel des Angriffs kann defensive Aktion nur mit 1 Coup ausführen"
         },
         {
@@ -7401,18 +7414,22 @@
       "powers": [
         {
           "name": "Glyphe der Arkanen Macht*",
+          "@todo": "fehlt",
           "raw": "Nsc startet mit 3 Hex, jeweils in Ini 0: +3 Hex"
         },
         {
           "name": "Glyphe der Vitalität*",
+          "@todo": "fehlt",
           "raw": "Jz bei Lep-Berechnung +1"
         },
         {
           "name": "Zauberglyphe* „Blindheit“",
+          "target": "Blindheit",
           "raw": "N|F : 12 gegen Geistesstärke, 1 Malusstufe (Blindheit, 5: MFD) pro Differenzerfolg, 1 Hex pro Ziel (1– 3 Ziele)"
         },
         {
           "name": "Zauberglyphe* „Kettenblitz“",
+          "target": "Kettenblitz",
           "raw": "N|F: Angriff 9, Schaden 3 Bl, 1 Hex pro Ziel (1– 3 Ziele)"
         }
       ],
@@ -7480,10 +7497,12 @@
         },
         {
           "name": "Stachelbombe",
+          "@todo": "fehlt",
           "raw": "N|F: Jäger erhält Elixierwürfel äußere Schadensstufen, Verbrennung, 1 Hex"
         },
         {
           "name": "Käferangriff",
+          "@todo": "fehlt",
           "raw": "N: Nach Nahkampfangriff: Jäger erhält Blutwürfel Malusstufen, Trauma, 1 Hex"
         }
       ],
@@ -8448,6 +8467,7 @@
         },
         {
           "name": "Donnerschlag",
+          "@todo": "fehlt",
           "raw": "Bei natürlichen Nahkampfangriffen, wenn Erfolge >= Kkr-Wert: Blutwürfel Schmerzschaden, pro 2 Erfolge Lähmungsschaden (Torkeln)"
         },
         {
@@ -8610,14 +8630,17 @@
       "powers": [
         {
           "name": "Glyphe der Raserei",
+          "@todo": "fehlt",
           "raw": "freie Handlung: +5 innere Schadensstufen, pro innere Schadensstufe +1 auf N - Handlungen, –1 auf F-Handlungen"
         },
         {
           "name": "Glyphe des Widerstands",
+          "@todo": "fehlt",
           "raw": "nur 1 Schadenspunktpro innere/äußere Schadensstufe, 2 bei Anfälligkeit"
         },
         {
           "name": "Rüstungsglyphe",
+          "@todo": "fehlt",
           "raw": "Pw +2*"
         }
       ],
@@ -9859,10 +9882,12 @@
         },
         {
           "name": "Rundlich",
+          "@todo": "Amorpher Körper??",
           "raw": "keine heimtückische Attacke möglich"
         },
         {
           "name": "Schwächeausnutzung",
+          "@todo": "fehlt",
           "raw": "Gegner keine Coups: Angriff +3"
         }
       ],
@@ -10285,6 +10310,7 @@
         },
         {
           "name": "Lebkuchenhülle",
+          "@todo": "fehlt",
           "raw": "Pw 10; bei Lep-Verlust durch direkten Waffenschaden: Pw −1, Jz Lebkuchenschrecken"
         }
       ],
@@ -10483,6 +10509,7 @@
       "powers": [
         {
           "name": "Demolieren",
+          "@todo": "fehlt",
           "raw": "N|F: jeder Kampfteilnehmer nimmt Kkr + As normalen Schaden (ausweichbar, blockbar),(Espritsymbol): Demolieren kann nicht mehr an diesem Ort angewendet werden"
         },
         {
@@ -10711,7 +10738,8 @@
       ],
       "powers": [
         {
-          "name": "Beschwörung*",
+          "name": "Beschwörung",
+          "note": "Die Nsc-Eigenschaft „Nekromantie“ ist bereits eingerechnet.",
           "raw": "N|F: Wandelnde Leiche (Bande 1), 4 für 1 Hex; oder andere untote Bandengegner"
         },
         {
@@ -10743,8 +10771,6 @@
           "raw": "N|F: 3 Schaden pro Hex, 1–5 Hex pro Ziel (1 Ziel), reduzierbar über Ausweichen, Schildblock"
         }
       ],
-      "feature": "*Die Nsc-Eigenschaft „Nekromantie“ ist bereits eingerechnet.",
-      "@todo": "Erklärung als feature",
       "loot": {
         "raw": "80 Gulden (Münzen)"
       },
@@ -10799,11 +10825,13 @@
       "powers": [
         {
           "name": "Auge des Horus",
+          "@todo": "fehlt",
           "raw": "Ein okkulter Philosoph oder Horus-Falke kann Hex-Punkte aus dem Auge des Horus generieren, pro Runde aber maximal Hex-Punkte in Höhe der Jz. In jedem Amulett schlummern Hex-Punkte in Höhe eines Elixierwürfels x 5 oder pauschal 15."
         },
         {
-          "name": "Beschwörung*",
-          "raw": "N|F: Wandelnde LeicheB (Bande 1), 4 für 1 Hex); Horusmumie (Bande 2), 3 für 1 Hex; Gruftwächter (Bande 3), 2 für 1 Hex"
+          "name": "Beschwörung",
+          "note": "Die Nsc-Eigenschaft „Nekromantie“ ist bereits eingerechnet.",
+          "raw": "N|F: Wandelnde Leiche (Bande 1), 4 für 1 Hex; Horusmumie (Bande 2), 3 für 1 Hex; Gruftwächter (Bande 3), 2 für 1 Hex"
         },
         {
           "name": "Faulendes Fleisch",
@@ -10830,8 +10858,6 @@
           "raw": "N|F: 3 Schaden pro Hex, 1–5 Hex pro Ziel (1 Ziel), reduzierbar über Ausweichen, Schildblock"
         }
       ],
-      "feature": "*Die Nsc-Eigenschaft „Nekromantie“ ist bereits eingerechnet.",
-      "@todo": "Erklärung als feature",
       "loot": {
         "raw": "200 Gulden (Münzen), Auge des Horus"
       },
@@ -10927,11 +10953,13 @@
       "powers": [
         {
           "name": "Auge des Horus",
+          "@todo": "fehlt",
           "raw": "Ein okkulter Philosoph oder Horus-Falke kann Hex-Punkte aus dem Auge des Horus generieren, pro Runde aber maximal Hex-Punkte in Höhe der Jz. In jedem Amulett schlummern Hex-Punkte in Höhe eines Elixierwürfels x 5 oder pauschal 15."
         },
         {
-          "name": "Beschwörung*",
-          "raw": "N|F: Wandelnde LeicheB (Bande 1), 4 für 1 Hex); Horusmumie (Bande 2), 3 für 1 Hex; Gruftwächter (Bande 3), 2 für 1 Hex"
+          "name": "Beschwörung",
+          "note": "Die Nsc-Eigenschaft „Nekromantie“ ist bereits eingerechnet.",
+          "raw": "N|F: Wandelnde Leiche (Bande 1), 4 für 1 Hex; Horusmumie (Bande 2), 3 für 1 Hex; Gruftwächter (Bande 3), 2 für 1 Hex"
         },
         {
           "name": "Kettenblitz",
@@ -10950,8 +10978,6 @@
           "raw": "N|F: 3 Schaden pro Hex, 1–5 Hex pro Ziel (1 Ziel), reduzierbar über Ausweichen, Schildblock"
         }
       ],
-      "feature": "*Die Nsc-Eigenschaft „Nekromantie“ ist bereits eingerechnet.",
-      "@todo": "Erklärung als feature",
       "loot": {
         "raw": "80 Gulden (Münzen), Auge des Horus"
       },
@@ -11014,7 +11040,8 @@
         },
         {
           "name": "Beschwörung",
-          "raw": "N|F: Wandelnde LeicheB (Bande 1), 4 für 1 Hex); Horusmumie (Bande 2), 3 für 1 Hex; Gruftwächter (Bande 3), 2 für 1 Hex"
+          "@todo": "Anzahl? Kein Nekromantie.",
+          "raw": "N|F: Wandelnde Leiche (Bande 1), 4 für 1 Hex; Horusmumie (Bande 2), 3 für 1 Hex; Gruftwächter (Bande 3), 2 für 1 Hex"
         },
         {
           "name": "Blick des Verderbens",
@@ -11273,6 +11300,7 @@
       "powers": [
         {
           "name": "Beschwörung",
+          "@todo": "warum hier kein Hinweis zu Nekromatie wie bei anderen?",
           "raw": "N|F: Gruftwächter (Bande 3), 2 für 3 Hex durch Nekromantie); andere untote Bandengegner nach Wahl des HeXXenmeisters"
         },
         {
@@ -11388,6 +11416,7 @@
       "powers": [
         {
           "name": "Beschwörung",
+          "@todo": "Hinweis Nekromantie??",
           "raw": "N|F: Wandelnde Leiche (Bande 1), 4 für 1 Hex; oder Grabwächter (Bande 3), 2 für 1 Hex"
         },
         {
@@ -11611,6 +11640,7 @@
       "powers": [
         {
           "name": "Beschwörung",
+          "@todo": "Hinweis Nekromantie??",
           "raw": "N|F: Gruftwächter (Bande 3), 2 für 1 Hex; Wandelnde Leiche (Bande 1), 4 für 1 Hex"
         },
         {
@@ -13496,7 +13526,8 @@
           "raw": "Licht, Feuer, heiliger Schaden"
         },
         {
-          "name": "Beschwörung*",
+          "name": "Beschwörung",
+          "note": "Die beschworenen Nsc müssen sich in der Nähe aufhalten.",
           "raw": "N|F: Kultanhänger (Bande 1, 3 für 1 Hex)"
         },
         {
@@ -13548,8 +13579,6 @@
       "loot": {
         "raw": "50 Gulden (Münzen in Geldtasche), 1.500 Gulden (Beutegut in seinem Haus)"
       },
-      "@todo": "Beschreibung als feature",
-      "feature": "* Die beschworenen Nsc müssen sich in der Nähe aufhalten.",
       "references": [
         {
           "source": "Wiki",
@@ -13762,6 +13791,7 @@
       "powers": [
         {
           "name": "Doppelangriff",
+          "@todo": "fehlt",
           "raw": "Zweimal Biss pro Runde"
         }
       ],
@@ -15446,6 +15476,7 @@
         },
         {
           "name": "Fesselnde Ranken",
+          "@todo": "Fesselnde Bänder??",
           "raw": "N|F: Angriff 8, kein Schaden +Lähmungsschaden (je 1, Taumeln, bei 5 Erfolgen: Fixierung)"
         },
         {
@@ -15458,6 +15489,7 @@
         },
         {
           "name": "Sprung ins Dickicht",
+          "@todo": "fehlt",
           "raw": "N: Lösen von allen Gegnern, danach F - Aktion"
         },
         {
@@ -16397,6 +16429,7 @@
         },
         {
           "name": "Gemeinsame Giftwolke",
+          "@todo": "Giftwolke??",
           "raw": "N|F: Gift-Effekt (Umgebung) 1 pro Nebelwandler (max. 5)"
         },
         {
@@ -16405,6 +16438,7 @@
         },
         {
           "name": "Roter Nebel",
+          "@todo": "fehlt",
           "raw": "bei Tod: Kreatur wird durch 1 Nebelphantom ersetzt (Bande 3 Gegner)"
         },
         {
@@ -16537,6 +16571,7 @@
         },
         {
           "name": "Artefaktbelebung",
+          "@todo": "fehlt",
           "raw": "Nsc stirbt im Bereich des Artefakts und (Janussymbol): 2 Wandelnde Leichen (Bande1) kommen in Ini 0 ins Spiel"
         },
         {

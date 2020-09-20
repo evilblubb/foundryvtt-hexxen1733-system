@@ -1,0 +1,175 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+
+
+  "type": "object",
+  "properties": {
+    "@content": {
+      "type": "array",
+      "items": {
+        "anyOf": [
+          { "$ref": "#definitions/leader" },
+          { "$ref": "#definitions/mob" }
+        ]
+      }
+    }
+  },
+  "required": [ "@content" ],
+
+
+  "definitions": {
+    "attribute": {
+      "$comment": "TODO: Wertebereich einschränken",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 30
+    },
+    "npc": {
+      "$comment": "Abstrakter Basistyp für Anführer und Bandenmitglieder.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "breed": {
+          "type": "string",
+          "enum": [
+            "Alben",
+            "Dämonen",
+            "Hexen",
+            "Hexenkreaturen",
+            "Menschen",
+            "Pflanzenwesen",
+            "Sagengestalten",
+            "Schwarzmagier",
+            "Tiere",
+            "Unholde",
+            "Vampire",
+            "Wandler (Werwesen)",
+            "Wiedergänger"
+          ]
+        },
+        "type": { "type": "string", "enum": [ "mob", "leader" ] },
+        "unnatural": { "type": "boolean" },
+        "level": { "type": "integer", "minimum": 0, "maximum": 4 },
+        "health": {
+          "type": "object",
+          "description": "Entweder 'value' oder 'formula'.",
+          "$comment": "TODO: Kürzel festlegen",
+          "properties": {
+            "value": { "type": "integer" },
+            "formula": { "type": "string", "pattern": "^(Jz|JZ|LM)\\*[0-9]+$" }
+          },
+          "minProperties": 1,
+          "maxProperties": 1
+        },
+        "attributes": {
+          "type": "object",
+          "properties": {
+            "SIN": { "$ref": "#definitions/attribute" },
+            "WIS": { "$ref": "#definitions/attribute" },
+            "WIL": { "$ref": "#definitions/attribute" },
+            "KKR": { "$ref": "#definitions/attribute" },
+            "ATH": { "$ref": "#definitions/attribute" },
+            "GES": { "$ref": "#definitions/attribute" }
+          },
+          "additionalProperties": false,
+          "required": [ "SIN", "WIS", "WIL", "KKR", "ATH", "GES" ]
+        },
+        "ini": { "type": "integer", "minimum": 0, "maximum": 20 },
+        "pw": {
+          "type": "object",
+          "properties": {
+            "value": { "type": "integer", "minimum": 0, "maximum": 10 },
+            "type": { "type": "string" }
+          }
+        },
+        "strategy": { "type": "string", "$comment": "TODO: einschränken" },
+        "attacks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string" },
+              "raw": { "type": "string" }
+            },
+            "additionalProperties": false,
+            "required": [ "name", "raw" ]
+          }
+        },
+        "powers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string" },
+              "raw": { "typee": "string", "$comment": "TODO:" },
+              "@todoo": { "type": "string", "$comment": "TODO:"}
+            },
+            "additionalProperties": false,
+            "required": [ "name", "raw" ]
+          }
+        },
+        "environment-effect": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string" },
+              "optional": { "type": "boolean" },
+              "raw": { "type": "string" }
+            },
+            "additionalProperties": false,
+            "required": [ "name", "raw" ]
+          }
+        },
+        "story": { "type": "array", "items": { "type": "string" } },
+        "loot": {
+          "type": "object",
+          "properties": {}
+        },
+        "references": { "type": "array" },
+        "@todo": { "$comment": "TODO: entfernen, wenn erledigt." },
+        "feature": { "$comment": "TODO: entfernen, wenn erledigt." }
+      },
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "breed",
+        "type",
+        "unnatural",
+        "level",
+        "health",
+        "ini",
+        "attacks",
+        "powers",
+        "references"
+      ]
+    },
+
+    "mob": {
+      "allOf": [
+        { "$ref": "#definitions/npc" },
+        {
+          "properties": {
+            "type": { "type": "string", "enum": [ "mob" ] }
+          }
+        }
+      ]
+    },
+
+    "leader": {
+      "allOf": [
+        { "$ref": "#definitions/npc" },
+        {
+          "properties": {
+            "type": { "type": "string", "enum": [ "leader" ] }
+          },
+          "required": [
+            "attributes",
+            "pw",
+            "strategy"
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1148,7 +1148,7 @@
         "erreta": false
       },
       "loechriger-koerper": {
-        "name": " Löchriger Körper",
+        "name": "Löchriger Körper",
         "summary": "Eigenschaft",
         "text": "Der Nsc erhält Schadensreduzierung -x gegen Dolche und Messer, Fechtwaffen, Schwerter, Pistolen und Armbrüste.",
         "target": "",
@@ -1338,7 +1338,7 @@
         "erreta": false
       },
       "resistenz": {
-        "name": "Resitenz",
+        "name": "Resistenz",
         "summary": "Eigenschaft, Bande",
         "text": "Eine Resistenz ist mit einer Schadensreduzierung vergleichbar. Im Gegensatz zu dieser reduziert sie jedoch nicht den Verlust von Lep, sondern hilft gegen die Nebenwirkungen schädlicher Angriffe. Es gibt daher drei unterschiedliche Arten von Resistenz (entsprechend der drei anhaltenden Einflüsse, unter denen ein Nsc leiden kann): Malusresistenz, innere Schadensresistenz und äußere Schadensresistenz. Jeweils am Ende einer Kampfrunde in Ini 0 baut der Nsc alle Stufen des jeweiligen Einflusses vollständig ab (allerdings nachdem er Schaden durch inneren/ äußeren Schaden genommen hat). Seinen Würfelwurf zum Abbau von Nebeneffekt-Stufen darf er zusätzlich nutzen, sofern erforderlich.",
         "target": "",
@@ -1831,6 +1831,25 @@
         ],
         "erreta": false
       },
+      "verzweiflung-des-beschuetzers": {
+        "name": "Verzweiflung des Beschützers",
+        "summary": "Eigenschaft",
+        "text": "Die Wigbold-Bestie erhält einen Bonus von +1 auf alle Angriffe und vergleichende Proben für je 10 friedliche Wigbolde, die von den Jägern getötet wurden.",
+        "target": "persönlich",
+        "cost": "keine",
+        "syntax": "+1 auf alle Angriffe/Proben für je 10 getötete friedliche Wigbolde",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/verzweiflung-des-beschuetzers.html"
+          },
+          {
+            "source": "Archiv des Wächterbunds III",
+            "page": "59"
+          }
+        ],
+        "erreta": false
+      },
       "wahrer-name": {
         "name": "Wahrer Name",
         "summary": "Eigenschaft",
@@ -1917,7 +1936,7 @@
         "references": [
           {
             "source": "Wiki",
-            "link": "http://hexxen1733-regelwiki.de/index.php/ak_verwandlung.html"
+            "link": "http://hexxen1733-regelwiki.de/index.php/ak_wurzeldorn.html"
           },
           {
             "source": "Das Buch der Regeln",
@@ -2203,7 +2222,7 @@
         "erreta": false
       },
       "zauberkraft-aus-der-erde": {
-        "name": " Zauberkraft aus der Erde",
+        "name": "Zauberkraft aus der Erde",
         "summary": "Eigenschaft",
         "text": "Daher dürfen sie auf alle Zauber, die etwas mit Natur zu tun haben (z. B. Wurzeldorn), einen Bonus von +3 addieren. Welche Zauber oder Handlungen von dieser Eigenschaft betroffen sind, ist in der Kurzbeschreibung der Kraft jeweils angegeben.",
         "target": "",
@@ -2815,7 +2834,7 @@
         "erreta": false
       },
       "verfallender-koerper": {
-        "name": "Unbezwingbare Diener",
+        "name": "Verfallender Körper",
         "summary": "Eigenschaft",
         "text": "Der Nsc weist einen stark verunstalteten, teilweise abgestorbenen oder zerschmetterten Körper auf, wie dies meistens bei Untoten der Fall ist. Er ist in der Lage, bei starken Verletzungen Teile seines Körpers regelrecht abzustoßen und mit dem übrigen „Material“ weiterzukämpfen. Sobald die Lep des Nsc auf 0 sinken, trennt er sich automatisch von einem Teil seines Körpers (einmal pro Kampf möglich). Er kämpft mit der Hälfte seiner Start-Lep weiter und seine Strategie ändert sich in Tumb (F/N). Verfallender Körper ist nur bei Gegnern anwendbar, die von Grund auf über mindestens 2 Handlungen verfügen.",
         "target": "",
@@ -3406,7 +3425,7 @@
     },
     "typisch-unhold": {
       "bandenwiderstand": {
-        "name": " Bandenwiderstand",
+        "name": "Bandenwiderstand",
         "summary": "Eigenschaft, Bande",
         "text": "Bandengegner mit dieser Eigenschaft sind schwerer mit Bandenkräften zu besiegen als üblich. Jeder Versuch, sie mithilfe einer Bandenkraft zu entfernen, kostet +x Erfolge mehr.",
         "target": "",
