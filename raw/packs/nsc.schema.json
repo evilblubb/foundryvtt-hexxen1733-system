@@ -24,6 +24,17 @@
       "minimum": 0,
       "maximum": 30
     },
+    "shape": {
+      "title": "Form des Wandler",
+      "description": "Kann in attacks und powers als Voraussetzung verwendet werden, setzt shapes voraus!",
+      "type": "string"
+    },
+    "area": {
+      "title": "Umgebung",
+      "description": "Kann in attacks und powers als Voraussetzung verwendet werden!",
+      "type": "string"
+    },
+
     "npc": {
       "$comment": "Abstrakter Basistyp für Anführer und Bandenmitglieder.",
       "type": "object",
@@ -50,16 +61,21 @@
         "type": { "type": "string", "enum": [ "mob", "leader" ] },
         "unnatural": { "type": "boolean" },
         "level": { "type": "integer", "minimum": 0, "maximum": 4 },
+        "note": { "type": "string" },
         "health": {
           "type": "object",
           "description": "Entweder 'value' oder 'formula'.",
           "$comment": "TODO: Kürzel festlegen",
           "properties": {
             "value": { "type": "integer" },
-            "formula": { "type": "string", "pattern": "^(Jz|JZ|LM)\\*[0-9]+$" }
+            "formula": { "type": "string", "pattern": "^(Jz|JZ|LM)\\*[0-9]+$" },
+            "note":  { "type": "string" }
           },
-          "minProperties": 1,
-          "maxProperties": 1
+          "additionalProperties": false,
+          "dependencies": {
+            "value": { "not": { "required": [ "formula" ] } },
+            "formula": { "not": { "required": [ "value" ] } }
+          }
         },
         "attributes": {
           "type": "object",
@@ -79,17 +95,37 @@
           "type": "object",
           "properties": {
             "value": { "type": "integer", "minimum": 0, "maximum": 10 },
-            "type": { "type": "string" }
-          }
+            "type": { "type": "string" },
+            "note":  { "type": "string" }
+          },
+          "additionalProperties": false,
+          "required": [ "value", "type" ]
         },
-        "strategy": { "type": "string", "$comment": "TODO: einschränken" },
+        "strategy": {
+          "type": "string",
+          "pattern": ".* \\([N|F123]+\\)",
+          "$comment": "TODO: besser einschränken"
+        },
+        "shapes": {
+          "type": "array",
+          "title": "Formen eines Wandlers",
+          "description": "Die erste Form ist die Standardform.",
+          "items": {
+            "$ref": "#definitions/shape"
+          },
+          "uniqueItems": true,
+          "minItems": 2
+        },
         "attacks": {
           "type": "array",
           "items": {
             "type": "object",
             "properties": {
               "name": { "type": "string" },
-              "raw": { "type": "string" }
+              "note": { "type": "string" },
+              "area": { "$ref": "#definitions/area" },
+              "shape": { "$ref": "#definitions/shape" },
+              "raw": { "type": "string", "$comment": "TODO: nur temporär?" }
             },
             "additionalProperties": false,
             "required": [ "name", "raw" ]
@@ -101,8 +137,12 @@
             "type": "object",
             "properties": {
               "name": { "type": "string" },
-              "raw": { "typee": "string", "$comment": "TODO:" },
-              "@todoo": { "type": "string", "$comment": "TODO:"}
+              "target": { "type": "string" },
+              "note": { "type": "string" },
+              "area": { "$ref": "#definitions/area" },
+              "shape": { "$ref": "#definitions/shape" },
+              "raw": { "type": "string", "$comment": "TODO: nur temporär?" },
+              "_@todo": { "type": "string", "$comment": "TODO: temporär"}
             },
             "additionalProperties": false,
             "required": [ "name", "raw" ]
@@ -115,6 +155,7 @@
             "properties": {
               "name": { "type": "string" },
               "optional": { "type": "boolean" },
+              "note": { "type": "string" },
               "raw": { "type": "string" }
             },
             "additionalProperties": false,
@@ -127,8 +168,8 @@
           "properties": {}
         },
         "references": { "type": "array" },
-        "@todo": { "$comment": "TODO: entfernen, wenn erledigt." },
-        "feature": { "$comment": "TODO: entfernen, wenn erledigt." }
+        "_@todo": { "$comment": "TODO: entfernen, wenn erledigt." },
+        "_feature": { "$comment": "TODO: entfernen, wenn erledigt." }
       },
       "additionalProperties": false,
       "required": [
@@ -142,7 +183,8 @@
         "attacks",
         "powers",
         "references"
-      ]
+      ],
+      "allOf": [ { "$ref": "#/definitions/shape-implies-shapes"} ]
     },
 
     "mob": {
@@ -169,6 +211,19 @@
             "strategy"
           ]
         }
+      ]
+    },
+
+    "shape-implies-shapes": {
+      "title": "Shape implies shapes",
+      "anyOf": [
+        {
+          "allOf": [
+            { "not": { "properties": { "attacks": { "items": { "required": [ "shape" ] } } } } },
+            { "not": { "properties": { "powers": { "items": { "required": [ "shape" ] } } } } }
+          ]
+        },
+        { "required": [ "shapes" ] }
       ]
     }
   }

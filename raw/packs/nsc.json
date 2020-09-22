@@ -690,10 +690,9 @@
       "unnatural": false,
       "level": 2,
       "health": {
-        "formula": {
-          "reduced": "JZ*15",
-          "full": "JZ*25"
-        }
+        "formula": "JZ*25",
+        "note": "Reduzierte Lep: JZ*15",
+        "@todo": "Evtl. nur eine Note oder als Rückfrage bei Kampfstart/Hinzufügen."
       },
       "attributes": {
         "SIN": 5,
@@ -1577,7 +1576,7 @@
         "value": 2,
         "type": "dichtes Fell"
       },
-      "strategy": "Offensiv (NN|F",
+      "strategy": "Offensiv (NN|F)",
       "attacks": [
         {
           "name": "Klaue",
@@ -1775,7 +1774,8 @@
         },
         {
           "name": "Antlitz der Furcht",
-          "raw": "Angriffe gegen Nsc nicht möglich; gelingt Probe auf Geistesstärke: +5 Malusstufen (Furcht), Angriffe bis Ini 0 möglich"
+          "raw": "Angriffe gegen Nsc nicht möglich; gelingt Probe auf Geistesstärke: +5 Malusstufen (Furcht), Angriffe bis Ini 0 möglich",
+          "_@todo": "stimmt das hier?"
         },
         {
           "name": "Immunität",
@@ -3991,13 +3991,11 @@
         "GES": 5
       },
       "ini": 10,
-      "pw1": {
+      "pw": {
         "value": 1,
-        "type": "einfache Kleidung"
-      },
-      "pw2": {
-        "value": 3,
-        "type": "im Heimatreich: von Frost bedeckte Haut"
+        "type": "einfache Kleidung",
+        "note": "3: im Heimatreich: von Frost bedeckte Haut",
+        "@todo": "Rückfrage oder nur Notiz?"
       },
       "strategy": "Mächtiger Allrounder (NNN|FFF)",
       "attacks": [
@@ -4581,52 +4579,65 @@
           "raw": "F: Angriff 12, Schaden 1"
         }
       ],
-      "@todo": "zusätzliche Kräfte abhängig vom Ort",
+      "@todo": "powers genauer betrachten",
       "powers": [
         {
-          "name": "@ballroom",
-          "Beschwörung": {
-            "raw": "N|F: Raubvogel (Bande 2), 2 für 1 Hex"
-          },
-          "Feuerreigen": {
-            "raw": "N|F: Angriff 15, Schaden 6 Fe), 1 Hex pro Ziel (1–3 Ziele)"
-          },
-          "Hexenpfeil": {
-            "raw": "N|F: Kegelangriff gegen [Probe auf x] Jäger, Schaden Blutw. + As, übrige Pfeile heilen 3 Lep, 1 Hex"
-          },
-          "Sinnlichkeit": {
-            "raw": "+5/+2 auf Wil bei Manipulationen"
-          },
-          "Hex-Macht": {
-            "raw": "Jz + 3 Hex bei Start"
-          },
-          "Hex-Wachstum": {
-            "raw": "Jz Hex in Ini 0"
-          },
-          "Schutzzauber": {
-            "raw": "N|F: Immunität wahlweise gegen Malusschaden, innerer oder äußerer Schaden, 3 Hex"
-          },
-          "Versetzung": {
-            "raw": "N|F: Zaubernder verliert alle Bindungen, 3 Hex"
-          }
+          "name": "Beschwörung",
+          "raw": "N|F: Raubvogel (Bande 2), 2 für 1 Hex"
         },
         {
-          "name": "@nature",
-          "Dornendickicht": {
-            "raw": "N|F: Umgebungseffekt, pro Kampfrunde 1 äußerer Schaden (Blutung), ausweichbar, zerstörbar, 5 Hex"
-          },
-          "Gegenschlag des Waldes": {
-            "raw": "N|F: 1–3 Hex, 1 Blutwürfel normaler Schaden pro Hex bei allen Jägern"
-          },
-          "Revierbeschwörung": {
-            "raw": "N|F: Raubvogel (Bande 2), 2 für 1 Hex; Wolf (Bande 2), 2 für 1 Hex; Gehörntes Wild (Bande 2), 2 für 1 Hex; Waldtier (Bande 1), 3 für 1 Hex; Bandenwiderstand +1"
-          },
-          "Hex-Wachstum": {
-            "raw": "+1 Hex für jede aktivierte Säule"
-          },
-          "Wurzeldorn": {
-            "raw": "N|F: Angriff 15, Schaden 3 +Lähmung (je 1 pro Lep-Verlust, Fixierung), 1 Hex pro Ziel (1–3 Ziele)"
-          }
+          "name": "Feuerreigen",
+          "raw": "N|F: Angriff 15, Schaden 6 Fe), 1 Hex pro Ziel (1–3 Ziele)"
+        },
+        {
+          "name": "Hexenpfeil",
+          "raw": "N|F: Kegelangriff gegen [Probe auf x] Jäger, Schaden Blutw. + As, übrige Pfeile heilen 3 Lep, 1 Hex"
+        },
+        {
+          "name": "Sinnlichkeit",
+          "raw": "+5/+2 auf Wil bei Manipulationen"
+        },
+        {
+          "name": "Hex-Macht",
+          "raw": "Jz + 3 Hex bei Start"
+        },
+        {
+          "name": "Hex-Wachstum",
+          "raw": "Jz Hex in Ini 0"
+        },
+        {
+          "name": "Schutzzauber",
+          "raw": "N|F: Immunität wahlweise gegen Malusschaden, innerer oder äußerer Schaden, 3 Hex"
+        },
+        {
+          "name": "Versetzung",
+          "raw": "N|F: Zaubernder verliert alle Bindungen, 3 Hex"
+        },
+        {
+          "name": "Dornendickicht",
+          "area": "nature",
+          "raw": "N|F: Umgebungseffekt, pro Kampfrunde 1 äußerer Schaden (Blutung), ausweichbar, zerstörbar, 5 Hex"
+        },
+        {
+          "name": "Gegenschlag des Waldes",
+          "area": "nature",
+          "raw": "N|F: 1–3 Hex, 1 Blutwürfel normaler Schaden pro Hex bei allen Jägern"
+        },
+        {
+          "name": "Revierbeschwörung",
+          "area": "nature",
+          "raw": "N|F: Raubvogel (Bande 2), 2 für 1 Hex; Wolf (Bande 2), 2 für 1 Hex; Gehörntes Wild (Bande 2), 2 für 1 Hex; Waldtier (Bande 1), 3 für 1 Hex; Bandenwiderstand +1"
+        },
+        {
+          "name": "Hex-Wachstum",
+          "area": "nature",
+          "@todo": "einmalig oder in jeder Ini0?",
+          "raw": "+1 Hex für jede aktivierte Säule"
+        },
+        {
+          "name": "Wurzeldorn",
+          "area": "nature",
+          "raw": "N|F: Angriff 15, Schaden 3 +Lähmung (je 1 pro Lep-Verlust, Fixierung), 1 Hex pro Ziel (1–3 Ziele)"
         }
       ],
       "story": [
@@ -5077,15 +5088,7 @@
         "WIL": 8,
         "KKR": 5,
         "ATH": 6,
-        "GES": 6,
-        "@rabe": {
-          "SIN": 8,
-          "WIS": 10,
-          "WIL": 8,
-          "KKR": 4,
-          "ATH": 8,
-          "GES": 4
-        }
+        "GES": 6
       },
       "ini": 10,
       "pw": {
@@ -5093,20 +5096,22 @@
         "type": "leichte Kleidung/Federkleid"
       },
       "strategy": "Allrounder (NN|FF)",
+      "shapes": [ "Mensch", "Rabe" ],
       "attacks": [
         {
           "name": "Fausthieb",
+          "shape": "Mensch",
           "raw": "N: Angriff 7, Schaden 0"
         },
         {
           "name": "Schleuder",
+          "shape": "Mensch",
           "raw": "F: Angriff 7, Schaden 2"
         },
         {
-          "name": "@rabe",
-          "Krallenangriff": {
-            "raw": "N: Angriff 9, Schaden 2"
-          }
+          "name": "Krallenangriff",
+          "shape": "Rabe",
+          "raw": "N: Angriff 9, Schaden 2"
         }
       ],
       "powers": [
@@ -5156,7 +5161,7 @@
           "raw": "N|F: Kkr −1, Ath +2, Ges −2, Sin +2; zusätzliche Kräfte: Flieger, Immunität (Malusschaden); Krallenangriff (Ath) Angriff 9, Schaden 2"
         }
       ],
-      "@todo": "Unterschiedliches HEX-Wachstum, Unterschiedliche Beschwörung, Sternchenbemerkung als feature gekennzeichnet, Verwandlung als Rabe mit anderen Werten, Angriffen und Kräften",
+      "@todo": "Unterschiedliches HEX-Wachstum, Unterschiedliche Beschwörung, Verwandlung als Rabe mit anderen Werten, Angriffen und Kräften, Müssen durch Gestaltwandel Proben angepasst werden? Worauf basieren sie?",
       "story": [
         "Beherrschung des Winds",
         "Beschwörung",
@@ -5450,10 +5455,9 @@
       "unnatural": true,
       "level": 2,
       "health": {
-        "formula": {
-          "Mensch": "JZ*15",
-          "Spinnenmensch": "JZ*25"
-        }
+        "formula": "JZ*15",
+        "note": "Spinnenmensch: JZ*25",
+        "@todo": "via Verwandlung umsetzen"
       },
       "attributes": {
         "SIN": 5,
@@ -5461,40 +5465,30 @@
         "WIL": 9,
         "KKR": 5,
         "ATH": 10,
-        "GES": 10,
-        "@spinnenmensch": {
-          "SIN": 3,
-          "WIS": 7,
-          "WIL": 9,
-          "KKR": 9,
-          "ATH": 10,
-          "GES": 10
-        }
+        "GES": 10
       },
-      "ini1": 15,
-      "ini2": 12,
-      "pw1": {
+      "ini": 15,
+      "pw": {
         "value": 1,
         "type": "leichte Kleidung"
       },
-      "pw2": {
-        "value": 3,
-        "type": "Chitinpanzer"
-      },
       "strategy": "Allrounder (NN|FF)",
+      "shapes": [ "Mensch", "Spinnenmensch" ],
       "attacks": [
         {
           "name": "Fausthieb",
+          "shape": "Mensch",
           "raw": "N: Angriff 10, Schaden 0"
         },
         {
-          "name": "@spinnenmensch",
-          "Klauenbiss": {
-            "raw": "N: Angriff 11, Schaden 4 +innerer Schaden (je 1, Vergiftung)"
-          },
-          "Netzspucken": {
-            "raw": "F: Angriff 12, Schaden 0 +Lähmung (je 1, Fixierung)"
-          }
+          "name": "Klauenbiss",
+          "shape": "Spinnenmensch",
+          "raw": "N: Angriff 11, Schaden 4 +innerer Schaden (je 1, Vergiftung)"
+        },
+        {
+          "name": "Netzspucken",
+          "shape": "Spinnenmensch",
+          "raw": "F: Angriff 12, Schaden 0 +Lähmung (je 1, Fixierung)"
         }
       ],
       "powers": [
@@ -5550,11 +5544,17 @@
           "raw": "N|F: 11 gegen Geistesstärke, 1 Malusstufe (Furcht, 5: MFD) pro Differenzerfolg, 1 Hex pro Ziel (1–3 Ziele)"
         },
         {
-          "name": "Verwandlung Spinnenmensch*",
-          "raw": "N|F: Kkr +4, Sin −2; Klauenbiss (Kkr) Angriff 11, Schaden 4; Netzspucken (Ges) Angriff 10, Schaden 0 +Lähmung (je 1, Fixierung); zusätzliche N-Handlung pro Runde"
+          "name": "Verwandlung Spinnenmensch",
+          "note": "Schneller Gestaltwechsel bereits berücksichtigt.",
+          "raw": "N|F: Kkr +4, Sin −2; Klauenbiss (Kkr) Angriff 11, Schaden 4; Netzspucken (Ges) Angriff 10, Schaden 0 +Lähmung (je 1, Fixierung); zusätzliche N-Handlung pro Runde",
+          "ini": 12,
+          "pw": {
+            "value": 3,
+            "type": "Chitinpanzer"
+          }
         }
       ],
-      "@todo": "Unterschiedliches HEX-Wachstum, Sternchenbemerkung als feature gekennzeichnet, Verwandlung als Spinnenmensch mit anderen Werten, Angriffen und INI",
+      "@todo": "Unterschiedliches HEX-Wachstum, Verwandlung als Spinnenmensch mit anderen Werten, Angriffen und INI",
       "story": [
         "Aufruhr",
         "Korruption",
@@ -5568,7 +5568,6 @@
       "loot": {
         "raw": "250 Gulden (Beutegut, z. B. Schmuck oder feine Kleidung)"
       },
-      "feature": "* Schneller Gestaltwechsel bereits berücksichtigt",
       "references": [
         {
           "source": "Wiki",
@@ -6415,15 +6414,13 @@
         "GES": 2
       },
       "ini": 7,
-      "pw1": {
+      "pw": {
         "value": 2,
-        "type": "dichtes Fell"
+        "type": "dichtes Fell",
+        "note": "4: nur in der Luft: sehr gelenkig",
+        "@todo": "an fliegen koppeln??"
       },
-      "pw2": {
-        "value": 4,
-        "type": "nur in der Luft: sehr gelenkig"
-      },
-      "strategy": "Offensiv (N1N2|F )",
+      "strategy": "Offensiv (N1N2|F)",
       "attacks": [
         {
           "name": "Klauenhieb",
@@ -6464,7 +6461,6 @@
           "raw": "Reittier und Reiter nicht gebunden, stirbt Reittier: Reiter nimmt Schmerzschaden"
         }
       ],
-      "@todo": "2 verschieden PW und 2 Quellenangaben",
       "loot": {
         "raw": "30 Gulden (Beutegut, z. B. Hörner und Fell)"
       },
@@ -7807,7 +7803,7 @@
         "value": 2,
         "type": "schuppenbedecktes Fell"
       },
-      "strategy": "Offensiv (NN/F)",
+      "strategy": "Offensiv (NN|F)",
       "attacks": [
         {
           "name": "Klauenhieb",
@@ -8297,15 +8293,8 @@
         "WIL": 4,
         "KKR": 5,
         "ATH": 5,
-        "GES": 4,
-        "@kampfrausch": {
-          "SIN": 4,
-          "WIS": 2,
-          "WIL": 6,
-          "KKR": 7,
-          "ATH": 6,
-          "GES": 2
-        }
+        "GES": 4
+        
       },
       "ini": 8,
       "pw": {
@@ -8335,6 +8324,19 @@
         {
           "name": "Raserei",
           "raw": "Lep < 50 %: +2 auf Angriffswürfe"
+        },
+        {
+          "name": "Kampfrausch",
+          "raw": "Pseudokraft",
+          "_@todo": "Umsetzung noch unklar.",
+          "attributes": {
+            "SIN": 4,
+            "WIS": 2,
+            "WIL": 6,
+            "KKR": 7,
+            "ATH": 6,
+            "GES": 2
+          }
         }
       ],
       "loot": {
@@ -8386,7 +8388,8 @@
         },
         {
           "name": "Dolch",
-          "raw": "N:  Angriff 7, Schaden 1 +innerer Schaden (je 1 bei Lep-Verlust, Vergiftung)**"
+          "raw": "N:  Angriff 7, Schaden 1 +innerer Schaden (je 1 bei Lep-Verlust, Vergiftung)",
+          "note": "Vergiftung nur zweimal pro Kampf möglich, danach ist Grimms Giftvorrat aufgebraucht"
         },
         {
           "name": "Pistole",
@@ -8406,8 +8409,6 @@
       "loot": {
         "raw": "250 Gulden (inkl. Besitztümer)"
       },
-      "@todo": "Besonderheit als Feature gekennzeichnet",
-      "feature": "** nur zweimal pro Kampf möglich, danach ist Grimms Giftvorrat aufgebraucht",
       "references": [
         {
           "source": "Wiki",
@@ -13821,15 +13822,7 @@
         "WIL": 7,
         "KKR": 8,
         "ATH": 10,
-        "GES": 9,
-        "@werrattengestalt": {
-          "SIN": 8,
-          "WIS": 6,
-          "WIL": 7,
-          "KKR": 10,
-          "ATH": 12,
-          "GES": 7
-        }
+        "GES": 9
       },
       "ini": 17,
       "pw": {
@@ -13882,7 +13875,15 @@
         },
         {
           "name": "Verwandlung Mischgestalt",
-          "raw": "NN|FF: Kkr +2, Ath +2, Ges -2, Biss (Kkr), Schaden 5 +innerer Schaden (je 1, Vergiftung), kann einfache Objekte/Waffen bedienen"
+          "raw": "NN|FF: Kkr +2, Ath +2, Ges -2, Biss (Kkr), Schaden 5 +innerer Schaden (je 1, Vergiftung), kann einfache Objekte/Waffen bedienen",
+          "attributes": {
+            "SIN": 8,
+            "WIS": 6,
+            "WIL": 7,
+            "KKR": 10,
+            "ATH": 12,
+            "GES": 7
+          }
         }
       ],
       "@todo": "Wandler mit Verschiedenen Werten, Lep, Attribute, Angriffe, Ini",
@@ -13912,15 +13913,7 @@
         "WIL": 6,
         "KKR": 6,
         "ATH": 8,
-        "GES": 8,
-        "@werrattengestalt": {
-          "SIN": 7,
-          "WIS": 5,
-          "WIL": 6,
-          "KKR": 8,
-          "ATH": 10,
-          "GES": 6
-        }
+        "GES": 8
       },
       "ini": 15,
       "pw": {
@@ -13977,7 +13970,15 @@
         },
         {
           "name": "Verwandlung Mischgestalt",
-          "raw": "NN|FF: Kkr +2, Ath +2, Ges -2, Biss (Kkr), Schaden 3 +innerer Schaden (je 1, Vergiftung), kann einfache Objekte/Waffen bedienen"
+          "raw": "NN|FF: Kkr +2, Ath +2, Ges -2, Biss (Kkr), Schaden 3 +innerer Schaden (je 1, Vergiftung), kann einfache Objekte/Waffen bedienen",
+          "attributes": {
+            "SIN": 7,
+            "WIS": 5,
+            "WIL": 6,
+            "KKR": 8,
+            "ATH": 10,
+            "GES": 6
+          }
         }
       ],
       "@todo": "Wandler mit Verschiedenen Werten, Lep, Attribute, Angriffe, Ini",
@@ -14007,15 +14008,7 @@
         "WIL": 6,
         "KKR": 6,
         "ATH": 8,
-        "GES": 8,
-        "@werrattengestalt": {
-          "SIN": 7,
-          "WIS": 5,
-          "WIL": 6,
-          "KKR": 8,
-          "ATH": 10,
-          "GES": 6
-        }
+        "GES": 8
       },
       "ini": 15,
       "pw": {
@@ -14056,7 +14049,15 @@
         },
         {
           "name": "Verwandlung Mischgestalt",
-          "raw": "NN|FF: Kkr +2, Ath +2, Ges -2, Biss (Kkr), Schaden 5 +innerer Schaden (je 1, Vergiftung), kann einfache Objekte/Waffen bedienen"
+          "raw": "NN|FF: Kkr +2, Ath +2, Ges -2, Biss (Kkr), Schaden 5 +innerer Schaden (je 1, Vergiftung), kann einfache Objekte/Waffen bedienen",
+          "attributes": {
+            "SIN": 7,
+            "WIS": 5,
+            "WIL": 6,
+            "KKR": 8,
+            "ATH": 10,
+            "GES": 6
+          }
         }
       ],
       "story": [
@@ -14095,15 +14096,7 @@
         "WIL": 7,
         "KKR": 8,
         "ATH": 10,
-        "GES": 9,
-        "@werrattengestalt": {
-          "SIN": 8,
-          "WIS": 6,
-          "WIL": 7,
-          "KKR": 10,
-          "ATH": 12,
-          "GES": 7
-        }
+        "GES": 9
       },
       "ini": 17,
       "pw": {
@@ -14156,7 +14149,15 @@
         },
         {
           "name": "Verwandlung Mischgestalt",
-          "raw": "NN|FF: Kkr +2, Ath +2, Ges -2, Biss (Kkr), Schaden 5 +innerer Schaden (je 1, Vergiftung), kann einfache Objekte/Waffen bedienen"
+          "raw": "NN|FF: Kkr +2, Ath +2, Ges -2, Biss (Kkr), Schaden 5 +innerer Schaden (je 1, Vergiftung), kann einfache Objekte/Waffen bedienen",
+          "atrributes": {
+            "SIN": 8,
+            "WIS": 6,
+            "WIL": 7,
+            "KKR": 10,
+            "ATH": 12,
+            "GES": 7
+          }
         }
       ],
       "@todo": "Wandler mit Verschiedenen Werten, Lep, Attribute, Angriffe, Ini",
@@ -14186,15 +14187,7 @@
         "WIL": 5,
         "KKR": 7,
         "ATH": 8,
-        "GES": 5,
-        "@werrattengestalt": {
-          "SIN": 5,
-          "WIS": 3,
-          "WIL": 5,
-          "KKR": 9,
-          "ATH": 10,
-          "GES": 3
-        }
+        "GES": 5
       },
       "ini": 10,
       "pw": {
@@ -14227,7 +14220,15 @@
         },
         {
           "name": "Verwandlung Mischgestalt",
-          "raw": "NN|FF: Kkr +2, Ath +2, Ges -2, Biss (Kkr), Schaden 3 +Innerer Schaden (je 1, Vergiftung), kann einfache Objekte/Waffen bedienen"
+          "raw": "NN|FF: Kkr +2, Ath +2, Ges -2, Biss (Kkr), Schaden 3 +Innerer Schaden (je 1, Vergiftung), kann einfache Objekte/Waffen bedienen",
+          "attributes": {
+            "SIN": 5,
+            "WIS": 3,
+            "WIL": 5,
+            "KKR": 9,
+            "ATH": 10,
+            "GES": 3
+          }
         }
       ],
       "@todo": "Wandler mit Verschiedenen Werten, Lep, Attribute, Angriffe, Ini",
@@ -14367,15 +14368,7 @@
         "WIL": 9,
         "KKR": 6,
         "ATH": 6,
-        "GES": 6,
-        "@werrattengestalt": {
-          "SIN": 7,
-          "WIS": 8,
-          "WIL": 9,
-          "KKR": 8,
-          "ATH": 8,
-          "GES": 4
-        }
+        "GES": 6
       },
       "ini": 13,
       "pw": {
@@ -14432,7 +14425,15 @@
         },
         {
           "name": "Verwandlung Mischgestalt",
-          "raw": "NN|FF: Kkr +2, Ath +2, Ges -2, Biss (Kkr), Schaden 3 +innerer Schaden (je 1, Vergiftung), kann einfache Objekte/Waffen bedienen"
+          "raw": "NN|FF: Kkr +2, Ath +2, Ges -2, Biss (Kkr), Schaden 3 +innerer Schaden (je 1, Vergiftung), kann einfache Objekte/Waffen bedienen",
+          "attributes": {
+            "SIN": 7,
+            "WIS": 8,
+            "WIL": 9,
+            "KKR": 8,
+            "ATH": 8,
+            "GES": 4
+          }
         }
       ],
       "loot": {
@@ -14545,24 +14546,12 @@
         "WIL": 8,
         "KKR": 6,
         "ATH": 7,
-        "GES": 5,
-        "@werwolf": {
-          "SIN": 7,
-          "WIS": 6,
-          "WIL": 8,
-          "KKR": 10,
-          "ATH": 8,
-          "GES": 4
-        }
+        "GES": 5
       },
       "ini": 12,
-      "pw1": {
+      "pw": {
         "value": 2,
         "type": "Lederkoller"
-      },
-      "pw2": {
-        "value": 4,
-        "type": "dickes Werwolf-Fell"
       },
       "strategy": "Allrounder (NN|FF)",
       "attacks": [
@@ -14606,7 +14595,19 @@
         },
         {
           "name": "Verwandlung in Wolf/Mensch-Hybrid",
-          "raw": "NN/FF: Kkr +4, Ath +1, Ges -1, Ini +2, Werwolf-Reißen (Kkr), Schaden 5 +äußerer Schaden (je 2, Blutung)"
+          "raw": "NN/FF: Kkr +4, Ath +1, Ges -1, Ini +2, Werwolf-Reißen (Kkr), Schaden 5 +äußerer Schaden (je 2, Blutung)",
+          "attributes": {
+            "SIN": 7,
+            "WIS": 6,
+            "WIL": 8,
+            "KKR": 10,
+            "ATH": 8,
+            "GES": 4
+          },
+          "pw": {
+            "value": 4,
+            "type": "dickes Werwolf-Fell"
+          }
         }
       ],
       "@todo": "Wandler mit Verschiedenen Werten, Lep, Attribute, Angriffe, Ini, 2 Pw",
@@ -14636,24 +14637,12 @@
         "WIL": 9,
         "KKR": 10,
         "ATH": 8,
-        "GES": 6,
-        "@werwolf": {
-          "SIN": 6,
-          "WIS": 5,
-          "WIL": 9,
-          "KKR": 14,
-          "ATH": 9,
-          "GES": 5
-        }
+        "GES": 6
       },
       "ini": 12,
-      "pw1": {
+      "pw": {
         "value": 2,
         "type": "Lederkoller"
-      },
-      "pw2": {
-        "value": 3,
-        "type": "dickes Werwolf-Fell"
       },
       "strategy": "Offensiv (NN|F)",
       "attacks": [
@@ -14705,7 +14694,19 @@
         },
         {
           "name": "Verwandlung",
-          "raw": "NN|FF: Kkr +4, Ath +1, Ges –1; Werwolf-Reißen (Kkr), Schaden 5 +Malus (je 2, Furcht)"
+          "raw": "NN|FF: Kkr +4, Ath +1, Ges –1; Werwolf-Reißen (Kkr), Schaden 5 +Malus (je 2, Furcht)",
+          "attributes": {
+            "SIN": 6,
+            "WIS": 5,
+            "WIL": 9,
+            "KKR": 14,
+            "ATH": 9,
+            "GES": 5
+          },
+          "pw": {
+            "value": 3,
+            "type": "dickes Werwolf-Fell"
+          }
         }
       ],
       "story": [
@@ -14799,24 +14800,12 @@
         "WIL": 8,
         "KKR": 8,
         "ATH": 7,
-        "GES": 5,
-        "@werwolf": {
-          "SIN": 6,
-          "WIS": 4,
-          "WIL": 8,
-          "KKR": 12,
-          "ATH": 8,
-          "GES": 4
-        }
+        "GES": 5
       },
       "ini": 11,
-      "pw1": {
+      "pw": {
         "value": 2,
         "type": "Lederkoller"
-      },
-      "pw2": {
-        "value": 3,
-        "type": "dickes Werwolf-Fell"
       },
       "strategy": "Offensiv (NN|F)",
       "attacks": [
@@ -14860,7 +14849,19 @@
         },
         {
           "name": "Verwandlung Wolf/Mensch-Hybrid",
-          "raw": "NN|FF: Kkr +4, Ath +1, Ges -1, Ini +2, Werwolf-Reißen (Kkr), Schaden 5 +äußerer Schaden (je 2, Blutung)"
+          "raw": "NN|FF: Kkr +4, Ath +1, Ges -1, Ini +2, Werwolf-Reißen (Kkr), Schaden 5 +äußerer Schaden (je 2, Blutung)",
+          "attributes": {
+            "SIN": 6,
+            "WIS": 4,
+            "WIL": 8,
+            "KKR": 12,
+            "ATH": 8,
+            "GES": 4
+          },
+          "pw": {
+            "value": 3,
+            "type": "dickes Werwolf-Fell"
+          }
         }
       ],
       "story": [
