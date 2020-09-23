@@ -1,0 +1,62 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+
+
+  "type": "object",
+  "properties": {
+    "@content": {
+      "type": "object",
+      "patternProperties": {
+        "^@target$": { "type": "string" },
+        "^.*$": {
+          "type": "object",
+          "patternProperties": {
+            "^.*$": { "$ref": "#/definitions/nsc-power" }
+          }
+        }
+      }
+    }
+  },
+  "required": [ "@content" ],
+
+
+  "definitions": {
+    "nsc-power": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "summary": { "type": "string" },
+        "text": { "type": "string" },
+        "target": {
+          "type": "string",
+          "enum": [
+            "",
+            "persönlich",
+            "selbst",
+            "1",
+            "1-3",
+            "1-5",
+            "1 - 3",
+            "alle Jäger",
+            "alle Jäger (Bereich)",
+            "Bereich",
+            "Umgebung",
+            "variabel",
+            "beliebig"
+          ]
+        },
+        "cost": {
+          "type": "string",
+          "pattern": "^(|keine|variabel|[0-9-]+( Hex)?( pro Ziel)?( pro Giftstufe)?( Lep)?)$"
+        },
+        "syntax": { "type": "string" },
+        "references": { 
+          "$comment": "TODO: noch zu definieren",
+          "type": "array" 
+        },
+        "erreta": { "type": "boolean" }
+      },
+      "required": [ "name", "summary", "text", "target", "cost", "syntax", "references", "erreta" ]
+    }
+  }
+}

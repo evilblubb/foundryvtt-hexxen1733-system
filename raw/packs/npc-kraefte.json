@@ -1,5 +1,6 @@
 {
-  "content": {
+  "$schema": "./npc-kraefte.schema.json",
+  "@content": {
     "@target": "^(.*)$",
     "allgemein": {
       "aasfresser": {

@@ -165,7 +165,10 @@
           "type": "object",
           "properties": {}
         },
-        "references": { "type": "array" },
+        "references": { 
+          "$comment": "TODO: noch zu definieren",
+          "type": "array" 
+        },
         "_@todo": { "$comment": "TODO: entfernen, wenn erledigt." },
         "_feature": { "$comment": "TODO: entfernen, wenn erledigt." }
       },
