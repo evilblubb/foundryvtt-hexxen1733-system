@@ -1,0 +1,222 @@
+{
+  "name": "Beschützer",
+  "type": "role",
+  "data": {
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/Rolle_Besch%C3%BCtzer.html"
+      },
+      {
+        "source": "Das Buch der Regeln",
+        "page": "127"
+      }
+    ],
+    "name": null,
+    "description": "<p>[!Beschreibung fehlt im Wiki]</p>",
+    "summary": "",
+    "_template-revision": 1,
+    "create": "@Compendium[hexxen-1733.hexxen-items.Gardeuniform] oder @Compendium[hexxen-1733.hexxen-items.Landsknechtkleidung]",
+    "upkeep": null,
+    "powers": [
+      {
+        "name": "Hart wie Stahl",
+        "nameC": "Hart wie Stahl (Beschützer)",
+        "id": "wSzIITDkDQ4oZ8G4",
+        "pack": "hexxen-1733.hexxen-power",
+        "type": "esprit"
+      },
+      {
+        "name": "Gegenschlag",
+        "nameC": "Gegenschlag (Beschützer)",
+        "id": "Ojo8FwVTxW8B3YyE",
+        "pack": "hexxen-1733.hexxen-power",
+        "type": "jaeger"
+      },
+      {
+        "name": "Leibgarde",
+        "nameC": "Leibgarde (Beschützer)",
+        "id": "gciebBCkqYNOJBQm",
+        "pack": "hexxen-1733.hexxen-power",
+        "type": "jaeger"
+      },
+      {
+        "name": "Herausforderung",
+        "nameC": "Herausforderung (Beschützer)",
+        "id": "qhZ1rmiOeRHpcC3M",
+        "pack": "hexxen-1733.hexxen-power",
+        "type": "ausbau",
+        "features": [
+          {
+            "name": "In vorderster Reihe",
+            "nameC": "In vorderster Reihe (Beschützer)",
+            "id": "Hqp3SbBRphbGpYgo",
+            "pack": "hexxen-1733.hexxen-power",
+            "type": "stammeffekt"
+          },
+          {
+            "name": "Verhöhnen",
+            "nameC": "Verhöhnen (Beschützer)",
+            "id": "kfWImlgPR21FX6vN",
+            "pack": "hexxen-1733.hexxen-power",
+            "type": "geselle"
+          },
+          {
+            "name": "Pariermeister",
+            "nameC": "Pariermeister (Beschützer)",
+            "id": "ajotB8tQ6tTRk0cY",
+            "pack": "hexxen-1733.hexxen-power",
+            "type": "geselle"
+          },
+          {
+            "name": "Winken",
+            "nameC": "Winken (Beschützer)",
+            "id": "5KRaGMcFzJJGDKlD",
+            "pack": "hexxen-1733.hexxen-power",
+            "type": "geselle"
+          },
+          {
+            "name": "Frontschwein",
+            "nameC": "Frontschwein (Beschützer)",
+            "id": "vpQHjzORaKSe9D3j",
+            "pack": "hexxen-1733.hexxen-power",
+            "type": "experte"
+          },
+          {
+            "name": "Flagge stellen",
+            "nameC": "Flagge stellen (Beschützer)",
+            "id": "NyN7YZrCIHeP7GJG",
+            "pack": "hexxen-1733.hexxen-power",
+            "type": "experte"
+          },
+          {
+            "name": "Schmähungen I",
+            "nameC": "Schmähungen I (Beschützer)",
+            "id": "W4fTkpRvjO7kMV4Q",
+            "pack": "hexxen-1733.hexxen-power",
+            "type": "experte"
+          },
+          {
+            "name": "Volle Konzentration",
+            "nameC": "Volle Konzentration (Beschützer)",
+            "id": "CzNHMwuxU1WBd4cH",
+            "pack": "hexxen-1733.hexxen-power",
+            "type": "meister"
+          },
+          {
+            "name": "Späte Einsicht",
+            "nameC": "Späte Einsicht (Beschützer)",
+            "id": "Loj0ZU5yz1iFoezD",
+            "pack": "hexxen-1733.hexxen-power",
+            "type": "meister"
+          },
+          {
+            "name": "Schmähungen II",
+            "nameC": "Schmähungen II (Beschützer)",
+            "id": "RnbN9ORlEx5hgy6l",
+            "pack": "hexxen-1733.hexxen-power",
+            "type": "meister"
+          }
+        ]
+      },
+      {
+        "name": "Standhaftigkeit",
+        "nameC": "Standhaftigkeit (Beschützer)",
+        "id": "EWzcsPDeNYubPgiJ",
+        "pack": "hexxen-1733.hexxen-power",
+        "type": "ausbau",
+        "features": [
+          {
+            "name": "Unerschütterlich",
+            "nameC": "Unerschütterlich (Beschützer)",
+            "id": "CwAJT3dI0Mrjez5H",
+            "pack": "hexxen-1733.hexxen-power",
+            "type": "stammeffekt"
+          },
+          {
+            "name": "Lähmung überwinden",
+            "nameC": "Lähmung überwinden (Beschützer)",
+            "id": "ZS78CSk3O0zCnWpf",
+            "pack": "hexxen-1733.hexxen-power",
+            "type": "geselle"
+          },
+          {
+            "name": "Schnelle Heilung",
+            "nameC": "Schnelle Heilung (Beschützer)",
+            "id": "KGKm4ERFGimob3L8",
+            "pack": "hexxen-1733.hexxen-power",
+            "type": "geselle"
+          },
+          {
+            "name": "Schildbonus",
+            "nameC": "Schildbonus (Beschützer)",
+            "id": "yXrY9dRafRfYmo5V",
+            "pack": "hexxen-1733.hexxen-power",
+            "type": "geselle"
+          },
+          {
+            "name": "Schildblockade",
+            "nameC": "Schildblockade (Beschützer)",
+            "id": "zCImBCZNiqRDOXQP",
+            "pack": "hexxen-1733.hexxen-power",
+            "type": "experte"
+          },
+          {
+            "name": "Zurückdrängen",
+            "nameC": "Zurückdrängen (Beschützer)",
+            "id": "hj6ByVMEkVxKBgGM",
+            "pack": "hexxen-1733.hexxen-power",
+            "type": "experte"
+          },
+          {
+            "name": "Schildkunde I",
+            "nameC": "Schildkunde I (Beschützer)",
+            "id": "pzDuc39HEVfpq4oK",
+            "pack": "hexxen-1733.hexxen-power",
+            "type": "experte"
+          },
+          {
+            "name": "Gegenangriff",
+            "nameC": "Gegenangriff (Beschützer)",
+            "id": "bPy8NqpVMMtBOiKZ",
+            "pack": "hexxen-1733.hexxen-power",
+            "type": "meister"
+          },
+          {
+            "name": "Ich stecke das weg",
+            "nameC": "Ich stecke das weg (Beschützer)",
+            "id": "HByNngI9M5PeQXJd",
+            "pack": "hexxen-1733.hexxen-power",
+            "type": "meister"
+          },
+          {
+            "name": "Schildkunde II",
+            "nameC": "Schildkunde II (Beschützer)",
+            "id": "IycluU0xE95X0s1Y",
+            "pack": "hexxen-1733.hexxen-power",
+            "type": "meister"
+          }
+        ]
+      }
+    ]
+  },
+  "sort": 100001,
+  "flags": {
+    "hexxen-1733": {
+      "compendium": {
+        "pack": "hexxen-1733.hexxen-role",
+        "id": "cFaEaiRJwbqPqYLh",
+        "nameC": "Beschützer",
+        "data-revision": 1
+      }
+    },
+    "exportSource": {
+      "world": "hexxen-test",
+      "system": "hexxen-1733",
+      "coreVersion": "0.6.5",
+      "systemVersion": "0.5.11"
+    }
+  },
+  "img": "systems/hexxen-1733/img/Siegel-Rabe-small.png",
+  "_id": "nMqoWg9ODBQuVyE0"
+}

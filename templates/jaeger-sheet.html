@@ -226,7 +226,7 @@
         </div>
         {{/inline}}
 
-            <div class="tab states scroll-y" data-group="primary" data-tab="states">
+        <div class="tab states scroll-y" data-group="primary" data-tab="states">
             <header class="block-header header-11">Heilfaktoren</header>
             <div class="erste-hilfe res-boxes table table-11">
                 <div class="tr eh" data-key="data.resources.eh">
@@ -343,7 +343,7 @@
                 <span class="li-sum">Summe</span>
                 <span class="li-control"></span>
                 <span class="li-control"></span>
-                <a class="li-control" data-action="create"><i class="fas fa-plus"></i></a>
+                <span class="li-control"></span>
             </header>
 
             <div class="table table-21">
@@ -431,11 +431,14 @@
             <ol class="items-list">
                 {{#each actor.powers as |item id|}}
                     <li class="item flexrow" data-item-id="{{item._id}}">
-                        <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
-                        <h4 class="item-name">{{item.name}}</h4>
+                        <img src="{{item.img}}" title="{{item.name}}" width="30" height="30"/>
+                        <div>
+                            <h4 class="item-name">{{item.name}}</h4>
+                            <div class="item-description note">{{{item.data.description}}}</div>
+                        </div>
                         <div class="item-controls">
                             <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-                            <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                            {{#if ../editMode}}<a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>{{/if}}
                         </div>
                     </li>
                 {{/each}}
@@ -476,13 +479,19 @@
                     </ol>
                 </div>
             </div>
-            <header class="block-header">Waffen, Rüstung, Kleidung, Ausrüstung</header>
+            <header class="block-header flexrow">
+                <span class="li-label">Waffen, Rüstung, Kleidung, Ausrüstung</span>
+                <a class="item-create li-control" data-action="create"><i class="fas fa-plus"></i></a>
+            </header>
             <ol class="items-list">
             {{#each actor.items as |item id|}}
                 <li class="item flexrow" data-item-id="{{item._id}}">
-                    <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
-                    <h4 class="item-name">{{item.name}}</h4>
-                    <div class="item-controls">
+                    <img src="{{item.img}}" title="{{item.name}}" width="30" height="30"/>
+                    <div>
+                        <h4 class="item-name">{{item.name}}{{#if (gt item.data.quantity 1)}} ({{item.data.quantity}}){{/if}}</h4>
+                        <div class="item-description note">{{{item.data.description}}}</div>
+                    </div>
+                <div class="item-controls">
                         <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
                         <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
                     </div>

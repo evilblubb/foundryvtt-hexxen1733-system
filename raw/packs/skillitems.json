@@ -65,12 +65,12 @@
       }
     ],
     "ausdauer-elixier": {
-      "name":"Ausdauer Elexier",
+      "name":"Ausdauer Elixier",
       "description": "Der Konsument erhält Puffer-Lep in Höhe des Elixiersymbols mal 2.",
       "summary": ""
     },
     "coup-elixier": {
-      "name":"Coup Elexier",
+      "name":"Coup Elixier",
       "description": "Der Konsument erhält Coups in Höhe des Elixiersymbols.",
       "summary": ""
     },
@@ -80,27 +80,27 @@
       "summary": ""
     },
     "heil-elixier": {
-      "name":"Heil Elexier",
+      "name":"Heil Elixier",
       "description": "Der Konsument regeneriert Lep in Höhe des Elixiersymbols (bis zum max. Lep-Wert).",
       "summary": ""
     },
     "ideen-elixier": {
-      "name":"Ideen Elexier",
+      "name":"Ideen Elixier",
       "description": "Der Konsument erhält Ideen in Höhe des Elixiersymbols.",
       "summary": ""
     },
     "mut-elixier": {
-      "name":"Mut Elexier",
+      "name":"Mut Elixier",
       "description": "Der Konsument verliert Malusstufen in Höhe des Elixiersymbols.",
       "summary": ""
     },
     "panzer-elixier": {
-      "name":"Panzer Elexier",
+      "name":"Panzer Elixier",
       "description": "Der Pw des Konsumenten steigt bis zur nächsten Ini-Phase um 2.",
       "summary": ""
     },
     "talent-elixier": {
-      "name":"Talent Elexier",
+      "name":"Talent Elixier",
       "description": "Der Konsument erhält auf seine nächste Fertigkeitsprobe einen Bonus von +5. Wird der Effekt nicht genutzt, so erlischt er nach einigen Minuten.",
       "summary": ""
     }

@@ -486,7 +486,7 @@
   }
 },
 "Item": {
-  "types": ["item", "role", "profession", "motivation", "skills"],
+  "types": ["item", "role", "profession", "motivation", "power"],
   "templates": {
     "core": {
       "references": [
@@ -496,11 +496,13 @@
           "page": ""
         }
       ],
+      "name": null,
       "description": "",
       "summary": ""
     }
   },
   "item": {
+    "_template-revision": 1,
     "description": "",
     "quantity": 1,
     "weight": 0,
@@ -508,17 +510,34 @@
   },
   "role": {
     "templates": [ "core" ],
+    "_template-revision": 1,
+    "create": null,
+    "upkeep": null,
     "powers": []
   },
   "profession": {
     "templates": [ "core" ],
+    "_template-revision": 1,
+    "type": null,
+    "qualification": "",
+    "upkeep": null,
     "powers": []
   },
   "motivation": {
-    "templates": [ "core" ]
+    "templates": [ "core" ],
+    "_template-revision": 1,
+    "upkeep": null
   },
-  "skills": {
-    "templates": [ "core" ]
+  "power": {
+    "templates": [ "core" ],
+    "_template-revision": 1,
+    "type": "",
+    "subtype": null,
+    "create": null,
+    "upkeep": null,
+    "features": null,
+    "tags": [],
+    "origin": {}
   }
 }
 }

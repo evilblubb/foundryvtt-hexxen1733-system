@@ -16,9 +16,6 @@ img#hexxen-logo {
   left: 240px;
   width: calc(100% - 560px);
 }
-#pause.hexxen-centered {
-  bottom: calc(50% - 50px);
-}
 
 .hexxen {
   --hexxen-light-color: rgb(185, 145, 95);
@@ -31,6 +28,8 @@ img#hexxen-logo {
 
   --hexxen-hint-color: var(--hexxen-dark-color);
   --hexxen-alert-color: red;
+  --hexxen-warning-bgcolor: yellow;
+  --hexxen-warning-border: 1px solid orange;
 
   --hexxen-highlight-even-color: rgba(255, 255, 255, 0.5);
   --hexxen-highlight-odd-color: rgba(140, 40, 20, 0.15);
@@ -41,13 +40,14 @@ img#hexxen-logo {
   --hexxen-input-bgcolor: rgba(255, 255, 255, 0.8);
   --hexxen-input-bordercolor: var(--hexxen-dark-color);
   --hexxen-input-placeholder-color: var(--hexxen-light-color);
-  --hexxen-editor-bgcolor: var(--hexxen-highlight-even-color);
+  --hexxen-editor-bgcolor: var(--hexxen-input-bgcolor);
   --hexxen-editor-border: 1px solid var(--hexxen-dark-color);
 
   --hexxen-box-border: 1px solid var(--hexxen-dark-color);
   --hexxen-nav-background-image: url("/systems/hexxen-1733/img/Rabenkasten_oben_small_braun.png");
   --hexxen-nav-bgcolor: rgba(80, 30, 0, 0.4);
   --hexxen-nav-border: 1px solid var(--hexxen-dark-color);
+  --hexxen-nav-active-bgcolor: var(--hexxen-nav-bgcolor);
   --hexxen-header-color: var(--hexxen-dark-color);
   --hexxen-header-bgcolor: rgba(130, 50, 0, 0.3);
   --hexxen-header-border: 1px solid rgb(170, 120, 75);
@@ -70,12 +70,22 @@ img#hexxen-logo {
   */
 }
 
+.hexxen.world,
+.hexxen.compendium {
+  --hexxen-title-color: #666;
+  --hexxen-minimized-title-color: rgba(96, 96, 96, 0.75);
+  --hexxen-sheet-background-blend-color: #bbb;
+}
+
 .hexxen.app {
   background: unset;
   background-color: var(--hexxen-title-color);
 }
 .hexxen.app.minimized {
   background-color: var(--hexxen-minimized-title-color);
+}
+.hexxen img {
+  max-width: unset;
 }
 
 .hexxen .allow-break {
@@ -116,10 +126,15 @@ img#hexxen-logo {
   margin-right: -3px;
 }
 
-.hexxen .control {
+.hexxen a.control {
   flex: 0 0 20px;
   text-align: center;
   color: var(--hexxen-dark-color);
+}
+.hexxen a.item-edit,
+.hexxen a.hint {
+  text-decoration: underline;
+  text-decoration-style: dotted;
 }
 
 .hexxen input {
@@ -142,10 +157,11 @@ img#hexxen-logo {
 .hexxen .editor {
   min-height: 100px;
   max-height: unset;
-  padding: 5px;
+  padding: 5px 10px;
   background: var(--hexxen-editor-bgcolor);
   border: var(--hexxen-editor-border);
   border-radius: 3px;
+  text-align: justify;
 }
 .hexxen .editor .editor-content {
   height: 100%;
@@ -153,6 +169,12 @@ img#hexxen-logo {
 .hexxen .editor .tox.tox-tinymce {
   min-height: 150px;
   max-height: 350px;
+}
+.hexxen .editor p:first-of-type {
+  margin-top: unset;
+}
+.hexxen .editor p:last-of-type {
+  margin-bottom: unset;
 }
 /* TODO: auch Chat berücksichtigen */
 .hexxen .editor .hex-roll,
@@ -177,7 +199,14 @@ img#hexxen-logo {
   line-height: initial;
   margin: unset;
 }
-
+.hexxen .hint .inline {
+  display: inline-block;
+  width: calc(100% - 15px);
+}
+.hexxen i.fa-info-circle {
+  font-size: 0.8em;
+  vertical-align: top;
+}
 .hexxen .seperator {
   display: block;
   width: 100%;
@@ -189,6 +218,9 @@ img#hexxen-logo {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+}
+.hexxen .last {
+  height: 1px;
 }
 
 .hexxen div.inc-btn {
@@ -246,13 +278,17 @@ img#hexxen-logo {
   background: var(--hexxen-nav-bgcolor);
   border-top: var(--hexxen-nav-border);
   border-bottom: var(--hexxen-nav-border);
+  padding: 0px 10px;
+
 }
 .hexxen.sheet .tabs .item {
   font-size: 1.15em;
-  line-height: 40px;
+  line-height: 39px;
   font-weight: bold;
 }
 .hexxen.sheet .tabs .item.active .item-bg {
+  background-color: var(--hexxen-nav-active-bgcolor);
+  border-radius: 10px 10px 0px 0px;
   background-image: var(--hexxen-nav-background-image);
   background-size: cover;
   background-repeat: no-repeat;
@@ -295,42 +331,4 @@ img#hexxen-logo {
 }
 .hexxen.sheet .sheet-body .block-header > * {
   margin: 0 3px;
-}
-
-/* TODO: hier oder rules.css */
-.hexxen.sheet.rule {
-  min-width: 450px;
-  min-height: 400px;
-}
-.hexxen.sheet.rule .sheet-header {
-  grid-template-columns: auto 1fr;
-  grid-template-rows: auto;
-  grid-gap: 4px 6px;
-  grid-template-areas:
-    'img name'
-    'img ref';
-  white-space: nowrap;
-}
-.hexxen.sheet.rule .sheet-header .type-img {
-  grid-area: img;
-  border: none;
-  margin-right: unset;
-}
-.hexxen.sheet.rule .sheet-header .actorname {
-  grid-area: name;
-}
-.hexxen.sheet.rule .sheet-header .sources {
-  grid-area: ref;
-  text-align: right;
-  font-size: 0.8em;
-}
-.hexxen.sheet.rule .powers {
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 4px 10px !important;
-}
-.hexxen.sheet.rule .powers > * {
-  grid-column: 1 / span 2;
-}
-.hexxen.sheet.rule .powers div {
-  grid-column: auto;
 }

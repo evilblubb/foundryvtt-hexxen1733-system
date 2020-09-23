@@ -1,4 +1,48 @@
-﻿class HexxenIncDecHelper {
+﻿/**
+ * Implementation of the german RPG HeXXen 1733 (c) under the license of https://ulissesspiele.zendesk.com/hc/de/articles/360017969212-Inhaltsrichtlinien-f%C3%BCr-HeXXen-1733-Scriptorium.
+ * Implementation based on the content of http://hexxen1733-regelwiki.de/
+ * Author: Martin Brunninger
+ * Software License: GNU GPLv3
+ */
+
+class HexxenEntityHelper {
+
+  static addCustomFlag(data) {
+    if ("array" !== typeof(data)) data = [data];
+    data.forEach(d => {
+      d.flags = {};
+      d.flags[Hexxen.scope] = { custom: true };
+    });
+    return data;
+  }
+}
+class HexxenDOMHelper {
+
+  static deriveActorFromEvent(event) {
+    const app = this.deriveAppFromEvent(event);
+    const actor = app.actor || undefined;
+    return actor;
+  }
+
+  static deriveAppFromEvent(event) {
+    const appEl = event.target.closest(".app");
+    const appId = appEl ? appEl.dataset.appid : undefined;
+    const app = appId ? ui.windows[appId] : undefined;
+    return app;
+  }
+
+  static calcSheetBodyHeight(html) {
+    const sheetBody = html.find(".sheet-body");
+    if (!sheetBody.length) return;
+    const windowHeader = html.find(".window-header").outerHeight(true);
+    const sheetHeader = html.find(".sheet-header").outerHeight(true);
+    const sheetTabs = html.find(".sheet-tabs").outerHeight(true);
+    const bodyHeight = html.innerHeight() - windowHeader - sheetHeader - sheetTabs;
+    sheetBody.outerHeight(bodyHeight, true);
+  }
+}
+
+class HexxenIncDecHelper {
 
   /**
    * Static callback helper function to work with {{inc-btn}} and similar templates.
@@ -70,7 +114,7 @@
     const actions = ["increase", "decrease", "default"];
     const action = el.dataset.action;
     if (!action || !actions.includes(action)) {
-      Hexxen.warn("Error in template: The invoking element must have the attribute 'data-action' with one of the following values: [%s]",
+      console.warn("Error in template: The invoking element must have the attribute 'data-action' with one of the following values: [%s]",
         actions.join(", "), $(el).parents(), event);
       return;
     }
@@ -80,7 +124,7 @@
     const key = parentEl ? parentEl.dataset.key : undefined;
     const targetEl = key ? HexxenIncDecHelper._findTarget(parentEl, key) : undefined;
     if (!parentEl || !targetEl || "Number" !== targetEl.dataset.dtype) {
-      Hexxen.warn("Error in template: A parent of the invoking element must have the attribute 'data-key' and also contain the target element with this name and 'data-dtype'=='Number'.",
+      console.warn("Error in template: A parent of the invoking element must have the attribute 'data-key' and also contain the target element with this name and 'data-dtype'=='Number'.",
         $(el).parents(), event);
       return;
     }
@@ -89,7 +133,7 @@
     // TODO: Ermittlung des Werts ist abhängig vom Typ des Elements
     const value = Number.parseInt(targetEl.value); // getProperty(this.actor.data, key); // returns undefined if key does not exist
     if (isNaN(value)) {
-      Hexxen.warn("Error in template: Bad value.", targetEl, $(el).parents(), event);
+      console.warn("Error in template: Bad value.", targetEl, $(el).parents(), event);
       return;
     }
 
@@ -97,7 +141,7 @@
     if ("default" === action) {
       const defval = targetEl.dataset.default ? Number.parseInt(targetEl.dataset.default) : undefined;
       if (isNaN(defval)) {
-        Hexxen.warn("Error in template: Bad default value.", targetEl, $(el).parents(), event)
+        console.warn("Error in template: Bad default value.", targetEl, $(el).parents(), event)
       }
       // TODO: Änderung des Werts ist abhängig vom Typ des Elements
       targetEl.value = defval;
@@ -129,6 +173,11 @@
 }
 
 class HexxenCompendiumHelper {
+
+  static preloadIndexes() {
+    const packs = game.packs.entries.filter(el => el.index.length === 0);
+    packs.forEach(pack => pack.getIndex());
+  }
 
   /**
    * Wrapper for use as a listener.
@@ -164,7 +213,7 @@ class HexxenCompendiumHelper {
    * @param {Event} event
    */
   static onClickOpenPower(event) {
-    HexxenCompendiumHelper.openEntity("skills", event.currentTarget.dataset.lookup);
+    HexxenCompendiumHelper.openEntity("power", event.currentTarget.dataset.lookup);
   }
 
   // TODO: zur Zeit ungenutzt. (via foundry listener)
@@ -172,10 +221,113 @@ class HexxenCompendiumHelper {
   static async openEntity(type, name) {
     console.log(arguments);
     //foundry.js:14288
-    const pack = game.packs.get("hexxen-1733.hexxen-skills");
+    const pack = game.packs.get("hexxen-1733.hexxen-power");
     if ( !pack.index.length ) await pack.getIndex();
     const entry = pack.index.find(i => (i.name === name));
     const entity = entry ? await pack.getEntity(entry._id) : null;
     return entity ? entity.sheet.render(true) : false;
+  }
+}
+
+class HexxenAppAlignmentHelper {
+
+  static get ALIGNMENT_SETTING_KEY() { return "appAlignment" }
+
+  static registerSettings() {
+    game.settings.register(Hexxen.scope, HexxenAppAlignmentHelper.ALIGNMENT_SETTING_KEY, {
+      name: "Dialog Alignment",
+      hint: "Arranges Item dialogs to improve their visibility (not putting them into the exact same position).",
+      scope: "client",
+      config: true,
+      default: "onCreate",
+      type: String,
+      choices: { never: "Never", onCreate: "On Create", always: "Always" }
+    });
+  }
+
+  static get choice() {
+    return game.settings.get(Hexxen.scope, HexxenAppAlignmentHelper.ALIGNMENT_SETTING_KEY);
+  }
+
+  static get enabled() {
+    const choice = HexxenAppAlignmentHelper.choice;
+    return "never" !== choice;
+  }
+
+  static install() {
+    HexxenAppAlignmentHelper._fvttFn = TextEditor._onClickEntityLink;
+    TextEditor._onClickEntityLink = HexxenAppAlignmentHelper._onClickEntityLink;
+  }
+
+  static async _onClickEntityLink(event) {
+    // IMPORTANT: this function is called in the context of an Application instance,
+    // therefore "this" will point to that instance!
+    const ret = await HexxenAppAlignmentHelper._fvttFn.bind(this)(event);
+    if (ret) HexxenAppAlignmentHelper.align(ret, event);
+    return ret;
+  }
+
+  static align(app, event) {
+    if (HexxenAppAlignmentHelper.enabled && app instanceof ItemSheet) {
+      if ("onCreate" === HexxenAppAlignmentHelper.choice && app._element !== null) return;
+      const caller = HexxenDOMHelper.deriveAppFromEvent(event);
+      if (caller) {
+        const callerOffset = caller.element.offset();
+        let indentLeft = 0, indentTop = 0;
+        if (caller instanceof ActorSheet) {
+          indentLeft = -300;
+          indentTop = 100;
+        } else if (caller instanceof ItemSheet) {
+          indentLeft = callerOffset.left > 50 ? 50 : 0;
+        } else {
+          return;
+        }
+        const left = callerOffset.left + indentLeft;
+        app.position.left = Math.max(0, left);
+        app.position.top = caller.element.find(".window-content").offset().top + indentTop - 2; // compensate for top margin
+      }
+    }
+  }
+}
+
+class HexxenSpecialCommandHelper {
+
+  static inject() {
+    const oldReplaceInlineRolls = TextEditor._replaceInlineRolls;
+    TextEditor._replaceInlineRolls = ((match, command, formula, ...args) => {
+      // TODO: auf Templates umstellen
+      // TODO: Rechte?
+      if ("/hex " === command) {
+        return `<a class="hex-roll" title="Würfeln" data-message="${formula}"><i class="fas fa-dice"></i> ${formula}</a>`;
+      } else if ("/hc " === command) {
+        return `<a class="hex-chat" title="Im Chat anzeigen" data-message="${formula}"><i class="fas fa-comments"></i> ${formula}</a>`;
+      } else {
+        return oldReplaceInlineRolls(match, command, formula, ...args);
+      }
+    });
+
+    $("body").on("click", "a.hex-roll", (event) => {
+      const actor = HexxenDOMHelper.deriveActorFromEvent(event);
+      const message = event.currentTarget.dataset.message;
+      const showDialog = event.originalEvent.shiftKey || event.originalEvent.ctrlKey;
+      // TODO: Überprüfungen und Rechte?
+      // TODO: rollCommand und flavour trennen?
+
+      HexxenRollHelper.rollToChat(actor, message, null, {showDialog: showDialog});
+    });
+
+    $("body").on("click", "a.hex-chat", (event) => {
+      const actor = HexxenDOMHelper.deriveActorFromEvent(event);
+      const speaker = ChatMessage.getSpeaker({actor: actor, token: actor ? actor.token : undefined});
+      const message = event.currentTarget.dataset.message;
+      // TODO: Überprüfungen und Rechte?
+
+      if (speaker) {
+        ChatMessage.create({ speaker: speaker, content: message });
+      } else {
+        ChatMessage.create({ content: message });
+      }
+    });
+
   }
 }

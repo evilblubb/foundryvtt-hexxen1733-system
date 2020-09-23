@@ -1,18 +1,34 @@
 ﻿<form class="{{cssClass}}" autocomplete="off">
     <header class="sheet-header">
         <img class="type-img" src="{{img}}" title="{{type}}"/>
-        <h1 class="name"><input class="value value-box" name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
-        <div class="sources">
-            [ Quelle(n):
-            {{#each item.data.references}}
-            <span class="source">
-                {{#if this.link}}<a href="{{this.link}}">{{/if
-                }}{{this.source}}{{#if this.page}}, Seite {{this.page}}{{/if
-                }}{{#if this.link}}</a>{{/if}}
-            </span>
-            {{#unless @last}} | {{/unless}}
-            {{/each}}
-            ]
+        <h1 class="name">
+            <div class="value value-box">{{name}}</div>
+        </h1>
+        <div class="refs flexrow">
+            <div class="origin">{{origin}}</div>
+            <div class="sources">
+                [ Quelle(n):
+                {{#each item.data.references}}
+                <span class="source">
+                    {{#if this.link}}<a href="{{this.link}}">{{/if
+                    }}{{this.source}}{{#if this.page}}, Seite {{this.page}}{{/if
+                    }}{{#if this.link}}</a>{{/if}}
+                </span>
+                {{#unless @last}} | {{/unless}}
+                {{/each}}
+                ]
+            </div>
+        </div>
+        <div class="warnings" {{#unless warnings}}style="display:none"{{/unless}}>
+            {{#with warnings}}
+            {{#if deprecated}}
+            <i class="fas fa-exclamation-triangle"></i> Veraltet! Bitte austauschen!
+            {{else if bad}}
+            <i class="fas fa-unlink"></i> Fehlerhafte oder unvollständige Compendium Info! Es kann keine Prüfung auf Updates durchgeführt werden!
+            {{else if update}}
+            <i class="fas fa-cloud-upload-alt"></i> Update verfügbar!
+            {{/if}}
+            {{/with}}
         </div>
     </header>
 
@@ -22,6 +38,9 @@
         {{#if data.powers}}
         <a class="item" data-tab="powers"><div class="item-bg">Jägerkräfte</div></a>
         {{/if}}
+        {{#if data.features}}
+        <a class="item" data-tab="features"><div class="item-bg">Effekte</div></a>
+        {{/if}}
         <!--<a class="item" data-tab="extras"><div class="item-bg">Extras</div></a>-->
         <!--<a class="item" data-tab="rules"><div class="item-bg">Regeln</div></a>-->
     </nav>
@@ -30,66 +49,112 @@
     <section class="sheet-body">
 
         {{!-- Description Tab --}}
-        <div class="tab" data-group="primary" data-tab="description">
+        <div class="tab description" data-group="primary" data-tab="description">
             <header class="block-header">Beschreibung</header>
+            {{!-- TODO: Workaround für editable=false via CSS display:none, da editable=false den Editor aktiviert --}}
             {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
 
-            <header class="block-header">Zusammenfassung</header>
+            <div class="extras">
+                {{#if (isDefined data.qualification)}}
+                <label class="label" for="qualification">Voraussetzung:</label>
+                <div id="qualification" class="qualification">{{data.qualification}}</div>
+                {{/if}}
+                {{#if (isDefined data.create)}}
+                <label class="label" for="create">
+                    Startausrüstung
+                    <i class="fas fa-info-circle" title="Nur für Rolle №1 oder wenn bei Erstellung gelernt."></i>:
+                </label>
+                <div id="create" class="create">
+                    {{!-- create might contain HTML-Markup, therefore tripple {} --}}
+                    {{{data.create}}}<br>
+                    <span class="hint">(Zum Ausrüsten den Gegenstand auf den Charakterbogen ziehen.)</span>
+                </div>
+                {{/if}}
+                {{#if (isDefined data.upkeep)}}
+                <label class="label" for="upkeep">Unterhalt:</label>
+                <div id="upkeep" class="upkeep">{{data.upkeep}} Gulden</div>
+                {{/if}}
+            </div>
+
+            <header class="block-header">
+                Zusammenfassung für Charakterbogen
+                <i class="fas fa-info-circle" title="Ist eine Zusammenfassung vorhanden, so wird diese anstelle der Beschreibung im Charkterbogen angezeigt."></i>
+            </header>
             {{editor content=data.summary target="data.summary" button=true owner=owner editable=editable}}
 
-            {{!-- TODO: create, unterhalt, tags --}}
+            {{!-- TODO: tags --}}
             <div class="last"> </div>
         </div>
 
         {{!-- Jägerkräfte Tab --}}
 
-        {{#*inline "powers"}}
-        {{#each data.powers}}
-            {{#if (eq this.type filter)}}
-                <div>{{this.name}} ({{this.type}})</div>
-                {{#if (eq this.type "ausbau")}}
-                    {{#each this.features}}
-                    <div>{{this.name}} ({{this.type}})</div>
-                    {{/each}}
-                {{/if}}
-            {{/if}}
-        {{/each}}
+        {{#*inline "entity-link"}}
+        {{#if this.learned}}
+        <i class="fas fa-scroll" title="gelernt"></i>
+        {{else if this.locked}}
+        <i class="fas fa-lock" title="Voraussetzung nicht erfüllt"></i>
+        {{/if}}
+        <a class="entity-link{{#if this.learned}} learned{{/if}}" data-action="open" data-pack="{{this.pack}}" data-lookup="{{this.id}}" draggable="true">{{this.name}}</a>
         {{/inline}}
 
-        {{!-- FIXME: Name des Packs anpassen --> powers --}}
         <div class="tab powers" data-group="primary" data-tab="powers">
-            {{!-- TODO: Darstellung --}}
-            {{!-- TODO: bereits erlernte markieren --}}
-            <header class="block-header">Allgemeine Jägerkräfte (2 JP)</header>
-            {{#each data.powers}}
-            {{#if (eq this.type "jaeger")}}
-            <div><a class="entity-link" data-action="open" data-pack="hexxen-1733.hexxen-skills" data-lookup="{{this.name}}" draggable="true">{{this.name}}</a></div>
-            {{/if}}
+            <div class="hint"><i class="fas fa-info-circle"></i> Zum Lernen die gewünschte Jägerkraft auf den Charakterbogen ziehen.</div>
+            <header class="block-header hint">Allgemeine Jägerkräfte (2 JP)</header>
+            {{#each powers.jaeger}}
+            <div class="power">{{>entity-link this}}</div>
             {{/each}}
-            {{!-- TODO: warum geht das nicht? >powers filter="jaeger" --}}
+            {{#unless powers.jaeger}}
+            <div class="hint">Die {{type}} {{name}} enthält keine Allgemeinen Jägerkräfte.</div>
+            {{/unless}}
 
-            <header class="block-header">Espritkräfte (3 JP)</header>
-            {{#each data.powers}}
-            {{#if (eq this.type "esprit")}}
-            <div><a class="entity-link" data-action="open" data-pack="hexxen-1733.hexxen-skills" data-lookup="{{this.name}}" draggable="true">{{this.name}}</a></div>
-            {{/if}}
+            <header class="block-header hint">Espritkräfte (3 JP)</header>
+            {{#each powers.esprit}}
+            <div class="power">{{>entity-link this}}</div>
             {{/each}}
-            {{!-- TODO: warum geht das nicht? >powers filter="esprit" --}}
+            {{#unless powers.esprit}}
+            <div class="hint">Die {{type}} {{name}} enthält keine Espritkräfte.</div>
+            {{/unless}}
 
-            <header class="block-header">Ausbaukräfte (1 JP / Feature)</header>
-            {{#each data.powers}}
-            {{#if (eq this.type "ausbau")}}
-            <div>
-                <div><a class="entity-link" data-action="open" data-pack="hexxen-1733.hexxen-skills" data-lookup="{{this.name}}" draggable="true">{{this.name}}</a></div>
+            <header class="block-header hint">Ausbaukräfte (1 JP / Effekt)</header>
+            <div class="hint">
+                <i class="fas fa-info-circle"></i>
+                <div class="inline">Voraussetzungen: (G)eselleneffekt: Stammeffekt , (E)xperteneffekt: mind. 2 Geselleneffekte,
+                (M)eistereffekt: mind. 2 Experteneffekte.</div>
+            </div>
+            {{#each powers.ausbau}}
+            <div class="power">
+                <div>{{>entity-link this}}</div>
                 {{#each this.features}}
-                <div><a class="entity-link" data-action="open" data-pack="hexxen-1733.hexxen-skills" data-lookup="{{this.name}}" draggable="true">{{this.name}} ({{this.type}})</a></div>
+                <div><span class="marker">({{this.marker}})</span> {{>entity-link this}}</div>
                 {{/each}}
             </div>
-            {{/if}}
             {{/each}}
-            {{!-- TODO: warum geht das nicht? >powers filter="ausbau" --}}
+            {{#unless powers.ausbau}}
+            <div class="hint">Die {{type}} {{name}} enthält keine Ausbaukräfte.</div>
+            {{/unless}}
 
             <div class="last"> </div>
+        </div>
+
+        {{!-- Effekte Tab --}}
+        <div class="tab features" data-group="primary" data-tab="features">
+            <div class="hint"><i class="fas fa-info-circle"></i> Zum Lernen den Effekt auf den Charakterbogen ziehen.</div>
+            <header class="block-header hint">Stammeffekt (1 JP)</header>
+            {{#each features.S}}
+            <div class="feature stamm">{{>entity-link this}}</div>
+            {{/each}}
+            <header class="block-header hint">Geselleneffekte (1 JP, Stammeffekt)</header>
+            {{#each features.G}}
+            <div class="feature geselle">{{>entity-link this}}</div>
+            {{/each}}
+            <header class="block-header hint">Experteneffekte (1 JP, mind. 2 Geselleneffekte)</header>
+            {{#each features.E}}
+            <div class="feature experte">{{>entity-link this}}</div>
+            {{/each}}
+            <header class="block-header hint">Meistereffekte (1 JP, mind. 2 Experteneffekte)</header>
+            {{#each features.M}}
+            <div class="feature meister">{{>entity-link this}}</div>
+            {{/each}}
         </div>
 
         {{!-- Extras Tab --}}
