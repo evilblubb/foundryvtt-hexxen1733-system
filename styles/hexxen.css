@@ -87,6 +87,9 @@ img#hexxen-logo {
 .hexxen img {
   max-width: unset;
 }
+.hexxen .sheet-header img[data-edit] {
+  cursor: pointer;
+}
 
 .hexxen .allow-break {
   word-break: break-word;
