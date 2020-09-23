@@ -7,10 +7,7 @@
     "@content": {
       "type": "array",
       "items": {
-        "anyOf": [
-          { "$ref": "#definitions/leader" },
-          { "$ref": "#definitions/mob" }
-        ]
+        "$ref": "#/definitions/npc"
       }
     }
   },
@@ -36,6 +33,7 @@
     },
 
     "npc": {
+      "$id": "#npc",
       "$comment": "Abstrakter Basistyp für Anführer und Bandenmitglieder.",
       "type": "object",
       "properties": {
@@ -80,12 +78,12 @@
         "attributes": {
           "type": "object",
           "properties": {
-            "SIN": { "$ref": "#definitions/attribute" },
-            "WIS": { "$ref": "#definitions/attribute" },
-            "WIL": { "$ref": "#definitions/attribute" },
-            "KKR": { "$ref": "#definitions/attribute" },
-            "ATH": { "$ref": "#definitions/attribute" },
-            "GES": { "$ref": "#definitions/attribute" }
+            "SIN": { "$ref": "#/definitions/attribute" },
+            "WIS": { "$ref": "#/definitions/attribute" },
+            "WIL": { "$ref": "#/definitions/attribute" },
+            "KKR": { "$ref": "#/definitions/attribute" },
+            "ATH": { "$ref": "#/definitions/attribute" },
+            "GES": { "$ref": "#/definitions/attribute" }
           },
           "additionalProperties": false,
           "required": [ "SIN", "WIS", "WIL", "KKR", "ATH", "GES" ]
@@ -111,7 +109,7 @@
           "title": "Formen eines Wandlers",
           "description": "Die erste Form ist die Standardform.",
           "items": {
-            "$ref": "#definitions/shape"
+            "$ref": "#/definitions/shape"
           },
           "uniqueItems": true,
           "minItems": 2
@@ -123,8 +121,8 @@
             "properties": {
               "name": { "type": "string" },
               "note": { "type": "string" },
-              "area": { "$ref": "#definitions/area" },
-              "shape": { "$ref": "#definitions/shape" },
+              "area": { "$ref": "#/definitions/area" },
+              "shape": { "$ref": "#/definitions/shape" },
               "raw": { "type": "string", "$comment": "TODO: nur temporär?" }
             },
             "additionalProperties": false,
@@ -139,8 +137,8 @@
               "name": { "type": "string" },
               "target": { "type": "string" },
               "note": { "type": "string" },
-              "area": { "$ref": "#definitions/area" },
-              "shape": { "$ref": "#definitions/shape" },
+              "area": { "$ref": "#/definitions/area" },
+              "shape": { "$ref": "#/definitions/shape" },
               "raw": { "type": "string", "$comment": "TODO: nur temporär?" },
               "_@todo": { "type": "string", "$comment": "TODO: temporär"}
             },
@@ -184,47 +182,28 @@
         "powers",
         "references"
       ],
-      "allOf": [ { "$ref": "#/definitions/shape-implies-shapes"} ]
-    },
-
-    "mob": {
-      "allOf": [
-        { "$ref": "#definitions/npc" },
-        {
-          "properties": {
-            "type": { "type": "string", "enum": [ "mob" ] }
-          }
-        }
+      "allOf": [ 
+        { "$ref": "#/definitions/leader-requirements"},
+        { "$ref": "#/definitions/shape-implies-shapes"}
       ]
     },
+    
 
-    "leader": {
-      "allOf": [
-        { "$ref": "#definitions/npc" },
-        {
-          "properties": {
-            "type": { "type": "string", "enum": [ "leader" ] }
-          },
-          "required": [
-            "attributes",
-            "pw",
-            "strategy"
-          ]
-        }
-      ]
+
+    "leader-requirements": {
+      "$comment": "Anführer haben zusätzliche Pflichteigenschaften.",
+      "if": { "properties": { "type": { "const": "leader" } } },
+      "then": { "required": [ "attributes", "pw", "strategy" ] }
     },
-
     "shape-implies-shapes": {
-      "title": "Shape implies shapes",
-      "anyOf": [
-        {
-          "allOf": [
-            { "not": { "properties": { "attacks": { "items": { "required": [ "shape" ] } } } } },
-            { "not": { "properties": { "powers": { "items": { "required": [ "shape" ] } } } } }
-          ]
-        },
-        { "required": [ "shapes" ] }
-      ]
+      "$comment": "Bedingungen: Array nicht leer (minItems: 1) und mind. ein Element hat die Eigenschaft 'shape'.",
+      "if": {
+        "anyOf": [
+          { "properties": { "attacks": { "contains": { "required": [ "shape" ] }, "minItems": 1 } } },
+          { "properties": { "powers": { "contains": { "required": [ "shape" ] }, "minItems": 1 } } }
+        ]
+      },
+      "then": { "required": [ "shapes" ] }
     }
   }
 }
