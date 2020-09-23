@@ -169,6 +169,8 @@ class JaegerSheet extends HexxenActorSheet {
     out.actor.powers = out.actor.items.filter(i => { return "power" === i.type; });
     out.actor.items = out.actor.items.filter(i => { return "item" === i.type; });
 
+    out.data.calc.ldmg_max = Math.min(out.data.calc.ap, 5);
+
     return out;
   }
 
