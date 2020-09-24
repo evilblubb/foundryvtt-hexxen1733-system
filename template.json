@@ -607,7 +607,7 @@
   }
 },
 "Item": {
-  "types": ["item", "role", "profession", "motivation", "power"],
+  "types": ["item", "role", "profession", "motivation", "power", "npc-power"],
   "templates": {
     "core": {
       "references": [
@@ -659,6 +659,13 @@
     "features": null,
     "tags": [],
     "origin": {}
+  },
+  "npc-power": {
+    "templates": [ "core" ],
+    "type": "",
+    "syntax": "",
+    "target": null,
+    "cost": null
   }
 }
 }
