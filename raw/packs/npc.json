@@ -1,5 +1,5 @@
 {
-  "$schema": "./nsc.schema.json",
+  "$schema": "./npc.schema.json",
   "@template": {
     "name": {
       "__hint": "Name des NSC",

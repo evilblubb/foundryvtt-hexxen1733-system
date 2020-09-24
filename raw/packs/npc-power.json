@@ -1,5 +1,5 @@
 {
-  "$schema": "./npc-kraefte.schema.json",
+  "$schema": "./npc-power.schema.json",
   "@content": {
     "@target": "^(.*)$",
     "allgemein": {
