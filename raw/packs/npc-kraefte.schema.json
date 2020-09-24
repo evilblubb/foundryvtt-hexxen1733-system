@@ -25,11 +25,14 @@
       "type": "object",
       "properties": {
         "name": { "type": "string" },
-        "summary": { "type": "string" },
-        "text": { "type": "string" },
-        "target": {
+        "type": {
           "type": "string",
-          "enum": [
+          "pattern": "^(Eigenschaft|Handlung, (freie Handlung|N|F|N\\|F|NN|NN\\|FF|NNN\\|FFF))(, Bande)?$"
+        },
+        "description": { "type": "string" },
+        "target": {
+          "type": [ "string", "null" ],
+          "_enum": [
             "",
             "persönlich",
             "selbst",
@@ -46,17 +49,26 @@
           ]
         },
         "cost": {
-          "type": "string",
-          "pattern": "^(|keine|variabel|[0-9-]+( Hex)?( pro Ziel)?( pro Giftstufe)?( Lep)?)$"
+          "type": [ "string", "null" ],
+          "_pattern": "^(|keine|variabel|[0-9-]+( Hex)?( pro Ziel)?( pro Giftstufe)?( Lep)?)$"
         },
         "syntax": { "type": "string" },
-        "references": { 
+        "references": {
           "$comment": "TODO: noch zu definieren",
-          "type": "array" 
-        },
-        "erreta": { "type": "boolean" }
+          "type": "array"
+        }
       },
-      "required": [ "name", "summary", "text", "target", "cost", "syntax", "references", "erreta" ]
+      "additionalProperties": false,
+      "required": [ "name", "type", "description", "syntax", "references" ],
+      "allOf": [
+        { "$ref": "#/definitions/type-requirements"}
+      ]
+    },
+
+    "type-requirements": {
+      "$comment": "Handlungen haben zusätzliche Pflichteigenschaften.",
+      "if": { "properties": { "type": { "pattern": "^Handlung" } } },
+      "then": { "required": [ "target", "cost" ] }
     }
   }
 }
