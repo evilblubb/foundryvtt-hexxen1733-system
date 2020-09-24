@@ -302,6 +302,8 @@
   "@content": [
     {
       "name": "Albenbrutling",
+      "_id": "IxM9KgtsavgMJyXg",
+      "@rev": 1,
       "breed": "Alben",
       "type": "mob",
       "unnatural": false,
@@ -335,6 +337,8 @@
     },
     {
       "name": "Blutwichtel",
+      "_id": "NTWWFCoqW8SThZDA",
+      "@rev": 1,
       "breed": "Alben",
       "type": "mob",
       "unnatural": false,
@@ -385,6 +389,8 @@
     },
     {
       "name": "Flussnixe",
+      "_id": "S3Ufaqv2vkcdXaRs",
+      "@rev": 1,
       "breed": "Alben",
       "type": "leader",
       "unnatural": false,
@@ -459,6 +465,7 @@
         },
         {
           "name": "Hex-Wachstum",
+          "area": "Wasser",
           "raw": "+2 Hex in Ini 0 wenn Nsc im Wasser steht oder schwimmt"
         },
         {
@@ -501,6 +508,8 @@
     },
     {
       "name": "Grendel, der Dunkle Alb",
+      "_id": "Rq5yVG78W4xvcM2E",
+      "@rev": 1,
       "breed": "Alben",
       "type": "leader",
       "unnatural": false,
@@ -563,6 +572,8 @@
     },
     {
       "name": "Hakenmann",
+      "_id": "oALvh5iclyY63chI",
+      "@rev": 1,
       "breed": "Alben",
       "type": "leader",
       "unnatural": true,
@@ -685,6 +696,8 @@
     },
     {
       "name": "Höhlenkoloss",
+      "_id": "1SguReLVJvm66Lgc",
+      "@rev": 1,
       "breed": "Alben",
       "type": "leader",
       "unnatural": false,
@@ -741,6 +754,8 @@
     },
     {
       "name": "Meerjungfrau",
+      "_id": "vhhedZVe8QYa5jNx",
+      "@rev": 1,
       "breed": "Alben",
       "type": "leader",
       "unnatural": false,
@@ -844,6 +859,8 @@
     },
     {
       "name": "Meermann",
+      "_id": "8RhDs51bHvcolBz8",
+      "@rev": 1,
       "breed": "Alben",
       "type": "leader",
       "unnatural": false,
@@ -957,6 +974,8 @@
     },
     {
       "name": "Nachtmahr",
+      "_id": "eUynOOnzfj71u4AR",
+      "@rev": 1,
       "breed": "Alben",
       "type": "leader",
       "unnatural": false,
@@ -1048,6 +1067,8 @@
     },
     {
       "name": "Nicor",
+      "_id": "knGRT9QLQyBtRu1g",
+      "@rev": 1,
       "breed": "Alben",
       "type": "leader",
       "unnatural": true,
@@ -1153,6 +1174,8 @@
     },
     {
       "name": "Nix",
+      "_id": "cHaPViulFX7LoWXD",
+      "@rev": 1,
       "breed": "Alben",
       "type": "leader",
       "unnatural": false,
@@ -1260,6 +1283,8 @@
     },
     {
       "name": "Raubfisch",
+      "_id": "4GUJ1Vmli8MaZlox",
+      "@rev": 1,
       "breed": "Alben",
       "type": "mob",
       "unnatural": false,
@@ -1293,6 +1318,8 @@
     },
     {
       "name": "Tiefenechsen",
+      "_id": "8bspyvwmlFSckreE",
+      "@rev": 1,
       "breed": "Alben",
       "type": "mob",
       "unnatural": false,
@@ -1326,6 +1353,8 @@
     },
     {
       "name": "Tiefengnom",
+      "_id": "HvP1NG5hLU8FEpVw",
+      "@rev": 1,
       "breed": "Alben",
       "type": "leader",
       "unnatural": false,
@@ -1429,6 +1458,8 @@
     },
     {
       "name": "Untote Alben",
+      "_id": "15Y7Q1JxomEMoGNe",
+      "@rev": 1,
       "breed": "Alben",
       "type": "mob",
       "unnatural": true,
@@ -1466,6 +1497,8 @@
     },
     {
       "name": "Waldgötze",
+      "_id": "5wyUQMv8ZltSl1wW",
+      "@rev": 1,
       "breed": "Alben",
       "type": "leader",
       "unnatural": false,
@@ -1556,6 +1589,8 @@
     },
     {
       "name": "Wigbold-Bestie",
+      "_id": "SXeEYy0PljjS7qIQ",
+      "@rev": 1,
       "breed": "Alben",
       "type": "leader",
       "unnatural": false,
@@ -1625,6 +1660,8 @@
     },
     {
       "name": "Wilder Wigbold",
+      "_id": "3BwxUx24PFPsbHEv",
+      "@rev": 1,
       "breed": "Alben",
       "type": "mob",
       "unnatural": false,
@@ -1660,6 +1697,8 @@
     },
     {
       "name": "Aspekt der Furcht",
+      "_id": "aHe2cTb3GzGE3lue",
+      "@rev": 1,
       "breed": "Dämonen",
       "type": "leader",
       "unnatural": true,
@@ -1736,6 +1775,8 @@
     },
     {
       "name": "Wirbel der Furcht",
+      "_id": "bWkiZdDbX5dq244D",
+      "@rev": 1,
       "breed": "Dämonen",
       "type": "leader",
       "unnatural": true,
@@ -1797,6 +1838,8 @@
     },
     {
       "name": "Aspekt des Hasses",
+      "_id": "XLKtBapbrk7vUTJ2",
+      "@rev": 1,
       "breed": "Dämonen",
       "type": "leader",
       "unnatural": true,
@@ -1881,6 +1924,8 @@
     },
     {
       "name": "Aspekt des Hochmuts",
+      "_id": "5QFoCEAFbq4n6D1J",
+      "@rev": 1,
       "breed": "Dämonen",
       "type": "leader",
       "unnatural": true,
@@ -1950,6 +1995,8 @@
     },
     {
       "name": "Aspekt des Schmerzes",
+      "_id": "damFLgTiqQQozINA",
+      "@rev": 1,
       "breed": "Dämonen",
       "type": "leader",
       "unnatural": true,
@@ -2025,6 +2072,8 @@
     },
     {
       "name": "Dornenranke des Schmerzes",
+      "_id": "iNc6345pUehwAu8I",
+      "@rev": 1,
       "breed": "Dämonen",
       "type": "mob",
       "unnatural": true,
@@ -2068,6 +2117,8 @@
     },
     {
       "name": "Aspekt des Zorns",
+      "_id": "LRrastFgue4mypzv",
+      "@rev": 1,
       "breed": "Dämonen",
       "type": "leader",
       "unnatural": true,
@@ -2150,6 +2201,8 @@
     },
     {
       "name": "Avatar des Baluzius",
+      "_id": "Zeea72O9wbcUPg1n",
+      "@rev": 1,
       "breed": "Dämonen",
       "type": "leader",
       "unnatural": true,
@@ -2227,6 +2280,8 @@
     },
     {
       "name": "Brutlinge",
+      "_id": "01HF64wLOb6ohDqX",
+      "@rev": 1,
       "breed": "Dämonen",
       "type": "mob",
       "unnatural": true,
@@ -2268,6 +2323,8 @@
     },
     {
       "name": "Großhetsche",
+      "_id": "Sjh9n9OLxNbZuqRF",
+      "@rev": 1,
       "breed": "Dämonen",
       "type": "leader",
       "unnatural": true,
@@ -2357,6 +2414,8 @@
     },
     {
       "name": "Hetsche",
+      "_id": "p9ovaMD2S3HmSEl9",
+      "@rev": 1,
       "breed": "Dämonen",
       "type": "leader",
       "unnatural": true,
@@ -2423,6 +2482,8 @@
     },
     {
       "name": "Hetzender Schemen",
+      "_id": "mHScOPECLmXn7V90",
+      "@rev": 1,
       "breed": "Dämonen",
       "type": "mob",
       "unnatural": true,
@@ -2460,6 +2521,8 @@
     },
     {
       "name": "Kettenrassler",
+      "_id": "DJFoZJ7fBpvMSl61",
+      "@rev": 1,
       "breed": "Dämonen",
       "type": "leader",
       "unnatural": true,
@@ -2567,6 +2630,8 @@
     },
     {
       "name": "Kolgaruschzul, der Drachendämon",
+      "_id": "hvkDiMqdiHMyPXQh",
+      "@rev": 1,
       "breed": "Dämonen",
       "type": "leader",
       "unnatural": true,
@@ -2657,6 +2722,8 @@
     },
     {
       "name": "Myrmidone (Flatterfürst)",
+      "_id": "msJjBEjHBsQAFXSg",
+      "@rev": 1,
       "breed": "Dämonen",
       "type": "leader",
       "unnatural": true,
@@ -2743,6 +2810,8 @@
     },
     {
       "name": "Myrmidonen-Fürst (Flatterfürst)",
+      "_id": "bbJ72FDW0clq4FDs",
+      "@rev": 1,
       "breed": "Dämonen",
       "type": "leader",
       "unnatural": true,
@@ -2816,6 +2885,8 @@
     },
     {
       "name": "Myrmidonen-Pirscher",
+      "_id": "wGhPbzrbLBUIEH9h",
+      "@rev": 1,
       "breed": "Dämonen",
       "type": "leader",
       "unnatural": true,
@@ -2893,6 +2964,8 @@
     },
     {
       "name": "Myrmidonen-Larve (Flatterwurm)",
+      "_id": "MEfKLOofZYA9kvSP",
+      "@rev": 1,
       "breed": "Dämonen",
       "type": "mob",
       "unnatural": true,
@@ -2935,6 +3008,8 @@
     },
     {
       "name": "Myrmidonen-Sammler (Libellenschreck)",
+      "_id": "AsNFLGlK1WXdwd5s",
+      "@rev": 1,
       "breed": "Dämonen",
       "type": "leader",
       "unnatural": true,
@@ -2992,6 +3067,8 @@
     },
     {
       "name": "Myrmidonen-Schild (Panzerschreck)",
+      "_id": "PESIrDG7g7tPl6L0",
+      "@rev": 1,
       "breed": "Dämonen",
       "type": "mob",
       "unnatural": true,
@@ -3033,6 +3110,8 @@
     },
     {
       "name": "Myrmidonen-Soldat (Flatterschreck)",
+      "_id": "XaqnXPvjN8cK3GcA",
+      "@rev": 1,
       "breed": "Dämonen",
       "type": "mob",
       "unnatural": true,
@@ -3074,6 +3153,8 @@
     },
     {
       "name": "Runendiener",
+      "_id": "cTAhsGLGA9SfDgtV",
+      "@rev": 1,
       "breed": "Dämonen",
       "type": "mob",
       "unnatural": true,
@@ -3121,6 +3202,8 @@
     },
     {
       "name": "Runenpirscher",
+      "_id": "5cmWYBr1WVKTttdV",
+      "@rev": 1,
       "breed": "Dämonen",
       "type": "leader",
       "unnatural": true,
@@ -3182,6 +3265,8 @@
     },
     {
       "name": "Verschmolzener Runendiener",
+      "_id": "ootNHze6Fc1UAeVN",
+      "@rev": 1,
       "breed": "Dämonen",
       "type": "leader",
       "unnatural": true,
@@ -3226,6 +3311,8 @@
     },
     {
       "name": "Schattenpatriarch",
+      "_id": "oYMkbRvTP9rCBT3B",
+      "@rev": 1,
       "breed": "Dämonen",
       "type": "leader",
       "unnatural": true,
@@ -3318,6 +3405,8 @@
     },
     {
       "name": "Wächter des Steins",
+      "_id": "TPcZ8t9O2EmJViMe",
+      "@rev": 1,
       "breed": "Dämonen",
       "type": "leader",
       "unnatural": true,
@@ -3408,6 +3497,8 @@
     },
     {
       "name": "Ziegenteufel",
+      "_id": "b3k34r3KQGprekvh",
+      "@rev": 1,
       "breed": "Dämonen",
       "type": "leader",
       "unnatural": true,
@@ -3493,6 +3584,8 @@
     },
     {
       "name": "Anna Göldi, die Schattenhexe",
+      "_id": "ksYSZ3wuFpyfvegs",
+      "@rev": 1,
       "breed": "Hexen",
       "type": "leader",
       "unnatural": true,
@@ -3584,6 +3677,8 @@
     },
     {
       "name": "Brückenhexe",
+      "_id": "eDb592nT3fPJi8vZ",
+      "@rev": 1,
       "breed": "Hexen",
       "type": "leader",
       "unnatural": true,
@@ -3674,6 +3769,8 @@
     },
     {
       "name": "Die Bluthexe",
+      "_id": "veSrvaw1MF3Rqbct",
+      "@rev": 1,
       "breed": "Hexen",
       "type": "leader",
       "unnatural": true,
@@ -3746,6 +3843,8 @@
     },
     {
       "name": "Wasserklaue",
+      "_id": "N3iRpmSahsvyZw9i",
+      "@rev": 1,
       "breed": "Hexen",
       "type": "mob",
       "unnatural": true,
@@ -3787,6 +3886,8 @@
     },
     {
       "name": "Dragica",
+      "_id": "ZNIr9H5szYDrnZyd",
+      "@rev": 1,
       "breed": "Hexen",
       "type": "leader",
       "unnatural": true,
@@ -3880,6 +3981,8 @@
     },
     {
       "name": "Edeltrude",
+      "_id": "I0hEnBnQfuGHWVKn",
+      "@rev": 1,
       "breed": "Hexen",
       "type": "leader",
       "unnatural": true,
@@ -3975,6 +4078,8 @@
     },
     {
       "name": "Eishexe",
+      "_id": "PQLpftOqMt1G4dKU",
+      "@rev": 1,
       "breed": "Hexen",
       "type": "leader",
       "unnatural": true,
@@ -4076,6 +4181,8 @@
     },
     {
       "name": "Else, die junge Hexe",
+      "_id": "ZCizZxlBln6Oe338",
+      "@rev": 1,
       "breed": "Hexen",
       "type": "leader",
       "unnatural": true,
@@ -4145,6 +4252,8 @@
     },
     {
       "name": "Faulwürmer",
+      "_id": "bjGoPZtLDssrs3yq",
+      "@rev": 1,
       "breed": "Hexen",
       "type": "mob",
       "unnatural": true,
@@ -4182,6 +4291,8 @@
     },
     {
       "name": "Flammengeborene",
+      "_id": "oQ7ICkkTIw7dHOVH",
+      "@rev": 1,
       "breed": "Hexen",
       "type": "leader",
       "unnatural": true,
@@ -4275,6 +4386,8 @@
     },
     {
       "name": "Gertrude",
+      "_id": "bPrBVZnjbidKVTDo",
+      "@rev": 1,
       "breed": "Hexen",
       "type": "leader",
       "unnatural": true,
@@ -4369,6 +4482,8 @@
     },
     {
       "name": "Gifthexe",
+      "_id": "piC6BN5OgDTXAhwr",
+      "@rev": 1,
       "breed": "Hexen",
       "type": "leader",
       "unnatural": true,
@@ -4473,6 +4588,8 @@
     },
     {
       "name": "Hexe Waltrudis",
+      "_id": "LbHzJjBIQTga6ka0",
+      "@rev": 1,
       "breed": "Hexen",
       "type": "leader",
       "unnatural": true,
@@ -4548,6 +4665,8 @@
     },
     {
       "name": "Hexenkönigin Infamis",
+      "_id": "2iBCgfcWH9n6QmLy",
+      "@rev": 1,
       "breed": "Hexen",
       "type": "leader",
       "unnatural": true,
@@ -4664,6 +4783,8 @@
     },
     {
       "name": "Hildegardis",
+      "_id": "nRA37WdsbJSoPFRT",
+      "@rev": 1,
       "breed": "Hexen",
       "type": "leader",
       "unnatural": true,
@@ -4747,6 +4868,8 @@
     },
     {
       "name": "Jakobstochter",
+      "_id": "F3eag2Tn60CYkUSe",
+      "@rev": 1,
       "breed": "Hexen",
       "type": "leader",
       "unnatural": true,
@@ -4848,6 +4971,8 @@
     },
     {
       "name": "Krötendiener",
+      "_id": "vWl8S4EMgVKKL6LV",
+      "@rev": 1,
       "breed": "Hexen",
       "type": "mob",
       "unnatural": true,
@@ -4885,6 +5010,8 @@
     },
     {
       "name": "Ludmilla",
+      "_id": "LpWSvSSmV8V6bMFo",
+      "@rev": 1,
       "breed": "Hexen",
       "type": "leader",
       "unnatural": true,
@@ -4978,6 +5105,8 @@
     },
     {
       "name": "Mordra, die Sumpfhexe",
+      "_id": "oqXCV0cmbanMoTg9",
+      "@rev": 1,
       "breed": "Hexen",
       "type": "leader",
       "unnatural": true,
@@ -5075,6 +5204,8 @@
     },
     {
       "name": "Rabenvettel",
+      "_id": "eEg8SpdVHmJFPI90",
+      "@rev": 1,
       "breed": "Hexen",
       "type": "leader",
       "unnatural": true,
@@ -5096,7 +5227,10 @@
         "type": "leichte Kleidung/Federkleid"
       },
       "strategy": "Allrounder (NN|FF)",
-      "shapes": [ "Mensch", "Rabe" ],
+      "shapes": [
+        "Mensch",
+        "Rabe"
+      ],
       "attacks": [
         {
           "name": "Fausthieb",
@@ -5188,6 +5322,8 @@
     },
     {
       "name": "Schattenhexe",
+      "_id": "rhR7Mc7amN146Ulw",
+      "@rev": 1,
       "breed": "Hexen",
       "type": "leader",
       "unnatural": true,
@@ -5298,6 +5434,8 @@
     },
     {
       "name": "Seehexe",
+      "_id": "Izttjn46RQZUdv9f",
+      "@rev": 1,
       "breed": "Hexen",
       "type": "leader",
       "unnatural": true,
@@ -5405,6 +5543,8 @@
     },
     {
       "name": "Seuchenwandler",
+      "_id": "jIQBt7nNdjd0s2Cr",
+      "@rev": 1,
       "breed": "Hexen",
       "type": "mob",
       "unnatural": true,
@@ -5450,6 +5590,8 @@
     },
     {
       "name": "Spinnenhexe",
+      "_id": "svZMOBbbGb8Cx8Gv",
+      "@rev": 1,
       "breed": "Hexen",
       "type": "leader",
       "unnatural": true,
@@ -5473,7 +5615,10 @@
         "type": "leichte Kleidung"
       },
       "strategy": "Allrounder (NN|FF)",
-      "shapes": [ "Mensch", "Spinnenmensch" ],
+      "shapes": [
+        "Mensch",
+        "Spinnenmensch"
+      ],
       "attacks": [
         {
           "name": "Fausthieb",
@@ -5581,6 +5726,8 @@
     },
     {
       "name": "Typische Sumpfhexe",
+      "_id": "v8VDGRiu8nNizz8I",
+      "@rev": 1,
       "breed": "Hexen",
       "type": "leader",
       "unnatural": true,
@@ -5687,6 +5834,8 @@
     },
     {
       "name": "Untote Hexe",
+      "_id": "3X8lrXrR6vswee2R",
+      "@rev": 1,
       "breed": "Hexen",
       "type": "leader",
       "unnatural": true,
@@ -5756,6 +5905,8 @@
     },
     {
       "name": "Verführerin",
+      "_id": "nZ8DsWqWEhCTc9pm",
+      "@rev": 1,
       "breed": "Hexen",
       "type": "leader",
       "unnatural": true,
@@ -5867,6 +6018,8 @@
     },
     {
       "name": "Wahre Meiga",
+      "_id": "ZjIaYUaQsng2EGP9",
+      "@rev": 1,
       "breed": "Hexen",
       "type": "leader",
       "unnatural": true,
@@ -5976,6 +6129,8 @@
     },
     {
       "name": "Waldhexe",
+      "_id": "Zdur054A44YHLzNs",
+      "@rev": 1,
       "breed": "Hexen",
       "type": "leader",
       "unnatural": true,
@@ -6087,6 +6242,8 @@
     },
     {
       "name": "Aberration",
+      "_id": "VXQAsQNKmQE2a75r",
+      "@rev": 1,
       "breed": "Hexenkreaturen",
       "type": "leader",
       "unnatural": true,
@@ -6141,6 +6298,8 @@
     },
     {
       "name": "Alpha-Zornwolf",
+      "_id": "J7QOpJU0RLBFvia6",
+      "@rev": 1,
       "breed": "Hexenkreaturen",
       "type": "leader",
       "unnatural": true,
@@ -6203,6 +6362,8 @@
     },
     {
       "name": "Ausgewachsener Fungusmolch",
+      "_id": "nhFswkVfDmrrvBPB",
+      "@rev": 1,
       "breed": "Hexenkreaturen",
       "type": "leader",
       "unnatural": false,
@@ -6284,6 +6445,8 @@
     },
     {
       "name": "Baum des Zorns",
+      "_id": "C6SfGlAPswmCq5dq",
+      "@rev": 1,
       "breed": "Hexenkreaturen",
       "type": "mob",
       "unnatural": true,
@@ -6325,6 +6488,8 @@
     },
     {
       "name": "Brockenbär",
+      "_id": "5F8oqHuwwlo52cnM",
+      "@rev": 1,
       "breed": "Hexenkreaturen",
       "type": "leader",
       "unnatural": true,
@@ -6398,6 +6563,8 @@
     },
     {
       "name": "Brockenziege",
+      "_id": "SFHzILcyjkC2CiGQ",
+      "@rev": 1,
       "breed": "Hexenkreaturen",
       "type": "leader",
       "unnatural": true,
@@ -6481,6 +6648,8 @@
     },
     {
       "name": "belebte Wurzel",
+      "_id": "5UAqbEQe3tSvTGl4",
+      "@rev": 1,
       "breed": "Hexenkreaturen",
       "type": "mob",
       "unnatural": true,
@@ -6523,6 +6692,8 @@
     },
     {
       "name": "Der verwandelte Bauer",
+      "_id": "fV3PcAEf6IPI6dXZ",
+      "@rev": 1,
       "breed": "Hexenkreaturen",
       "type": "leader",
       "unnatural": true,
@@ -6592,6 +6763,8 @@
     },
     {
       "name": "Diener des Blutes",
+      "_id": "pc9rBKqRd4HXXasx",
+      "@rev": 1,
       "breed": "Hexenkreaturen",
       "type": "leader",
       "unnatural": true,
@@ -6665,6 +6838,8 @@
     },
     {
       "name": "Dornen-Emissär",
+      "_id": "zrgcj2DjCAtvWF1K",
+      "@rev": 1,
       "breed": "Hexenkreaturen",
       "type": "leader",
       "unnatural": true,
@@ -6731,6 +6906,8 @@
     },
     {
       "name": "Dornengerippe",
+      "_id": "TgPi4TO69Buqvo7d",
+      "@rev": 1,
       "breed": "Hexenkreaturen",
       "type": "mob",
       "unnatural": true,
@@ -6764,6 +6941,8 @@
     },
     {
       "name": "Eichenwächter",
+      "_id": "OfZ7H1b7JTNeUM3F",
+      "@rev": 1,
       "breed": "Hexenkreaturen",
       "type": "leader",
       "unnatural": true,
@@ -6847,6 +7026,8 @@
     },
     {
       "name": "Eisschwalbe",
+      "_id": "FQfaz0exjKoL6rPC",
+      "@rev": 1,
       "breed": "Hexenkreaturen",
       "type": "mob",
       "unnatural": true,
@@ -6879,6 +7060,8 @@
     },
     {
       "name": "Funguslarve",
+      "_id": "G82EnIv900aL6RM4",
+      "@rev": 1,
       "breed": "Hexenkreaturen",
       "type": "mob",
       "unnatural": false,
@@ -6907,6 +7090,8 @@
     },
     {
       "name": "Hexengeist",
+      "_id": "9j3unFlbdThdynU7",
+      "@rev": 1,
       "breed": "Hexenkreaturen",
       "type": "leader",
       "unnatural": true,
@@ -6969,6 +7154,8 @@
     },
     {
       "name": "Hexenhuhn",
+      "_id": "uf7JdUfGhTpi0siA",
+      "@rev": 1,
       "breed": "Hexenkreaturen",
       "type": "mob",
       "unnatural": true,
@@ -7002,6 +7189,8 @@
     },
     {
       "name": "Hexenrabe",
+      "_id": "hdC2OZ7UVIyT7qKl",
+      "@rev": 1,
       "breed": "Hexenkreaturen",
       "type": "mob",
       "unnatural": true,
@@ -7035,6 +7224,8 @@
     },
     {
       "name": "Höllen-Maultier",
+      "_id": "EjjHcC8N7Qo3QnGn",
+      "@rev": 1,
       "breed": "Hexenkreaturen",
       "type": "leader",
       "unnatural": true,
@@ -7089,6 +7280,8 @@
     },
     {
       "name": "Kind des Cernunnos",
+      "_id": "TdyhkTymwcakGt40",
+      "@rev": 1,
       "breed": "Hexenkreaturen",
       "type": "mob",
       "unnatural": false,
@@ -7133,6 +7326,8 @@
     },
     {
       "name": "Kohleteufel",
+      "_id": "Fw6S0HPSVlBLtHZ5",
+      "@rev": 1,
       "breed": "Hexenkreaturen",
       "type": "leader",
       "unnatural": true,
@@ -7199,6 +7394,8 @@
     },
     {
       "name": "Krallenschwein",
+      "_id": "lt9qb6KlPnHePb8i",
+      "@rev": 1,
       "breed": "Hexenkreaturen",
       "type": "mob",
       "unnatural": true,
@@ -7227,6 +7424,8 @@
     },
     {
       "name": "Käferschrecken",
+      "_id": "V1T83Pl6z9D2NReu",
+      "@rev": 1,
       "breed": "Hexenkreaturen",
       "type": "leader",
       "unnatural": true,
@@ -7297,6 +7496,8 @@
     },
     {
       "name": "lebender Funke",
+      "_id": "Q2mO1Bi30gGNRkN8",
+      "@rev": 1,
       "breed": "Hexenkreaturen",
       "type": "mob",
       "unnatural": true,
@@ -7330,6 +7531,8 @@
     },
     {
       "name": "Phantasma",
+      "_id": "4XguB7sFATscJxXV",
+      "@rev": 1,
       "breed": "Hexenkreaturen",
       "type": "mob",
       "unnatural": true,
@@ -7372,6 +7575,8 @@
     },
     {
       "name": "Rabenritter",
+      "_id": "Uo6Oe4hGZ7ME3nIp",
+      "@rev": 1,
       "breed": "Hexenkreaturen",
       "type": "leader",
       "unnatural": true,
@@ -7447,6 +7652,8 @@
     },
     {
       "name": "Riesiges Dornengerippe",
+      "_id": "mRD8H6C6RtYxGkr6",
+      "@rev": 1,
       "breed": "Hexenkreaturen",
       "type": "leader",
       "unnatural": true,
@@ -7515,6 +7722,8 @@
     },
     {
       "name": "Satyr des Schlafes",
+      "_id": "09L4wVgIMqEwfi8a",
+      "@rev": 1,
       "breed": "Hexenkreaturen",
       "type": "leader",
       "unnatural": true,
@@ -7604,6 +7813,8 @@
     },
     {
       "name": "Schlackebrut",
+      "_id": "r3oFe0jqpSDshthM",
+      "@rev": 1,
       "breed": "Hexenkreaturen",
       "type": "leader",
       "unnatural": true,
@@ -7670,6 +7881,8 @@
     },
     {
       "name": "Schlickknecht",
+      "_id": "dD0HfIEp3YhJHseA",
+      "@rev": 1,
       "breed": "Hexenkreaturen",
       "type": "mob",
       "unnatural": true,
@@ -7711,6 +7924,8 @@
     },
     {
       "name": "Schlickmutter",
+      "_id": "G4h2qZbQB8xJCdEQ",
+      "@rev": 1,
       "breed": "Hexenkreaturen",
       "type": "leader",
       "unnatural": true,
@@ -7783,6 +7998,8 @@
     },
     {
       "name": "Teufelsziege",
+      "_id": "PPf28jYVgWrtbZuy",
+      "@rev": 1,
       "breed": "Hexenkreaturen",
       "type": "leader",
       "unnatural": true,
@@ -7841,6 +8058,8 @@
     },
     {
       "name": "Todesrabe",
+      "_id": "GDgGUAYG7wAlS6Rz",
+      "@rev": 1,
       "breed": "Hexenkreaturen",
       "type": "mob",
       "unnatural": true,
@@ -7874,6 +8093,8 @@
     },
     {
       "name": "Unheilberührte Krähe",
+      "_id": "UUsqaUBxJDnoxIWQ",
+      "@rev": 1,
       "breed": "Hexenkreaturen",
       "type": "mob",
       "unnatural": false,
@@ -7911,6 +8132,8 @@
     },
     {
       "name": "Unheilherold",
+      "_id": "YHoasCVCHB1beqZE",
+      "@rev": 1,
       "breed": "Hexenkreaturen",
       "type": "leader",
       "unnatural": true,
@@ -7990,6 +8213,8 @@
     },
     {
       "name": "Unheilsberührte Vogelscheuche",
+      "_id": "l0h6Nx3DaBPVlrcq",
+      "@rev": 1,
       "breed": "Hexenkreaturen",
       "type": "mob",
       "unnatural": true,
@@ -8031,6 +8256,8 @@
     },
     {
       "name": "Zornwolf",
+      "_id": "cwfMdPUrCTXVJNvM",
+      "@rev": 1,
       "breed": "Hexenkreaturen",
       "type": "mob",
       "unnatural": true,
@@ -8068,6 +8295,8 @@
     },
     {
       "name": "Annemarie",
+      "_id": "rePcDcw0BOuii9Zv",
+      "@rev": 1,
       "breed": "Menschen",
       "type": "leader",
       "unnatural": true,
@@ -8149,6 +8378,8 @@
     },
     {
       "name": "Antonius Schwarz",
+      "_id": "owyt1gnz5zZoVIE7",
+      "@rev": 1,
       "breed": "Menschen",
       "type": "leader",
       "unnatural": false,
@@ -8210,6 +8441,8 @@
     },
     {
       "name": "Bernhard, die Dämonenbrut",
+      "_id": "XstLX6GdDiviLwFb",
+      "@rev": 1,
       "breed": "Menschen",
       "type": "leader",
       "unnatural": true,
@@ -8280,6 +8513,8 @@
     },
     {
       "name": "Berserker",
+      "_id": "ivTkqCL5gyufqApg",
+      "@rev": 1,
       "breed": "Menschen",
       "type": "leader",
       "unnatural": false,
@@ -8355,6 +8590,8 @@
     },
     {
       "name": "Berthold Grimm",
+      "_id": "9sY6fnIrPaaShqQ9",
+      "@rev": 1,
       "breed": "Menschen",
       "type": "leader",
       "unnatural": false,
@@ -8421,6 +8658,8 @@
     },
     {
       "name": "Frank Ruchholz",
+      "_id": "Y2GPoBP5U3R9UFfC",
+      "@rev": 1,
       "breed": "Menschen",
       "type": "leader",
       "unnatural": true,
@@ -8500,6 +8739,8 @@
     },
     {
       "name": "Gardisten des Herzogs",
+      "_id": "zrOn9nZJhLysj4Wc",
+      "@rev": 1,
       "breed": "Menschen",
       "type": "leader",
       "unnatural": false,
@@ -8557,6 +8798,8 @@
     },
     {
       "name": "Gassenschurken",
+      "_id": "tvhdW4s8VAoOEgLb",
+      "@rev": 1,
       "breed": "Menschen",
       "type": "mob",
       "unnatural": false,
@@ -8592,6 +8835,8 @@
     },
     {
       "name": "Greifenwächter",
+      "_id": "hRfPX2p17BkSkXrK",
+      "@rev": 1,
       "breed": "Menschen",
       "type": "leader",
       "unnatural": false,
@@ -8662,6 +8907,8 @@
     },
     {
       "name": "Grossritter des St.-Rupert-Ordens",
+      "_id": "ZatTC4sm7gVm5Lpn",
+      "@rev": 1,
       "breed": "Menschen",
       "type": "leader",
       "unnatural": true,
@@ -8747,6 +8994,8 @@
     },
     {
       "name": "Kannibalistischer Söldner",
+      "_id": "NFxXVAOGJrHso6VL",
+      "@rev": 1,
       "breed": "Menschen",
       "type": "leader",
       "unnatural": false,
@@ -8809,6 +9058,8 @@
     },
     {
       "name": "Kultanhänger",
+      "_id": "fpojwdb34ZjMSvIb",
+      "@rev": 1,
       "breed": "Menschen",
       "type": "mob",
       "unnatural": false,
@@ -8854,6 +9105,8 @@
     },
     {
       "name": "Menschlicher Jäger",
+      "_id": "ud5UcunoxZKTSMvT",
+      "@rev": 1,
       "breed": "Menschen",
       "type": "mob",
       "unnatural": false,
@@ -8894,6 +9147,8 @@
     },
     {
       "name": "Rosengardist",
+      "_id": "GQz4hNvNeulT3CuJ",
+      "@rev": 1,
       "breed": "Menschen",
       "type": "mob",
       "unnatural": false,
@@ -8935,6 +9190,8 @@
     },
     {
       "name": "Rosengardist-Offizier",
+      "_id": "UYDdob8ZaMW1m0ch",
+      "@rev": 1,
       "breed": "Menschen",
       "type": "leader",
       "unnatural": false,
@@ -9001,6 +9258,8 @@
     },
     {
       "name": "Rosenritter",
+      "_id": "zxJNJFlHNQlhchWq",
+      "@rev": 1,
       "breed": "Menschen",
       "type": "leader",
       "unnatural": true,
@@ -9078,6 +9337,8 @@
     },
     {
       "name": "Rupertsritter",
+      "_id": "0taV7Fi5mYhWqhoE",
+      "@rev": 1,
       "breed": "Menschen",
       "type": "mob",
       "unnatural": false,
@@ -9109,6 +9370,8 @@
     },
     {
       "name": "Räuber der Schnitterbande",
+      "_id": "dRWjK5mohivQSHcW",
+      "@rev": 1,
       "breed": "Menschen",
       "type": "leader",
       "unnatural": false,
@@ -9161,6 +9424,8 @@
     },
     {
       "name": "Räuber der Schwarzfedern",
+      "_id": "4tPiB2AquW5k6o6r",
+      "@rev": 1,
       "breed": "Menschen",
       "type": "mob",
       "unnatural": false,
@@ -9200,6 +9465,8 @@
     },
     {
       "name": "Söldnerveteranen",
+      "_id": "OYaszCtXceoOsBaV",
+      "@rev": 1,
       "breed": "Menschen",
       "type": "mob",
       "unnatural": false,
@@ -9239,6 +9506,8 @@
     },
     {
       "name": "Thomas von Segensreich",
+      "_id": "PVjkT9nvh8r0BEu3",
+      "@rev": 1,
       "breed": "Menschen",
       "type": "leader",
       "unnatural": true,
@@ -9318,6 +9587,8 @@
     },
     {
       "name": "Typischer Nachtfalter-Schurke",
+      "_id": "cqOj675XLXIBjcgd",
+      "@rev": 1,
       "breed": "Menschen",
       "type": "mob",
       "unnatural": false,
@@ -9349,6 +9620,8 @@
     },
     {
       "name": "Typischer Stadtknecht",
+      "_id": "dqcVheZ19viioh7e",
+      "@rev": 1,
       "breed": "Menschen",
       "type": "mob",
       "unnatural": false,
@@ -9394,6 +9667,8 @@
     },
     {
       "name": "Typischer Söldner",
+      "_id": "SnMBDZIPVMMAaT14",
+      "@rev": 1,
       "breed": "Menschen",
       "type": "mob",
       "unnatural": false,
@@ -9434,6 +9709,8 @@
     },
     {
       "name": "Typische Köhler",
+      "_id": "mjiGbMdcURWphg4D",
+      "@rev": 1,
       "breed": "Menschen",
       "type": "mob",
       "unnatural": false,
@@ -9465,6 +9742,8 @@
     },
     {
       "name": "Verfluchtes Kultmitglied",
+      "_id": "VTqkDhYbd4XL0nv7",
+      "@rev": 1,
       "breed": "Menschen",
       "type": "leader",
       "unnatural": true,
@@ -9526,6 +9805,8 @@
     },
     {
       "name": "Vitales Kultmitglied",
+      "_id": "jmOFwruYbL5TkyAB",
+      "@rev": 1,
       "breed": "Menschen",
       "type": "mob",
       "unnatural": false,
@@ -9563,6 +9844,8 @@
     },
     {
       "name": "Wernherr von Schönstatt",
+      "_id": "9G0nLdJvTn8BrS4A",
+      "@rev": 1,
       "breed": "Menschen",
       "type": "leader",
       "unnatural": false,
@@ -9624,6 +9907,8 @@
     },
     {
       "name": "Baumwächter",
+      "_id": "6BCVTGN27WLHAQKJ",
+      "@rev": 1,
       "breed": "Pflanzenwesen",
       "type": "leader",
       "unnatural": true,
@@ -9689,6 +9974,8 @@
     },
     {
       "name": "Buchenmänner",
+      "_id": "llQaBWvQHU5dO2FL",
+      "@rev": 1,
       "breed": "Pflanzenwesen",
       "type": "mob",
       "unnatural": true,
@@ -9726,6 +10013,8 @@
     },
     {
       "name": "Dornenpeitschen",
+      "_id": "Jrkgx4JQePfbxOTt",
+      "@rev": 1,
       "breed": "Pflanzenwesen",
       "type": "mob",
       "unnatural": true,
@@ -9759,6 +10048,8 @@
     },
     {
       "name": "Dornenwandler",
+      "_id": "aeCwyhNjCkSGo3uB",
+      "@rev": 1,
       "breed": "Pflanzenwesen",
       "type": "mob",
       "unnatural": true,
@@ -9807,6 +10098,8 @@
     },
     {
       "name": "Eichenmänner",
+      "_id": "BeqJZZT41gbpL72x",
+      "@rev": 1,
       "breed": "Pflanzenwesen",
       "type": "mob",
       "unnatural": true,
@@ -9844,6 +10137,8 @@
     },
     {
       "name": "Herzwächter",
+      "_id": "pujGz9tLw3HXChw0",
+      "@rev": 1,
       "breed": "Pflanzenwesen",
       "type": "leader",
       "unnatural": true,
@@ -9904,6 +10199,8 @@
     },
     {
       "name": "Riesiger Dornenwandler",
+      "_id": "RQpggu6oedgdvWRX",
+      "@rev": 1,
       "breed": "Pflanzenwesen",
       "type": "leader",
       "unnatural": true,
@@ -9976,6 +10273,8 @@
     },
     {
       "name": "Tannenmänner",
+      "_id": "4PJyZIWnt436icb2",
+      "@rev": 1,
       "breed": "Pflanzenwesen",
       "type": "mob",
       "unnatural": true,
@@ -10013,6 +10312,8 @@
     },
     {
       "name": "Weidenmänner",
+      "_id": "RTsJ7XnkkqmOfQXS",
+      "@rev": 1,
       "breed": "Pflanzenwesen",
       "type": "mob",
       "unnatural": true,
@@ -10046,6 +10347,8 @@
     },
     {
       "name": "Bahkauv/Bachkalb",
+      "_id": "2jOXtgS125M5ewQH",
+      "@rev": 1,
       "breed": "Sagengestalten",
       "type": "leader",
       "unnatural": false,
@@ -10150,6 +10453,8 @@
     },
     {
       "name": "Blutschnucke, Bock",
+      "_id": "ZfdvIBW9tDBmg0MH",
+      "@rev": 1,
       "breed": "Sagengestalten",
       "type": "leader",
       "unnatural": true,
@@ -10226,6 +10531,8 @@
     },
     {
       "name": "Blutschnucke, Weibchen",
+      "_id": "zdWyhlk5FN44q62e",
+      "@rev": 1,
       "breed": "Sagengestalten",
       "type": "mob",
       "unnatural": true,
@@ -10268,6 +10575,8 @@
     },
     {
       "name": "Braunfauliger",
+      "_id": "1B2R6wpZqyn7v851",
+      "@rev": 1,
       "breed": "Sagengestalten",
       "type": "leader",
       "unnatural": true,
@@ -10328,6 +10637,8 @@
     },
     {
       "name": "Lebkuchenschreck",
+      "_id": "sIvhVtwLkVQDvXhC",
+      "@rev": 1,
       "breed": "Sagengestalten",
       "type": "mob",
       "unnatural": true,
@@ -10365,6 +10676,8 @@
     },
     {
       "name": "Melusine",
+      "_id": "ZhtpLifFnO4ZAbLI",
+      "@rev": 1,
       "breed": "Sagengestalten",
       "type": "leader",
       "unnatural": true,
@@ -10479,6 +10792,8 @@
     },
     {
       "name": "Prager Golem",
+      "_id": "8gV1FVD25VOYflse",
+      "@rev": 1,
       "breed": "Sagengestalten",
       "type": "leader",
       "unnatural": true,
@@ -10534,6 +10849,8 @@
     },
     {
       "name": "Sennpoppa",
+      "_id": "WlEZoNfSWuCxKBz5",
+      "@rev": 1,
       "breed": "Sagengestalten",
       "type": "leader",
       "unnatural": true,
@@ -10613,6 +10930,8 @@
     },
     {
       "name": "Flügellose Steinschwinge",
+      "_id": "P3zDayPqKypDcMLi",
+      "@rev": 1,
       "breed": "Sagengestalten",
       "type": "mob",
       "unnatural": true,
@@ -10653,6 +10972,8 @@
     },
     {
       "name": "Geflügelte Steinschwinge",
+      "_id": "ScEW9RCpSbF267R8",
+      "@rev": 1,
       "breed": "Sagengestalten",
       "type": "mob",
       "unnatural": true,
@@ -10701,6 +11022,8 @@
     },
     {
       "name": "Arkaner Philosoph",
+      "_id": "NxPGF3lLscdOoyMd",
+      "@rev": 1,
       "breed": "Schwarzmagier",
       "type": "leader",
       "unnatural": false,
@@ -10787,6 +11110,8 @@
     },
     {
       "name": "Horus-Falke",
+      "_id": "dGtGSHNHP5GRZI2X",
+      "@rev": 1,
       "breed": "Schwarzmagier",
       "type": "leader",
       "unnatural": false,
@@ -10874,6 +11199,8 @@
     },
     {
       "name": "Horusmumie",
+      "_id": "5TLEdlFedCc5sed6",
+      "@rev": 1,
       "breed": "Schwarzmagier",
       "type": "mob",
       "unnatural": true,
@@ -10915,6 +11242,8 @@
     },
     {
       "name": "Okkulter Philosoph",
+      "_id": "KSmb9R06czqXJYPJ",
+      "@rev": 1,
       "breed": "Schwarzmagier",
       "type": "leader",
       "unnatural": false,
@@ -10994,6 +11323,8 @@
     },
     {
       "name": "Rückkehrer",
+      "_id": "DrKS6jrFlpZ2YnI7",
+      "@rev": 1,
       "breed": "Schwarzmagier",
       "type": "leader",
       "unnatural": true,
@@ -11100,6 +11431,8 @@
     },
     {
       "name": "Dippels Leichenmonster",
+      "_id": "85xtIf4HnS4s1HZ3",
+      "@rev": 1,
       "breed": "Schwarzmagier",
       "type": "leader",
       "unnatural": true,
@@ -11166,6 +11499,8 @@
     },
     {
       "name": "Frantz Bernhard von Neuhoff, der Dämonenmeister",
+      "_id": "QJDJ7eYD8C38z2tH",
+      "@rev": 1,
       "breed": "Schwarzmagier",
       "type": "leader",
       "unnatural": true,
@@ -11266,6 +11601,8 @@
     },
     {
       "name": "Friedrich von Breuenburg (Der Schwarze Komtur)",
+      "_id": "YQ7goDen0kdfKfj2",
+      "@rev": 1,
       "breed": "Schwarzmagier",
       "type": "leader",
       "unnatural": false,
@@ -11337,6 +11674,8 @@
     },
     {
       "name": "Gruftwächter",
+      "_id": "Pge3KdHWnCuv3BSk",
+      "@rev": 1,
       "breed": "Schwarzmagier",
       "type": "mob",
       "unnatural": true,
@@ -11382,6 +11721,8 @@
     },
     {
       "name": "Karl Heinrich Hoffner, Nekromant",
+      "_id": "i14r5HMLOf9T3jN8",
+      "@rev": 1,
       "breed": "Schwarzmagier",
       "type": "leader",
       "unnatural": false,
@@ -11476,6 +11817,8 @@
     },
     {
       "name": "Kind des Midas",
+      "_id": "SpHnBZwqlrvOjtug",
+      "@rev": 1,
       "breed": "Schwarzmagier",
       "type": "leader",
       "unnatural": false,
@@ -11561,6 +11904,8 @@
     },
     {
       "name": "Moderleichen",
+      "_id": "z3Bc6isUDi78nTcv",
+      "@rev": 1,
       "breed": "Schwarzmagier",
       "type": "mob",
       "unnatural": true,
@@ -11602,6 +11947,8 @@
     },
     {
       "name": "Nekromant",
+      "_id": "uZnLZPkpuwYbUsI0",
+      "@rev": 1,
       "breed": "Schwarzmagier",
       "type": "leader",
       "unnatural": false,
@@ -11702,6 +12049,8 @@
     },
     {
       "name": "Sumpfleiche",
+      "_id": "2XbLpsKj5Zfi5yK0",
+      "@rev": 1,
       "breed": "Schwarzmagier",
       "type": "mob",
       "unnatural": true,
@@ -11739,6 +12088,8 @@
     },
     {
       "name": "Tanzmeister der Unterwelt",
+      "_id": "9r7FScw9MEvVBXt4",
+      "@rev": 1,
       "breed": "Schwarzmagier",
       "type": "leader",
       "unnatural": true,
@@ -11849,6 +12200,8 @@
     },
     {
       "name": "Wandelnde Leiche",
+      "_id": "TaNInyRgJlfZiDyL",
+      "@rev": 1,
       "breed": "Schwarzmagier",
       "type": "mob",
       "unnatural": true,
@@ -11894,6 +12247,8 @@
     },
     {
       "name": "Zahlenmystikerin",
+      "_id": "if8MjWNtkKSgKpjW",
+      "@rev": 1,
       "breed": "Schwarzmagier",
       "type": "leader",
       "unnatural": false,
@@ -11975,6 +12330,8 @@
     },
     {
       "name": "Aufgescheuchte Dohle",
+      "_id": "jpRLj5UOr6gmakXp",
+      "@rev": 1,
       "breed": "Tiere",
       "type": "mob",
       "unnatural": false,
@@ -12008,6 +12365,8 @@
     },
     {
       "name": "Aufgescheuchter Rabe",
+      "_id": "Yg1ryqJ1olhBRxRJ",
+      "@rev": 1,
       "breed": "Tiere",
       "type": "mob",
       "unnatural": false,
@@ -12041,6 +12400,8 @@
     },
     {
       "name": "Bluthund",
+      "_id": "Jlah4TC4UeToGqnJ",
+      "@rev": 1,
       "breed": "Tiere",
       "type": "mob",
       "unnatural": false,
@@ -12074,6 +12435,8 @@
     },
     {
       "name": "Gehörntes Wild",
+      "_id": "EztizUXvu2SlJMev",
+      "@rev": 1,
       "breed": "Tiere",
       "type": "mob",
       "unnatural": false,
@@ -12116,6 +12479,8 @@
     },
     {
       "name": "Kleiner Vogel",
+      "_id": "N9kQzD0xtRjKAEop",
+      "@rev": 1,
       "breed": "Tiere",
       "type": "mob",
       "unnatural": false,
@@ -12153,6 +12518,8 @@
     },
     {
       "name": "Raubvogel",
+      "_id": "yjvjxo5TfUlfkrfF",
+      "@rev": 1,
       "breed": "Tiere",
       "type": "mob",
       "unnatural": false,
@@ -12189,6 +12556,8 @@
     },
     {
       "name": "Riesenwespe",
+      "_id": "ElM0R48f2uwxSo4j",
+      "@rev": 1,
       "breed": "Tiere",
       "type": "mob",
       "unnatural": true,
@@ -12222,6 +12591,8 @@
     },
     {
       "name": "Schattenlaurer",
+      "_id": "R475Buja2Wyqucin",
+      "@rev": 1,
       "breed": "Tiere",
       "type": "leader",
       "unnatural": false,
@@ -12280,6 +12651,8 @@
     },
     {
       "name": "Schnapper-Tiefenechsen",
+      "_id": "P8qgTDeOV79pBlFF",
+      "@rev": 1,
       "breed": "Tiere",
       "type": "mob",
       "unnatural": false,
@@ -12308,6 +12681,8 @@
     },
     {
       "name": "Spucker-Tiefenechsen",
+      "_id": "lXOIIlqIHnEXF8tw",
+      "@rev": 1,
       "breed": "Tiere",
       "type": "mob",
       "unnatural": false,
@@ -12340,6 +12715,8 @@
     },
     {
       "name": "Tarantel",
+      "_id": "PtleVpmJg9gdH698",
+      "@rev": 1,
       "breed": "Tiere",
       "type": "mob",
       "unnatural": false,
@@ -12373,6 +12750,8 @@
     },
     {
       "name": "Todesschwingen",
+      "_id": "KzDKbt7fzDWi2Str",
+      "@rev": 1,
       "breed": "Tiere",
       "type": "mob",
       "unnatural": true,
@@ -12410,6 +12789,8 @@
     },
     {
       "name": "Waldtier",
+      "_id": "c7zc4WeuDTCphSSN",
+      "@rev": 1,
       "breed": "Tiere",
       "type": "mob",
       "unnatural": false,
@@ -12447,6 +12828,8 @@
     },
     {
       "name": "Wolf",
+      "_id": "H3kHnobSejs096H5",
+      "@rev": 1,
       "breed": "Tiere",
       "type": "mob",
       "unnatural": false,
@@ -12485,6 +12868,8 @@
     {
       "@todo": "Arten von Unholden ? Bringen eine Änderung in den Werten",
       "name": "Käferunhold",
+      "_id": "ysQg695V2eFMoVg1",
+      "@rev": 1,
       "breed": "Unholde",
       "type": "leader",
       "unnatural": true,
@@ -12538,6 +12923,8 @@
     },
     {
       "name": "Käferschwarm",
+      "_id": "31OPvnrKdWur4RNA",
+      "@rev": 1,
       "breed": "Unholde",
       "type": "mob",
       "unnatural": false,
@@ -12571,6 +12958,8 @@
     },
     {
       "name": "Leichenzwerg-Krieger",
+      "_id": "XfKPdMXkipzG1ynM",
+      "@rev": 1,
       "breed": "Unholde",
       "type": "mob",
       "unnatural": true,
@@ -12615,6 +13004,8 @@
     },
     {
       "name": "Unhold-Bestie",
+      "_id": "DjXZ26KemRVPHjuQ",
+      "@rev": 1,
       "breed": "Unholde",
       "type": "leader",
       "unnatural": true,
@@ -12692,6 +13083,8 @@
     },
     {
       "name": "Unhold-Brut",
+      "_id": "pSGMzqIkljHEkP8f",
+      "@rev": 1,
       "breed": "Unholde",
       "type": "mob",
       "unnatural": true,
@@ -12737,6 +13130,8 @@
     },
     {
       "name": "Unhold-Geisterkrieger",
+      "_id": "Oxulv0ODFqxb2TDR",
+      "@rev": 1,
       "breed": "Unholde",
       "type": "mob",
       "unnatural": true,
@@ -12777,6 +13172,8 @@
     },
     {
       "name": "Unhold-Leibgarde",
+      "_id": "9AoXzJ9cH0PHMGlB",
+      "@rev": 1,
       "breed": "Unholde",
       "type": "mob",
       "unnatural": true,
@@ -12825,6 +13222,8 @@
     },
     {
       "name": "Unhold-Matriarchin",
+      "_id": "RBN5GxgskiuiMX19",
+      "@rev": 1,
       "breed": "Unholde",
       "type": "leader",
       "unnatural": true,
@@ -12894,6 +13293,8 @@
     },
     {
       "name": "Unhold-Späher",
+      "_id": "QAuUGMqZQAiPCL9P",
+      "@rev": 1,
       "breed": "Unholde",
       "type": "mob",
       "unnatural": true,
@@ -12943,6 +13344,8 @@
     },
     {
       "name": "Unhold-Stammeskrieger",
+      "_id": "BMNBPLLqxjm1K8mL",
+      "@rev": 1,
       "breed": "Unholde",
       "type": "mob",
       "unnatural": true,
@@ -12984,6 +13387,8 @@
     },
     {
       "name": "Unhold-Wildling",
+      "_id": "DFyFbU162ISaaXdQ",
+      "@rev": 1,
       "breed": "Unholde",
       "type": "leader",
       "unnatural": true,
@@ -13053,6 +13458,8 @@
     },
     {
       "name": "Unhold-Zauberer",
+      "_id": "aC6CUmBujZvLKoTd",
+      "@rev": 1,
       "breed": "Unholde",
       "type": "leader",
       "unnatural": true,
@@ -13143,6 +13550,8 @@
     },
     {
       "name": "Blutghoul / Schwarzer Ghoul",
+      "_id": "jmkFn4hLg1Xf14mE",
+      "@rev": 1,
       "breed": "Vampire",
       "type": "leader",
       "unnatural": true,
@@ -13212,6 +13621,8 @@
     },
     {
       "name": "Blutjünger",
+      "_id": "2Ft5GMg6BI0I1YJ8",
+      "@rev": 1,
       "breed": "Vampire",
       "type": "leader",
       "unnatural": true,
@@ -13285,6 +13696,8 @@
     },
     {
       "name": "Drahtzieher aus den Schatten",
+      "_id": "ICNGW8qHdQJMqaLv",
+      "@rev": 1,
       "breed": "Vampire",
       "type": "leader",
       "unnatural": true,
@@ -13393,6 +13806,8 @@
     },
     {
       "name": "Jünger des Blutordens",
+      "_id": "PJh5nPvZkez3MOCZ",
+      "@rev": 1,
       "breed": "Vampire",
       "type": "leader",
       "unnatural": true,
@@ -13481,6 +13896,8 @@
     },
     {
       "name": "Kultanführer (Regner Frohenstein)",
+      "_id": "Jp2564lt4CeWrrxL",
+      "@rev": 1,
       "breed": "Vampire",
       "type": "leader",
       "unnatural": true,
@@ -13592,6 +14009,8 @@
     },
     {
       "name": "Kultanhänger",
+      "_id": "1J5j4M1TX7nzCOrm",
+      "@rev": 1,
       "breed": "Menschen",
       "type": "mob",
       "unnatural": false,
@@ -13632,6 +14051,8 @@
     },
     {
       "name": "Sektenmitglied",
+      "_id": "D099UpO3ZAEiUE3N",
+      "@rev": 1,
       "breed": "Vampire",
       "type": "mob",
       "unnatural": true,
@@ -13665,6 +14086,8 @@
     },
     {
       "name": "Infizierte Teufelsratte",
+      "_id": "lAGAjLHr522tKP5w",
+      "@rev": 1,
       "breed": "Wandler (Werwesen)",
       "type": "mob",
       "unnatural": true,
@@ -13702,6 +14125,8 @@
     },
     {
       "name": "Ochsenratte",
+      "_id": "ujT8Mi9URj8MxvKq",
+      "@rev": 1,
       "breed": "Wandler (Werwesen)",
       "type": "mob",
       "unnatural": true,
@@ -13737,6 +14162,8 @@
     },
     {
       "name": "Teufelsratte",
+      "_id": "zs5l0CNl7vZFNlOT",
+      "@rev": 1,
       "breed": "Wandler (Werwesen)",
       "type": "mob",
       "unnatural": true,
@@ -13774,6 +14201,8 @@
     },
     {
       "name": "Zerberusratte",
+      "_id": "a5JXNd93BFV73Hxj",
+      "@rev": 1,
       "breed": "Wandler (Werwesen)",
       "type": "mob",
       "unnatural": true,
@@ -13808,6 +14237,8 @@
     },
     {
       "name": "Fritz Klauber (Attentäter)",
+      "_id": "sXDSi07LKpHlXpik",
+      "@rev": 1,
       "breed": "Wandler (Werwesen)",
       "type": "leader",
       "unnatural": true,
@@ -13899,6 +14330,8 @@
     },
     {
       "name": "Jiri und Stepan, Werratten",
+      "_id": "IgrGb5ifGhBBXfQh",
+      "@rev": 1,
       "breed": "Wandler (Werwesen)",
       "type": "leader",
       "unnatural": true,
@@ -13994,6 +14427,8 @@
     },
     {
       "name": "Werratte",
+      "_id": "hU9sc9NpOTynUPfc",
+      "@rev": 1,
       "breed": "Wandler (Werwesen)",
       "type": "leader",
       "unnatural": true,
@@ -14082,6 +14517,8 @@
     },
     {
       "name": "Werratten-Attentäter",
+      "_id": "wIvJWMCJ0DgxuuO7",
+      "@rev": 1,
       "breed": "Wandler (Werwesen)",
       "type": "leader",
       "unnatural": true,
@@ -14173,6 +14610,8 @@
     },
     {
       "name": "Werratten-Grobiane Fridolin und Peter",
+      "_id": "VFvrQ4PKQSwZPQTo",
+      "@rev": 1,
       "breed": "Wandler (Werwesen)",
       "type": "leader",
       "unnatural": true,
@@ -14244,6 +14683,8 @@
     },
     {
       "name": "Werratten-Junge",
+      "_id": "dbbzjZaq6thIk7Zs",
+      "@rev": 1,
       "breed": "Wandler (Werwesen)",
       "type": "mob",
       "unnatural": true,
@@ -14277,6 +14718,8 @@
     },
     {
       "name": "Werratten-Matriarchin",
+      "_id": "5pS0sQdPbimnqzEf",
+      "@rev": 1,
       "breed": "Wandler (Werwesen)",
       "type": "leader",
       "unnatural": true,
@@ -14354,6 +14797,8 @@
     },
     {
       "name": "Werratten-Rottenanführer Franz Jungborn",
+      "_id": "bgv7xMaBYuxmujwB",
+      "@rev": 1,
       "breed": "Wandler (Werwesen)",
       "type": "leader",
       "unnatural": true,
@@ -14452,6 +14897,8 @@
     },
     {
       "name": "Werratten-Schurken",
+      "_id": "TZ0CjVFi4TaMirzt",
+      "@rev": 1,
       "breed": "Wandler (Werwesen)",
       "type": "mob",
       "unnatural": true,
@@ -14488,6 +14935,8 @@
     },
     {
       "name": "Alter Wolf",
+      "_id": "wCRq3zmpZjRk1ffR",
+      "@rev": 1,
       "breed": "Wandler (Werwesen)",
       "type": "mob",
       "unnatural": true,
@@ -14532,6 +14981,8 @@
     },
     {
       "name": "Dorothea, Werwolf-Anführerin",
+      "_id": "Fa0JIjv7sh7S95KN",
+      "@rev": 1,
       "breed": "Wandler (Werwesen)",
       "type": "leader",
       "unnatural": true,
@@ -14623,6 +15074,8 @@
     },
     {
       "name": "José",
+      "_id": "47BquPQYDVWhiLoa",
+      "@rev": 1,
       "breed": "Wandler (Werwesen)",
       "type": "leader",
       "unnatural": true,
@@ -14729,6 +15182,8 @@
     },
     {
       "name": "Rudelmitglied",
+      "_id": "9D59Uz48TRCkJWlm",
+      "@rev": 1,
       "breed": "Wandler (Werwesen)",
       "type": "leader",
       "unnatural": true,
@@ -14786,6 +15241,8 @@
     },
     {
       "name": "Werwolf einer Marodeur-Bande",
+      "_id": "xIfxBW84k0Bwq5UC",
+      "@rev": 1,
       "breed": "Wandler (Werwesen)",
       "type": "leader",
       "unnatural": true,
@@ -14889,6 +15346,8 @@
     },
     {
       "name": "Werwolf-Bestie",
+      "_id": "oGxsPqdee4iYkZQV",
+      "@rev": 1,
       "breed": "Wandler (Werwesen)",
       "type": "leader",
       "unnatural": true,
@@ -14946,6 +15405,8 @@
     },
     {
       "name": "Werwolf-Schamane",
+      "_id": "1cbsyRJPaXVo1Mff",
+      "@rev": 1,
       "breed": "Wandler (Werwesen)",
       "type": "leader",
       "unnatural": true,
@@ -15019,6 +15480,8 @@
     },
     {
       "name": "Werwolf-Welpe",
+      "_id": "Nto0dcPtPMAgsMkr",
+      "@rev": 1,
       "breed": "Wandler (Werwesen)",
       "type": "mob",
       "unnatural": true,
@@ -15059,6 +15522,8 @@
     },
     {
       "name": "Wolfsjäger",
+      "_id": "aS1Zul0CaVS1WvG5",
+      "@rev": 1,
       "breed": "Wandler (Werwesen)",
       "type": "mob",
       "unnatural": true,
@@ -15099,6 +15564,8 @@
     },
     {
       "name": "Anton „der Pfaff“ Eisenhut",
+      "_id": "xNmiFqMsLGVrJ7II",
+      "@rev": 1,
       "breed": "Wiedergänger",
       "type": "leader",
       "unnatural": true,
@@ -15185,6 +15652,8 @@
     },
     {
       "name": "Friedrich „Landsknecht“ Wurm",
+      "_id": "SR6MXNodZeHtK8ov",
+      "@rev": 1,
       "breed": "Wiedergänger",
       "type": "leader",
       "unnatural": true,
@@ -15267,6 +15736,8 @@
     },
     {
       "name": "Geisterreiter",
+      "_id": "eqSL6VzYc7TqplUT",
+      "@rev": 1,
       "breed": "Wiedergänger",
       "type": "leader",
       "unnatural": true,
@@ -15341,6 +15812,8 @@
     },
     {
       "name": "Grauwandler",
+      "_id": "djCeEaVThao8HQMX",
+      "@rev": 1,
       "breed": "Wiedergänger",
       "type": "leader",
       "unnatural": true,
@@ -15418,6 +15891,8 @@
     },
     {
       "name": "Hans von Hall der „Wilderer-Hannes“",
+      "_id": "plV2KSoc9EswSUpd",
+      "@rev": 1,
       "breed": "Wiedergänger",
       "type": "leader",
       "unnatural": true,
@@ -15514,6 +15989,8 @@
     },
     {
       "name": "Heinrich Junckers",
+      "_id": "MqiAjrsR7pVJjlq3",
+      "@rev": 1,
       "breed": "Wiedergänger",
       "type": "leader",
       "unnatural": true,
@@ -15592,6 +16069,8 @@
     },
     {
       "name": "Henriette Fuchs",
+      "_id": "bofL2J5O9ZGhYU8t",
+      "@rev": 1,
       "breed": "Wiedergänger",
       "type": "leader",
       "unnatural": true,
@@ -15662,6 +16141,8 @@
     },
     {
       "name": "Heranwachsender Ghoul",
+      "_id": "Mgxed16wZxS87HpL",
+      "@rev": 1,
       "breed": "Wiedergänger",
       "type": "leader",
       "unnatural": true,
@@ -15727,6 +16208,8 @@
     },
     {
       "name": "Johannes Karlstein",
+      "_id": "1cPyX7VBlruxhNM5",
+      "@rev": 1,
       "breed": "Wiedergänger",
       "type": "leader",
       "unnatural": true,
@@ -15813,6 +16296,8 @@
     },
     {
       "name": "Junker Hans III. zu Rodenstein",
+      "_id": "0oySd2Omk1abNww4",
+      "@rev": 1,
       "breed": "Wiedergänger",
       "type": "leader",
       "unnatural": true,
@@ -15899,6 +16384,8 @@
     },
     {
       "name": "Kilian der Ghul",
+      "_id": "qcUFnFzZJmnM1jmM",
+      "@rev": 1,
       "breed": "Wiedergänger",
       "type": "leader",
       "unnatural": true,
@@ -16001,6 +16488,8 @@
     },
     {
       "name": "Kopflose Rächer",
+      "_id": "S7HC9HlCFvOsDoMb",
+      "@rev": 1,
       "breed": "Wiedergänger",
       "type": "leader",
       "unnatural": true,
@@ -16075,6 +16564,8 @@
     },
     {
       "name": "Kopfloser Reiter",
+      "_id": "4YbdvOUhQSaEJbkt",
+      "@rev": 1,
       "breed": "Wiedergänger",
       "type": "leader",
       "unnatural": true,
@@ -16175,6 +16666,8 @@
     },
     {
       "name": "Höllenross",
+      "_id": "D0bCpIIQKqjVF4ZC",
+      "@rev": 1,
       "breed": "Wiedergänger",
       "type": "leader",
       "unnatural": true,
@@ -16229,6 +16722,8 @@
     },
     {
       "name": "Leichenteile",
+      "_id": "uCqnUnSniLnYcjKL",
+      "@rev": 1,
       "breed": "Wiedergänger",
       "type": "mob",
       "unnatural": true,
@@ -16271,6 +16766,8 @@
     },
     {
       "name": "Mumienfürst",
+      "_id": "JWfKkSspw53MDAVC",
+      "@rev": 1,
       "breed": "Wiedergänger",
       "type": "leader",
       "unnatural": true,
@@ -16395,6 +16892,8 @@
     },
     {
       "name": "Nebelwandler",
+      "_id": "lFVKM89vEStBixzC",
+      "@rev": 1,
       "breed": "Wiedergänger",
       "type": "leader",
       "unnatural": true,
@@ -16462,6 +16961,8 @@
     },
     {
       "name": "Nebelphantom",
+      "_id": "M3E87OOs5cczXkGK",
+      "@rev": 1,
       "breed": "Wiedergänger",
       "type": "mob",
       "unnatural": true,
@@ -16501,6 +17002,8 @@
     },
     {
       "name": "Pestleiche",
+      "_id": "1hzNjykH4m0xCte6",
+      "@rev": 1,
       "breed": "Wiedergänger",
       "type": "mob",
       "unnatural": true,
@@ -16550,6 +17053,8 @@
     },
     {
       "name": "Rheinleiche",
+      "_id": "MZxHKZewcU5T4Pus",
+      "@rev": 1,
       "breed": "Wiedergänger",
       "type": "mob",
       "unnatural": true,
@@ -16603,6 +17108,8 @@
     },
     {
       "name": "Rudolf Schwarz",
+      "_id": "KAafVZOwSr9tk1Pk",
+      "@rev": 1,
       "breed": "Wiedergänger",
       "type": "leader",
       "unnatural": true,
@@ -16657,6 +17164,8 @@
     },
     {
       "name": "Rächer aus dem Grab",
+      "_id": "FsQ6F8nalnOvIKow",
+      "@rev": 1,
       "breed": "Wiedergänger",
       "type": "leader",
       "unnatural": true,

@@ -1,0 +1,43 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+
+
+  "type": "object",
+  "properties": {
+    "@content": {
+      "type": "object",
+      "patternProperties": {
+        "^@map$": {
+          "description": "Die Schlüsselwörter des Objekts werden in allen enthaltenen Elementen als Eigenschaft x verwendet.",
+          "type": "string"
+        },
+        "^.*$": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/regulation" }
+        }
+      }
+    }
+  },
+  "required": [ "@content" ],
+
+
+  "definitions": {
+    "regulation": {
+      "type": "object",
+      "properties": {
+        "name": { "$ref": "global-schema.json#/definitions/name" },
+        "_id": { "$ref": "global-schema.json#/definitions/_id" },
+        "@rev": { "$ref": "global-schema.json#/definitions/@rev" },
+        "description": { "$ref": "global-schema.json#/definitions/description" },
+        "abbr": {
+          "title": "Abkürzung",
+          "description": "Im Regelwerk verwendete Abkürzung.",
+          "type": "string"
+        },
+        "references": { "$ref": "global-schema.json#/definitions/references" }
+      },
+      "additionalProperties": false,
+      "required": [ "name", "_id", "@rev", "description", "references" ]
+    }
+  }
+}

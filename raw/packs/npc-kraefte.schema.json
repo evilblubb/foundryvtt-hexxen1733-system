@@ -24,13 +24,19 @@
     "nsc-power": {
       "type": "object",
       "properties": {
-        "name": { "type": "string" },
+        "name": { "$ref": "global-schema.json#/definitions/name" },
+        "_id": { "$ref": "global-schema.json#/definitions/_id" },
+        "@rev": { "$ref": "global-schema.json#/definitions/@rev" },
         "type": {
+          "title": "Typ der NSC-Kraft",
+          "description": "Entweder \"Eigenschaft\" oder \"Handlung\", wobei Handlung noch Zusätze hat.",
           "type": "string",
           "pattern": "^(Eigenschaft|Handlung, (freie Handlung|N|F|N\\|F|NN|NN\\|FF|NNN\\|FFF))(, Bande)?$"
         },
-        "description": { "type": "string" },
+        "description": { "$ref": "global-schema.json#/definitions/description" },
         "target": {
+          "title": "Ziel der NSC-Kraft",
+          "description": "TODO: Wird noch Einschränkungen erhalten.",
           "type": [ "string", "null" ],
           "_enum": [
             "",
@@ -49,17 +55,20 @@
           ]
         },
         "cost": {
+          "title": "Kosten der NSC-Kraft",
+          "description": "TODO: Wird noch Einschränkungen erhalten.",
           "type": [ "string", "null" ],
           "_pattern": "^(|keine|variabel|[0-9-]+( Hex)?( pro Ziel)?( pro Giftstufe)?( Lep)?)$"
         },
-        "syntax": { "type": "string" },
-        "references": {
-          "$comment": "TODO: noch zu definieren",
-          "type": "array"
-        }
+        "syntax": {
+          "title": "Syntax der NSC-Kraft",
+          "description": "Kurzschreibweise, wie sie beim NSC verwendet wird.",
+          "type": "string"
+        },
+        "references": { "$ref": "global-schema.json#/definitions/references" }
       },
       "additionalProperties": false,
-      "required": [ "name", "type", "description", "syntax", "references" ],
+      "required": [ "name", "_id", "@rev", "type", "description", "syntax", "references" ],
       "allOf": [
         { "$ref": "#/definitions/type-requirements"}
       ]

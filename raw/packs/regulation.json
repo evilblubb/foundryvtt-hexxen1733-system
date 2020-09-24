@@ -1,0 +1,45 @@
+{
+  "$schema": "./regulation.schema.json",
+  "@content": {
+    "@map": "category",
+    "Schadensform": [
+      {
+        "name": "Säureschaden",
+        "_id": "",
+        "@rev": 1,
+        "abbr": "Sä",
+        "description": "Ein Angriff, der Säureschaden verursacht, besteht meistens aus zwei Komponenten: dem normalen Aufschlag (z. B. eines Säuregeschosses) sowie der Säurewirkung. Der Aufprall verursacht zunächst den normalen Aufprallschaden, der wie üblich durch Panzerung reduziert wird. Erst danach tritt die Säurewirkung in Kraft, deren Stärke von einem Blutwürfel definiert wird. Die Zahl der gewürfelten Blutstropfensymbole reduziert den PW des Getroffenen dauerhaft. Sinkt der PW auf 0, so verursacht jedes Blutstropfensymbol stattdessen 3 Punkte Schmerzschaden. Der PW kann pro Kampf aber nur einmal durch Säure in Mitleidenschaft gezogen werden. Wird der PW beispielsweise bei einem Treffer durch ein Säuregeschoss um 2 reduziert, so kann er durch weitere Säuregeschosse nicht mehr reduziert werden. Trifft ein weiteres Säuregeschoss, werden die ausgewürfelten Blutstropfensymbole einfach durch den aktuellen PW reduziert; die restlichen Symbole verursachen je 3 Punkte Schmerzschaden.\nEtwas anders sieht es aus, wenn Säureschaden beispielsweise durch einen Zauber zustande kommt. Hier bestimmt in der Regel die Zahl der ausgewürfelten Erfolge, wie stark der PW reduziert wird. Ansonsten zählen Erfolge einfach wie Blutstropfensymbole und die oben beschriebenen Regeln treten in Kraft.\nAuch wenn eine Panzerung an Wirkung verliert, bleibt die Panzerklasse für Jäger dennoch erhalten. Eine schwere Panzerung bleibt eine schwere Panzerung, auch wenn sie keinen Schutz mehr bietet. Die Zahl der zur Verfügung stehenden AP ändert sich demnach nicht durch eine beschädigte Panzerung.\nÜber die Fertigkeit „Handwerken“ kann der Verlust von Panzerpunkten rückgängig gemacht werden. Säureschaden wird mit einem „Sä“ gekennzeichnet, z. B. Grundschaden 2 Sä oder Blutwürfel (Sä).",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/besschafo_saeureschaden.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "79"
+          }
+        ]
+      }
+    ],
+    "Schadenszusatz (erfolgsbasierend)": [
+      {
+        "name": "Blutheilung",
+        "_id": "",
+        "@rev": 1,
+        "description": "Durch die Erfolge des Angriffswurfs werden Lep des Angreifers geheilt. Dieser Schadenszusatz ist sehr häufig mit der Kennung „bei Lep-Verlust“ gekoppelt. Beispiel: „Vampirbiss, Angriff 8, Schaden 1 Sc +Blutheilung (je 1 bei Lep-Verlust)“, bedeutet: Bei 5 Erfolgen richtet der Angriff 6 Punkte Schmerzschaden an; verursacht er dadurch Lep-Verlust, regeneriert der Angreifer 5 Lep.",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/Hex_NSCKr%C3%A4fte.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "213"
+          }
+        ]
+      }
+    ],
+    "Schadenszusatz (nicht erfolgsbasierend)": [
+    ]
+  }
+}

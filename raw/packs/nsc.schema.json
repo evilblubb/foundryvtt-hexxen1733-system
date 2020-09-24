@@ -37,7 +37,9 @@
       "$comment": "Abstrakter Basistyp für Anführer und Bandenmitglieder.",
       "type": "object",
       "properties": {
-        "name": { "type": "string" },
+        "name": { "$ref": "global-schema.json#/definitions/name" },
+        "_id": { "$ref": "global-schema.json#/definitions/_id" },
+        "@rev": { "$ref": "global-schema.json#/definitions/@rev" },
         "breed": {
           "type": "string",
           "enum": [
@@ -162,35 +164,22 @@
         },
         "story": { "type": "array", "items": { "type": "string" } },
         "loot": {
+          "$comment": "TODO: noch zu definieren",
           "type": "object",
           "properties": {}
         },
-        "references": { 
-          "$comment": "TODO: noch zu definieren",
-          "type": "array" 
-        },
+        "references": { "$ref": "global-schema.json#/definitions/references" },
         "_@todo": { "$comment": "TODO: entfernen, wenn erledigt." },
         "_feature": { "$comment": "TODO: entfernen, wenn erledigt." }
       },
       "additionalProperties": false,
-      "required": [
-        "name",
-        "breed",
-        "type",
-        "unnatural",
-        "level",
-        "health",
-        "ini",
-        "attacks",
-        "powers",
-        "references"
-      ],
-      "allOf": [ 
+      "required": [ "name", "_id", "@rev", "breed", "type", "unnatural", "level", "health", "ini", "attacks", "powers", "references" ],
+      "allOf": [
         { "$ref": "#/definitions/leader-requirements"},
         { "$ref": "#/definitions/shape-implies-shapes"}
       ]
     },
-    
+
 
 
     "leader-requirements": {
