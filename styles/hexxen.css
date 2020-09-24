@@ -26,6 +26,7 @@ img#hexxen-logo {
   --hexxen-sheet-background-image: url("/systems/hexxen-1733/img/Hex_Pokerkarte_front_hell.png");
   --hexxen-sheet-background-blend-color: rgba(160, 125, 110, 0.7);
 
+  --hexxen-label-color: var(--hexxen-dark-color);
   --hexxen-hint-color: var(--hexxen-dark-color);
   --hexxen-alert-color: red;
   --hexxen-warning-bgcolor: yellow;

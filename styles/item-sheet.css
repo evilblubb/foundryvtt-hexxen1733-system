@@ -70,6 +70,7 @@
 .hexxen.sheet.rule .extras .label {
   min-width: 100px;
   white-space: nowrap;
+  color: var(--hexxen-label-color);
 }
 .hexxen.sheet.rule .extras .label i.fa-info-circle {
   color: #666;
