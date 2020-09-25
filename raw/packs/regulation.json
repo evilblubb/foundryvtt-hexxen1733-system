@@ -2,6 +2,24 @@
   "$schema": "./regulation.schema.json",
   "@content": {
     "@map": "category",
+    "Strategie": [
+      {
+        "name": "Tumb (N|F)",
+        "_id": "",
+        "@rev": 1,
+        "description": "Tumbe Nsc (darunter auch alle Bandengegner) sind kaum mehr als Kanonenfutter. Der Spielleiter zieht sie an einen Jäger (um ihn zu binden) und führt noch im selben Zug einen Nahkampfangriff durch. Agieren mehrere tumbe Nsc gleichzeitig, kann der Spielleiter den Kampfablauf beschleunigen, indem er zuerst alle Nsc an die Jäger zieht und danach alle Nahkampfangriffe würfelt. Bei der Bewegung ist darauf zu achten, dass die tumben Gegner nicht erst gemeinsam auf einen Jäger stürmen, sondern nacheinander. Wenn zum Beispiel acht tumbe Gegner auf Maria, Johann und Raphael zustürmen, sollte der HeXXenmeister per Zufall ermitteln, welcher Jäger als Erstes betroffen ist. Wird beispielsweise Maria ermittelt, so zieht der erste Gegner auf Maria, der zweite auf Johann, der dritte auf Raphael, der vierte wieder auf Maria usw. Werden Kräfte angewendet, die die Bewegung ändern (z. B. Johanns „Leibgarde“), so ändert das nichts am Ablauf. In diesem Fall könnte das so aussehen: Erster Gegner zieht auf Maria, wird aber von Johann auf sich gelenkt, zweiter Gegner zieht regulär an Johann, dritter Gegner zieht an Wilderich, vierter Gegner zieht an Maria, wird aber wiederum von Johann auf sich gelenkt etc.\nVerfügen die tumben Gegner über eine (F)-Handlung, so stürmen sie nicht auf die Jäger zu, sondern bleiben stehen und führen einen Distanzangriff aus. In diesem Fall werden sie ihre Angriffe gleichmäßig aufteilen. Kämpfen z. B. acht tumbe Nsc gegen vier Jäger, so attackieren je zwei Nsc einen Jäger.",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/strategien.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "212"
+          }
+        ]
+      }
+    ],
     "Schadensform": [
       {
         "name": "Säureschaden",
