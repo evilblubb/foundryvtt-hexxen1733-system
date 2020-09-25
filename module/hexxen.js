@@ -27,7 +27,7 @@ Hooks.once("init", async function() {
 
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("simple", SimpleItemSheet, { types: ["item"], makeDefault: true });
-  Items.registerSheet("hexxen", RuleItemSheet, { types: ["role", "profession", "motivation", "power", "npc-power"], makeDefault: true });
+  Items.registerSheet("hexxen", RuleItemSheet, { types: ["role", "profession", "motivation", "power", "regulation", "npc-power"], makeDefault: true });
 
   // Configure initiative for CombatTracker
 	CONFIG.Combat.initiative = {

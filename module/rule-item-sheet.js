@@ -88,6 +88,8 @@ class RuleItemSheet extends ItemSheet {
       type = "Meisterprofession";
     } else if ("npc-power" === type) {
       type = "NSC-Kraft";
+    } else if ("regulation" === type) {
+      type = "Regeltext";
     } else {
       type = type.capitalize();
     }

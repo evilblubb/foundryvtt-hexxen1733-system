@@ -94,8 +94,7 @@
                 {{/if}}
             </div>
 
-            {{#if (eq item.type "npc-power")}}
-            {{else}}
+            {{#if (isDefined data.summary)}}
             <header class="block-header">
                 Zusammenfassung für Charakterbogen
                 <i class="fas fa-info-circle" title="Ist eine Zusammenfassung vorhanden, so wird diese anstelle der Beschreibung im Charkterbogen angezeigt."></i>

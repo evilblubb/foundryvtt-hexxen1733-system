@@ -72,6 +72,14 @@
       "entity": "Item"
     },
     {
+      "name": "hexxen-regulation",
+      "label": "Regeltexte",
+      "system": "hexxen-1733",
+      "module": "hexxen-1733",
+      "path": "packs/regulation.db",
+      "entity": "Item"
+    },
+    {
       "name": "hexxen-npc-power",
       "label": "NSC-Kräfte",
       "system": "hexxen-1733",

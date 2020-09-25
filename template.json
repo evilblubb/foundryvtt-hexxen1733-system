@@ -607,19 +607,19 @@
   }
 },
 "Item": {
-  "types": ["item", "role", "profession", "motivation", "power", "npc-power"],
+  "types": ["item", "role", "profession", "motivation", "power", "regulation", "npc-power"],
   "templates": {
     "core": {
+      "name": null,
+      "description": "",
+      "summary": "",
       "references": [
         {
           "source": "",
           "link": "",
           "page": ""
         }
-      ],
-      "name": null,
-      "description": "",
-      "summary": ""
+      ]
     }
   },
   "item": {
@@ -659,6 +659,10 @@
     "features": null,
     "tags": [],
     "origin": {}
+  },
+  "regulation": {
+    "templates": [ "core" ],
+    "summary": null
   },
   "npc-power": {
     "templates": [ "core" ],
