@@ -23,6 +23,7 @@
     },
 
     "structure": {
+      "title": "Strukturebene",
       "$comment": "Die zulässigen/erforderlichen Strukturelemente. \"_id\" kann kein Strukturelement sein!",
       "type": "object",
       "patternProperties": {
@@ -30,34 +31,46 @@
         "^@target$": { "$ref": "global-schema.json#/definitions/@target" },
         "^(?!_id).*$": { "$ref": "#/definitions/content" }
       },
-      "anyOf": [
-        { "required": [ "@map" ] },
-        { "required": [ "@target" ] }
-      ]
+        "anyOf": [
+          { "required": [ "@map" ] },
+          { "required": [ "@target" ] }
+        ]
     },
 
     "default": {
-      "$ref": "#/definitions/regulation"
+      "$ref": "#/definitions/profession"
     },
 
-    "regulation": {
-      "title": "Regeltext",
-      "description": "Ein textueller Regelausschnitt, der nicht von spezifischeren Elementen behandelt wird.",
+    "profession": {
+      "title": "Profession eines SC",
       "type": "object",
       "properties": {
         "name": { "$ref": "global-schema.json#/definitions/name" },
         "_id": { "$ref": "global-schema.json#/definitions/_id" },
         "@rev": { "$ref": "global-schema.json#/definitions/@rev" },
         "description": { "$ref": "global-schema.json#/definitions/description" },
-        "abbr": {
-          "title": "Abkürzung",
-          "description": "Im Regelwerk verwendete Abkürzung.",
+        "summary": { "$ref": "global-schema.json#/definitions/summary", "$comment": "TODO: optional?" },
+        "qualification": {
+          "title": "Voraussetzung für die Profession",
+          "description": "Voraussetzung, um die Profession erlernen zu können. \nTODO: genauer Syntax noch ausstehend.",
           "type": "string"
         },
+        "type": {
+          "title": "Art der Profession",
+          "description": "(Optional) Handelt es sich um eine Meisterprofession? \nTODO: veraltet, durch \"masterprofession\": true ersetzen, sobald convert.js umgestellt",
+          "type": "string",
+          "const": "meisterprofession"
+        },
+        "masterprofession": {
+          "title": "Meisterprofession",
+          "description": "(Optional) true: Handelt es sich um eine Meisterprofession? false: Defaultwert, muss nicht gesetzt werden.",
+          "type": "boolean"
+        },
+        "_@todo": { "$comment": "TODO: nur temporär"},
         "references": { "$ref": "global-schema.json#/definitions/references" }
       },
       "additionalProperties": false,
-      "required": [ "name", "_id", "@rev", "description", "references" ]
+      "required": [ "name", "_id", "@rev", "description", "qualification", "references" ]
     }
   }
 }

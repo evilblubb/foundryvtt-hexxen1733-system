@@ -23,6 +23,7 @@
     },
 
     "structure": {
+      "title": "Strukturebene",
       "$comment": "Die zulässigen/erforderlichen Strukturelemente. \"_id\" kann kein Strukturelement sein!",
       "type": "object",
       "patternProperties": {
@@ -30,30 +31,27 @@
         "^@target$": { "$ref": "global-schema.json#/definitions/@target" },
         "^(?!_id).*$": { "$ref": "#/definitions/content" }
       },
-      "anyOf": [
-        { "required": [ "@map" ] },
-        { "required": [ "@target" ] }
-      ]
+        "anyOf": [
+          { "required": [ "@map" ] },
+          { "required": [ "@target" ] }
+        ]
     },
 
     "default": {
-      "$ref": "#/definitions/regulation"
+      "$ref": "#/definitions/role"
     },
 
-    "regulation": {
-      "title": "Regeltext",
-      "description": "Ein textueller Regelausschnitt, der nicht von spezifischeren Elementen behandelt wird.",
+    "role": {
+      "title": "Rolle eines SC",
       "type": "object",
       "properties": {
         "name": { "$ref": "global-schema.json#/definitions/name" },
         "_id": { "$ref": "global-schema.json#/definitions/_id" },
         "@rev": { "$ref": "global-schema.json#/definitions/@rev" },
         "description": { "$ref": "global-schema.json#/definitions/description" },
-        "abbr": {
-          "title": "Abkürzung",
-          "description": "Im Regelwerk verwendete Abkürzung.",
-          "type": "string"
-        },
+        "summary": { "$ref": "global-schema.json#/definitions/summary", "$comment": "TODO: optional?" },
+        "create": { "$ref": "global-schema.json#/definitions/create" },
+        "_@todo": { "$comment": "TODO: nur temporär"},
         "references": { "$ref": "global-schema.json#/definitions/references" }
       },
       "additionalProperties": false,

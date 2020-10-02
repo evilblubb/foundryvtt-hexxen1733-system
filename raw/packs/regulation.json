@@ -1,7 +1,7 @@
 {
   "$schema": "./regulation.schema.json",
   "@content": {
-    "@map": "category",
+    "@map": "type",
     "Strategie": [
       {
         "name": "Tumb (N|F)",

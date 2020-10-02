@@ -1,11 +1,14 @@
 {
+  "$schema": "./power.schema.json",
   "@source": {
     "link": "http://hexxen1733-regelwiki.de/index.php/HeX-Kr%C3%A4fte.html",
     "lastChecked": "2020-07-16T13-50-00+0200"
   },
-  "content": {
+  "@content": {
     "@target": "^(esprit|jaeger|ausbau)$",
+    "@map": "originType",
     "role": {
+      "@map": "origin",
       "alchemist": {
         "esprit": {
           "esprit1": {
@@ -1531,7 +1534,7 @@
             "references": [
               {
                 "source": "Wiki",
-                "link": ""
+                "link": "http://hexxen1733-regelwiki.de/index.php/ajk_hexenwerk_durchkreuzen.html"
               },
               {
                 "source": "Hexenjagd",
@@ -3180,6 +3183,7 @@
       }
     },
     "profession": {
+      "@map": "origin",
       "aristokrat": {
         "esprit": {
           "esprit1": {

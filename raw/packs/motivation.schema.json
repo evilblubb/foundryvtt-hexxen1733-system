@@ -37,23 +37,20 @@
     },
 
     "default": {
-      "$ref": "#/definitions/regulation"
+      "$ref": "#/definitions/motivation"
     },
 
-    "regulation": {
-      "title": "Regeltext",
-      "description": "Ein textueller Regelausschnitt, der nicht von spezifischeren Elementen behandelt wird.",
+    "motivation": {
+      "title": "Motivation eines SC",
       "type": "object",
       "properties": {
         "name": { "$ref": "global-schema.json#/definitions/name" },
         "_id": { "$ref": "global-schema.json#/definitions/_id" },
         "@rev": { "$ref": "global-schema.json#/definitions/@rev" },
         "description": { "$ref": "global-schema.json#/definitions/description" },
-        "abbr": {
-          "title": "Abkürzung",
-          "description": "Im Regelwerk verwendete Abkürzung.",
-          "type": "string"
-        },
+        "summary": { "$ref": "global-schema.json#/definitions/summary", "$comment": "TODO: optional?" },
+        "upkeep": { "$ref": "global-schema.json#/definitions/upkeep" },
+        "_@todo": { "$comment": "TODO: nur temporär"},
         "references": { "$ref": "global-schema.json#/definitions/references" }
       },
       "additionalProperties": false,

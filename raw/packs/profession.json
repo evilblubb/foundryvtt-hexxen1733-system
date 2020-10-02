@@ -1,4 +1,5 @@
 {
+  "$schema": "./profession.schema.json",
   "@source": {
     "link": [
       "http://hexxen1733-regelwiki.de/index.php/jgk_professionen.html",
@@ -6,7 +7,8 @@
     ],
     "lastChecked": "2020-07-16T13-50-00+0200"
   },
-  "content": {
+  "@content": {
+    "@map": null,
     "aristokrat": {
       "name": "Aristokrat",
       "_id": "ha0YIDhkyMjfyb7D",
@@ -462,7 +464,8 @@
       "@todo": "Beschreibung fehlt (auch im Wiki)",
       "qualification": "Rolle „Hexenfeind“ (Jägerkraft „Kreaturenwissen: Hexen“), Profession „Aristokrat“",
       "summary": "",
-      "type": "meisterprofession"
+      "type": "meisterprofession",
+      "masterprofession": true
     }
   }
 }

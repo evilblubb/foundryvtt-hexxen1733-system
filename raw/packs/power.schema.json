@@ -1,0 +1,96 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+
+
+  "allOf": [
+    { "$ref": "global-schema.json#/definitions/root" },
+    {
+      "properties": {
+        "@content": { "$ref": "#/definitions/content" }
+      }
+    }
+  ],
+
+
+  "definitions": {
+    "content": {
+      "$comment": "Die zulässigen Arten von Inhalt.",
+      "anyOf": [
+        { "$ref": "#/definitions/structure" },
+        { "$ref": "#/definitions/power-structure" },
+        { "$ref": "#/definitions/default" },
+        { "type": "array", "items": { "$ref": "#/definitions/default" } }
+      ]
+    },
+
+    "power-structure": {
+      "title": "Temporäre Strukturebene",
+      "description": "TODO: wird vermutlich geändert",
+      "type": "object",
+      "properties": {
+        "esprit": { "type": "object", "patternProperties": { "^esprit[123]$": { "$ref": "#/definitions/power"} }, "additionalProperties": false },
+        "jaeger": { "type": "object", "patternProperties": { "^jaeger[123]$": { "$ref": "#/definitions/power"} }, "additionalProperties": false },
+        "ausbau": { "type": "object", "patternProperties": { "^ausbau[123]$": { "$ref": "#/definitions/power"} }, "additionalProperties": false }
+      },
+      "additionalProperties": false
+    },
+
+    "structure": {
+      "title": "Strukturebene",
+      "$comment": "Die zulässigen/erforderlichen Strukturelemente. \"_id\" kann kein Strukturelement sein!",
+      "type": "object",
+      "patternProperties": {
+        "^@map$": { "$ref": "global-schema.json#/definitions/@map" },
+        "^@target$": { "$ref": "global-schema.json#/definitions/@target" },
+        "^(?!_id).*$": { "$ref": "#/definitions/content" }
+      },
+      "anyOf": [
+        { "required": [ "@map" ] },
+        { "required": [ "@target" ] }
+      ]
+    },
+
+    "default": {
+      "$ref": "#/definitions/power"
+    },
+
+    "power": {
+      "title": "Jägerkraft eines SC",
+      "type": "object",
+      "properties": {
+        "name": { "$ref": "global-schema.json#/definitions/name" },
+        "_id": { "$ref": "global-schema.json#/definitions/_id" },
+        "@rev": { "$ref": "global-schema.json#/definitions/@rev" },
+        "description": { "$ref": "global-schema.json#/definitions/description" },
+        "upkeep": { "$ref": "global-schema.json#/definitions/upkeep" },
+        "create": { "$ref": "global-schema.json#/definitions/create" },
+        "tags": { "$ref": "global-schema.json#/definitions/tags" },
+        "stammeffekt": { "$ref": "#/definitions/effect" },
+        "geselle": { "type": "object", "patternProperties": { "^geselle[123]$": { "$ref": "#/definitions/effect"} }, "additionalProperties": false },
+        "meister": { "type": "object", "patternProperties": { "^meister[123]$": { "$ref": "#/definitions/effect"} }, "additionalProperties": false },
+        "experte": { "type": "object", "patternProperties": { "^experte[123]$": { "$ref": "#/definitions/effect"} }, "additionalProperties": false },
+        "summary": { "$ref": "global-schema.json#/definitions/summary", "$comment": "TODO: optional?" },
+        "_@todo": { "$comment": "TODO: nur temporär"},
+        "references": { "$ref": "global-schema.json#/definitions/references" }
+      },
+      "additionalProperties": false,
+      "required": [ "name", "_id", "@rev", "description", "references" ]
+    },
+
+    "effect": {
+      "title": "Effekt einer Ausbaukraft",
+      "type": "object",
+      "properties": {
+        "name": { "$ref": "global-schema.json#/definitions/name" },
+        "_id": { "$ref": "global-schema.json#/definitions/_id" },
+        "@rev": { "$ref": "global-schema.json#/definitions/@rev" },
+        "description": { "$ref": "global-schema.json#/definitions/description" },
+        "upkeep": { "$ref": "global-schema.json#/definitions/upkeep" },
+        "create": { "$ref": "global-schema.json#/definitions/create" },
+        "tags": { "$ref": "global-schema.json#/definitions/tags" }
+      },
+      "additionalProperties": false,
+      "required": [ "name", "_id", "@rev", "description" ]
+    }
+  }
+}

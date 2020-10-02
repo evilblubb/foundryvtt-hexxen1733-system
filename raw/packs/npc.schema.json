@@ -2,45 +2,77 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
 
 
-  "type": "object",
-  "properties": {
-    "@content": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/npc"
+  "allOf": [
+    { "$ref": "global-schema.json#/definitions/root" },
+    {
+      "properties": {
+        "@content": { "$ref": "#/definitions/content" }
       }
     }
-  },
-  "required": [ "@content" ],
+  ],
 
 
   "definitions": {
+    "content": {
+      "$comment": "Die zulässigen Arten von Inhalt.",
+      "anyOf": [
+        { "$ref": "#/definitions/structure" },
+        { "$ref": "#/definitions/default" },
+        { "type": "array", "items": { "$ref": "#/definitions/default" } }
+      ]
+    },
+
+    "structure": {
+      "$comment": "Die zulässigen/erforderlichen Strukturelemente. \"_id\" kann kein Strukturelement sein!",
+      "type": "object",
+      "patternProperties": {
+        "^@map$": { "$ref": "global-schema.json#/definitions/@map" },
+        "^@target$": { "$ref": "global-schema.json#/definitions/@target" },
+        "^(?!_id).*$": { "$ref": "#/definitions/content" }
+      },
+      "anyOf": [
+        { "required": [ "@map" ] },
+        { "required": [ "@target" ] }
+      ]
+    },
+
+    "default": {
+      "$ref": "#/definitions/npc"
+    },
+
     "attribute": {
       "$comment": "TODO: Wertebereich einschränken",
       "type": "integer",
       "minimum": 0,
       "maximum": 30
     },
+    "note": {
+      "title": "Hinweis zum NSC (allgemein), der Gesundheit, dem Panzerwert, einem Angriff, einer NSC-Kraft, einem Umgebungseffekt oder zur Beute",
+      "description": "(Optional) Hier werden regeltechnische Hinweise hinterlegt. Ein Hinweis kann dem NSC auf Hauptebene zugewiesen werden, falls es sich um einen allgemeinen Hinweis zum NSC handelt. Oder aber er kann der Gesundheit, dem Panzerwert, einem Angriff, einer NSC-Kraft, einem Umgebungseffekt oder der Beute zugewiesen werden, sofern er sich nur auf diese Eigenschaft bezieht. Die Angabe mehrerer Hinweise bei unterschiedlichen Eigenschaften ist möglich.",
+      "type": "string"
+    },
     "shape": {
       "title": "Form des Wandler",
-      "description": "Kann in attacks und powers als Voraussetzung verwendet werden, setzt shapes voraus!",
+      "description": "(Optional) Kann in 'attacks' und 'powers' als Voraussetzung verwendet werden, setzt 'shapes' mit passenden Werten voraus! Ist kein 'shape' angegeben, so wird der Angriff / die Kraft als nicht eingeschränkt angesehen und steht in allen Formen zur Verfügung.",
       "type": "string"
     },
     "area": {
       "title": "Umgebung",
-      "description": "Kann in attacks und powers als Voraussetzung verwendet werden!",
+      "description": "(Optional) Kann in 'attacks' und 'powers' als Voraussetzung verwendet werden! Ist kein 'area' angegeben, so wird der Angriff / die Kraft als nicht eingeschränkt angesehen und steht an allen Orten zur Verfügung.",
       "type": "string"
     },
 
     "npc": {
-      "$id": "#npc",
-      "$comment": "Abstrakter Basistyp für Anführer und Bandenmitglieder.",
+      "title": "NSC Werte",
+      "description": "Werte und Kräfte eines NSC.",
       "type": "object",
       "properties": {
         "name": { "$ref": "global-schema.json#/definitions/name" },
         "_id": { "$ref": "global-schema.json#/definitions/_id" },
         "@rev": { "$ref": "global-schema.json#/definitions/@rev" },
         "breed": {
+          "title": "Kategorie",
+          "description": "Eine Kategorie, der der NSC zugeordnet ist. Muss einen Wert aus der Aufzählung haben.",
           "type": "string",
           "enum": [
             "Alben",
@@ -58,18 +90,45 @@
             "Wiedergänger"
           ]
         },
-        "type": { "type": "string", "enum": [ "mob", "leader" ] },
-        "unnatural": { "type": "boolean" },
-        "level": { "type": "integer", "minimum": 0, "maximum": 4 },
-        "note": { "type": "string" },
+        "type": {
+          "title": "Art des NSC",
+          "description": "Anführer (\"leader\") oder Bandengegner (\"mob\"). Hier wird nicht der Anzeigename verwendet, da sich auch programmtechnisch auf diesen Wert bezogen wird.",
+          "type": "string",
+          "enum": [
+            "mob",
+            "leader"
+          ]
+        },
+        "unnatural": {
+          "title": "Widernatürlich",
+          "description": "true/false; handelt es sich um eine widernatürliche Kreatur?",
+          "type": "boolean"
+        },
+        "level": {
+          "title": "Level",
+          "description": "Level (Anführer-/Bandenstufe) des NSC.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "note": { "$ref": "#/definitions/note" },
         "health": {
+          "title": "Gesundheit des NSC",
+          "description": "Die Gesundheit des NSC, entweder als 'value' (fester Wert) oder 'formula' (variabler Wert) angegeben. Kann 'note' enthalten, um Zusatzinformationen zu hinterlegen.",
           "type": "object",
-          "description": "Entweder 'value' oder 'formula'.",
-          "$comment": "TODO: Kürzel festlegen",
           "properties": {
-            "value": { "type": "integer" },
-            "formula": { "type": "string", "pattern": "^(Jz|JZ|LM)\\*[0-9]+$" },
-            "note":  { "type": "string" }
+            "value": {
+              "title": "Fester Gesundheitswert",
+              "type": "integer",
+              "minimum": 1
+            },
+            "formula": {
+              "title": "Variabler Gesundheitswert",
+              "description": "In formula kann \"Jz\" oder \"Lm\" verwendet werden, um festzulegen, wovon die Formel abhängt. \nTODO: Weitere Kürzel? Schreibweise der Kürzel? Formeln mit z.B. (Jz+1)*x.",
+              "type": "string",
+              "pattern": "^(Jz|JZ|Lm|LM)\\*[0-9]+$"
+            },
+            "note": { "$ref": "#/definitions/note" }
           },
           "additionalProperties": false,
           "dependencies": {
@@ -78,6 +137,8 @@
           }
         },
         "attributes": {
+          "title": "Liste der Attribute des NSC",
+          "description": "(Nur bei Anführern erforderlich.) Es müssen die Attribute 'SIN', 'WIS', 'WIL', 'KKR', 'ATH' und 'GES' angegeben werden.",
           "type": "object",
           "properties": {
             "SIN": { "$ref": "#/definitions/attribute" },
@@ -90,18 +151,36 @@
           "additionalProperties": false,
           "required": [ "SIN", "WIS", "WIL", "KKR", "ATH", "GES" ]
         },
-        "ini": { "type": "integer", "minimum": 0, "maximum": 20 },
+        "ini": {
+          "title": "Initiative des NSC",
+          "description": "Die Initiative des NSC.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 20
+        },
         "pw": {
+          "title": "Panzerung des NSC",
+          "description": "(Nur bei Anführern erforderlich.) Kann 'note' enthalten, um Zusatzinformationen zu hinterlegen.",
           "type": "object",
           "properties": {
-            "value": { "type": "integer", "minimum": 0, "maximum": 10 },
-            "type": { "type": "string" },
-            "note":  { "type": "string" }
+            "value": {
+              "title": "Wert der Panzerung",
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10
+            },
+            "type": {
+              "title": "Beschreibung der Panzerung",
+              "type": "string"
+            },
+            "note": { "$ref": "#/definitions/note" }
           },
           "additionalProperties": false,
           "required": [ "value", "type" ]
         },
         "strategy": {
+          "title": "Angriffsstrategie",
+          "description": "(Nur bei Anführern erforderlich.) Sollte (muß?) in regulation.json beschreiben sein. Ist die Art der Angriffe vorgeschrieben, so ist dies z.B. als \"N1N2\" zu kennzeichnen.",
           "type": "string",
           "pattern": ".* \\([N|F123]+\\)",
           "$comment": "TODO: besser einschränken"
@@ -109,7 +188,7 @@
         "shapes": {
           "type": "array",
           "title": "Formen eines Wandlers",
-          "description": "Die erste Form ist die Standardform.",
+          "description": "(Nur bei NSC mit mehreren Formen erforderlich.) Die erste Form wird als Standardform angenommen. Hier hinterlegte Formen können verwendet werden, um einzelne Angriffe bzw. Kräfte von der Form abhängig zu machen.",
           "items": {
             "$ref": "#/definitions/shape"
           },
@@ -117,31 +196,54 @@
           "minItems": 2
         },
         "attacks": {
+          "title": "Liste der Angriffe des NSC",
           "type": "array",
           "items": {
+            "title": "Angriff des NSC",
             "type": "object",
             "properties": {
-              "name": { "type": "string" },
-              "note": { "type": "string" },
+              "name": {
+                "title": "Name des Angriffs",
+                "type": "string"
+              },
+              "note": { "$ref": "#/definitions/note" },
               "area": { "$ref": "#/definitions/area" },
               "shape": { "$ref": "#/definitions/shape" },
-              "raw": { "type": "string", "$comment": "TODO: nur temporär?" }
+              "raw": {
+                "title": "Beschreibung des Angriffs",
+                "description": "Muss der Form \"N|F: (Angriff|Erfolge) (Wert), Schaden (Wert) (+Schadenszusatz, optional)\" entsprechen. Sind die Angriffe vorgegeben, so ist dies via \"Nx\" zu kennzeichnen (z.B. \"N1: ...\"). Sind Schadenszusätze angegeben, so müssen diese entweder auf Kräfte verweisen oder in regulation.json beschrieben sein. \nTODO: \"kein Schaden\" wird noch nicht erkannt, Schadenszusätze noch festzulegen",
+                "type": "string",
+                "pattern": "^([N|F123]+): +(Angriff|Erfolge) ([0-9]+), ?Schaden (\\+?[0-9*]+)(?: ?(.*))?$",
+                "$comment": "TODO: nur temporär?"
+              },
+              "_@todo": { "type": "string", "$comment": "TODO: temporär"}
             },
             "additionalProperties": false,
             "required": [ "name", "raw" ]
           }
         },
         "powers": {
+          "title": "Liste der Kräfte des NSC",
           "type": "array",
           "items": {
+            "title": "Kraft des NSC",
             "type": "object",
             "properties": {
-              "name": { "type": "string" },
+              "name": {
+                "title": "Name der Kraft",
+                "description": "Sollte (muß?) in npc-power.json beschrieben sein.",
+                "type": "string"
+              },
               "target": { "type": "string" },
-              "note": { "type": "string" },
+              "note": { "$ref": "#/definitions/note" },
               "area": { "$ref": "#/definitions/area" },
               "shape": { "$ref": "#/definitions/shape" },
-              "raw": { "type": "string", "$comment": "TODO: nur temporär?" },
+              "raw": {
+                "title": "Wirkung der Kraft",
+                "description": "Explizite Beschreibung basierend auf dem Syntax der Kraft.",
+                "type": "string",
+                "$comment": "TODO: nur temporär?"
+              },
               "_@todo": { "type": "string", "$comment": "TODO: temporär"}
             },
             "additionalProperties": false,
@@ -149,24 +251,53 @@
           }
         },
         "environment-effect": {
+          "title": "Liste der Umgebungseffekte",
+          "description": "(Optional) Umgebungseffekte, die einen Kampf dauerhaft beeinflussen.",
           "type": "array",
           "items": {
+            "title": "Umgebungseffekt. Muss 'name' und 'raw' enthalten. 'raw' enthält vorerst die Beschreibung des Umgebungseffekts. Kann 'note' enthalten, um Zusatzinformationen zum Umgebungseffekt zu hinterlegen.",
             "type": "object",
             "properties": {
-              "name": { "type": "string" },
-              "optional": { "type": "boolean" },
-              "note": { "type": "string" },
-              "raw": { "type": "string" }
+              "name": {
+                "title": "Name des Umgebungseffekts",
+                "type": "string"
+              },
+              "optional": {
+                "title": "Optionaler Umgebungseffekt.",
+                "description": "(Optional) true: Umgebungseffekt muss nicht zwingend angewandt werden. \"optional\": false muss nicht angegeben werden, da dies als Default angenommen wird.",
+                "type": "boolean"
+              },
+              "note": { "$ref": "#/definitions/note" },
+              "raw": {
+                "title": "Beschreibung des Umgebungseffekts. \nTODO: kann noch geändert und weitere Eigenschaften ergänzt werden, sofern das sinnvoll ist.",
+                "type": "string"
+              }
             },
             "additionalProperties": false,
             "required": [ "name", "raw" ]
           }
         },
-        "story": { "type": "array", "items": { "type": "string" } },
+        "story": {
+          "title": "Liste der Erzählkräfte",
+          "description": "(Optional)",
+          "type": "array",
+          "items": {
+            "title": "Erzählkraft",
+            "type": "string"
+          }
+        },
         "loot": {
-          "$comment": "TODO: noch zu definieren",
+          "title": "Beute",
+          "description": "(Optional) Beute, die beim NSC gefunden werden kann. \nTODO: Genaue Ausgestaltung noch zu definieren.",
           "type": "object",
-          "properties": {}
+          "properties": {
+            "raw": {
+              "title": "Beschreibung der Beute",
+              "type": "string"
+            },
+            "note": { "$ref": "#/definitions/note" }
+          },
+          "$comment": "TODO: noch zu definieren"
         },
         "references": { "$ref": "global-schema.json#/definitions/references" },
         "_@todo": { "$comment": "TODO: entfernen, wenn erledigt." },

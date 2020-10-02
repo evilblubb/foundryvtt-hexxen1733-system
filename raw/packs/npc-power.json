@@ -2,7 +2,9 @@
   "$schema": "./npc-power.schema.json",
   "@content": {
     "@target": "^(.*)$",
+    "@map": "type",
     "allgemein": {
+      "@map": null,
       "aasfresser": {
         "name": "Aasfresser",
         "_id": "vHECF0xMaPrAH2eI",
@@ -2071,6 +2073,7 @@
       }
     },
     "speziell-albe": {
+      "@map": null,
       "absetzen": {
         "name": "Absetzen",
         "_id": "sk5R1Fg3eWM69ZKD",
@@ -2255,6 +2258,7 @@
       }
     },
     "speziell-daemon": {
+      "@map": null,
       "daemonenkoerper": {
         "name": "Dämonenkörper",
         "_id": "hwshE05Lx4QzXaQE",
@@ -2351,6 +2355,7 @@
       }
     },
     "speziell-hexen": {
+      "@map": null,
       "beruehrung-des-eises": {
         "name": "Berührung des Eises",
         "_id": "srf3L729ozbVUgw0",
@@ -2951,6 +2956,7 @@
       }
     },
     "speziell-schwarzmagier": {
+      "@map": null,
       "daemonologie": {
         "name": "Dämonologie",
         "_id": "rGQ2IPG7zfeOilkg",
@@ -3029,6 +3035,7 @@
       }
     },
     "speziell-vampiere": {
+      "@map": null,
       "staub-zu-staub": {
         "name": "Staub zu Staub",
         "_id": "OowWGYhNwwB3gcZn",
@@ -3146,6 +3153,7 @@
       }
     },
     "speziell-wandler": {
+      "@map": null,
       "kampfwut": {
         "name": "Kampfwut",
         "_id": "Q4YMLy0BbeLAcNQ9",
@@ -3204,6 +3212,7 @@
       }
     },
     "speziell-wiedergaenger": {
+      "@map": null,
       "absetzten": {
         "name": "Absetzen",
         "_id": "2JHOnxAMHKxss1TU",
@@ -3454,6 +3463,7 @@
       }
     },
     "typisch-unhold": {
+      "@map": null,
       "bandenwiderstand": {
         "name": "Bandenwiderstand",
         "_id": "8nG8ABCwP9SCmkXr",

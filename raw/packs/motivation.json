@@ -1,9 +1,11 @@
 {
+  "$schema": "./motivation.schema.json",
   "@source": {
     "link": "http://hexxen1733-regelwiki.de/index.php/Hex_Motivationen.html",
     "lastChecked": "2020-07-16T13-50-00+0200"
   },
-  "content": {
+  "@content": {
+    "@map": null,
     "abtruenning": {
       "name": "Abtrünnig",
       "_id": "n9gQLaXZHBacItWB",

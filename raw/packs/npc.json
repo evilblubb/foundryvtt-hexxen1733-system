@@ -1721,10 +1721,6 @@
       },
       "strategy": "Tumb (N|F)",
       "attacks": [
-        {
-          "name": "Keine",
-          "raw": ""
-        }
       ],
       "powers": [
         {

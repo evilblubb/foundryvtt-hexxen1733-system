@@ -2,11 +2,45 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
 
   "definitions": {
+    "root": {
+      "type": "object",
+      "properties": {
+        "$schema": {
+          "title": "Schema-Datei",
+          "type": "string"
+        },
+        "@source": {
+          "title": "Metaangaben zur Quelle der Einträge"
+        },
+        "@template": {
+          "title": "Metainformationen für die Verarbeitung der Einträge",
+          "description": "Voraussichtlich aufgrund der JSON-Schemata hinfällig."
+        },
+        "@content": {
+          "title": "Inhalt"
+        }
+      },
+      "additionalProperties": false,
+      "required": [ "@content" ]
+    },
+
+    "@map": {
+      "description": "Die Schlüsselwörter dieser Ebene werden in allen enthaltenen Elementen als Eigenschaft 'x' eingefügt, wobei x der Wert von '@map' ist.\nIst der Wert null (null-Objekt), so wird die Ebene ignoriert.",
+      "type": [ "string", "null" ]
+    },
+
+    "@target": {
+      "description": "Ein regulärer Ausdruck, der Schlüsselwörter beschreibt, welche Zielelemente enthalten. Hierbei wird auch rekursiv nach den Schlüsselwörtern gesucht.",
+      "type": "string"
+    },
+
+
     "name": {
       "title": "Name des Compendium-Eintrags",
       "description": "Sollte üblicherweise eindeutig (unique) sein.",
       "type": "string"
     },
+
     "_id": {
       "title": "Compendium-interne ID des Eintrags",
       "description": "Wird bei der ersten Erstellung generiert und hinterlegt. Bitte nicht händisch erstellen! Nur \"\" eintragen.",
@@ -15,6 +49,7 @@
       "$comment": "Leerer String nur für Eingabe zulässig.",
       "pattern": "(^$|^[0-9a-zA-Z]{16}$)"
     },
+
     "@rev": {
       "title": "Compendium-interne Revisionsnummer des Eintrags",
       "description": "Wird bei der Compendium Erstellung (im Falle von Änderungen am Eintrag) automatisch hochgezählt. Bitte nicht händisch ändern!",
@@ -22,14 +57,41 @@
       "default": 1,
       "minimum": 1
     },
+
     "description": {
       "title": "Beschreibungstext des Eintrags",
       "description": "Die allgemeine Beschreibung des Eintrags. Für Zeilenumbrüche/Absätze \\n einfügen.",
       "type": "string"
     },
+
+    "summary": {
+      "title": "Zusammenfassung des Eintrags",
+      "description": "Die Nutzung der Zusammenfassung ist primär dem Spieler vorbehalten. Die Zusammenfassung (sofern vorhanden und kein leerer String) wird im Charakterbogen als Ersatz für die Beschreibung verwendet. Für Zeilenumbrüche/Absätze \\n einfügen.",
+      "type": "string"
+    },
+
+    "tags": {
+      "title": "Kennzeichnungen des Eintrags",
+      "description": "(Optional) z.B. Gestik, Sprache, Idee, Coup, Bande, etc. \nTODO: tbd.",
+      "type": "array",
+      "items": { "type": "string" }
+    },
+
+    "upkeep": {
+      "title": "Unterhaltskosten des Eintrags",
+      "description": "(Optinal) Etwaige Unterhaltskosten, die mit dem Eintrag verbunden sind. Sofern nicht anders angegeben, wird angenommen, dass der Betrag in Gulden zu entrichten ist.",
+      "type": "string"
+    },
+
+    "create": {
+      "title": "Startausrüstung",
+      "description": "(Optinal) Definiert, dass mit dem Element das durch diesen Eintrag beschrieben wird, der Erhalt von Startausrüstung verknüpft ist. Dies ist bei Rollen und Jägerkraften möglich. Werden die beschriebenen Elemente in eckigen Klammern geschrieben, so können dadurch Verknüpfungen zu Gegenständen aus den Compendien realisiert werden. \nTODO: Genauer beschreiben.",
+      "type": "string"
+    },
+
     "references": {
       "title": "Quellennachweis/-verweis",
-      "description": "Der Eintrag muss mindestens einen Verweis auf das Regelwiki (\"source\": \"Wiki\", \"link\": \"...\") UND einen Verweis auf eine Publikation (\"source\": \"...\", \"page\": \"...\") enthalten! Ein Verweis darf nicht gleichzeitig \"link\": \"...\" und \"page\": \"...\" enthalten! Mehrere Verweise sind zulässig/möglich.",
+      "description": "Der Eintrag muss mindestens einen Verweis auf das Regelwiki ('source': \"Wiki\", 'link': \"...\") UND einen Verweis auf eine Publikation ('source': \"...\", 'page': \"...\") enthalten! Ein Verweis darf nicht gleichzeitig 'link': \"...\" und 'page': \"...\" enthalten! Mehrere Verweise sind zulässig/möglich.",
       "type": "array",
       "items": {
         "type": "object",

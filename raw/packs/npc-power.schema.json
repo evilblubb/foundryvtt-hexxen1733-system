@@ -2,26 +2,47 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
 
 
-  "type": "object",
-  "properties": {
-    "@content": {
-      "type": "object",
-      "patternProperties": {
-        "^@target$": { "type": "string" },
-        "^.*$": {
-          "type": "object",
-          "patternProperties": {
-            "^.*$": { "$ref": "#/definitions/nsc-power" }
-          }
-        }
+  "allOf": [
+    { "$ref": "global-schema.json#/definitions/root" },
+    {
+      "properties": {
+        "@content": { "$ref": "#/definitions/content" }
       }
     }
-  },
-  "required": [ "@content" ],
+  ],
 
 
   "definitions": {
-    "nsc-power": {
+    "content": {
+      "$comment": "Die zulässigen Arten von Inhalt.",
+      "anyOf": [
+        { "$ref": "#/definitions/structure" },
+        { "$ref": "#/definitions/default" },
+        { "type": "array", "items": { "$ref": "#/definitions/default" } }
+      ]
+    },
+
+    "structure": {
+      "$comment": "Die zulässigen/erforderlichen Strukturelemente. \"_id\" kann kein Strukturelement sein!",
+      "type": "object",
+      "patternProperties": {
+        "^@map$": { "$ref": "global-schema.json#/definitions/@map" },
+        "^@target$": { "$ref": "global-schema.json#/definitions/@target" },
+        "^(?!_id).*$": { "$ref": "#/definitions/content" }
+      },
+      "anyOf": [
+        { "required": [ "@map" ] },
+        { "required": [ "@target" ] }
+      ]
+    },
+
+    "default": {
+      "$ref": "#/definitions/npc-power"
+    },
+
+    "npc-power": {
+      "title": "NSC-Kraft",
+      "description": "Regeltechnische Beschreibung einer NSC-Kraft.",
       "type": "object",
       "properties": {
         "name": { "$ref": "global-schema.json#/definitions/name" },
@@ -36,7 +57,7 @@
         "description": { "$ref": "global-schema.json#/definitions/description" },
         "target": {
           "title": "Ziel der NSC-Kraft",
-          "description": "TODO: Wird noch Einschränkungen erhalten.",
+          "description": "(Nur für Handlungen) Ein String oder null (null-Objekt). \nTODO: Wird noch Einschränkungen erhalten.",
           "type": [ "string", "null" ],
           "_enum": [
             "",
@@ -56,7 +77,7 @@
         },
         "cost": {
           "title": "Kosten der NSC-Kraft",
-          "description": "TODO: Wird noch Einschränkungen erhalten.",
+          "description": "(Nur für Handlungen) Ein String oder null (null-Objekt). \nTODO: Wird noch Einschränkungen erhalten.",
           "type": [ "string", "null" ],
           "_pattern": "^(|keine|variabel|[0-9-]+( Hex)?( pro Ziel)?( pro Giftstufe)?( Lep)?)$"
         },

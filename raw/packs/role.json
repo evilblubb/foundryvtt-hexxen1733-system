@@ -1,9 +1,11 @@
 {
+  "$schema": "./role.schema.json",
   "@source": {
     "link": "http://hexxen1733-regelwiki.de/index.php/jgk_rollen.html",
     "lastChecked": "2020-07-16T13-50-00+0200"
   },
-  "content": {
+  "@content": {
+    "@map": null,
     "alchemist": {
       "name": "Alchemist",
       "_id": "xYgBWaVGK7e4hj66",
@@ -216,6 +218,10 @@
         {
           "source": "Wiki",
           "link": "http://hexxen1733-regelwiki.de/index.php/Rolle_Priester.html"
+        },
+        {
+          "source": "[!fehlt]",
+          "page": "[!fehlt]"
         }
       ],
       "description": "[!Beschreibung fehlt im Wiki]",
@@ -231,6 +237,10 @@
         {
           "source": "Wiki",
           "link": "hhttp://hexxen1733-regelwiki.de/index.php/Rolle_Stratege.html"
+        },
+        {
+          "source": "[!fehlt]",
+          "page": "[!fehlt]"
         }
       ],
       "description": "[!Beschreibung fehlt im Wiki]",
