@@ -6,6 +6,7 @@
  */
 
 const fs = require('fs');
+const checkItems = require('./build/validate.js');
 
 const vttSystemName = "hexxen-1733";
 const packPrefix = "hexxen";
@@ -15,6 +16,7 @@ const HEXXEN_AUSBAU_ICON = `systems/${vttSystemName}/img/Siegel-Ausbaukraft-smal
 const HEXXEN_DEFAULT_ICON = HEXXEN_JAEGER_ICON;
 const input = {};
 const output = {};
+exports.input = input;
 
 const filesIn = {
   "motivation": "motivation.json",
@@ -29,11 +31,16 @@ const filesOut = {
   "profession": "profession.db"
 };
 
+let dryRun = false;
 let error = false;
 
 const _sym = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
 const _len = 16;
 const generatedIDs = [];
+exports._sym = _sym;
+exports._len = _len;
+exports.generatedIDs = generatedIDs;
+
 
 function getPackName(type) {
   return `${vttSystemName}.${packPrefix}-${type}`;
@@ -88,153 +95,9 @@ function walk(type, data, path, regEx, checkFn, extras) {
   });
 }
 
-function checkItem(type, item, path, checks) {
-  checks.ids = (checks.ids || 0) + checkIDs(item, path);
-  checks.sources = (checks.sources || 0) + checkSources(item, path);
-  checks.todo = (checks.todo || 0) + checkTodo(item, path);
-  checks.refs = (checks.refs || 0) + checkRefs(item, path);
-  checks.tags = (checks.tags || 0) + checkTags(item, path);
-  // TODO: weitere Prüfungen auf Vollständigkeit
-}
 
-function checkIDs(data, path="") {
-  let count = 0;
 
-  for (const key in data) {
-    if (data.hasOwnProperty(key)) {
-      const value = data[key];
-      if (value.hasOwnProperty("_id")) {
-        const id = value._id;
-        if (!id.match(`^[${_sym}]{${_len}}$`)) {
-          delete value._id;
-          count++;
-          console.warn(`  @_ID:${path}/${key}: Invalid id found! Will be randomly created!`);
-        } else if (generatedIDs.includes(id)){
-          delete value._id;
-          count++;
-          console.warn(`  @_ID:${path}/${key}: Duplicate id found! Will be randomly created!`);
-        } else {
-          generatedIDs.push(id);
-        }
-      } else {
-        count++;
-        console.warn(`  @_ID:${path}/${key}: No id found! Will be randomly created!`);
-      }
-      // Sonderfall: _ids von Ausbaukraft-Features
-      if (path.match(/ausbau$/)) {
-        const featureKeys = [ "stammeffekt", "geselle", "experte", "meister" ];
-        featureKeys.forEach(fKey => {
-          if ("stammeffekt" === fKey) {
-            count += checkIDs({ "stammeffekt": value.stammeffekt }, `${path}/${key}`);
-          } else {
-            count += checkIDs(value[fKey], `${path}/${key}/${fKey}`);
-          }
-        });
-      }
-    }
-  }
-  return count;
-}
 
-function checkSources(data, path="") {
-  let count = 0;
-
-  for (const key in data) {
-    if (data.hasOwnProperty(key)) {
-      const value = data[key];
-      const sources = value.references;
-      if (!sources || sources.length == 0) {
-        count++;
-        console.warn(`  @SOURCE:${path}/${key}: No source references found!`);
-      }
-      else {
-        const filtered = sources.filter(source => "Wiki" === source.source);
-        if (filtered.length == 0) {
-          count++;
-          console.error(`  @SOURCE:${path}/${key}: No "Scriptorium Wiki" references found!`);
-        }
-        else if (sources.length - filtered.length == 0) {
-          count++;
-          console.warn(`  @SOURCE:${path}/${key}: No book or other source references found!`);
-        }
-      }
-    }
-  }
-  return count;
-}
-
-function checkTodo(data, path="") {
-  let count = 0;
-  if (data.hasOwnProperty("@todo")) {
-    count++;
-    console.info(`  @TODO\:${path}: ${data["@todo"]}`);
-  }
-  for (const key in data) {
-    if ("@todo" !== key && data.hasOwnProperty(key)) {
-      const value = data[key];
-      if (typeof(value) === "object") {
-        count += checkTodo(value, `${path}/${key}`);
-      }
-    }
-  }
-  return count;
-}
-
-function checkRefs(data, path="") {
-  let count = 0;
-  for (const key in data) {
-    if (data.hasOwnProperty(key)) {
-      const value = data[key];
-      if (typeof(value) === "object") {
-        count += checkRefs(value, `${path}/${key}`);
-      } else if (typeof(value) === "string") {
-        count += _findRefs(value, `${path}/${key}`);
-      }
-    }
-  }
-  return count;
-}
-
-function _findRefs(data, path="") {
-  if (!data || typeof(data) !== "string") return 0;
-  const regEx = /\[(.*?)\]/g;
-  const iterator = data.matchAll(regEx);
-  const matches = [];
-  for (const match of iterator) {
-    matches.push(match[1]);
-  }
-  if (matches && matches.length) {
-    console.info(`  @REF:${path}: ${matches}`);
-    return matches.length;
-  }
-  return 0;
-}
-
-function checkTags(data, path="") {
-  let count = 0;
-  for (const key in data) {
-    if (data.hasOwnProperty(key)) {
-      const value = data[key];
-      if (value.hasOwnProperty("tags")) {
-        count++;
-        console.info(`  @TAG\:${path}/${key}: ${value.tags}`);
-      }
-
-      // Sonderfall: Ausbaukraft-Features
-      if (path.match(/ausbau$/)) {
-        const featureKeys = [ "stammeffekt", "geselle", "experte", "meister" ];
-        featureKeys.forEach(fKey => {
-          if ("stammeffekt" === fKey) {
-            count += checkTags({ "stammeffekt": value.stammeffekt }, `${path}/${key}`);
-          } else {
-            count += checkTags(value[fKey], `${path}/${key}/${fKey}`);
-          }
-        });
-      }
-    }
-  }
-  return count;
-}
 
 function _convertMultilineText(text) {
   if (!text || typeof(text) !== "string") return text;
@@ -457,7 +320,7 @@ for (const key in input) {
     const type = key;
     const file = filesIn[type];
     const data = input[type].content;
-    const checks = {};
+    const checks = { struct: {} };
 
     console.log(`Validating ${type} ...`);
     // handle files with global structure elements
@@ -503,8 +366,24 @@ for (const key in input) {
 }
 console.log(`Converting done.\n`);
 
+// create structure.json
+const struct = {};
+for (const key in input) {
+  struct[key] = input[key].checks.struct;
+}
+try {
+  fd = fs.openSync(`${__dirname}/structure.json`, 'w'); // alte Datei überschreiben
+  fs.appendFileSync(fd, JSON.stringify(struct), 'utf8');
+  fs.appendFileSync(fd, '\n', 'utf8');
+} catch (err) {
+  /* Handle the error */
+  console.error(err);
+} finally {
+  if (fd !== undefined)
+  fs.closeSync(fd);
+}
+
 // create db files
-const dryRun = false;
 if (dryRun) {
   console.warn("DryRun, no DB creation.")
 }
