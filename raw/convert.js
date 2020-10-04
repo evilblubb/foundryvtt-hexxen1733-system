@@ -12,23 +12,32 @@ const vttSystemName = "hexxen-1733";
 const packPrefix = "hexxen";
 const HEXXEN_JAEGER_ICON = `systems/${vttSystemName}/img/Siegel-Rabe-small.png`;
 const HEXXEN_EXPRIT_ICON = `systems/${vttSystemName}/img/Siegel-Esprit-small.png`;
-const HEXXEN_AUSBAU_ICON = `systems/${vttSystemName}/img/Siegel-Ausbaukraft-small.png`;;
+const HEXXEN_AUSBAU_ICON = `systems/${vttSystemName}/img/Siegel-Ausbaukraft-small.png`;
 const HEXXEN_DEFAULT_ICON = HEXXEN_JAEGER_ICON;
 const input = {};
 const output = {};
 exports.input = input;
 
 const filesIn = {
+  "regulation": "regulation.json",
   "motivation": "motivation.json",
   "power": "power.json",
   "role": "role.json",
-  "profession": "profession.json"
+  "profession": "profession.json",
+  // "items": "items.json",
+  // "kleidung": "kleidung.json",
+  // "reittiere": "reittiere.json",
+  // "skillitems": "skillitems.json",
+  "npc-power": "npc-power.json",
+  "npc": "npc.json"
 };
 const filesOut = {
+  "regulation": "regulation.db",
   "motivation": "motivation.db",
   "power": "power.db",
   "role": "role.db",
-  "profession": "profession.db"
+  "profession": "profession.db",
+  "npc-power": "npc-power.db"
 };
 
 let dryRun = false;
@@ -144,17 +153,21 @@ function convertList(type, data, path, content) {
 function convertItem(type, item, key, path) {
   const out = {};
   let extras = undefined; // in case item produces more than one db item
+
+  // basic properties
   out._id = item._id || generateID(16);
-  out.name = item.name;
-  out.permission = { "default": 0 };
   out.type = type;
-  out.data = {};
-  out.data.references = item.references || [];
+  out.name = item.name;
+
+  // basic data properties
+  out.data = { "_template-revision": null, name: null };
   out.data.description = _convertMultilineText(item.description) || ""; // TODO: Refs konvertieren
-  out.data.summary = _convertMultilineText(item.summary) || ""; // TODO: Refs konvertieren
+  out.data.summary = _convertMultilineText(item.summary) || ""; // TODO: Haben alle eine summary? Refs konvertieren
+  if (item.tags) out.data.tags = item.tags; // TODO: oder leeres Array??
   if (item.create) out.data.create = _convertRefs(item.create); // no multi-paragraph support for now
   if (item.upkeep) out.data.upkeep = item.upkeep;
 
+  // custom properties
   if ("item" === type) {
     out.data["_template-revision"] = 1;
   } else if ("motivation" === type) {
@@ -168,13 +181,48 @@ function convertItem(type, item, key, path) {
   } else if ("power" === type) {
     out.data["_template-revision"] = 1;
     extras = _convertPowerItem(type, item, key, path, out);
+  } else if ("npc-power" === type) {
+    out.data["_template-revision"] = 1;
+    _convertNpcPowerItem(type, item, key, path, out);
+  } else if ("regulation" === type) {
+    out.data["_template-revision"] = 1;
+    _convertRegulationItem(type, item, key, path, out);
   }
 
-  if (item.tags) out.data.tags = item.tags;
+  // final basic properties, just to keep a nice human-readable order
+  out.data.references = item.references || [];
+
+  out.img = item.img || out.img || HEXXEN_DEFAULT_ICON;
   out.flags = {};
   out.flags[vttSystemName] = { compendium: { pack: getPackName(type), id: out._id, nameC: out.name, "data-revision": item["@rev"] }};
-  out.img = item.img || out.img || HEXXEN_DEFAULT_ICON;
+  out.permission = { "default": 0 };
+
   return extras ? [ out, ...extras ] : [ out ];
+}
+
+function _convertRegulationItem(type, item, key, path, out) {
+  out.data.name = item.name;
+  if (item.abbr) {
+    out.name = `${out.name} (${item.abbr})`;
+  }
+  out.data.summary = null;
+}
+
+function _convertNpcPowerItem(type, item, key, path, out) {
+  out.data.name = item.name;
+  out.data.type = item.type;
+  if (item.type.endsWith("Bande")) {
+    out.name = `${out.name} (Bande)`;
+  }
+  out.data.summary = null;
+  out.data.syntax = item.syntax;
+  out.data.target = item.target || ""; // TODO: nur bei Handlungen?
+  out.data.cost = item.cost || ""; // TODO: nur bei Handlungen?
+
+  // FIXME: Kategorien (Spezielle Kräfte)
+  // FIXME: summary löschen??
+  // FIXME: Handlung oder Eigenschaft
+  // FIXME: anderes Icon!
 }
 
 function _convertPowerItem(type, item, key, path, out) {
@@ -246,7 +294,7 @@ function _convertRoleItem(type, item, key, path, out) {
 }
 
 function _convertProfessionItem(type, item, key, path, out) {
-  if (item.type) out.data.type = item.type;
+  if (item.type) out.data.type = item.type; // FIXME: type===meisterprofession in masterprofession=true umwandeln
   out.data.qualification = item.qualification; // TODO: Refs konvertieren
   out.data.powers = _getPowers(type, key, path);
 }
@@ -282,9 +330,15 @@ function _getPowers(type, role) {
   return out;
 }
 
+
+
+
 /********************
  * main code        *
  ********************/
+
+
+
 
  // preload files
 for (const key in filesIn) {
@@ -298,7 +352,7 @@ for (const key in filesIn) {
       if (data.content) {
         input[type] = data;
       } else {
-        input[type] = {};
+      input[type] = {};
         input[type].content = data;
       }
     }
@@ -325,10 +379,10 @@ for (const key in input) {
     console.log(`Validating ${type} ...`);
     // handle files with global structure elements
     if (data["@target"]) {
-      walk(type, data, file, null, checkItem, checks);
+      walk(type, data, file, null, checkItems, checks);
     }
     else {
-      checkItem(type, data, file, checks);
+      checkItems(type, data, file, checks);
     }
 
     input[type].checks = checks;
