@@ -41,6 +41,7 @@ const filesOut = {
 };
 
 let dryRun = false;
+let pauseAfterStep = true; // Wichtig: setzt die Verwendung des internen Terminals voraus!
 let error = false;
 
 const _sym = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
@@ -55,6 +56,20 @@ function exitOnError() {
   if (error) {
     console.error("Errors occured, exiting.");
     process.exit(1);
+  }
+}
+
+function pause() {
+  if (pauseAfterStep) {
+    process.stdin.setRawMode(true);
+    while (process.stdin.read());
+    console.info('Pausing, press any key to continue.');
+    return new Promise((resolve, reject) => {
+      process.stdin.once("readable", data => {
+        resolve();
+        process.stdin.setRawMode(false);
+      });
+    });
   }
 }
 
@@ -400,169 +415,179 @@ function _getPowers(type, role) {
  ********************/
 
 
+async function main() {
 
+  // preload files
+  for (const key in filesIn) {
+    if (filesIn.hasOwnProperty(key)) {
+      const type = key;
+      const file = filesIn[type];
 
- // preload files
-for (const key in filesIn) {
-  if (filesIn.hasOwnProperty(key)) {
-    const type = key;
-    const file = filesIn[type];
-
-    console.log(`Loading ${file} ...`);
-    try {
-      const data = JSON.parse(fs.readFileSync(`${__dirname}/packs/${file}`, "utf8"));
-      input[type] = {};
-      if (data.content) { // TODO: deprecated
-        input[type].content = data.content;
-        console.warn("  Deprecated file format!");
-      } else if (data["@content"]) {
-        input[type].content = data["@content"];
-      } else { // TODO: deprecated
-        input[type].content = data;
-        console.warn("  Deprecated file format!");
-      }
-    }
-    catch (err) {
-      console.error(err);
-      error = true;
-    }
-  }
-}
-exitOnError();
-console.log(`Loading done.\n`);
-
-// load old compendiums for comparision
-// FIXME: tbd.
-
-// flatten files (process @map properties)
-Object.keys(input).forEach(type => {
-  const file = filesIn[type];
-
-  console.log(`Flattening ${file} ...`);
-  input[type].flattened = _flatten(input[type].content);
-});
-exitOnError();
-console.log(`Flattening done.\n`);
-
-// validate files
-for (const key in input) {
-  if (input.hasOwnProperty(key)) {
-    const type = key;
-    const file = filesIn[type];
-    const data = input[type].content;
-    const checks = { struct: {} };
-
-    console.log(`Validating ${type} ...`);
-    // handle files with global structure elements
-    if (data["@target"] || data["@map"]) {
-      walk(type, data, file, null, checkItems, checks);
-    }
-    else {
-      checkItems(type, data, file, checks);
-    }
-
-    input[type].checks = checks;
-    // TODO: Abbruch entscheiden
-  }
-}
-exitOnError();
-console.log(`Validating done.\n`);
-
-// convert files
-for (const key in input) {
-  if (input.hasOwnProperty(key)) {
-    const type = key;
-    const file = filesIn[type];
-    const data = input[type].content;
-
-    output[type] = {}
-    const content = [];
-    console.log(`Converting ${type} ...`);
-
-    // handle files with global structure elements
-    if (data["@target"] || data["@map"]) {
-      walk(type, data, file, null, convertList, content);
-    }
-    else {
-      convertList(type, data, file, content);
-    }
-
-    output[type].content = content;
-    output[type].checks = input[type].checks;
-  }
-}
-exitOnError();
-console.log(`Converting done.\n`);
-
-// create structure.json
-const struct = {};
-for (const key in input) {
-  struct[key] = input[key].checks.struct;
-}
-try {
-  fd = fs.openSync(`${__dirname}/structure.json`, 'w'); // alte Datei überschreiben
-  fs.appendFileSync(fd, JSON.stringify(struct), 'utf8');
-  fs.appendFileSync(fd, '\n', 'utf8');
-} catch (err) {
-  /* Handle the error */
-  console.error(err);
-} finally {
-  if (fd !== undefined)
-  fs.closeSync(fd);
-}
-
-// create db files
-if (dryRun) {
-  console.warn("DryRun, no DB creation.")
-}
-
-for (const key in output) {
-  if (input.hasOwnProperty(key)) {
-    const type = key;
-    const file = filesOut[type] || null;
-    const data = output[type].content;
-
-    if (!dryRun && file) {
-      console.log(`Creating ${file} ...`);
-      let fd;
+      console.log(`Loading ${file} ...`);
       try {
-        fd = fs.openSync(`${__dirname}/../packs/${type}.db`, 'w'); // alte Datei überschreiben
-
-        data.forEach(item => {
-          fs.appendFileSync(fd, JSON.stringify(item), 'utf8');
-          fs.appendFileSync(fd, '\n', 'utf8');
-        });
-      } catch (err) {
-        /* Handle the error */
+        const data = JSON.parse(fs.readFileSync(`${__dirname}/packs/${file}`, "utf8"));
+        input[type] = {};
+        if (data.content) { // TODO: deprecated
+          input[type].content = data.content;
+          console.warn("  Deprecated file format!");
+        } else if (data["@content"]) {
+          input[type].content = data["@content"];
+        } else { // TODO: deprecated
+          input[type].content = data;
+          console.warn("  Deprecated file format!");
+        }
+      }
+      catch (err) {
         console.error(err);
-      } finally {
-        if (fd !== undefined)
-        fs.closeSync(fd);
-      }
-      console.log(`  ${data.length} entries created.`);
-    }
-    else {
-      console.warn(`Skipping ${type}.`);
-    }
-
-    with (output[type].checks) {
-      if (ids) {
-        console.warn(`  Missing ${ids} IDs! Created new random IDs!`);
-      }
-      if (sources) {
-        console.warn(`  Missing ${sources} source references!`);
-      }
-      if (todo) {
-        console.info(`  ${todo} TODOs pending!`);
-      }
-      if (refs) {
-        console.info(`  ${refs} unmatched item refs found!`);
-      }
-      if (tags) {
-        console.info(`  ${tags} unmatched tags!`);
+        error = true;
       }
     }
   }
+  exitOnError();
+  console.log(`Loading done.\n`);
+  await pause();
+
+  // load old compendiums for comparision
+  // FIXME: tbd.
+
+  // flatten files (process @map properties)
+  Object.keys(input).forEach(type => {
+    const file = filesIn[type];
+
+    console.log(`Flattening ${file} ...`);
+    input[type].flattened = _flatten(input[type].content);
+  });
+  exitOnError();
+  console.log(`Flattening done.\n`);
+  await pause();
+
+  // validate files
+  for (const key in input) {
+    if (input.hasOwnProperty(key)) {
+      const type = key;
+      const file = filesIn[type];
+      const data = input[type].content;
+      const checks = { struct: {} };
+
+      console.log(`Validating ${type} ...`);
+      // handle files with global structure elements
+      if (data["@target"] || data["@map"]) {
+        walk(type, data, file, null, checkItems, checks);
+      }
+      else {
+        checkItems(type, data, file, checks);
+      }
+
+      input[type].checks = checks;
+      // TODO: Abbruch entscheiden
+    }
+  }
+  exitOnError();
+  console.log(`Validating done.\n`);
+  await pause();
+
+  // convert files
+  for (const key in input) {
+    if (input.hasOwnProperty(key)) {
+      const type = key;
+      const file = filesIn[type];
+      const data = input[type].content;
+
+      output[type] = {}
+      const content = [];
+      console.log(`Converting ${type} ...`);
+
+      // handle files with global structure elements
+      if (data["@target"] || data["@map"]) {
+        walk(type, data, file, null, convertList, content);
+      }
+      else {
+        convertList(type, data, file, content);
+      }
+
+      output[type].content = content;
+      output[type].checks = input[type].checks;
+    }
+  }
+  exitOnError();
+  console.log(`Converting done.\n`);
+  await pause();
+
+  // create structure.json
+  const struct = {};
+  for (const key in input) {
+    struct[key] = input[key].checks.struct;
+  }
+  try {
+    fd = fs.openSync(`${__dirname}/structure.json`, 'w'); // alte Datei überschreiben
+    fs.appendFileSync(fd, JSON.stringify(struct), 'utf8');
+    fs.appendFileSync(fd, '\n', 'utf8');
+  } catch (err) {
+    /* Handle the error */
+    console.error(err);
+  } finally {
+    if (fd !== undefined)
+    fs.closeSync(fd);
+  }
+
+  // create db files
+  if (dryRun) {
+    console.warn("DryRun, no DB creation.")
+  }
+
+  for (const key in output) {
+    if (input.hasOwnProperty(key)) {
+      const type = key;
+      const file = filesOut[type] || null;
+      const data = output[type].content;
+
+      if (!dryRun && file) {
+        console.log(`Creating ${file} ...`);
+        let fd;
+        try {
+          fd = fs.openSync(`${__dirname}/../packs/${type}.db`, 'w'); // alte Datei überschreiben
+
+          data.forEach(item => {
+            fs.appendFileSync(fd, JSON.stringify(item), 'utf8');
+            fs.appendFileSync(fd, '\n', 'utf8');
+          });
+        } catch (err) {
+          /* Handle the error */
+          console.error(err);
+        } finally {
+          if (fd !== undefined)
+          fs.closeSync(fd);
+        }
+        console.log(`  ${data.length} entries created.`);
+      }
+      else {
+        console.warn(`Skipping ${type}.`);
+      }
+
+      with (output[type].checks) {
+        if (ids) {
+          console.warn(`  Missing ${ids} IDs! Created new random IDs!`);
+        }
+        if (sources) {
+          console.warn(`  Missing ${sources} source references!`);
+        }
+        if (todo) {
+          console.info(`  ${todo} TODOs pending!`);
+        }
+        if (refs) {
+          console.info(`  ${refs} unmatched item refs found!`);
+        }
+        if (tags) {
+          console.info(`  ${tags} unmatched tags!`);
+        }
+      }
+    }
+  }
+
+  console.log(`Done.`);
+  await pause();
+
 }
 
-console.log(`Done.`);
+// run main function
+main();

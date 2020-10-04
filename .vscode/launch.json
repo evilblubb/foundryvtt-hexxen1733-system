@@ -11,7 +11,8 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/raw/convert.js"
+      "program": "${workspaceFolder}/raw/convert.js",
+      "console": "integratedTerminal"
     },
     {
       "type": "node",
