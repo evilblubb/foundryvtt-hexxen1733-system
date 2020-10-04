@@ -51,6 +51,13 @@ exports._len = _len;
 exports.generatedIDs = generatedIDs;
 
 
+function exitOnError() {
+  if (error) {
+    console.error("Errors occured, exiting.");
+    process.exit(1);
+  }
+}
+
 function getPackName(type) {
   return `${vttSystemName}.${packPrefix}-${type}`;
 }
@@ -85,12 +92,16 @@ function generateID(count = _len) {
   return str;
 }
 
+// TODO: durch flatten ersetzen
 function walk(type, data, path, regEx, checkFn, extras) {
   if (data["@target"]) {
     regEx = data["@target"];
+  } else if (data["@map"]) {
+    regEx = "^.*$";
+    // FIXME: category einschleifen
   }
   new Map(Object.entries(data)).forEach((value, key) => {
-    if ("@target" === key) {
+    if (["@target", "@map"].includes(key)) {
       // ignore
     } else if (key.match(regEx)) {
       checkFn(type, value, `${path}/${key}`, extras);
@@ -103,6 +114,57 @@ function walk(type, data, path, regEx, checkFn, extras) {
     }
   });
 }
+
+function _flatten(_in, mappings = {}, clues) {
+  // TODO: @all, @items implementieren, um alle enthaltenen Elemente mit properties befüllen zu können
+  // TODO: @map Ziel-Properties müssen definiert sein (in Schema)
+  // FIXME: mit @target umgehen, solange power.json alte Struktur hat
+  if (typeof(_in) === "object" && _in.hasOwnProperty("@map")) {
+    const clue = _in["@map"];
+    const m = Object.assign({}, mappings);
+    let out = [];
+
+    Object.keys(_in)
+    .filter(k => !["@map", "@target"].includes(k))
+    .forEach(k => {
+      // recursive call with extended mapping
+      if (clue !== null) m[clue] = k;
+      const ret = _flatten(_in[k], m);
+
+      // merge returned arrays
+      if (Array.isArray(ret)) {
+        out = out.concat(ret);
+      } else {
+        out.push(ret);
+      }
+    });
+
+    return out;
+  }
+  else if (typeof(_in) === "object" && mappings) {
+    // inject mappings
+    if (Array.isArray(_in)) {
+      return _in.map(el => { return _inject(el, mappings)});
+    } else {
+      return _inject(_in, mappings);
+    }
+  }
+  else {
+    // FIXME: Wie mit anderen Fällen umgehen? Sollten eigentlich nicht vorkommen??
+    if (typeof(_in) !== 'object') {
+      // FIXME: Pfad ausgeben
+      throw new TypeError(`All elements have to be of type Array or Object! Found "${_in}" to be of type ${typeof(_in)}`);
+    }
+    return _in;
+  }
+}
+
+function _inject(_in, mappings) {
+  // A shallow copy should be sufficient.
+  // FIXME: Pfad einfügen
+  return Object.assign({ "@input": _in}, mappings, _in);
+}
+
 
 
 
@@ -349,11 +411,15 @@ for (const key in filesIn) {
     console.log(`Loading ${file} ...`);
     try {
       const data = JSON.parse(fs.readFileSync(`${__dirname}/packs/${file}`, "utf8"));
-      if (data.content) {
-        input[type] = data;
-      } else {
       input[type] = {};
+      if (data.content) { // TODO: deprecated
+        input[type].content = data.content;
+        console.warn("  Deprecated file format!");
+      } else if (data["@content"]) {
+        input[type].content = data["@content"];
+      } else { // TODO: deprecated
         input[type].content = data;
+        console.warn("  Deprecated file format!");
       }
     }
     catch (err) {
@@ -362,11 +428,21 @@ for (const key in filesIn) {
     }
   }
 }
-if (error) {
-  console.error("Errors occured, exiting.");
-  return false;
-}
+exitOnError();
 console.log(`Loading done.\n`);
+
+// load old compendiums for comparision
+// FIXME: tbd.
+
+// flatten files (process @map properties)
+Object.keys(input).forEach(type => {
+  const file = filesIn[type];
+
+  console.log(`Flattening ${file} ...`);
+  input[type].flattened = _flatten(input[type].content);
+});
+exitOnError();
+console.log(`Flattening done.\n`);
 
 // validate files
 for (const key in input) {
@@ -378,7 +454,7 @@ for (const key in input) {
 
     console.log(`Validating ${type} ...`);
     // handle files with global structure elements
-    if (data["@target"]) {
+    if (data["@target"] || data["@map"]) {
       walk(type, data, file, null, checkItems, checks);
     }
     else {
@@ -389,10 +465,7 @@ for (const key in input) {
     // TODO: Abbruch entscheiden
   }
 }
-if (error) {
-  console.error("Errors occured, exiting.");
-  return false;
-}
+exitOnError();
 console.log(`Validating done.\n`);
 
 // convert files
@@ -407,7 +480,7 @@ for (const key in input) {
     console.log(`Converting ${type} ...`);
 
     // handle files with global structure elements
-    if (data["@target"]) {
+    if (data["@target"] || data["@map"]) {
       walk(type, data, file, null, convertList, content);
     }
     else {
@@ -418,6 +491,7 @@ for (const key in input) {
     output[type].checks = input[type].checks;
   }
 }
+exitOnError();
 console.log(`Converting done.\n`);
 
 // create structure.json
