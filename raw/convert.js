@@ -147,14 +147,7 @@ function _flatten(type, data, path, mappings = {}, clues = []) {
     .forEach(k => {
       // recursive call with extended mapping
       if (clue) m[clue] = k;
-      const ret = _flatten(type, data[k], [path, k].join('/'), m, clues);
-
-      // merge returned arrays
-      if (Array.isArray(ret)) {
-        out = out.concat(ret);
-      } else {
-        out.push(ret);
-      }
+      out = out.concat(_flatten(type, data[k], [path, k].join('/'), m, clues));
     });
 
     return out;
@@ -162,13 +155,12 @@ function _flatten(type, data, path, mappings = {}, clues = []) {
   else if (typeof(data) === "object") {
     // inject mappings
     if (Array.isArray(data)) {
-      return data.map((el, idx) => { return _inject(el, [path, idx, el.name].join('/'), mappings)});
+      return data.map((el, idx) => { return _inject(type, el, [path, idx, el.name].join('/'), mappings)}).flat(); // flatten nested arrays
     } else {
-      return _inject(data, path, mappings);
+      return _inject(type, data, path, mappings);
     }
   }
   else {
-    // FIXME: Wie mit anderen Fällen umgehen? Sollten eigentlich nicht vorkommen??
     if (typeof(data) !== 'object') {
       throw new TypeError(`All elements have to be of type Array or Object! Found "${path}" to be of type ${typeof(data)}`);
     }
@@ -176,11 +168,42 @@ function _flatten(type, data, path, mappings = {}, clues = []) {
   }
 }
 
-function _inject(data, path, mappings) {
+function _inject(type, data, path, mappings) {
   // Note: @input is a reference to the original data structure
   //       @path shows the original path to this data
   // A shallow copy should be sufficient.
-  return Object.assign({ "@input": data, "@path": path }, mappings, data);
+  const ret = Object.assign({ "@input": data, "@path": path }, mappings, data);
+
+  // handle special cases
+  if ('power' === type && 'ausbau' === ret.type) {
+    // process ret instead of data to be able to modify ret
+    return _splitAusbaukraft(type, ret, path, mappings);
+  }
+  return ret;
+}
+
+function _splitAusbaukraft(type, data, path, mappings) {
+  // TODO: Sonderfall Ausbaukrafteffekte
+  const featureKeys = [ "stammeffekt", "geselle", "experte", "meister" ];
+  const m = Object.assign({}, mappings); // make a copy of mappings before modifying it
+  const ret = [ data ];
+  featureKeys.forEach(fKey => {
+    m.subtype = fKey;
+    if ("stammeffekt" === fKey) {
+      ret.push(_extractAusbaukraftFeature(type, data.stammeffekt, data, [path, fKey].join('/'), m));
+    } else {
+      Object.keys(data[fKey]).forEach(key => {
+        ret.push(_extractAusbaukraftFeature(type, data[fKey][key], data, [path, fKey, key].join('/'), m));
+      });
+    }
+  });
+return ret;
+}
+
+function _extractAusbaukraftFeature(type, data, power, path, mappings) {
+  // references aus Ausbaukraft übernehmen, um Fehlmeldungen bei der Quellenangabenprüfung zu vermeiden
+  const ret = Object.assign({ "@input": data, "@power": power, "@path": path, references: power.references }, mappings, data);
+  return ret;
 }
 
 
