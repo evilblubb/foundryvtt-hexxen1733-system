@@ -130,21 +130,21 @@ function walk(type, data, path, regEx, checkFn, extras) {
   });
 }
 
-function _flatten(_in, mappings = {}, clues) {
+function _flatten(type, data, path, mappings = {}, clues) {
   // TODO: @all, @items implementieren, um alle enthaltenen Elemente mit properties befüllen zu können
   // TODO: @map Ziel-Properties müssen definiert sein (in Schema)
   // FIXME: mit @target umgehen, solange power.json alte Struktur hat
-  if (typeof(_in) === "object" && _in.hasOwnProperty("@map")) {
-    const clue = _in["@map"];
+  if (typeof(data) === "object" && data.hasOwnProperty("@map")) {
+    const clue = data["@map"];
     const m = Object.assign({}, mappings);
     let out = [];
 
-    Object.keys(_in)
+    Object.keys(data)
     .filter(k => !["@map", "@target"].includes(k))
     .forEach(k => {
       // recursive call with extended mapping
       if (clue !== null) m[clue] = k;
-      const ret = _flatten(_in[k], m);
+      const ret = _flatten(type, data[k], [path, k].join('/'), m);
 
       // merge returned arrays
       if (Array.isArray(ret)) {
@@ -156,28 +156,28 @@ function _flatten(_in, mappings = {}, clues) {
 
     return out;
   }
-  else if (typeof(_in) === "object" && mappings) {
+  else if (typeof(data) === "object" && mappings) {
     // inject mappings
-    if (Array.isArray(_in)) {
-      return _in.map(el => { return _inject(el, mappings)});
+    if (Array.isArray(data)) {
+      return data.map((el, idx) => { return _inject(el, [path, idx, el.name].join('/'), mappings)});
     } else {
-      return _inject(_in, mappings);
+      return _inject(data, path, mappings);
     }
   }
   else {
     // FIXME: Wie mit anderen Fällen umgehen? Sollten eigentlich nicht vorkommen??
-    if (typeof(_in) !== 'object') {
-      // FIXME: Pfad ausgeben
-      throw new TypeError(`All elements have to be of type Array or Object! Found "${_in}" to be of type ${typeof(_in)}`);
+    if (typeof(data) !== 'object') {
+      throw new TypeError(`All elements have to be of type Array or Object! Found "${path}" to be of type ${typeof(data)}`);
     }
-    return _in;
+    return data;
   }
 }
 
-function _inject(_in, mappings) {
+function _inject(data, path, mappings) {
+  // Note: @input is a reference to the original data structure
+  //       @path shows the original path to this data
   // A shallow copy should be sufficient.
-  // FIXME: Pfad einfügen
-  return Object.assign({ "@input": _in}, mappings, _in);
+  return Object.assign({ "@input": data, "@path": path }, mappings, data);
 }
 
 
@@ -455,7 +455,7 @@ async function main() {
     const file = filesIn[type];
 
     console.log(`Flattening ${file} ...`);
-    input[type].flattened = _flatten(input[type].content);
+    input[type].flattened = _flatten(type, input[type].content, file);
   });
   exitOnError();
   console.log(`Flattening done.\n`);
