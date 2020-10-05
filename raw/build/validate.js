@@ -1,117 +1,136 @@
+/**
+ * Implementation of the german RPG HeXXen 1733 (c) under the license of https://ulissesspiele.zendesk.com/hc/de/articles/360017969212-Inhaltsrichtlinien-f%C3%BCr-HeXXen-1733-Scriptorium.
+ * Implementation based on the content of http://hexxen1733-regelwiki.de/
+ * Author: Martin Brunninger
+ * Software License: GNU GPLv3
+ */
+
 const main = require('../convert.js');
 const input = main.input;
 
-function checkItems(type, items, path, checks) {
-  // FIXME: Hauptschleife für "type" hier implementieren, nicht in den checkX()
-  // FIXME: temp. deaktiviert
-  checks.ids = (checks.ids || 0) + checkIDs(items, path);
-  checks.sources = (checks.sources || 0) + checkSources(items, path);
-  checks.todo = (checks.todo || 0) + checkTodo(items, path);
-  checks.refs = 0; // (checks.refs || 0) + checkRefs(items, path);
-  checks.tags = 0; // (checks.tags || 0) + checkTags(items, path);
-  // FIXME: error entfernen
-  // error = true;
-  // TODO: weitere Prüfungen auf Vollständigkeit
-  // Struktur von item erfassen
-  scanItems(items, path, checks.struct);
-};
+function checkItems(type, items, path, checkResults) {
+  // main loop
+  if (Array.isArray(items)) {
+    // FIXME: nach Duplikaten suchen (gleicher Name)
+    items.forEach( (item, idx) => checkItem(type, item, [path, idx].join('/'), checkResults) );
+  }
+  else {
+    throw new TypeError(`  ${path}: [@@] Unsupported type "${typeof(items)}"! Expected "array".`);
+  }
+}
 module.exports = checkItems;
 
-function checkIDs(data, path="") {
+function checkItem(type, item, path, checkResults) {
+  // validate source data
+  // expect item to be an object with property name
+  // TODO: Auf Objekt prüfen?
+  if (item === null || item === undefined) return;
+  path = item["@path"] || [path, item.name].join('/'); // fallback
+
+  // common checks
+  checkResults.ids += checkID(item, path);
+  // TODO: Prüfung der references via schema
+  checkResults.sources += checkSources(item, path);
+  checkResults.todos += checkTodo(item, path);
+  // FIXME: temp. deaktiviert
+  // checks.refs += checkRefs(item, path);
+  // checks.tags += checkTags(item, path);
+
+  // match powers and attacks in npc.json
+  if ("npc" === type) {
+    item.attacks.forEach(attack => _matchAttack(attack, [path, "attacks", attack.name].join('/')));
+    item.powers.forEach(power => _matchPower(power, [path, "powers", power.name].join('/')));
+  }
+
+  // TODO: weitere Prüfungen auf Vollständigkeit
+  // Struktur von item erfassen
+  // scanItems(item, path, checks.struct);
+};
+
+function checkID(item, path="") {
+  // The important step here is to check for duplicates.
   let count = 0;
 
+  // TODO: Syntax via Schema prüfen
   // FIXME: id code auslagern und korrekt importieren
 
-  for (const key in data) {
-    if (data.hasOwnProperty(key)) {
-      const value = data[key];
-      if (value.hasOwnProperty("_id")) {
-        const id = value._id;
-        if (!id.match(`^[${main._sym}]{${main._len}}$`)) {
-          delete value._id;
-          count++;
-          console.warn(`  @_ID:${path}/${key}: Invalid id found! Will be randomly created!`);
-        } else if (main.generatedIDs.includes(id)){
-          delete value._id;
-          count++;
-          console.warn(`  @_ID:${path}/${key}: Duplicate id found! Will be randomly created!`);
-        } else {
-          main.generatedIDs.push(id);
-        }
-      } else {
-        count++;
-        console.warn(`  @_ID:${path}/${key}: No id found! Will be randomly created!`);
-      }
-      // Sonderfall: _ids von Ausbaukraft-Features
-      if (path.match(/ausbau$/)) {
-        const featureKeys = [ "stammeffekt", "geselle", "experte", "meister" ];
-        featureKeys.forEach(fKey => {
-          if ("stammeffekt" === fKey) {
-            count += checkIDs({ "stammeffekt": value.stammeffekt }, `${path}/${key}`);
-          } else {
-            count += checkIDs(value[fKey], `${path}/${key}/${fKey}`);
-          }
-        });
-      }
+  if (item.hasOwnProperty("_id")) {
+    const id = item._id;
+    if (!id.match(`^[${main._sym}]{${main._len}}$`)) {
+      item._id = "";
+      count++;
+      console.warn(`  ${path}: [_ID] Invalid id found! Will be randomly created!`);
+    } else if (main.generatedIDs.includes(id)){
+      item._id = "";
+      count++;
+      console.warn(`  ${path}: [_ID] Duplicate id found! Will be randomly created!`);
+    } else {
+      main.generatedIDs.push(id);
     }
-  }
-  return count;
-}
-
-function checkSources(data, path="") {
-  let count = 0;
-
-  for (const key in data) {
-    if (data.hasOwnProperty(key)) {
-      const value = data[key];
-      const sources = value.references;
-      if (!sources || sources.length == 0) {
-        count++;
-        console.warn(`  @SOURCE:${path}/${key}: No source references found!`);
-      }
-      else {
-        const filtered = sources.filter(source => "Wiki" === source.source);
-        if (filtered.length == 0) {
-          count++;
-          console.error(`  @SOURCE:${path}/${key}: No "Scriptorium Wiki" references found!`);
-        }
-        else if (sources.length - filtered.length == 0) {
-          count++;
-          console.warn(`  @SOURCE:${path}/${key}: No book or other source references found!`);
-        }
-      }
-    }
-  }
-  return count;
-}
-
-function checkTodo(data, path="") {
-  let count = 0;
-  if (null === data) return count;
-  if (data.hasOwnProperty("@todo")) {
+  } else {
     count++;
-    console.info(`  @TODO\:${path}: ${data["@todo"]}`);
+    console.warn(`  ${path}: [_ID] No id found! Will be randomly created!`);
   }
-  for (const key in data) {
-    if ("@todo" !== key && data.hasOwnProperty(key)) {
-      const value = data[key];
-      if (typeof(value) === "object") {
-        count += checkTodo(value, `${path}/${key}`);
+  return count;
+}
+
+function checkSources(item, path="") {
+  let count = 0;
+  const sources = item.references;
+
+  // TODO: reicht hier die Prüfung via Schema?
+
+  if (!Array.isArray(sources) || sources.length == 0) {
+      // FIXME: error setzen
+      count++;
+    console.error(`  ${path}: [SOURCE] No source references found!`);
+  }
+  else {
+    const filtered = sources.filter(source => "Wiki" === source.source);
+    if (filtered.length == 0) {
+      // FIXME: error setzen
+      count++;
+      console.error(`  ${path}: [SOURCE] No "Regel-Wiki" references found!`);
+    }
+    else if (sources.length - filtered.length == 0) {
+      count++;
+      console.warn(`  ${path}: [SOURCE] No book or other source references found!`);
+    }
+  }
+  return count;
+}
+
+function checkTodo(item, path="") {
+  let count = 0;
+
+
+  if (item.hasOwnProperty("@todo")) {
+    count++;
+    console.info(`  ${path}: [TODO] ${item["@todo"]}`);
+  }
+
+  // recursively search object
+  for (const key in item) {
+    if (!key.startsWith('@') && item.hasOwnProperty(key)) {
+      const value = item[key];
+      if (typeof(value) === "object" && value !== null) {
+        count += checkTodo(value, [path, key, value.name].join('/'));
       }
     }
   }
   return count;
 }
 
-function checkRefs(data, path="") {
+function checkRefs(item, path="") {
   let count = 0;
-  for (const key in data) {
-    if (data.hasOwnProperty(key)) {
-      const value = data[key];
-      if (typeof(value) === "object") {
-        count += checkRefs(value, `${path}/${key}`);
+
+  for (const key in item) {
+    if (!key.startsWith('@') && item.hasOwnProperty(key)) {
+      const value = item[key];
+      if (typeof(value) === "object" && value !== null) {
+        count += checkRefs(value, [path, key, value.name].join('/'));
       } else if (typeof(value) === "string") {
-        count += _findRefs(value, `${path}/${key}`);
+        count += _findRefs(value, [path, key].join('/'));
       }
     }
   }
@@ -120,6 +139,7 @@ function checkRefs(data, path="") {
 
 function _findRefs(data, path="") {
   if (!data || typeof(data) !== "string") return 0;
+
   const regEx = /\[(.*?)\]/g;
   const iterator = data.matchAll(regEx);
   const matches = [];
@@ -127,7 +147,8 @@ function _findRefs(data, path="") {
     matches.push(match[1]);
   }
   if (matches && matches.length) {
-    console.info(`  @REF:${path}: ${matches}`);
+    // TODO: Treffer abgleichen
+    console.info(`  ${path}: [REFS] ${matches}`);
     return matches.length;
   }
   return 0;
@@ -135,31 +156,16 @@ function _findRefs(data, path="") {
 
 function checkTags(data, path="") {
   let count = 0;
-  for (const key in data) {
-    if (data.hasOwnProperty(key)) {
-      const value = data[key];
-      if (value.hasOwnProperty("tags")) {
-        count++;
-        console.info(`  @TAG\:${path}/${key}: ${value.tags}`);
-      }
 
-      // Sonderfall: Ausbaukraft-Features
-      if (path.match(/ausbau$/)) {
-        const featureKeys = [ "stammeffekt", "geselle", "experte", "meister" ];
-        featureKeys.forEach(fKey => {
-          if ("stammeffekt" === fKey) {
-            count += checkTags({ "stammeffekt": value.stammeffekt }, `${path}/${key}`);
-          } else {
-            count += checkTags(value[fKey], `${path}/${key}/${fKey}`);
-          }
-        });
-      }
-    }
+  if (data.hasOwnProperty("tags")) {
+    count = Array.isArray(data.tags) ? data.tags.length : 1;
+    console.info(`  ${path}: [TAGS] ${data.tags}`);
   }
   return count;
 }
 
 function scanItems(data, path, struct) {
+  // FIXME: noch nicht auf flattened umgestellt
   if (typeof(data) !== "object") {
     error = true;
     console.error(`Unexpected type: ${typeof(data)}`);
@@ -173,12 +179,6 @@ function scanItems(data, path, struct) {
       struct["__count"]++;
       scanEntry(value, key, `${path}/${key}`, struct);
 
-      // match powers
-      // FIXME: in anderer Phase ausführen
-      if (path.startsWith("npc.json")) {
-        value.attacks.forEach(attack => _matchAttack(attack, key, path));
-        value.powers.forEach(power => _matchPower(power, key, path));
-      }
     }
   }
 }
@@ -250,24 +250,32 @@ function scanEntry(data, key, path, struct) {
   }
 }
 
-function _matchAttack(attack, key, path) {
+function _matchAttack(attack, path) {
   const regEx = /^([N|F123]+): +(Angriff|Erfolge) ([0-9]+), ?Schaden (\+?[0-9*]+)(?: ?(.*))?$/;
   // FIXME: +x Schaden aussortieren
-  if (attack.raw === null || attack.raw === undefined) { console.warn(`  ${path}/${key}: No raw property: ${attack.name}`); return; }
+
+  if (attack.raw === null || attack.raw === undefined) {
+    console.warn(`  ${path}: [ATTACK] No raw property!`);
+    return;
+  }
+
   const matches = attack.raw.match(regEx);
-  if (!matches) console.warn(`  ${path}/${key}: Can't parse "${attack.raw}"`);
-  // else { matches.shift(); console.info(` ${attack.raw} --> ${matches}`); }
+  if (!matches) {
+    console.warn(`  ${path}: [ATTACK] Can't parse "${attack.raw}"`);
+  }
+  // else {
+  //   matches.shift(); console.info(` ${path}: [ATTACK] ${attack.raw} --> ${matches}`);
+  // }
 }
 
-function _matchPower(power, key, path) {
+function _matchPower(power, path) {
   // FIXME: Strukturbehandlung
-  const powers = main.input["npc-power"].content;
+  const powers = main.input["npc-power"].flattened;
   let found = false;
-  Object.values(powers).forEach(category => {
-    Object.values(category).forEach(p => {
-      if (p.name === power.name) found = true;
-    });
+  // FIXME: Duplikate??
+  powers.forEach(p => {
+    if (p.name === power.name) found = true;
   });
-  if (!found) console.warn(`  ${path}/${key}: Can't map ${power.name}.`);
+  if (!found) console.warn(`  ${path}: [POWER] Can't map "${power.name}".`);
 }
 

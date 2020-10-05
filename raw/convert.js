@@ -492,10 +492,12 @@ async function main() {
     if (input.hasOwnProperty(key)) {
       const type = key;
       const file = filesIn[type];
-      const data = input[type].content;
-      const checks = { struct: {} };
+      const data = input[type].flattened;
+      const checks = { ids: 0, sources: 0, todos: 0, refs: 0, tags: 0, struct: {} };
 
       console.log(`Validating ${type} ...`);
+      input[type].checks = checks;
+
       // handle files with global structure elements
       if (data["@target"] || data["@map"]) {
         walk(type, data, file, null, checkItems, checks);
@@ -504,7 +506,6 @@ async function main() {
         checkItems(type, data, file, checks);
       }
 
-      input[type].checks = checks;
       // TODO: Abbruch entscheiden
     }
   }
@@ -519,7 +520,7 @@ async function main() {
       const file = filesIn[type];
       const data = input[type].content;
 
-      output[type] = {}
+      output[type] = {};
       const content = [];
       console.log(`Converting ${type} ...`);
 
@@ -552,8 +553,7 @@ async function main() {
     /* Handle the error */
     console.error(err);
   } finally {
-    if (fd !== undefined)
-    fs.closeSync(fd);
+    if (fd !== undefined) fs.closeSync(fd);
   }
 
   // create db files
@@ -588,6 +588,7 @@ async function main() {
       }
       else {
         console.warn(`Skipping ${type}.`);
+        console.log(`  ${data.length} entries prepared.`);
       }
 
       with (output[type].checks) {
@@ -597,8 +598,8 @@ async function main() {
         if (sources) {
           console.warn(`  Missing ${sources} source references!`);
         }
-        if (todo) {
-          console.info(`  ${todo} TODOs pending!`);
+        if (todos) {
+          console.info(`  ${todos} TODOs pending!`);
         }
         if (refs) {
           console.info(`  ${refs} unmatched item refs found!`);
