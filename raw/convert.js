@@ -130,21 +130,24 @@ function walk(type, data, path, regEx, checkFn, extras) {
   });
 }
 
-function _flatten(type, data, path, mappings = {}, clues) {
+function _flatten(type, data, path, mappings = {}, clues = []) {
   // TODO: @all, @items implementieren, um alle enthaltenen Elemente mit properties befüllen zu können
   // TODO: @map Ziel-Properties müssen definiert sein (in Schema)
   // FIXME: mit @target umgehen, solange power.json alte Struktur hat
-  if (typeof(data) === "object" && data.hasOwnProperty("@map")) {
-    const clue = data["@map"];
-    const m = Object.assign({}, mappings);
+  if (!Array.isArray(data) && typeof(data) === "object" && (clues.length || data.hasOwnProperty("@map"))) {
+    // if exists, @map overrides remaining clues completely
+    // make sure clues is always an array AND use a copy of clues
+    clues = data.hasOwnProperty("@map") ? [].concat(data["@map"]) : clues.map(c => c);
+    const clue = clues.shift(); // clue might be undefined if array is empty
+    const m = Object.assign({}, mappings); // make a copy of mappings before modifying it
     let out = [];
 
     Object.keys(data)
     .filter(k => !["@map", "@target"].includes(k))
     .forEach(k => {
       // recursive call with extended mapping
-      if (clue !== null) m[clue] = k;
-      const ret = _flatten(type, data[k], [path, k].join('/'), m);
+      if (clue) m[clue] = k;
+      const ret = _flatten(type, data[k], [path, k].join('/'), m, clues);
 
       // merge returned arrays
       if (Array.isArray(ret)) {
@@ -156,7 +159,7 @@ function _flatten(type, data, path, mappings = {}, clues) {
 
     return out;
   }
-  else if (typeof(data) === "object" && mappings) {
+  else if (typeof(data) === "object") {
     // inject mappings
     if (Array.isArray(data)) {
       return data.map((el, idx) => { return _inject(el, [path, idx, el.name].join('/'), mappings)});
