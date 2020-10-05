@@ -6,9 +6,8 @@
   },
   "@content": {
     "@target": "^(esprit|jaeger|ausbau)$",
-    "@map": "originType",
+    "@map": [ "originType", "origin", "type", null ],
     "role": {
-      "@map": "origin",
       "alchemist": {
         "esprit": {
           "esprit1": {
@@ -3183,7 +3182,6 @@
       }
     },
     "profession": {
-      "@map": "origin",
       "aristokrat": {
         "esprit": {
           "esprit1": {
