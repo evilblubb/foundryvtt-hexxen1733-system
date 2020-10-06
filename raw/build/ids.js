@@ -23,10 +23,12 @@ function generateID(count = _len) {
   generatedIDs.add(str);
   return str;
 }
+exports.generateID = generateID;
 
 function validateID(id, len = _len) {
   return id.match(`^[${_symbols}]{${len}}$`);
 }
+exports.validateID = validateID;
 
 /**
  * Checks id for uniqueness and adds it to internal set for further comparations, if wanted.
@@ -39,7 +41,4 @@ function isUniqueID(id, store=false) {
   if (store) generatedIDs.add(id);
   return !included;
 }
-
-exports.generateID = generateID;
-exports.validateID = validateID;
 exports.isUniqueID = isUniqueID;
