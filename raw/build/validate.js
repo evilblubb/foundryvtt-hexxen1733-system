@@ -5,7 +5,8 @@
  * Software License: GNU GPLv3
  */
 
-const main = require('../convert.js');
+const main = require('../convert.js'); // FIXME: falls möglich eliminieren
+const { validateID, isUniqueID } = require('./ids.js');
 const input = main.input;
 
 function checkItems(type, items, path, checkResults) {
@@ -48,28 +49,26 @@ function checkItem(type, item, path, checkResults) {
 };
 
 function checkID(item, path="") {
-  // The important step here is to check for duplicates.
+  // The important step here is to check for duplicate IDs.
   let count = 0;
 
   // TODO: Syntax via Schema prüfen
-  // FIXME: id code auslagern und korrekt importieren
+  // FIXME: generierte IDs bereits hier einfügen??
 
   if (item.hasOwnProperty("_id")) {
     const id = item._id;
-    if (!id.match(`^[${main._sym}]{${main._len}}$`)) {
+    if (!validateID(id)) {
       item._id = "";
       count++;
       console.warn(`  ${path}: [_ID] Invalid id found! Will be randomly created!`);
-    } else if (main.generatedIDs.includes(id)){
+    } else if (!isUniqueID(id, true)){
       item._id = "";
       count++;
       console.warn(`  ${path}: [_ID] Duplicate id found! Will be randomly created!`);
-    } else {
-      main.generatedIDs.push(id);
     }
   } else {
     count++;
-    console.warn(`  ${path}: [_ID] No id found! Will be randomly created!`);
+    console.error(`  ${path}: [_ID] No id found! Will be randomly created!`);
   }
   return count;
 }

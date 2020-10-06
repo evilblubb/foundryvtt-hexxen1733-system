@@ -6,6 +6,7 @@
  */
 
 const fs = require('fs');
+const { generateID } = require('./build/ids.js'); // FIXME: mit convert-Code auslagern
 const checkItems = require('./build/validate.js');
 
 const vttSystemName = "hexxen-1733";
@@ -43,13 +44,6 @@ const filesOut = {
 let dryRun = false;
 let pauseAfterStep = true; // Wichtig: setzt die Verwendung des internen Terminals voraus!
 let error = false;
-
-const _sym = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
-const _len = 16;
-const generatedIDs = [];
-exports._sym = _sym;
-exports._len = _len;
-exports.generatedIDs = generatedIDs;
 
 
 function exitOnError() {
@@ -90,21 +84,6 @@ function getItemId(type, nameC) {
   }
 
   return item._id;
-}
-
-function generateID(count = _len) {
-  let str;
-
-  do {
-    str = '';
-
-    for(let i = 0; i < count; i++) {
-        str += _sym[Math.floor(Math.random() * (_sym.length))];
-    }
-  } while (generatedIDs.includes(str));
-
-  generatedIDs.push(str);
-  return str;
 }
 
 // TODO: durch flatten ersetzen
@@ -258,6 +237,7 @@ function convertItem(type, item, key, path) {
   let extras = undefined; // in case item produces more than one db item
 
   // basic properties
+  // FIXME: ID schon bei validierung generieren??
   out._id = item._id || generateID(16);
   out.type = type;
   out.name = item.name;
