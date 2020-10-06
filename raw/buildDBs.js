@@ -8,7 +8,7 @@
 // FIXME: exports have to be done before any requires, as they might be required inside the other scripts
 const input = {};
 const output = {};
-exports.input = input; // FIXME: vermeiden
+exports.input = input; // FIXME: vermeiden?
 
 const fs = require('fs');
 const { checkItems } = require('./build/validate.js');
@@ -63,7 +63,7 @@ function pause() {
   }
 }
 
-// TODO: durch flatten ersetzen
+// TODO: durch flatten ersetzen (wird nur noch für convert verwendet)
 function walk(type, data, path, regEx, checkFn, extras) {
   if (data["@target"]) {
     regEx = data["@target"];
@@ -205,8 +205,12 @@ async function main() {
   console.log(`Loading done.\n`);
   await pause();
 
+
+
   // load old compendiums for comparision
   // FIXME: tbd.
+
+
 
   // flatten files (process @map properties)
   Object.keys(input).forEach(type => {
@@ -219,6 +223,8 @@ async function main() {
   console.log(`Flattening done.\n`);
   await pause();
 
+
+
   // validate files
   for (const key in input) {
     if (input.hasOwnProperty(key)) {
@@ -230,13 +236,7 @@ async function main() {
       console.log(`Validating ${type} ...`);
       input[type].checks = checks;
 
-      // handle files with global structure elements
-      if (data["@target"] || data["@map"]) {
-        walk(type, data, file, null, checkItems, checks);
-      }
-      else {
-        checkItems(type, data, file, checks);
-      }
+      checkItems(type, data, file, checks);
 
       // TODO: Abbruch entscheiden
     }
@@ -244,6 +244,8 @@ async function main() {
   exitOnError();
   console.log(`Validating done.\n`);
   await pause();
+
+
 
   // convert files
   for (const key in input) {
@@ -272,6 +274,8 @@ async function main() {
   console.log(`Converting done.\n`);
   await pause();
 
+
+
   // create structure.json FIXME: auslagern
   const struct = {};
   for (const key in input) {
@@ -287,6 +291,8 @@ async function main() {
   } finally {
     if (fd !== undefined) fs.closeSync(fd);
   }
+
+
 
   // create db files
   if (dryRun) {
