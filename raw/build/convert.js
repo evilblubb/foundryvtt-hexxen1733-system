@@ -5,7 +5,7 @@
  * Software License: GNU GPLv3
  */
 
-const { input } = require('../convert.js'); // FIXME: falls möglich eliminieren
+const { input } = require('../buildDBs.js'); // FIXME: falls möglich eliminieren
 const { generateID } = require('./ids.js');
 
 const vttSystemName = "hexxen-1733";

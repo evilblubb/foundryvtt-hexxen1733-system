@@ -37,7 +37,7 @@ const filesOut = {
   "npc-power": "npc-power.db"
 };
 
-let dryRun = false;
+let dryRun = true;
 let pauseAfterStep = false; // Wichtig: setzt die Verwendung des internen Terminals voraus!
 let error = false; // FIXME: errors aus Modulen abfragen
 

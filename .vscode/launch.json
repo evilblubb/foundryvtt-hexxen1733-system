@@ -7,17 +7,17 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Convert DBs",
+      "name": "Create DBs",
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/raw/convert.js",
+      "program": "${workspaceFolder}/raw/buildDBs.js",
       "console": "integratedTerminal"
     },
     {
       "type": "node",
       "request": "launch",
-      "name": "Fix DBs",
+      "name": "Fix raw data",
       "skipFiles": [
         "<node_internals>/**"
       ],
