@@ -5,9 +5,8 @@
  * Software License: GNU GPLv3
  */
 
-const main = require('../convert.js'); // FIXME: falls möglich eliminieren
+const { input } = require('../convert.js'); // FIXME: falls möglich eliminieren
 const { validateID, isUniqueID } = require('./ids.js');
-const input = main.input;
 
 function checkItems(type, items, path, checkResults) {
   // main loop
@@ -19,7 +18,7 @@ function checkItems(type, items, path, checkResults) {
     throw new TypeError(`  ${path}: [@@] Unsupported type "${typeof(items)}"! Expected "array".`);
   }
 }
-module.exports = checkItems;
+exports.checkItems = checkItems;
 
 function checkItem(type, item, path, checkResults) {
   // validate source data
@@ -269,7 +268,7 @@ function _matchAttack(attack, path) {
 
 function _matchPower(power, path) {
   // FIXME: Strukturbehandlung
-  const powers = main.input["npc-power"].flattened;
+  const powers = input["npc-power"].flattened;
   let found = false;
   // FIXME: Duplikate??
   powers.forEach(p => {
