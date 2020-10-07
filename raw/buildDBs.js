@@ -14,28 +14,47 @@ const fs = require('fs');
 const { checkItems } = require('./build/validate.js');
 const { convertList } = require('./build/convert.js');
 
+// TODO: evtl. zusammen mit ID-Code in util.js auslagern, falls für fix.js interessant
+class CompendiumFiles {
+  constructor(type, hints={}) {
+    this.type = type;
+    this.hints = hints;
+  }
 
-const filesIn = {
-  "regulation": "regulation.json",
-  "motivation": "motivation.json",
-  "power": "power.json",
-  "role": "role.json",
-  "profession": "profession.json",
-  // "items": "items.json",
-  // "kleidung": "kleidung.json",
-  // "reittiere": "reittiere.json",
-  // "skillitems": "skillitems.json",
-  "npc-power": "npc-power.json",
-  "npc": "npc.json"
-};
-const filesOut = {
-  "regulation": "regulation.db",
-  "motivation": "motivation.db",
-  "power": "power.db",
-  "role": "role.db",
-  "profession": "profession.db",
-  "npc-power": "npc-power.db"
-};
+  static deriveFrom(types) {
+    if (!Array.isArray(types)) throw new TypeError('Expecting an array!');
+
+    const ret = {};
+    types.forEach(type => ret[type] = new this(type));
+    return ret;
+  }
+
+  get in() {
+    return this.hints.hasOwnProperty('in') ? this.hints.in : [this.type, '.json'].join('');
+  }
+
+  get out() {
+    return this.hints.hasOwnProperty('out') ? this.hints.out : [this.type, '.db'].join('');
+  }
+}
+
+const types = [
+  "regulation",
+  "motivation",
+  "power",
+  "role",
+  "profession",
+  // "items",
+  // "kleidung",
+  // "reittiere",
+  // "skillitems",
+  "npc-power",
+  "npc"
+];
+const files = CompendiumFiles.deriveFrom(types);
+// FIXME: temporäre Abweichungen
+files.npc = new CompendiumFiles('npc', {out: null}); // Erstellung der npc.db unterdrücken
+
 
 let dryRun = true;
 let pauseAfterStep = false; // Wichtig: setzt die Verwendung des internen Terminals voraus!
@@ -176,10 +195,10 @@ function _extractAusbaukraftFeature(type, data, power, path, mappings) {
 async function main() {
 
   // preload files
-  for (const key in filesIn) {
-    if (filesIn.hasOwnProperty(key)) {
+  for (const key in files) {
+    if (files.hasOwnProperty(key)) {
       const type = key;
-      const file = filesIn[type];
+      const file = files[type].in;
 
       console.log(`Loading ${file} ...`);
       try {
@@ -214,7 +233,7 @@ async function main() {
 
   // flatten files (process @map properties)
   Object.keys(input).forEach(type => {
-    const file = filesIn[type];
+    const file = files[type].in;
 
     console.log(`Flattening ${file} ...`);
     input[type].flattened = _flatten(type, input[type].content, file);
@@ -229,7 +248,7 @@ async function main() {
   for (const key in input) {
     if (input.hasOwnProperty(key)) {
       const type = key;
-      const file = filesIn[type];
+      const file = files[type].in;
       const data = input[type].flattened;
       const checks = { ids: 0, sources: 0, todos: 0, refs: 0, tags: 0, struct: {} }; // FIXME: auslagern
 
@@ -251,7 +270,7 @@ async function main() {
   for (const key in input) {
     if (input.hasOwnProperty(key)) {
       const type = key;
-      const file = filesIn[type];
+      const file = files[type].in;
       const data = input[type].content;
 
       output[type] = {};
@@ -302,7 +321,7 @@ async function main() {
   for (const key in output) {
     if (input.hasOwnProperty(key)) {
       const type = key;
-      const file = filesOut[type] || null;
+      const file = files[type].out || null;
       const data = output[type].content;
 
       if (!dryRun && file) {
