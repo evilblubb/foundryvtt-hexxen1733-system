@@ -5,10 +5,10 @@
  * Software License: GNU GPLv3
  */
 
-// FIXME: exports have to be done before any requires, as they might be required inside the other scripts
+// TODO: exports have to be done before any requires, as they might be required inside the other scripts
 const input = {};
 const output = {};
-exports.input = input; // FIXME: vermeiden?
+exports.input = input; // TODO: vermeiden?
 
 const fs = require('fs');
 const { checkItems } = require('./build/validate.js');
@@ -21,7 +21,7 @@ class CompendiumFiles {
     this.hints = hints;
   }
 
-  static deriveFrom(types) {
+  static deriveFromTypes(types) {
     if (!Array.isArray(types)) throw new TypeError('Expecting an array!');
 
     const ret = {};
@@ -55,7 +55,7 @@ const types = [
   "npc-power",
   "npc"
 ];
-const files = CompendiumFiles.deriveFrom(types);
+const files = CompendiumFiles.deriveFromTypes(types);
 // FIXME: temporäre Abweichungen
 files.npc = new CompendiumFiles('npc', {out: null}); // Erstellung der npc.db unterdrücken
 
@@ -209,7 +209,9 @@ function __flatten(type, data, path, mappings = {}, clues = []) {
   }
   else {
     if (typeof(data) !== 'object') {
-      throw new TypeError(`All elements have to be of type Array or Object! Found "${path}" to be of type ${typeof(data)}`);
+      console.error(`    All elements have to be of type Array or Object! Found "${path}" to be of type ${typeof(data)}`);
+      error = true;
+      return null;
     }
     return data;
   }
@@ -273,16 +275,12 @@ async function main() {
   console.info('Loading done.\n');
   await pause();
 
-
-
   // load old compendiums for comparision
   console.info('Loading previous DBs for comparison ...');
   types.forEach(type => input[type].db = _importDB(type, files[type].db));
   exitOnError();
   console.info('Loading done.\n');
   await pause();
-
-
 
   // flatten files (process @map properties)
   console.info('Flattening raw content data ...');
@@ -291,9 +289,11 @@ async function main() {
   console.info('Flattening done.\n');
   await pause();
 
+  // FIXME: validate with schema (on raw data)
 
+  // FIXME: analyze structure (extract from check)
 
-  // validate files
+  // validate flattened raw data
   for (const key in input) {
     if (input.hasOwnProperty(key)) {
       const type = key;
@@ -315,7 +315,7 @@ async function main() {
 
 
 
-  // convert files
+  // convert files FIXME: auf flattened umstellen
   for (const key in input) {
     if (input.hasOwnProperty(key)) {
       const type = key;
