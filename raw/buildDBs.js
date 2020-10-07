@@ -33,6 +33,10 @@ class CompendiumFiles {
     return this.hints.hasOwnProperty('in') ? this.hints.in : [this.type, '.json'].join('');
   }
 
+  get db() {
+    return this.hints.hasOwnProperty('db') ? this.hints.db : [this.type, '.db'].join('');
+  }
+
   get out() {
     return this.hints.hasOwnProperty('out') ? this.hints.out : [this.type, '.db'].join('');
   }
@@ -82,6 +86,69 @@ function pause() {
   }
 }
 
+function _importRawData(type, file) {
+  if (file) {
+    console.info(`  ${file} ...`);
+
+    try {
+      const data = JSON.parse(fs.readFileSync(`${__dirname}/packs/${file}`, "utf8"));
+      const ret = { raw: data };
+      if (data.content) { // TODO: deprecated
+        ret.content = data.content;
+        console.warn("    Deprecated file format!");
+      } else if (data["@content"]) {
+        ret.content = data["@content"];
+      } else { // TODO: deprecated
+        ret.content = data;
+        console.warn("    Deprecated file format!");
+      }
+      return ret;
+    }
+    catch (err) {
+      if ('ENOENT' === err.code) {
+        console.warn(`    No such file: ${__dirname}/packs/${file}`);
+      } else {
+        console.error(err);
+        error = true;
+      }
+    }
+  }
+  else {
+    console.info(`  skipping ${type} ...`);
+  }
+
+  // must always return a basic structure!
+  return { raw: null, content: null };
+}
+
+function _importDB(type, file) {
+  if (file) {
+    console.info(`  ${file} ...`);
+    const ret = [];
+
+    try {
+      const data = fs.readFileSync(`${__dirname}/../packs/${file}`, "utf8");
+      const lines = data.split(/[\r\n]/);
+      lines.forEach(line => {
+        if (line) ret.push(JSON.parse(line));
+      });
+      return ret;
+    }
+    catch (err) {
+      if ('ENOENT' === err.code) {
+        console.warn(`    No such file: ${__dirname}/packs/${file}`);
+      } else {
+        console.error(err);
+        error = true;
+      }
+    }
+  } else {
+    console.info(`  skipping ${type} ...`);
+  }
+
+  return null;
+}
+
 // TODO: durch flatten ersetzen (wird nur noch für convert verwendet)
 function walk(type, data, path, regEx, checkFn, extras) {
   if (data["@target"]) {
@@ -106,6 +173,11 @@ function walk(type, data, path, regEx, checkFn, extras) {
 }
 
 function _flatten(type, data, path, mappings = {}, clues = []) {
+  console.info(`  ${type} ...`);
+  return __flatten(type, data, path, mappings, clues);
+}
+
+function __flatten(type, data, path, mappings = {}, clues = []) {
   // TODO: @all, @items implementieren, um alle enthaltenen Elemente mit properties befüllen zu können
   // TODO: @map Ziel-Properties müssen definiert sein (in Schema)
   // FIXME: mit @target umgehen, solange power.json alte Struktur hat
@@ -122,7 +194,7 @@ function _flatten(type, data, path, mappings = {}, clues = []) {
     .forEach(k => {
       // recursive call with extended mapping
       if (clue) m[clue] = k;
-      out = out.concat(_flatten(type, data[k], [path, k].join('/'), m, clues));
+      out = out.concat(__flatten(type, data[k], [path, k].join('/'), m, clues));
     });
 
     return out;
@@ -194,52 +266,29 @@ function _extractAusbaukraftFeature(type, data, power, path, mappings) {
 
 async function main() {
 
-  // preload files
-  for (const key in files) {
-    if (files.hasOwnProperty(key)) {
-      const type = key;
-      const file = files[type].in;
-
-      console.log(`Loading ${file} ...`);
-      try {
-        const data = JSON.parse(fs.readFileSync(`${__dirname}/packs/${file}`, "utf8"));
-        input[type] = {};
-        if (data.content) { // TODO: deprecated
-          input[type].content = data.content;
-          console.warn("  Deprecated file format!");
-        } else if (data["@content"]) {
-          input[type].content = data["@content"];
-        } else { // TODO: deprecated
-          input[type].content = data;
-          console.warn("  Deprecated file format!");
-        }
-      }
-      catch (err) {
-        console.error(err);
-        error = true;
-      }
-    }
-  }
+  // load raw data
+  console.info('Loading raw data ...');
+  types.forEach(type => input[type] = _importRawData(type, files[type].in));
   exitOnError();
-  console.log(`Loading done.\n`);
+  console.info('Loading done.\n');
   await pause();
 
 
 
   // load old compendiums for comparision
-  // FIXME: tbd.
+  console.info('Loading previous DBs for comparison ...');
+  types.forEach(type => input[type].db = _importDB(type, files[type].db));
+  exitOnError();
+  console.info('Loading done.\n');
+  await pause();
 
 
 
   // flatten files (process @map properties)
-  Object.keys(input).forEach(type => {
-    const file = files[type].in;
-
-    console.log(`Flattening ${file} ...`);
-    input[type].flattened = _flatten(type, input[type].content, file);
-  });
+  console.info('Flattening raw content data ...');
+  types.forEach(type => input[type].flattened = _flatten(type, input[type].content, files[type].in));
   exitOnError();
-  console.log(`Flattening done.\n`);
+  console.info('Flattening done.\n');
   await pause();
 
 
@@ -252,7 +301,7 @@ async function main() {
       const data = input[type].flattened;
       const checks = { ids: 0, sources: 0, todos: 0, refs: 0, tags: 0, struct: {} }; // FIXME: auslagern
 
-      console.log(`Validating ${type} ...`);
+      console.info(`Validating ${type} ...`);
       input[type].checks = checks;
 
       checkItems(type, data, file, checks);
@@ -261,7 +310,7 @@ async function main() {
     }
   }
   exitOnError();
-  console.log(`Validating done.\n`);
+  console.info(`Validating done.\n`);
   await pause();
 
 
@@ -275,7 +324,7 @@ async function main() {
 
       output[type] = {};
       const content = [];
-      console.log(`Converting ${type} ...`);
+      console.info(`Converting ${type} ...`);
 
       // handle files with global structure elements
       if (data["@target"] || data["@map"]) {
@@ -290,7 +339,7 @@ async function main() {
     }
   }
   exitOnError();
-  console.log(`Converting done.\n`);
+  console.info(`Converting done.\n`);
   await pause();
 
 
@@ -325,7 +374,7 @@ async function main() {
       const data = output[type].content;
 
       if (!dryRun && file) {
-        console.log(`Creating ${file} ...`);
+        console.info(`Creating ${file} ...`);
         let fd;
         try {
           fd = fs.openSync(`${__dirname}/../packs/${type}.db`, 'w'); // alte Datei überschreiben
@@ -341,11 +390,11 @@ async function main() {
           if (fd !== undefined)
           fs.closeSync(fd);
         }
-        console.log(`  ${data.length} entries created.`);
+        console.info(`  ${data.length} entries created.`);
       }
       else {
         console.warn(`Skipping ${type}.`);
-        console.log(`  ${data.length} entries prepared.`);
+        console.info(`  ${data.length} entries prepared.`);
       }
 
       with (output[type].checks) {
@@ -368,7 +417,7 @@ async function main() {
     }
   }
 
-  console.log(`Done.`);
+  console.info(`Done.`);
   await pause();
 
 }
