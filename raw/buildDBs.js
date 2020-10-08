@@ -62,7 +62,7 @@ files.npc = new CompendiumFiles('npc', {out: null}); // Erstellung der npc.db un
 
 let dryRun = true;
 let pauseAfterStep = false; // Wichtig: setzt die Verwendung des internen Terminals voraus!
-let error = false; // FIXME: errors aus Modulen abfragen
+let error = false;
 
 
 function exitOnError() {
@@ -293,22 +293,15 @@ async function main() {
 
   // FIXME: analyze structure (extract from check)
 
+  // FIXME: check for duplicates (identical name)
+
   // validate flattened raw data
-  for (const key in input) {
-    if (input.hasOwnProperty(key)) {
-      const type = key;
-      const file = files[type].in;
-      const data = input[type].flattened;
-      const checks = { ids: 0, sources: 0, todos: 0, refs: 0, tags: 0, struct: {} }; // FIXME: auslagern
-
-      console.info(`Validating ${type} ...`);
-      input[type].checks = checks;
-
-      checkItems(type, data, file, checks);
-
-      // TODO: Abbruch entscheiden
-    }
-  }
+  console.info('Validating flattened content data ...');
+  types.forEach(type => {
+    let err;
+    [input[type].checks, err] = checkItems(type, input[type].flattened);
+    error |= err;
+  });
   exitOnError();
   console.info(`Validating done.\n`);
   await pause();
@@ -334,6 +327,7 @@ async function main() {
         convertList(type, data, file, content);
       }
 
+      // FIXME: errors aus Modulen abfragen
       output[type].content = content;
       output[type].checks = input[type].checks;
     }

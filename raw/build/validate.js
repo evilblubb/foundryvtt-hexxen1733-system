@@ -5,17 +5,28 @@
  * Software License: GNU GPLv3
  */
 
-const { input } = require('../buildDBs.js'); // FIXME: falls möglich eliminieren
+const { input } = require('../buildDBs.js'); // TODO: falls möglich eliminieren
 const { validateID, isUniqueID } = require('./ids.js');
 
-function checkItems(type, items, path, checkResults) {
+let error;
+
+/**
+ *
+ * @param {String} type
+ * @param {Array<Object>} items
+ * @returns [Object, boolean] Results, Errors
+ */
+function checkItems(type, items) {
   // main loop
+  const checkResults = { ids: 0, sources: 0, todos: 0, refs: 0, tags: 0, struct: {} };
+  error = false;
+
   if (Array.isArray(items)) {
-    // FIXME: nach Duplikaten suchen (gleicher Name)
-    items.forEach( (item, idx) => checkItem(type, item, [path, idx].join('/'), checkResults) );
+    items.forEach( (item, idx) => checkItem(type, item, [type, idx].join('/'), checkResults) );
+    return [checkResults, error];
   }
   else {
-    throw new TypeError(`  ${path}: [@@] Unsupported type "${typeof(items)}"! Expected "array".`);
+    throw new TypeError(`  ${type}: [@@] Unsupported type "${typeof(items)}"! Expected "array".`);
   }
 }
 exports.checkItems = checkItems;
