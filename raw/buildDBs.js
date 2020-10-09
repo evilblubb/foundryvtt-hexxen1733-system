@@ -5,10 +5,10 @@
  * Software License: GNU GPLv3
  */
 
-// TODO: exports have to be done before any requires, as they might be required inside the other scripts
+// exports have to be done before any requires, as they might be required inside the other scripts
 const input = {};
 const output = {};
-exports.input = input; // TODO: vermeiden?
+exports.input = input; // TODO: falls möglich vermeiden?
 
 const fs = require('fs');
 const { checkItems } = require('./build/validate.js');
@@ -445,7 +445,7 @@ async function main() {
     if (input.hasOwnProperty(key)) {
       const type = key;
       const file = files[type].in;
-      const data = input[type].content;
+      const data = input[type].flattened;
 
       output[type] = {};
       const content = [];

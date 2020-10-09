@@ -5,7 +5,7 @@
  * Software License: GNU GPLv3
  */
 
-const { input } = require('../buildDBs.js'); // FIXME: falls möglich eliminieren
+const { input } = require('../buildDBs.js'); // TODO: falls möglich eliminieren
 const { generateID } = require('./ids.js');
 
 const vttSystemName = "hexxen-1733";
@@ -88,7 +88,7 @@ function convertItem(type, item, key, path) {
   out.name = item.name;
 
   // basic data properties
-  out.data = { "_template-revision": null, name: null };
+  out.data = {}; // FIXME: zurücknehmen { "_template-revision": null, name: null };
   out.data.description = _convertMultilineText(item.description) || ""; // TODO: Refs konvertieren
   out.data.summary = _convertMultilineText(item.summary) || ""; // TODO: Haben alle eine summary? Refs konvertieren
   if (item.tags) out.data.tags = item.tags; // TODO: oder leeres Array??
@@ -97,23 +97,23 @@ function convertItem(type, item, key, path) {
 
   // custom properties
   if ("item" === type) {
-    out.data["_template-revision"] = 1;
+    // FIXME: zurücknehmen out.data["_template-revision"] = 1;
   } else if ("motivation" === type) {
-    out.data["_template-revision"] = 1;
+    // FIXME: zurücknehmen out.data["_template-revision"] = 1;
   } else if ("role" === type) {
-    out.data["_template-revision"] = 1;
+    // FIXME: zurücknehmen out.data["_template-revision"] = 1;
     _convertRoleItem(type, item, key, path, out);
   } else if ("profession" === type) {
-    out.data["_template-revision"] = 1;
+    // FIXME: zurücknehmen out.data["_template-revision"] = 1;
     _convertProfessionItem(type, item, key, path, out);
   } else if ("power" === type) {
-    out.data["_template-revision"] = 1;
+    // FIXME: zurücknehmen out.data["_template-revision"] = 1;
     extras = _convertPowerItem(type, item, key, path, out);
   } else if ("npc-power" === type) {
     out.data["_template-revision"] = 1;
     _convertNpcPowerItem(type, item, key, path, out);
   } else if ("regulation" === type) {
-    out.data["_template-revision"] = 1;
+    // FIXME: zurücknehmen out.data["_template-revision"] = 1;
     _convertRegulationItem(type, item, key, path, out);
   }
 
@@ -157,10 +157,10 @@ function _convertPowerItem(type, item, key, path, out) {
   const pathArray = path.split('/');
 
   let extras = undefined;
-  const subtype = pathArray[3]; // jaeger/esprit/ausbau
-  const originType = pathArray[1];
-  const rawName = pathArray[2];
-  const o = input[originType].content || input[originType]; // Liste der Rollen/Professionen
+  const subtype = item.type; // jaeger/esprit/ausbau
+  const originType = item.originType;
+  const rawName = item.origin;
+  const o = input[originType].content; // Liste der Rollen/Professionen
   const originName = o[rawName].name; // Name der Rolle/Profession
 
   // modify icon
@@ -181,7 +181,7 @@ function _convertPowerItem(type, item, key, path, out) {
 
   // Ausbaufeatures
   // to avoid infinite loop check against last element, not [3]
-  if ("ausbau" === pathArray[pathArray.length-1]) {
+  if ("ausbau" === subtype && !item.subtype) {
     out.data.features = [];
     extras = [];
 
@@ -189,54 +189,52 @@ function _convertPowerItem(type, item, key, path, out) {
     const featureKeys = [ "stammeffekt", "geselle", "experte", "meister" ];
     featureKeys.forEach(fKey => {
       new Map(Object.entries("stammeffekt" === fKey ? { stammeffekt: item[fKey] } : item[fKey])).forEach((value, lKey) => {
-        const extra = convertItem("power", value, lKey, `${path}/${key}/${fKey}`)[0];
-        if (extra) {
           const feature = {};
-          feature.name = extra.data.name;
-          feature.nameC = extra.name;
-          feature.id = extra._id;
-          feature.pack = getPackName(extra.type);
+          feature.name = value.name;
+          feature.nameC = `${value.name} (${originName})`;
+          feature.id = value._id;
+          feature.pack = getPackName(type);
           feature.type = fKey;
           out.data.features.push(feature);
 
-          extra.img = HEXXEN_AUSBAU_ICON;
-          extra.data.subtype = fKey; // stammeffekt/geselle/experte/meister
-          extra.data.references = item.references;
-          extra.data.origin.power = {};
-          extra.data.origin.power.type = subtype;
-          extra.data.origin.power.name = out.data.name; // Name der Ausbaukraft
-          extra.data.origin.power.nameC = out.name; // Name der Ausbaukraft (Kompendium)
-          extra.data.origin.power.pack = getPackName("power"); // Name des Kompendium
-          extra.data.origin.power.id = out._id; // ID der Ausbaukraft (Kompendium)
-          extras.push(extra);
-        }
+          // }
+        });
       });
-    });
+    }
+    else if ("ausbau" === subtype && item.subtype) {
+      out.data.subtype = item.subtype; // stammeffekt/geselle/experte/meister
+      out.data.origin.power = {};
+      out.data.origin.power.type = subtype;
+      out.data.origin.power.name = item['@power'].name; // Name der Ausbaukraft
+      out.data.origin.power.nameC = `${item['@power'].name} (${originName})`; // Name der Ausbaukraft (Kompendium)
+      out.data.origin.power.pack = getPackName("power"); // Name des Kompendium
+      out.data.origin.power.id = item['@power']._id; // ID der Ausbaukraft (Kompendium)
   }
 
   return extras;
 }
 
 function _convertRoleItem(type, item, key, path, out) {
-  out.data.powers = _getPowers(type, key, path);
+  out.data.powers = _getPowers(type, item.name, path);
 }
 
 function _convertProfessionItem(type, item, key, path, out) {
   if (item.type) out.data.type = item.type; // FIXME: type===meisterprofession in masterprofession=true umwandeln
   out.data.qualification = item.qualification; // TODO: Refs konvertieren
-  out.data.powers = _getPowers(type, key, path);
+  out.data.powers = _getPowers(type, item.name, path);
 }
 
-function _getPowers(type, role) {
+function _getPowers(type, name) {
   const out = [];
+  const lname = Object.keys(input[type].content).find(key => !key.startsWith('@') && name === input[type].content[key].name);
   const powers = input.power.content;
-  const set = powers[type][role];
+  const set = powers[type][lname];
   if (! set) {
-    console.error(`  Jägerkräfte für Rolle ${role} nicht gefunden!`);
+    console.error(`  Jägerkräfte für Rolle ${name} nicht gefunden!`);
     return [];
   }
   const o = input[type].content || input[type]; // Liste der Rollen/Professionen
-  const originName = o[role].name; // Name der Rolle/Profession
+  const originName = o[lname].name; // Name der Rolle/Profession
 
   new Map(Object.entries(set)).forEach((value, key) => {
     new Map(Object.entries(value)).forEach(value => {
