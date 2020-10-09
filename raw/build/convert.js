@@ -15,71 +15,24 @@ const HEXXEN_EXPRIT_ICON = `systems/${vttSystemName}/img/Siegel-Esprit-small.png
 const HEXXEN_AUSBAU_ICON = `systems/${vttSystemName}/img/Siegel-Ausbaukraft-small.png`;
 const HEXXEN_DEFAULT_ICON = HEXXEN_JAEGER_ICON;
 
-function getPackName(type) {
-  return `${vttSystemName}.${packPrefix}-${type}`;
-}
+let error;
 
-function getItemId(type, nameC) {
-  const pack = input[type];
-  if (!pack) {
-    console.error(`unknown type: ${type}`);
-    return "";
+function convertItems(type, items) {
+  error = false;
+
+  if (Array.isArray(items)) {
+    // TODO: try-catch??
+    const content = items.map( (item, idx) => convertItem(type, item, [type, idx].join('/')) );
+    return [{ content: content }, error];
   }
-  const item = pack.content[nameC]; // TODO: packs mit höherer Hierarchietiefe
-  if (!item) {
-    console.error(`unknown item: ${type}/${nameC}`);
-    return "";
-  }
-
-  return item._id;
-}
-
-function _convertMultilineText(text) {
-  if (!text || typeof(text) !== "string") return text;
-  const lines = text.split('\n');
-  if (lines.length > 0) {
-    text = lines.reduce((out, line) => {
-      out += `<p>${line}</p>`;
-      return out;
-    }, "");
-  }
-  return text;
-}
-
-function _convertRefs(text) {
-  if (!text || typeof(text) !== "string") return 0;
-  const regEx = /\[(.*?)\]/g;
-  text = text.replace(regEx, (match, p1, offset, string) => {
-    return _replaceRef(p1);
-  });
-  return text;
-}
-
-function _replaceRef(ref) {
-  if (ref.startsWith('!')) {
-    // ignore !refs
-    return `[${ref}]`;
-  } else {
-    // TODO: ref über lookup-Liste einem pack zuordnen
-    return `@Compendium[${getPackName("items")}.${ref}]`;
+  else {
+    throw new TypeError(`  ${type}: [@@] Unsupported type "${typeof(items)}"! Expected "array".`);
   }
 }
+exports.convertItems = convertItems;
 
-function convertList(type, data, path, content) {
-  for (const key in data) {
-    if (!key.startsWith("@") && data.hasOwnProperty(key)) {
-      const item = data[key];
-      console.log(`  Converting ${item.name} ...`);
-      const out = convertItem(type, item, key, path);
-      content.push(...out);
-    }
-  }
-}
-exports.convertList = convertList; // FIXME: evtl. Loop in main lassen
-
-function convertItem(type, item, key, path) {
+function convertItem(type, item, path) {
   const out = {};
-  let extras = undefined; // in case item produces more than one db item
 
   // basic properties
   // FIXME: ID schon bei validierung generieren??
@@ -88,7 +41,7 @@ function convertItem(type, item, key, path) {
   out.name = item.name;
 
   // basic data properties
-  out.data = {}; // FIXME: zurücknehmen { "_template-revision": null, name: null };
+  out.data = {}; // FIXME: zurücknehmen { "_template-revision": 0, name: null };
   out.data.description = _convertMultilineText(item.description) || ""; // TODO: Refs konvertieren
   out.data.summary = _convertMultilineText(item.summary) || ""; // TODO: Haben alle eine summary? Refs konvertieren
   if (item.tags) out.data.tags = item.tags; // TODO: oder leeres Array??
@@ -102,19 +55,19 @@ function convertItem(type, item, key, path) {
     // FIXME: zurücknehmen out.data["_template-revision"] = 1;
   } else if ("role" === type) {
     // FIXME: zurücknehmen out.data["_template-revision"] = 1;
-    _convertRoleItem(type, item, key, path, out);
+    _convertRoleItem(type, item, path, out);
   } else if ("profession" === type) {
     // FIXME: zurücknehmen out.data["_template-revision"] = 1;
-    _convertProfessionItem(type, item, key, path, out);
+    _convertProfessionItem(type, item, path, out);
   } else if ("power" === type) {
     // FIXME: zurücknehmen out.data["_template-revision"] = 1;
-    extras = _convertPowerItem(type, item, key, path, out);
+    extras = _convertPowerItem(type, item, path, out);
   } else if ("npc-power" === type) {
     out.data["_template-revision"] = 1;
-    _convertNpcPowerItem(type, item, key, path, out);
+    _convertNpcPowerItem(type, item, path, out);
   } else if ("regulation" === type) {
     // FIXME: zurücknehmen out.data["_template-revision"] = 1;
-    _convertRegulationItem(type, item, key, path, out);
+    _convertRegulationItem(type, item, path, out);
   }
 
   // final basic properties, just to keep a nice human-readable order
@@ -125,10 +78,10 @@ function convertItem(type, item, key, path) {
   out.flags[vttSystemName] = { compendium: { pack: getPackName(type), id: out._id, nameC: out.name, "data-revision": item["@rev"] }};
   out.permission = { "default": 0 };
 
-  return extras ? [ out, ...extras ] : [ out ];
+  return out;
 }
 
-function _convertRegulationItem(type, item, key, path, out) {
+function _convertRegulationItem(type, item, path, out) {
   out.data.name = item.name;
   if (item.abbr) {
     out.name = `${out.name} (${item.abbr})`;
@@ -136,7 +89,7 @@ function _convertRegulationItem(type, item, key, path, out) {
   out.data.summary = null;
 }
 
-function _convertNpcPowerItem(type, item, key, path, out) {
+function _convertNpcPowerItem(type, item, path, out) {
   out.data.name = item.name;
   out.data.type = item.type;
   if (item.type.endsWith("Bande")) {
@@ -153,7 +106,7 @@ function _convertNpcPowerItem(type, item, key, path, out) {
   // FIXME: anderes Icon!
 }
 
-function _convertPowerItem(type, item, key, path, out) {
+function _convertPowerItem(type, item, path, out) {
   const pathArray = path.split('/');
 
   let extras = undefined;
@@ -214,11 +167,11 @@ function _convertPowerItem(type, item, key, path, out) {
   return extras;
 }
 
-function _convertRoleItem(type, item, key, path, out) {
+function _convertRoleItem(type, item, path, out) {
   out.data.powers = _getPowers(type, item.name, path);
 }
 
-function _convertProfessionItem(type, item, key, path, out) {
+function _convertProfessionItem(type, item, path, out) {
   if (item.type) out.data.type = item.type; // FIXME: type===meisterprofession in masterprofession=true umwandeln
   out.data.qualification = item.qualification; // TODO: Refs konvertieren
   out.data.powers = _getPowers(type, item.name, path);
@@ -254,4 +207,57 @@ function _getPowers(type, name) {
     });
   });
   return out;
+}
+
+
+// Helper
+
+function getPackName(type) {
+  return `${vttSystemName}.${packPrefix}-${type}`;
+}
+
+function getItemId(type, nameC) {
+  const pack = input[type];
+  if (!pack) {
+    console.error(`unknown type: ${type}`);
+    return "";
+  }
+  const item = pack.content[nameC]; // TODO: packs mit höherer Hierarchietiefe
+  if (!item) {
+    console.error(`unknown item: ${type}/${nameC}`);
+    return "";
+  }
+
+  return item._id;
+}
+
+function _convertMultilineText(text) {
+  if (!text || typeof(text) !== "string") return text;
+  const lines = text.split('\n');
+  if (lines.length > 0) {
+    text = lines.reduce((out, line) => {
+      out += `<p>${line}</p>`;
+      return out;
+    }, "");
+  }
+  return text;
+}
+
+function _convertRefs(text) {
+  if (!text || typeof(text) !== "string") return 0;
+  const regEx = /\[(.*?)\]/g;
+  text = text.replace(regEx, (match, p1, offset, string) => {
+    return _replaceRef(p1);
+  });
+  return text;
+}
+
+function _replaceRef(ref) {
+  if (ref.startsWith('!')) {
+    // ignore !refs
+    return `[${ref}]`;
+  } else {
+    // TODO: ref über lookup-Liste einem pack zuordnen
+    return `@Compendium[${getPackName("items")}.${ref}]`;
+  }
 }

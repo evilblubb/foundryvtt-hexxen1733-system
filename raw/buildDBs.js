@@ -12,7 +12,7 @@ exports.input = input; // TODO: falls möglich vermeiden?
 
 const fs = require('fs');
 const { checkItems } = require('./build/validate.js');
-const { convertList } = require('./build/convert.js');
+const { convertItems } = require('./build/convert.js');
 
 // TODO: evtl. zusammen mit ID-Code in util.js auslagern, falls für fix.js interessant
 class CompendiumFiles {
@@ -379,7 +379,7 @@ async function main() {
 
   // flatten files (process @map properties)
   console.info('Flattening raw content data ...');
-  types.forEach(type => input[type].flattened = _flatten(type, input[type].content, files[type].in));
+  types.forEach(type => input[type].flattened = _flatten(type, input[type].content, files[type].in)); // FIXME: wird path wirklich gebraucht?
   exitOnError();
   console.info('Flatten done.\n');
   await pause();
@@ -401,25 +401,12 @@ async function main() {
   console.info(`Validation done.\n`);
   await pause();
 
-  // convert files FIXME: auf flattened umstellen
   console.info('Converting flattened content data ...');
-  for (const key in input) {
-    if (input.hasOwnProperty(key)) {
-      const type = key;
-      const file = files[type].in;
-      const data = input[type].flattened;
-
-      output[type] = {};
-      const content = [];
-      console.info(`  ${type} ...`);
-
-      convertList(type, data, file, content);
-
-      // FIXME: errors aus Modulen abfragen
-      output[type].content = content;
-      output[type].checks = input[type].checks; // FIXME: ??
-    }
-  }
+  types.forEach(type => {
+    let err;
+    [output[type], err] = convertItems(type, input[type].flattened);
+    error |= err;
+  });
   exitOnError();
   console.info(`Conversion done.\n`);
   await pause();
@@ -512,7 +499,7 @@ async function main() {
         }
       }
 
-      with (output[type].checks) {
+      with (input[type].checks) {
         if (ids) {
           console.warn(`  Missing ${ids} IDs! Created new random IDs!`);
         }
