@@ -339,47 +339,33 @@ function _diffEntry(type, o, n) {
   // remove all that is identical from n
   // and add properties that are different from o to n as "!key"
   Object.keys(n).forEach(key => {
-    const nn = n[key];
-    const oo = o[key];
-
-    if (nn === oo) {
+    if (o[key] === n[key]) {
       if (['_id', 'name'].includes(key)) {
-        n[`=${key}`] = o[key];
+        n[`=${key}`] = n[key];
       }
-      delete n[key];
     }
-    else if (Array.isArray(oo) && Array.isArray(nn)) {
-      // nn.forEach(el => {
-      //   ooIdx = oo.indexOf()
-      // })
+    else if (Array.isArray(o[key]) && Array.isArray(n[key])) {
       // TODO: tbd. (Workaround JSON.stringify ersetzen)
-      if (JSON.stringify(nn) === JSON.stringify(oo)) {
-        delete n[key];
-      }
-      else {
-        const m = n[key];
-        delete n[key];
+      if (JSON.stringify(o[key]) !== JSON.stringify(n[key])) {
         n[`-${key}`] = o[key];
-        n[`+${key}`] = m;
+        n[`+${key}`] = n[key];
       }
     }
-    else if (oo instanceof Object && nn instanceof Object) {
-      _diffEntry(type, oo, nn);
-      if (Object.keys(nn).filter(e => ! e.startsWith('=')).length == 0) {
-        delete n[key];
-      }
-      else {
-        const m = n[key];
-        delete n[key];
-        n[`>${key}`] = m;
+    else if (o[key] instanceof Object && n[key] instanceof Object) {
+      _diffEntry(type, o[key], n[key]);
+      Object.keys(o[key]).forEach(key2 => {
+        n[key][`-${key2}`] = o[key][key2];
+      });
+      if (Object.keys(n[key]).filter(e => ! e.startsWith('=')).length > 0) {
+        n[`>${key}`] = n[key];
       }
     }
     else {
-      const m = n[key];
-      delete n[key];
       n[`-${key}`] = o[key];
-      n[`+${key}`] = m;
-  }
+      n[`+${key}`] = n[key];
+    }
+    delete n[key];
+    delete o[key];
   });
 }
 
