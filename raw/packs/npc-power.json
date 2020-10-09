@@ -1,8 +1,7 @@
 {
   "$schema": "./npc-power.schema.json",
   "@content": {
-    "@target": "^(.*)$",
-    "@map": "type",
+    "@map": "group",
     "allgemein": {
       "@map": null,
       "aasfresser": {

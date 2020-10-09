@@ -29,11 +29,6 @@
       "type": [ "string", "null" ]
     },
 
-    "@target": {
-      "description": "Ein regulärer Ausdruck, der Schlüsselwörter beschreibt, welche Zielelemente enthalten. Hierbei wird auch rekursiv nach den Schlüsselwörtern gesucht.",
-      "type": "string"
-    },
-
 
     "name": {
       "title": "Name des Compendium-Eintrags",

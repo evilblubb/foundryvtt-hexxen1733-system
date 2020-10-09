@@ -149,29 +149,6 @@ function _importDB(type, file) {
   return null;
 }
 
-// TODO: durch flatten ersetzen (wird nur noch für convert verwendet)
-function walk(type, data, path, regEx, checkFn, extras) {
-  if (data["@target"]) {
-    regEx = data["@target"];
-  } else if (data["@map"]) {
-    regEx = "^.*$";
-    // FIXME: category einschleifen
-  }
-  new Map(Object.entries(data)).forEach((value, key) => {
-    if (["@target", "@map"].includes(key)) {
-      // ignore
-    } else if (key.match(regEx)) {
-      checkFn(type, value, `${path}/${key}`, extras);
-    }
-    else if (typeof(value) === "object") {
-      walk(type, value, `${path}/${key}`, regEx, checkFn, extras);
-    }
-    else {
-      console.error(`  @@:${path}/${key}: No target key found!`);
-    }
-  });
-}
-
 function _flatten(type, data, path, mappings = {}, clues = []) {
   console.info(`  ${type} ...`);
   return __flatten(type, data, path, mappings, clues);
@@ -180,7 +157,6 @@ function _flatten(type, data, path, mappings = {}, clues = []) {
 function __flatten(type, data, path, mappings = {}, clues = []) {
   // TODO: @all, @items implementieren, um alle enthaltenen Elemente mit properties befüllen zu können
   // TODO: @map Ziel-Properties müssen definiert sein (in Schema)
-  // FIXME: mit @target umgehen, solange power.json alte Struktur hat
   if (!Array.isArray(data) && typeof(data) === "object" && (clues.length || data.hasOwnProperty("@map"))) {
     // if exists, @map overrides remaining clues completely
     // make sure clues is always an array AND use a copy of clues
@@ -190,7 +166,7 @@ function __flatten(type, data, path, mappings = {}, clues = []) {
     let out = [];
 
     Object.keys(data)
-    .filter(k => !["@map", "@target"].includes(k))
+    .filter(k => !["@map"].includes(k))
     .forEach(k => {
       // recursive call with extended mapping
       if (clue) m[clue] = k;
@@ -437,13 +413,7 @@ async function main() {
       const content = [];
       console.info(`  ${type} ...`);
 
-      // handle files with global structure elements
-      if (data["@target"] || data["@map"]) {
-        walk(type, data, file, null, convertList, content);
-      }
-      else {
-        convertList(type, data, file, content);
-      }
+      convertList(type, data, file, content);
 
       // FIXME: errors aus Modulen abfragen
       output[type].content = content;

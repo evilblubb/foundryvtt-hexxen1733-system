@@ -37,7 +37,7 @@
 
     "structure": {
       "title": "Strukturebene",
-      "$comment": "Die zulässigen/erforderlichen Strukturelemente. \"_id\" kann kein Strukturelement sein! FIXME: @map Array verallgemeinern",
+      "$comment": "Die zulässigen/erforderlichen Strukturelemente. \"_id\" kann kein Strukturelement sein! FIXME: @map Array verallgemeinern, @map required mind. auf erster Ebene",
       "type": "object",
       "patternProperties": {
         "^@map$": {
@@ -46,13 +46,8 @@
             { "type": "array", "items": { "$ref": "global-schema.json#/definitions/@map" } }
           ]
         },
-        "^@target$": { "$ref": "global-schema.json#/definitions/@target" },
         "^(?!_id).*$": { "$ref": "#/definitions/content" }
-      },
-      "_anyOf": [
-        { "required": [ "@map" ] },
-        { "required": [ "@target" ] }
-      ]
+      }
     },
 
     "default": {
