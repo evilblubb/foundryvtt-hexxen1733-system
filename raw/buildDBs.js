@@ -259,6 +259,112 @@ function _extractAusbaukraftFeature(type, data, power, path, mappings) {
   return ret;
 }
 
+// TODO: nach util.js auslagern
+function _duplicate(data) {
+  return JSON.parse(JSON.stringify(data));
+}
+
+function _sortByID(a, b) {
+  return a._id < b._id ? -1 : (a._id > b._id ? 1 : 0);
+}
+
+function _diffDB(type, oldDB, newDB) {
+  console.info(`  ${type} ...`);
+
+  oldDB = oldDB || []; // in case of first creation
+  if (null === newDB) {
+    console.info('    Nothing to compare to.');
+    return { msg: 'Nothing to compare to.' };
+  }
+  else if (!Array.isArray(oldDB) || !Array.isArray(newDB)) {
+    console.error('    Bad data type(s)!');
+    error = true;
+    return { msg: 'Bad data type(s)!' };
+  }
+
+  // duplicate data structures (deep copy) and sort by ID
+  let o = _duplicate(oldDB).sort(_sortByID);
+  let n = _duplicate(newDB).sort(_sortByID);
+
+  // extract new and removed entries
+  let added = [], removed = [], oldIdx = 0;
+  n = n.reduce((keep, el) => {
+    if (oldIdx < o.length && el._id > o[oldIdx]._id) {
+      // removed (o[oldIdx] not in n)
+      do {
+        removed.push(o[oldIdx]);
+        o.splice(oldIdx, 1);
+      } while (oldIdx < o.length && el._id > o[oldIdx]._id);
+    }
+    if (oldIdx >= o.length || el._id < o[oldIdx]._id) {
+      // new in n
+      added.push(el);
+    }
+    else {
+      // contained in both, keep
+      keep.push(el);
+      oldIdx++;
+    }
+    return keep;
+  }, []);
+  // handle additional entries in o (must have been removed)
+  while (oldIdx < o.length) {
+    removed.push(o[oldIdx]);
+    o.splice(oldIdx, 1);
+  }
+
+  // compare (and reduce) remaining entries
+  n = n.reduce((out, el, idx) => {
+    _diffEntry(type, o[idx], el);
+    if (Object.keys(el).filter(e => ! e.startsWith('=')).length > 0) {
+      out.push(el);
+    }
+    return out;
+  }, []);
+
+  // FIXME: increment @rev if neccessary
+
+  return { added: added, modified: n, removed: removed };
+}
+
+function _diffEntry(type, o, n) {
+  if (! o instanceof Object || ! n instanceof Object) {
+    return;
+  }
+
+  // remove all that is identical from n
+  // and add properties that are different from o to n as "!key"
+  Object.keys(n).forEach(key => {
+    const nn = n[key];
+    const oo = o[key];
+
+    if (nn === oo) {
+      if (['_id', 'name', 'type'].includes(key)) n[`=${key}`] = o[key];
+      delete n[key];
+    }
+    else if (Array.isArray(oo) && Array.isArray(nn)) {
+      // nn.forEach(el => {
+      //   ooIdx = oo.indexOf()
+      // })
+      // TODO: tbd. (Workaround JSON.stringify ersetzen)
+      if (JSON.stringify(nn) === JSON.stringify(oo)) {
+        delete n[key];
+      }
+      else {
+        n[`!${key}`] = o[key];
+      }
+      }
+    else if (oo instanceof Object && nn instanceof Object) {
+      _diffEntry(type, oo, nn);
+      if (Object.keys(nn).filter(e => ! e.startsWith('=')).length == 0) {
+        delete n[key];
+      }
+    }
+    else {
+      n[`!${key}`] = o[key];
+    }
+  });
+}
 
 
 /********************
@@ -286,7 +392,7 @@ async function main() {
   console.info('Flattening raw content data ...');
   types.forEach(type => input[type].flattened = _flatten(type, input[type].content, files[type].in));
   exitOnError();
-  console.info('Flattening done.\n');
+  console.info('Flatten done.\n');
   await pause();
 
   // FIXME: validate with schema (on raw data)
@@ -303,12 +409,11 @@ async function main() {
     error |= err;
   });
   exitOnError();
-  console.info(`Validating done.\n`);
+  console.info(`Validation done.\n`);
   await pause();
 
-
-
   // convert files FIXME: auf flattened umstellen
+  console.info('Converting flattened content data ...');
   for (const key in input) {
     if (input.hasOwnProperty(key)) {
       const type = key;
@@ -317,7 +422,7 @@ async function main() {
 
       output[type] = {};
       const content = [];
-      console.info(`Converting ${type} ...`);
+      console.info(`  ${type} ...`);
 
       // handle files with global structure elements
       if (data["@target"] || data["@map"]) {
@@ -329,16 +434,22 @@ async function main() {
 
       // FIXME: errors aus Modulen abfragen
       output[type].content = content;
-      output[type].checks = input[type].checks;
+      output[type].checks = input[type].checks; // FIXME: ??
     }
   }
   exitOnError();
-  console.info(`Converting done.\n`);
+  console.info(`Conversion done.\n`);
   await pause();
 
+  // FIXME: sicherstellen, dass output kein undefined enthält!
 
+  console.info('Comparing with previous DB content.');
+  types.forEach(type => input[type].diff = _diffDB(type, input[type].db, output[type].content));
+  exitOnError();
+  console.info('Comparation done.\n');
+  await pause();
 
-  // create structure.json FIXME: auslagern
+  // create structure.json FIXME: auslagern und direkt nach Strukturanalyse aufrufen
   const struct = {};
   for (const key in input) {
     struct[key] = input[key].checks.struct;
@@ -354,7 +465,7 @@ async function main() {
     if (fd !== undefined) fs.closeSync(fd);
   }
 
-
+  // FIXME: Änderungen an Input-Daten zurückschreiben
 
   // create db files
   if (dryRun) {
@@ -389,6 +500,14 @@ async function main() {
       else {
         console.warn(`Skipping ${type}.`);
         console.info(`  ${data.length} entries prepared.`);
+      }
+      if (input[type].diff) {
+        const diff = input[type].diff;
+        if (diff.msg) {
+          console.error(`  Diff failed: ${diff.msg}`);
+        } else {
+          console.info(`  (${diff.modified.length} modified, ${diff.added.length} added, ${diff.removed.length} removed)`);
+        }
       }
 
       with (output[type].checks) {
