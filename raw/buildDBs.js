@@ -324,6 +324,10 @@ function _diffDB(type, oldDB, newDB) {
 
   // FIXME: increment @rev if neccessary
 
+  // compact added and removed
+  _compact(added);
+  _compact(removed);
+
   return { added: added, modified: n, removed: removed };
 }
 
@@ -339,7 +343,9 @@ function _diffEntry(type, o, n) {
     const oo = o[key];
 
     if (nn === oo) {
-      if (['_id', 'name', 'type'].includes(key)) n[`=${key}`] = o[key];
+      if (['_id', 'name'].includes(key)) {
+        n[`=${key}`] = o[key];
+      }
       delete n[key];
     }
     else if (Array.isArray(oo) && Array.isArray(nn)) {
@@ -351,18 +357,39 @@ function _diffEntry(type, o, n) {
         delete n[key];
       }
       else {
-        n[`!${key}`] = o[key];
+        const m = n[key];
+        delete n[key];
+        n[`-${key}`] = o[key];
+        n[`+${key}`] = m;
       }
-      }
+    }
     else if (oo instanceof Object && nn instanceof Object) {
       _diffEntry(type, oo, nn);
       if (Object.keys(nn).filter(e => ! e.startsWith('=')).length == 0) {
         delete n[key];
       }
+      else {
+        const m = n[key];
+        delete n[key];
+        n[`>${key}`] = m;
+      }
     }
     else {
-      n[`!${key}`] = o[key];
-    }
+      const m = n[key];
+      delete n[key];
+      n[`-${key}`] = o[key];
+      n[`+${key}`] = m;
+  }
+  });
+}
+
+function _compact(arr) {
+  arr.forEach(el => {
+    Object.keys(el).forEach(key => {
+      if (! ['_id', 'name'].includes(key)) {
+        delete el[key];
+      }
+    });
   });
 }
 
@@ -449,6 +476,23 @@ async function main() {
   console.info('Comparation done.\n');
   await pause();
 
+  // create diff.json FIXME: auslagern und direkt nach Analyse aufrufen
+  const diff = {};
+  for (const key in input) {
+    diff[key] = input[key].diff;
+  }
+  try {
+    fd = fs.openSync(`${__dirname}/diff.json`, 'w'); // alte Datei überschreiben
+    fs.appendFileSync(fd, JSON.stringify(diff), 'utf8');
+    fs.appendFileSync(fd, '\n', 'utf8');
+  } catch (err) {
+    /* Handle the error */
+    console.error(err);
+  } finally {
+    if (fd !== undefined) fs.closeSync(fd);
+  }
+  // FIXME: prettify json
+
   // create structure.json FIXME: auslagern und direkt nach Strukturanalyse aufrufen
   const struct = {};
   for (const key in input) {
@@ -464,8 +508,10 @@ async function main() {
   } finally {
     if (fd !== undefined) fs.closeSync(fd);
   }
+  // FIXME: prettify json
 
   // FIXME: Änderungen an Input-Daten zurückschreiben
+  // FIXME: prettify json
 
   // create db files
   if (dryRun) {
