@@ -6,7 +6,7 @@
  */
 
 const { input } = require('../buildDBs.js'); // TODO: falls möglich eliminieren
-const { generateID } = require('./ids.js');
+const { generateID } = require('./utils.js');
 
 const vttSystemName = "hexxen-1733";
 const packPrefix = "hexxen";

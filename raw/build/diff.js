@@ -5,7 +5,7 @@
  * Software License: GNU GPLv3
  */
 
-// const { generateID } = require('./ids.js');
+const { duplicate } = require('./utils.js');
 
 function diffDB(type, oldDB, newDB) {
   console.info(`  ${type} ...`);
@@ -22,8 +22,8 @@ function diffDB(type, oldDB, newDB) {
   }
 
   // duplicate data structures (deep copy) and sort by ID
-  let o = _duplicate(oldDB).sort(_sortByID);
-  let n = _duplicate(newDB).sort(_sortByID);
+  let o = duplicate(oldDB).sort(_sortByID);
+  let n = duplicate(newDB).sort(_sortByID);
 
   // extract new and removed entries
   let added = [], removed = [], oldIdx = 0;
@@ -70,11 +70,6 @@ function diffDB(type, oldDB, newDB) {
   return { added: added, modified: n, removed: removed };
 }
 exports.diffDB = diffDB;
-
-// TODO: nach util.js auslagern
-function _duplicate(data) {
-  return JSON.parse(JSON.stringify(data));
-}
 
 function _sortByID(a, b) {
   return a._id < b._id ? -1 : (a._id > b._id ? 1 : 0);

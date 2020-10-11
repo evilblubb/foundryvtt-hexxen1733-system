@@ -6,7 +6,7 @@
  */
 
 const { input } = require('../buildDBs.js'); // TODO: falls möglich eliminieren
-const { validateID, isUniqueID } = require('./ids.js');
+const { validateID, isUniqueID } = require('./utils.js');
 
 let error;
 

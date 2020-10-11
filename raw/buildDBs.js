@@ -11,37 +11,10 @@ const output = {};
 exports.input = input; // TODO: falls möglich vermeiden?
 
 const fs = require('fs');
+const { CompendiumFiles } = require('./build/utils.js');
 const { checkItems } = require('./build/validate.js');
 const { convertItems } = require('./build/convert.js');
 const { diffDB } = require('./build/diff.js');
-
-// TODO: evtl. zusammen mit ID-Code in util.js auslagern, falls für fix.js interessant
-class CompendiumFiles {
-  constructor(type, hints={}) {
-    this.type = type;
-    this.hints = hints;
-  }
-
-  static deriveFromTypes(types) {
-    if (!Array.isArray(types)) throw new TypeError('Expecting an array!');
-
-    const ret = {};
-    types.forEach(type => ret[type] = new this(type));
-    return ret;
-  }
-
-  get in() {
-    return this.hints.hasOwnProperty('in') ? this.hints.in : [this.type, '.json'].join('');
-  }
-
-  get db() {
-    return this.hints.hasOwnProperty('db') ? this.hints.db : [this.type, '.db'].join('');
-  }
-
-  get out() {
-    return this.hints.hasOwnProperty('out') ? this.hints.out : [this.type, '.db'].join('');
-  }
-}
 
 const types = [
   "regulation",
