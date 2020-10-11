@@ -8,7 +8,7 @@
 // exports have to be done before any requires, as they might be required inside the other scripts
 const input = {};
 const output = {};
-exports.input = input; // TODO: falls möglich vermeiden?
+exports.input = input; // TODO: falls sinnvoll möglich: vermeiden?
 
 const fs = require('fs');
 const { CompendiumFiles } = require('./build/utils.js');
@@ -173,6 +173,7 @@ function _inject(type, data, path, mappings) {
   // A shallow copy should be sufficient.
   const ret = Object.assign({ "@input": data, "@path": path }, mappings, data);
 
+  // FIXME: besser aus __flatten aufrufen, da _inject nicht zwingend aufgerufen wird!
   // handle special cases
   if ('power' === type && 'ausbau' === ret.type) {
     // process ret instead of data to be able to modify ret
@@ -217,12 +218,13 @@ function _extractAusbaukraftFeature(type, data, power, path, mappings) {
 
 async function main() {
 
-  // load raw data
-  console.info('Loading raw data ...');
-  types.forEach(type => input[type] = _importRawData(type, files[type].in));
-  exitOnError();
-  console.info('Loading done.\n');
-  await pause();
+  // prepare input and output
+  types.forEach(type => {
+    input[type] = {};
+    output[type] = {};
+  });
+
+  // FIXME: template.json laden
 
   // load old compendiums for comparision
   console.info('Loading previous DBs for comparison ...');
@@ -231,6 +233,15 @@ async function main() {
   console.info('Loading done.\n');
   await pause();
 
+  // load raw data
+  console.info('Loading raw data ...');
+  types.forEach(type => Object.assign(input[type], _importRawData(type, files[type].in)));
+  exitOnError();
+  console.info('Loading done.\n');
+  await pause();
+
+  // FIXME: validate with schema (on raw data)
+
   // flatten files (process @map properties)
   console.info('Flattening raw content data ...');
   types.forEach(type => input[type].flattened = _flatten(type, input[type].content, files[type].in)); // FIXME: wird path wirklich gebraucht?
@@ -238,11 +249,9 @@ async function main() {
   console.info('Flatten done.\n');
   await pause();
 
-  // FIXME: validate with schema (on raw data)
+  // FIXME: check for duplicates (identical name)
 
   // FIXME: analyze structure (extract from check)
-
-  // FIXME: check for duplicates (identical name)
 
   // validate flattened raw data
   console.info('Validating flattened content data ...');
@@ -258,7 +267,7 @@ async function main() {
   console.info('Converting flattened content data ...');
   types.forEach(type => {
     let err;
-    [output[type], err] = convertItems(type, input[type].flattened);
+    [output[type].content, err] = convertItems(type, input[type].flattened);
     error |= err;
   });
   exitOnError();
@@ -289,6 +298,8 @@ async function main() {
     if (fd !== undefined) fs.closeSync(fd);
   }
   // FIXME: prettify json
+
+  // FIXME: increment @rev in generated output if neccessary (Auch in input??)
 
   // create structure.json FIXME: auslagern und direkt nach Strukturanalyse aufrufen
   const struct = {};

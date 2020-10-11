@@ -23,7 +23,7 @@ function convertItems(type, items) {
   if (Array.isArray(items)) {
     // TODO: try-catch??
     const content = items.map( (item, idx) => convertItem(type, item, [type, idx].join('/')) );
-    return [{ content: content }, error];
+    return [content, error];
   }
   else {
     throw new TypeError(`  ${type}: [@@] Unsupported type "${typeof(items)}"! Expected "array".`);
@@ -41,6 +41,7 @@ function convertItem(type, item, path) {
   out.name = item.name;
 
   // basic data properties
+  // FIXME: auf Verwendung von template.json umstellen
   out.data = {}; // FIXME: zurücknehmen { "_template-revision": 0, name: null };
   out.data.description = _convertMultilineText(item.description) || ""; // TODO: Refs konvertieren
   out.data.summary = _convertMultilineText(item.summary) || ""; // TODO: Haben alle eine summary? Refs konvertieren
@@ -49,8 +50,9 @@ function convertItem(type, item, path) {
   if (item.upkeep) out.data.upkeep = item.upkeep;
 
   // custom properties
-  if ("item" === type) {
+  if ("regulation" === type) {
     // FIXME: zurücknehmen out.data["_template-revision"] = 1;
+    _convertRegulationItem(type, item, path, out);
   } else if ("motivation" === type) {
     // FIXME: zurücknehmen out.data["_template-revision"] = 1;
   } else if ("role" === type) {
@@ -65,9 +67,8 @@ function convertItem(type, item, path) {
   } else if ("npc-power" === type) {
     out.data["_template-revision"] = 1;
     _convertNpcPowerItem(type, item, path, out);
-  } else if ("regulation" === type) {
+  } else if ("item" === type) {
     // FIXME: zurücknehmen out.data["_template-revision"] = 1;
-    _convertRegulationItem(type, item, path, out);
   }
 
   // final basic properties, just to keep a nice human-readable order
@@ -87,23 +88,6 @@ function _convertRegulationItem(type, item, path, out) {
     out.name = `${out.name} (${item.abbr})`;
   }
   out.data.summary = null;
-}
-
-function _convertNpcPowerItem(type, item, path, out) {
-  out.data.name = item.name;
-  out.data.type = item.type;
-  if (item.type.endsWith("Bande")) {
-    out.name = `${out.name} (Bande)`;
-  }
-  out.data.summary = null;
-  out.data.syntax = item.syntax;
-  out.data.target = item.target || ""; // TODO: nur bei Handlungen?
-  out.data.cost = item.cost || ""; // TODO: nur bei Handlungen?
-
-  // FIXME: Kategorien (Spezielle Kräfte)
-  // FIXME: summary löschen??
-  // FIXME: Handlung oder Eigenschaft
-  // FIXME: anderes Icon!
 }
 
 function _convertPowerItem(type, item, path, out) {
@@ -177,6 +161,46 @@ function _convertProfessionItem(type, item, path, out) {
   out.data.powers = _getPowers(type, item.name, path);
 }
 
+function _convertNpcPowerItem(type, item, path, out) {
+  out.data.name = item.name;
+  out.data.type = item.type;
+  if (item.type.endsWith("Bande")) {
+    out.name = `${out.name} (Bande)`;
+  }
+  out.data.summary = null;
+  out.data.syntax = item.syntax;
+  out.data.target = item.target || ""; // TODO: nur bei Handlungen?
+  out.data.cost = item.cost || ""; // TODO: nur bei Handlungen?
+
+  // FIXME: Kategorien (Spezielle Kräfte)
+  // FIXME: summary löschen??
+  // FIXME: Handlung oder Eigenschaft
+  // FIXME: anderes Icon!
+}
+
+
+
+// Helper
+
+function getPackName(type) {
+  return `${vttSystemName}.${packPrefix}-${type}`;
+}
+
+function getItemId(type, nameC) {
+  const pack = input[type];
+  if (!pack) {
+    console.error(`unknown type: ${type}`);
+    return "";
+  }
+  const item = pack.content[nameC]; // TODO: packs mit höherer Hierarchietiefe
+  if (!item) {
+    console.error(`unknown item: ${type}/${nameC}`);
+    return "";
+  }
+
+  return item._id;
+}
+
 function _getPowers(type, name) {
   const out = [];
   const lname = Object.keys(input[type].content).find(key => !key.startsWith('@') && name === input[type].content[key].name);
@@ -207,28 +231,6 @@ function _getPowers(type, name) {
     });
   });
   return out;
-}
-
-
-// Helper
-
-function getPackName(type) {
-  return `${vttSystemName}.${packPrefix}-${type}`;
-}
-
-function getItemId(type, nameC) {
-  const pack = input[type];
-  if (!pack) {
-    console.error(`unknown type: ${type}`);
-    return "";
-  }
-  const item = pack.content[nameC]; // TODO: packs mit höherer Hierarchietiefe
-  if (!item) {
-    console.error(`unknown item: ${type}/${nameC}`);
-    return "";
-  }
-
-  return item._id;
 }
 
 function _convertMultilineText(text) {

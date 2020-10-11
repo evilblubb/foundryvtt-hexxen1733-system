@@ -61,8 +61,6 @@ function diffDB(type, oldDB, newDB) {
     return out;
   }, []);
 
-  // FIXME: increment @rev if neccessary
-
   // compact added and removed
   _compact(added);
   _compact(removed);
