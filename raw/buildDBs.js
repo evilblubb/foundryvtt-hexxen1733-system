@@ -277,7 +277,11 @@ async function main() {
   // FIXME: sicherstellen, dass output kein undefined enthält!
 
   console.info('Comparing with previous DB content.');
-  types.forEach(type => input[type].diff = diffDB(type, input[type].db, output[type].content));
+  types.forEach(type => {
+    let err;
+    [input[type].diff, err] = diffDB(type, input[type].db, output[type].content);
+    error |= err;
+  });
   exitOnError();
   console.info('Comparation done.\n');
   await pause();
