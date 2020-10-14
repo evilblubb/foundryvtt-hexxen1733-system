@@ -182,6 +182,20 @@ function _importDB(type, path, file) {
   return null;
 }
 
+function exportJSON(data, file) {
+  try {
+    fd = fs.openSync(file, 'w'); // alte Datei überschreiben
+    fs.appendFileSync(fd, JSON.stringify(data, null, 2), 'utf8');
+    fs.appendFileSync(fd, '\n', 'utf8');
+  } catch (err) {
+    /* Handle the error */
+    error = true;
+    console.error(err);
+  } finally {
+    if (fd !== undefined) fs.closeSync(fd);
+  }
+}
+
 function _flatten(type, data, path, mappings = {}, clues = []) {
   console.info(`  ${type} ...`);
   return __flatten(type, data, path, mappings, clues);
@@ -341,31 +355,17 @@ async function main() {
   // FIXME: sicherstellen, dass output kein undefined enthält!
 
   console.info('Comparing with previous DB content.');
+  const diff = {};
   types.forEach(type => {
     let err;
     [input[type].diff, err] = diffDB(type, input[type].db, output[type].content);
     error |= err;
+    diff[type] = input[type].diff;
   });
+  exportJSON(diff, `${LOG_DIR}/diff.json`);
   exitOnError();
   console.info('Comparation done.\n');
   await pause();
-
-  // create diff.json FIXME: auslagern und direkt nach Analyse aufrufen
-  const diff = {};
-  for (const key in input) {
-    diff[key] = input[key].diff;
-  }
-  try {
-    fd = fs.openSync(`${LOG_DIR}/diff.json`, 'w'); // alte Datei überschreiben
-    fs.appendFileSync(fd, JSON.stringify(diff), 'utf8');
-    fs.appendFileSync(fd, '\n', 'utf8');
-  } catch (err) {
-    /* Handle the error */
-    console.error(err);
-  } finally {
-    if (fd !== undefined) fs.closeSync(fd);
-  }
-  // FIXME: prettify json
 
   // FIXME: increment @rev in generated output if neccessary (Auch in input??)
 
