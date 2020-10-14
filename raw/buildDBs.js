@@ -5,10 +5,15 @@
  * Software License: GNU GPLv3
  */
 
-// exports have to be done before any requires, as they might be required inside the other scripts
+/** Data structure containing the game template data. */
+const templates = {};
+/** Data structure containing all the raw and intermediate data. */
 const input = {};
+/** Data structure containing the generated compendium data. */
 const output = {};
-exports.input = input; // TODO: falls sinnvoll möglich: vermeiden?
+// exports have to be done before any requires, as they might be required inside the other scripts
+exports.templates = templates;
+exports.input = input;
 
 const fs = require('fs');
 const { CompendiumFiles } = require('./build/utils.js');
@@ -63,6 +68,55 @@ function pause() {
       });
     });
   }
+}
+
+function _importTemplates(file) {
+  try {
+    const raw = JSON.parse(fs.readFileSync(file, 'utf8'));
+    templates.raw = raw;
+    // FIXME: check syntax with schema
+  }
+  catch (err) {
+    if ('ENOENT' === err.code) {
+      console.warn(`  No such file: ${file}`);
+    } else {
+      console.error(err);
+      error = true;
+    }
+  }
+}
+
+function _expandTemplates() {
+  const tEntities = ['Actor', 'Item'];
+  const raw = templates.raw;
+
+  // check for core elements
+  // FIXME: wird durch schema-Check ersetzt
+  tEntities.forEach(el => {
+    if (!raw.hasOwnProperty(el) || !Array.isArray(raw[el].types)) {
+      console.error(`  Missing "${el}.types" or not an array!`);
+      error = true;
+    }
+  });
+  if (error) return;
+
+  // expand types
+  tEntities.forEach(entity => {
+    templates[entity] = {};
+    const types = raw[entity].types;
+    types.forEach(type => {
+      const r = raw[entity][type];
+      const t = {};
+      if (r.hasOwnProperty('templates')) {
+        r.templates.forEach(tp => {
+          Object.assign(t, raw[entity].templates[tp]);
+        });
+      }
+      Object.assign(t, r);
+      delete t.templates;
+      templates[entity][type] = t;
+    })
+  });
 }
 
 function _importRawData(type, path, file) {
@@ -229,7 +283,12 @@ async function main() {
     output[type] = {};
   });
 
-  // FIXME: template.json laden
+  console.info('Loading entity templates ...');
+  _importTemplates(TEMPLATE_PATH);
+  _expandTemplates();
+  exitOnError();
+  console.info('Loading done.\n');
+  await pause();
 
   // load old compendiums for comparision
   console.info('Loading previous DBs for comparison ...');
