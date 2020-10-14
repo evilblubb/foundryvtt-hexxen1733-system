@@ -16,6 +16,11 @@ const { checkItems } = require('./build/validate.js');
 const { convertItems } = require('./build/convert.js');
 const { diffDB } = require('./build/diff.js');
 
+const BASE_DIR = __dirname;
+const LOG_DIR = BASE_DIR;
+const RAW_DATA_DIR = `${BASE_DIR}/packs`;
+const COMPENDIUM_DIR = `${BASE_DIR}/../packs`;
+const TEMPLATE_PATH = `${BASE_DIR}/../template.json`;
 const types = [
   "regulation",
   "motivation",
@@ -60,12 +65,12 @@ function pause() {
   }
 }
 
-function _importRawData(type, file) {
+function _importRawData(type, path, file) {
   if (file) {
     console.info(`  ${file} ...`);
 
     try {
-      const data = JSON.parse(fs.readFileSync(`${__dirname}/packs/${file}`, "utf8"));
+      const data = JSON.parse(fs.readFileSync(`${path}/${file}`, "utf8"));
       const ret = { raw: data };
       if (data.content) { // TODO: deprecated
         ret.content = data.content;
@@ -80,7 +85,7 @@ function _importRawData(type, file) {
     }
     catch (err) {
       if ('ENOENT' === err.code) {
-        console.warn(`    No such file: ${__dirname}/packs/${file}`);
+        console.warn(`    No such file: ${path}/${file}`);
       } else {
         console.error(err);
         error = true;
@@ -95,13 +100,13 @@ function _importRawData(type, file) {
   return { raw: null, content: null };
 }
 
-function _importDB(type, file) {
+function _importDB(type, path, file) {
   if (file) {
     console.info(`  ${file} ...`);
     const ret = [];
 
     try {
-      const data = fs.readFileSync(`${__dirname}/../packs/${file}`, "utf8");
+      const data = fs.readFileSync(`${path}/${file}`, "utf8");
       const lines = data.split(/[\r\n]/);
       lines.forEach(line => {
         if (line) ret.push(JSON.parse(line));
@@ -110,7 +115,7 @@ function _importDB(type, file) {
     }
     catch (err) {
       if ('ENOENT' === err.code) {
-        console.warn(`    No such file: ${__dirname}/packs/${file}`);
+        console.warn(`    No such file: ${path}/${file}`);
       } else {
         console.error(err);
         error = true;
@@ -228,14 +233,14 @@ async function main() {
 
   // load old compendiums for comparision
   console.info('Loading previous DBs for comparison ...');
-  types.forEach(type => input[type].db = _importDB(type, files[type].db));
+  types.forEach(type => input[type].db = _importDB(type, COMPENDIUM_DIR, files[type].db));
   exitOnError();
   console.info('Loading done.\n');
   await pause();
 
   // load raw data
   console.info('Loading raw data ...');
-  types.forEach(type => Object.assign(input[type], _importRawData(type, files[type].in)));
+  types.forEach(type => Object.assign(input[type], _importRawData(type, RAW_DATA_DIR, files[type].in)));
   exitOnError();
   console.info('Loading done.\n');
   await pause();
@@ -292,7 +297,7 @@ async function main() {
     diff[key] = input[key].diff;
   }
   try {
-    fd = fs.openSync(`${__dirname}/diff.json`, 'w'); // alte Datei überschreiben
+    fd = fs.openSync(`${LOG_DIR}/diff.json`, 'w'); // alte Datei überschreiben
     fs.appendFileSync(fd, JSON.stringify(diff), 'utf8');
     fs.appendFileSync(fd, '\n', 'utf8');
   } catch (err) {
@@ -311,7 +316,7 @@ async function main() {
     struct[key] = input[key].checks.struct;
   }
   try {
-    fd = fs.openSync(`${__dirname}/structure.json`, 'w'); // alte Datei überschreiben
+    fd = fs.openSync(`${LOG_DIR}/structure.json`, 'w'); // alte Datei überschreiben
     fs.appendFileSync(fd, JSON.stringify(struct), 'utf8');
     fs.appendFileSync(fd, '\n', 'utf8');
   } catch (err) {
@@ -340,7 +345,7 @@ async function main() {
         console.info(`Creating ${file} ...`);
         let fd;
         try {
-          fd = fs.openSync(`${__dirname}/../packs/${type}.db`, 'w'); // alte Datei überschreiben
+          fd = fs.openSync(`${COMPENDIUM_DIR}/${file}`, 'w'); // alte Datei überschreiben
 
           data.forEach(item => {
             fs.appendFileSync(fd, JSON.stringify(item), 'utf8');
