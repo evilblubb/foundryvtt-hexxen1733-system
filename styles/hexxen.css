@@ -169,6 +169,7 @@ img#hexxen-logo {
 }
 .hexxen .editor .editor-content {
   height: 100%;
+  overflow-y: unset;
 }
 .hexxen .editor .tox.tox-tinymce {
   min-height: 150px;
