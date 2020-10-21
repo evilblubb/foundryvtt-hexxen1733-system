@@ -54,8 +54,6 @@ function checkItem(type, item, path, checkResults) {
   }
 
   // TODO: weitere Prüfungen auf Vollständigkeit
-  // Struktur von item erfassen
-  // scanItems(item, path, checks.struct);
 };
 
 function checkID(item, path="") {
@@ -171,92 +169,6 @@ function checkTags(data, path="") {
     console.info(`  ${path}: [TAGS] ${data.tags}`);
   }
   return count;
-}
-
-function scanItems(data, path, struct) {
-  // FIXME: noch nicht auf flattened umgestellt
-  if (typeof(data) !== "object") {
-    error = true;
-    console.error(`Unexpected type: ${typeof(data)}`);
-  }
-
-  struct["__count"] = struct["__count"] || 0;
-  // ignore this layer for analysis, just count it
-  for (const key in data) {
-    if (data.hasOwnProperty(key)) {
-      const value = data[key];
-      struct["__count"]++;
-      scanEntry(value, key, `${path}/${key}`, struct);
-
-    }
-  }
-}
-
-function scanEntry(data, key, path, struct) {
-  const type = (data === null || data === undefined) ? "null" :
-              typeof(data) !== "object" ? typeof(data) :
-              data instanceof Array ? "array" : "object";
-  switch (type) {
-    case "object": {
-      struct["__object"] = struct["__object"] || { "__count": 0 };
-      struct["__object"]["__count"]++;
-      if (["attacks", "powers"].includes(key)) {
-        struct["__object"]["__merged"] = struct["__object"]["__merged"] || { "__count": 0 };
-      }
-      for (const dkey in data) {
-        if (data.hasOwnProperty(dkey)) {
-          const value = data[dkey];
-          struct["__object"][dkey] = struct["__object"][dkey] || { "__count": 0 };
-          struct["__object"][dkey]["__count"]++;
-          if (["attacks", "powers"].includes(key)) {
-            struct["__object"]["__merged"]["__count"]++;
-            scanEntry(value, dkey, `${path}/${dkey}`, struct["__object"]["__merged"]);
-          } else {
-            scanEntry(value, dkey, `${path}/${dkey}`, struct["__object"][dkey]);
-          }
-        }
-      }
-      break;
-    }
-    case "array": {
-      struct["__array"] = struct["__array"] || { "__count": 0, "__min-length": 999999, "__max-length": 0 };
-      struct["__array"]["__count"]++;
-      struct["__array"]["__min-length"] = Math.min(struct["__array"]["__min-length"], data.length);
-      struct["__array"]["__max-length"] = Math.max(struct["__array"]["__max-length"], data.length);
-      for (let i = 0; i < data.length; i++) {
-        scanEntry(data[i], null, `${path}/${i}`, struct["__array"]);
-      }
-      break;
-    }
-    case "string": {
-      struct["__string"] = struct["__string"] || { "__count": 0 };
-      struct["__string"]["__count"]++;
-      if (["breed", "type", "strategy", "story", null].includes(key)) {
-        struct["__string"][data] = struct["__string"][data] || { "__count": 0 };
-        struct["__string"][data]["__count"]++;
-      }
-      break;
-    }
-    case "number": {
-      struct["__number"] = struct["__number"] || { "__count": 0 };
-      struct["__number"]["__count"]++;
-      break;
-    }
-    case "boolean": {
-      struct["__boolean"] = struct["__boolean"] || { "__count": 0, "__true": 0, "__false": 0 };
-      struct["__boolean"]["__count"]++;
-      struct["__boolean"][data ? "__true" : "__false"]++;
-      break;
-    }
-    case "null": {
-      struct["__null"] = struct["__null"] || { "__count": 0 };
-      struct["__null"]["__count"]++;
-      break;
-    }
-    default: {
-      console.warn(`  ${path}: unhandled type: ${type}`)
-    }
-  }
 }
 
 function _matchAttack(attack, path) {

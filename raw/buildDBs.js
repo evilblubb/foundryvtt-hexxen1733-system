@@ -17,6 +17,7 @@ exports.input = input;
 
 const fs = require('fs');
 const { CompendiumFiles } = require('./build/utils.js');
+const { scanItems } = require('./build/scan.js');
 const { checkItems } = require('./build/validate.js');
 const { convertItems } = require('./build/convert.js');
 const { diffDB } = require('./build/diff.js');
@@ -329,7 +330,20 @@ async function main() {
 
   // FIXME: check for duplicates (identical name)
 
+  console.info('Analyzing content of flattened content data ...');
+  const scan = {};
   // FIXME: analyze structure (extract from check)
+  console.info('  ... skipped.');
+  types.forEach(type => {
+    let err;
+    [input[type].scan, err] = scanItems(type, input[type].flattened);
+    error |= err;
+    scan[type] = input[type].scan;
+  });
+  exportJSON(scan, `${LOG_DIR}/structure.json`);
+  exitOnError();
+  console.info(`Analyze done.\n`);
+  await pause();
 
   // validate flattened raw data
   console.info('Validating flattened content data ...');
@@ -368,23 +382,6 @@ async function main() {
   await pause();
 
   // FIXME: increment @rev in generated output if neccessary (Auch in input??)
-
-  // create structure.json FIXME: auslagern und direkt nach Strukturanalyse aufrufen
-  const struct = {};
-  for (const key in input) {
-    struct[key] = input[key].checks.struct;
-  }
-  try {
-    fd = fs.openSync(`${LOG_DIR}/structure.json`, 'w'); // alte Datei überschreiben
-    fs.appendFileSync(fd, JSON.stringify(struct), 'utf8');
-    fs.appendFileSync(fd, '\n', 'utf8');
-  } catch (err) {
-    /* Handle the error */
-    console.error(err);
-  } finally {
-    if (fd !== undefined) fs.closeSync(fd);
-  }
-  // FIXME: prettify json
 
   // FIXME: Änderungen an Input-Daten zurückschreiben
   // FIXME: prettify json
