@@ -176,10 +176,10 @@ img#hexxen-logo {
   max-height: 350px;
 }
 .hexxen .editor p:first-of-type {
-  margin-top: unset;
+  margin-top: 1px;
 }
 .hexxen .editor p:last-of-type {
-  margin-bottom: unset;
+  margin-bottom: 1px;
 }
 /* TODO: auch Chat berücksichtigen */
 .hexxen .editor .hex-roll,
