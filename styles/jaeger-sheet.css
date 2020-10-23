@@ -162,6 +162,11 @@
   width: 50%;
   padding-left: 12px; /* +6px */
 }
+.hexxen.jaeger .states .res-boxes .control i {
+  border: 1px solid var(--hexxen-dark-color);
+  border-radius: 4px;
+  padding: 2px;
+}
 
 /******************/
 /* Tab skills     */

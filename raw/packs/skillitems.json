@@ -12,7 +12,7 @@
       }
     ],
     "blitzbombe": {
-      "name":"Blitzbome",
+      "name":"Blitzbombe",
       "description": "Würfele beim Angriff einen Blutwürfel mit. Für jedes Blutstropfensymbol erhält das Ziel 1 Malusstufe (max. 5).",
       "summary": ""
     },
@@ -110,7 +110,7 @@
     "references": [
       {
         "source": "Wiki",
-        "link": ""
+        "link": "http://hexxen1733-regelwiki.de/index.php/uebersicht-kraeutermittel.html"
       },
       {
         "source": "Hexenjagd",
@@ -223,7 +223,7 @@
       "upkeep":"50"
     },
     "wirbel": {
-      "name":"wirbel",
+      "name":"Wirbel",
       "description": "Die Waffe beginnt zu wirbeln oder zu rotieren, sodass sie mehrere gebundene Gegner verletzten kann. Wenn du mit dieser Waffe angreifst und mindestens zwei Gegner an dich gebunden sind, erhältst du für jeden Angriff einen Bonus von +1. Allerdings kannst du in diesem Zug jeden Gegner maximal einmal mit dieser Waffe attackieren. Der Einbau ist möglich bei Fechtwaffen, Schlagwaffen, Säbeln, Schwertern und Stangenwaffen.",
       "summary": "(20 Kp)",
       "upkeep":"30"
@@ -281,7 +281,7 @@
     },
     "lotusgift": {
       "name":"Lotusgift",
-      "description": "  Dieses Gift ist besonders effektiv, wenn das Ziel bereits unter negativen Zuständen leidet. Wenn der Angriff mit der vergifteten Waffe zum Verlust von Lep beim Gegner führt, erleidet dieser sofort 2 Punkte Schmerzschaden für jede äußere Schadensstufe, innere Schadensstufe und Malusstufe, unter der er bereits leidet (kumulativ).",
+      "description": "  Dieses Gift ist besonders effektiv, wenn das Ziel bereits unter negativen Zuständen leidet. Wenn der Angriff mit der vergifteten Waffe zum Verlust von Lep beim Gegner führt, erleidet dieser sofort 2 Punkte Schmerzschaden für jede äußere Schadensstufe, innere Schadensstufe und Malusstufe, unter der er bereits leidet (kumulativ).Sobald ein NSC von Lotusgift Schaden nimmt, ist er für den Rest des Kampfes immun gegen Lotusgift.",
       "summary": ""
     },
     "schlafgift": {
@@ -398,6 +398,24 @@
     "wundversorger": {
       "name":"Wundversorger",
       "description": " Erste Hilfe-Probe Bonus +1 (Ausbau: +2, +3)",
+      "summary": ""
+    }
+  },
+  "schiesspulver": {
+    "description": "Allgemeine Beschreibung",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/ak_schiesspulver_herstellen.html"
+      },
+      {
+        "source": "Das Buch der Regeln ",
+        "page": "134"
+      }
+    ],
+    "schiesspulver": {
+      "name":"Schiesspulver",
+      "description": "bei Verwendung: Pistole oder Muskete + Blutw. Schaden (Blutw. beim Angriffswurf mitwürfeln), als Sprengmittel: 1 Einheit = 1 Schatullen - oder Truhenschloss; 5 Einheite = 1 Holztür",
       "summary": ""
     }
   }

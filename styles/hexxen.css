@@ -26,6 +26,7 @@ img#hexxen-logo {
   --hexxen-sheet-background-image: url("/systems/hexxen-1733/img/Hex_Pokerkarte_front_hell.png");
   --hexxen-sheet-background-blend-color: rgba(160, 125, 110, 0.7);
 
+  --hexxen-label-color: var(--hexxen-dark-color);
   --hexxen-hint-color: var(--hexxen-dark-color);
   --hexxen-alert-color: red;
   --hexxen-warning-bgcolor: yellow;
@@ -86,6 +87,9 @@ img#hexxen-logo {
 }
 .hexxen img {
   max-width: unset;
+}
+.hexxen .sheet-header img[data-edit] {
+  cursor: pointer;
 }
 
 .hexxen .allow-break {
@@ -165,16 +169,17 @@ img#hexxen-logo {
 }
 .hexxen .editor .editor-content {
   height: 100%;
+  overflow-y: unset;
 }
 .hexxen .editor .tox.tox-tinymce {
   min-height: 150px;
   max-height: 350px;
 }
 .hexxen .editor p:first-of-type {
-  margin-top: unset;
+  margin-top: 1px;
 }
 .hexxen .editor p:last-of-type {
-  margin-bottom: unset;
+  margin-bottom: 1px;
 }
 /* TODO: auch Chat berücksichtigen */
 .hexxen .editor .hex-roll,

@@ -293,16 +293,29 @@ class HexxenAppAlignmentHelper {
 class HexxenSpecialCommandHelper {
 
   static inject() {
-    const oldReplaceInlineRolls = TextEditor._replaceInlineRolls;
-    TextEditor._replaceInlineRolls = ((match, command, formula, ...args) => {
+    const oldCreateInlineRolls = TextEditor._createInlineRoll;
+    TextEditor._createInlineRoll = ((match, command, formula, closing, ...args) => {
       // TODO: auf Templates umstellen
       // TODO: Rechte?
+      // TODO: durch custom chat commands ersetzbar??
       if ("/hex " === command) {
-        return `<a class="hex-roll" title="Würfeln" data-message="${formula}"><i class="fas fa-dice"></i> ${formula}</a>`;
+        const a = document.createElement('a');
+        a.classList.add('hex-roll');
+        a.title = 'Würfeln';
+        a.dataset.message = formula;
+        a.innerHTML = `<i class="fas fa-dice"></i> ${formula}`;
+        return a;
+        // return `<a class="hex-roll" title="Würfeln" data-message="${formula}"><i class="fas fa-dice"></i> ${formula}</a>`;
       } else if ("/hc " === command) {
-        return `<a class="hex-chat" title="Im Chat anzeigen" data-message="${formula}"><i class="fas fa-comments"></i> ${formula}</a>`;
+        const a = document.createElement('a');
+        a.classList.add('hex-chat');
+        a.title = 'Im Chat anzeigen';
+        a.dataset.message = formula;
+        a.innerHTML = `<i class="fas fa-comments"></i> ${formula}`;
+        return a;
+        // return `<a class="hex-chat" title="Im Chat anzeigen" data-message="${formula}"><i class="fas fa-comments"></i> ${formula}</a>`;
       } else {
-        return oldReplaceInlineRolls(match, command, formula, ...args);
+        return oldCreateInlineRolls(match, command, formula, closing, ...args);
       }
     });
 

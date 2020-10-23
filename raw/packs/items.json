@@ -1,6 +1,7 @@
 {
   "transportables-laboratorium": {
     "name": "Transportables Laboratorium",
+    "type": "general",
     "references": [
       {
         "source": "Wiki",
@@ -17,6 +18,7 @@
   },
   "biologisches-laboratorium": {
     "name": "Biologisches Laboratorium",
+    "type": "general",
     "references": [
       {
         "source": "Wiki",
@@ -33,6 +35,7 @@
   },
   "mineralisches-laboratorium": {
     "name": "Mineralisches Laboratorium",
+    "type": "general",
     "references": [
       {
         "source": "Wiki",
@@ -49,6 +52,7 @@
   },
   "werkzeugkiste": {
     "name": "Werkzeugkiste",
+    "type": "general",
     "references": [
       {
         "source": "Wiki",
@@ -65,6 +69,7 @@
   },
   "fackel": {
     "name": "Fackel",
+    "type": "general",
     "references": [
       {
         "source": "Wiki",
@@ -81,6 +86,7 @@
   },
   "fernrohr": {
     "name": "Fernrohr",
+    "type": "general",
     "references": [
       {
         "source": "Wiki",
@@ -96,7 +102,8 @@
     "cost": "70"
   },
   "kletterhaken": {
-    "name": "Kletterhacken",
+    "name": "Kletterhaken",
+    "type": "general",
     "references": [
       {
         "source": "Wiki",
@@ -113,6 +120,7 @@
   },
   "kompass": {
     "name": "Kompass",
+    "type": "general",
     "references": [
       {
         "source": "Wiki",
@@ -129,6 +137,7 @@
   },
   "landkarte": {
     "name": "Landkarte",
+    "type": "general",
     "references": [
       {
         "source": "Wiki",
@@ -145,6 +154,7 @@
   },
   "oellampe": {
     "name": "Öllampe",
+    "type": "general",
     "references": [
       {
         "source": "Wiki",
@@ -157,10 +167,12 @@
     ],
     "description": "Erfordert Öl (Unterhalt +10)",
     "summary": "",
-    "cost": "10"
+    "cost": "10",
+    "upkeep": "10"
   },
   "rueckentrage": {
     "name": "Rückentrage",
+    "type": "general",
     "references": [
       {
         "source": "Wiki",
@@ -177,6 +189,7 @@
   },
   "schlafsack": {
     "name": "Schlafsack",
+    "type": "general",
     "references": [
       {
         "source": "Wiki",
@@ -193,6 +206,7 @@
   },
   "seil": {
     "name": "Seil",
+    "type": "general",
     "references": [
       {
         "source": "Wiki",
@@ -209,6 +223,7 @@
   },
   "schreibutensilien": {
     "name": "Schreibutensilien",
+    "type": "general",
     "references": [
       {
         "source": "Wiki",
@@ -225,6 +240,7 @@
   },
   "alkohol": {
     "name": "Alkohol",
+    "type": "general",
     "references": [
       {
         "source": "Wiki",
@@ -241,6 +257,7 @@
   },
   "zelt": {
     "name": "Zelt",
+    "type": "general",
     "references": [
       {
         "source": "Wiki",
@@ -257,6 +274,7 @@
   },
   "feldbett": {
     "name": "Feldbett",
+    "type": "general",
     "references": [
       {
         "source": "Wiki",
@@ -273,6 +291,7 @@
   },
   "handschellen": {
     "name": "Handschellen",
+    "type": "general",
     "references": [
       {
         "source": "Wiki",
@@ -283,12 +302,13 @@
         "page": "99"
       }
     ],
-    "description": "Fesseln von besiegten menschenähnlichen Gegnern möglich",
+    "description": "Mit Schlüssel. Fesseln von besiegten menschenähnlichen Gegnern möglich",
     "summary": "",
     "cost": "22"
   },
   "vorhaengeschloss": {
     "name": "Vorhängeschloss",
+    "type": "general",
     "references": [
       {
         "source": "Wiki",
@@ -299,12 +319,13 @@
         "page": "99"
       }
     ],
-    "description": "Zum Abschließen von Türen und Truhen",
+    "description": "Mit Schlüssel. Zum Abschließen von Türen und Truhen",
     "summary": "",
     "cost": "17"
   },
   "truhe": {
     "name": "Truhe",
+    "type": "general",
     "references": [
       {
         "source": "Wiki",
@@ -321,6 +342,7 @@
   },
   "buschmesser": {
     "name": "Buschmesser",
+    "type": "general",
     "references": [
       {
         "source": "Wiki",
@@ -337,6 +359,7 @@
   },
   "gezaehe": {
     "name": "Gezähe",
+    "type": "general",
     "references": [
       {
         "source": "Wiki",
@@ -353,6 +376,7 @@
   },
   "klettergeschirr": {
     "name": "Klettergeschirr",
+    "type": "general",
     "references": [
       {
         "source": "Wiki",
@@ -369,6 +393,7 @@
   },
   "probentasche": {
     "name": "Probentasche",
+    "type": "general",
     "references": [
       {
         "source": "Wiki",
@@ -385,6 +410,7 @@
   },
   "spitzhacke": {
     "name": "Spitzhacke",
+    "type": "general",
     "references": [
       {
         "source": "Wiki",
@@ -401,6 +427,7 @@
   },
   "schutzamulett": {
     "name": "Schutzamulett",
+    "type": "general",
     "references": [
       {
         "source": "Wiki",
@@ -417,6 +444,7 @@
   },
   "kochstelle": {
     "name": "Kochstelle",
+    "type": "general",
     "references": [
       {
         "source": "Wiki",
@@ -431,10 +459,65 @@
     "summary": "",
     "cost": "18"
   },
+  "pestmaske": {
+    "name": "Pestmaske",
+    "type": "general",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
+      },
+      {
+        "source": "Archiv des Wächterbunds III",
+        "page": "83"
+      }
+    ],
+    "description": "Der Träger der Pestmaske erhält einen Bonus von +2 bei Proben auf Unempfindlichkeit, um der Ansteckung mit einer Krankheit zu widerstehen.Da man ständig neue Kräuter und Essenzen gegen die Miasmen kaufen muss, erhöht sich der Unterhalt um 5 Gulden.",
+    "summary": "",
+    "cost": "18",
+    "upkeep": "5"
+  },
+  "schanzzeug": {
+    "name": "Schanzzeug",
+    "type": "general",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
+      },
+      {
+        "source": "Archiv des Wächterbunds III",
+        "page": "98"
+      }
+    ],
+    "description": "Schanzzeug zählt als Werkzeugkiste. Hast du Schanzzeug bei dir, wenn du ein Lager errichtest, darfst du für jeden dabei verbrauchte Coup mit 1 HeXXenwürfel würfeln. Bei einem HeXXensymbol erhältst du den Coup zurück. Da verlorenes oder beschädigtes Werkzeug schwieriger ersetzt werden kann, erhöht sich der Unterhalt um 10 Gulden.",
+    "summary": "",
+    "cost": "18",
+    "upkeep": "10"
+  },
+  "zimmermannsaxt": {
+    "name": "Zimmermannsaxt",
+    "type": "general",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_allgemeine_ausruestung.html"
+      },
+      {
+        "source": "Archiv des Wächterbunds III",
+        "page": "98"
+      }
+    ],
+    "description": "Zimmermannsäxte zählen wie Schlagwaffen. Sonderregel #1: Beim Bau oder der Zerstörung hölzerner Konstruktionen erhältst du einen Bonus von +2. Sonderregel #2: Ein Sappeur kann die Zimmermannsaxt wie eine Spitzhacke verwenden.",
+    "summary": "",
+    "cost": "18"
+  },
   "hasenpfote ": {
     "name": "Hasenpfote",
+    "type": "talisman",
     "description": " Einmal pro Abenteuer bzw. Abenteuerabschnitt darf der Träger 1 Würfel einer Fertigkeitsprobe auf eine beliebige Seite drehen. Jeder Jäger darf nur 1 Hasenpfote tragen.",
-    "summary": "1 Ti",
+    "summary": "",
+    "ingredient": "1 Ti",
     "references": [
       {
         "source": "Wiki",
@@ -442,14 +525,16 @@
       },
       {
         "source": "Archiv des Wächterbunds II",
-        "page": "58"
+        "page": "70"
       }
     ]
   },
   "knochenfloete ": {
     "name": "Knochenflöte",
+    "type": "art",
     "description": "Der Klang dieser Flöte verscheucht Tiere. Einmal pro Kampf kannst du als Aktion (3 Ap) die Flöte spielen. Würfele auf Fingerfertigkeit; für jeden Erfolg wird eine Bandenstufe (nur natürliche Tiere) besiegt. Die Tiere fliehen und können danach nicht wiederverwertet werden. Würfele anschließend mit dem Blutwürfel. Zeigt er die leere Seite, ist die magische Kraft der Flöte erschöpft.",
-    "summary": "4 Ti",
+    "summary": "",
+    "ingredient": "4 Ti",
     "references": [
       {
         "source": "Wiki",
@@ -457,14 +542,16 @@
       },
       {
         "source": "Archiv des Wächterbunds II",
-        "page": "58"
+        "page": "70"
       }
     ]
   },
   "knochenwuerfelset  ": {
     "name": "Knochenwürfelset",
+    "type": "art",
     "description": "Dieses Set enthält 10 Knochenwürfel, in der Regel hergestellt aus den Gebeinen unterschiedlicher Tiere. Stelle die 10 Würfel mit HeXXenwürfeln dar. Einmal pro Tag kannst du die Würfel rollen lassen. Alle Würfel, die eine leere Seite zeigen, werden permanent entfernt (ihre magische Kraft ist erloschen). Alle Würfel, die ein HeXXensymbol zeigen, geben dir wahlweise 1 Coup oder 1 Idee und bleiben im Set. Alle Würfel, die einen Espritstern zeigen, geben dir 1 Segnung (max. 5) und bleiben im Set. Sobald du die Würfel erneut würfelst, musst du evtl. vorhandene überschüssige Coups und Ideen abbauen. Du kannst mehrere Knochenwürfelsets haben, aber immer nur eines verwenden; benutze zusätzliche Sets als Nachfüllsets.",
-    "summary": "10 Ti",
+    "summary": "",
+    "ingredient": "10 Ti",
     "references": [
       {
         "source": "Wiki",
@@ -472,14 +559,16 @@
       },
       {
         "source": "Archiv des Wächterbunds II",
-        "page": "58"
+        "page": "70"
       }
     ]
   },
   "monstertrophaee ": {
     "name": "Monstertrophäe",
+    "type": "art",
     "description": "Diese meist brutal abschreckenden Trophäen sind nicht nur begehrt unter Sammlern und Forschern, sie verbreiten auch den Ruhm deiner Gruppe. Eine Monstertrophäe kann in größeren Städten als Fza für 750 Gulden sowie +20 Gulden für jeden Erfolg auf einer Fingerfertigkeit-Probe verkauft werden.",
-    "summary": "30 Wi",
+    "summary": "",
+    "ingredient": "30 Wi",
     "references": [
       {
         "source": "Wiki",
@@ -487,14 +576,15 @@
       },
       {
         "source": "Archiv des Wächterbunds II",
-        "page": "58"
+        "page": "70"
       }
     ]
   },
   "mumie": {
     "name": "Mumie",
     "description": "Hierbei handelt es sich um den vollständig einbalsamierten Körper eines Menschen (auch wenn der sich evtl. aus ver-schiedenen gesammelten Teilen zusammensetzt). Mumien sind extrem begehrt unter Alchemisten, Sammlern und Forschern. Jede Mumie kann daher in einer Stadt als Fza für 500 Gulden sowie +10 Gulden für jeden Erfolg auf einer Fingerfertigkeit-Probe verkauft werden.",
-    "summary": "20 Ti",
+    "summary": "",
+    "ingredient": "20 Ti",
     "references": [
       {
         "source": "Wiki",
@@ -502,14 +592,16 @@
       },
       {
         "source": "Archiv des Wächterbunds II",
-        "page": "58"
+        "page": "70"
       }
     ]
   },
   "schaedelpulver": {
     "name": "Schädelpulver",
+    "type": "medicine",
     "description": "Dieses Pulver, auch Cranium humamum genannt, wird aus dem Zermahlen eines menschlichen Schädels, ggf. unter Beimischung anderer Knochenteile und Mineralien gewonnen. Das Pulver hat keine offensichtlichen körperlichen Auswirkungen, sondern wirkt auf spirituelle, übersinnliche Weise. Nimmt ein Charakter Schädelpulver vor dem Zubettgehen zu sich, darf er am nächsten Morgen mit dem Elixierwürfel würfeln und erhält entsprechend viele beliebige Ressourcen (Coups, Ideen, Segnungen, Ambitions- oder Rage-Punkte o. a.). Dafür muss er allerdings am nächsten Morgen 1 Kästchen Mh abstreichen.",
-    "summary": "3 Mi",
+    "summary": "",
+    "ingredient": "3 Mi",
     "references": [
       {
         "source": "Wiki",
@@ -517,14 +609,16 @@
       },
       {
         "source": "Archiv des Wächterbunds II",
-        "page": "58"
+        "page": "70"
       }
     ]
   },
   "schmerzsalbe": {
     "name": "Schmerzsalbe",
+    "type": "medicine",
     "description": "Schmerzsalben werden aus Menschenfett hergestellt. Die Schmerzsalbe hat dieselbe Wirkung wie ein Panzerelixier.",
-    "summary": "4 Mi",
+    "summary": "",
+    "ingredient": "4 Mi",
     "references": [
       {
         "source": "Wiki",
@@ -532,14 +626,16 @@
       },
       {
         "source": "Archiv des Wächterbunds II",
-        "page": "58"
+        "page": "70"
       }
     ]
   },
   "teufelsamulett": {
     "name": "Teufelsamulett",
+    "type": "talisman",
     "description": "Ein solches Amulett schützt gegen widernatürliche Monster. Es entspricht in jeglicher Hinsicht einem Schutzamulett gegen Hexen, wirkt jedoch gegen Zauber aller widernatürlicher Gegner. Anders als das Schutzamulett gegen Hexen kann das Teufelsamulett nicht aufgeladen werden; die magische Wirkung ist nach einmaliger Anwendung verflogen.",
-    "summary": "5 Wi",
+    "summary": "",
+    "ingredient": "5 Wi",
     "references": [
       {
         "source": "Wiki",
@@ -547,14 +643,16 @@
       },
       {
         "source": "Archiv des Wächterbunds II",
-        "page": "58"
+        "page": "70"
       }
     ]
   },
   "tierpraeparat": {
     "name": "Tierpräparat",
+    "type": "art",
     "description": "Tierpräparate sind kleine Kunstwerke, die man auf jedem größeren Markt (ab Kleinstadt) gewinnbringend verkaufen kann. Das Verkaufen eines Tierpräparats erfordert keine Fza, bringt 100 Gulden ein sowie +5 Gulden für jeden Erfolg auf einer Fingerfertigkeit-Probe.",
-    "summary": "10 Ti",
+    "summary": "",
+    "ingredient": "10 Ti",
     "references": [
       {
         "source": "Wiki",
@@ -562,14 +660,16 @@
       },
       {
         "source": "Archiv des Wächterbunds II",
-        "page": "58"
+        "page": "70"
       }
     ]
   },
   "totenhand": {
     "name": "Totenhand",
+    "type": "medicine",
     "description": "Totenhände sind wichtige Bestandteile okkulter medizinischer Praktiken. Ihnen wird eine ganze Reihe verschiedener Wirkungen zugesprochen, u.a. sollen sie Hautkrankheiten heilen können. Immer, wenn der Träger eine Reduzierungsprobe für äußere Schadensstufen ausführt, kann er 1 Finger einer Totenhand (insgesamt 5) opfern, um 1 automatischen Erfolg auf der Probe zu bekommen. Für jede Probe kann man nur 1 Finger opfern.",
-    "summary": "5 Mi",
+    "summary": "",
+    "ingredient": "5 Mi",
     "references": [
       {
         "source": "Wiki",
@@ -577,14 +677,16 @@
       },
       {
         "source": "Archiv des Wächterbunds II",
-        "page": "58"
+        "page": "70"
       }
     ]
   },
   "zahnkette": {
     "name": "Zahnkette",
+    "type": "talisman",
     "description": "Diese Kette besteht aus 5 Zähnen verschiedener besiegter Tiere. Der Träger kann einmal pro Kampf als freie Reaktion (0 Ap) 1 Zahn opfern, um die gegen ihn gerichteten Angriffserfolge eines natürlichen Tiers um 1 zu reduzieren. Jeder Jäger darf nur 1 Zahnkette tragen.",
-    "summary": "5 Ti",
+    "summary": "",
+    "ingredient": "5 Ti",
     "references": [
       {
         "source": "Wiki",
@@ -592,7 +694,471 @@
       },
       {
         "source": "Archiv des Wächterbunds II",
-        "page": "58"
+        "page": "70"
+      }
+    ]
+  },
+  "armbrust": {
+    "name": "Armbrust",
+    "type": "weapon",
+    "description": "",
+    "summary": "",
+    "cost": "40",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_waffen.html"
+      },
+      {
+        "source": "Das Buch der Regeln",
+        "page": "99"
+      }
+    ]
+  },
+  "bogen": {
+    "name": "Bogen",
+    "type": "weapon",
+    "description": "",
+    "summary": "",
+    "cost": "40",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_waffen.html"
+      },
+      {
+        "source": "Das Buch der Regeln",
+        "page": "99"
+      }
+    ]
+  },
+  "dolch": {
+    "name": "Dolch",
+    "type": "weapon",
+    "description": "",
+    "summary": "",
+    "cost": "10",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_waffen.html"
+      },
+      {
+        "source": "Das Buch der Regeln",
+        "page": "99"
+      }
+    ]
+  },
+  "messer": {
+    "name": "Messer",
+    "type": "weapon",
+    "description": "",
+    "summary": "",
+    "cost": "10",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_waffen.html"
+      },
+      {
+        "source": "Das Buch der Regeln",
+        "page": "99"
+      }
+    ]
+  },
+  "fechtwaffe": {
+    "name": "Fechtwaffe",
+    "type": "weapon",
+    "description": "",
+    "summary": "",
+    "cost": "75",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_waffen.html"
+      },
+      {
+        "source": "Das Buch der Regeln",
+        "page": "99"
+      }
+    ]
+  },
+  "explosivgranate": {
+    "name": "Explosivgranate",
+    "type": "weapon",
+    "description": "",
+    "summary": "",
+    "cost": "5",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_waffen.html"
+      },
+      {
+        "source": "Das Buch der Regeln",
+        "page": "99"
+      }
+    ]
+  },
+  "lanze": {
+    "name": "Lanze",
+    "type": "weapon",
+    "description": "",
+    "summary": "",
+    "cost": "30",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_waffen.html"
+      },
+      {
+        "source": "Das Buch der Regeln",
+        "page": "99"
+      }
+    ]
+  },
+  "muskete": {
+    "name": "Muskete",
+    "type": "weapon",
+    "description": "",
+    "summary": "",
+    "cost": "100",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_waffen.html"
+      },
+      {
+        "source": "Das Buch der Regeln",
+        "page": "99"
+      }
+    ]
+  },
+  "schlagwaffe": {
+    "name": "Schlagwaffe",
+    "type": "weapon",
+    "description": "",
+    "summary": "",
+    "cost": "50",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_waffen.html"
+      },
+      {
+        "source": "Das Buch der Regeln",
+        "page": "99"
+      }
+    ]
+  },
+  "pistole": {
+    "name": "Pistole",
+    "type": "weapon",
+    "description": "",
+    "summary": "",
+    "cost": "90",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_waffen.html"
+      },
+      {
+        "source": "Das Buch der Regeln",
+        "page": "99"
+      }
+    ]
+  },
+  "saebel": {
+    "name": "Säbel",
+    "type": "weapon",
+    "description": "",
+    "summary": "",
+    "cost": "60",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_waffen.html"
+      },
+      {
+        "source": "Das Buch der Regeln",
+        "page": "99"
+      }
+    ]
+  },
+  "schleuder": {
+    "name": "Schleuder",
+    "type": "weapon",
+    "description": "",
+    "summary": "",
+    "cost": "5",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_waffen.html"
+      },
+      {
+        "source": "Das Buch der Regeln",
+        "page": "99"
+      }
+    ]
+  },
+  "schwert": {
+    "name": "Schwert",
+    "type": "weapon",
+    "description": "",
+    "summary": "",
+    "cost": "45",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_waffen.html"
+      },
+      {
+        "source": "Das Buch der Regeln",
+        "page": "99"
+      }
+    ]
+  },
+  "stangenwaffe": {
+    "name": "Stangenwaffe",
+    "type": "weapon",
+    "description": "",
+    "summary": "",
+    "cost": "35",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_waffen.html"
+      },
+      {
+        "source": "Das Buch der Regeln",
+        "page": "99"
+      }
+    ]
+  },
+  "schild": {
+    "name": "Schild (Parierschild)",
+    "type": "weapon",
+    "description": "",
+    "summary": "",
+    "cost": "20",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/ausr_waffen.html"
+      },
+      {
+        "source": "Das Buch der Regeln",
+        "page": "99"
+      }
+    ]
+  },
+  "das-heptameron-oder-elemente-der-magie": {
+    "name": "Das Heptameron oder Elemente der Magie",
+    "type": "literature",
+    "description": "Du besitzt eingeschränkte Informationen über Hexentanzplätze. Entdeckt deine Jägergruppe einen solchen Ort, kann dir das Wissen des Buches Aufschluss geben über die vermutliche Bedeutung des Tanzplatzes. Der HeXXenmeister bestimmt jedoch allein, welche Informationen er dir mitteilen; diese können auch völlig unzutreffend sein und die Gruppe auf eine falsche Spur führen.",
+    "summary": "",
+    "study": "Um das Buch studieren zu können, musst du mindestens über einen Fw von 1 in Wissensgebiete verfügen. Bei der Sammelprobe (Wissensgebiete, je 1 Fza) zum Erfassen des Inhalts sind insgesamt 10 Erfolge notwendig.",
+    "cost": "200",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/literatur.html"
+      },
+      {
+        "source": "Hexenjagd",
+        "page": "122"
+      }
+    ]
+  },
+  "de-occulta-philosophia": {
+    "name": "De Occulta Philosophia",
+    "type": "literature",
+    "description": "Der berühmte Alchemist und Heiler Heinrich Cornelius Agrippa von Nettesheim verfasste 1510 diese Abhandlung über neuplatonische Mystik in Verbindung mit christlichen Ideen und (weißer) Magie. Zwar enthält das Buch keine genaue Anleitung zum Wirken von Zaubern und Ritualen, doch die darin enthaltenen Erkenntnisse können bei der Anwendung von Flüchen oder mystischen Ritualen helfen. Immer wenn du eine Probe auf Hexenkunst ausführst, erhältst du einen Bonus von +1.",
+    "summary": "",
+    "study": "Um das Buch studieren zu können, musst du mindestens über einen Fw von 1 in Hexenkunst verfügen. Bei der Sammelprobe (Wissensgebiete, je Fza) zum Erfassen des Inhalts sind insgesamt 15 Erfolge notwendig.",
+    "cost": "720",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/literatur.html"
+      },
+      {
+        "source": "Hexenjagd",
+        "page": "122"
+      }
+    ]
+  },
+  "le-genie-et-le-tresor-du-vieillard-des-pyramides": {
+    "name": "Le Génie et Le Trésor du Vieillard des Pyramides",
+    "type": "literature",
+    "description": "Du kannst Schutzamulette wirksamer einsetzen. Du benötigst nur 4 Blutstropfensymbole, damit ein Schutzamulett wirkt.",
+    "summary": "",
+    "study": "Das Buch ist auf Französisch verfasst und kann daher in aller Regel von jedem Jäger gelesen werden. Hast du Französisch nicht als Grundsprache während der Jägererschaffung gewählt, kannst du das Buch nur studieren, wenn du mindestens über einen Fw von 2+ in Land und Leute verfügst. Bei der Sammelprobe zum Erfassen des Inhalts (Wissensgebiete, je 1 Fza) sind insgesamt 15 Erfolge notwendig.",
+    "cost": "350",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/literatur.html"
+      },
+      {
+        "source": "Hexenjagd",
+        "page": "123"
+      }
+    ]
+  },
+  "liber-sanguinis": {
+    "name": "Liber Sanguinis",
+    "type": "literature",
+    "description": "Du kannst die Jägerkräfte „Volksflüche“ und „Mystische Rituale“ des Hexenmystikers für die üblichen Kosten erlernen, auch wenn du nicht über die passende Rolle verfügst.",
+    "summary": "",
+    "study": "Um das Buch studieren zu können, musst du mindestens über einen Fw von 3 in Wissensgebiete verfügen. Bei der Sammelprobe (Wissensgebiete, je 1 Fza) zum Erfassen des Inhalts sind 30 Erfolge notwendig. Du erhältst 1 Verderbnis, sobald du 10 Erfolge angesammelt hast.",
+    "cost": "1050",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/literatur.html"
+      },
+      {
+        "source": "Hexenjagd",
+        "page": "123"
+      }
+    ]
+  },
+  "malleus-maleficarum": {
+    "name": "Malleus Maleficarum („Hexenhammer“)",
+    "type": "literature",
+    "description": "Du erhältst einen Bonus von +2 auf Redekunst, wenn du eine Person befragst, die der Hexerei/Zauberei beschuldigt wird oder die mit einer Kreatur der Nacht (nicht nur Hexen) oder einem Kult im Bunde stehen soll. Bei Einschüchterungsproben gilt der Bonus auch auf Muskelspiel.",
+    "summary": "",
+    "study": "Um das Buch studieren zu können, musst du mindestens über einen Fw von 1 in Wissensgebiete verfügen. Bei der Sammelprobe zum Erfassen des Inhalts (Wissensgebiete, je 1 Fza) sind insgesamt 10 Erfolge notwendig.",
+    "cost": "80",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/literatur.html"
+      },
+      {
+        "source": "Hexenjagd",
+        "page": "124"
+      }
+    ]
+  },
+  "der-werwolfsriemen": {
+    "name": "Der Werwolfsriemen",
+    "type": "special",
+    "description": "Trägt ein Jäger den Gegenstand für mindestens 1 Tag, fühlt er sich vitalisiert und voller Kraft: Er erhält 1 zusätzliches EH-Kästchen, und seine Kkr erhöht sich um 1 bis zu einem Maximum von 6. Ab diesem Moment ist er jedoch verflucht mit einer besonderen Form der Lykanthropie: In jeder Vollmondnacht verwandelt er sich in einen Werwolf und greift blindlings jeden an, der sich in seiner Nähe befindet, selbst Familie und Freunde (in diesem Fall wird der Jäger vom Spielleiter kontrolliert, der dazu etwa die Werte des Werwolf-Marodeurs aus dem Buch der Regeln verwenden kann). Wird der Werwolf auf 0 Lep gebracht, verwandelt sich der Träger in seine menschliche Gestalt zurück und hat −10 Lep, lebt aber. Da der Jäger keine Erinnerung an seine Zeit als Werwolf besitzt, erhält er dadurch keine Verderbnis, die Folgen seiner Taten sind meist schwerwiegender. Das Ablegen des Gürtels beendet den Fluch nicht; der Gürtel muss von einer anderen Person getragen werden. Sobald diese sich erstmals in einen Werwolf verwandelt, ist der Fluch beim vorherigen Besitzer gebrochen. Wird der Werwolfsriemen vernichtet, endet der Fluch ebenfalls, der Träger verliert aber dauerhaft 1 Mh-Kästchen.",
+    "summary": "",
+    "cost": "",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/der-werwolfsriemen.html"
+      },
+      {
+        "source": "Geheimnisse der Deutschen Lande",
+        "page": "18"
+      }
+    ]
+  },
+  "die-heilige-lanze": {
+    "name": "Die Heilige Lanze",
+    "type": "special",
+    "description": "Die Heilige Lanze lässt sich als Lanze oder Stangenwaffe einsetzen. Jeder Angriff erhält einen Bonus von +1 pro Segnung, die der Benutzer in seinem Vorrat hat. Bei einem Treffer gegen widernatürliche Gegner kann der Jäger 1 Segnung opfern, um doppelten Grundschaden zu verursachen (dies zählt nicht als heiliger Schaden).",
+    "summary": "Nur Experten wie Goldschmiede oder Gelehrte können die Echtheit der Lanze feststellen, und auch das nicht mit Sicherheit. Die Lanze ist nicht käuflich.",
+    "cost": "2500",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/die-heilige-lanze.html"
+      },
+      {
+        "source": "Deutsche Lande",
+        "page": "76"
+      }
+    ]
+  },
+  "grendels-dornenpeitsche": {
+    "name": "Grendels Dornenpeitsche",
+    "type": "special",
+    "description": "Jäger können die mit Zauberkraft versetzte Dornenpeitsche Grendels mitnehmen und verwenden. Da sie natürlichen (albischen) Ursprungs ist, gilt sie nicht als (verdorben) oder (verhext) und hat daher keine negativen Auswirkungen auf den Geist des Anwenders. Die Waffe zählt als Nahkampfwaffe mit Schaden 0, AP 2. Gewürfelt wird auf GES + Schleudern. Für je 2 Erfolge auf dem Angriffswurf generiert die Waffe 1 Malusstufe beim Gegner. Einmal pro Kampf kann man einen Angriffswurf mit der Dornenpeitsche kostenfrei fokussieren.",
+    "summary": "",
+    "cost": "",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/grendels-dornenpeitsche.html"
+      },
+      {
+        "source": "Abenteuerband",
+        "page": "16"
+      }
+    ]
+  },
+  "hexenknochen": {
+    "name": "Hexenknochen",
+    "type": "special",
+    "description": "Erleidet der Jäger Geistschaden, verliert der Verursacher selbst Lep in Höhe eines Elixierwürfels (bei Hexen zwei Elixierwürfel). Hexen reagieren äußert aufgebracht auf Träger eines Hexenknochens und erhalten einen Bonus von +1 bei allen Angriffen oder vergleichenden Proben gegen den Träger.",
+    "summary": "Um die Echtheit eines Hexenknochens zu erkennen, muss man ihn an einen Unhold verfüttern. Wird er unbeschadet ausgeschieden, war er echt. Diese Methode kann auf Aberglaube zurückzuführen sein. Jäger können diese besonderen Artefakte selbst in den Tiefen der Eifel erbeuten oder über den Schwarzmarkt beziehen, z. B in Kilburg und Daun, dann jedoch mit einer 50-prozentigen Wahrscheinlichkeit (leere Seite auf dem Januswürfel), dass man eine Fälschung ohne Wirkung erworben hat.",
+    "cost": "550",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/hexenknochen.html"
+      },
+      {
+        "source": "Deutsche Lande",
+        "page": "88"
+      }
+    ]
+  },
+  "luzifer-breitfeuerkanone": {
+    "name": "Luzifer-Breitfeuerkanone",
+    "type": "special",
+    "description": "Die Luzifer-Breitfeuerkanone (Beutegut-Wert 1000 Gulden) ist eine der fortschrittlichsten und teuersten Waffen, die je in den herzöglichen Seelenschmieden von Waldenau gefertigt wurde, ein Feuer spuckendes, aber auch extrem anfälliges Monstrum von einer Waffe. Die Breitfeuerkanone dient in erster Linie dazu, große Massen von (Banden-) Gegnern zu dezimieren, kann aber auch gegen einzelne Ziele eingesetzt werden. Gegen einzelne Ziele zählt die Waffe als Muskete mit AP4, Schaden 10. Kräfte, die den Schaden oder die AP modifizieren, sind nicht mit der „Luzi“ kombinierbar. Wird sie gegen Bandengegner angewendet, kommen Spezialregeln zum Einsatz. Der Jäger bestimmt, wie viele Rohre er abfeuern will (1 – 5) und würfelt dann entsprechend viele Blutwürfel. Die Zahl der Blutstropfensymbole zeigt an, wie viele Bandenstufen an frei stehenden Bandengegnern dezimiert werden. Für jeden Blutwürfel, der eine leere Seite zeigt, wird jedoch die maximale Zahl an Rohren (nach dem Abfeuern) um 1 reduziert. Wurden bei einem Schuss beispielsweise 5 Blutstropfensymbole und 2 leere Seiten gewürfelt, so können 5 Bandengegner der Stufe 1 entfernt werden, bei allen weiteren Schüssen können jedoch nur noch 3 Blutwürfel gewürfelt werden. Um verstopfte Rohre zu reparieren, gelten die im Buch der Regeln beschriebenen Regeln für Reparaturen. Man würfelt je Freizeitaktion auf GES + FW (Handwerken). Pro 4 Erfolgen wird ein Rohr gesäubert.",
+    "summary": "",
+    "cost": "",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/luzifer-breitfeuerkanone.html"
+      },
+      {
+        "source": "Archiv des Wächterbunds I",
+        "page": "61"
+      }
+    ]
+  },
+  "mummdrank": {
+    "name": "Mummdrank",
+    "type": "special",
+    "description": "Während eines Kampfs muss Mummdrank dem Ziel eingeflößt werden, was eine Aktion mit 3 Ap sowie eine Vergleichsprobe Kkr + Fw (Muskelspiel) gegen Kkr erfordert. Gelingt die Probe, kommt das Ziel sofort zu Sinnen und stellt alle Kampfhandlungen ein. Der Trank wirkt weder bei widernatürlichen Feinden noch solchen, die aus freiem Willen gegen die Jäger kämpfen. Die Wirkung verfliegt sofort, wenn der Gegner erneut attackiert wird; er ist dann immun gegen Mummdrank. Kleine Mengen des Elixiers helfen beim Einschlafen und schützen vor Albträumen. Solcherart genutzt, hält ein Trank für rund 1 Monat.",
+    "summary": "Mummdrank kann für 20 Gulden in den Räuberstaaten, dem Schwimmenden Hafen Hamburgs oder auf dem Schwarzmarkt in Kiel und Lübeck erworben werden. Die verfügbaren Mengen sind meist sehr gering und entsprechen einem Blutwürfel.",
+    "cost": "20",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/mummdrank.html"
+      },
+      {
+        "source": "Geheimnisse der Deutschen Lande",
+        "page": "34"
+      }
+    ]
+  },
+  "nixflöte": {
+    "name": "Nixflöte",
+    "type": "special",
+    "description": "Um auf einer Nixflöte zu spielen, ist eine Probe auf Fingerfertigkeit (−2) nötig. Die erzielten Erfolge können als Erfolge bei einer Massenbefragung eingesetzt werden (so als hätte der Jäger auf Land und Leute gewürfelt). Wird die Flöte gespielt, während ein anderer Jäger ein Gespräch führt, so erhält dieser einmal pro Gespräch einen Bonus auf Redekunst in Höhe der Erfolge des Flötenspielers.",
+    "summary": "Angeblich singt die Flöte, wenn sie in ein stilles Gewässer gelegt wird, in dem sich ein Nix befindet. Jäger können diese besonderen Artefakte selbst in den Tiefen der Eifel erbeuten oder über den Schwarzmarkt beziehen, z. B in Kilburg und Daun, dann jedoch mit einer 50-prozentigen Wahrscheinlichkeit (leere Seite auf dem Januswürfel), dass man eine Fälschung ohne Wirkung erworben hat.",
+    "cost": "370",
+    "references": [
+      {
+        "source": "Wiki",
+        "link": "http://hexxen1733-regelwiki.de/index.php/nixfloete.html"
+      },
+      {
+        "source": "Deutsche Lande",
+        "page": "88"
       }
     ]
   }

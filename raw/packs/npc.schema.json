@@ -1,0 +1,201 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+
+
+  "type": "object",
+  "properties": {
+    "@content": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/npc"
+      }
+    }
+  },
+  "required": [ "@content" ],
+
+
+  "definitions": {
+    "attribute": {
+      "$comment": "TODO: Wertebereich einschränken",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 30
+    },
+    "shape": {
+      "title": "Form des Wandler",
+      "description": "Kann in attacks und powers als Voraussetzung verwendet werden, setzt shapes voraus!",
+      "type": "string"
+    },
+    "area": {
+      "title": "Umgebung",
+      "description": "Kann in attacks und powers als Voraussetzung verwendet werden!",
+      "type": "string"
+    },
+
+    "npc": {
+      "$id": "#npc",
+      "$comment": "Abstrakter Basistyp für Anführer und Bandenmitglieder.",
+      "type": "object",
+      "properties": {
+        "name": { "$ref": "global-schema.json#/definitions/name" },
+        "_id": { "$ref": "global-schema.json#/definitions/_id" },
+        "@rev": { "$ref": "global-schema.json#/definitions/@rev" },
+        "breed": {
+          "type": "string",
+          "enum": [
+            "Alben",
+            "Dämonen",
+            "Hexen",
+            "Hexenkreaturen",
+            "Menschen",
+            "Pflanzenwesen",
+            "Sagengestalten",
+            "Schwarzmagier",
+            "Tiere",
+            "Unholde",
+            "Vampire",
+            "Wandler (Werwesen)",
+            "Wiedergänger"
+          ]
+        },
+        "type": { "type": "string", "enum": [ "mob", "leader" ] },
+        "unnatural": { "type": "boolean" },
+        "level": { "type": "integer", "minimum": 0, "maximum": 4 },
+        "note": { "type": "string" },
+        "health": {
+          "type": "object",
+          "description": "Entweder 'value' oder 'formula'.",
+          "$comment": "TODO: Kürzel festlegen",
+          "properties": {
+            "value": { "type": "integer" },
+            "formula": { "type": "string", "pattern": "^(Jz|JZ|LM)\\*[0-9]+$" },
+            "note":  { "type": "string" }
+          },
+          "additionalProperties": false,
+          "dependencies": {
+            "value": { "not": { "required": [ "formula" ] } },
+            "formula": { "not": { "required": [ "value" ] } }
+          }
+        },
+        "attributes": {
+          "type": "object",
+          "properties": {
+            "SIN": { "$ref": "#/definitions/attribute" },
+            "WIS": { "$ref": "#/definitions/attribute" },
+            "WIL": { "$ref": "#/definitions/attribute" },
+            "KKR": { "$ref": "#/definitions/attribute" },
+            "ATH": { "$ref": "#/definitions/attribute" },
+            "GES": { "$ref": "#/definitions/attribute" }
+          },
+          "additionalProperties": false,
+          "required": [ "SIN", "WIS", "WIL", "KKR", "ATH", "GES" ]
+        },
+        "ini": { "type": "integer", "minimum": 0, "maximum": 20 },
+        "pw": {
+          "type": "object",
+          "properties": {
+            "value": { "type": "integer", "minimum": 0, "maximum": 10 },
+            "type": { "type": "string" },
+            "note":  { "type": "string" }
+          },
+          "additionalProperties": false,
+          "required": [ "value", "type" ]
+        },
+        "strategy": {
+          "type": "string",
+          "pattern": ".* \\([N|F123]+\\)",
+          "$comment": "TODO: besser einschränken"
+        },
+        "shapes": {
+          "type": "array",
+          "title": "Formen eines Wandlers",
+          "description": "Die erste Form ist die Standardform.",
+          "items": {
+            "$ref": "#/definitions/shape"
+          },
+          "uniqueItems": true,
+          "minItems": 2
+        },
+        "attacks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string" },
+              "note": { "type": "string" },
+              "area": { "$ref": "#/definitions/area" },
+              "shape": { "$ref": "#/definitions/shape" },
+              "raw": { "type": "string", "$comment": "TODO: nur temporär?" }
+            },
+            "additionalProperties": false,
+            "required": [ "name", "raw" ]
+          }
+        },
+        "powers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string" },
+              "target": { "type": "string" },
+              "note": { "type": "string" },
+              "area": { "$ref": "#/definitions/area" },
+              "shape": { "$ref": "#/definitions/shape" },
+              "raw": { "type": "string", "$comment": "TODO: nur temporär?" },
+              "_@todo": { "type": "string", "$comment": "TODO: temporär"}
+            },
+            "additionalProperties": false,
+            "required": [ "name", "raw" ]
+          }
+        },
+        "environment-effect": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string" },
+              "optional": { "type": "boolean" },
+              "note": { "type": "string" },
+              "raw": { "type": "string" }
+            },
+            "additionalProperties": false,
+            "required": [ "name", "raw" ]
+          }
+        },
+        "story": { "type": "array", "items": { "type": "string" } },
+        "loot": {
+          "$comment": "TODO: noch zu definieren",
+          "type": "object",
+          "properties": {}
+        },
+        "references": { "$ref": "global-schema.json#/definitions/references" },
+        "_@todo": { "$comment": "TODO: entfernen, wenn erledigt." },
+        "_feature": { "$comment": "TODO: entfernen, wenn erledigt." }
+      },
+      "additionalProperties": false,
+      "required": [ "name", "_id", "@rev", "breed", "type", "unnatural", "level", "health", "ini", "attacks", "powers", "references" ],
+      "allOf": [
+        { "$ref": "#/definitions/leader-requirements"},
+        { "$ref": "#/definitions/shape-implies-shapes"}
+      ]
+    },
+
+
+
+    "leader-requirements": {
+      "$comment": "Anführer haben zusätzliche Pflichteigenschaften.",
+      "if": { "properties": { "type": { "const": "leader" } } },
+      "then": { "required": [ "attributes", "pw", "strategy" ] }
+    },
+    "shape-implies-shapes": {
+      "$comment": "Bedingungen: Array nicht leer (minItems: 1) und mind. ein Element hat die Eigenschaft 'shape'.",
+      "if": {
+        "anyOf": [
+          { "properties": { "attacks": { "contains": { "required": [ "shape" ] }, "minItems": 1 } } },
+          { "properties": { "powers": { "contains": { "required": [ "shape" ] }, "minItems": 1 } } }
+        ]
+      },
+      "then": { "required": [ "shapes" ] }
+    }
+  }
+}
