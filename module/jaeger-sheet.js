@@ -16,7 +16,8 @@ class JaegerSheet extends HexxenActorSheet {
       height: 720,
       tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "skills"}],
       scrollY: [ ".biography.scroll-y", ".states.scroll-y", ".skills.scroll-y", ".powers.scroll-y",
-        ".combat.scroll-y", ".items.scroll-y" ]
+        ".combat.scroll-y", ".items.scroll-y" ],
+      dragDrop: [{dragSelector: ".items-list .item", dropSelector: null}]
     });
   }
 
