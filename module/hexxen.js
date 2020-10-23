@@ -65,6 +65,9 @@ Hooks.once("init", async function() {
   // Inject system logo and register listener to show an About dialog
   HexxenLogo.inject();
 
+  // Register callbacks for macro creation
+  Hooks.on('hotbarDrop', HexxenRollHelper.createMacro);
+
   // Inject application alignment code into FVTT event listener (entity-link)
   HexxenAppAlignmentHelper.registerSettings();
   HexxenAppAlignmentHelper.install();

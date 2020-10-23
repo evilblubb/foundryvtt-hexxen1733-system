@@ -17,7 +17,10 @@ class JaegerSheet extends HexxenActorSheet {
       tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "skills"}],
       scrollY: [ ".biography.scroll-y", ".states.scroll-y", ".skills.scroll-y", ".powers.scroll-y",
         ".combat.scroll-y", ".items.scroll-y" ],
-      dragDrop: [{dragSelector: ".items-list .item", dropSelector: null}]
+      dragDrop: [
+        {dragSelector: ".items-list .item", dropSelector: null},
+        {dragSelector: ".roll", dropSelector: null}
+      ]
     });
   }
 
@@ -296,7 +299,6 @@ class JaegerSheet extends HexxenActorSheet {
     const type = a.dataset.type;
     const key = a.parentNode.dataset.key;
 
-    const attrs = this.object.data.data.attributes;
     const form = this.form;
 
     // console.log(event);
@@ -313,6 +315,11 @@ class JaegerSheet extends HexxenActorSheet {
       return;
     }
 
+    this._handleRoll(action, type, key);
+  }
+
+  _handleRoll(action, type, key) {
+    const attrs = this.object.data.data.attributes;
     let rolls = 0;
     let label = "";
     if ( action === "roll" && type === "attribute" ) {
@@ -326,7 +333,34 @@ class JaegerSheet extends HexxenActorSheet {
       if (target.schaden) label += ` (SCH +${target.schaden})`;
     }
 
-    HexxenRollHelper.rollToChat(this.actor, { h: rolls }, label)
+    HexxenRollHelper.rollToChat(this.actor, { h: rolls }, label);
+  }
+
+  _onDragStart(event) {
+    if (event.target.classList.contains('roll'))
+    {
+      // Create drag data for an owned item
+      const a = event.currentTarget;
+      const action = a.dataset.action;
+
+      const type = a.dataset.type;
+      const key = a.parentNode.dataset.key;
+
+      const dragData = {
+        type: "HexxenRoll",
+        actorId: this.actor.id,
+        data: {type: type, key: key}
+      };
+      if (this.actor.isToken) {
+        dragData.sceneId = canvas.scene.id;
+        dragData.tokenId = this.actor.token.id;
+      }
+
+      // Set data transfer
+      event.dataTransfer.setData("text/plain", JSON.stringify(dragData));
+      return;
+    }
+    return super._onDragStart(event);
   }
 
   /* -------------------------------------------- */
