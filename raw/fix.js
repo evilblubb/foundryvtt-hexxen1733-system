@@ -12,7 +12,7 @@ const _sym = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
 const _len = 16;
 const generatedIDs = [];
 
-const list = ["nsc"]; // ["power", "motivation", "role", "profession"];
+const list = ["npc", "npc-power"]; // ["power", "motivation", "role", "profession"];
 
 for (const key in list) {
   if (list.hasOwnProperty(key)) {
@@ -26,9 +26,9 @@ for (const key in list) {
       if (data.hasOwnProperty(key)) {
         const item = data[key];
 
-        fixAttacksPowers(item);
-        // walk(item, "_id", fixIDs);
+        //walk(item, "_id", fixIDs);
 
+        // fixAttacksPowers(item);
         // fixReferences(item); // falsch formatierte references
       }
     }
@@ -55,7 +55,7 @@ function fixAttacksPowers(item) {
 }
 
 function walk(item, key, fn) {
-  if (typeof(item) !== "object") {
+  if (typeof(item) !== "object" || null === item) {
     return;
   }
   if (item.hasOwnProperty(key)) {
