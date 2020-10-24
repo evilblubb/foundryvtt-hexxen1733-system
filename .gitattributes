@@ -1,0 +1,5 @@
+* text=auto
+
+*.db text eol=lf
+
+*.png binary
