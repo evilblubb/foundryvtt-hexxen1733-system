@@ -52,7 +52,7 @@ class HexxenRollHelper {
       data.data = {
         name: data.data.key,
         type: 'script',
-        command: `HexxenRollHelper.roll('${data.actorId}', { type: '${data.data.type}', key: '${data.data.key}' });`
+        command: `HexxenRollHelper.roll('${data.actorId}', { event: window.event, type: '${data.data.type}', key: '${data.data.key}', prompt: false });`
       }
     }
   }
@@ -61,7 +61,17 @@ class HexxenRollHelper {
     const actor = game.actors.get(actorId);
     // FIXME: if (actor) und andere Prüfungen
     // TODO: Tunnelung durch HexxenRoller ersetzen
-    new HexxenRoller(actor, {}, hints).roll();
+    const ev = hints.event;
+    if (ev && ev.type === 'click') {
+      hints.prompt = hints.prompt || ev.shiftKey || ev.ctrlKey;
+    }
+    const roller = new HexxenRoller(actor, {}, hints);
+    if (hints.prompt === true) {
+      roller.render(true);
+    }
+    else {
+      roller.roll();
+    }
   }
 
   static rollToChat(actor, roll={}, flavour=null, options={}) {
