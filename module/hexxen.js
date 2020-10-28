@@ -12,12 +12,31 @@
 Hooks.once("init", async function() {
   console.log(`${Hexxen.logPrefix}Initializing system`);
 
+  // Register Handlebars helper for use in HTML templates
+  HexxenHandlebarsHelper.registerHelpers();
+
+  // Inject system logo and register listener to show an About dialog
+  HexxenLogo.inject();
+
 	// Define custom Entity classes
   CONFIG.Actor.entityClass = HexxenActor;
   CONFIG.Item.entityClass = HexxenItem;
 
-  // Register Handlebars helper for use in HTML templates
-  HexxenHandlebarsHelper.registerHelpers();
+  // Registering translation keys for Actors and Items
+  Object.assign(CONFIG.Actor.typeLabels, {
+    'character': 'HEXXEN.ACTORTYPE.character',
+    'npc-leader': 'HEXXEN.ACTORTYPE.npc-leader',
+    'npc-bande': 'HEXXEN.ACTORTYPE.npc-mob'
+  });
+  Object.assign(CONFIG.Item.typeLabels, {
+    'item': 'HEXXEN.ITEMTYPE.item',
+    'motivation': 'HEXXEN.ITEMTYPE.motivation',
+    'npc-power': 'HEXXEN.ITEMTYPE.npc-power',
+    'power': 'HEXXEN.ITEMTYPE.power',
+    'profession': 'HEXXEN.ITEMTYPE.profession',
+    'regulation': 'HEXXEN.ITEMTYPE.regulation',
+    'role': 'HEXXEN.ITEMTYPE.role'
+  });
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
@@ -62,8 +81,8 @@ Hooks.once("init", async function() {
     `${Hexxen.basepath}/img/Rabenkasten_weit_unten_small_braun.png`
   );
 
-  // Inject system logo and register listener to show an About dialog
-  HexxenLogo.inject();
+  // Register callbacks for macro creation
+  Hooks.on('hotbarDrop', HexxenRollHelper.createMacro);
 
   // Inject application alignment code into FVTT event listener (entity-link)
   HexxenAppAlignmentHelper.registerSettings();
@@ -77,22 +96,6 @@ Hooks.once("init", async function() {
 
 Hooks.once("ready", async function() {
   console.log(`${Hexxen.logPrefix}Ready Hook called`);
-
-  // FIXME: muss das nach ready erfolgen?
-  Object.assign(CONFIG.Actor.typeLabels, {
-    'character': 'HEXXEN.ACTORTYPE.character',
-    'npc-leader': 'HEXXEN.ACTORTYPE.npc-leader',
-    'npc-bande': 'HEXXEN.ACTORTYPE.npc-mob'
-  });
-  Object.assign(CONFIG.Item.typeLabels, {
-    'item': 'HEXXEN.ITEMTYPE.item',
-    'motivation': 'HEXXEN.ITEMTYPE.motivation',
-    'npc-power': 'HEXXEN.ITEMTYPE.npc-power',
-    'power': 'HEXXEN.ITEMTYPE.power',
-    'profession': 'HEXXEN.ITEMTYPE.profession',
-    'regulation': 'HEXXEN.ITEMTYPE.regulation',
-    'role': 'HEXXEN.ITEMTYPE.role'
-  });
 
   HexxenRollHelper.checkSystemReqirements();
 
