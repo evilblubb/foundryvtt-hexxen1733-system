@@ -1,0 +1,151 @@
+{
+  "anzahl-an-hautglyphen": "Als Richtlinie beim Eigenbau eines Hexendieners gilt, dass die maximale Zahl von Glyphen pro Person der Anführerstufe der Hexe entspricht. Hexen verschwenden ihre Künste normalerweise nicht an „niederen“ Dienern (sprich: Bandengegnern), oder anders ausgedrückt: Würde eine Hexe einen Bandendiener mit einer Glyphe ausstatten, würde dieser so mächtig werden, dass er als Anführer zählte.",
+  "hautglyphen-bei-jaegern": "Theoretisch können auch Jäger Hautglyphen aufweisen. Das mag an der Vorgeschichte des Jägers liegen (z.B. war er Mitglied eines Hexenkults oder er stand unwissentlich im Dienst einer Hexe), kann aber auch während des Spiels geschehen, wenn ein Jäger von einer Hexe gefangen wird. Lässt der HeXXenmeister Hautglyphen bei Jägern zu, gilt: Für jede Glyphe erhält der Jäger 1 Verderbnis.",
+  "glyphen": {
+    "arkanen-macht": {
+      "name": "Glyphe der Arkanen Macht",
+      "nsc": "Der Nsc startet in den Kampf mit 1 Hex-Punkt und generiert in Ini 0 jeweils 1 Hex pro Glyphe.",
+      "pc": "Jeweils zu Beginn eines Tages und zu Beginn eines relevanten Kampfes generiert der Jäger 1 Rage- oder Ambitions-Punkt.",
+      "limit": "Nsc und Jäger können bis zu 3 Glyphen der Arkanen Macht besitzen.",
+      "syntax": "Nsc startet mit x Hex, erhält in Ini 0 +x Hex dazu",
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/glyphe-der-arkanen-macht.html"
+        },
+        {
+          "source": "Archiv des Wächterbunds II ",
+          "page": "89"
+        }
+      ],
+      "erreta": false
+    },
+    "befaehigung": {
+      "name": "Glyphe der Befähigung",
+      "nsc": "Ein Attribut steigt um +1, bei Jägern auch über das Maximum von 6 hinaus.",
+      "pc": "Ein Attribut steigt um +1, bei Jägern auch über das Maximum von 6 hinaus.",
+      "limit": "Nsc und Jäger können maximal 3 Glyphen der Befähigung besitzen, allerdings jeweils für ein anderes Attribut.",
+      "syntax": "Folgende Attribute +1: y, bereits in Nsc-Werte eingerechnet",
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/glyphe-der-befaehigung.html"
+        },
+        {
+          "source": "Archiv des Wächterbunds II ",
+          "page": "89"
+        }
+      ],
+      "erreta": false
+    },
+    "raserei": {
+      "name": "Glyphe der Raserei",
+      "nsc": "Der Gezeichnete kann die Glyphe als freie Handlung aktivieren. Der Gezeichnete erleidet 5 innere Schadensstufen, darf danach für alle seine Nahkampf-Angriffe die Zahl der inneren Schadensstufen als Bonus addieren, muss sie als Malus bei Fernkampfangriffen einrechnen. In Ini 0 werden die Schadensstufen wie üblich reduziert. Sobald sie auf 0 sinken, kann der Gezeichnete die Glyphe wieder aktivieren.",
+      "pc": "Ein Jäger kann die Glyphe als freie Reaktion aktivieren, erhält dann eine frei wählbare Zahl innerer Schadensstufen (1 bis 5) und den Zustand Tollwut. Sollten seine inneren Schadensstufen auf 0 sinken, kann er die Glyphe erneut aktivieren.",
+      "limit": "Eine Glyphe pro Wesen.",
+      "syntax": "freie Handlung: +5 innere Schadensstufen, pro innere Schadensstufe +1 auf Nahkampfangriffe, –1 auf Fernkampfangriffe",
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/glyphe-der-raserei.html"
+        },
+        {
+          "source": "Archiv des Wächterbunds II ",
+          "page": "90"
+        }
+      ],
+      "erreta": false
+    },
+    "vitalitaet": {
+      "name": "Glyphe der Vitalität",
+      "nsc": "Der Nsc ermittelt seine Lep so, als wäre ein Jäger mehr anwesend (die Jz entspricht der Zahl der Jäger +1).",
+      "pc": "Der Jäger erhält Lep +4.",
+      "limit": "Nsc und Jäger können maximal 1 Glyphe der Vitalität besitzen.",
+      "syntax": "Jz bei Lep entspricht Jz +1",
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/glyphe-der-vitalitaet.html"
+        },
+        {
+          "source": "Archiv des Wächterbunds II ",
+          "page": "89"
+        }
+      ],
+      "erreta": false
+    },
+    "ziege": {
+      "name": "Glyphe der Ziege",
+      "nsc": "Es gelten alle Regeln für Verwandlungen aus dem Buch der Regeln; der Gezeichnete hat Ges –2, Ath +2, Kkr –1, und kann Hornattacken, basierend auf Ath, Grundschaden 2 (bei Jägern 2 AP), ausführen. Darüber hinaus ist die Ziegengestalt ideal, um unerkannt durch eine Siedlung zu laufen.",
+      "pc": "Es gelten alle Regeln für Verwandlungen aus dem Buch der Regeln; der Gezeichnete hat Ges –2, Ath +2, Kkr –1, und kann Hornattacken, basierend auf Ath, Grundschaden 2 (bei Jägern 2 AP), ausführen. Darüber hinaus ist die Ziegengestalt ideal, um unerkannt durch eine Siedlung zu laufen.",
+      "feature": "Ein Nsc mit 2 Glyphen der Ziege kann sich in eine [Brockenziege] verwandeln.",
+      "limit": "Nsc 2 Glyphen, Jäger 1 Glyphe.",
+      "syntax": "Jz bei Lep entspricht Jz +1",
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/glyphe-der-ziege.html"
+        },
+        {
+          "source": "Archiv des Wächterbunds II ",
+          "page": "90"
+        }
+      ],
+      "erreta": false
+    },
+    "schattenwandelns": {
+      "name": "Glyphe des Schattenwandelns",
+      "nsc": "Alle Proben zum Entdecken eines Schattenwandlers (Erkennen, Aufmerksamkeit) sind um –5 erschwert und dürfen nicht fokussiert werden (es sei denn, der Jäger hat eine Ahnung, dass er beobachtet wird).",
+      "pc": "Jäger erhalten auf alle Heimlichkeits-Proben und evtl. auch auf Akrobatik-Proben (je nach Situation) den vollen Bonus von +5.",
+      "limit": "1 Glyphe pro Wesen.",
+      "syntax": "Proben zum Entdecken –5",
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/glyphe-des-schattenwandelns.html"
+        },
+        {
+          "source": "Archiv des Wächterbunds II ",
+          "page": "90"
+        }
+      ],
+      "erreta": false
+    },
+    "ruestung": {
+      "name": "Rüstungsglyphe",
+      "nsc": "Der Pw des Nsc steigt um +1.",
+      "pc": "Der Jäger erhält bei Beginn eines Kampfes 3 Puffer-Lep.",
+      "limit": "Nsc und Jäger können bis zu 3 Rüstungsglyphen aufweisen.",
+      "syntax": "Pw +x, bereits in Nsc-Werte eingerechnet",
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/ruestungsglyphe.html"
+        },
+        {
+          "source": "Archiv des Wächterbunds II ",
+          "page": "89"
+        }
+      ],
+      "erreta": false
+    },
+    "zauber": {
+      "name": "Zauberglyphe",
+      "nsc": "Der Nsc erhält eine beliebige Nsc-Kraft vom Typ „Handlung“, die Hex-Punkte verbraucht.",
+      "pc": "Der Jäger erhält eine beliebige Allgemeine Jägerkraft einer beliebigen Rolle (nicht Profession).",
+      "limit": "Nsc und Jäger können beliebig viele Zauberglyphen haben, aber jede Glyphe aktiviert eine andere Kraft.",
+      "syntax": "Nsc-Syntax: Als Syntax wird der Zauber mit seiner vollen Syntax angegeben; der Zaubername erhält lediglich den Zusatz „in Zauberglyphe“, z. B. Terrorwelle in Zauberglyphe ...",
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/zauberglyphe.html"
+        },
+        {
+          "source": "Archiv des Wächterbunds II ",
+          "page": "90"
+        }
+      ],
+      "erreta": false
+    }
+  }
+}
