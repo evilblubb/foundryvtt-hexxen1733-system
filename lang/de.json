@@ -1,7 +1,8 @@
 {
   "HEXXEN.ACTORTYPE.character": "Jäger",
-  "HEXXEN.ACTORTYPE.npc-leader": "Anführergegner",
-  "HEXXEN.ACTORTYPE.npc-mob": "Bandengegner",
+  "HEXXEN.ACTORTYPE.npc": "Anführer-/Bandengegner",
+  "HEXXEN.ACTORTYPE.npc-leader": "Anführergegner (veraltet)",
+  "HEXXEN.ACTORTYPE.npc-mob": "Bandengegner (veraltet)",
 
   "HEXXEN.ITEMTYPE.item": "Ausrüstung",
   "HEXXEN.ITEMTYPE.motivation": "Motivation",
@@ -13,8 +14,9 @@
 
   "HEXXEN.PC-Sheet.Title": "HeXXen Jägerbogen",
 
-  "HEXXEN.NPC-Sheet.TitleLeaderDeprecated": "HeXXen Anführergegner",
-  "HEXXEN.NPC-Sheet.TitleMobDeprecated": "HeXXen Bandengegner",
+  "HEXXEN.NPC-Sheet.Title": "HeXXen Anführer-/Bandengegner",
+  "HEXXEN.NPC-Sheet.TitleLeaderDeprecated": "HeXXen Anführergegner (veraltet)",
+  "HEXXEN.NPC-Sheet.TitleMobDeprecated": "HeXXen Bandengegner (veraltet)",
 
   "HEXXEN.Item-Sheet.Title": "HeXXen Ausrüstungsgegenstand",
   "HEXXEN.RuleItem-Sheet.Title": "HeXXen Regeltext"

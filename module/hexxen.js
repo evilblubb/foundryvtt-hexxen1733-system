@@ -25,6 +25,7 @@ Hooks.once("init", async function() {
   // Registering translation keys for Actors and Items
   Object.assign(CONFIG.Actor.typeLabels, {
     'character': 'HEXXEN.ACTORTYPE.character',
+    'npc': 'HEXXEN.ACTORTYPE.npc',
     'npc-leader': 'HEXXEN.ACTORTYPE.npc-leader',
     'npc-bande': 'HEXXEN.ACTORTYPE.npc-mob'
   });
@@ -43,6 +44,11 @@ Hooks.once("init", async function() {
   Actors.registerSheet("hexxen", JaegerSheet, {
     label: game.i18n.localize('HEXXEN.PC-Sheet.Title'),
     types: ["character"],
+    makeDefault: true
+  });
+  Actors.registerSheet("hexxen", NpcSheet, {
+    label: game.i18n.localize('HEXXEN.NPC-Sheet.Title'),
+    types: ["npc"],
     makeDefault: true
   });
   Actors.registerSheet("hexxen", NpcLeaderSheet, {

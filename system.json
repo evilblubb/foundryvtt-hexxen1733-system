@@ -14,6 +14,7 @@
                 "module/actor.js",
                 "module/actor-sheet.js",
                 "module/jaeger-sheet.js",
+                "module/npc-sheet.js",
                 "module/npc-bande-sheet.js",
                 "module/npc-leader-sheet.js",
                 "module/item.js",

@@ -1,16 +1,17 @@
 {
 "Actor": {
-  "types": ["character", "npc-bande", "npc-leader"],
+  "types": ["character", "npc", "npc-bande", "npc-leader"],
   "templates": {
     "core": {
       "health": {
         "value": 0,
+        "min": 0,
         "max": 0,
         "dtype": "Number"
       },
       "power": {
         "value": 0,
-        "max": 0,
+        "max": 10,
         "dtype": "Number"
       },
       "level": {
@@ -21,7 +22,59 @@
         "value": 0,
         "dtype": "Number"
       }
-    }
+    },
+    "attributes": {
+      "attributes": {
+        "SIN": {
+          "value": 0,
+          "dtype": "Number"
+        },
+        "WIS": {
+          "value": 0,
+          "dtype": "Number"
+        },
+        "WIL": {
+          "value": 0,
+          "dtype": "Number"
+        },
+        "KKR": {
+          "value": 0,
+          "dtype": "Number"
+        },
+        "ATH": {
+          "value": 0,
+          "dtype": "Number"
+        },
+        "GES": {
+          "value": 0,
+          "dtype": "Number"
+        }
+      }
+    },
+    "NPC-TYPE": [ "leader", "mob" ]
+  },
+  "npc": {
+    "templates": [ "core", "attributes" ],
+    "_template-revision": 0,
+    "breed": null,
+    "type": null,
+    "note": null,
+    "pw": {
+      "value": 0,
+      "type": ""
+    },
+    "states": {
+      "unnatural": false
+    },
+    "damage-levels": {},
+    "strategy": null,
+    "shapes": null,
+    "attacks": [],
+    "powers": [],
+    "environment-effects": null,
+    "story": null,
+    "loot": null,
+    "references": []
   },
   "npc-leader":{
     "biography1": "",

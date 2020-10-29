@@ -1,0 +1,39 @@
+<form class="{{cssClass}}" autocomplete="off">
+
+  {{#*inline "input"}}
+  {{! example: >input id="languages" class="foo" target="data.languages" content=data.languages}}
+  {{! log "root:" @root
+      "this:" @this
+      "editMode:" @root.editMode}}
+  {{#if @root.editMode}}
+  <input {{#if id}} id="{{id}}" {{/if}}
+      class="{{#if (isDefined class)}}{{class}} {{/if}}value"
+      type="text"
+      name="{{#if base-target}}{{base-target}}.{{/if}}{{target}}{{#if (isDefined content.value)}}.value{{/if}}"
+      value="{{#if (isDefined content.value)}}{{content.value}}{{else}}{{content}}{{/if}}"
+      {{! TODO: dtype besser lösen }}
+      {{#if content.dtype}}data-dtype="{{content.dtype}}"{{/if}}
+      {{#if dtype}}data-dtype="{{dtype}}"{{/if}}
+      {{#if placeholder}}placeholder="{{placeholder}}"{{/if}} />
+  {{else}}
+  <div class="{{#if (isDefined class)}}{{class}} {{/if}}value">
+      {{#if (isDefined content.value)}}{{content.value}}{{else}}{{content}}{{/if}}
+  </div>
+  {{/if}}
+  {{/inline}}
+
+  {{!-- Sheet Header --}}
+    <header class="sheet-header">
+      <img class="profile-img" src="{{actor.img}}" {{#if editMode}}data-edit="img"{{/if}} title="{{actor.name}}" />
+      <h1 class="actorname">{{>input class="value-box" target="name" content=actor.name placeholder="Name"}}</h1>
+
+    </header>
+
+    {{!-- Sheet Tab Navigation --}}
+    <section class="sheet-body">
+
+    {{!-- Sheet Body --}}
+
+
+    </section>
+</form>
