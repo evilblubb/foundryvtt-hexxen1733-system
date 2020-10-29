@@ -46,20 +46,47 @@ class HexxenRollHelper {
     }
   }
 
+  static createMacro(hotbar, data, slot) {
+    if (data.type === 'HexxenRoll') {
+      data.type = 'Macro';
+      data.data = {
+        name: data.data.key,
+        type: 'script',
+        command: `HexxenRollHelper.roll('${data.actorId}', { event: window.event, type: '${data.data.type}', key: '${data.data.key}', prompt: false });`
+      }
+    }
+  }
+
+  static roll(actorId, hints={}) {
+    const actor = game.actors.get(actorId);
+    // FIXME: if (actor) und andere Prüfungen
+    // TODO: Tunnelung durch HexxenRoller ersetzen
+    const ev = hints.event;
+    if (ev && ev.type === 'click') {
+      hints.prompt = hints.prompt || ev.shiftKey || ev.ctrlKey;
+    }
+    const roller = new HexxenRoller(actor, {}, hints);
+    if (hints.prompt === true) {
+      roller.render(true);
+    }
+    else {
+      roller.roll();
+    }
+  }
+
   static rollToChat(actor, roll={}, flavour=null, options={}) {
     if (!this.delegate) {
       ui.notifications.error("Kein kompatibles Würfeltool gefunden!");
       return false;
     }
     // TODO: Umleitung über WürfelTool-Dialog implementieren (options.showDialog: true)
-    return this.delegate.roll(actor, roll, flavour, options);
+    return this.delegate._rollToChat(actor, roll, flavour, options);
   }
-
 }
 
 class HexxenSpecialDiceRollerHelper extends HexxenRollHelper {
 
-  static roll(actor, roll={}, flavour=null, options={}) {
+  static _rollToChat(actor, roll={}, flavour=null, options={}) {
     const roller = game.specialDiceRoller.heXXen;
 
     let empty = true;
@@ -276,6 +303,16 @@ class HexxenRoller extends FormApplication {
     // Re-draw the updated sheet
     this.object.sheet.render(true);
  */  }
+
+  roll() {
+    const data = this.getData();
+    const roll = {};
+    for ( let die of Object.keys(data.data.dice) ) {
+      const count = data.data.dice[die].count;
+      roll[die] = count;
+    }
+    HexxenRollHelper.rollToChat(this.object, roll, data.data.label);
+  }
 
   /* -------------------------------------------- */
   /*  Configuration Methods

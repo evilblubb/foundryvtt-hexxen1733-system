@@ -144,6 +144,13 @@
         "effekt": "Abbau nur durch Luftzufuhr",
         "abbau": "Unempfindlichkeit (oder je nach Situation)"
       },
+      "Belastung": {
+        "state": false,
+        "type": "ldmg",
+        "effekt": "Keine Jägerkräfte die auf Gestik oder Beweglichkeit beruhen",
+        "abbau": "Muskelspiel oder Vergleichsprobe Kkr + As",
+        "hilfe": "2 AP: Muskelspiel oder Vergleichsprobe Kkr + As"
+      },
       "Blindheit": {
         "state": false,
         "type": "mdmg",
@@ -156,6 +163,12 @@
         "effekt": "INI-0: Schmerzschaden in Höhe eines Blutwürfels",
         "abbau": "Unempfindlichkeit oder Erste Hilfe",
         "hilfe": "2 AP: Erste Hilfe"
+      },
+      "Entrückung": {
+        "state": false,
+        "type": "mdmg",
+        "effekt": "Malusstufen reduzieren erzeugten Schaden durch Sc",
+        "abbau": "1 Ap: - Blutw. Malusstufen"
       },
       "Erfrierung": {
         "state": false,
@@ -184,17 +197,85 @@
         "abbau": "Geistesstärke",
         "hilfe": "2 AP: Redekunst"
       },
+      "Haaresfluch": {
+        "state": false,
+        "type": "mdmg",
+        "effekt": "INI-0: 1 Blutw. Schmerzschaden",
+        "abbau": "2 Ap: Dolche und Messer, Haare abschneiden",
+        "hilfe": "2 Ap: Dolche und Messer, Haare abschneiden"
+      },
       "Krankheit": {
         "state": false,
         "type": "mdmg",
         "effekt": "Alle Malusstufen-Zustände sind dauerhaft",
         "abbau": "Bei Regeneration: Erste Hilfe"
       },
+      "Leichenstarre": {
+        "state": false,
+        "type": "odmg",
+        "effekt": "Unempfindlichkeit bei Aktion/Reaktion, Misslingen = alle Ap weg",
+        "abbau": "Unempfindlichkeit",
+        "hilfe": "2 Ap: Erste Hilfe"
+      },
+      "Pilzinfektion": {
+        "state": false,
+        "type": "idmg",
+        "effekt": "wenn in INI-0 innere Schadenstufen übrig = Einfluss 0 (nach Schaden) + speit x Funguslarven",
+        "abbau": "Unempfindlichkeit",
+        "hilfe": "2 Ap: Erste Hilfe, heilt keine Lep"
+      },
+      "Schlechtes Gewissen": {
+        "state": false,
+        "type": "mdmg",
+        "effekt": "aggr. Aktion = - 1Idee od. 1Coup od. 1Segnung",
+        "abbau": "Geistesstärke",
+        "hilfe": "2 Ap: Redekunst"
+      },
+      "Schläfrigkeit": {
+        "state": false,
+        "type": "mdmg",
+        "effekt": "Malusst.5=sofortiges Einschlafen+Bonus +5 bei Angriffen gegen Sc",
+        "abbau": "Geistesstärke",
+        "hilfe": "2 Ap: wecken, Malusst.auf 4 reduziert"
+      },
+      "Schwere Krankheit": {
+        "state": false,
+        "type": "mdmg",
+        "effekt": "alle Zustände = Dauerhaft, Basis Lep -1/Tag",
+        "abbau": "Unepfindlichkeit + Erfolg aus Wissensgebiete bzw. Wis",
+        "hilfe": "1 Fza = Wissensgebiete bzw. Wis"
+      },
+      "Spinnenfluch": {
+        "state": false,
+        "type": "mdmg",
+        "effekt": "mind. 1 Angriff(-1Ap) gegen eingebildete Insektenbrut",
+        "abbau": "1 Angriff(-1Ap) + 1 Schmerzschaden"
+      },
+      "Statue": {
+        "state": false,
+        "type": "ldmg",
+        "effekt": "wenn Ap 0 durch Lähmung = keine Redunktion durch Sc mgl. + Dauerhaft",
+        "abbau": "unmöglich",
+        "hilfe": "2 AP: Muskelspiel"
+      },
       "Stummheit": {
         "state": false,
         "type": "mdmg",
         "effekt": "Kann keine Anweisungen geben",
         "abbau": "Redekunst"
+      },
+      "Sucht": {
+        "state": false,
+        "type": "mdmg",
+        "effekt": "je Fza 1 Suchtpunkt, bei Suchtpunkten > Wil*2 Sucht stillen oder Blutw. Malusst.",
+        "abbau": "Sucht nachgeben / stillen"
+      },
+      "Tanzwut": {
+        "state": false,
+        "type": "ldmg",
+        "effekt": "Nur Ausweichen als Aktion mgl.",
+        "abbau": "Blutw.Lep und Muskelspiel, als Reaktion: -1 Ap",
+        "hilfe": "2 AP: Muskelspiel"
       },
       "Taubheit": {
         "state": false,
@@ -205,14 +286,33 @@
       "Taumeln": {
         "state": false,
         "type": "ldmg",
-        "effekt": "---",
+        "effekt": "Sc stolpert",
         "abbau": "Akrobatik"
+      },
+      "Teerglut": {
+        "state": false,
+        "type": "odmg",
+        "effekt": "versenkt die Haut",
+        "abbau": "Fingerfertigkeit (−2), INI 0 = 1 Schadensp."
+      },
+      "Tollwut": {
+        "state": false,
+        "type": "idmg",
+        "effekt": "N:Maslusst.Bonus;F:Malusst.Malus,bei 5 St.=5 Schmerzschaden + red.Stufe 0",
+        "abbau": "Unempfindlichkeit",
+        "hilfe": "2 AP: Erste Hilfe"
       },
       "Trauma": {
         "state": false,
         "type": "mdmg",
         "effekt": "INI-0: Geistschaden in Höhe eines Blutwürfels",
         "abbau": "Geistesstärke"
+      },
+      "Unheilfluch": {
+        "state": false,
+        "type": "mdmg",
+        "effekt": "Angriffe durch Nsc Bonus + Malusst.",
+        "abbau": "Wesen des Unheils töten -1, sonst verfallen nach Kampfende"
       },
       "Verbrennung": {
         "state": false,
@@ -228,11 +328,32 @@
         "abbau": "Unempfindlichkeit",
         "hilfe": "2 AP: Erste Hilfe"
       },
+      "Verschmutzung": {
+        "state": false,
+        "type": "ldmg",
+        "effekt": "steugende Lähmungsst.= + Puffer-Lep in gleicher Höhe (Abbau getrennt)",
+        "abbau": "Muskelspiel",
+        "hilfe": "2 AP: Fingerfertigkeit"
+      },
       "Verzauberung": {
         "state": false,
         "type": "ldmg",
         "effekt": "---",
         "abbau": "Geistesstärke"
+      },
+      "Weh": {
+        "state": false,
+        "type": "mdmg",
+        "effekt": "wenn Malsust.= 5 Schmerzruf, -Blutw.Ap wenn Ap > Blutw.=3 Schmerzschaden/Symbol",
+        "abbau": "Unempfindlichkeit",
+        "hilfe": "2 AP: Erste Hilfe"
+      },
+      "Zorn": {
+        "state": false,
+        "type": "mdmg",
+        "effekt": "Malusst. ohne Effekt = Zornst.,Beginn Kampfr.= 1Elexierw. wenn < od. = Zornst. Ap=1 Angriff auf geb. Nsc, wenn nicht gebunden zufälliger Sc",
+        "abbau": "Geistesstärke",
+        "hilfe": "2 AP: Redekunst"
       }
     },
     "attributes": {
@@ -486,19 +607,19 @@
   }
 },
 "Item": {
-  "types": ["item", "role", "profession", "motivation", "power"],
+  "types": ["item", "role", "profession", "motivation", "power", "regulation", "npc-power"],
   "templates": {
     "core": {
+      "name": null,
+      "description": "",
+      "summary": "",
       "references": [
         {
           "source": "",
           "link": "",
           "page": ""
         }
-      ],
-      "name": null,
-      "description": "",
-      "summary": ""
+      ]
     }
   },
   "item": {
@@ -538,6 +659,17 @@
     "features": null,
     "tags": [],
     "origin": {}
+  },
+  "regulation": {
+    "templates": [ "core" ],
+    "summary": null
+  },
+  "npc-power": {
+    "templates": [ "core" ],
+    "type": "",
+    "syntax": "",
+    "target": null,
+    "cost": null
   }
 }
 }

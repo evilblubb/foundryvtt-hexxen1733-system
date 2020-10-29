@@ -1,0 +1,72 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+
+  "definitions": {
+    "name": {
+      "title": "Name des Compendium-Eintrags",
+      "description": "Sollte üblicherweise eindeutig (unique) sein.",
+      "type": "string"
+    },
+    "_id": {
+      "title": "Compendium-interne ID des Eintrags",
+      "description": "Wird bei der ersten Erstellung generiert und hinterlegt. Bitte nicht händisch erstellen! Nur \"\" eintragen.",
+      "type": "string",
+      "default": "",
+      "$comment": "Leerer String nur für Eingabe zulässig.",
+      "pattern": "(^$|^[0-9a-zA-Z]{16}$)"
+    },
+    "@rev": {
+      "title": "Compendium-interne Revisionsnummer des Eintrags",
+      "description": "Wird bei der Compendium Erstellung (im Falle von Änderungen am Eintrag) automatisch hochgezählt. Bitte nicht händisch ändern!",
+      "type": "integer",
+      "default": 1,
+      "minimum": 1
+    },
+    "description": {
+      "title": "Beschreibungstext des Eintrags",
+      "description": "Die allgemeine Beschreibung des Eintrags. Für Zeilenumbrüche/Absätze \\n einfügen.",
+      "type": "string"
+    },
+    "references": {
+      "title": "Quellennachweis/-verweis",
+      "description": "Der Eintrag muss mindestens einen Verweis auf das Regelwiki (\"source\": \"Wiki\", \"link\": \"...\") UND einen Verweis auf eine Publikation (\"source\": \"...\", \"page\": \"...\") enthalten! Ein Verweis darf nicht gleichzeitig \"link\": \"...\" und \"page\": \"...\" enthalten! Mehrere Verweise sind zulässig/möglich.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "title": "Quelle",
+            "description": "Entweder \"Wiki\" oder der Name einer Publikation.",
+            "type": "string"
+          },
+          "link": {
+            "title": "Link zum Regelwiki",
+            "description": "z.B. http://hexxen1733-regelwiki.de/index.php/bande_albenbrutling.html",
+            "type": "string",
+            "format": "uri"
+          },
+          "page": {
+            "title": "Seite",
+            "description": "Seitenangabe innerhalb der Publikation.",
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [ "source" ],
+        "allOf": [
+          { "$ref": "#/definitions/references-requirements" }
+        ]
+      },
+      "allOf": [
+        { "contains": { "required": [ "link" ] } },
+        { "contains": { "required": [ "page" ] } }
+      ]
+    },
+    "references-requirements": {
+      "$comment": "Gegenseitiger Ausschluß link vs. page.",
+      "if": { "properties": { "source": { "const": "Wiki" } } },
+      "then": { "required": [ "link" ], "not": { "required": [ "page" ] } },
+      "else": { "required": [ "page" ], "not": { "required": [ "link" ] } }
+    }
+  }
+}

@@ -1,0 +1,3663 @@
+{
+  "$schema": "./npc-power.schema.json",
+  "@content": {
+    "@target": "^(.*)$",
+    "allgemein": {
+      "aasfresser": {
+        "name": "Aasfresser",
+        "_id": "vHECF0xMaPrAH2eI",
+        "@rev": 1,
+        "type": "Eigenschaft",
+        "description": "Sobald der Nsc bei einem Jäger direkten Schaden anrichtet (Lep-Verlust mittels natürlicher Waffen; zählt auch bei Puffer-Lep), erhält er +5 Lep (auch über sein Maximum hinaus) und seine Bandenstufe steigt um 1. Diese Eigenschaft hat keinen Effekt, wenn er bereits Bandenstufe 3 erreicht hat. Eine erhöhte Bandenstufe verändert nicht die Kampfwerte, macht den Nsc aber resistenter gegen Bandenkräfte.",
+        "syntax": "richtet Nsc Schaden an: +5 Lep, Bandenstufe +1; keine Auswirkungen ab Stufe 3",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/aasfresser.html"
+          },
+          {
+            "source": "Geheimnisse der Deutschen Lande",
+            "page": "125"
+          }
+        ]
+      },
+      "abtauchen": {
+        "name": "Abtauchen",
+        "_id": "BQ4FpZlryz39qcQ9",
+        "@rev": 1,
+        "type": "Handlung, NN|FF",
+        "description": "Wird der NSC in der Nähe einer ausreichend großen Wasserfläche (tiefer Fluss, See oder Meer) in einen Kampf involviert, kann er versuchen, sich dem Zugriff seiner Häscher zu entziehen, indem er in die Wogen springt und unter Wasser flieht. Der Versuch erfordert zwei beliebige Handlungen (N oder F) sowie eine Probe auf Ath. Für jeden Jäger, an den der NSC gebunden ist, müssen ihm 2 Erfolge gelingen (bei 3 gebundenen Jägern z. B. also 6 Erfolge). Bei gelungener Probe flieht der NSC aus dem Kampfgebiet.",
+        "target": "persönlich",
+        "cost": "keine",
+        "syntax": "NN|FF: Probe auf ATH, pro gebundenem Gegner 2 Erfolge nötig, Erfolg: NSC flieht",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/abtauchen.html"
+          },
+          {
+            "source": "Hexenzorn",
+            "page": "118"
+          }
+        ]
+      },
+      "amorpher-koerper": {
+        "name": "Amorpher Körper",
+        "_id": "SdWRHMRamqHSALhr",
+        "@rev": 1,
+        "type": "Eigenschaft",
+        "description": "Der Körper des Nsc ist entweder rundlich bzw. stangenförmig gebaut, nahezu gestaltlos oder verändert sich permanent. Da er demnach keine Rückseite besitzt, kann man ihn nicht von hinten oder heimtückisch attackieren.",
+        "syntax": "kein Angriff von hinten möglich",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/amorpher-koerper.html"
+          },
+          {
+            "source": "Hexenzorn",
+            "page": "118"
+          }
+        ]
+      },
+      "anfaellig": {
+        "name": "Anfällig",
+        "_id": "4B8d4OBPG9xc47eu",
+        "@rev": 1,
+        "type": "Eigenschaft, Bande",
+        "description": "Immer, wenn ein Angriff mit der jeweiligen Schadensklasse erfolgreich ist oder der NSC durch einen anhaltenden Einfluss der anfälligen Schadensklasse Schaden nimmt, wird der Schaden um 50% erhöht (aufgerundet), danach werden Panzerwert und evtl. Schadensreduzierung abgezogen.",
+        "syntax": "Schadensklasse",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/ak_anfaellig.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "241"
+          }
+        ]
+      },
+      "angriffskette": {
+        "name": "Angriffskette",
+        "_id": "HLFiJ7H4Xo60gmIW",
+        "@rev": 1,
+        "type": "Eigenschaft",
+        "description": "Nsc mit dieser Eigenschaft verfügen über mehr als eine Angriffsart, aufgeteilt in eine Reihenfolge von Attacken. Ist der erste Angriff erfolgreich (wobei er nicht zwangsweise Schaden anrichten, sondern nur treffen muss), kann der Nsc sofort den nächsten ausführen. Sollte eine Attacke keinen Treffer erzielen, endet die Angriffskette in diesem Zug.",
+        "syntax": "folgender Angriff nur, wenn erster erfolgreich war",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/angriffskette.html"
+          },
+          {
+            "source": "Hexenzorn",
+            "page": "118"
+          }
+        ]
+      },
+      "angst-fressen": {
+        "name": "Angst fressen",
+        "_id": "vInYAKsX7QLuL3yf",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Als Handlung kann der Nsc sämtliche Malusstufen von Jägern, die unter dem Zustand Furcht leiden, annullieren. So regeneriert der Nsc für jede Stufe 3 Lep und erhält je 1 Hex.",
+        "target": "alle Jäger",
+        "cost": "",
+        "syntax": "N|F: Jäger mit Furcht verlieren alle Malusstufen, Nsc regeneriert pro Malusstufe 3 Lep und erhält je 1 Hex",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/angst-fressen.html"
+          },
+          {
+            "source": "Herrschaft des Dämonenmeisters, Hintergrundband",
+            "page": "39"
+          },
+          {
+            "source": "Herrschaft des Dämonenmeisters, Kampagnenband",
+            "page": "88"
+          }
+        ]
+      },
+      "ans-land-gebunden": {
+        "name": "Ans Land gebunden",
+        "_id": "pVIftugi7q2g9sFc",
+        "@rev": 1,
+        "type": "Eigenschaft",
+        "description": "Der Nsc verfügt über eine besondere Verbindung zu seiner Umgebung und kann sich nur innerhalb eines fest definierten Gebietes aufhalten, seinem Revier. Außerhalb dieses Gebiets schwinden seine Kräfte schnell und er stirbt in Elixierwürfel + As Tagen. Wird der Nsc innerhalb seines Reviers getötet, nimmt ihn die Erde oder ein anderes Element der Natur (z. B. ein See oder ein Fels) nach ein paar Minuten in sich auf und sein Körper regeneriert binnen weniger Stunden oder Tage (nach Entscheidung des HeXXenmeisters), ähnlich wie bei der Nsc-Kraft „Staub zu Staub“. Sollte der tote Körper aus dem Revier gebracht werden, dann findet die Regeneration nicht statt, und der Nsc ist endgültig vernichtet.",
+        "syntax": "außerhalb Revier: Tod nach Elixierwürfel + As Tagen; innerhalb Revier: Körper regeneriert nach Stunden oder Tagen",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/ans-land-gebunden.html"
+          },
+          {
+            "source": "Geheimnisse der Deutschen Lande",
+            "page": "125"
+          }
+        ]
+      },
+      "ansporn": {
+        "name": "Ansporn",
+        "_id": "aKB3RDzGXQRFUkMq",
+        "@rev": 1,
+        "type": "Handlung, N|F, Bande",
+        "description": "Für eine Fernkampf- oder Nahkampf-Handlung erhalten alle anderen verbündeten Bandengegner des passenden Typs in ihrer nächsten Ini-Phase (diese kann auch in der kommenden Kampfrunde stattfinden) einen Bonus von +x auf ihre automatischen Treffererfolge (meistens +1 oder maximal +2).",
+        "target": null,
+        "cost": null,
+        "syntax": "N|F: +x Treffererfolge für untergebene Bandengegner des Typs x",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/ak_ansporn.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "241"
+          }
+        ]
+      },
+      "antlitz-der-furcht": {
+        "name": "Antlitz der Furcht",
+        "_id": "HXPPikJ2fyGpQtKC",
+        "@rev": 1,
+        "type": "Eigenschaft",
+        "description": "Der Nsc erzeugt eine Aura der Furcht, die so stark ist, dass alle lebenden und natürlichen Wesen den Blick abwenden. Angriffe gegen den Nsc misslingen automatisch; aber der Jäger kann versuchen, sich mittels Geisteskraft gegen den Einfluss zu stemmen. Das erfordert eine Probe auf Geistesstärke. Gelingt sie, erleidet der Jäger sofort 5 Malusstufen und den Zustand Furcht, kann aber den Nsc attackieren. Am Ende der Runde muss er den Blick wieder abwenden.",
+        "syntax": "Angriffe gegen Nsc nicht möglich; gelingt Probe auf Geistesstärke: +5 Malusstufen (Furcht); Angriffe bis Ini 0 möglich",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/antlitz-der-furcht.html"
+          },
+          {
+            "source": "Herrschaft des Dämonenmeisters, Kampagnenband",
+            "page": "86"
+          }
+        ]
+      },
+      "arkaner-angriff": {
+        "name": "Arkaner Angriff",
+        "_id": "67spJF5O3mpjSggG",
+        "@rev": 1,
+        "type": "Eigenschaft",
+        "description": "Der Nsc wird durch Zauberkraft durchdrungen und kann diese arkane Kraft in seinen Schwertarm oder in eine natürliche Waffe leiten. Immer, wenn ein Angriff dieses Nsc einen anhaltenden Einfluss erzeugt (Lähmungsschaden, Malusschaden, äußerer/innerer Schaden), kann der Nsc weitere Hex-Punkte bis zur Höhe der erzeugten Stufen ausgeben, um den Effekt zu erhöhen. Erzeugt der Nsc beispielsweise 2 innere Schadensstufen, kann er max. weitere 2 Hex ausgeben und würde dann +2 zusätzliche innere Schadensstufen (bis zum üblichen Maximum von 5) anrichten.",
+        "syntax": "sobald Einflussstufen erzeugt werden: +x Hex für +x Stufen, x = maximal erzeugte Einflussstufen",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/arkaner-angriff.html"
+          },
+          {
+            "source": "Das finstere Herz des Waldes",
+            "page": "44"
+          }
+        ]
+      },
+      "aura-der-rechtschaffenheit": {
+        "name": "Aura der Rechtschaffenheit",
+        "_id": "hPd6pekau0vJtIw5",
+        "@rev": 1,
+        "type": "Eigenschaft",
+        "description": "Der Nsc ist von einer Aura des Guten und Gerechten umgeben, welche alle Streiter wider das Böse davon abhält, gegen den Nsc zu kämpfen. Die Aura der Rechtschaffenheit gibt Jägern bei einem Angriff gegen den Nsc einen Malus. Dieser beträgt normalerweise –5, wird jedoch reduziert um die Zahl der Verderbnisse (ein Jäger mit Verderbnis 2 erleidet demnach nur noch einen Malus von –3). Richtet ein Jäger trotz Malus Schaden an, hat er die Wahl, die Aura der Rechtschaffenheit zu zerschmettern, indem er seine finstere Seite in den Angriff fließen lässt (dies spürt der Jäger instinktiv). Er muss dann freiwillig 1 permanente Verderbnis hinnehmen, kann die Aura dadurch jedoch zerstören (für alle beteiligten Jäger).",
+        "syntax": "Alle Angriffe gegen Nsc –5 (+1 pro Verderbnis), bei Schaden: +1 Verderbnis, Aura vernichtet",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/aura-der-rechtschaffenheit.html"
+          },
+          {
+            "source": "Sieben mal Sieben Jahre",
+            "page": "60"
+          }
+        ]
+      },
+      "aura-der-stille": {
+        "name": "Aura der Stille",
+        "_id": "SIKlhwmnAEO7R9my",
+        "@rev": 1,
+        "type": "Eigenschaft, Bande",
+        "description": "Jeweils in der Ini-Phase des Nsc wird ermittelt, wie viele dieser Kreaturen sich auf dem Kampfschauplatz befinden. Für je 3 Nsc dieses Typs erleidet jeder Jäger +1 Malusstufe und den Zustand „Taubheit“. Der Zustand kann in Ini 0 wie üblich reduziert werden, jedoch wird er in der Ini-Phase des Bandengegners wieder entsprechend erhöht.",
+        "syntax": "Ini-Phase: Alle Jäger erleiden 1 Malus pro 3 Nsc dieses Typs (Taubheit)",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/aura-der-stille.html"
+          },
+          {
+            "source": "Herrschaft des Dämonenmeisters, Hintergrundband",
+            "page": "39"
+          }
+        ]
+      },
+      "beschwoerung": {
+        "name": "Beschwörung",
+        "_id": "aKg4wusyB59OuwIC",
+        "@rev": 1,
+        "type": "Handlung, N|F, Bande",
+        "description": "Die Hex-Kosten zur Beschwörung richten sich nach der Stufe des herbeigerufenen Bandengegners. Für 1 Hex können wahlweise 3 Bande- 1-Gegner beschworen werden, 2 Bande-2-Gegner oder 1 Bande-3-Gegner. Opfert eine Hexe also beispielsweise 4 Hex, darf sie 9 Bande-1-Gegner und 1 Bande-3-Gegner beschwören. Welche Gegner herbeigerufen werden können, ist in der Nsc-Beschreibung meist fest definiert. Viele Anführer beschwören nur einen bestimmen Typus von Gegnern. Die herbeigerufenen Bandengegner erscheinen sofort bei ihrer Beschwörung auf dem Kampfschauplatz und sind anfangs freistehend. Ist ihre Initiative höher als die aktuelle Ini-Phase, dürfen sie sofort in der nächsten Ini-Phase agieren. Ansonsten müssen sie warten, bis ihre Ini-Phase erreicht ist.",
+        "target": "variabel",
+        "cost": "variabel",
+        "syntax": "N|F: Kreaturenname, Bandenstufe, Hex-Kosten",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/ak_beschwoerung.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "241"
+          }
+        ]
+      },
+      "beschwörung-der-schicksalsmächte": {
+        "name": "Beschwörung der Schicksalsmächte",
+        "_id": "bfotmkEtVZzaH2w6",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Grundsätzlich funktioniert die Nsc-Kraft wie eine gewöhnliche Beschwörung, nur dass der Nsc keine Kontrolle darüber hat, welche Bandengegner er herbeiruft. Er legt lediglich die Bandenstufe fest und zahlt entsprechend viele Hex-Punkte. Danach sucht sich der HeXXenmeister einen beliebigen Bandengegner aus (bei Verwendung der HeXXen-Spielkarten kann er stattdessen so lange Karten ziehen, bis er einen passenden Gegner aufgedeckt hat). Anschließend dürfen die Spieler einen anderen Bandengegner nennen. Wenn sie dies tun, entscheidet der Wurf mit einem Januswürfel, ob die Wahl des HeXXenmeisters (Janussymbol) oder der Spieler (leere Seite) beschworen wird.",
+        "target": "variabel",
+        "cost": "variabel",
+        "syntax": "N|F: entspricht Nsc-Kraft „Beschwörung“, aber Bandengegner wird zufällig bestimmt; HeXXenmeister und Spieler schlagen Bandengegner vor und würfeln mit Januswürfel: leere Seite = Wahl der Spieler, Janus-Symbol = Wahl des HeXXenmeisters",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/beschwoerung-der-schicksalsmaechte.html"
+          },
+          {
+            "source": "Geheimnisse der Deutschen Lande",
+            "page": "125"
+          }
+        ]
+      },
+      "blick-des-unheiligen-engels": {
+        "name": "Blick des unheiligen Engels",
+        "_id": "vNxNOljVjdfqJZPe",
+        "@rev": 1,
+        "type": "Handlung, NN",
+        "description": "Der Nsc führt eine vergleichende Probe mit Wil + As gegen Wil + Fw (Geistesstärke) des Ziels aus, wobei der Jäger pro Segnung einen Malus von −1 erhält, pro Verderbnis einen Bonus von +1. Für jeden Differenzerfolg zugunsten des Nsc erleidet der Jäger 1 Lähmungsstufe gekoppelt an den Zustand „Verzauberung“. Die Kraft kann auf jede Zielperson nur einmal pro Kampf angewendet werden.            ",
+        "target": "1",
+        "cost": "1 Hex",
+        "syntax": "NN: x gegen Geistesstärke (−1 pro Segnung, +1 pro Verderbnis), 1 Lähmungsstufe (Verzauberung) pro Differenzerfolg, einmal pro Kampf und Ziel, 1 Hex pro Ziel (1 Ziel)",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/blick-des-unheiligen-engels.html"
+          },
+          {
+            "source": "Geheimnisse der Deutschen Lande",
+            "page": "125"
+          }
+        ]
+      },
+      "blindheit": {
+        "name": "Blindheit",
+        "_id": "i1jdniC16OqLoEui",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Das erfordert eine vergleichende Probe mit Wil + As gegen Wil + Fw (Geistesstärke) des Jägers. Für jeden Differenzerfolg zu gunsten des Nsc erhält der Jäger 1 Malusstufe. Erzielt der Nsc mindestens 1 Differenzerfolg, bekommt der Jäger den Zustand Blindheit. Betragen die Differenzerfolge 5 oder mehr, so ist der Zustand mächtig, fordernd oder dauerhaft, nach Wahl des HeXXenmeisters.",
+        "target": "1 - 3",
+        "cost": "1 Hex pro Ziel",
+        "syntax": "N|F: 12 gegen Geistesstärke, 1 Malusstufe (Blindheit, 5: MFD)) pro Differenzerfolg, 1 Hex pro Ziel (1 - 3 Ziele)",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/ak_blindheit.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "241"
+          }
+        ]
+      },
+      "blitz": {
+        "name": "Blitz",
+        "_id": "VbRAjgmHRRSIGAms",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Für den Angriff wird auf Wis + As gewürfelt. Der Grundschaden (Blitzschaden) entspricht der As +4. Ein Blitz ist ein sichtbarer Zaubereffekt (Regeln wie Pistole), den man blocken oder dem man ausweichen kann.",
+        "target": "1",
+        "cost": "1 Hex",
+        "syntax": "N|F: Angriff X, Schaden X Bl, 1 Hex",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/ak_blitz.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "241"
+          }
+        ]
+      },
+      "blutopfer": {
+        "name": "Blutopfer",
+        "_id": "5HXxtdIEqgUyBoNP",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Opfert der Nsc als Handlung 10 Lep, erhält er sofort +3 Hex.",
+        "target": "persönlich",
+        "cost": "10 Lep",
+        "syntax": "N|F: Nsc opfert 10 Lep und erhält +3 Hex",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/blutopfer.html"
+          },
+          {
+            "source": "Geheimnisse der Deutschen Lande",
+            "page": "125"
+          }
+        ]
+      },
+      "blutschwall": {
+        "name": "Blutschwall",
+        "_id": "UbmBtfOInVukMq2C",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Blutschwall ist ein Kegel-Effekt, der zuerst gebundene, danach beliebige freistehende Jäger trifft. Die Zahl der getroffenen Jäger kann der HeXXenmeister selbst festlegen, der Nsc verliert jedoch pro Ziel 1 Elixierwürfel Lep. Angriffe werden auf Ath + As ausgeführt (siehe Kegel-Effekte) und verursachen pro Treffer 1 Grundschaden und für je 2 Erfolge 1 Lähmungsstufe und den Zustand Verschmutzung.",
+        "target": "beliebig",
+        "cost": "Elixierwürfel Lep pro Ziel",
+        "syntax": "N|F: Kegelangriff x, Schaden 1 +Lähmungsstufe (je 2, Verschmutzung)",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/blutschwall.html"
+          },
+          {
+            "source": "Herrschaft des Dämonenmeisters, Hintergrundband",
+            "page": "39"
+          }
+        ]
+      },
+      "chaotisches-verhalten": {
+        "name": "Chaotisches Verhalten",
+        "_id": "jMJNvn1TQ93ITeSq",
+        "@rev": 1,
+        "type": "Eigenschaft, Bande",
+        "description": "In Ini 0 wird für jede Kreatur mit dieser Kraft ein HeXXenwürfel gewürfelt. Zeigt dieser ein Rabensymbol, löst sich das Wesen automatisch aus dem Nahkampf und ermittelt zufällig ein neues Ziel per Zufall. Das Wesen wird sofort an das neue Ziel gebunden. Kräfte wie Leibgarde können in dieser Phase nicht eingesetzt werden.",
+        "syntax": "Ini 0: Rabensymbol: neue Bindung",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/ak_chaotisches_verhalten.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "242"
+          }
+        ]
+      },
+      "deckungshaltung": {
+        "name": "Deckungshaltung",
+        "_id": "E1AUJ6BxO1o9wJIP",
+        "@rev": 1,
+        "type": "Eigenschaft, Bande",
+        "description": "Solange der Nsc freisteht, genießt er eine Schadensreduzierung -x gegen Fernkampfangriffe.",
+        "syntax": "SR -x/Fernkampfangriffe, freistehend",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/ak_deckungshaltung.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "242"
+          }
+        ]
+      },
+      "derwisch": {
+        "name": "Derwisch",
+        "_id": "2IO2TnOZhvfWMyUi",
+        "@rev": 1,
+        "type": "Eigenschaft, Bande",
+        "description": "Derwisch kann pro Runde nur einmal aktiviert werden. Der Nsc opfert eine Anzahl von Lep oder Hex und erhält dafür eine zusätzliche N-Handlung, die er sofort ausführt. Die zusätzliche Handlung bleibt nicht dauerhaft bestehen.",
+        "syntax": "x Lep oder x Hex: +1 N-Handlung",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/ak_derwisch.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "242"
+          }
+        ]
+      },
+      "dunkles-schicksal": {
+        "name": "Dunkles Schicksal",
+        "_id": "OsO2wVtgz8ZAjS9d",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Als Handlung kann der Nsc das Schicksal des Ziels negativ beeinflussen, dies ist pro Jäger nur ein einziges Mal pro Konflikt möglich. Der Nsc führt eine vergleichende Probe Wis + As gegen Ath + Fw (Heimlichkeit) des Jägers aus, pro Differenz erfolg erhält das Ziel 1 Schicksalspunkt (Sp), der am besten mittels eines Markers dargestellt wird. Immer wenn der Jäger eine Aktion oder Reaktion ausführt (gleichgültig wie viele Ap sie verbraucht), legt er 1 Schicksalspunkt beiseite. Sind alle Sp aufgebraucht, erleidet er pro beiseitegelegtem Sp 3 Punkte Geistschaden. Schicksalspunkte verfallen nicht; auch nach dem Ableben des Nsc wirkt der Zauber weiter.",
+        "target": "1",
+        "cost": "2 Hex",
+        "syntax": "N|F: Vergleichende Probe auf x gegen Heimlickeit, Ziel erhält pro Differenzerfolg 1 Sp; bei jeder Aktion/ Reaktion des Ziels: −1 Sp, bei 0 Sp: 3 Ge pro abgelegtem Sp; 2 Hex (1 Ziel)",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/dunkles-schicksal.html"
+          },
+          {
+            "source": "Geheimnisse der Deutschen Lande",
+            "page": "125"
+          }
+        ]
+      },
+      "eisexplosion": {
+        "name": "Eisexplosion",
+        "_id": "I1wHZE4m41tQj3Rz",
+        "@rev": 1,
+        "type": "Handlung, N, Bande",
+        "description": "Ein Bandengegner mit Eisexplosion führt keinen Angriff aus, sondern stürzt sich auf einen Jäger, explodiert an diesem und fügt ihm Schaden zu. Anstelle eines Angriffs verursacht der Bandengegner Frostschaden in Höhe seiner Bandenstufe, sobald er in den Nahkampf kommt, und wird anschließend selbst getötet.",
+        "target": "1",
+        "cost": "keine",
+        "syntax": "N: Nsc erzeugt x Fr und wird getötet",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/eisexplosion.html"
+          },
+          {
+            "source": "Hexenzorn",
+            "page": "119"
+          }
+        ]
+      },
+      "ersticken": {
+        "name": "Ersticken",
+        "_id": "OiMkRMsrDVYnsDE1",
+        "@rev": 1,
+        "type": "Handlung, N",
+        "description": "Ersticken erfordert eine vergleichende Probe Kkr + As gegen Kkr + Fw (Muskelspiel). Für jeden Differenzerfolg zugunsten des Nsc erhält der Jäger 1 innere Schadensstufe. Erzielt der Nsc mindestens 1 Differenzerfolg, bekommt der Jäger den Zustand Atemnot.",
+        "target": "1",
+        "cost": "keine",
+        "syntax": "N: x gegen Muskelspiel, 1 innere Schadenstufe (Atemnot) pro Differenzerfolg",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/ak_ersticken.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "242"
+          }
+        ]
+      },
+      "explosiv": {
+        "name": "Explosiv",
+        "_id": "CiJctYhWIRCnxXs1",
+        "@rev": 1,
+        "type": "Eigenschaft, Bande",
+        "description": "Diese Explosion verursacht Flächenschaden (Typ: Ring). Die Schadensmenge wird durch einen oder mehrere Blutwürfel bestimmt; für jedes Blutstropfensymbol erhalten gebundene oder von hinten attackierende Gegner 1 Punkt Feuerschaden (dieser erzeugt keine Brandstufen). Die Zahl der Blutstropfenwürfel entspricht meist der Bandenstufe und ist in der Syntax angegeben.",
+        "syntax": "x Blutwürfel",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/ak_explosiv.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "242"
+          }
+        ]
+      },
+      "faulendes-fleisch": {
+        "name": "Faulendes Fleisch",
+        "_id": "GMTjavzVZSvBV9MM",
+        "@rev": 1,
+        "type": "Handlung, N|F, Bande",
+        "description": "Der Zaubernde opfert eine beliebige Menge Hex und bestimmt die doppelte Zahl an untoten Bandengegnern. Bei 3 Hex darf er also 6 Bandengegner bestimmen. Die gewählten Kreaturen regenerieren entweder alle Lep (unabhängig von der Bandenstufe) oder sie werden aus dem Kampf genommen und der Zaubernde regeneriert Lep in Höhe der addierten Bandenstufe x3. Auch Mischungen sind möglich. Beispiel: Der Zaubernde opfert 3 Hex und bestimmt 4 Bande-1-Gegner, 1 Bande-2-Gegner und 1 Bande-3-Gegner. Die beiden Bandengegner der Stufe 2 und 3 lässt er regenerieren; sie erhalten ihre vollen Lep zurück. Die 4 Bande-1-Gegner nimmt er aus dem Kampf und regeneriert selbst 12 Lep (4 x 3 = 12).",
+        "target": "variabel",
+        "cost": "variabel",
+        "syntax": "N|F: 2 Bandengegner pro Hex als Ziel, Ziele regenerieren alle LEP, oder: Ziele regenerieren den Zaubernden LEP entsprechend addierte Bandenstufe x3 und sterben",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/ak_faulendes_fleisch.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "242"
+          }
+        ]
+      },
+      "feigheit": {
+        "name": "Feigheit",
+        "_id": "Kzhz4KUGubN75VYC",
+        "@rev": 1,
+        "type": "Eigenschaft, Bande",
+        "description": "Feige Bandengegner kämpfen nur, solange sie in der Überzahl sind. Entspricht ihre Anzahl der Jägerzahl oder ist sie niedriger, ziehen sich freistehende Bandengegner mit dieser Eigenschaft in Ini 0 zurück. Sollte kein Anführer anwesend sein, endet der Kampf sofort und gebundene feige Bandengegner ergeben sich. Ist ein Anführer anwesend, werden die geflohenen Bandengegner beiseite gelegt; sie treten wieder in den Kampf ein, sobald ihre Zahl die der Jäger übersteigt (z. B. weil der Anführer Verstärkung herbeibeschworen hat).",
+        "syntax": "Anzahl ≤ Jz: freistehende Bandengegner ziehen sich zurück",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/feigheit.html"
+          },
+          {
+            "source": "Hexenzorn",
+            "page": "119"
+          }
+        ]
+      },
+      "feuer-legen": {
+        "name": "Feuer legen",
+        "_id": "Z4BhccSL8YowknFz",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Der Nsc lässt willentlich oder unabsichtlich seine Umgebung in Flammen aufgehen. Zu Anfang eines Kampfes besitzt der Schauplatz automatisch eine Feuerstufe von 1. Mit Beginn der ersten Kampfrunde und dann jeweils in Ini 0 erleidet jeder Anwesende, der nicht immun oder resistent gegen Feuerschaden bzw. äußere Schadensstufen ist, eine Anzahl äußerer Schadensstufen in Höhe der Feuerstufe sowie den Zustand „Verbrennung“. Diese Stufen können regulär in Ini 0 oder durch Aktionen abgebaut werden, wodurch sich aber die Feuerstufe der Umgebung nicht verändert. Diese kann nur durch Löschen mit Wasser reduziert werden. Die Benutzung eines Eimers Wasser ist eine Aktion mit 2 Ap und senkt die Feuerstufe um 1 Blutwürfel, mindestens aber um 1. Der Nsc kann als Nahkampf- oder Fernkampf-Handlung die Feuerstufe erhöhen. Eine Probe ist nicht erforderlich, stattdessen lässt jeder geopferte Hex-Punkt die Feuerstufe um 1 steigen, bis auf ein Maximum von 5.",
+        "target": "Umgebung",
+        "cost": "1 Hex pro Feuerstufe",
+        "syntax": "N|F: Umgebung +1 Feuerstufe pro 1 Hex (max. Stufe 5), Ini 0: +1 äußerer Schaden (Verbrennung) pro Feuerstufe",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/feuer-legen.html"
+          },
+          {
+            "source": "Hexenzorn",
+            "page": "119"
+          }
+        ]
+      },
+      "feuer-verschlingen": {
+        "name": "Feuer verschlingen",
+        "_id": "hm0WN9atZrzVvFab",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Diese Kraft erlaubt es einem Nsc, Flammen regelrecht in sich aufzusaugen und sich dadurch zu heilen. Sämtliche anwesenden Jäger mit dem Zustand „Verbrennung“ verlieren bei Anwendung alle äußeren Schadensstufen. Der Nsc heilt 5 Lep und generiert 1 Hex für jede auf diese Weise entfernte Stufe.",
+        "target": "alle Jäger (Bereich)",
+        "cost": "0",
+        "syntax": "N|F: Jäger mit Zustand „Verbrennung“ verlieren alle äußeren Schadensstufen, Nsc heilt +5 Lep/+1 Hex pro verlorener Stufe",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/feuer-verschlingen.html"
+          },
+          {
+            "source": "Hexenzorn",
+            "page": "119"
+          }
+        ]
+      },
+      "feuermacht": {
+        "name": "Feuermacht",
+        "_id": "Kn8AGoTZUJE7Cem3",
+        "@rev": 1,
+        "type": "Eigenschaft",
+        "description": "Der Nsc wird durch das Vorhandensein von offenen Flammen in seiner unmittelbaren Umgebung stärker. In INI 0 erhält er 1 Hex für jede Stufe Äußerer Schaden, den eine Jäger durch den Zustand Verbrennung erhält.",
+        "syntax": "Ini 0: 1 Hex pro Äußere Schadensstufen, Verbrennung",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/feuermacht.html"
+          },
+          {
+            "source": "Archiv des Wächterbunds I",
+            "page": "63"
+          }
+        ]
+      },
+      "feuerreigen": {
+        "name": "Feuerreigen",
+        "_id": "8VpckJUfnTKjtqrp",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Der Zaubernde beschwört einen Strahl aus Feuer, der bis zu 3 Jäger betreffen kann (Flächeneffekt: Kegel). Für den Angriff wird auf Wis + As gewürfelt. Bei einem Treffer wird zuerst ein Grundschaden (Feuerschaden) in Höhe der As +3 des Zaubernden verursacht. Danach erhält der Getroffene für jeden Erfolg beim Angriffswurf 1 äußere Schadensstufe und den Zustand Verbrennung. Der Feuerreigen ist ein sichtbarer Zaubereffekt, den man blocken oder dem man ausweichen kann (Regeln wie Pistolen-Schuss).",
+        "target": "1-3",
+        "cost": "1 Hex pro Ziel",
+        "syntax": "N|F: Angriff x, Schaden x Fe), 1 Hex pro Ziel (1 - 3 Ziele)",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/ak_feuerreigen.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "242"
+          }
+        ]
+      },
+      "fleischabsorption": {
+        "name": "Fleischabsorption",
+        "_id": "duKf68n9YMJIvDLx",
+        "@rev": 1,
+        "type": "Eigenschaft",
+        "description": "Immer wenn der Nsc in Erzählzeit ein Wesen töten und es ausweiden kann oder wenn er im Kampf einen Jäger kritisch verletzt (Lep unter −10), steigt die Opfer-Stufe der Kreatur um 1, was je nach Nsc unterschiedliche Auswirkungen hat (meist verbesserte Werte). Ist nicht klar, wie viele Wesen dem Nsc bereits anheimgefallen gefallen sind, kann der HeXXenmeister die Opfer-Stufe auch mit einem Elixierwürfel bestimmen.",
+        "syntax": "pro Opfer-Stufe: Beschreibung der Auswirkungen",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/fleischabsorption.html"
+          },
+          {
+            "source": "Geheimnisse der Deutschen Lande",
+            "page": "126"
+          }
+        ]
+      },
+      "flieger": {
+        "name": "Flieger",
+        "_id": "l1gFCX2Z6fzHp1Gr",
+        "@rev": 1,
+        "type": "Eigenschaft, Bande",
+        "description": "Fliegende Kreaturen verhalten sich ähnlich wie berittene Wesen, auch sie werden durch eine Nahkampfattacke nicht gebunden. Um ein fliegendes Wesen zu attackieren, kann man zum Einen auf Fernkampfangriffe zurückgreifen (weil Flieger nicht gebunden sind, sind Musketenangriffe gegen sie immer zulässig). Will man einen Flieger im Nahkampf angreifen, muss man seine Ini reduzieren, warten, bis man von ihm im Nahkampf angegriffen wird, und dann in seiner Ini-Phase handeln (bei gleicher Ini handelt der Jäger zuerst).",
+        "syntax": "nicht gebunden",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/ak_flieger.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "242"
+          }
+        ]
+      },
+      "fluch-der-blitze": {
+        "name": "Fluch der Blitze",
+        "_id": "Z525es6wN3IAsK5n",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Der Nsc verflucht einen oder mehrere Jäger, so dass sie Blitze wie magisch anziehen. Der Zauber erfordert eine vergleichende Probe mit Wis + As gegen Unempfindlichkeit aller betroffenen Jäger. Für jeden Differenzerfolg zugunsten des Nsc erhält der Jäger 1 Blitzmarker. Immer, wenn ein Jäger mit Blitzschaden (Bl) erleidet, addiert er Schaden in Höhe seiner Blitzmarker. In Ini 0 reduzieren sich die Blitzmarker um 1. Ein Jäger mit Blitzmarkern kann nicht erneut von diesem Fluch betroffen werden; erst wenn seine Blitzmarker auf 0 sinken, kann er erneut Blitzmarker bekommen.",
+        "target": "Jz –1",
+        "cost": "1 Hex pro Ziel",
+        "syntax": "N|F: 12 gegen Geistesstärke, 1 Blitzmarker pro Differenzerfolg, Ini 0: –1 Blitzmarker, Bl +Blitzmarker Schaden, 1 Hex pro Ziel (1–3 Ziele)",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/fluch-der-blitze.html"
+          },
+          {
+            "source": "Sieben mal sieben Jahre",
+            "page": "60"
+          }
+        ]
+      },
+      "fluch-der-erzengel": {
+        "name": "Fluch der Erzengel",
+        "_id": "Gh771hkmGDawCjCE",
+        "@rev": 1,
+        "type": "Eigenschaft",
+        "description": "Sobald die Kreatur die Kraft „Blick des unheiligen Engels“ gegen ein Ziel einsetzt kann dieses bei seinen Angriffen den PW der Kreatur ignorieren.",
+        "syntax": "Ziel von Blick des unheiligen Engels gewesen: Angriffe des Ziels ignoriert Pw",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/fluch-der-erzengel.html"
+          },
+          {
+            "source": "Geheimnisse der Deutschen Lande",
+            "page": "126"
+          }
+        ]
+      },
+      "fluch-des-goldes": {
+        "name": "Fluch des Goldes",
+        "_id": "G3NtXMeXtZLSHQJr",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Ein Kind des Midas hat eine hohe Affinität zu Gold. Er kann ein wenig Goldstaub in die Luft blasen, dieser verdichtet sich und fliegt durch magische Einwirkung genau auf die Ziele. Auf der Kleidung oder Haut des Ziels beginnt sich der Goldstaub zu verfestigen und eine größere Fläche aus massivem Gold zu bilden. Das Gold lähmt die Bewegungen bis hin zur kompletten Bewegungsunfähigkeit.",
+        "target": null,
+        "cost": null,
+        "syntax": "N|F: Wis + As gegen Unempfindlichkeit, 1 Lähmungsstufe (Statue, 5 MF) pro Differenzerfolg, 1 HEX pro Ziel (1-3 Ziele)",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/fluch-des-goldes.html"
+          },
+          {
+            "source": "Geheimnisse der Deutschen Lande",
+            "page": "126"
+          }
+        ]
+      },
+      "fluch-des-ungluecks": {
+        "name": "Fluch des Unglücks",
+        "_id": "fR8cfqlXTZqxKeNk",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Der Nsc führt eine vergleichende Probe mit Wil + As gegen Wil + Fw (Geistesstärke) der als Ziele bestimmten Jäger aus. Für jeden Differenzerfolg zugunsten des Nsc erhält der Jäger 1 Malusstufe. Erzielt der Nsc mindestens 1 Differenzerfolg, bekommt der Jäger den Zustand Trauma. Betragen die Differenzerfolge 5 oder mehr, so erhält er zusätzlich den Zustand Fluch.",
+        "target": "1-3",
+        "cost": "1 Hex pro Ziel",
+        "syntax": "N|F: x gegen Geistesstärke, 1 Malusstufe (Trauma, 5: Fluch) pro Differenzerfolg, 1 Hex pro Ziel (1 - 3 Ziele)",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/ak_fluch_des_ungluecks.html"
+          },
+          {
+            "source": "Das Buche der Regeln",
+            "page": "243"
+          }
+        ]
+      },
+      "fluch-des-unheils": {
+        "name": "Fluch des Unheils",
+        "_id": "xQ1xDh4wLS611X2O",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Der Nsc ruft die Mächte des Unheils an, ein Opfer zu verfluchen. Der Nsc führt eine vergleichende Probe Wil + As gegen Sin + Fw (Aufmerksamkeit) aus. Für jeden Differenzerfolg zugunsten des Nsc erhält der Jäger 1 Malusstufe. Erzielt der Nsc mindestens 1 Differenzerfolg, bekommt der Jäger den Zustand „Unheilfluch“.",
+        "target": "1-3",
+        "cost": "1 Hex pro Ziel",
+        "syntax": "N|F: Probe auf X gegen Aufmerksamkeit, 1 Malusstufe (Unheilsfluch) pro Differenzerfolg, 1 Hex pro Ziel (1–3 Ziele)",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/fluch-des-unheils.html"
+          },
+          {
+            "source": "Archiv des Wächterbunds III",
+            "page": "26"
+          }
+        ]
+      },
+      "fungusregeneration": {
+        "name": "Fungusregeneration",
+        "_id": "ikg7jGqQtuetDBGU",
+        "@rev": 1,
+        "type": "Eigenschaft",
+        "description": "Ein Fungusmolch stirbt nicht einfach, wenn man seine Lep auf 0 Punkte reduziert. Die in und auf ihm lebenden Pilze regenerieren den Körper innerhalb weniger Minuten. Sobald das geschieht, kehrt der Fungusmolch ins Leben zurück, hat aber eine um 1 reduzierte Anführerstufe. Das hat zur Folge, dass für die Attribute neue Maximalwerte gelten: 15 auf As 3, 12 auf As 2, 9 auf As 1 und 6 auf As 0. Dadurch sinken auch die Angriffswürfel (Berechnung durch Attribut + As) sowie die Initiative (Ges + Sin). Zudem verändert sich die Berechnung der Lep: Jz x 20 auf As 3, Jz x 15 auf As 2, Jz x 10 auf As 1 und Jz x 5 auf As 0. Ab As 2 ist die Strategie nur noch „Offensiv“ (NN|F) und ab As 0 „Tumb“ (N|F). Alle anderen Werte bleiben unverändert. Wird ein Fungusmolch mit As 0 getötet, ist sein Körper restlos zerstört und die in ihm lebenden Pilze sterben ab.",
+        "syntax": "bei 0 Lep: Fungusmolch regeneriert nach Kampfende mit As − 1",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/fungusregeneration.html"
+          },
+          {
+            "source": "Archiv des Wächterbunds III",
+            "page": "89"
+          }
+        ]
+      },
+      "furchterfuelltes-herz": {
+        "name": "Furchterfülltes Herz",
+        "_id": "qdolWU6eeU3bB9sO",
+        "@rev": 1,
+        "type": "Handlung, N",
+        "description": "Indem der Nsc einen Jäger berührt, erzeugt er Gefühle von Panik und Furcht. Der Zauber erfordert einen Berührungsangriff basierend auf Ath + As. Der Angriff verursacht 2 Ge Grundschaden sowie 1 Malusstufe pro Angriffserfolg. Erzielt der Nsc mindestens 1 Differenzerfolg, bekommt der Jäger den Zustand Furcht. Betragen die Differenzerfolge 5 oder mehr, so ist der Zustand mächtig, fordernd oder dauerhaft, nach Wahl des HeXXenmeisters.",
+        "target": "1",
+        "cost": "1 Hex",
+        "syntax": "N: Berührungsangriff X, Schaden 2 Ge, +Malus (je 1, Furcht, 5: MFD), 1 Hex (1 Ziel)",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/ak_furchterfuelltes_herz.html"
+          },
+          {
+            "source": "Das Buche der Regeln",
+            "page": "243"
+          }
+        ]
+      },
+      "gefächerte-terrorwelle": {
+        "name": "Gefächerte Terrorwelle",
+        "_id": "z3eeFHWDvdgOCNWa",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Eine gefächerte Terrorwelle wirkt auf dieselbe Weise wie eine normale Terrorwelle. Es gibt nur zwei Unterschiede: Zum einen kostet die gefächerte Terrorwelle pauschal 2 Hex, betrifft aber automatisch alle Jäger (das zählt als Bereichseffekt). Zum anderen sind die angerichteten Zustände auch bei hoher Zahl an Differenzerfolgen nicht mächtig, fordernd oder dauerhaft.",
+        "target": "alle Jäger",
+        "cost": "2 Hex",
+        "syntax": "N|F: x gegen Geistesstärke, 1 Malusstufe (Furcht) pro Differenzerfolg, 2 Hex (alle)",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/gefaecherte-terrorwelle.html"
+          },
+          {
+            "source": "Herrschaft des Dämonenmeisters, Hintergrundband",
+            "page": "39"
+          }
+        ]
+      },
+      "geistschlag": {
+        "name": "Geistschlag",
+        "_id": "9SuKkxPJD4DBIh02",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Das erfordert eine vergleichende Probe mit Wil + As gegen Wil + Fw (Geistesstärke). Für jeden Differenzerfolg zugunsten des Nsc erhält der Jäger 2 Geistschaden.",
+        "target": "1-3",
+        "cost": "1 Hex pro Ziel",
+        "syntax": "N|F: x gegen Geistesstärke, Schaden 2 Ge pro Differenzerfolg, 1 Hex pro Ziel (1 - 3 Ziele)",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/ak_geistschlag.html"
+          },
+          {
+            "source": "Das Buche der Regeln",
+            "page": "243"
+          }
+        ]
+      },
+      "giftwolke": {
+        "name": "Giftwolke",
+        "_id": "sc3fSJaJhvMV0hj9",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Die Umgebung des gesamten Kampfgebietes erhält einen Gift-Effekt in Höhe von x Giftstufen, wobei x den ausgegebenen Hex entspricht (max. 5). Sobald der Zauber gewirkt wird, erhält jeder Kampfteilnehmer automatisch x innere Schadenstufen und den Zustand Vergiftung (Nsc mit Immunität Gift erhalten keine innere Schadensstufen). Die inneren Schadenstufen können danach aber wie üblich abgebaut werden; durch die Giftwolke werden keine weiteren erzeugt. Giftwolke kann pro Kampf nur einmal gewirkt werden.",
+        "target": "Umgebung",
+        "cost": "1 Hex pro Giftstufe",
+        "syntax": "N|F| : Gift-Effekt (Umgebung) 1 pro Hex, 1 - 5 Hex",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/ak_giftwolke.html"
+          },
+          {
+            "source": "Das Buche der Regeln",
+            "page": "243"
+          }
+        ]
+      },
+      "glitschige-haut": {
+        "name": "Glitschige Haut",
+        "_id": "0K5B6KshaFMshziA",
+        "@rev": 1,
+        "type": "Eigenschaft, Bande",
+        "description": "Glitschige Haut verleiht dem Nsc eine Schadensreduzierung -x gegen Schwertwaffen, Fechtwaffen und Dolchen und Messern.",
+        "syntax": "SR -x/Schwertwaffen, Fechtwaffen, Dolche und Messer",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/ak_glitschige_haut.html"
+          },
+          {
+            "source": "Das Buche der Regeln",
+            "page": "243"
+          }
+        ]
+      },
+      "glut-beleben": {
+        "name": "Glut beleben",
+        "_id": "cjpmaoVa7MMBlBbk",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Dieser Zauber erlaubt es dem Nsc, [lebende Funken] (Bande-1-Gegner) aus dem eigenen Körper auszustoßen. Der Nsc kann seine Lep um einen durch 5 teilbaren Wert senken, maximal jedoch um Jz x 5. Für je 5 geopferte Lep erzeugt er 3 lebende Funken (bei 4 Jägern kann er also bis zu 20 Lep opfern und 12 Funken erzeugen). Wenn lebende Funken ins Spiel kommen, agieren sie wie beschworene Wesen.",
+        "target": "selbst",
+        "cost": "max. Jz x 5 Lep",
+        "syntax": "N|F: pro geopferte 5 Lep (max. Jz x 5): 3 Lebende Funken erschaffen",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/glut-beleben.html"
+          },
+          {
+            "source": "Hexenzorn",
+            "page": "120"
+          }
+        ]
+      },
+      "halluzination": {
+        "name": "Halluzinationen",
+        "_id": "faGpVR3fDg4nst6H",
+        "@rev": 1,
+        "type": "Handlung, F",
+        "description": "Halluzinationen zu erzeugen, ist nur aus der Distanz möglich. Der Zauber erfordert eine vergleichende Probe mit Wil + As gegen Wil + Fw (Geistesstärke). Für jeden Differenzerfolg zugunsten des Nsc, erhält der Jäger 1 Lähmungsstufe. Erzielt der Nsc mindestens 1 Differenzerfolg, bekommt der Jäger den Zustand Verzauberung. Betragen die Differenzerfolge 5 oder mehr, so ist der Zustand mächtig, fordernd oder dauerhaft, nach Wahl des HeXXenmeisters.",
+        "target": "1-3",
+        "cost": "1-3",
+        "syntax": "F: x gegen Geistesstärke, 1 Lähmungsstufe (Verzauberung, 5: MFD) pro Differenzerfolg, 1 Hex pro Ziel (1-3 Ziele)",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/ak_halluzinationen.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "243"
+          }
+        ]
+      },
+      "hex-macht": {
+        "name": "Hex-Macht",
+        "_id": "ssBbHZW8FXJLP65C",
+        "@rev": 1,
+        "type": "Eigenschaft",
+        "description": "Magiebegabte Widersacher verwenden übelste Schwarze Magie. Um diese zu wirken, benötigt das Wesen Hex-Punkte. Hex-Macht gibt an, mit wie vielen Hex-Punkten der Nsc in den Kampf geht. Meistens hängen die Start-Hex-Punkte ab von der Größe der Jägergruppe, so könnte x beispielsweise Jz -1 lauten. In diesem Fall startet der Nsc bei 4 Jägern mit 3 Hex-Punkten. Hex-Macht kann aber auch eine ganz andere Beschreibung aufweisen. Wenn ein Nsc beispielsweise seine magische Energie aus magischen Steinen bezieht, die Jäger aber vorher bereits einige davon zerstört haben, könnte die Hex-Macht auch lauten: „Hex bei Start = intakte magische Steine“.",
+        "syntax": "x Hex bei Start",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/ak_hex_macht.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "243"
+          }
+        ]
+      },
+      "hex-raub": {
+        "name": "Hex-Raub",
+        "_id": "PrMEt54Rn9I651ok",
+        "@rev": 1,
+        "type": "Handlung, F",
+        "description": "Hex-Raub erfordert eine F - Handlung. Der Nsc führt gegen ein Ziel eine vergleichende Probe Wis + As gegen Wil + Fw (Unempfindlichkeit) durch. Für jeden Differenzerfolg zugunsten des Nsc erhält dieser 1 Hex; der Jäger verliert insgesamt 1 Mh. Hat er kein offenes Feld Mh, erhält der Nsc nur die Hälfte an Hex-Punkten.",
+        "target": "1",
+        "cost": "",
+        "syntax": "F: x gegen Unempfindlichkeit, Nsc erhält 1 Hex pro Differenzerfolg, Jäger verliert 1 Mh, waren alle Mh durchgestrichen: Nsc erhält 1 Hex pro 2 Differenzerfolge",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/hex-raub.html"
+          },
+          {
+            "source": "Herrschaft des Dämonenmeisters, Hintergrundband",
+            "page": "39"
+          }
+        ]
+      },
+      "hex-wachstum": {
+        "name": "Hex-Wachstum",
+        "_id": "ceDTQ5SGshCPAb2J",
+        "@rev": 1,
+        "type": "Eigenschaft",
+        "description": "Viele Nsc generieren auch während des Kampfes Hex-Punkte. Jeweils in Ini 0 erhält der Nsc Hex-Punkte in Höhe des Hex-Wachstums (+x). Dabei kann x kann auch Jz sein, also der Zahl der Jäger. Manchmal ist das Hex-Wachstum auch an bestimmte Situationen gekoppelt. Ein Nsc mag Hex-Punkte gewinnen, sobald er eine gewisse Anzahl Lep verliert, wenn ein bestimmter Angriff erfolgreich war oder wenn ein anderer, genau definierter Umstand eintritt. In diesem Fall erhält der Nsc die Hex-Punkte sofort, sobald der Auslöser eintritt, und nicht erst in Ini 0.",
+        "syntax": "x Hex in Ini 0",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/ak_hex_wachstum.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "243"
+          }
+        ]
+      },
+      "hinterhalt": {
+        "name": "Hinterhalt",
+        "_id": "H5iEwkJ6kUmDlkAZ",
+        "@rev": 1,
+        "type": "Eigenschaft, Bande",
+        "description": "Die Kreatur erhält einen Bonus von +x auf alle Proben zum Anschleichen, Verstecken und Auflauern. Oftmals erhält sie den Bonus nur in einem bestimmten Gebiet, zu einer bestimmten Tageszeit oder in einer bestimmten Vegetationszone; was jeweils in der Syntax angegeben ist. Bei Bandengegnern ist der Vorteil nicht als Bonus aufgeführt, sondern als kompletter Erfolgesatz.",
+        "syntax": "+ x / Umgebungsvoraussetzung",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/ak_hinterhalt.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "244"
+          }
+        ]
+      },
+      "höhere-beschwörung": {
+        "name": "Höhere Beschwörung",
+        "_id": "MkcNw0YoZOPMLTUg",
+        "@rev": 1,
+        "type": "Handlung, F",
+        "description": "Höhere Beschwörung erlaubt es dem Nsc, Anführer statt Bandengegner zu beschwören. Nur jene Anführer können beschworen werden, deren Anführerstufe mindestens um 1 niedriger ist als die des Nsc. Pro Anwendung kann 1 Anführer beschworen werden, der sofort agiert oder sich in die laufende Ini-Reihenfolge einreiht. Die Kosten zum Beschwören eines Anführers in Hex betragen As + 2. Der beschworene Anführergegner kann seinerseits keine Beschwörung ausführen und verschwindet, wenn sein Beschwörer stirbt oder sich aus dem Kampf absetzt.",
+        "target": "1 Anführergegner",
+        "cost": "As + 2",
+        "syntax": "F: Name (As), As + 2 Hex",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/hoehere-beschwoerung.html"
+          },
+          {
+            "source": "Herrschaft des Dämonenmeisters, Hintergrundband",
+            "page": "39"
+          }
+        ]
+      },
+      "immunitaet": {
+        "name": "Immunität",
+        "_id": "d3wz7ztlSGHR9L9s",
+        "@rev": 1,
+        "type": "Eigenschaft, Bande",
+        "description": "Vor allem widernatürliche Wesen sind unter Umständen völlig immun gegen eine besondere Schadensklasse oder einen anhaltenden Einfluss. Sie nehmen keinen Schaden aus dieser Quelle und leiden auch nicht unter den damit verbundenen Nebeneffekten. Das trifft oft auf Wesen zu, welche die entsprechende Schadensart selbst erzeugen können. Eine Riesenspinne, die Giftattacken ausführen kann, ist meist selbst immun gegen Giftschaden und erhält dann auch keinen inneren Schaden durch Giftangriffe.",
+        "syntax": "Schadensklasse oder anhaltender Einfluss",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/ak_immunität.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "244"
+          }
+        ]
+      },
+      "in-die-enge-getrieben": {
+        "name": "In die Enge getrieben",
+        "_id": "N6j2vgvwPMCSAfwW",
+        "@rev": 1,
+        "type": "Handlung, N",
+        "description": "Der Nsc wehrt sich mit der Kraft des Verzweifelten. Immer, wenn er von einem Gegner im Nahkampf attackiert wird, gleichgültig mit welchen Mitteln und unabhängig davon, ob der Angriff Schaden verursachte, darf der Nsc sofort einmal zurückschlagen und einen beliebigen Nahkampfangriff als Reaktion ausführen (ungeachtet seiner Strategie). Das ist einmal pro Runde möglich und reduziert nicht die Menge an Handlungen.",
+        "target": null,
+        "cost": null,
+        "syntax": "bei Nahkampfangriff: NSC führt eigenen Nahkampfangriff als Reaktion aus",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/in-die-enge-getrieben.html"
+          },
+          {
+            "source": "Herrschaft des Dämonenmeisters, Hintergrundband",
+            "page": "39"
+          }
+        ]
+      },
+      "kettenblitz": {
+        "name": "Kettenblitz",
+        "_id": "TPi7RjrCj25boAay",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Kettenblitz ähnelt dem Zauber Blitz, mit dem Unterschied, dass durch ihn bis zu 3 Jäger getroffen werden können (Flächeneffekt: Kegel). Für den Angriff wird auf Wis + As gewürfelt. Der Grundschaden (Blitzschaden) entspricht der As +1. Ein Kettenblitz ist ein sichtbarer Zaubereffekt, den man blocken oder dem man ausweichen kann (Regeln wie Pistolen- Schuss).",
+        "target": "1-3",
+        "cost": "1 Hex pro Ziel",
+        "syntax": "N|F: Angriff x, Schaden x Bl), 1 Hex pro Ziel (1 - 3 Ziele)",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/ak_kettenblitz.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "224"
+          }
+        ]
+      },
+      "kochendes-blut": {
+        "name": "Kochendes Blut",
+        "_id": "wBrI90dwwJkTrOSZ",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Der sichtbare Zauberangriff basiert auf Wis + As, der Grundschaden ist 2 Un. Kochendes Blut verursacht Lebenskraftentzug (je 2), sprich: für je 2 Erfolge auf dem Angriffswurf verliert der Getroffene 1 Coup und 1 Idee.",
+        "target": "1-3",
+        "cost": "1 Hex pro Ziel",
+        "syntax": "N|F: Angriff x, Schaden 2 Un, +Lebenskraftentzug (je 2), 1 Hex pro Ziel (1 - 3 Ziele)",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/ak_kochendes_blut.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "244"
+          }
+        ]
+      },
+      "kraft-aus-leid": {
+        "name": "Kraft aus Leid",
+        "_id": "o8d9doXNJ8ZGGxqK",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Der Nsc bezieht neue Kraft aus dem auf ihm lastenden Leid. Als Handlung kann er alle ihn betreffenden anhaltenden Einflussstufen entfernen, für jede derart entfernte Einflussstufe regeneriert er 2 Lep und für je 2 entfernte Einflussstufen gewinnt er 1 Hex.",
+        "target": "persönlich",
+        "cost": "",
+        "syntax": "N|F: Entferne alle Einflussstufen; +2 Lep pro entfernter Einflussstufe, +1 Hex pro 2 entfernter Einflussstufen",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/kraft-aus-leid.html"
+          },
+          {
+            "source": "Archiv des Wächterbunds III",
+            "page": "26"
+          }
+        ]
+      },
+      "kaeferbrut": {
+        "name": "Käferbrut",
+        "_id": "bTHkHun0ewlpSMDB",
+        "@rev": 1,
+        "type": "Eigenschaft",
+        "description": "Im Körper dieser Kreatur haben sich Hunderte winziger Käfer eingenistet. Erleidet der Nsc Schaden (gleichgültig in welcher Höhe), löst sich ein Teil dieser Insekten von ihrem Wirt ab und formiert sich zu einem Käferschwarm (einzelner Bandengegner der Stufe 2). Das kann mehrfach pro Runde geschehen (wenn der Nsc durch verschiedene Angriffe Schaden erleidet), aber pro Quelle nur einmal (ein vergifteter Dolch zählt als 1 Schadensquelle) und tritt auch ein, wenn der Nsc durch den Schaden stirbt. Der entstandene Käferschwarm kann noch in derselben Runde attackieren.",
+        "syntax": "erleidet Nsc Schaden: +1 Käferschwarm",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/kaeferbrut.html"
+          },
+          {
+            "source": "Geheimnisse der Deutschen Lande",
+            "page": "126"
+          }
+        ]
+      },
+      "langsam": {
+        "name": "Langsam",
+        "_id": "Gl6GmpZQ6B5kLHLu",
+        "@rev": 1,
+        "type": "Eigenschaft",
+        "description": "Ein Wesen mit dieser Eigenschaft ist besonders schwerfällig und kann sich nur langsam fortbewegen. Oft handelt es sich um Pflanzenkreaturen, die sich mithilfe ihrer Wurzeln vorwärtsziehen. Langsame Nsc vermeiden es im Kampf möglichst, ihren Standort zu verändern. Wenn sie es dennoch tun müssen, kostet sie dies 1 beliebige (N)- oder (F)-Handlung.",
+        "syntax": "Bewegung kostet (N)- oder (F)-Handlung",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/langsam.html"
+          },
+          {
+            "source": "Hexenzorn",
+            "page": "121"
+          }
+        ]
+      },
+      "lied-des-schlafes": {
+        "name": "Lied des Schlafes",
+        "_id": "UjZ2B3GjsrQLGfGn",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Das Lied des Schlafes ist ein Zauber, der sämtliche Jäger im Kampfgebiet in Schlummer sinken lässt. Der Nsc führt vergleichende Proben mit Wil + As gegen Wil + Fw (Geistesstärke) des Ziels durch. Für jeden Differenzerfolg zugunsten des Nsc erleidet der entsprechende Jäger 1 Malusstufe gekoppelt an den Zustand „Schläfrigkeit“. Betragen die Differenzerfolge 5 oder mehr, ist der Zustand nach Wahl des HeXXenmeisters mächtig, fordernd oder dauerhaft.",
+        "target": "alle Jäger (Bereich)",
+        "cost": "5 Hex",
+        "syntax": "N|F: x gegen Geistesstärke, 1 Malusstufe (Schläfrigkeit, 5: MFD) pro Differenzerfolg, 5 Hex",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/lied-des-schlafes.html"
+          },
+          {
+            "source": "Hexenzorn",
+            "page": "121"
+          }
+        ]
+      },
+      "loechriger-koerper": {
+        "name": "Löchriger Körper",
+        "_id": "3Co5CqFoaYY5AzSs",
+        "@rev": 1,
+        "type": "Eigenschaft",
+        "description": "Der Nsc erhält Schadensreduzierung -x gegen Dolche und Messer, Fechtwaffen, Schwerter, Pistolen und Armbrüste.",
+        "syntax": "SR -x/ Dolche und Messer, Fechtwaffen, Schwerter, Pistolen und Armbrüstex",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/ak_loechriger_koerper.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "244"
+          }
+        ]
+      },
+      "meisterschaft": {
+        "name": "Meisterschaft",
+        "_id": "urqbwU2RElKHX2vk",
+        "@rev": 1,
+        "type": "Eigenschaft",
+        "description": "Immer, wenn der Nsc eine Probe ausführt, auf die er eine Meisterschaft besitzt, erhält er einen Bonus von +X (max. 5) und darf entsprechend des Bonus Januswürfel mitwürfeln.",
+        "syntax": "+x auf Probe y",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/ak_meisterschaft.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "244"
+          }
+        ]
+      },
+      "mundsperre": {
+        "name": "Mundsperre",
+        "_id": "twbYGJ6bfCzdND7f",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Der Zauber erfordert eine vergleichende Probe mit Wil + As gegen Wil + Fw (Geistesstärke). Für jeden Differenzerfolg zugunsten des Nsc erhält der Jäger 1 Malusstufe. Erzielt der Nsc mindestens 1 Differenzerfolg, bekommt der Jäger den Zustand Stummheit. Betragen die Differenzerfolge 5 oder mehr, so ist der Zustand mächtig, fordernd oder dauerhaft, nach Wahl des HeXXenmeisters.",
+        "target": "1-3",
+        "cost": "1 Hex pro Ziel",
+        "syntax": "N|F: x gegen Geistesstärke, 1 Malusstufe (Stummheit, 5: MFD) pro Differenzerfolg, 1 Hex pro Ziel (1-3 Ziele)",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/ak_mundsperre.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "244"
+          }
+        ]
+      },
+      "opfer-für-das-rudel": {
+        "name": "Opfer für das Rudel",
+        "_id": "cWZ2Cb0LtVNL8qcT",
+        "@rev": 1,
+        "type": "Eigenschaft",
+        "description": "Immer, wenn ein verbündeter Nsc sterben würde (Lep = 0), kann sich dieser Nsc einmischen und den Schaden auf sich nehmen. Der Nsc stirbt sofort, egal wie hoch der Schaden ist. Opfer für das Rudel ist selbst dann möglich, wenn der Nsc an einen Jäger gebunden ist.",
+        "syntax": "Reaktion, Nsc stirbt, anderer Nsc erleidet keinen Schaden",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/opfer-fuer-das-rudel.html"
+          },
+          {
+            "source": "Herrschaft des Dämonenmeisters, Hintergrundband",
+            "page": "40"
+          }
+        ]
+      },
+      "parasit": {
+        "name": "Parasit",
+        "_id": "E79Qh7ucSlIQp7fT",
+        "@rev": 1,
+        "type": "Eigenschaft, Bande",
+        "description": "Nimmt ein Parasit Schaden, geht die Hälfte des Lep-Verlustes als Schmerzschaden auf den vom Parasiten befallenen Charakter über (sprich: den gebundenen Charakter).",
+        "syntax": "1/2 Schaden auf gebundenen Charakter",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/ak_parasit.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "244"
+          }
+        ]
+      },
+      "pestaura": {
+        "name": "Pestaura",
+        "_id": "Ai5ZsI9WFkBzx3Sk",
+        "@rev": 1,
+        "type": "Eigenschaft, Bande",
+        "description": "Angreifer, die ein Wesen mit Pestaura im Nahkampf attackieren (gleichgültig, ob von vorn oder hinten), müssen einen Malus entsprechend dem in der Syntax angegebenen Wert wegen des unsagbaren Gestanks hinnehmen.",
+        "syntax": "Nahkampfgegner-Angriffe -x",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/ak_pestaura.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "244"
+          }
+        ]
+      },
+      "pesthauch": {
+        "name": "Pesthauch",
+        "_id": "MgFFf0gKTAD9Xkn9",
+        "@rev": 1,
+        "type": "Eigenschaft, Bande",
+        "description": "Jeweils in Ini 0 muss jeder Jäger, der an einen Nsc mit Pesthauch gebunden ist, eine Probe auf Unempfindlichkeit ablegen mit einem Malus von −1 pro Nsc im Kampfgebiet mit dieser Kraft. Misslingt die Probe, erleidet der Jäger Malusstufen in Höhe der gebundenen Nsc, gekoppelt an den Zustand „Krankheit“. Diese Probe wird ausgeführt, bevor der Jäger seinen freien Reduzierungswurf ablegt.",
+        "syntax": "Ini 0: an Nsc gebundene Jäger führen Unempfindlichkeit-Probe aus (−1 pro Nsc), Misserfolg: 1 Malusstufe (Krankheit) pro Nsc",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/pesthauch.html"
+          },
+          {
+            "source": "Geheimnisse der Deutschen Lande",
+            "page": "126"
+          }
+        ]
+      },
+      "raserei": {
+        "name": "Raserei",
+        "_id": "qRkKpv3OqKCR8Vf2",
+        "@rev": 1,
+        "type": "Eigenschaft",
+        "description": "Sobald ihre Lep unter einen gewissen Schwellenwert (x) sinken, treten Veränderungen ein, die jeweils in der Syntax beschrieben sind. Das geschieht sofort und unmittelbar noch während der Ini-Phase des Charakters (vergleichbar einer Reaktion). Oft erhält die Kreatur eine weitere Möglichkeit zum Angriff, erhöht ihren Schaden oder generiert zusätzliche Hex-Punkte – die Effekte können ganz unterschiedlich sein. Einige Kreaturen weisen mehr als einen Schwellenwert auf: Nach jeder Schwelle kommen dann weitere Effekte hinzu, die jeweils kumulativ sind. Sind die Lep skalierend angegeben (z. B. in Abhängigkeit von der Jägerzahl), dann ist x in der Regel als Prozentwert angegeben.",
+        "syntax": "Lep < x: Auswirkung",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/ak_raserei.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "244"
+          }
+        ]
+      },
+      "regeneration": {
+        "name": "Regeneration",
+        "_id": "OfiBasqE8DkRgfCt",
+        "@rev": 1,
+        "type": "Eigenschaft, Bande",
+        "description": "Das Wesen regeneriert in Ini 0 eine bestimmte Anzahl Lep (bis zum Maximum). Oft hängt die Regeneration mit der Anführerstufe zusammen oder wird über den Elixierwürfel ausgewürfelt.",
+        "syntax": "Ini 0: +X Lep oder +Elixierwürfel Lep",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/ak_regeneration.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "254"
+          }
+        ]
+      },
+      "reittier": {
+        "name": "Reittier",
+        "_id": "Bs7ngr5Zq2XDHxm6",
+        "@rev": 1,
+        "type": "Eigenschaft",
+        "description": "Diese Kreatur dient einer anderen als Reittier. Beide Nsc befinden sich stets an demselben Ort und können nicht gebunden werden, es sei denn, das Reittier bleibt stehen. Stirbt das Reittier, stürzt der Reiter zu Boden und erleidet Schmerzschaden entsprechend der Fallhöhe: bei bodengebundenen Reittieren 1 Blutwürfel, bei Schwebern 3 Blutwürfel, bei Fliegern 5 Blutwürfel (oder nach Ermessen des HeXXenmeisters).",
+        "syntax": "Reittier und Reiter nicht gebunden, stirbt Reittier: Reiter nimmt Schmerzschaden",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/reittier.html"
+          },
+          {
+            "source": "Hexenzorn",
+            "page": "122"
+          }
+        ]
+      },
+      "resistenz": {
+        "name": "Resistenz",
+        "_id": "BPalEqIyFKOumvI0",
+        "@rev": 1,
+        "type": "Eigenschaft, Bande",
+        "description": "Eine Resistenz ist mit einer Schadensreduzierung vergleichbar. Im Gegensatz zu dieser reduziert sie jedoch nicht den Verlust von Lep, sondern hilft gegen die Nebenwirkungen schädlicher Angriffe. Es gibt daher drei unterschiedliche Arten von Resistenz (entsprechend der drei anhaltenden Einflüsse, unter denen ein Nsc leiden kann): Malusresistenz, innere Schadensresistenz und äußere Schadensresistenz. Jeweils am Ende einer Kampfrunde in Ini 0 baut der Nsc alle Stufen des jeweiligen Einflusses vollständig ab (allerdings nachdem er Schaden durch inneren/ äußeren Schaden genommen hat). Seinen Würfelwurf zum Abbau von Nebeneffekt-Stufen darf er zusätzlich nutzen, sofern erforderlich.",
+        "syntax": "innerer Schaden, äußerer Schaden oder Malusschaden",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/ak_resistenz.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "245"
+          }
+        ]
+      },
+      "riesig": {
+        "name": "Riesig",
+        "_id": "1ya1d30ecOBXtVz2",
+        "@rev": 1,
+        "type": "Eigenschaft, Bande",
+        "description": "Wie berittene Kampfteilnehmer können sie nicht gebunden werden; dementsprechend sind auch keine heimtückischen Attacken gegen sie möglich, gleichzeitig können sie aber jederzeit von Musketen getroffen werden. Eine solche Kreatur kann von sechs menschengroßen Wesen im Nahkampf attackiert werden. Riesige Wesen sind immun gegen Malusschaden (außer dies wird explizit erwähnt).",
+        "syntax": "wird nicht gebunden",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/ak_riesig.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "245"
+          }
+        ]
+      },
+      "rueckensprung": {
+        "name": "Rückensprung",
+        "_id": "X6C6hqSPzSv9L3QC",
+        "@rev": 1,
+        "type": "Handlung, NN",
+        "description": "Der Nsc kann auf den Rücken eines erwachsenen Menschen springen. Das erfordert eine vergleichende Probe mit Ath + As gegen Ath + Fw (Ausweichen) oder Kkr + Fw (Schildbenutzung, nur wenn der Jäger einen Schild besitzt) des Ziels. Für jeden Differenzerfolg zugunsten des Nsc erleidet der Jäger 1 Lähmungsstufe gekoppelt an den Zustand „Belastung“. Betragen die Differenzerfolge 5 oder mehr, ist der Zustand nach Wahl des HeXXenmeisters mächtig oder fordernd.",
+        "target": "1",
+        "cost": "",
+        "syntax": "NN: x gegen Ausweichen oder Schildbenutzung, 1 Lähmungsstufe (Belastung, 5: MF) pro Differenzerfolg",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/rueckensprung.html"
+          },
+          {
+            "source": "Geheimnisse der Deutschen Lande",
+            "page": "126"
+          }
+        ]
+      },
+      "rueckzug-und-angriff": {
+        "name": "Rückzug und Angriff",
+        "_id": "usUCR9jw3j3owPGL",
+        "@rev": 1,
+        "type": "Eigenschaft",
+        "description": "Immer, wenn sich der Nsc in den Nahkampf bewegt, darf er diese Runde eine zusätzliche (N)-Handlung ausführen. Ist er im Nahkampf, kann er sich (freiwillig nach Entscheidung des HeXXenmeisters) als (F)-Handlung aus dem Nahkampf lösen. Er kann nicht beides gleichzeitig in derselben Runde ausführen.",
+        "syntax": "Bewegung in Nahkampf: +1 N-Handlung / F-Handlung: Nsc verliert Bindungen",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/rueckzug-und-angriff.html"
+          },
+          {
+            "source": "Herrschaft des Dämonenmeisters, Hintergrundband",
+            "page": "40"
+          }
+        ]
+      },
+      "schleicher-der-finsternis": {
+        "name": "Schleicher der Finsternis",
+        "_id": "X3GI2iE0ZKQxjgmB",
+        "@rev": 1,
+        "type": "Eigenschaft",
+        "description": "Immer wenn er einen Jäger attackiert, der unter dem Zustand Blindheit leidet, erhält der Schleicher der Finsternis einen Bonus von +1 pro Malusstufe des Blinden.",
+        "syntax": "+1 Angriffsbonus pro Malusstufe des blinden Jägers",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/ak_schleicher_der_finsternis.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "245"
+          }
+        ]
+      },
+      "schmerzen": {
+        "name": "Schmerzen",
+        "_id": "XZ5rddi53kIDRCtq",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Der Nsc führt eine vergleichende Probe mit Wil + As gegen Wil + Fw (Geistesstärke) aus. Für jeden Differenzerfolg zugunsten des Nsc erhält der Jäger 1 äußere Schadenstufe. Erzielt der Nsc mindestens 1 Differenzerfolg, bekommt der Jäger den Zustand Blutung. Betragen die Differenzerfolge 5 oder mehr, so ist der Zustand mächtig oder fordernd, nach Wahl des HeXXenmeisters.",
+        "target": "1-3",
+        "cost": "1 Hex pro Ziel",
+        "syntax": "N|F: x gegen Geistesstärke, 1 äußere Schadenstufe (Blutung, 5: MF) pro Differenzerfolg, 1 Hex pro Ziel (1-3 Ziele)",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/ak_schmerzen.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "245"
+          }
+        ]
+      },
+      "schutzfeld": {
+        "name": "Schutzfeld",
+        "_id": "daJ1l1k2JbZmRgH2",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Ein Schutzfeld verleiht anfänglich eine Schadensreduzierung von -5 gegen alle Schadensformen. Diese schwächt sich jedoch in Ini 0 jeweils um eine Stufe ab. Erst wenn die Schadensreduzierung auf 0 gesunken ist, kann das Schutzfeld neu gewirkt werden.",
+        "target": "persönlich",
+        "cost": "3 Hex",
+        "syntax": "N|F: SR (5/Alles), -1 in Ini 0, 3 Hex",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/ak_schutzfeld.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "245"
+          }
+        ]
+      },
+      "schutzzauber": {
+        "name": "Schutzzauber",
+        "_id": "iQ3soLKnYOegFKkd",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Viele erfahrene Nsc kennen besondere Schutzzauber, mit denen sie auf magische Weise Schaden von sich abhalten können. Das Wirken des Zaubers erfordert 1 (N)- oder (F)-Handlung und 3 Hex. Der magische Schutz hält bis zum Ende des Kampfes bzw. des jeweiligen Konflikts oder der Szene an und gewährt dem Nsc wahlweise Immunität gegen Malusstufen, innere Schadensstufen oder äußere Schadensstufen. Der Schutzzauber darf wiederholt werden, wodurch der Nsc eine neue Immunität wählen kann, die alte aber verliert.",
+        "target": "persönlich",
+        "cost": "3 Hex",
+        "syntax": "N|F: Immunität gegen Malusschaden, inneren Schaden oder äußeren Schaden, 3 Hex",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/schutzzauber.html"
+          },
+          {
+            "source": "Hexenzorn",
+            "page": "122"
+          }
+        ]
+      },
+      "schwarze-panzerung": {
+        "name": "Schwarze Panzerung",
+        "_id": "9pJm3AGDsYABJfcI",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Der Nsc verstärkt seine Rüstung, bei der es sich um schwere Panzerung handeln muss, mit dunkler Magie, die das Material vollständig durchdringt und schwarz färbt. Das erfordert eine Probe auf Wis + As. Pro Erfolg erhöht sich der Pw des Nsc um 1 (bis auf den maximal doppelten Ausgangswert). Jeweils in Ini 0 sinkt der Pw jedoch um 1. Fällt er dadurch auf 0, löst sich die Panzerung in schwarzen Staub auf und gilt als zerstört.",
+        "target": "persönlich",
+        "cost": "2 Hex",
+        "syntax": "N|F: Probe mit x, pro Erfolg Pw +1; in Ini 0: Pw −1; bei Pw 0: Panzerung zerfällt zu Staub; 2 Hex",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/schwarze-panzerung.html"
+          },
+          {
+            "source": "Geheimnisse der Deutschen Lande",
+            "page": "127"
+          }
+        ]
+      },
+      "schweber": {
+        "name": "Schweber",
+        "_id": "pKl2JQ6gICbzYUAl",
+        "@rev": 1,
+        "type": "Eigenschaft, Bande",
+        "description": "Schwebende Wesen befinden sich entweder auf Augenhöhe der Jäger, oder sie schweben hoch in der Luft. Will ein solcher Nsc einen Jäger im Nahkampf attackieren, muss er sich auf Augenhöhe befinden. Er zählt dann als bodengebundenes Wesen und wird wie üblich gebunden. Hoch schwebende Wesen können nur Distanzangriffe ausführen und auch nur durch solche verletzt werden.",
+        "syntax": "Nsc befindet sich auf Augenhöhe oder schwebt hoch in der Luft",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/ak_schweber.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "245"
+          }
+        ]
+      },
+      "sicherheitssprung": {
+        "name": "Sicherheitssprung",
+        "_id": "3VybkITyFcluKJWX",
+        "@rev": 1,
+        "type": "Handlung, N",
+        "description": "Vor allem Fernkämpfer (Strategie: Defensiv oder Allrounder) führen Sicherheitssprünge aus. Als N-Handlung darf sich der Nsc automatisch von allen Jägern lösen, an die er gebunden ist. Er ist dann nicht mehr gebunden und kann sofort eine kostenfreie F-Handlung (nun aus der Distanz) ausführen. Diese gilt als zusätzliche Handlung, die nicht in der Strategie angegeben ist. Dürfte der Nsc beispielsweise zwei N-Handlungen ausführen, könnte er zunächst im Nahkampf attackieren (erste -Handlung), die zweite N-Handlung dann für den Sicherheitssprung ausgeben und sofort noch einmal aus der Distanz angreifen.",
+        "target": null,
+        "cost": null,
+        "syntax": "N: lösen von allen Gegnern, danach F-Handlung",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/ak_sicherheitssprung.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "245"
+          }
+        ]
+      },
+      "suendige-gedanken": {
+        "name": "Sündige Gedanken",
+        "_id": "bmarlo8SprZPbUu7",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Einem oder mehreren Jägern werden mithilfe dieser Kraft Gedanken eingeflüstert, die seine niedersten Emotionen und dunkelsten Wünsche hervorrufen und ihn dazu verführen, gegen seine Überzeugungen oder sein Weltbild zu handeln. Oft wird der Zauber angewendet, um eine Person an ihrem Glauben zweifeln zu lassen und sie auf diese Weise empfänglich zu machen für neue, blasphemische Ideen. Der Nsc führt eine vergleichende Probe mit Wil + As gegen Wil + Fw (Geistesstärke) des Ziels aus, wobei der Jäger die Zahl seiner Segnungen als Bonus addieren darf. Jeder Differenzerfolg zugunsten des Nsc senkt das Maximum an Segnungen des Ziels um 1. Diese Reduzierung wirkt dauerhaft, bis der Jäger einen Ort seines Glaubens aufsucht (das kann im Fall eines Gelehrten z. B. eine Bibliothek sein) oder er 1 Fza darauf verwendet, zu meditieren und wieder zu seinen Überzeugungen zurückzufinden.",
+        "target": "max.Jz",
+        "cost": "1 Hex pro Ziel",
+        "syntax": "N|F: x gegen Geistesstärke (Bonus +1 pro Segnung), Maximum Segnungen −1 pro Differenzerfolg, 1 Hex pro Ziel (max. Jz Ziele)",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/suendige-gedanken.html"
+          },
+          {
+            "source": "Hexenzorn",
+            "page": "123"
+          }
+        ]
+      },
+      "tanzbefehl": {
+        "name": "Tanzbefehl",
+        "_id": "W32mJGv1EBZ3iaaU",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Der Nsc übt auf magische Weise Einfluss auf andere Wesen aus und befiehlt ihnen zu tanzen. Opfer, die dem Zauber erliegen, verfallen in einen tranceartigen Tanz, deren Art der ausführende Nsc bestimmt. Dies kann von höfischen Tänzen über Volkstänze bis hin zu einem unkontrollierten Zucken der Glieder reichen. Das erfordert eine vergleichende Probe mit Wil + As gegen Wil + Fw (Geistesstärke). Für jeden Differenzerfolg zugunsten des Nsc erhält das Ziel 1 Lähmungsstufe. Erzielt der Nsc mindestens 1 Differenzerfolg, bekommt der Jäger den Zustand „Tanzwut“.",
+        "target": null,
+        "cost": null,
+        "syntax": "N|F: x gegen Geistesstärke, 1 Lähmungsstufe (Tanzwut) pro Differenzerfolg, 1 Hex pro Ziel (1–3 Ziele)",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/tanzbefehl.html"
+          },
+          {
+            "source": "Archiv des Wächterbunds III",
+            "page": "70"
+          }
+        ]
+      },
+      "tarnung": {
+        "name": "Tarnung",
+        "_id": "nQP3fIfWWB0z9IIZ",
+        "@rev": 1,
+        "type": "Eigenschaft, Bande",
+        "description": "Wesen mit Tarnung ziehen Vorteile aus allen Deckungsmöglichkeiten ihrer natürlichen Umgebung oder können sich sogar farblich an diese anpassen. Üblicherweise findet diese Eigenschaft nur Anwendung, wenn sich die Kreatur in einem Umfeld befindet, das ihrem Revier bzw. natürlichen Lebensraum entspricht. Alle Angriffe (sowohl Nahkampf als auch Fernkampf) gegen einen Nsc mit Tarnung erhalten einen Malus von −x.",
+        "syntax": "−x bei allen Angriffen gegen den Nsc/Umgebungsvoraussetzung",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/tarnung.html"
+          },
+          {
+            "source": "Hexenzorn",
+            "page": "123"
+          }
+        ]
+      },
+      "taubheit": {
+        "name": "Taubheit",
+        "_id": "S6DG3PskT50xlHDJ",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Das erfordert eine vergleichende Probe mit Wil + As gegen Wil + Fw (Geistesstärke) des Jägers. Für jeden Differenzerfolg zugunsten des Nsc erhält der Jäger 1 Malusstufe. Erzielt der Nsc mindestens 1 Differenzerfolg, bekommt der Jäger den Zustand Taubheit. Betragen die Differenzerfolge 5 oder mehr, so ist der Zustand mächtig, fordernd oder dauerhaft, nach Wahl des HeXXenmeisters.",
+        "target": "1-3",
+        "cost": "1 Hex pro Ziel",
+        "syntax": "N|F: x gegen Geistesstärke, 1 Malusstufe (Taubheit, 5: MFD) pro Differenzerfolg, 1 Hex pro Ziel (1-3 Ziele)",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/ak_taubheit.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "246"
+          }
+        ]
+      },
+      "terrorwelle": {
+        "name": "Terrorwelle",
+        "_id": "iR62WLynMWq9ejJP",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Der Nsc führt gegen jedes Ziel eine vergleichende Probe mit Wil + As gegen Wil + Fw (Geistesstärke) aus. Für jeden Differenzerfolg zugunsten des Nsc erhält der Jäger 1 Malusstufe. Erzielt der Nsc mindestens 1 Differenzerfolg, bekommt der Jäger den Zustand Furcht. Betragen die Differenzerfolge 5 oder mehr, so ist der Zustand mächtig, fordernd oder dauerhaft, nach Wahl des HeXXenmeisters.",
+        "target": "1-3",
+        "cost": "1 Hex pro Ziel",
+        "syntax": "N|F: x gegen Geistesstärke, 1 Malusstufe (Furcht, 5: MFD) pro Differenzerfolg, 1 Hex pro Ziel (1 - 3 Ziele)",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/ak_terrorwelle.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "246"
+          }
+        ]
+      },
+      "tod-im-schlaf": {
+        "name": "Tod im Schlaf",
+        "_id": "KOBj7vaQnWarDyON",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Mit diesem Zauber kann der Nsc einem schläfrigen oder schlafenden Opfer Schaden zufügen. Die Kraft erfordert keine Probe, kann aber nur eingesetzt werden, wenn das Ziel Malusstufen und den Zustand „Schläfrigkeit“ aufweist oder schläft. Das Ziel erleidet sofort pro Malusstufe 1 Punkt Geistschaden, gegen den es sich nicht wehren kann. Tod im Schlaf darf nur einmal pro Kampfrunde gewirkt werden.",
+        "target": "1-3",
+        "cost": "1 Hex pro Ziel",
+        "syntax": "N|F: automatisch 1 Ge Schaden pro Malusstufe, 1x pro Runde, 1 Hex pro Ziel (1–3 Ziele)",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/tod-im-schlaf.html"
+          },
+          {
+            "source": "Hexenzorn",
+            "page": "124"
+          }
+        ]
+      },
+      "todesleuchten": {
+        "name": "Todesleuchten",
+        "_id": "vkfPCOcluxtwArj2",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Todesleuchten gilt als Flächeneffekt vom Typ Kegel. Für den Angriff würfelt der Zaubernde Wis + As, der Grundschaden beträgt 2 Un. Todesleuchten ist ein sichtbarer Zaubereffekt, dem man ausweichen, bzw. den man blocken kann (Regeln wie Pistolen- Schuss).",
+        "target": "1-3",
+        "cost": "1 Hex pro Ziel",
+        "syntax": "N|F: Kegeleffekt, Angriff x, Schaden 2 Un, 1 Hex pro Ziel (1 - 3 Ziele)",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/ak_todesleuchten.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "246"
+          }
+        ]
+      },
+      "unheilsblitze": {
+        "name": "Unheilsblitze",
+        "_id": "e5HXN3IYwwwVLTqR",
+        "@rev": 1,
+        "type": "Handlung, F",
+        "description": "Der Nsc erzeugt einen Art „Teppich“ aus schwarzen Blitzen, die über den Boden schweben und alle bodengebundene Kampfteilnehmer betreffen. Unheilsblitze wird üblicherweise nur aus der Distanz, meistens von einem fliegenden oder schwebenden Nsc erzeugt, da der Nsc selbst sonst ebenfalls betroffen wäre. Unheilsblitze ist ein Flächeneffekt vom Typ „Bereich“. Beim ersten Wirken der Kraft wird eine Blitzstufe für die gesamte Umgebung der Stufe 1 erzeugt und alle bodengebundenen Kampfteilnehmer erleiden in ihrer jeweiligen Ini-Phase 1 Punkt Unheilsschaden pro Stufe. Jede weitere Anwendung erhöht die Umgebungsstufe bis maximal 5. Die Unheilsblitze enden erst mit dem Tod des Verursachers. Jäger können aber versuchen, den Blitzen auszuweichen, indem sie als Reaktion (1 AP) eine Probe auf Ausweichen ausführen; der Gesamtschaden pro Runde wird jeweils um 1 pro Erfolg reduziert.",
+        "target": "Bereich",
+        "cost": "2 Hex",
+        "syntax": "F: Erzeugt +1 Blitzstufe (max. 5, Bereichseffekt), bodengebundene Kampfteilnehmer erleiden 1 Un pro Blitzstufe in ihrer Ini-Phase, reduziert um Ausweichen-Probe, 2 Hex",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/unheilsblitze.html"
+          },
+          {
+            "source": "Herrschaft des Dämonenmeisters, Hintergrundband",
+            "page": "40"
+          }
+        ]
+      },
+      "unsichtbarkeit": {
+        "name": "Unsichtbarkeit",
+        "_id": "EwxMJ6N3142c3q89",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Eine Attacke (auch Zauberangriffe) gegen einen unsichtbaren Nsc kann nur dann ausgeführt werden, wenn dem Angreifer vorher ein Wurf auf Sin + Fw (Erkennen, -5) gelingt. Diese Probe muss vor jedem Angriff ausgeführt werden; die Unsichtbarkeit erlischt nicht durch erfolgreiche Treffer (nur beim Tod des Wesens). Unsichtbarkeit kann sowohl von einem freistehenden Nsc (Kosten: 2 Hex) als auch von einem gebundenen (Kosten: 4 Hex) gewirkt werden. Der Zauber erlischt, wenn der Unsichtbare eine sichtbare Handlung ausführt. Nicht sichtbare Handlungen beinhalten Effekte, die an einem anderen Ort eintreten (z. B. Wurzeldorn, Beschwörung) oder die auf den Geist zielen (z. B. Geistschlag). Sichtbare Handlungen sind Angriffe mit Waffen oder Zaubern wie Todesleuchten. Im Einzelfall muss der HeXXenmeister abwägen, ob eine Handlung sichtbar ist oder nicht. Unter Umständen können Anführer sichtbare Handlungen auch so ausführen, dass sie keine Rückschlüsse auf den Standort des Nsc ermöglichen – das hängt stark von den Umständen und der Umgebung ab.",
+        "target": "persönlich",
+        "cost": "2 oder 4 Hex",
+        "syntax": "N|F: Zaubernder wird unsichbar, 2 Hex freistehend, 4 Hex gebunden",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/ak_unsichtbarkeit.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "246"
+          }
+        ]
+      },
+      "verdorbenes-land": {
+        "name": "Verdorbenes Land",
+        "_id": "Hfv9ajC3aq43Nikq",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Der Zauberwirker führt eine vergleichende Probe auf Wil + As gegen Wil + Fw (Geistesstärke) aller anwesenden Jäger aus. Für jeden Differenzerfolg zugunsten des Nsc erhält der Jäger 1 Malusstufe. Erzielt der Nsc mindestens 1 Differenzerfolg, bekommt der Jäger den Zustand Krankheit. Betragen die Differenzerfolge 5 oder mehr, so ist der Zustand mächtig, fordernd oder dauerhaft, nach Wahl des HeXXenmeisters. Verbündete des Zaubernden widerstehen dem Effekt nur, wenn sie eine Immunität gegen Gift bzw. inneren Schaden oder eine Resistenz gegen inneren Schaden besitzen, ansonsten erhalten sie automatisch 1 innere Schadensstufe.",
+        "target": "Alle im Bereich",
+        "cost": "5 Hex",
+        "syntax": "N|F : x gegen Geistesstärke, 1 Malusstufe (Krankheit, 5: MF) pro Differenzerfolg, 5 Hex",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/ak_verdorbenes_land.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "246"
+          }
+        ]
+      },
+      "vergeltung-des-unheils": {
+        "name": "Vergeltung des Unheils",
+        "_id": "D6hczZo5k9xrjRWO",
+        "@rev": 1,
+        "type": "Eigenschaft",
+        "description": "Jeder Jäger, der einen Nsc mit dieser Eigenschaft tötet, gleichgültig ob durch Lep-Verlust oder Bandenkräfte, verliert 1 Idee oder 1 Coup oder 1 Lep durch Unheilschaden nach Wahl des Spielers (er darf nur das wählen, was er noch hat).",
+        "syntax": "Jäger verliert 1 Coup, 1 Idee oder 1 Un bei Tod des Gegners",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/vergeltung-des-unheils.html"
+          },
+          {
+            "source": "Archiv des Wächterbunds III",
+            "page": "17"
+          }
+        ]
+      },
+      "verhaertende-glut": {
+        "name": "Verhärtende Glut",
+        "_id": "KKWtdOeQ4DiLYerZ",
+        "@rev": 1,
+        "type": "Eigenschaft",
+        "description": "Sobald der Nsc durch direkten Schaden 5 oder mehr Lep verliert, steigt sein Pw um 1 bis zu einem Maximum von 6.",
+        "syntax": "erleidet Nsc direkten Schaden 5+: Pw +1, max. 6",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/verhaertende-glut.html"
+          },
+          {
+            "source": "Geheimnisse der Deutschen Lande",
+            "page": "127"
+          }
+        ]
+      },
+      "verschmelzung": {
+        "name": "Verschmelzung",
+        "_id": "36aZ7aPAYG2ncCMj",
+        "@rev": 1,
+        "type": "Handlung, N|F, Bande",
+        "description": "Für eine beliebige Handlung kann der Nsc mit einem anderen Nsc des gleichen Typs regelrecht verschmelzen. Voraussetzung ist, dass beide Nsc Bandenstufe 1 haben. Der Ziel-Nsc muss sich in der Nähe befinden (entweder stehen beide frei oder beide befinden sich im Nahkampf mit demselben Jäger). Der Ziel-Nsc kann vorher seine eigene Handlung ausgeführt haben. Durch die Verschmelzung werden beide Nsc-Plättchen durch ein neues Plättchen mit der Namensanpassung „Verschmolzen“ ersetzt.",
+        "target": null,
+        "cost": null,
+        "syntax": "N|F: Bandengegner verschmilzt mit einem anderen Bandengegner derselben Stufe und Art zu „Verschmolzener“",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/verschmelzung.html"
+          },
+          {
+            "source": "Herrschaft des Dämonenmeisters, Hintergrundband",
+            "page": "40"
+          }
+        ]
+      },
+      "versetzung": {
+        "name": "Versetzung",
+        "_id": "4LThtUMBmI71UW5M",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Mit dieser Zauberkraft können sich Nsc um etliche Meter durch den Äther bewegen und an anderer Stelle wieder erscheinen. Die Kreatur verliert alle Bindungen und kann in dieser Runde nicht mehr im Nahkampf attackiert werden (selbst wenn nach dem Nsc noch Jäger an der Reihe sind).",
+        "target": "persönlich",
+        "cost": "3 Hex",
+        "syntax": "N|F: Zaubernder verliert alle Bindungen, 3 Hex",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/ak_versetzung.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "247"
+          }
+        ]
+      },
+      "verwandlung": {
+        "name": "Verwandlung",
+        "_id": "k17egdB7mmJZrMr8",
+        "@rev": 1,
+        "type": "Handlung, NN|FF",
+        "description": "Eine Verwandlung nimmt eine ganze Kampfrunde in Anspruch (bzw. erfordert zwei beliebige  N- oder F-Handlungen) oder kann vor Kampfbeginn automatisch geschehen. Nach der Verwandlung erhält das Wesen üblicherweise Boni und Abzüge auf einzelne Attribute (je nach seiner neuen Gestalt). Wil und Wis bleiben für gewöhnlich erhalten. Ressourcen wie Lep werden meist neu berechnet (was in den Werten angegeben ist). Das verwandelte Wesen erhält in aller Regel besondere übernatürliche Kräfte, eventuell auch einen höheren Panzerschutz. Welche Veränderungen eintreten, ist in den Nsc-Werten gesondert beschrieben.",
+        "target": "persönlich",
+        "cost": "keine",
+        "syntax": "NN|FF: Veränderungen: x",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/ak_verwandlung.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "247"
+          }
+        ]
+      },
+      "verzweiflung-des-beschuetzers": {
+        "name": "Verzweiflung des Beschützers",
+        "_id": "2pkE14UYFF4BUsss",
+        "@rev": 1,
+        "type": "Eigenschaft",
+        "description": "Die Wigbold-Bestie erhält einen Bonus von +1 auf alle Angriffe und vergleichende Proben für je 10 friedliche Wigbolde, die von den Jägern getötet wurden.",
+        "target": "persönlich",
+        "cost": "keine",
+        "syntax": "+1 auf alle Angriffe/Proben für je 10 getötete friedliche Wigbolde",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/verzweiflung-des-beschuetzers.html"
+          },
+          {
+            "source": "Archiv des Wächterbunds III",
+            "page": "59"
+          }
+        ]
+      },
+      "wahrer-name": {
+        "name": "Wahrer Name",
+        "_id": "c3jNs1zrqu1PM97M",
+        "@rev": 1,
+        "type": "Eigenschaft",
+        "description": "Wer den wahren Namen eines Nsc in Erfahrung bringt (z. B. über alte Schriften oder einen Eingeweihten), hat Macht über die Kreatur. Diese Macht wird aktiviert, indem man entweder vor einer Begegnung mit dem Wesen den Namen laut ausspricht oder dies im Verlauf eines Kampfes tut (dann als Aktion mit 1 AP). Für die übrige Begegnung oder den Kampf gilt: Alle gewürfelten Espritsterne zählen wie 2 Erfolge – solange die Kreatur anwesend ist. Das gilt für alle Angriffe gegen den Nsc oder gegen Bandengegner, die von ihm herbeigerufen wurden, aber auch bei sämtlichen Widerstandsproben (z. B. auf Geistesstärke, um sich gegen Zauber zu wehren). Bei einer sozialen Begegnung würde beispielsweise jeder Espritstern im Rahmen einer Redekunstprobe wie 2 Erfolge zählen. Wahrer Name hat keinen Effekt bei Interaktionen/Angriffen/Widerstandsproben mit anderen beteiligten Wesen, die über keinen wahren Namen verfügen bzw. deren wahren Namen man nicht kennt. Will man Espritsterne nicht als Erfolge verwenden, können sie wie üblich (dann unmodifiziert) für Espritkräfte eingesetzt werden.",
+        "syntax": "Espritsterne: 2 Erfolge",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/ak_wahrer_name.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "247"
+          }
+        ]
+      },
+      "weh-verstaerken": {
+        "name": "Weh verstärken",
+        "_id": "e5CcCw8CLSnOnifw",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Der Nsc kann anhaltende Einflüsse in puren Schaden umwandeln. Dazu ist eine Handlung nötig, 1 Hex pro Ziel, sowie eine vergleichende Probe Wil + As gegen Kkr + Fw (Unempfindlichkeit) des Jägers. Für jeden Differenzerfolg zugunsten des Nsc erleidet der Jäger 1 Punkt Geistschaden, allerdings darf die Summe an Schaden niemals höher sein als die Summe aller anhaltenden Einflüsse, unter denen der Jäger leidet. Hat ein Jäger beispielsweise 2 Malusstufen und 1 äußere Schadensstufen, kann er maximal 3 Punkte Geistschaden erhalten.",
+        "target": "1 - 3",
+        "cost": "1 Hex pro Jäger",
+        "syntax": "N|F: x gegen Unempfindlichkeit, 1 Ge pro Erfolg, Limit: Summe aller anhaltenden Einflüsse des Jägers, 1 Hex pro Ziel (1–3 Ziele)",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/weh-verstaerken.html"
+          },
+          {
+            "source": "Herrschaft des Dämonenmeisters, Kampagnenband",
+            "page": "71"
+          }
+        ]
+      },
+      "wiederauferstehung": {
+        "name": "Wiederauferstehung",
+        "_id": "TimNttImEZiTDt02",
+        "@rev": 1,
+        "type": "Handlung, N",
+        "description": "Mit dieser Kraft kann der Anführer-Nsc gefallene Banden-Gegner seines eigenen Volks wieder ins Leben zurückbringen, andere Anführer können nicht gerettet werden. Immer, wenn ein Bandengegner des eigenen Volks stirbt, sollte der HeXXenmeister dessen Plättchen beiseitelegen und nicht aus dem Spiel nehmen. Der Nsc kann mithilfe einer (F)-Handlung den Bandengegner ungeachtet seiner Bandenstufe zurück ins Leben holen. Das Ziel regeneriert alle Lep und verliert etwaige anhaltende Einflüsse von vor seinem Tod. Das Plättchen des betroffenen Ziels wird jedoch erst in Ini 0 wieder auf dem Kampfschauplatz platziert und kann erst in der nächsten Kampfrunde handeln.",
+        "target": "1",
+        "cost": "",
+        "syntax": "F: Ziel-Bandengegner wird voll regeneriert in Ini 0 ins Spiel gebracht",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/wiederauferstehung.html"
+          },
+          {
+            "source": "Herrschaft des Dämonenmeisters, Hintergrundband",
+            "page": "40"
+          }
+        ]
+      },
+      "winzig": {
+        "name": "Winzig",
+        "_id": "zhgRwzJ3WxgNQQ2n",
+        "@rev": 1,
+        "type": "Eigenschaft, Bande",
+        "description": "Bis zu 6 winzige Kreaturen können sich im Nahkampf auf einen einzelnen Charakter stürzen. Das geschieht zwar eher selten, weil sich Nsc-Nahkämpfer üblicherweise auf die Gegner aufteilen, aber durch Einsatz von Jägerkräften wie z. B. Leibgarde, Herausforderung oder Taktische Kriegsführung sind solche Situationen durchaus denkbar.",
+        "syntax": "6 pro Jäger",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/ak_winzig.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "247"
+          }
+        ]
+      },
+      "wurzeldorn": {
+        "name": "Wurzeldorn",
+        "_id": "7Vup6uqAbW4327Be",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Wurzeldorn entspricht einem normalen, physischen Angriff mit einem Angriffswert von Wis + As und einem Grundschaden von 3. Verliert der Jäger dadurch Lep, so erhält er 1 Lähmungsstufe pro Lep-Verlust sowie den Zustand Fixierung.",
+        "target": "1-3",
+        "cost": "1 Hex pro Ziel",
+        "syntax": "N|F : Angriff x, Schaden 3 +Lähmung (je 1 pro Lep-Verlust, Fixierung) 1 Hex pro Ziel (1-3 Ziele)",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/ak_wurzeldorn.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "247"
+          }
+        ]
+      },
+      "zauberschutz": {
+        "name": "Zauberschutz",
+        "_id": "aV1xgUvYMdJngkHS",
+        "@rev": 1,
+        "type": "Eigenschaft",
+        "description": "Der Nsc wird durch einen Zauber oder eine ortsgebundene Aura o. Ä. geschützt. Jeweils in Ini 0 erhält er nach Wahl des Spielleiters eine beliebige Resistenz (innerer Schaden, äußerer Schaden oder Malusschaden). jeweils bis zur nächsten Ini 0. Sobald der Nsc die Resistenz erhält, baut er sofort alle entsprechenden Stufen ab, erleidet allerdings vorher den gesamten Schaden durch innere oder äußere Schadensstufen. Die Resistenz kann jederzeit in Ini 0 geändert werden.",
+        "syntax": "Ini 0: Nsc erhält beliebige Resistenz",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/zauberschutz.html"
+          },
+          {
+            "source": "Geheimnisse der Deutschen Lande",
+            "page": "127"
+          }
+        ]
+      },
+      "zorn-erwecken": {
+        "name": "Zorn erwecken",
+        "_id": "YUMvexxUUg68OUiQ",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Der Nsc führt eine vergleichende Probe mit Wil + As gegen Wil + Fw (Geistesstärke) des Ziels aus. Für jeden Differenzerfolg zugunsten des Nsc erleidet der Jäger 1 Malusstufe (Zornstufe) gekoppelt an den Zustand „Zorn“.",
+        "target": "1 – 3",
+        "cost": "1 Hex pro Ziel",
+        "syntax": "N|F: x gegen Geistesstärke, 1 Malusstufe („Zornstufe“, Zorn) pro Differenzerfolg, 1 Hex pro Ziel (1 – 3 Ziele)",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/zorn-erwecken.html"
+          },
+          {
+            "source": "Herrschaft des Dämonenmeisters, Kampagnenband",
+            "page": "17"
+          }
+        ]
+      },
+      "zusammenrotten": {
+        "name": "Zusammenrotten",
+        "_id": "tJ9hMSsS6NelpsoD",
+        "@rev": 1,
+        "type": "Eigenschaft, Bande",
+        "description": "Wenn mindestens 2 Bandengegner (die alle die Eigenschaft Zusammenrotten aufweisen müssen) an denselben Jäger im Nahkampf gebunden sind, erhalten sie einen zusätzlichen automatischen Treffererfolg beim Angriff (insgesamt, nicht kumulativ für jeden Bandengegner). Wenn sich also 4 Bandengegner mit Zusammenrotten auf einen Jäger stürzen, erhalten alle je +1 Treffererfolg.",
+        "syntax": "+1 Treffererfolg",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/ak_zusammenrotten.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "247"
+          }
+        ]
+      },
+      "aetherischer-griff": {
+        "name": "Ätherischer Griff",
+        "_id": "ZzQXBb7yrZ5yaSNH",
+        "@rev": 1,
+        "type": "Handlung, N",
+        "description": "Dieser Berührungsangriff eines ätherischen Geisterwesens wird wie eine normale (N)-Handlung basierend auf Ath + As ausgeführt und verursacht einen Grundschaden von 2 Geistschaden sowie 1 Malusstufe und den Zustand „Furcht“ für jeden Erfolg. Das ätherische Wesen durchdringt sämtliche Materie, daher kann man dem Angriff ausweichen, ihn aber nicht parieren oder blocken.",
+        "target": "1 Nahkampf-Gegner",
+        "cost": "keine",
+        "syntax": "N: Angriff x, Schaden 2 Ge +Malus (je 1, Furcht), nicht blockbar, nicht parierbar)",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/aetherischer-griff.html"
+          },
+          {
+            "source": "Hexenzorn",
+            "page": "118"
+          }
+        ]
+      },
+      "aetherischer-koerper": {
+        "name": "Ätherischer Körper",
+        "_id": "kVqiQ7inP1YHon0C",
+        "@rev": 1,
+        "type": "Eigenschaft",
+        "description": "Geister und Phantome besitzen meist einen ätherischen Körper, der ihnen eine Schadensreduzierung von x gegenüber allen materiellen Angriffen verleiht. Handelt es sich bei der Kreatur um einen Bandengegner, kann sie mithilfe von Bandenkräften besiegt werden. Sollten diese aber auf materiell zugefügtem Schaden basieren, wird der Wert der Schadensreduzierung von den ausgewürfelten Erfolgen abgezogen. Wesen mit ätherischem Körper sind zudem immun gegen anhaltende Einflüsse jeder Art und können sich durch feste Substanz bewegen. Darüber hinaus schweben sie, es gelten die gleichen Regeln wie bei der entsprechenden Nsc-Eigenschaft.",
+        "syntax": "SR −x/alle materiellen Angriffe, −x Erfolge bei Bandenkräften mit materiellem Schaden, Schweber, immun gegen anhaltende Einflüsse",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/ak_wahrer_name.html"
+          },
+          {
+            "source": "Hexenzorn",
+            "page": "118"
+          }
+        ]
+      },
+      "ueberheblichkeit": {
+        "name": "Überheblichkeit",
+        "_id": "vgZlRZQiai1XARpc",
+        "@rev": 1,
+        "type": "Eigenschaft",
+        "description": "Der Nsc hält es nicht für notwendig, eigene Handlungen aufzuwenden, um einen Gegner anzugreifen. Tatsächlich wartet er nur ab, reagiert lediglich dann, wenn er selbst attackiert wird. Der Nsc hat keine Strategie und keine Handlungen. Aber: Sobald er von einem Jäger attackiert wird, reagiert er sofort mit einem beliebigen Gegenangriff. Dieser Gegenangriff wird wie eine Reaktion ausgeführt, nachdem der Schaden durch den Jägerangriff abgehandelt wurde. Es gibt kein Maximum für Gegenangriffe: Sollte der Nsc in einer Runde dreimal attackiert werden, wird er dreimal zurückschlagen.",
+        "syntax": "Nsc führt Angriffe nur als Reaktion aus",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/ueberheblichkeit.html"
+          },
+          {
+            "source": "Herrschaft des Dämonenmeisters, Kampagnenband",
+            "page": "71"
+          }
+        ]
+      }
+    },
+    "speziell-albe": {
+      "absetzen": {
+        "name": "Absetzen",
+        "_id": "sk5R1Fg3eWM69ZKD",
+        "@rev": 1,
+        "type": "Handlung, N, Bande",
+        "description": "Bandengegner mit dieser Nsc-Kraft können sich von gebundenen Gegnern trennen. Das erfordert eine N-Handlung, wonach sich der Bandengegner aber noch frei bewegen kann. Der Nsc kann sich nicht aus der Bindung lösen, wenn er das letzte Wesen ist, das an den Jäger gebunden ist.",
+        "target": "persönlich",
+        "cost": "keine",
+        "syntax": "N: Nsc löst sich von Jäger, solange er nicht als einziges an den Jäger gebunden ist",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/absetzen-6013.html"
+          },
+          {
+            "source": "Archiv des Wächterbunds II",
+            "page": "66"
+          }
+        ]
+      },
+      "albenstich": {
+        "name": "Albenstich",
+        "_id": "JZRfO5Y56xnUVAEL",
+        "@rev": 1,
+        "type": "Handlung, F",
+        "description": "Ein Angriff mit Albenstich erfordert eine Probe auf Sin + As. Der Grundschaden entspricht der As. Zauber kostet keine Hex-Punkte, aber der Alb kann 1- 5 Hex opfern, um den Schaden des Albenstichs um +3 pro Hex zu erhöhen.",
+        "target": "1",
+        "cost": "0-5",
+        "syntax": "Fernkampfangriff mit x, Schaden x, +3 Schaden pro Hex",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/ska_albenstich.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "249"
+          }
+        ]
+      },
+      "blutabnahme": {
+        "name": "Blutabnahme",
+        "_id": "A0iDj7vF7vwbmzvY",
+        "@rev": 1,
+        "type": "Eigenschaft, Bande",
+        "description": "Bandengegner mit dieser Eigenschaft haben eine Reihe von Angriffen (üblicherweise Nahkampfangriffe, gekennzeichnet mit dem Schadenszusatz „Blutabnahme“), mit denen sie Blut vom Jäger ergattern. Sobald ein gekennzeichneter Angriff mindestens 1 Lep-Verlust erzeugt, erhält der Nsc 1 Blutmarker; er kann immer nur 1 solchen Marker besitzen. Der Nsc kann den Blutmarker zu Beginn seiner Aktionsphase einsetzen, um alle seine Lep zu heilen. Je nach Umständen mag es andere Anwendungsgebiete für das erbeutete Blut geben.",
+        "syntax": "Lep-Verlust erzeugt 1 Blutmarker; 1 Blutmarker heilt alle Lep des Nsc",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/blutabnahme.html"
+          },
+          {
+            "source": "Archiv des Wächterbunds",
+            "page": "66"
+          }
+        ]
+      },
+      "hex-heilung": {
+        "name": "Hex-Heilung",
+        "_id": "PI18WA9yzsxgUUde",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Sie können als N oder F Fandlung 1 - 5 Hex ausgeben und pro Hex 4 Lep regenerieren.",
+        "target": "persönlich",
+        "cost": "1-5 Hex",
+        "syntax": "4 Lep pro Hex, 1-5 Hex",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/ska_hex-heilung.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "249"
+          }
+        ]
+      },
+      "kraft-des-unterreichs": {
+        "name": "Kraft des Unterreichs",
+        "_id": "yK5tygUzOVHWq6OH",
+        "@rev": 1,
+        "type": "Eigenschaft",
+        "description": "Befindet sich der Alb in einer unterirdischen Umgebung, so darf er jede beliebige Angriffs- oder Zauberprobe sofort wiederholen, bei der er nur 1 oder 2 Erfolge erzielt. Das Ergebnis der zweiten Probe zählt.",
+        "syntax": "unterirdisch, wiederhole Probe bei 1 oder 2 Erfolgen",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/ska_kraft_des_unterreichs.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "249"
+          }
+        ]
+      },
+      "toedlicher-sog": {
+        "name": "Tödlicher Sog",
+        "_id": "UBwM4NEXvyic7d7Q",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Mit dieser Kraft wird unter schwimmenden Jägern oder einem Boot eine Sogwirkung erzeugt, die den Jäger bzw. das Boot in die Tiefe reißt. Tödlicher Sog kann nur angewendet werden, wenn das Wasser mindestens drei Meter tief ist. Gegen schwimmende Jäger führt der Nsc eine vergleichende Probe Ath + As gegen Akrobatik des Jägers aus; für jeden Differenzerfolg zugunsten des Nsc erleidet der Jäger eine innere Schadensstufe und den Zustand Atemnot. Er befindet sich anschließend unter Wasser. Der Zustand Atemnot kann erst abgebaut werden, wenn der Jäger an die Wasseroberfläche kommt; dazu ist eine Aktion (2 Ap) notwendig sowie eine Akrobatik-Probe mit einem Malus von –1 pro innere Schadensstufe. Gelingt die Probe, kehrte der Jäger an die Oberfläche zurück und kann entweder Luft holen und für jeweils 1 Ap 1 innere Schadensstufe automatisch reduzieren oder in Ini 0 eine reguläre Reduzierungsprobe auf Unempfindlichkeit ausführen (oder beides). Ist der Angriff gegen ein Boot gerichtet, führt der Nsc eine normale Probe Ath + As durch mit einem Malus für die Größe des Boots (–0 für einen Baumstamm, –2 für ein Ruderboot, –5 für ein kleines Segelschiff, größere Schiffe werden nicht betroffen). Für jeweils 1 Erfolg wird entweder eine Person oder ein anderes wichtiges Objekt über Bord geschleudert. Wurden so viele Erfolge erzielt wie der Malus hoch ist (also 5 Erfolge bei einem Segelboot), kentert das komplette Boot.",
+        "target": "1-3",
+        "cost": "1 Hex pro Ziel",
+        "syntax": "N|F : x gegen Akrobatik, 1 innere Schadensstufe (Atemnot) pro Differenzerfolg, 1 Hex pro Ziel (1–3 Ziele)",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/toedlicher-sog.html"
+          },
+          {
+            "source": "Archiv des Wächterbunds",
+            "page": "103"
+          }
+        ]
+      },
+      "wasserfontaene": {
+        "name": "Wasserfontäne",
+        "_id": "9UByWjNvIRui4CtA",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Die Wasserfontäne betrifft ein Lebewesen, das hoch in die Luft geschleudert wird, sodass es abstürzt. Das Ziel muss sich mindestens bis zu den Knien im Wasser befinden, damit die Wasserfontäne gewirkt werden kann. Eine Angriffsprobe ist nicht nötig, der betroffene Jäger verliert automatisch Elixierwürfel Ap. Sollte die Zahl der verlorenen Ap höher sein als seine verbleibenden, verliert er für jeden „überschüssigen“ Punkt 1 Blutwürfel Schmerzschaden.",
+        "target": "1-3",
+        "cost": "1 Hex pro Ziel",
+        "syntax": "N|F: Jäger verliert Elixierw. Ap, für jeden Ap zuviel 1 Blutw. Sc, 1 Hex pro Ziel (1–3 Ziele)",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/wasserfontaene.html"
+          },
+          {
+            "source": "Archiv des Wächterbunds II",
+            "page": "103"
+          },
+          {
+            "source": "Hexenzorn",
+            "page": "125"
+          }
+        ]
+      },
+      "wasserwelle": {
+        "name": "Wasserwelle",
+        "_id": "lx3Ltwal3GAijKoC",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Der Nsc kann Wasser zu einer Welle gestalten, die sich kreisförmig vom Zaubernden ausbreitet und alle nicht-schwebenden, nicht-fliegenden Geschöpfe auf dem Kampfschauplatz betrifft: Diese Kraft erfordert eine vergleichende Probe Ath + As gegen Akrobatik der betroffenen Jäger (andere Anführergegner würfeln auf Ath, andere Bandengegner haben pauschal Erfolge in Höhe ihrer Bandenstufe); für jeden Differenzerfolg erleidet ein Jäger eine Malusstufe (Zustand: Taumeln), für je 2 Differenzerfolge 1 Blutwürfel Schmerzschaden. Das gleiche gilt für Nsc, nur dass sie nicht den Zustand Taumeln erhalten.",
+        "target": "Alle Nicht-Schweber, Nicht-Flieger",
+        "cost": "3 Hex",
+        "syntax": "N|F: Jäger verliert Elixierw. Ap, für jeden Ap zuviel 1 Blutw. Sc, 1 Hex pro Ziel (1–3 Ziele)",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "N|F: Bereicheffekt, x gegen Akrobatik, 1 Malusstufe pro Differenzerfolg, 1 Blutwürfel Sc für 2 Differenzerfolge, 3 Hex"
+          },
+          {
+            "source": "Archiv des Wächterbunds II",
+            "page": "103"
+          },
+          {
+            "source": "Hexenzorn",
+            "page": "125"
+          }
+        ]
+      },
+      "zauberkraft-aus-der-erde": {
+        "name": "Zauberkraft aus der Erde",
+        "_id": "feGVr5VVfUcm6vxt",
+        "@rev": 1,
+        "type": "Eigenschaft",
+        "description": "Daher dürfen sie auf alle Zauber, die etwas mit Natur zu tun haben (z. B. Wurzeldorn), einen Bonus von +3 addieren. Welche Zauber oder Handlungen von dieser Eigenschaft betroffen sind, ist in der Kurzbeschreibung der Kraft jeweils angegeben.",
+        "syntax": "+3 auf folgende Zauber und Handlungen: x",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/ska_zauberkraft_aus_der_erde.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "249"
+          }
+        ]
+      }
+    },
+    "speziell-daemon": {
+      "daemonenkoerper": {
+        "name": "Dämonenkörper",
+        "_id": "hwshE05Lx4QzXaQE",
+        "@rev": 1,
+        "type": "Eigenschaft",
+        "description": "Dämonen mit dieser Eigenschaft besitzen eine Schadensreduzierung von x gegen alle Arten von materiellem Schaden, außer heiligem Schaden. Darüber hinaus können sie sich automatisch in ihrer Ini-Phase von beliebig vielen gebundenen Gegnern lösen (wenn sie das wollen).",
+        "syntax": "SR x/materieller Schaden",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/skd_daemonenkoerper.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "248"
+          }
+        ]
+      },
+      "koerper-aus-rauch-und-flammen": {
+        "name": "Körper aus Rauch und Flammen",
+        "_id": "LWdpPN68S7OtSU47",
+        "@rev": 1,
+        "type": "NSC Handlung, NN|FF",
+        "description": "Der Nsc verwandelt sich in ein halb-ätherisches Wesen, das aus Rauch und Flammen zu bestehen scheint. Die Umrisse des Wesens bleiben erhalten, jedoch wirkt es durchscheinend, und Details sind nicht mehr zu erkennen. Um den Zauber zu wirken, sind zwei Handlungen vonnöten. Danach kann das Wesen kaum noch durch materielle Angriffe verletzt werden; es genießt eine Schadensreduzierung von 7 gegen materielle Angriffe. Das Wesen kann in diesem Zustand jedoch auch nicht selbst mit seiner Umwelt interagieren (z. B. um mit eigenen Waffen Schaden anzurichten), kann aber Nsc-Handlungen (Zauber) ausführen. Das Wirken dieses Zustands kostet 1 Hex, danach kostet es jeweils 1 Hex, um den Zustand für eine weitere Runde aufrecht zu erhalten. In körperloser Gestalt kann der Nsc keine Hex aufbauen.",
+        "target": "persönlich",
+        "cost": "1 Hex + 1 Hex pro Zug",
+        "syntax": "NN|FF: SR -7/materielle Angriffe, kann nur Zauber wirken, keine Hex aufbauen, 1 Hex zum Wirken, 1 Hex zum Fortsetzen)",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/koerper-aus-rauch-und-flammen.html"
+          },
+          {
+            "source": "Sieben mal sieben Jahre",
+            "page": "49"
+          }
+        ]
+      },
+      "meister-der-magie": {
+        "name": "Meister der Magie",
+        "_id": "IR1y5w9XzAhsOms5",
+        "@rev": 1,
+        "type": "Eigenschaft",
+        "description": "Ein Dämon mit Meister der Magie generiert automatisch 1 Hex, wenn er bei einem beliebigen Angriffswurf 5 oder mehr Erfolge erzielt.",
+        "syntax": "+1 Hex bei 5+ Erfolgen",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/skd_meister_der_magie.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "248"
+          }
+        ]
+      },
+      "teufelsterror": {
+        "name": "Teufelsterror",
+        "_id": "3XLwic2QDzbddcKV",
+        "@rev": 1,
+        "type": "Eigenschaft",
+        "description": "Ein Dämon mit dieser Eigenschaft regeneriert in Ini 0 je 1 Lep für jede Malusstufe aller anwesenden Jäger.",
+        "syntax": "+1 Lep pro Malusstufe aller Jäger",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/skd_teufelsterror.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "248"
+          }
+        ]
+      },
+      "versuchung": {
+        "name": "Versuchung",
+        "_id": "cmVMbVnx0m6PVua5",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Der Dämon führt eine vergleichende Probe mit Wil + As gegen Wil + Fw (Geistesstärke) aus. Für jeden Differenzerfolg zugunsten des Nsc erhält der Jäger 1 Lähmungsstufe. Erzielt der Dämon mindestens 1 Differenzerfolg, bekommt der Jäger den Zustand Verzauberung. Darüber hinaus verfügt der Dämon bei allen Angriffen oder Zaubern gegen einen verzauberten Jäger über einen Bonus von +3.",
+        "target": "1-3",
+        "cost": "1 Hex pro Ziel",
+        "syntax": "N|F: x gegen Geistesstärke, 1 Malusstufe (Verzauberung) pro Differenzerfolg +3 gegen verzauberte Jäger, 1 Hex pro Ziel (1-3 Ziele)",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/skd_versuchung.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "249"
+          }
+        ]
+      }
+    },
+    "speziell-hexen": {
+      "beruehrung-des-eises": {
+        "name": "Berührung des Eises",
+        "_id": "srf3L729ozbVUgw0",
+        "@rev": 1,
+        "type": "Handlung, N",
+        "description": "Dieser Zauber erfordert einen Berührungsangriff basierend auf Ath + As. Der Angriff verursacht einen Grundschaden von 3 Frostschaden sowie 1 Stufe äußeren Schaden und den Zustand „Erfrierung“ für jeden Erfolg.",
+        "target": "1",
+        "cost": "1 Hex",
+        "syntax": "N: Angriff x, Schaden 3 Fr +äußerer Schaden (je 1, Erfrierung), 1 Hex, (1 Ziel)",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/beruehrung-des-eises.html"
+          },
+          {
+            "source": "Hexenzorn",
+            "page": "118"
+          }
+        ]
+      },
+      "boeser-blick": {
+        "name": "Böser Blick",
+        "_id": "INAkqdzvIVLmnvWb",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Die Hexe führt eine vergleichende Probe mit Wil + As gegen Wil + Fw (Geistesstärke) aus. Für jeden Differenzerfolg zugunsten des Nsc erhält der Jäger 1 Malusstufe. Erzielt die Hexe mindestens 1 Differenzerfolg, bekommt der Jäger den Zustand Fluch. Zusätzlich generiert sie für jede verursachte Malusstufe sofort 1 Hex (auch außerhalb von Kämpfen; diese Punkte stehen der Hexe dann bei der nächsten Kampfhandlung zur Verfügung). Der Hex-Zuwachs kann nur einmal pro Tag erfolgen; die erhaltenen Hex-Punkte verschwinden zu Beginn des nächsten Tages.",
+        "target": "1",
+        "cost": "2 Hex pro Ziel",
+        "syntax": "N|F: x gegen Geistesstärke, 1 Malusstufe (Fluch) pro Differenzerfolg, 1x pro Tag: +1 Hex pro Malusstufe, 1 Hex pro Ziel (1 Ziele)",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/skh_boeser_blick.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "247"
+          }
+        ]
+      },
+      "chemische-explosion": {
+        "name": "Chemische Explosion",
+        "_id": "az6czPkv9GFPi9sn",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Der Nsc bringt Gifte, Elixiere, aber auch andere Substanzen der Jäger zur Explosion, die mittels chemischer oder alchemistischer Verfahren hergestellt wurden, darunter auch mächtiges Schießpulver, Kräutermittel und Wurfgeschosse. Der Zauber erfordert keine Probe, jeder anwesende Jäger ermittelt mit 1 Blutwürfel, wie viele seiner mitgeführten Verbrauchsgüter explodieren. Trägt er verschiedene bei sich, darf er die betroffenen frei bestimmen. Für jedes explodierende Verbrauchsgut nimmt er 1 Blutwürfel Feuerschaden. Jäger können sich freiwillig aller Substanzen entledigen, das erfordert jedoch eine Aktion mit 2 Ap. Die abgelegten Verbrauchsgüter stehen dann für den restlichen Kampf nicht mehr zur Verfügung.",
+        "target": "alle Jäger (Bereich)",
+        "cost": "2 Hex",
+        "syntax": "N|F: jeder Jäger verliert Blutw. Verbrauchsgüter, pro Verbrauchsgut 1 Blutw. Fe, 2 Hex",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/chemische-explosion.html"
+          },
+          {
+            "source": "Hexenzorn",
+            "page": "118"
+          }
+        ]
+      },
+      "dornendickicht": {
+        "name": "Dornendickicht",
+        "_id": "N9XpHIAMLmm89TqE",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Solange der Effekt aktiv ist, erhält jeder Jäger zu Beginn einer Kampfrunde automatisch 1 äußere Schadensstufe und den Zustand Blutung. Jeder Jäger kann jedoch als Reaktion (1 AP) eine Probe auf Ath + Fw (Ausweichen) oder alternativ einen Schildblock ausführen, um die Schadensstufe zu negieren (1 Erfolg reicht dazu aus). Diese Probe muss jede Runde neu abgelegt werden. Die Dornen können auch vernichtet werden, indem die Jäger mit Hilfe scharfer Klingen (Schwerter oder Säbel) dem Dornendickicht insgesamt 30 Schadenspunkte zufügen (dazu sind normale Angriffsproben nötig; das Dornendickicht hat Pw 2 und kann danach nicht erneut beschworen werden).",
+        "target": "Umgebung",
+        "cost": "5 Hex",
+        "syntax": "N|F: Umgebungseffekt, pro Kampfrunde 1 äußerer Schaden (Blutung), ausweichbar, zerstörbar, 5 Hex",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/skh_dornendickicht.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "248"
+          }
+        ]
+      },
+      "fleisches-untertan": {
+        "name": "Fleisches Untertan",
+        "_id": "iM70cduvqiZb8fLE",
+        "@rev": 1,
+        "type": "Handlung, NNN|FFF",
+        "description": "Nsc, die diesen furchtbaren Zauber beherrschen, besitzen die allumfassende Macht, menschliches oder tierisches Leben mit einem einzigen Ritual zu beenden. Dieses erfordert drei Nahkampf- oder Fernkampf-Handlungen und ist daher nur von den mächtigsten Nsc ausführbar (die Handlung muss innerhalb eines Zugs erfolgen und kann nicht auf mehrere Runden aufgeteilt werden). Als Ziel wird ein lebendes Wesen bestimmt; dabei kann es sich ebenso um einen Untergebenen handeln wie einen Jäger. Die Lep des Betroffenen werden sofort auf −1 reduziert (falls sie vorher nicht schon niedriger waren). Nsc-Diener sterben dadurch, Jäger können wie üblich weiterkämpfen (sie verlieren aber sämtliche Coups, Ideen und Puffer-Lep). Verfügt der Jäger über Verderbnis, werden seine Lep stattdessen auf den Wert der Verderbnis gesetzt; evtl. vorhandene Puffer-LEP werden dennoch auf 0 reduziert. Beispielsweise besitzt ein Jäger mit 1 Verderbnis nach Abschluss des Rituals 1 Lep und 0 Puffer-LEP.",
+        "target": "1",
+        "cost": "5 Hex",
+        "syntax": "NNN|FFF: Lep einer Kreatur sinken auf −1, 5 Hex",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/fleisches-untertan.html"
+          },
+          {
+            "source": "Hexenzorn",
+            "page": "119"
+          }
+        ]
+      },
+      "fluch-der-anderwelt": {
+        "name": "Fluch der Anderswelt",
+        "_id": "4Io7Kwy3AscTIqP5",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Mit dieser Kraft ist es einem Nsc möglich, einen Jäger in gewissem Maß der Realität zu entrücken, sodass er teilweise der Anderswelt angehört. Der Nsc führt eine vergleichende Probe mit Wil + As gegen Wil + Fw (Aufmerksamkeit) des Ziels aus. Für jeden Differenzerfolg zugunsten des Nsc erleidet der Jäger 1 Malusstufe gekoppelt an den Zustand ¢[„Entrückung“]. Betragen die Differenzerfolge 5 oder mehr, ist der Jäger so weit der realen Welt entrissen, dass er weder Coups, Ideen, Segnungen noch sonstige Ressourcen verwenden kann, bis der Zustand abgebaut ist.",
+        "target": "1-3",
+        "cost": "1 Hex pro Ziel",
+        "syntax": "N|F: x gegen Aufmerksamkeit, 1 Malusstufe (Entrückung, 5: Ziel kann keine Ressourcen nutzen) pro Differenzerfolg, 1 Hex pro Ziel (1–3 Ziele)",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/fluch-der-anderswelt.html"
+          },
+          {
+            "source": "Hexenzorn",
+            "page": "120"
+          }
+        ]
+      },
+      "gegenschlag-des-waldes": {
+        "name": "Gegenschlag des Waldes",
+        "_id": "LGgZhLUwKVilKw5g",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Mit dieser Zauberkraft vermag ein Nsc Bäume, Büsche und Wurzeln der Umgebung zu beleben, sodass sie wild um sich schlagend alle Gegner verletzen. Bei Anwendung gibt der Nsc 1–3 Hex aus und fügt sämtlichen Jägern im Kampfgebiet Schaden in Höhe von 1–3 Blutwürfeln zu (entsprechend der ausgegebenen Hex-Punkte). Der Pw des Jägers wird vom addierten Schaden abgezogen, welcher nicht über Blocken, Ausweichen oder Parieren reduziert werden kann.",
+        "target": "alle Jäger (Bereich)",
+        "cost": "1-3 Hex",
+        "syntax": "N|F: 1 Blutw. normaler Schaden pro Hex bei allen Jägern, 1–3 Hex",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/gegenschlag-des-waldes.html"
+          },
+          {
+            "source": "Hexenzorn",
+            "page": "120"
+          }
+        ]
+      },
+      "haaresfluch": {
+        "name": "Haaresfluch",
+        "_id": "wje0UX5Yh3kwCqC0",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Diese Kraft sorgt nicht nur dafür, dass die Haare einer menschlichen Person in Windeseile wachsen, sondern lässt sie auch ein Eigenleben entwickeln, woraufhin der Schopf seinen Besitzer zu erwürgen versucht. Der Zauber erfordert eine vergleichende Probe mit Wil + As gegen Kkr + Fw (Unempfindlichkeit) des Ziels. Für jeden Differenzerfolg zugunsten des Nsc erleidet der Jäger 1 Malusstufe gekoppelt an den Zustand „Haaresfluch“. Betragen die Differenzerfolge 5 oder mehr, verliert der Jäger zusätzlich Coups in Höhe 1 Blutwürfels.",
+        "target": "1-3",
+        "cost": "1 Hex pro Ziel",
+        "syntax": "N|F: x gegen Unempfindlichkeit, 1 Malusstufe (Haaresfluch, 5: −Blutw. Coups) pro Differenzerfolg, 1 Hex pro Ziel (1–3 Ziele)",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/haaresfluch-6101.html"
+          },
+          {
+            "source": "Hexenzorn",
+            "page": "120"
+          }
+        ]
+      },
+      "hellsicht": {
+        "name": "Hellsicht",
+        "_id": "HvLX17hZ7Fcbbqu3",
+        "@rev": 1,
+        "type": "Eigenschaft",
+        "description": "Sie erhält einen Bonus von +5 auf Sin-Proben zum Entdecken anschleichender Jäger sowie auf alle anderen vergleichenden Heimlichkeitsproben.",
+        "syntax": "+5 auf Sin gegen Heimlichkeitsproben",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/skh_hellsicht.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "248"
+          }
+        ]
+      },
+      "herz-aus-eis": {
+        "name": "Herz aus Eis",
+        "_id": "m8iJeptKom3woEdO",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Diese Kraft erzeugt einen Eissplitter im Herzen des Ziels. Um den Zauber zu wirken, muss dem Nsc eine vergleichende Probe mit Wil + As gegen Kkr + Fw (Unempfindlichkeit) des Ziels gelingen. Erzielt der Nsc mindestens 1 Differenzerfolg, erleidet der Jäger 5 Stufen inneren Schaden gekoppelt an den Zustand „Vergiftung“ (der Eissplitter zählt regeltechnisch als Vergiftung).",
+        "target": "1",
+        "cost": "3 Hex",
+        "syntax": "N|F: x gegen Unempfindlichkeit, bei Erfolg 5 innerer Schaden (Vergiftung), 3 Hex",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/herz-aus-eis.html"
+          },
+          {
+            "source": "Hexenzorn",
+            "page": "120"
+          }
+        ]
+      },
+      "hexenfauna": {
+        "name": "Hexenfauna",
+        "_id": "xJeBsEml4Qnp52KI",
+        "@rev": 1,
+        "type": "Eigenschaft",
+        "description": "Immer wenn eine Hexe mit dieser Eigenschaft Dienerwesen beschwört, erhalten alle beschworenen Bandenkreaturen +1 Treffererfolg.",
+        "syntax": "beschworene Bandengegner +1 Treffererfolg",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/skh_hexenfauna.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "248"
+          }
+        ]
+      },
+      "hexenpfeil": {
+        "name": "Hexenpfeil",
+        "_id": "KI1j7LD22GuGhWr7",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Ein Hexenpfeil ist ein magischer Angriff, der gegen viele Jäger gerichtet ist, aber in der Regel nur wenig Schaden verursacht. Meist erscheint er als eine Vielzahl arkaner Geschosse, die fächerförmig vom Nsc ausgehen und deren Aussehen sich je nach Hexentyp stark unterscheidet. Bei einer Waldhexe können sie wie kleine Vögel mit spitzen Schnäbeln beschaffen sein, bei einer Eishexe wie scharfe Eissplitter, bei einer Schattenhexe wie schwarze Blitze unheilvoller Energie. Um den Zauber zu wirken, opfert der Nsc 2 Hex und würfelt eine Probe auf Wis + As. Für jeden erzielten Erfolg wird 1 Geschoss erschaffen, das sich jeweils einen anderen Jäger als Ziel sucht. Werden mehr Geschosse erzeugt, als Jäger anwesend sind, fliegen die überzähligen zur Hexe zurück und heilen sie für jeweils 3 Lep. Der Angriff gilt als Flächeneffekt des Typs „Kegel“, wodurch gebundene Jäger immer zuerst als Ziel gewählt werden. Jedes Geschoss trifft automatisch und verursacht Schaden in Höhe 1 Blutwürfels + As. Hexenpfeil ist ein sichtbarer Zaubereffekt (Regeln wie Pistole), den man blocken oder dem man ausweichen kann.",
+        "target": "Erfolge einer Probe auf Wis + As",
+        "cost": "2 Hex",
+        "syntax": "N|F: Kegelangriff gegen [Probe auf x] Jäger, Blutw. + As Schaden pro Ziel, übrige Pfeile heilen Nsc um je 3 Lep, 2 Hex",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/hexenpfeil.html"
+          },
+          {
+            "source": "Hexenzorn",
+            "page": "120"
+          }
+        ]
+      },
+      "hexenschuss": {
+        "name": "Hexenschuss",
+        "_id": "qs2ikcxqwNOlwJTu",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Mit dieser Zauberkraft kann die Hexe schlimme Schmerzen im Rückgrat des Jägers erzeugen. Der Nsc führt eine vergleichende Probe mit Wil + As gegen Ath + Fw (Akrobatik) des Ziels aus. Für jeden Differenzerfolg zugunsten des Nsc verliert der Jäger sofort 1 Ap. Sinken die Ap dadurch auf 0 oder besaß der Jäger keine Ap mehr, erhält er zusätzlich 1 (einzelne) Lähmungsstufe und den Zustand „Fixierung“.",
+        "target": "1–3",
+        "cost": "1 Hex pro Ziel",
+        "syntax": "N|F: x gegen Akrobatik, pro Differenzerfolg −1 Ap, bei 0 Ap: +1 Lähmungsstufe (Fixierung), 1 Hex pro Ziel (1–3 Ziele)",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/hexenschuss.html"
+          },
+          {
+            "source": "Hexenzorn",
+            "page": "120"
+          }
+        ]
+      },
+      "hexentanz": {
+        "name": "Hexentanz",
+        "_id": "UBMUB5feh95MQuOP",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Die Hexe beginnt, wie toll zu tanzen – und steckt damit auf magische Weise auch die Jäger an. Hexentanz erfordert 1 Handlung (Nahkampf oder Fernkampf) sowie 1 Hex. Immer wenn der Nsc die Kraft anwendet, kann er einen Jäger bestimmen, der sich dem Tanz anschließen muss. Dieser endet erst, wenn die Hexe besiegt wurde oder flüchtet. Alle Tänzer (einschließlich der Hexe selbst) erhalten einen Malus in Höhe der Gesamtzahl der Tänzer auf sämtliche Proben (max. 5). Mit der ersten Anwendung der Kraft beträgt der Malus −2 (für die Hexe und den ersten verzauberten Jäger), pro Handlung und jeden weiteren Tänzer steigt er um 1 Stufe. Hexentanz erzeugt weder einen anhaltenden Einfluss noch einen Zustand, der Malus kann aber wie üblich maximal −5 betragen. Ist die Hexe immun gegen Malusschaden, sind nur die anderen Tänzer betroffen, sie selbst zählt aber weiterhin als Tänzer. Ein Jäger darf den Tanz abbrechen, indem er in Ini 0 Coups in Höhe 1 Blutwürfels opfert. Besitzt er nicht genügend Coups, werden alle vorhandenen verbraucht, aber der Jäger muss weitertanzen. Hat sich ein Jäger aus dem Tanz befreit, kann er von der Hexe erneut als Ziel des Zaubers gewählt werden.",
+        "target": "1",
+        "cost": "1 Hex",
+        "syntax": "N|F: Hexe + 1 Jäger beginnen zu tanzen, alle Tänzer Malus in Höhe Gesamtzahl der Tänzer (max. −5), 1 Blutw. Coups in Ini 0: Jäger befreit sich aus Tanz",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/hexentanz.html"
+          },
+          {
+            "source": "Hexenzorn",
+            "page": "121"
+          }
+        ]
+      },
+      "koerper-aus-eis": {
+        "name": "Körper aus Eis",
+        "_id": "uuvqJuomv0p6WeTg",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Aktiviert der Nsc diese Kraft, was 1 (N)- oder (F)-Handlung erfordert, überzieht sich sein Körper mit einer schützenden Schicht aus Eis, und er erhält 10 Puffer-Lep. Solange diese nicht aufgebraucht sind, besitzt er außerdem eine Schadensreduzierung von 3 gegen alle materiellen Angriffe. Sinken die Puffer-Lep auf 0, erlischt die Schadensreduzierung. Die Kraft kann dann erneut gewirkt werden.",
+        "target": "persönlich",
+        "cost": "2 Hex",
+        "syntax": "N|F: 10 Puffer- Lep, solange Puffer-Lep vorhanden: SR −3/alle materiellen Angriffe, 2 Hex",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/koerper-aus-eis.html"
+          },
+          {
+            "source": "Hexenzorn",
+            "page": "121"
+          }
+        ]
+      },
+      "macht-der-kelten": {
+        "name": "Macht der Kelten",
+        "_id": "szcOhfPQUy1uC8Vf",
+        "@rev": 1,
+        "type": "Handlung, freie Handlung",
+        "description": "Nsc, die diese Kraft beherrschen, besitzen eine starke Verbindung zur keltischen Anderswelt und zu ihren Ahnen. Für gewöhnlich stammen sie von den Kelten ab oder konnten durch mystische Träume, Visionen oder dunkle Rituale den Kontakt in diese jenseitige Sphäre herstellen. Im Kampf kann der Nsc als freie Handlung (einmal pro Runde) für 1 Hex die Macht der Kelten beschwören. Er erstrahlt daraufhin in einem grüngoldenen Glanz und über seinem Kopf zeichnen sich geisterhafte Hörner ab, die an ein Hirschgeweih erinnern. Für die Dauer des Kampfes erhält der Nsc einen Bonus von +1 auf alle seine Würfe, zudem regeneriert er 2 Lep jeweils in Ini 0. Macht der Kelten kann wiederholt angewendet werden, der Bonus und die Regeneration steigen dadurch bis auf ein Maximum von +5/+10.",
+        "target": "persönlich",
+        "cost": "1 Hex",
+        "syntax": "freie Handlung, 1x pro Runde: +1 auf Proben, +2 Lep in Ini 0, kumulativ bis +5/+10, 1 Hex",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/macht-der-kelten.html"
+          },
+          {
+            "source": "Hexenzorn",
+            "page": "121"
+          }
+        ]
+      },
+      "revierbeschwoerung": {
+        "name": "Revierbeschwörung",
+        "_id": "X4mfTMyeDelfUc0J",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Eine Revierbeschwörung entspricht in jeder Hinsicht einer normalen Beschwörung, mit einer Ausnahme: Werden Wesen herbeigerufen, die dem natürlichen Lebensumfeld des Nsc entsprechen (z. B. Waldtiere im Heimatgebiet einer Waldhexe), besitzen sie automatisch die Nsc-Eigenschaft „Bandenwiderstand (+1)“. Im Zweifelsfall entscheidet der HeXXenmeister, ob die Kraft auf ein Wesen zutrifft.",
+        "target": "variabel",
+        "cost": "variabel",
+        "syntax": "N|F: Kreaturenname, Bandenstufe, Hex-Kosten, Bandenwiderstand (+1)",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/revierbeschwoerung.html"
+          },
+          {
+            "source": "Hexenzorn",
+            "page": "122"
+          }
+        ]
+      },
+      "schadensverteilung": {
+        "name": "Schadensverteilung",
+        "_id": "aRGfvYAUA4h3toyH",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Der Nsc hat die Gabe, den ihm zugefügten Schaden auf andere Nsc zu verteilen, die ebenfalls über diese Kraft verfügen. Als Handlung kann der Nsc beliebig viele Lep heilen, die dann ein anderer geeigneter Nsc verliert.",
+        "target": "persönlich +1 Nsc",
+        "cost": "1 Hex",
+        "syntax": "N|F: Heile x Schaden, anderer Nsc mit Schadensverteilung erleidet x Schaden, 1 Hex",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/schadensverteilung.html"
+          },
+          {
+            "source": "Archiv des Wächterbunds",
+            "page": "24"
+          }
+        ]
+      },
+      "schlechtes-gewissen-einfluestern": {
+        "name": "Schlechtes Gewissen einflüstern",
+        "_id": "rNI5Ml6r0vsDYyop",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Mithilfe dieses Zaubers verwirrt der Nsc seine Gegner, indem er nagende Schuldgefühle in ihnen erzeugt. Der Nsc bestimmt eine beliebige Anzahl der Jäger als Ziel und führt vergleichende Proben mit Wil + As gegen Wil + Fw (Geistesstärke) aus, wobei die Jäger pro Rage-Punkt einen Malus von −1 und pro Segnung einen Bonus von +1 einrechnen müssen. Für jeden Differenzerfolg zugunsten des Nsc erleidet der entsprechende Jäger 1 Malusstufe gekoppelt an den Zustand [„Schlechtes Gewissen“]. Betragen die Differenzerfolge 5 oder mehr, ist der Zustand nach Wahl des HeXXenmeisters mächtig oder dauerhaft.",
+        "target": "max. Jz",
+        "cost": "1 Hex pro Ziel",
+        "syntax": "N|F: x gegen Geistesstärke (Malus −1 pro Rage/Bonus +1 pro Segnung), 1 Malusstufe (Schlechtes Gewissen, 5: MD) pro Differenzerfolg, 1 Hex pro Ziel (max. Jz Ziele)",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/schlechtes-gewissen-einfluestern.html"
+          },
+          {
+            "source": "Hexenzorn",
+            "page": "122"
+          }
+        ]
+      },
+      "schrei-der-sirene": {
+        "name": "Schrei der Sirene",
+        "_id": "EVOTJrdHm2t13POh",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Der Nsc ist in der Lage, große Mengen magischer Energie in einem lauten schrillen Schrei zu entfesseln. Als (N)- oder (F)-Handlung kann er 1–5 Hex opfern: Pro Hex-Punkt wird 1 Jäger betroffen und erleidet Geistschaden in Höhe der Gesamtzahl geopferter Hex-Punkte (bei 3 Hex nehmen beispielsweise 3 Jäger jeweils 3 Punkte Geistschaden). Leidet ein Ziel unter dem Zustand „Taubheit“, reduziert sich der Geistschaden um 1 pro Malusstufe. Jäger können diesen Zustand auch freiwillig herbeiführen, etwa indem sie sich Wachs in die Ohren stopfen. Sie erhalten dadurch 1 Malusstufe und den Zustand „Taubheit“.",
+        "target": "1–5",
+        "cost": "1–5 Hex",
+        "syntax": "N|F: x Hex (max. 5), x Jäger erleiden x Ge (− Malusstufen bei Taubheit)",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/schrei-der-sirene.html"
+          },
+          {
+            "source": "Hexenzorn",
+            "page": "122"
+          }
+        ]
+      },
+      "sinnlichkeit": {
+        "name": "Sinnlichkeit",
+        "_id": "JRlS9TrLAM94WbQd",
+        "@rev": 1,
+        "type": "Eigenschaft",
+        "description": "Hexen mit Sinnlichkeit erhalten eine Meisterschaft (Bonus +5) auf Wil, wenn es darum geht, eine andere Person zu manipulieren. Das gilt auch, wenn sie selbst Ziel einer solchen Manipulation sind, z. B. durch eine Redekunst- Probe eines Jägers. Der Bonus wird auch dann wirksam, wenn die Hexe einen Zauber wirkt, der den Zustand Verzauberung erzielen soll. Gegen Personen, die kein Interesse am weiblichen Geschlecht haben, verleiht Sinnlichkeit nur einen Bonus von +2.",
+        "syntax": "+5/+2 auf Wil bei Manipulationen",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/skh_sinnlichkeit.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "248"
+          }
+        ]
+      },
+      "sphaere-des-blutes": {
+        "name": "Sphäre des Blutes",
+        "_id": "SX1uQGyucHHXPF1S",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Dieser Zauber verwandelt die Umgebung regelrecht in ein Meer aus Blut: Wo auch immer man sich gerade aufhält, beginnt der Lebenssaft langsam aus Decke, Wänden und Boden zu fließen, wodurch Jäger ins Schliddern geraten und den Halt verlieren. In freier Natur tritt das Blut nur aus dem Boden und aus Felsen, nicht aber aus Pflanzen oder Tieren. Unter Umständen mögen sich jedoch nahe Gewässer rot färben. Das Wirken des Zaubers kostet 3 Hex, allerdings muss der Nsc danach jeweils in jeder weiteren Runde 1 Hex aufbringen (erfordert keine Handlung), um den Effekt zu verlängern (ansonsten endet er sofort nach der INI-Phase des Nsc). Während der Zauber anhält, erleiden alle Jäger jeweils zu Beginn einer Kampfrunde +1 Lähmungsstufe gekoppelt an den Zustand „Taumeln“.",
+        "target": "Umgebung",
+        "cost": "3 Hex zum Wirken, 1 Hex zum Fortsetzen",
+        "syntax": "N|F: bei Rundenanfang: Jäger +1 Lähmungsstufe (Taumeln), 3 Hex zum Wirken, 1 Hex zum Fortsetzen",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/sphaere-des-blutes.html"
+          },
+          {
+            "source": "Hexenzorn",
+            "page": "123"
+          }
+        ]
+      },
+      "spinnenfluch": {
+        "name": "Spinnenfluch",
+        "_id": "7hSMWWyN9yTX9M1K",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Das Ziel dieses Fluchs glaubt, dass sein Körper von Spinnen, Würmern, Käfern und anderen garstigen Insekten oder Tieren heimgesucht wird. Der Zauber erfordert eine vergleichende Probe mit Wil + As gegen Sin + Fw (Erkennen), damit das Ziel die Illusion nicht durchschaut. Für jeden Differenzerfolg zugunsten des Nsc erleidet der Jäger 1 Malusstufe gekoppelt an den Zustand [„Spinnenfluch“]. Betragen die Differenzerfolge 5 oder mehr, ist der Zustand nach Wahl des HeXXenmeisters mächtig, fordernd oder dauerhaft.",
+        "target": "1–3",
+        "cost": "1 Hex pro Ziel",
+        "syntax": "N|F: x gegen Erkennen, 1 Malusstufe (Spinnenfluch, 5: MFD) pro Differenzerfolg, 1 Hex pro Ziel (1–3 Ziele)",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/spinnenfluch-6116.html"
+          },
+          {
+            "source": "Hexenzorn",
+            "page": "123"
+          }
+        ]
+      },
+      "stigmata": {
+        "name": "Stigmata",
+        "_id": "113oY5M0Eaw9ntlU",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Mithilfe dieser Kraft erzeugt der Nsc bei seinem Ziel blutende Wunden an beliebigen Stellen des Körpers, oftmals (aber nicht zwangsläufig) an den Handflächen. Der Zauber erfordert eine vergleichende Probe mit Wil + As gegen Kkr + Fw (Unempfindlichkeit). Für jeden Differenzerfolg zugunsten des Nsc erhält der Jäger 1 äußere Schadensstufen gekoppelt an den Zustand „Blutung“. Sobald durch diesen Zauber mindestens 1 äußere Schadensstufe erzeugt wurde, kann der Nsc 1 weiteren Hex-Punkt ausgeben, damit das Ziel alle Segnungen verliert.",
+        "target": "1–3",
+        "cost": "1 Hex pro Ziel",
+        "syntax": "N|F : x gegen Unempfindlichkeit, 1 äußere Schadensstufe (Blutung) pro Differenzerfolg, 1 Hex pro Ziel (1–3 Ziele), +1 Hex: Ziel verliert alle Segnungen",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/stigmata.html"
+          },
+          {
+            "source": "Hexenzorn",
+            "page": "123"
+          }
+        ]
+      },
+      "tausend-taranteln": {
+        "name": "Tausend Taranteln",
+        "_id": "wQeHfl5rbWMhH2ks",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Durch diesen Zauber zerbirst der Körper des Nsc in eine regelrechte Flut von Spinnen. Sobald die Kraft eingesetzt wird, legt man das Plättchen des Nsc beiseite und notiert seine aktuellen Spielwerte. Anstelle des Nsc legt der HeXXenmeister eine Anzahl von Taranteln aus (Bande-1-Gegner) entsprechend der eingesetzten Hex-Punkte x 5 (bis zu einem Maximum von 25). Sobald alle Taranteln besiegt wurden, setzt sich der Körper des Zaubernden in Ini 0 automatisch wieder zusammen und hat die vorher notierten Werte. In der kommenden Runde hat der Nsc 1 beliebige (N)- oder (F)-Handlung weniger. Tausend Taranteln kann nur einmal pro Kampf angewendet werden.",
+        "target": "persönlich",
+        "cost": "1–5 Hex",
+        "syntax": "N|F: Nsc verwandelt sich in 5 Taranteln pro Hex, 1–5 Hex",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/tausend-taranteln.html"
+          },
+          {
+            "source": "Hexenzorn",
+            "page": "124"
+          }
+        ]
+      },
+      "unbezwingbare-diener": {
+        "name": "Unbezwingbare Diener",
+        "_id": "AfiFuxYKyZavs5ED",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Manche Meister der arkanen Mysterien vermögen ihre Untergebenen mithilfe dieses Zaubers nahezu unbesiegbar zu machen. Die Kraft kann nur auf Bandengegner angewendet werden. Der Nsc opfert 1–5 Hex und bestimmt für jeden geopferten HexPunkt 2 beliebige Bandengegner. Die Bandenstufe der ausgesuchten Kreatur steigt auf 3 und die Zahl ihrer aktuellen Lep verdoppelt sich, alle anderen Werte bleiben bestehen. Unbezwingbare Diener können nicht erneut unbezwingbar gemacht werden.",
+        "target": "2–10 Bandengegner",
+        "cost": "1 Hex pro 2 Ziele",
+        "syntax": "N|F: Bandengegner erhält Bandenstufe 3 und aktuelle Lep x2, 1 Hex pro 2 Ziele (2–10 Ziele)",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/unbezwingbare-diener.html"
+          },
+          {
+            "source": "Hexenzorn",
+            "page": "124"
+          }
+        ]
+      },
+      "verfallender-koerper": {
+        "name": "Verfallender Körper",
+        "_id": "RFYPeRaV8XXasQjB",
+        "@rev": 1,
+        "type": "Eigenschaft",
+        "description": "Der Nsc weist einen stark verunstalteten, teilweise abgestorbenen oder zerschmetterten Körper auf, wie dies meistens bei Untoten der Fall ist. Er ist in der Lage, bei starken Verletzungen Teile seines Körpers regelrecht abzustoßen und mit dem übrigen „Material“ weiterzukämpfen. Sobald die Lep des Nsc auf 0 sinken, trennt er sich automatisch von einem Teil seines Körpers (einmal pro Kampf möglich). Er kämpft mit der Hälfte seiner Start-Lep weiter und seine Strategie ändert sich in Tumb (F/N). Verfallender Körper ist nur bei Gegnern anwendbar, die von Grund auf über mindestens 2 Handlungen verfügen.",
+        "syntax": "Auf 0 Lep: -1 Handlung dauerhaft, Lep steigen auf halbe Start-Lep",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/verfallender-koerper.html"
+          },
+          {
+            "source": "Archiv des Wächterbunds",
+            "page": "24"
+          }
+        ]
+      },
+      "verwandlung-geweihtraeger": {
+        "name": "Verwandlung Geweihträger",
+        "_id": "inX9kTadVJu7IAHC",
+        "@rev": 1,
+        "type": "Handlung, NN|FF",
+        "description": "Der Nsc nimmt das Aussehen eines Hirschen bzw. einer Hirschkuh an, wobei Hexen stets nur die weibliche Form wählen. In dieser Gestalt ist der Nsc besonders schnell und flink und kann zudem Hornattacken ausführen. Die Stärke der Hornattacken variiert zwischen männlicher und weiblicher Gestalt, da das Geweih bei der Hirschkuh meist nur schwach ausgebildet oder nicht vorhanden ist. Dafür stellt diese aufgrund ihrer größeren Wendigkeit ein nur schwer zu treffendes Ziel dar.",
+        "syntax": "Verwandlung Geweihträger (NN|FF: Kkr +3, Ath +2, Ges −4, Ini +2, Pw 2 (Fell), Lep berechnet mit Jz + 1; Geweih männlich (Kkr), Schaden 5 +Lähmung (je 1, Taumeln); Geweih weiblich (Kkr), Schaden 2 +Lähmung (je 1, Taumeln); die weibliche Gestalt hat Pw +1)",
+        "target": null,
+        "cost": null,
+        "example": "Ein Nsc hat Jz x 20 LEP, bei 4 Jägern demnach 80 LEP. Er verliert im Kampf 10 LEP (70 LEP), verwandelt sich dann in einen Geweihträger und berechnet sein neues LEP-Maximum mit (Jz + 1) x 20, also 100. Von den 100 LEP muss er jedoch seinen aktuellen Schaden abziehen (100 – 10 = 90 Lep).",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/verwandlung-geweihtraeger.html"
+          },
+          {
+            "source": "Hexenzorn",
+            "page": "124"
+          }
+        ]
+      },
+      "verwandlung-harpyie": {
+        "name": "Verwandlung Harpyie",
+        "_id": "k9rT8OcYwJYA8H39",
+        "@rev": 1,
+        "type": "Handlung, NN|FF",
+        "description": "Eine Verwandlung in Harpyiengestalt dauert 1 Kampfrunde.",
+        "target": null,
+        "cost": null,
+        "syntax": "NN|FF: Veränderungen: Kkr +4, Ath +2, Ges +4",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/skh_verwandlung_harpyie.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "248"
+          }
+        ],
+        "dependencys": [
+          {
+            "dependency": "Flieger, Krallenangriff (Kkr), Schaden 5"
+          }
+        ]
+      },
+      "wasser-in-den-lungen": {
+        "name": "Wasser in den Lungen",
+        "_id": "frAp8LoFsngdFxQc",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Dieser heimtückische Zauber füllt die Lungen eines Landbewohners mit Wasser, wodurch das Opfer keine Luft mehr bekommt und langsam erstickt. Der Nsc führt eine vergleichende Probe mit Wil + As gegen Kkr + Fw (Unempfindlichkeit) des Ziels aus. Für jeden Differenzerfolg zugunsten des Nsc erleidet der Jäger 1 innere Schadensstufe gekoppelt an den Zustand „Atemnot“. Um diesen Zustand abzubauen, muss dem Betroffenen ein direkter Luftkanal in die Lungen gelegt werden. Dies ist entweder mit einem Stich in die Brust möglich oder mit einem präzisen medizinischen Schnitt. Ersteres entspricht einem Angriff (nur Dolche und Messer oder Fechtwaffen), der 2 Ap kostet und Schmerzschaden in Höhe 1 Blutwürfels verursacht, dafür aber innere Schadensstufen in Höhe 1 Blutwürfels abbaut. Die zweite Alternative erfordert eine Aktion mit 4 Ap und eine Probe auf Erste Hilfe (−3), die keinen Schaden anrichtet und pro Erfolg 1 innere Schadensstufe abbaut.",
+        "target": "1",
+        "cost": "1 Hex",
+        "syntax": "N|F: x gegen Unempfindlichkeit, 1 innere Schadensstufe (Atemnot) pro Differenzerfolg, 1 Hex (1 Ziel)",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/wasser-in-den-lungen.html"
+          },
+          {
+            "source": "Hexenzorn",
+            "page": "125"
+          }
+        ]
+      }
+    },
+    "speziell-schwarzmagier": {
+      "daemonologie": {
+        "name": "Dämonologie",
+        "_id": "rGQ2IPG7zfeOilkg",
+        "@rev": 1,
+        "type": "Eigenschaft",
+        "description": "Ein Schwarzmagier mit Dämonologie beschwört für 1 Hex entweder 4 dämonische Bandengegner der Stufe 1, 3 dämonische Bandengegner der Stufe 2 oder 2 dämonische Bandengegner der Stufe 3. Darüber hinaus gelten die üblichen Beschwörungsrichtlinien.",
+        "syntax": "höhere Beschwörung dämonischer Bandengegner",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/daemonologie.html"
+          },
+          {
+            "source": "Herrschaft des Dämonenmeisters, Hintergrundband",
+            "page": "39"
+          }
+        ]
+      },
+      "nekromantie": {
+        "name": "Nekromantie",
+        "_id": "pkUcEo7HRcBKHqXq",
+        "@rev": 1,
+        "type": "Eigenschaft",
+        "description": "Er beschwört für 1 Hex entweder 4 untote Bandengegner der Stufe 1, 3 untote Bandengegner der Stufe oder 2 untote Bandengegner der Stufe 3. Darüber hinaus gelten die üblichen Beschwörungsrichtlinien.",
+        "syntax": "höhere Beschwörung untoter Bandengegner",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/sks_nekromantie.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "249"
+          }
+        ]
+      },
+      "zauberverbrennung": {
+        "name": "Zauberverbrennung",
+        "_id": "uKlI9HEWRi8gfpT2",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Als Handlung kann der Schwarzmagier 1 - 5 Hex opfern und dafür bei einem Gegner pro Hex 3 Schaden (Unheilschaden) verursachen. Zauberverbrennung ist ein sichtbarer Zaubereffekt, den man blocken oder dem man ausweichen kann (Regeln wie Pistolen-Schuss).",
+        "target": "persönlich",
+        "cost": "1-5 Hex",
+        "syntax": "N|F: 3 Schaden pro Hex, 1 - 5 Hex pro Ziel (1 Ziel), reduzierbar über Ausweichen, Schildblock",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/sks_zauberverbrennung.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "249"
+          }
+        ]
+      },
+      "zauberverwertung": {
+        "name": "Zauberverwertung",
+        "_id": "u3TiqoUFLBpC2kdF",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "In seiner Ini-Phase kann ein Schwarzmagier mit Hilfe dieses Zaubers 1 - 3 Bandengegner opfern, um pro Bandengegner 1 Hex zu gewinnen. Die geopferten Bandengegner dürfen jedoch nicht in dieser Runde beschworen worden sein.",
+        "target": "1 - 3 Bandengegner",
+        "cost": "",
+        "syntax": "N|F: opfere 1-3 Bandengegner, die nicht in dieser Runde beschworen wurden, pro Bandengegner +1 Hex",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/sks_zauberverwertung.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "249"
+          }
+        ]
+      }
+    },
+    "speziell-vampiere": {
+      "staub-zu-staub": {
+        "name": "Staub zu Staub",
+        "_id": "OowWGYhNwwB3gcZn",
+        "@rev": 1,
+        "type": "Eigenschaft",
+        "description": "Ein Vampir mit Staub zu Staub stirbt nicht, wenn seine Lep auf 0 sinken. Stattdessen verfällt sein Körper zu Staub, der sich vom Wind oder durch Magie an einen anderen Ort transportieren lässt und dort innerhalb weniger Stunden zu einem neuen Körper zusammensetzt. Dieser Vorgang kann nur verhindert werden, indem man den Staub aufsammelt und in einem Gefäß versiegelt. Eventuell mag es auch andere Möglichkeiten geben, die Regeneration abzuwenden; das ist dann Bestandteil des jeweiligen Abenteuers.",
+        "syntax": "Körper regeneriert nach wenigen Stunden",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/skd_daemonenkoerper.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "250"
+          }
+        ]
+      },
+      "untot": {
+        "name": "Untot",
+        "_id": "1Ans14AsxYz5tZjq",
+        "@rev": 1,
+        "type": "Eigenschaft",
+        "description": "Vampire sind untot und damit automatisch immun gegen Gifte und Krankheiten. Gleichzeitig sind sie jedoch anfällig gegen heiligen Schaden. Zudem können sie in Ini 0 für je 1 Hex zwei beliebige anhaltende Einflussstufen abbauen.",
+        "syntax": "Immunität Gift, Anfällig heiliger Schaden, in Ini 0: -2 Einflussstufen pro 1 Hex",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/skv_untot.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "250"
+          }
+        ]
+      },
+      "vampierzaehne": {
+        "name": "Vampirzähne",
+        "_id": "FeObG2C6clD8MB9p",
+        "@rev": 1,
+        "type": "Eigenschaft",
+        "description": "Vampire mit dieser Eigenschaft können einen speziellen Bissangriff ausführen, der auf Ath basiert. Der Angriff verursacht Blutheilung und Lebenskraftentzug (ist in den jeweiligen Werten für Angriffshandlungen enthalten).",
+        "syntax": "Biss (Ath), Schaden 2 +Blutheilung (je 1 bei Lep-Verlust) +Lebenskraftentzug (je 1 bei Lep-Verlust)",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/skv_vampirzaehne.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "250"
+          }
+        ]
+      },
+      "verwandlung-wolf": {
+        "name": "Verwandlung Wolf",
+        "_id": "OZDMc485ZgNYzPTj",
+        "@rev": 1,
+        "type": "Handlung, NN|FF",
+        "description": "Einige Vampire können die GEstalt eines mächtigen Wolfs annehmen, einer Bestie, deren Anblick bereits Furcht und Panik verursacht.",
+        "target": null,
+        "cost": null,
+        "syntax": "NN|FF: Veränderungen: Kkr +4, Ath +2",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/skv_verwandlung_wolf.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "250"
+          }
+        ],
+        "dependencys": [
+          {
+            "dependency": "Biss (Kkr + As) +Lähmung (je 1, Taumeln), Schaden 3, Terrorwelle"
+          }
+        ]
+      },
+      "von-gott-verflucht": {
+        "name": "Von Gott verflucht",
+        "_id": "3p5Li8WmEMNLpz8a",
+        "@rev": 1,
+        "type": "Eigenschaft",
+        "description": "Ein von Gott verfluchter Vampir, der sich in Sonnenlicht bewegt, generiert automatisch äußere Schadensstufen je nach Helligkeit (1 bei bedecktem Himmel, 5 bei strahlendem Sonnenschein). Befindet er sich nicht im Kampf, generiert er den Schaden alle 10 Minuten.",
+        "syntax": "Anfällig Licht, Feuer",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/skv_von_gott_verflucht.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "250"
+          }
+        ]
+      },
+      "uebermenschliche-geschwindigkeit": {
+        "name": "Übermenschliche Geschwindigkeit",
+        "_id": "XdJE9XH1aQhauyKC",
+        "@rev": 1,
+        "type": "Eigenschaft",
+        "description": "Ein Vampir mit dieser Kraft kann pro Runde 2 oder 4 Hex ausgeben und erhält dadurch eine oder zwei N-Handlungen dazu.",
+        "syntax": "2 oder 4 Hex, +1/+2 N-Handlung",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/skv_uebermenschliche_geschwindigkeit.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "250"
+          }
+        ]
+      }
+    },
+    "speziell-wandler": {
+      "kampfwut": {
+        "name": "Kampfwut",
+        "_id": "Q4YMLy0BbeLAcNQ9",
+        "@rev": 1,
+        "type": "Eigenschaft",
+        "description": "Sobald ein Nsc mit Kampfwut im Nahkampf einen Treffer erzielte, erhält er +1 Malusstufe (bis zu max. 5). Sobald er 5 Malusstufen angesammelt hat, verfügt er für den restlichen Kampf über eine zusätzliche N-Handlung. Die Malusstufen kann er normal in Ini 0 reduzieren, doch jeder weitere erzeugte Treffer erhöht sie wieder um +1, wodurch der Kampfwütige fast immer mit Malus attackiert.",
+        "syntax": "+1 Malusstufe bei Nahkampftreffer, bei 5 Malusstufen: +1 N-Handlung",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/skw_kampfwut.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "251"
+          }
+        ]
+      },
+      "schneller-gestaltwechsel": {
+        "name": "Schneller Gestaltwechsel",
+        "_id": "1xQBv7drjaPF4wH7",
+        "@rev": 1,
+        "type": "Eigenschaft",
+        "description": "Werwesen, die über diese Kraft verfügen, benötigen für die Verwandlung nur eine statt zwei Handlungen.",
+        "syntax": "Verwandlung kostet nur 1 N|F-Handlung",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/skw_schneller_gestaltwechsel.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "251"
+          }
+        ]
+      },
+      "verwandlung-des-wandlers": {
+        "name": "Verwandlung des Wandlers",
+        "_id": "uYHUNNyx5aa2oMbZ",
+        "@rev": 1,
+        "type": "Handlung, NN|FF",
+        "description": "Das kostet wie üblich 2 N- oder 2 F-Handlungen. Die folgende Übersicht gibt die maßgeblichen Veränderungen durch eine Verwandlung wieder. Diese Veränderungen können aber je nach Wandler-Art/Unterart/Familie etc. abweichen.[BÄR: Kkr +6, Ath -2, Ges -4, Ini -3, Bärentatze (Kkr), Schaden 4, Bärenumarmung (Kkr), kostet 2 N-Handlungen, Schaden 7 +Lähmung (je 1, Taumeln), keine Fernkampfangriffe möglich][FUCHS/KATZE/RATTE/KLEINER HUND: Ath +4, Ges -1, Ini +4, Biss (Ath), Schaden 1, Winzig (6 pro Jäger), keine Fernkampfangriffe möglich][HIRSCH: Kkr +3, Ath +2, Ges -4, Ini +2, Geweih (Kkr), Schaden 5 +Lähmung (je 1, Taumeln), keine Fernkampfangriffe möglich][RABE/KRÄHE: Kkr -4, Ath +4, Ges -3, Ini +5, Schnabelangriff (Ath), Schaden 1, Flieger (nicht gebunden), Winzig (6 pro Jäger), keine Fernkampfangriffe möglich][TYPISCHE MISCHGESTALT (MENSCH/TIER): Kkr +2, Ath +2, Ges -2, Biss/Krallen/Klauen (Kkr), Schaden 3, je nach Gestalt können einfache Objekte/Waffen bedient werden][WOLF: Kkr +2, Ath +4, Ges -3, Sin +4, Biss-Angriff (Kkr), Schaden 3 +Lähmung (je 2, Taumeln), keine Fernkampfangriffe möglich][WOLF/MENSCH-HYBRID: Kkr +4, Ath +1, Ges -1, Ini +2, Werwolf-Reißen (Kkr), Schaden 5 +Malus (je 2, Furcht), Derwisch (5 Lep: +1 N-Handlung), Chaotisches Verhalten (Ini 0: HeXXensymbol: neue Bindung), Immunität (Malusschaden), Raserei (Lep < 50%: Bonus +2 auf Angriffswürfe, Lep < 33%: Bonus +2 auf Angriffswürfe), Bedienung einfacher Objekte/Waffen möglich]",
+        "target": null,
+        "cost": null,
+        "syntax": "NN|FF: Veränderungen: x",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/skw_verwandlung_des_wandlers.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "251"
+          }
+        ]
+      }
+    },
+    "speziell-wiedergaenger": {
+      "absetzten": {
+        "name": "Absetzen",
+        "_id": "2JHOnxAMHKxss1TU",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Der Nsc kennt sich so gut in der Umgebung aus, dass er keine Probleme hat, sich aus einem Kampf zurückzuziehen, bevor dieser richtig begonnen hat. Absetzen kann nur in der ersten Kampfrunde aktiviert werden und nur dann, wenn die Jäger nicht explizit angekündigt haben, dass sie den Nsc umstellt haben bzw. alle Fluchtwege blockieren. Absetzen erfordert eine beliebige Handlung, wonach der Nsc automatisch die Flucht ergreift. Blockieren die Jäger alle Fluchtwege, gelingt die Anwendung dieser Kraft nur dann, wenn dem Nsc eine Vergleichsprobe Ath gegen den Jäger mit dem höchsten Aufmerksamkeits+Sin-Wert in der Gruppe gelingt.",
+        "target": "persönlich",
+        "cost": "keine",
+        "syntax": "F|N: Erste Kampfrunde: Nsc flüchtet aus dem Kampf",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/absetzen.html"
+          },
+          {
+            "source": "Archiv des Wächterbunds",
+            "page": "18"
+          }
+        ]
+      },
+      "arkanes-wissen": {
+        "name": "Arkanes Wissen",
+        "_id": "NwERmVgiGcQi9uZw",
+        "@rev": 1,
+        "type": "Eigenschaft",
+        "description": "Ein Wiedergänger mit Arkanem Wissen kann in Ini 0 jeweils einmal 10 Lep in 2 Hex umtauschen.",
+        "syntax": "Ini 0: 10 Lep in 2 Hex tauschen",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/skwg_arkanes_wissen.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "250"
+          }
+        ]
+      },
+      "atem-des-grau": {
+        "name": "Atem des Grau",
+        "_id": "Ds5qfW6KYMJ6CQLu",
+        "@rev": 1,
+        "type": "Handlung, N",
+        "description": "Der Grauwandler stößt einen nebligen Atem direkt ins Gesicht eines Jägers aus, der sofort zu Erstickungsanfällen führt. Die Handlung kann nur einmal pro Zug erfolgen. Atem des Grau erfordert eine vergleichende Probe auf Wil (6) des Grauwandlers gegen Ausweichen des Jägers. Für jeden Differenzerfolg zugunsten des Grauwandlers erzeugt dieser 1 innere Schadensstufe und den Zustand „Atemnot“, während sich seine Lungen zusehends mit verfestigtem Nebel füllen. Um diese Atemnot abzubauen, muss der Betroffene einen direkten Luftkanal in die Lungen erhalten. Dies ist entweder mit einem Stich in die Lunge möglich (Messer und Dolch oder Fechtwaffe) oder mit einem präzisen medizinischen Messer. Ersteres erfordert einen Angriff, der 2 Ap kostet, Schmerzschaden in Höhe eines Blutwürfels anrichtet und innere Schadensstufen in Höhe eines Blutwürfels abbaut. Das zweite erfordert eine Aktion mit 4 Ap, eine Probe auf Erste Hilfe (–3), die keinen Schaden anrichtet und pro Erfolg 1 innere Schadensstufe abbaut.",
+        "target": "1",
+        "cost": "keine",
+        "syntax": "N, 1x pro Kampfrunde: x gegen Ausweichen, 1 innere Schadensstufe (Atemnot, Abbau durch Lungenpunktuation) pro Differenzerfolg, 1x pro Zug",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/atem-des-grau.html"
+          },
+          {
+            "source": "Das finstere Herz des Waldes",
+            "page": "51"
+          }
+        ]
+      },
+      "aufbaeumen": {
+        "name": "Aufbäumen",
+        "_id": "MmKiIjliVgHP3ypG",
+        "@rev": 1,
+        "type": "Handlung, N",
+        "description": "Das Pferd bäumt sich auf und löst sich (sowie seinen Reiter) von allen Jägern. Jeder zuvor an das Pferd gebundene Jäger muss eine Probe auf Akrobatik (–3) absolvieren, bei Misslingen erleidet er 1 Blutwürfel Schmerzschaden. Nach dem Aufbäumen kann das Pferd mitsamt Reiter aus dem Kampf fliehen.",
+        "target": "persönlich",
+        "cost": "keine",
+        "syntax": "N: Nsc trennt sich von allen Jägern, verursacht 1 Blutw. Schmerzschaden, wenn Jäger Akrobatik-Probe (-3) misslingtg",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/aufbaeumen.html"
+          },
+          {
+            "source": "Archiv des Wächterbunds II",
+            "page": "15"
+          }
+        ]
+      },
+      "beritten": {
+        "name": "Beritten",
+        "_id": "nZfVisbVuTAAk9qw",
+        "@rev": 1,
+        "type": "Eigenschaft",
+        "description": "Wie Jäger kann der kopflose Reiter wählen, ob er sich reitend übers Schlachtfeld bewegt (er wird dann nicht gebunden) oder stehen bleibt (er und sein Ross werden dann wie Kampfteilnehmer zu Fuß behandelt).",
+        "target": "persönlich",
+        "cost": "keine",
+        "syntax": "Wenn in Bewegung: Ross und Reiter können nicht gebunden werden",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/beritten.html"
+          },
+          {
+            "source": "Archiv des Wächterbunds II",
+            "page": "15"
+          }
+        ]
+      },
+      "blick-des-verderbens": {
+        "name": "Blick des Verderbens",
+        "_id": "B0Vsk6Wr2cKE0cyf",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Der Nsc führt eine vergleichende Probe mit Wil + As gegen Wil + Fw (Geistesstärke) des Ziels aus. Für jeden Differenzerfolg zugunsten des Nsc erhält der Jäger 1 Malusstufe und 1 Lähmungsstufe. Erzielt der Nsc mindestens 1 Differenzerfolg, bekommt der Jäger die Zustände Furcht und Verzauberung.",
+        "target": "1",
+        "cost": "1 Hex pro Ziel",
+        "syntax": "N|F: x gegen Geistesstärke, 1 Malusstufe + 1 Lähmungsstufe (Furcht, Verzauberung) pro Differenzerfolg, 1 Hex pro Ziel (1 Ziel)",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/skwg_blick_des_verderbens.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "250"
+          }
+        ]
+      },
+      "fesselnde-baender": {
+        "name": "Fesselnde Bänder",
+        "_id": "aBBrZb6Sdism1Wla",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Ein Fesselangriff erfordert eine N- oder F-Handlung basierend auf Ges + As. Für jeden Differenzerfolg zugunsten des Nsc erhält der Jäger 1 Lähmungsstufe. Erzielt der Nsc mindestens 1 Differenzerfolg, bekommt der Jäger den Zustand Taumeln. Betragen die Differenzerfolge 5 oder mehr, wird zudem der Zustand Fixierung erzeugt.",
+        "target": "1",
+        "cost": "0",
+        "syntax": "N|F: Angriff x, kein Schaden +Lähmungsschaden (je, Taumeln, 5: Fixierung)",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/skwg_fesselnde_baender.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "250"
+          }
+        ]
+      },
+      "kopflose-unsterblichkeit": {
+        "name": "Kopflose Unsterblichkeit",
+        "_id": "M2EUkNUc1cU0I5SX",
+        "@rev": 1,
+        "type": "Eigenschaft",
+        "description": "Solange der kopflose Reiter seinen Kopf nicht wiedergefunden hat, kann er nicht vernichtet werden. Sinken seine Lep auf 0, verwandeln sich sein Körper und seine Waffen in eine halb-durchsichtige geisterhafte Erscheinung. Er nimmt dann keinen Schaden mehr, kann aber auch keinen Schaden verursachen. Alle weiteren Angriffe gegen den Reiter werden automatisch gegen das Ross geführt. Sinken die Lep des Rosses auf 0, wird es aus dem Kampf fliehen (siehe Neue Nsc-kraft: [Reittier aus der Hölle]). Der kopflose Reiter sucht in Geistergestalt seinen Ruheplatz auf, wo er sich nach einer Stunde wieder regeneriert.",
+        "syntax": "Bei 0 Lep: Kopfloser Reiter nimmt Geistergestalt an und verursacht keinen Schaden mehr",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/kopflose-unsterblichkeit.html"
+          },
+          {
+            "source": "Archiv des Wächterbunds",
+            "page": "14"
+          }
+        ]
+      },
+      "leid-ausnutzen": {
+        "name": "Leid ausnutzen",
+        "_id": "rHeMMU2uwomTuIK7",
+        "@rev": 1,
+        "type": "Handlung, N",
+        "description": "Dieser Zauber erfordert einen Berührungsangriff, basierend auf Ath + As. Der Angriff verursacht keinen direkten Schaden, und die Zahl der Erfolge ist unerheblich (solange der Nsc mindestens mit 1 Erfolg trifft). Leidet der Jäger unter anhaltenden Einflussstufen (mindestens 1 Stufe Malusschaden, Lähmungsschaden oder innerer/äußerer Schaden), so bestimmt der Nsc einen dieser Einflüsse. Die Stufe wird sofort auf 5 hochgesetzt.",
+        "target": "1",
+        "cost": "0",
+        "syntax": "N: Berührungsangriff x, bei Treffer: Stufe auf 5",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/skwg_leid_ausnutzen.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "251"
+          }
+        ]
+      },
+      "reittier-aus-der-hoelle": {
+        "name": "Reittier aus der Hölle",
+        "_id": "4Ege7gmmXi6dWlUH",
+        "@rev": 1,
+        "type": "Eigenschaft",
+        "description": "Das Höllenross ist zwar nicht immun gegen Schaden, kann aber auch nicht auf Erden vernichtet werden. Sinken seine Lep auf 0, wird es Aufbäumen anwenden und aus dem Kampf fliehen. Es sucht dann seinen Ruheplatz auf, wo es sich nach einer Stunde wieder regeneriert. Um es endgültig zu vernichten, muss der ihm zugeteilte Meister, bzw. Reiter, vernichtet werden.",
+        "syntax": "flieht bei Lep 0, stirbt aber nur, wenn Meister/Reiter stirbt",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/reittier-aus-der-hoelle.html"
+          },
+          {
+            "source": "Archiv des Wächterbunds",
+            "page": "15"
+          }
+        ]
+      },
+      "staub-zu-staub": {
+        "name": "Staub zu Staub",
+        "_id": "pEDVNXU38ozGfyrW",
+        "@rev": 1,
+        "type": "Eigenschaft",
+        "description": "Ein Wiedergänger mit Staub zu Staub stirbt nicht, wenn seine Lep auf 0 sinken. Stattdessen verfällt sein Körper zu Staub, der sich vom Wind oder durch Magie an einen anderen Ort transportieren lässt und dort innerhalb weniger Stunden zu einem neuen Körper zusammensetzt. Ein Wiedergänger mit Staub zu Staub kann nur dauerhaft außer Gefecht gesetzt werden, wenn man den Staub zusammenkehrt und in einem Gefäß versiegelt.",
+        "syntax": "Körper regeneriert nach wenigen Stunden",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/skwg_staub_zu_staub.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "251"
+          }
+        ]
+      },
+      "todesmal": {
+        "name": "Todesmal",
+        "_id": "EZ6jW0qppQnxTil3",
+        "@rev": 1,
+        "type": "Eigenschaft",
+        "description": "Ein erfolgreicher Würgegriff des Reiters erzeugt ein solches Mal, unabhängig von der Menge des angerichteten Schadens (auch bei 0 Schaden). Der betroffene Jäger sieht für einen Augenblick vor seinem inneren Auge sein eigenes Grab und verliert 1 Ap. Innerhalb von Sekunden bildet sich um seinen Hals ein blasser Ring. Der Jäger erhält einen Todesmal-Marker (dafür kann man z. B. Bedrohungsmarker verwenden), den er auf seinen Jägerbogen legt. Mehrmalige Berührungen erhöhen nicht die Zahl der Marker, aber bei jeder Berührung wird das Abbild des eigenen Grabs etwas deutlicher. Jeweils zu Tagesanbruch (oder auch häufiger, wenn der HeXXenmeister Druck aufbauen will) wird das Mal kräftiger, und der Spieler erhält einen weiteren Todesmal-Marker. Hat er so viele Marker wie MH-Kästchen (normalerweise 4), stirbt der Charakter. Das Todesmal verschwindet, sobald der kopflose Reiter getötet wurde oder dazu gebracht wurde, das Mal aufzuheben.",
+        "syntax": "Würgegriff erzeugt Todesmal",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/todesmal.html"
+          },
+          {
+            "source": "Archiv des Wächterbunds",
+            "page": "14"
+          }
+        ]
+      },
+      "untot": {
+        "name": "Untot",
+        "_id": "rhanIvi5jb5v50t8",
+        "@rev": 1,
+        "type": "Eigenschaft",
+        "description": "Wiedergänger sind untot und damit automatisch immun gegen Gifte und Krankheiten. Gleichzeitig sind sie jedoch anfällig gegen Heiligen Schaden. Zudem können sie in Ini 0 für je 1 Hex 2 beliebige anhaltende Einflussstufen abbauen.",
+        "syntax": "Immunität Gift, Anfällig heiliger Schaden, in Ini 0: -2 Einflussstufen pro 1 Hex",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/skwg_untot.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "251"
+          }
+        ]
+      }
+    },
+    "typisch-unhold": {
+      "bandenwiderstand": {
+        "name": "Bandenwiderstand",
+        "_id": "8nG8ABCwP9SCmkXr",
+        "@rev": 1,
+        "type": "Eigenschaft, Bande",
+        "description": "Bandengegner mit dieser Eigenschaft sind schwerer mit Bandenkräften zu besiegen als üblich. Jeder Versuch, sie mithilfe einer Bandenkraft zu entfernen, kostet +x Erfolge mehr.",
+        "syntax": "Bandenwiderstand (+x)",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/bandenwiderstand.html"
+          },
+          {
+            "source": "Hexenzorn",
+            "page": "118"
+          }
+        ]
+      },
+      "den-goetzen-beschwoeren": {
+        "name": "Den Götzen beschwören",
+        "_id": "YEYtRWFQzn4YRJmV",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Vor allem Unhold-Zauberer beherrschen diese Kraft, mit der sie die Macht ihres düsteren Götzen heraufbeschwören. Um die Kraft auszulösen, rammt der Nsc einen Stecken in den Boden, der sich daraufhin in ein dunkles, unheimliches Totem verwandelt, von dem eine finstere Präsenz ausgeht, die Unholde und Hexen jedoch nicht betrifft. Der Zauberer kann beliebig viele solcher Totems aktivieren (jeweils 1 Handlung und 1 Hex); sie sollten als eigene Marker ausgelegt werden. Jeder Jäger erleidet einen Malus von −1 auf alle Proben für jedes ausliegende Totem (max. –5). Ein Totem hat Lep in Höhe von Jz x 5, es besitzt keine Schadensreduzierung und keinen Pw.",
+        "target": "Umgebung",
+        "cost": "1 Hex",
+        "syntax": "N|F: Totem mit Lep Jz x 5, alle Jäger Malus −1 pro Totem, 1 Hex",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/den-goetzen-beschwoeren.html"
+          },
+          {
+            "source": "Hexenzorn",
+            "page": "119"
+          }
+        ]
+      },
+      "in-die-schatten": {
+        "name": "In die Schatten",
+        "_id": "1pOsPsGBy9LmG0fn",
+        "@rev": 1,
+        "type": "Eigenschaft, Bande",
+        "description": "Bandengegner können sich dank dieser Kraft bestimmten Angriffen entziehen, indem sie sich in die Schatten der Umgebung zurückziehen, mit denen sie scheinbar zu verschmelzen vermögen. In die Schatten gilt nur im Heimatterritorium des jeweiligen Bandengegners und zudem nur dann, wenn ausreichend Versteckmöglichkeiten vorhanden sind. Wird ein freistehender Bandengegner mit dieser Eigenschaft als Ziel eines Fernkampfangriffs oder einer Bandenkraft bestimmt und hat er in dieser Runde noch keine Handlung ausgeführt, kann der HeXXenmeister das Plättchen des Gegners vor Anwendung des Schadens vom Kampfschauplatz nehmen und in Ini 0 erneut auslegen. Der Bandengegner überlebt dadurch, verliert aber seine Handlung in dieser Runde.",
+        "syntax": "freistehend, keine Handlung ausgeführt, Reaktion auf Fernkampfangriff oder Bandenkraft: Gegner wird vom Kampfschauplatz genommen, in Ini 0 wieder aufgestellt",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/in-die-schatten.html"
+          },
+          {
+            "source": "Hexenzorn",
+            "page": "121"
+          }
+        ]
+      },
+      "opfer-fuer-den-meister": {
+        "name": "Opfer für den Meister",
+        "_id": "91AX6BClghYnjlkA",
+        "@rev": 1,
+        "type": "Eigenschaft, Bande",
+        "description": "Bandengegner mit dieser Eigenschaft sind in der Regel eng an eine mächtigere, höherstehende Person gebunden oder ihr sogar hörig, sodass sie bereitwillig und ohne mit der Wimper zu zucken für sie in den Tod gehen. Anstatt Handlungen auszuführen, kann sich der Nsc opfern. Der anwesende Meister (ein Anführergegner) erhält dadurch Lep in Höhe 1 Blutwürfels, unabhängig von der Bandenstufe. Pro Runde können beliebig viele Nsc auf diese Art ihr Leben herschenken. Opfern sich 3 Bandengegner in derselben INI-Phase, kann der Anführer anstelle von Lep auch 1 Hex erlangen.",
+        "syntax": "statt Handlungen: Nsc opfert sich, Anführer erhält +1 Blutw. Lep oder für 3 Opfer +1 Hex",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/opfer-fuer-den-meister.html"
+          },
+          {
+            "source": "Hexenzorn",
+            "page": "122"
+          }
+        ]
+      },
+      "schutz-des-meisters": {
+        "name": "Schutz des Meisters",
+        "_id": "tiyYEnJTz1idCJHS",
+        "@rev": 1,
+        "type": "Eigenschaft, Bande",
+        "description": "Bandengegner mit dieser Eigenschaft sehen es als ihre Aufgabe, einen mächtigen Anführer mit allen Mitteln zu beschützen. Entsprechende Bandengegner können Jäger abfangen, als verfügten sie über die Strategie „Beschützend“.",
+        "syntax": "Nsc kann Jäger abfangen",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/schutz-des-meisters.html"
+          },
+          {
+            "source": "Hexenzorn",
+            "page": "123"
+          }
+        ]
+      },
+      "stachelpanzer": {
+        "name": "Stachelpanzer",
+        "_id": "tYqy4ULhjeHaemsU",
+        "@rev": 1,
+        "type": "Eigenschaft",
+        "description": "Attackiert ein Jäger eine Unhold-Bestie im Nahkampf, so erleidet er 1 Blutwürfel Schaden (Schmerzschaden) durch die Stacheln des Panzers. Das gilt nicht, wenn er mit Stangenwaffen oder Lanzen, oder heimtückisch angreift. Bei Benutzung von Messern und Dolchen sowie Fäusten erhöht sich der Schaden auf 2 Blutwürfel.",
+        "syntax": "Nahkampfangriff gegen Nsc: 1 Blutw. Schmerzschaden, außer durch Stangenwaffen, Lanzen, bei Messern, Dolchen, Fäusten: 2 Blutw. Schaden)",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/stachelpanzer.html"
+          },
+          {
+            "source": "Das finstere Herz des Waldes",
+            "page": "44"
+          }
+        ]
+      },
+      "tarnung-der-geister": {
+        "name": "Tarnung der Geister",
+        "_id": "2EfyeotcDqzAZCCt",
+        "@rev": 1,
+        "type": "Eigenschaft",
+        "description": "Vor allem die spirituell veranlagten Unholdstämme wie z. B. die baltischen Unholde oder die Harrespil-Unholde, aber auch viele andere Zauberer dieser Kreaturen sind in der Lage, sich auf mystische Weise der Wahrnehmung zu entziehen und durch den Schutz der Geister Schaden von sich abzuhalten. Die Quelle dieser Macht ist meist eine sinnverwirrende Bemalung der Haut, mitunter auch ein raschelndes Kleid aus Rabenfedern. Der Nsc kann jederzeit 1 Hex opfern, um selbst erlittenen Schaden (gleichgültig aus welcher Quelle, auch anhaltende Einflüsse zählen) um 5 zu reduzieren. Bei jeder Schadensquelle ist dies jedoch nur einmal möglich.",
+        "syntax": "1 Hex: Schaden −5",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/tarnung-der-geister.html"
+          },
+          {
+            "source": "Hexenzorn",
+            "page": "123"
+          }
+        ]
+      },
+      "tollwuetiger-blutrausch": {
+        "name": "Tollwütiger Blutrausch",
+        "_id": "5DOZ0OiLxcRozK5q",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Dieser Zauber entfacht in einem Opfer einen brennenden Blutdurst, der es in eine tollwütige Raserei treibt. Im Grunde hat die Kraft den gleichen Effekt wie der Schadenszusatz „Unholdgift“, mit dem Unterschied, dass Tollwütiger Blutrausch auch über Distanz möglich ist und nicht auf einem Angriff basiert. Der Zauber erfordert eine vergleichende Probe mit Wil + As gegen Kkr + Fw (Unempfindlichkeit) des Ziels. Für jeden Differenzerfolg zugunsten des Nsc erhält der Jäger 1 innere Schadensstufe gekoppelt an den Zustand „Tollwut“.",
+        "target": "1-3",
+        "cost": "1 Hex pro Ziel",
+        "syntax": "N|F: x gegen Unempfindlichkeit, 1 innere Schadensstufe (Tollwut) pro Differenzerfolg, 1 Hex pro Ziel (1–3 Ziele)",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/tollwuetiger-blutrausch.html"
+          },
+          {
+            "source": "Hexenzorn",
+            "page": "124"
+          }
+        ]
+      },
+      "unholdfeuer": {
+        "name": "Unholdfeuer",
+        "_id": "sAy0012yCEv8TtHw",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Der Nsc erzeugt unter den Sohlen seines Ziels ein arkanes Feuer, das umso stärker brennt, je mehr Unholde sich in der Nähe befinden. Der Nsc opfert 1–5 Hex und bestimmt für jeden geopferten Hex-Punkt 1 Jäger, der sofort 1 Blutwürfel Feuerschaden nimmt. Für jeden an ihn gebundenen Unhold erleidet der Jäger zudem sofort 1 äußere Schadensstufe gekoppelt an den Zustand „Verbrennung“.",
+        "target": "1-5",
+        "cost": "1 Hex pro Ziel",
+        "syntax": "N|F: 1 Blutw. Feuerschaden; 1 äußere Schadensstufe (Verbrennung) pro gebundenem Unhold, 1 Hex pro Ziel (1–5 Ziele)",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/unholdfeuer.html"
+          },
+          {
+            "source": "Hexenzorn",
+            "page": "124"
+          }
+        ]
+      },
+      "wie-ein-blitz": {
+        "name": "Wie ein Blitz",
+        "_id": "cxVcINk58irpp6g5",
+        "@rev": 1,
+        "type": "NSC-Kraft, Eigenschaft",
+        "description": "Der Nsc saust wie ein Wahnsinniger durch die Reihen seiner Feinde, scheinbar ziellos und darauf aus, möglichst viele Gegner zu verletzen. Nach einem Nahkampfangriff löst sich der Nsc automatisch von allen gebundenen Feinden und attackiert mit seiner nächsten (N)-Handlung einen zufällig ermittelten anderen Jäger. Dabei kann er nicht denselben Jäger noch einmal ermitteln, es sei denn, es sind weniger Jäger vorhanden als der Nsc Angriffe/Handlungen hat. An den letzten Gegner seines Zugs bleibt er gebunden. Der Nsc kann wie üblich über Leibgarde und ähnliche Kräfte an einen Jäger gezogen werden, jedoch immer nur einmal pro Zug.",
+        "syntax": "Jeder Nahkampfangriff gegen anderen Jäger",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/wie-ein-blitz.html"
+          },
+          {
+            "source": "Sieben mal sieben Jahre",
+            "page": "43"
+          }
+        ]
+      },
+      "wildheit": {
+        "name": "Wildheit",
+        "_id": "gIIjYgckQc6RLpOd",
+        "@rev": 1,
+        "type": "Eigenschaft, Bande",
+        "description": "Bandengegner mit dieser Eigenschaft führen zwei (N)-Handlungen aus, als besäßen sie die Strategie „Offensiv“. Wird die erste (N)-Handlung allerdings durch defensive Aktionen wie Parade, Ausweichen oder Schildblock vereitelt (d. h. kein Treffererfolg wurde erzielt), so erlischt auch die zweite Handlung.",
+        "syntax": "zwei N-Handlungen, kein Treffererfolg: zweite N-Handlung erlischt",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/wildheit.html"
+          },
+          {
+            "source": "Hexenzorn",
+            "page": "125"
+          }
+        ]
+      }
+    }
+  }
+}

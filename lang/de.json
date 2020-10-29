@@ -1,0 +1,21 @@
+{
+  "HEXXEN.ACTORTYPE.character": "Jäger",
+  "HEXXEN.ACTORTYPE.npc-leader": "Anführergegner",
+  "HEXXEN.ACTORTYPE.npc-mob": "Bandengegner",
+
+  "HEXXEN.ITEMTYPE.item": "Ausrüstung",
+  "HEXXEN.ITEMTYPE.motivation": "Motivation",
+  "HEXXEN.ITEMTYPE.npc-power": "NSC-Kraft",
+  "HEXXEN.ITEMTYPE.power": "Jägerkraft",
+  "HEXXEN.ITEMTYPE.profession": "Profession",
+  "HEXXEN.ITEMTYPE.regulation": "Regeltext",
+  "HEXXEN.ITEMTYPE.role": "Rolle",
+
+  "HEXXEN.PC-Sheet.Title": "HeXXen Jägerbogen",
+
+  "HEXXEN.NPC-Sheet.TitleLeaderDeprecated": "HeXXen Anführergegner",
+  "HEXXEN.NPC-Sheet.TitleMobDeprecated": "HeXXen Bandengegner",
+
+  "HEXXEN.Item-Sheet.Title": "HeXXen Ausrüstungsgegenstand",
+  "HEXXEN.RuleItem-Sheet.Title": "HeXXen Regeltext"
+}

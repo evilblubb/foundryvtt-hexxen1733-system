@@ -1,0 +1,83 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+
+
+  "type": "object",
+  "properties": {
+    "@content": {
+      "type": "object",
+      "patternProperties": {
+        "^@target$": { "type": "string" },
+        "^.*$": {
+          "type": "object",
+          "patternProperties": {
+            "^.*$": { "$ref": "#/definitions/nsc-power" }
+          }
+        }
+      }
+    }
+  },
+  "required": [ "@content" ],
+
+
+  "definitions": {
+    "nsc-power": {
+      "type": "object",
+      "properties": {
+        "name": { "$ref": "global-schema.json#/definitions/name" },
+        "_id": { "$ref": "global-schema.json#/definitions/_id" },
+        "@rev": { "$ref": "global-schema.json#/definitions/@rev" },
+        "type": {
+          "title": "Typ der NSC-Kraft",
+          "description": "Entweder \"Eigenschaft\" oder \"Handlung\", wobei Handlung noch Zusätze hat.",
+          "type": "string",
+          "pattern": "^(Eigenschaft|Handlung, (freie Handlung|N|F|N\\|F|NN|NN\\|FF|NNN\\|FFF))(, Bande)?$"
+        },
+        "description": { "$ref": "global-schema.json#/definitions/description" },
+        "target": {
+          "title": "Ziel der NSC-Kraft",
+          "description": "TODO: Wird noch Einschränkungen erhalten.",
+          "type": [ "string", "null" ],
+          "_enum": [
+            "",
+            "persönlich",
+            "selbst",
+            "1",
+            "1-3",
+            "1-5",
+            "1 - 3",
+            "alle Jäger",
+            "alle Jäger (Bereich)",
+            "Bereich",
+            "Umgebung",
+            "variabel",
+            "beliebig"
+          ]
+        },
+        "cost": {
+          "title": "Kosten der NSC-Kraft",
+          "description": "TODO: Wird noch Einschränkungen erhalten.",
+          "type": [ "string", "null" ],
+          "_pattern": "^(|keine|variabel|[0-9-]+( Hex)?( pro Ziel)?( pro Giftstufe)?( Lep)?)$"
+        },
+        "syntax": {
+          "title": "Syntax der NSC-Kraft",
+          "description": "Kurzschreibweise, wie sie beim NSC verwendet wird.",
+          "type": "string"
+        },
+        "references": { "$ref": "global-schema.json#/definitions/references" }
+      },
+      "additionalProperties": false,
+      "required": [ "name", "_id", "@rev", "type", "description", "syntax", "references" ],
+      "allOf": [
+        { "$ref": "#/definitions/type-requirements"}
+      ]
+    },
+
+    "type-requirements": {
+      "$comment": "Handlungen haben zusätzliche Pflichteigenschaften.",
+      "if": { "properties": { "type": { "pattern": "^Handlung" } } },
+      "then": { "required": [ "target", "cost" ] }
+    }
+  }
+}

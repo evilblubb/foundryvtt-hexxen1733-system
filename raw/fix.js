@@ -12,7 +12,7 @@ const _sym = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
 const _len = 16;
 const generatedIDs = [];
 
-const list = ["power"]; // ["motivation", "role", "profession"];
+const list = ["nsc"]; // ["power", "motivation", "role", "profession"];
 
 for (const key in list) {
   if (list.hasOwnProperty(key)) {
@@ -20,13 +20,14 @@ for (const key in list) {
 
     const content = fs.readFileSync(`${__dirname}/packs/${type}.json`, "utf8");
     const json = JSON.parse(content);
-    const data = json.content || json;
+    const data = json["@content"] || json.content || json;
 
     for (const key in data) {
       if (data.hasOwnProperty(key)) {
         const item = data[key];
 
-        walk(item, "_id", fixIDs);
+        fixAttacksPowers(item);
+        // walk(item, "_id", fixIDs);
 
         // fixReferences(item); // falsch formatierte references
       }
@@ -34,6 +35,23 @@ for (const key in list) {
 
     fs.writeFileSync(`${__dirname}/packs/${type}.json`, JSON.stringify(json), "utf8");
   }
+}
+
+function fixAttacksPowers(item) {
+  ["attacks", "powers"].forEach(key => {
+    const val = item[key];
+    if (val && (val instanceof Object) && !(val instanceof Array)) {
+      const replace = [];
+      for (const k in val) {
+        if (val.hasOwnProperty(k)) {
+          const v = val[k];
+          const n = Object.assign({ name: k }, v);
+          replace.push(n);
+        }
+      }
+      item[key] = replace;
+    }
+  });
 }
 
 function walk(item, key, fn) {

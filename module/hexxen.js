@@ -12,22 +12,61 @@
 Hooks.once("init", async function() {
   console.log(`${Hexxen.logPrefix}Initializing system`);
 
+  // Register Handlebars helper for use in HTML templates
+  HexxenHandlebarsHelper.registerHelpers();
+
+  // Inject system logo and register listener to show an About dialog
+  HexxenLogo.inject();
+
 	// Define custom Entity classes
   CONFIG.Actor.entityClass = HexxenActor;
   CONFIG.Item.entityClass = HexxenItem;
 
-  // Register Handlebars helper for use in HTML templates
-  HexxenHandlebarsHelper.registerHelpers();
+  // Registering translation keys for Actors and Items
+  Object.assign(CONFIG.Actor.typeLabels, {
+    'character': 'HEXXEN.ACTORTYPE.character',
+    'npc-leader': 'HEXXEN.ACTORTYPE.npc-leader',
+    'npc-bande': 'HEXXEN.ACTORTYPE.npc-mob'
+  });
+  Object.assign(CONFIG.Item.typeLabels, {
+    'item': 'HEXXEN.ITEMTYPE.item',
+    'motivation': 'HEXXEN.ITEMTYPE.motivation',
+    'npc-power': 'HEXXEN.ITEMTYPE.npc-power',
+    'power': 'HEXXEN.ITEMTYPE.power',
+    'profession': 'HEXXEN.ITEMTYPE.profession',
+    'regulation': 'HEXXEN.ITEMTYPE.regulation',
+    'role': 'HEXXEN.ITEMTYPE.role'
+  });
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("hexxen", JaegerSheet, { types: ["character"], makeDefault: true });
-  Actors.registerSheet("hexxen", NpcLeaderSheet, { types: ["npc-leader"], makeDefault: true });
-  Actors.registerSheet("hexxen", NpcBandeSheet, { types: ["npc-bande"], makeDefault: true });
+  Actors.registerSheet("hexxen", JaegerSheet, {
+    label: game.i18n.localize('HEXXEN.PC-Sheet.Title'),
+    types: ["character"],
+    makeDefault: true
+  });
+  Actors.registerSheet("hexxen", NpcLeaderSheet, {
+    label: game.i18n.localize('HEXXEN.NPC-Sheet.TitleLeaderDeprecated'),
+    types: ["npc-leader"],
+    makeDefault: true
+  });
+  Actors.registerSheet("hexxen", NpcBandeSheet, {
+    label: game.i18n.localize('HEXXEN.NPC-Sheet.TitleMobDeprecated'),
+    types: ["npc-bande"],
+    makeDefault: true
+  });
 
   Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet("simple", SimpleItemSheet, { types: ["item"], makeDefault: true });
-  Items.registerSheet("hexxen", RuleItemSheet, { types: ["role", "profession", "motivation", "power"], makeDefault: true });
+  Items.registerSheet("simple", SimpleItemSheet, {
+    label: game.i18n.localize('HEXXEN.Item-Sheet.Title'),
+    types: ["item"],
+    makeDefault: true
+  });
+  Items.registerSheet("hexxen", RuleItemSheet, {
+    label: game.i18n.localize('HEXXEN.RuleItem-Sheet.Title'),
+    types: ["role", "profession", "motivation", "power", "regulation", "npc-power"],
+    makeDefault: true
+  });
 
   // Configure initiative for CombatTracker
 	CONFIG.Combat.initiative = {
@@ -42,8 +81,8 @@ Hooks.once("init", async function() {
     `${Hexxen.basepath}/img/Rabenkasten_weit_unten_small_braun.png`
   );
 
-  // Inject system logo and register listener to show an About dialog
-  HexxenLogo.inject();
+  // Register callbacks for macro creation
+  Hooks.on('hotbarDrop', HexxenRollHelper.createMacro);
 
   // Inject application alignment code into FVTT event listener (entity-link)
   HexxenAppAlignmentHelper.registerSettings();

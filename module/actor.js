@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Implementation of the german RPG HeXXen 1733 (c) under the license of https://ulissesspiele.zendesk.com/hc/de/articles/360017969212-Inhaltsrichtlinien-f%C3%BCr-HeXXen-1733-Scriptorium.
  * Implementation based on the content of http://hexxen1733-regelwiki.de/
  * Author: Martin Brunninger
@@ -242,10 +242,31 @@ class HexxenActor extends Actor {
           ui.notifications.warn(`Die Jägerkraft ${newItemData.name} ist bereits zugewiesen.`);
           return;
         }
+        // Ausbaukraft/Stammeffekt
+        if ("ausbau" === newItemData.data.type) {
+          // TODO: Ausbaukraft/Stammeffekt sicherstellen
+          // via game.pack.getEntry die Daten holen
+          // --> newItemData zu [] machen und beide übergeben
+          // console.log(newItemData);
+        }
         // TODO: Voraussetzungen prüfen
       }
-
+      else if ("item" === newItemData.type) {
+        // TODO: Voraussetzungen prüfen
+      }
+      else {
+        // TODO: bereits im dropable blocken
+        ui.notifications.warn(`Items vom Typ ${game.i18n.localize(`HEXXEN.ITEMTYPE.${newItemData.type}`)} können nicht zugewiesen werden!`);
+        return;
+      }
     } // end if character
+    else {
+      // TODO: bereits im dropable blocken
+      // FIXME: funktioniert nicht bei nicht verlinkten Tokens!! Auf Hook umstellen??
+      // const allowed = Hooks.call("dropActorSheetData", actor, this, data);
+      ui.notifications.warn(`Die Zuweisung von Items wird aktuell nicht unterstützt!`);
+      return;
+    }
 
     super.createEmbeddedEntity(embeddedName, newItemData, options);
   }

@@ -50,7 +50,11 @@
 
         {{!-- Description Tab --}}
         <div class="tab description" data-group="primary" data-tab="description">
+            {{#if (eq item.type "npc-power")}}
+            <header class="block-header">{{data.type}}</header>
+            {{else}}
             <header class="block-header">Beschreibung</header>
+            {{/if}}
             {{!-- TODO: Workaround für editable=false via CSS display:none, da editable=false den Editor aktiviert --}}
             {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
 
@@ -74,13 +78,29 @@
                 <label class="label" for="upkeep">Unterhalt:</label>
                 <div id="upkeep" class="upkeep">{{data.upkeep}} Gulden</div>
                 {{/if}}
+
+                {{!-- Ab hier für NSC-Kräfte --}}
+                {{#if (isDefined data.target)}}
+                <label class="label" for="target">Ziel:</label>
+                <div id="target" class="target">{{data.target}}</div>
+                {{/if}}
+                {{#if (isDefined data.cost)}}
+                <label class="label" for="cost">Kosten:</label>
+                <div id="cost" class="cost">{{data.cost}}</div>
+                {{/if}}
+                {{#if (isDefined data.syntax)}}
+                <label class="label" for="syntax">Syntax:</label>
+                <div id="syntax" class="syntax">{{data.syntax}}</div>
+                {{/if}}
             </div>
 
+            {{#if (isDefined data.summary)}}
             <header class="block-header">
                 Zusammenfassung für Charakterbogen
                 <i class="fas fa-info-circle" title="Ist eine Zusammenfassung vorhanden, so wird diese anstelle der Beschreibung im Charkterbogen angezeigt."></i>
             </header>
             {{editor content=data.summary target="data.summary" button=true owner=owner editable=editable}}
+            {{/if}}
 
             {{!-- TODO: tags --}}
             <div class="last"> </div>
