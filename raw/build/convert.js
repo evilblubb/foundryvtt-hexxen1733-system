@@ -1,3 +1,4 @@
+const { appendFile } = require('fs');
 /**
  * Implementation of the german RPG HeXXen 1733 (c) under the license of https://ulissesspiele.zendesk.com/hc/de/articles/360017969212-Inhaltsrichtlinien-f%C3%BCr-HeXXen-1733-Scriptorium.
  * Implementation based on the content of http://hexxen1733-regelwiki.de/
@@ -5,11 +6,26 @@
  * Software License: GNU GPLv3
  */
 
-const { input } = require('../buildDBs.js'); // TODO: falls möglich eliminieren
-const { generateID } = require('./utils.js');
+const { input, templates } = require('../buildDBs.js'); // TODO: falls möglich eliminieren
+const { duplicate, isEmpty, generateID } = require('./utils.js');
 
 const vttSystemName = "hexxen-1733";
 const packPrefix = "hexxen";
+
+const CORE_ACTOR_STRUCT = {
+  "_id": "",
+  "name": "",
+  "type": "",
+  "img": "",
+  "data": {},
+  "items": [],
+  "effects": [],
+  "flags": {},
+  "permission": { "default": 0 }
+}
+
+const HEXXEN_LEADER_ICON = `systems/${vttSystemName}/img/Token-Leader.png`;
+const HEXXEN_MOB_ICON = `systems/${vttSystemName}/img/Token-Mob.png`;
 const HEXXEN_JAEGER_ICON = `systems/${vttSystemName}/img/Siegel-Rabe-small.png`;
 const HEXXEN_EXPRIT_ICON = `systems/${vttSystemName}/img/Siegel-Esprit-small.png`;
 const HEXXEN_AUSBAU_ICON = `systems/${vttSystemName}/img/Siegel-Ausbaukraft-small.png`;
@@ -21,8 +37,16 @@ function convertItems(type, items) {
   error = false;
 
   if (Array.isArray(items)) {
-    // TODO: try-catch??
-    const content = items.map( (item, idx) => convertItem(type, item, [type, idx].join('/')) );
+    const content = items.map( (item, idx) => {
+      try {
+        return convertItem(type, item, [type, idx].join('/'));
+      }
+      catch (err) {
+        console.error(`${item['@path']}: ${err}`);
+        error = true;
+        return undefined;
+      }
+    });
     return [content, error];
   }
   else {
@@ -32,6 +56,10 @@ function convertItems(type, items) {
 exports.convertItems = convertItems;
 
 function convertItem(type, item, path) {
+  // handle NPCs
+  if ('npc' === type) return _convertNpcItem(type, item, path);
+
+  // handle Items
   const out = {};
 
   // basic properties
@@ -80,6 +108,99 @@ function convertItem(type, item, path) {
   out.permission = { "default": 0 };
 
   return out;
+}
+
+function _convertNpcItem(type, item, path) {
+  const _item = duplicate(item);
+  const out = {};
+  Object.assign(out, duplicate(CORE_ACTOR_STRUCT));
+
+  applyAndConsume(out, '_id', _item);
+  applyAndConsume(out, 'name', _item);
+  apply(out, 'type', type);
+  apply(out, 'img', item?.type === 'leader' ? HEXXEN_LEADER_ICON : HEXXEN_MOB_ICON);
+  // TODO: unterschiedliche Icons je Level? Overlay? state?
+  // TODO: hat NSC ein eigenes icon?
+  apply(out, "flags", getCompendiumFlags(type, out, consume(_item, "@rev")));
+  apply(out, 'data', duplicate(templates.Actor[type]));
+
+  const data = out.data;
+  applyAndConsume(data, 'type', _item);
+  applyAndConsume(data, 'breed', _item);
+  applyAndConsume(data, 'unnatural', _item);
+
+  // TODO: "note": null,
+
+  applyAndConsume(data.level, 'base', _item, 'level');
+  applyAndConsume(data.ini, 'base', _item, 'ini');
+  if (_item?.health?.value) {
+    applyAndConsume(data.health, 'base', _item.health, 'value');
+  }
+  if (_item?.health?.formula) {
+    // FIXME: formula
+  }
+  if (_item?.health?.note) {
+    applyAndConsume(data.health, 'note', _item.health);
+  }
+
+  // TODO: "power"
+
+  // TODO: "pw": {
+  //   "value": 0,
+  //   "type": ""
+  // },
+  // TODO: "states": {}, // evtl. auch unnatural
+  // TODO: "damage-levels": {},
+  if (_item?.strategy) {
+    // TODO: durch Referenz ersetzen (bereits in der Validierung?)
+    applyAndConsume(data, 'strategy', _item);
+  }
+  // TODO: "shapes": null,
+  // TODO:  "areas"
+
+  // FIXME: "attacks": [],
+  consume(_item, 'attacks');
+  // FIXME: "powers": [],
+  consume(_item, 'powers');
+
+  // TODO: "environment-effects" vs. "environment-effect"
+  _item['environment-effect']?.forEach(effect => {
+    const e = duplicate(templates.raw.Actor.templates['_npc_environment-effect']);
+    applyAndConsume(e, 'name', effect);
+    applyAndConsume(e, 'description', effect, 'raw');
+    if (effect.optional === true) {
+      applyAndConsume(e, 'optional', effect);
+      apply(e, 'active', false);
+    }
+    append(data['environment-effects'], e);
+  });
+
+  // TODO: "story": null,
+
+  if (_item?.loot?.raw) {
+    applyAndConsume(data.loot, 'text', _item.loot, 'raw');
+  }
+
+  consume(_item, 'references').forEach(ref => {
+    // FIXME: in template einfügen
+    append(data.references, ref);
+  });
+
+  // FIXME: temp. property feature ignorieren
+  // consume(_item, 'feature');
+
+  // FIXME: prüfung for leader reaktivieren
+  if (item.type === 'mob')
+  // check if _item is empty
+  Object.keys(_item)
+    .filter(key => !key.startsWith('@'))
+    .forEach(key => {
+      if (!isEmpty(_item[key])) {
+        throw `property "${key}" still contains data: ${JSON.stringify(_item[key])}`;
+      }
+    });
+
+return out;
 }
 
 function _convertRegulationItem(type, item, path, out) {
@@ -181,6 +302,61 @@ function _convertNpcPowerItem(type, item, path, out) {
 
 
 // Helper
+function consume(obj, key) {
+  // FIXME: warnung, falls key nicht existiert!
+  const ret = obj[key];
+  delete obj[key];
+  return ret;
+}
+
+function apply(obj, key, value) {
+  if (obj === null || obj === undefined) {
+    throw `can't apply to target "${obj}"`;
+  }
+  if (value === undefined) {
+    throw `can't apply value undefined`;
+  }
+  if (typeof(obj) !== 'object' || Array.isArray(obj)) {
+    throw 'wrong target type';
+  }
+  if (!obj.hasOwnProperty(key)) {
+    throw `key "${key}" does not exist in target`;
+  }
+  if (obj[key] === null || obj[key] === undefined) {
+    obj[key] = value;
+  }
+  else if (Array.isArray(obj[key])) {
+    throw `can't apply to an array`;
+  }
+  else if (typeof(obj[key]) === 'object') {
+    if (typeof(value) !== 'object' || Array.isArray(obj)) {
+      throw 'wrong value type';
+    }
+    Object.assign(obj[key], value);
+  }
+  else if (typeof(obj[key]) === typeof(value)) {
+    obj[key] = value;
+  }
+  else {
+    throw `type of value (${typeof(value)}) does not match the type of key "${key}" (${typeof(obj[key])})`;
+  }
+}
+
+function applyAndConsume(target, key, src, srcKey=key) {
+  apply(target, key, consume(src, srcKey));
+}
+
+function append(array, value) {
+  // FIXME: Prüfungen
+  array.push(value);
+}
+
+function getCompendiumFlags(type, data, rev) {
+  const out = {};
+  // FIXME: nameC umbenennen
+  out[vttSystemName] = { compendium: { pack: getPackName(type), id: data._id, nameC: data.name, "data-revision": rev }};
+  return out;
+}
 
 function getPackName(type) {
   return `${vttSystemName}.${packPrefix}-${type}`;

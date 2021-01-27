@@ -4,22 +4,28 @@
   "templates": {
     "core": {
       "health": {
-        "value": 0,
+        "dtype": "Number",
+        "value": null,
         "min": 0,
-        "max": 0,
-        "dtype": "Number"
+        "max": null,
+        "base": null,
+        "formula": null,
+        "note": null
       },
       "power": {
-        "value": 0,
+        "base": 0,
+        "value": null,
         "max": 10,
         "dtype": "Number"
       },
       "level": {
-        "value": 0,
+        "base": 0,
+        "value": null,
         "dtype": "Number"
       },
       "ini": {
-        "value": 0,
+        "base": 0,
+        "value": null,
         "dtype": "Number"
       }
     },
@@ -51,29 +57,44 @@
         }
       }
     },
-    "NPC-TYPE": [ "leader", "mob" ]
+    "NPC-TYPE": [ "leader", "mob" ],
+    "_npc_environment-effect": {
+      "name": "",
+      "description": "",
+      "optional": false,
+      "active": true
+    },
+    "_wiki-ref": {
+      "source": "Wiki",
+      "link": ""
+    },
+    "_pub-ref": {
+      "source": "",
+      "page": ""
+    }
   },
   "npc": {
     "templates": [ "core", "attributes" ],
     "_template-revision": 0,
-    "breed": null,
-    "type": null,
+    "breed": "",
+    "type": "",
+    "unnatural": false,
     "note": null,
     "pw": {
       "value": 0,
       "type": ""
     },
-    "states": {
-      "unnatural": false
-    },
+    "states": {},
     "damage-levels": {},
-    "strategy": null,
+    "strategy": "Tumb (N|F)",
     "shapes": null,
     "attacks": [],
     "powers": [],
-    "environment-effects": null,
+    "environment-effects": [],
     "story": null,
-    "loot": null,
+    "loot": {
+      "text": null
+    },
     "references": []
   },
   "npc-leader":{

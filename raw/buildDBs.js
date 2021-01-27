@@ -291,6 +291,7 @@ function _extractAusbaukraftFeature(type, data, power, path, mappings) {
 
 
 async function main() {
+  console.clear();
 
   // prepare input and output
   types.forEach(type => {
@@ -357,11 +358,13 @@ async function main() {
   await pause();
 
   console.info('Converting flattened content data ...');
+  console.group();
   types.forEach(type => {
     let err;
     [output[type].content, err] = convertItems(type, input[type].flattened);
     error |= err;
   });
+  console.groupEnd();
   exitOnError();
   console.info(`Conversion done.\n`);
   await pause();

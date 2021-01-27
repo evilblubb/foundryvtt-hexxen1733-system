@@ -42,6 +42,22 @@ function duplicate(data) {
 }
 exports.duplicate = duplicate;
 
+function isEmpty(data) {
+  if (typeof(data) === 'object') {
+    if (Array.isArray(data)) {
+      return data.filter(el => !isEmpty(el)).length === 0;
+    }
+    else {
+      // FIXME: leere keys filtern
+      return Object.keys(data).length === 0;
+    }
+  }
+  else {
+    return data === null || data === undefined;
+  }
+}
+exports.isEmpty = isEmpty;
+
 function generateID(count = _len) {
   let str;
 
