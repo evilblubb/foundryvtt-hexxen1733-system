@@ -406,6 +406,26 @@
           }
         ]
       },
+      "demolieren": {
+        "name": "Demolieren",
+        "_id": "",
+        "@rev": 1,
+        "type": "Handlung, N|F",
+        "description": "Der NSC kann enormen Schaden an seiner Umgebung anrichten, sofern diese irgendeine Form von Strukturen aufweist (Gebäude, Felsen, Bäumen etc.), auf flachem Terrain hat die Kraft keine Wirkung. Der Angriff lässt einen Schauer aus Trümmern, Holzsplittern oder Schutt (je nach Umgebung) auf den Schauplatz niederregnen. Der NSC würfelt auf KKR + AS und verursacht bei jedem Kampfteilnehmer (auch ihm selbst) normalen, durch PW reduzierbaren Schaden in Höhe der Erfolge. Jäger können die Zahl der Erfolge wie üblich durch Ausweichen oder Schildblock verringern, nicht aber durch Parade. Nach jedem Einsatz dieser Kraft würfelt der Spielleiter mit einem HeXXenwürfel: Bei einem Espritstern wurde die Umgebung so stark demoliert, dass die Kraft an diesem Ort nicht mehr angewendet werden kann.",
+        "target": "Umgebung (Bereich)",
+        "cost": "keine",
+        "syntax": "N|F: jeder Kampfteilnehmer nimmt KKR + AS normalen Schaden (ausweichbar, blockbar), Espritsymbol: Demolieren kann nicht mehr an diesem Ort angewendet werden",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/demolieren.html"
+          },
+          {
+            "source": "Geheimnisse der Deutschen Lande",
+            "page": "16"
+          }
+        ]
+      },
       "derwisch": {
         "name": "Derwisch",
         "_id": "2IO2TnOZhvfWMyUi",
@@ -1133,6 +1153,24 @@
           {
             "source": "Hexenzorn",
             "page": "121"
+          }
+        ]
+      },
+      " lebkuchenhülle": {
+        "name": " Lebkuchenhülle",
+        "_id": "",
+        "@rev": 1,
+        "type": "Eigenschaft",
+        "description": "Der NSC wird von einer bröckelnden Schicht dicker, abgestorbener Haut umschlossen, die ihm das Aussehen eines Lebekuchenmanns verleiht. Zu Kampfbeginn besitzt der NSC einen PW von 10. Direkter Waffenschaden, der zum Verlust von LEP führt, reduziert den PW um 1. Außerdem fallen bei einem solchen Treffer Brocken der Hülle auf den Boden und verwandeln sich in Jz Lebkuchenschrecken (Bandengegner, Stufe 1), die noch in derselben Kampfrunde agieren können. Der PW wird nicht durch anhaltende Effekte oder Schmerzschaden reduziert.",
+        "syntax": "PW 10; bei LEP-Verlust durch direkten Waffenschaden: PW −1, JZ Lebkuchenschrecken",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/lebkuchenhuelle.html"
+          },
+          {
+            "source": "Geheimnisse der Deutschen Lande",
+            "page": "84"
           }
         ]
       },
@@ -2280,7 +2318,7 @@
         "name": "Körper aus Rauch und Flammen",
         "_id": "LWdpPN68S7OtSU47",
         "@rev": 1,
-        "type": "NSC Handlung, NN|FF",
+        "type": "Handlung, NN|FF",
         "description": "Der Nsc verwandelt sich in ein halb-ätherisches Wesen, das aus Rauch und Flammen zu bestehen scheint. Die Umrisse des Wesens bleiben erhalten, jedoch wirkt es durchscheinend, und Details sind nicht mehr zu erkennen. Um den Zauber zu wirken, sind zwei Handlungen vonnöten. Danach kann das Wesen kaum noch durch materielle Angriffe verletzt werden; es genießt eine Schadensreduzierung von 7 gegen materielle Angriffe. Das Wesen kann in diesem Zustand jedoch auch nicht selbst mit seiner Umwelt interagieren (z. B. um mit eigenen Waffen Schaden anzurichten), kann aber Nsc-Handlungen (Zauber) ausführen. Das Wirken dieses Zustands kostet 1 Hex, danach kostet es jeweils 1 Hex, um den Zustand für eine weitere Runde aufrecht zu erhalten. In körperloser Gestalt kann der Nsc keine Hex aufbauen.",
         "target": "persönlich",
         "cost": "1 Hex + 1 Hex pro Zug",
@@ -3250,6 +3288,24 @@
           }
         ]
       },
+      "artefaktbelebung": {
+        "name": " Artefaktbelebung",
+        "_id": "",
+        "@rev": 1,
+        "type": "Eigenschaft",
+        "description": "Die Kölner Rheinleichen sind besonders mächtig, wenn sie sich in der Nähe des unheiligen Artefakts befinden, das sie erschaffen hat. Dessen Wirkungsbereich erstreckt sich aktuell über die Kölsche See sowie die benachbarten Städte (somit auch ganz Köln). Würde ein Bruchstück jedoch an einen anderen Ort gebracht, wäre die Aura auch dort aktiv. Stirbt eine Rheinleiche innerhalb des Wirkungsbereichs des Artefakts, würfelt der HeXXenmeister mit einem Januswürfel: Bei einem Janussymbol werden die Überreste der Rheinleiche erneut belebt (dargestellt durch 2 Wandelnde Leichen). Diese kommen in INI 0 ins Spiel und besitzen ihre vollen LEP.",
+        "syntax": "NSC stirbt im Bereich des Artefakts und Janussymbol: 2 Wandelnde Leichen (Bande 1) kommen in INI 0 ins Spiel",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/artefaktbelebung.html"
+          },
+          {
+            "source": "Geheimnisse der Deutschen Lande",
+            "page": "73"
+          }
+        ]
+      },
       "atem-des-grau": {
         "name": "Atem des Grau",
         "_id": "Ds5qfW6KYMJ6CQLu",
@@ -3403,6 +3459,24 @@
           {
             "source": "Archiv des Wächterbunds",
             "page": "15"
+          }
+        ]
+      },
+      "roter-nebel": {
+        "name": "Roter Nebel",
+        "_id": "",
+        "@rev": 1,
+        "type": "Eigenschaft",
+        "description": "Wenn ein Nebelwandler stirbt, kämpft der ihn umgebende rote Nebel noch weiter. Der Nebel wird wie ein Bandengegner der Stufe 3 behandelt, der sich in INI 0 aus dem toten Körper erhebt (Werte siehe Nebelphantom)",
+        "syntax": "bei Tod: Kreatur wird durch 1 Nebelphantom ersetzt (Bande-3-Gegner)",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/roter-nebel.html"
+          },
+          {
+            "source": "Geheimnisse der Deutschen Lande",
+            "page": "66"
           }
         ]
       },
@@ -3635,7 +3709,7 @@
         "name": "Wie ein Blitz",
         "_id": "cxVcINk58irpp6g5",
         "@rev": 1,
-        "type": "NSC-Kraft, Eigenschaft",
+        "type": "Eigenschaft",
         "description": "Der Nsc saust wie ein Wahnsinniger durch die Reihen seiner Feinde, scheinbar ziellos und darauf aus, möglichst viele Gegner zu verletzen. Nach einem Nahkampfangriff löst sich der Nsc automatisch von allen gebundenen Feinden und attackiert mit seiner nächsten (N)-Handlung einen zufällig ermittelten anderen Jäger. Dabei kann er nicht denselben Jäger noch einmal ermitteln, es sei denn, es sind weniger Jäger vorhanden als der Nsc Angriffe/Handlungen hat. An den letzten Gegner seines Zugs bleibt er gebunden. Der Nsc kann wie üblich über Leibgarde und ähnliche Kräfte an einen Jäger gezogen werden, jedoch immer nur einmal pro Zug.",
         "syntax": "Jeder Nahkampfangriff gegen anderen Jäger",
         "references": [

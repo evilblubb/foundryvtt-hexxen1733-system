@@ -1,0 +1,102 @@
+{
+    "geheime-symbole-der-hexen": "Um sich miteinander auszutauschen, ihr Revier abzugrenzen oder Warnhinweise anzubringen, benutzen Hexen diverse geheime Symbole und Glyphen. Diese sogenannten Hexenzeichen können sehr unterschiedliche Formen annehmen. Viele sind geprägt von Kultur und Religion des jeweiligen Landes, und nicht immer ist eine zugewanderte Hexe in der Lage, die typischen Zeichen der fremden Umgebung richtig zu deuten. Neben diesen regional verschiedenen Markierungen existiert auch eine Reihe von Symbolen, die sich in ihrem Aussehen überall in Europa stark ähneln. Im Grunde handelt es sich bei Hexenzeichen um ortsgebundene Zaubermittel, die ihre arkane Kraft verlieren, sobald sie bewegt werden, z.B. wenn der Baum, in den sie geschnitten sind, abgeholzt wird. Die Anbringung eines Hexenzeichens erfolgt immer in Form eines magischen Rituals, wobei die Ausführende eine große Kunstfertigkeit bei der Gestaltung des Symbols an den Tag legt. Hexenzeichen werden fast ausschließlich in einen festen Untergrund gemeißelt oder geritzt, meist Holz oder Stein, seltener auch Metall. Manche werden auch konstruiert, dann meist aus Holz, Stroh oder Zweige, in seltenen Fällen werden Bäume und Sträucher von der Hexe in die Form eines Hexenzeichens gebracht. Hexenzeichen verlieren ihre Wirkung, wenn sie bzw. ihr Untergrund zerstört werden.",
+    "weisse-hexen-und-hexenzeichen": "Da weiße Hexen von der Hexengesellschaft ausgestoßen sind, werden sie in Bezug auf Hexenzeichen wie Jäger behandelt und genießen nicht die Vorzüge von Hexenzeichen. Weiße Hexen spüren allerdings die Anwesenheit dieser Zeichen. Sollte ein Zeichen verborgen oder unsichtbar sein, erhalten weiße Hexen einen Bonus von +3, um das Zeichen zu finden. Zudem wissen sie in jedem Fall, um welches Hexenzeichen es sich handelt und was seine Wirkung ist.",
+    "hexenzeichen": {
+        "das-getruebte-auge": {
+            "name": "Das getrübe Auge",
+            "effect": "Die Hexe bestimmt beim Auftragen des Zeichens, welches Objekt bzw. Lebewesen vor suchenden Blicken verborgen bleiben soll. In der Regel wird das getrübte Auge innerhalb eines geschlossenen Raums angebracht, und sein Effekt bezieht sich auf einen bestimmten Gegenstand oder den Raum selbst. Wird ein Lebewesen als Ziel bestimmt, so kann es sich innerhalb des Raums und oft auch in dessen näherer Umgebung unsichtbar machen. Werden die Jäger durch eine Illusion getäuscht, z. B. indem das Zeichen einen anderen Rauminhalt vorgaukelt oder ein Objekt der Wahrnehmung entzieht, kann die Wirkung aufgehoben werden, indem man die Augen schließt und nur seinem Tastsinn vertraut (Probe auf Fingerfertigkeit). Einmal erspürte Objekte sind dann in ihrer wahren Gestalt sichtbar. Das Symbol selbst ist nie Teil der Täuschung und kann immer wahrgenommen werden. Allerdings ist es meist klein und unscheinbar, sodass es kaum auffällt.",
+            "destroy": "Das Auge kann mit einfachen Mitteln (Werkzeug oder Waffen) vernichtet werden, jedoch muss man es dazu erst entdecken, wozu eine Aufmerksamkeit-Probe (−5) oder, bei aktivem Suchen, eine Erkennen-Probe (-5) erforderlich ist.",
+            "references": [
+                {
+                    "source": "Wiki",
+                    "link": "http://hexxen1733-regelwiki.de/index.php/das-getruebe-auge.html"
+                },
+                {
+                    "source": "Hexenzorn",
+                    "page": "83"
+                }
+            ],
+            "erreta": false
+        },
+        "dornenkranz": {
+            "name": "Dornenkranz",
+            "effect": "Dornenkränze erhöhen die magische Aura der Umgebung. In Ini 0 generieren anwesende Hexen +1 Hex-Punkt.",
+            "destroy": "Dornenkränze sind leicht zu zerstören, aber schwierig zu finden. Anders als beispielsweise Pentagramme offenbaren sie sich nicht, wenn sie ihre magische Wirkung entfalten. Allerdings zeigt sich die arkane Verbindung, die zwischen Hexe und Dornenkranz entsteht, kurz in Form eines dunkelgrünen, spiralartigen Schattens, der die Hexe wie eine Ranke umgibt – wodurch sich zumindest auf die Anwesenheit eines solchen Symbols schließen lässt. Um einen Dornenkranz zu finden, kann jeder Jäger eine Sammelprobe auf Erkennen (−5) ablegen. Im Kampf erfordert jede Probe 2 Ap. Sobald alle Jäger in Summe Jz x 3 Erfolge angehäuft haben, wurde der Dornenkranz entdeckt. Um das Hexenzeichen zu vernichten, bedarf es eines Angriffs mit einer beliebigen Schnittwaffe. Der Dornenkranz besitzt 5 Lep und keine Schadensreduzierung.",
+            "references": [
+                {
+                    "source": "Wiki",
+                    "link": "http://hexxen1733-regelwiki.de/index.php/dornenkranz.html"
+                },
+                {
+                    "source": "Hexenzorn",
+                    "page": "84"
+                }
+            ],
+            "erreta": false
+        },
+        "kretisches-labyrinth": {
+            "name": "Kretisches Labyrinth",
+            "effect": "Ein kretisches Labyrinth kann einen Bereich von ca. 100 x 100 Metern beschützen. Unerwünschte Eindringlinge in das Gebiet haben es schwer, den richtigen Weg zu wählen. Selbst wenn sie beispielsweise einem Pfad folgen, von dem sie wissen, dass er zu einer magischen Quelle führt, gehen sie an dieser einfach vorbei, ohne sie wahrzunehmen, und finden sich schließlich verwirrt an ihrem Startpunkt wieder. Eingeladene Gäste erhalten eine Karte mit Wegweisern, die sie sicher durch den Irrgarten führen. Viele Hexen nutzen die Macht des Labyrinths, um ihre Heimstätten oder Tanzplätze zu schützen.",
+            "destroy": "Jäger im entsprechenden Gebiet können eine Aufmerksamkeit-Probe (−5) ausführen, um das Zeichen zufällig zu entdecken. Der Malus wird auf 0 reduziert, wenn die Jäger aktiv und konzentriert nach Symbolen oder Spuren suchen. Ist das Zeichen gefunden, kann es mit geeigneten Werkzeugen zerstört werden; dazu ist in der Regel keine Probe nötig.",
+            "references": [
+                {
+                    "source": "Wiki",
+                    "link": "http://hexxen1733-regelwiki.de/index.php/kretisches-labyrinth.html"
+                },
+                {
+                    "source": "Hexenzorn",
+                    "page": "84"
+                }
+            ],
+            "erreta": false
+        },
+        "pentagramm": {
+            "name": "Pentagramm",
+            "effect": "Oft dienen Pentagramme nur als Schmuck oder sie markieren einen geschützten Bereich wie z. B. einen Tanzplatz oder das Heim einer Hexe. Wurde das Symbol jedoch rituell angebracht, schirmt seine Magie Hexen in der Umgebung vor Gefahr ab. Jede wahre Hexe (außer weiße Hexen), die sich in Sichtweite eines solchen Pentagramms befindet, genießt eine Schadensreduzierung von 5 gegenüber jeder Schadensform. Wird eine Hexe angegriffen, glüht das Symbol kurz dunkelrot oder violett auf und enthüllt so seinen Standort.",
+            "destroy": "Pentagramme, oder vielmehr der Untergrund, auf dem sie angebracht sind, können mit geeigneten Werkzeugen oder Waffen zerstört werden. Sie besitzen Lep in Höhe 1 Elixierwürfels x 3 sowie eine Schadensreduzierung je nach Untergrund (von 2 für weiches Holz bis 5 für Metall oder festen Stein; wahlweise zufällig bestimmbar mit 1 Elixierwürfel). Wird ein Pentagramm unschädlich gemacht, verlieren alle anwesenden Hexen Lep in Höhe 1 Elixierwürfels x 3.",
+            "references": [
+                {
+                    "source": "Wiki",
+                    "link": "http://hexxen1733-regelwiki.de/index.php/pentagramm.html"
+                },
+                {
+                    "source": "Hexenzorn",
+                    "page": "85"
+                }
+            ],
+            "erreta": false
+        },
+        "rad-der-hekate": {
+            "name": "Rad der Hekate",
+            "effect": "Neben seiner Funktion als Aufbewahrungsort für Informationen kann ein Rad der Hekate dazu dienen, die Handlungen von Hexen und ihrer Diener besser zu koordinieren. Einmal pro Kampfrunde darf der HeXXenmeister in Ini 0 die Position von zwei beliebigen Nsc-Plättchen miteinander tauschen. Sobald das geschieht, erscheint auf dem Boden um die beiden betreffenden Wesen leuchtend das Rad der Hekate.",
+            "destroy": "Ein Rad der Hekate ist meist auf einem festen Untergrund aufgetragen. Es besitzt Lep in Höhe 1 Elixierwürfels x 3 sowie eine Schadensreduzierung je nach Untergrund (von 2 für weiches Holz bis 5 für festen Stein; zufällig bestimmbar mit 1 Elixierwürfel). Wird ein Rad der Hekate unschädlich gemacht, verlieren alle anwesenden Hexen in ihrem nächsten Zug eine beliebige Handlung.",
+            "references": [
+                {
+                    "source": "Wiki",
+                    "link": "http://hexxen1733-regelwiki.de/index.php/rad-der-hekate.html"
+                },
+                {
+                    "source": "Hexenzorn",
+                    "page": "85"
+                }
+            ],
+            "erreta": false
+        },
+        "triskele": {
+            "name": "Triskele",
+            "effect": "Ähnlich wie das Rad der Hekate bewahrt die Triskele auf magische Weise Informationen auf, nur dass es sich bei diesen allein um geographische handelt. Das Symbol hat keine Auswirkungen im Kampf.",
+            "destroy": "Da eine Triskele keinen Einfluss auf eine Auseinandersetzung nimmt, kann sie von den Jägern in Ruhe und ohne Proben zerstört werden.",
+            "references": [
+                {
+                    "source": "Wiki",
+                    "link": "http://hexxen1733-regelwiki.de/index.php/triskele.html"
+                },
+                {
+                    "source": "Hexenzorn",
+                    "page": "85"
+                }
+            ],
+            "erreta": false
+        }
+    }
+}

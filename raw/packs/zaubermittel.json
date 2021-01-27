@@ -1,0 +1,359 @@
+{
+    "zaubermittel": "Jede Hexe kann 0 bis 2 Zaubermittel mit sich führen (Blutwürfel -1). Üblicherweise verwendet sie diese während einer Auseinandersetzung, so dass keine verwertbaren Zaubermittel übrig bleiben, die von Jägern erbeutet werden können. Stoßen Jäger jedoch in die Heimstatt einer Hexe vor, können sie dort eine Reihe weiterer Zaubermittel entdecken. Die Zahl der Mittel wird mit einem Blutwürfel bestimmt, die genaue Art legt der HeXXenmeister nach eigenem Ermessen fest.",
+    "zaubermittel": {
+        "alraunenelixier": {
+            "name": "Alraunenelixier",
+            "nsc": "Wird das Alraunenelixier als freie Handlung getrunken, erhält die Hexe sofort Lep in Höhe ihres Lep-Schlüssels, berechnet auf 1 Jäger. Gibt der Lep-Schlüssel beispielsweise Jz x 15 an, erhält die Hexe 15 Lep.",
+            "pc": "Jäger, die das Elixier trinken, erleiden 1 Blutwürfel Geistschaden.",
+            "references": [
+                {
+                    "source": "Wiki",
+                    "link": "http://hexxen1733-regelwiki.de/index.php/alraunenelixier.html"
+                },
+                {
+                    "source": "Hexenzorn",
+                    "page": "79"
+                }
+            ],
+            "erreta": false
+        },
+        "bilsenrauschpulver": {
+            "name": "Bilsenrauschpulver",
+            "nsc": "Nsc im Rauschzustand addieren einen Bonus von +1 auf alle ihre Proben, Hexen sogar +2.",
+            "pc": "Für die Dauer des Rauschzustands legt der HeXXenmeister für den betroffenen Jäger zufällig oder gezielt eine neue [Motivation] fest. Der jeweilige Spieler sollte versuchen, die neue Motivation auszuspielen, um den veränderten Geisteszustand des Jägers widerzuspiegeln. Zu Beginn des Rauschs erhält der Jäger Ideen oder Coups in Höhe 1 Blutwürfels, die er als Reserve behandeln kann. Diese Reserve-Ideen/-Coups können wie gewöhnlich eingesetzt werden, regenerieren aber weder, noch verfallen sie am Ende eines Kampfes, solange sie nicht benutzt wurden.",
+            "references": [
+                {
+                    "source": "Wiki",
+                    "link": "http://hexxen1733-regelwiki.de/index.php/bilsenrauschpulver.html"
+                },
+                {
+                    "source": "Hexenzorn",
+                    "page": "79"
+                }
+            ],
+            "erreta": false
+        },
+        "flinke-spinne": {
+            "name": "Flinke Spinne",
+            "nsc": "",
+            "pc": "Die Spinne kann als freie Handlung (Ges + As, einmal pro Runde) auf einen Jäger geworfen werden. Bei mindestens 1 Erfolg wird die Spinne sofort aktiv und kriecht unter die Kleidung des Jägers. Der Jäger ist permanent abgelenkt und verliert 1 Pw (ohne 1 Ap als Ersatz zu bekommen) und hat 1 Malusstufe ohne Zustand. Um die Spinne zu zerdrücken, muss ihm als Aktion (2 Ap) ein Wurf auf Fingerfertigkeit (–3) gelingen. Das Blut der Spinne ist giftig; wird sie zerdrückt, erleidet der Jäger Säureschaden in Höhe eines Blutwürfels. Mehrere Spinnen kumulieren nicht den Effekt, sorgen aber dafür, dass die Nachteile so lange anhalten, bis alle Spinnen zerdrückt wurden.",
+            "references": [
+                {
+                    "source": "Wiki",
+                    "link": "http://hexxen1733-regelwiki.de/index.php/flinke-spinne.html"
+                },
+                {
+                    "source": "Archiv des Wächterbunds II",
+                    "page": "44"
+                }
+            ],
+            "erreta": false
+        },
+        "flugsalbe": {
+            "name": "Flugsalbe",
+            "nsc": "Ein Nsc, der sich mit der Salbe einreibt, vermag einen Tag lang zu schweben. In diesem Zustand bewegt er sich jedoch nur langsam; er benötigt ungefähr 1 Stunde, um eine Strecke von 1 Kilometer zurückzulegen.",
+            "pc": "Gerät die Salbe in die Hände der Jäger, verleiht sie diesen nur rudimentäre Schwebe-Eigenschaften. Sie zählen dann als beritten. Zudem hält die Wirkung bei Jägern nur für die Dauer eines Konflikts an und führt (bei Erstanwendung) zu 1 Verderbnis.",
+            "references": [
+                {
+                    "source": "Wiki",
+                    "link": "http://hexxen1733-regelwiki.de/index.php/flugsalbe.html"
+                },
+                {
+                    "source": "Hexenzorn",
+                    "page": "79"
+                }
+            ],
+            "erreta": false
+        },
+        "geistesparasit": {
+            "name": "Geistesparasit",
+            "nsc": "Sollte ein Nsc mit einem Geistesparasiten infiziert worden sein, erleidet er durch die ständige Ablenkung einen Malus von –1 auf alle Proben.",
+            "pc": "Aufgrund der Unsicherheit verleihen Coups und Ideen beim Fokussieren nur noch einen Bonus von +1 statt +3. Sobald der Jäger zum ersten Mal bemerkt, dass etwas nicht stimmt, darf er auf Geistesstärke (−5) würfeln (man bedenke: auch hier ist das Fokussieren weniger effektiv). Sobald diese Probe gelingt, erkennt der Jäger, dass er nicht von seinem eigenen Gewissen gequält wird, sondern eine wahrhaftige Stimme in seinem Kopf hört. Versucht er, mit dieser in Kontakt zu treten, explodiert der Geistesparasit, richtet geistigen Schaden in Höhe von 3 Blutwürfeln an und raubt dem Jäger sämtliche Ressourcen (Coups, Ideen, Segnungen, Rage, Ambition etc.). Er ist dann allerdings vernichtet. Um den Parasit zu entfernen, ist ein chirurgischer Eingriff notwendig, der nur von einem niedergelassenen Mediziner ausgeführt werden kann (2 Fza, 80 Gulden). Alternativ lassen sich alchemistische Substanzen einsetzen, die den Parasiten auflösen. Dazu muss ein Jäger, der Elixiere oder Gifte herstellen kann, eine erfolgreiche Probe auf Wissensgebiete (−4) oder Hexenkunst (−1) ablegen, wobei jeder Versuch den Alchemisten wie auch den Patienten 1 Fza kostet.",
+            "references": [
+                {
+                    "source": "Wiki",
+                    "link": "http://hexxen1733-regelwiki.de/index.php/geistesparasit.html"
+                },
+                {
+                    "source": "Hexenzorn",
+                    "page": "79"
+                }
+            ],
+            "erreta": false
+        },
+        "gift-des-ewigen-schlummerns": {
+            "name": "Gift des ewigen Schlummers",
+            "nsc": "Nimmt die Hexe selbst dieses Gift, so verschwindet sie für einen vom HeXXenmeister festgelegten Zeitraum (1 Monat – 2 Jahre) von der Bildfläche. Stöbert man sie in dieser Zeit in ihrem Versteck auf, ist es ein leichtes, die schlummernde Hexe zu töten. Wird es auf andere Nsc angewendet, fällt das Opfer für einen Zeitraum von Monaten in Höhe 1 Elixierwürfels in einen tiefen Schlaf.",
+            "pc": "Jäger fallen ebenfalls für Elixierwürfel Monate in tiefen Schlaf, jedoch dürfen sie auf Kkr + Fw (Unempfindlichkeit) würfeln, um den Zeitraum pro Erfolg um 1 Monat zu reduzieren (bis auf 0). Diese Probe darf nur dann fokussiert werden, wenn der Jäger ahnt oder vermutet, dass die Speise vergiftet ist (das muss der Spieler ggf. begründen). Eine vergiftete Person kann vorzeitig aus dem Schlaf geweckt werden, indem man ihr eine alchemistische Tinktur einflößt, die aus exakt den gleichen Zutaten gewonnen wurde wie das Gift selbst. Dafür ist es in aller Regel erforderlich, den Kräutergarten und die Hexenküche der Produzentin zu finden. Jäger mit der Kraft „Elixiere herstellen“ können das Gegenmittel als Fza brauen, ansonsten muss ein Alchemist aufgesucht werden, der für diese Dienstleistung 200 Gulden verlangt.",
+            "references": [
+                {
+                    "source": "Wiki",
+                    "link": "http://hexxen1733-regelwiki.de/index.php/gift-des-ewigen-schlummers.html"
+                },
+                {
+                    "source": "Hexenzorn",
+                    "page": "80"
+                }
+            ],
+            "erreta": false
+        },
+        "herz-des-feindes": {
+            "name": "Herz des Feindes",
+            "nsc": "Das Herz des Feindes kann von Jägern nicht verwendet werden.",
+            "pc": "Um ein Herz des Feindes anzuwenden, muss der Nsc das Glasgefäß mit dem pochenden Herzen hochhalten und ggf. ein verhüllendes Tuch beiseite ziehen. Das erfordert eine beliebige Handlung (N oder F). Alle Jäger erleiden sofort 5 Malusstufen und den Zustand Furcht, jedoch können sie versuchen, als Reaktion mit 1 Ap ihre Augen zu bedecken, um das Herz nicht zu sehen. In diesem Fall reduzieren sie die Malusstufen um die Erfolge einer Aufmerksamkeits-Probe. Jäger, die mindestens 1 Malusstufe erhalten, erblicken die letzten Augenblicke vor dem Tod des Opfers und sehen dabei auch, wer den Todesstoß versetzte, welche anderen Personen beteiligt waren und wo das Todesritual statt fand. Das Herz hat nach der ersten Offenbarung keine Furcht auslösende Wirkung mehr, aber die Hexe kann eine folgende (N)-Handlung darauf verwenden, ein Messer oder einen spitzen Gegenstand in das Herz zu bohren, woraufhin jeder Jäger für jede Malusstufe 1 Lähmungsstufe und den Zustand Fixierung erhält – dieser Effekt kann nicht vermieden oder abgemildert werden. Danach hört das Herz auf zu schlagen. Die Hexe kann das Herz anschließend noch in ein Feuer werfen oder mit geeigneten Feuerkräften entzünden, woraufhin jeder Jäger für jede Malusstufe 1 Punkt Geistschaden erhält. Danach ist das Herz restlos vernichtet.mittel als Fza brauen, ansonsten muss ein Alchemist aufgesucht werden, der für diese Dienstleistung 200 Gulden verlangt.",
+            "references": [
+                {
+                    "source": "Wiki",
+                    "link": "http://hexxen1733-regelwiki.de/index.php/herz-des-feindes.html"
+                },
+                {
+                    "source": "Archiv des Wächterbunds II",
+                    "page": "44"
+                }
+            ],
+            "erreta": false
+        },
+        "hexenkueche": {
+            "name": "Hexenküche",
+            "text":"Hexen, die über eine Hexenküche verfügen, können eine Reihe von Ingredienzen gesammelt haben, die sie für die Zubereitung ihrer Zaubermittel benötigen. Dieselben Ingredienzen sind auch für Alchemisten von Wert. Hexenküche ist ein Sammelbegriff für eine Sammlung von allerhand seltsamen Objekten und Substanzen, von Krötenaugen und Schlangenschuppen, über beschnitzte Tierknochen, Vogelbeine und Adlerfedern bis hin zu farbigen Erden und Mineralien, Bernsteinkugeln und Alraunenwurzeln, Kristallen und bunten Steinen etc. pp. Die Hexenküche hat einen Umfang von 1 bis 5 Beutegut-Paketen (á 100 Gulden, kann auch mittels des Elixierwürfels ausgewürfelt werden).",
+            "study": "Ein Jäger, der selbst Verbrauchsgüter herstellen kann wie z.B. Elixiere, Wurfgeschosse, Gifte, Schwarzpulver oder Kräutermittel, kann versuchen, aus der erbeuteten Hexenküche und den Aufzeichnungen der Hexe neue Rezepte zu lernen. Das erfordert eine Sammelprobe auf Wissensgebiete (–5), wobei die Größe der Hexenküche als Bonus addiert wird (bei einer Hexenküche der Größe 5 würde sich demnach Malus und Bonus annullieren). Statt auf Wissensgebiete kann der Jäger auch auf Hexenkunst würfeln, dann immer ohne Malus und ohne Bonus. Es sind insgesamt 15 Erfolge notwendig.",
+            "effect": "Wurde eine Hexenküche studiert, erhält der Jäger 1 JP, den er in einer seiner Handwerks-Ausbaukräfte investieren darf. Er würfelt anschließend mit dem Januswürfel. Bei einem Janussymbol erhält er 1 Verderbnis, bei einer leeren Seite geschieht nichts. Die Hexenküche gilt dann aber als verbraucht und wirft kein Geld mehr ab. Der HeXXenmeister kann bestimmen, dass ein Jäger immer nur einmal in seinem Leben Kenntnisse aus dem Studium einer Hexenküche beziehen kann.",
+            "references": [
+                {
+                    "source": "Wiki",
+                    "link": "http://hexxen1733-regelwiki.de/index.php/hexenkueche.html"
+                },
+                {
+                    "source": "Hexenzorn",
+                    "page": "117"
+                }
+            ],
+            "erreta": false
+        },
+        "hexenpuppe": {
+            "name": "Hexenpuppe",
+            "nsc": "Es obliegt dem HeXXenmeister zu bestimmen, ob der ausspionierte Nsc etwas von der magischen Wirkung des Ausspähens spürt und evtl. Jäger anheuert, die für ihn die Quelle dieses Zaubers ausfindig machen. Zudem kann die Hexe dem Opfer einmal pro Tag Schaden zufügen, indem sie mit einer Nadel in die Puppe sticht. Der Schaden entspricht der As der Hexe in Elixierwürfeln (Geistschaden).",
+            "pc": "Ist ein Jäger das Ziel einer Hexenpuppe, darf er bei jeder Fza eine Probe auf Hexenkunst oder Geistesstärke (−5) ablegen. Gelingt die Probe, hat er das deutliche Gefühl, permanent beobachtet zu werden. Jäger können die Fluchpuppe nicht verwenden. Allerdings kann ein Jäger, der „Volksflüche“ oder eine ähnliche Kraft beherrscht, die magische Macht der Puppe nutzen, um die Dauer von Flüchen einmalig um +1 zu verlängern (entsprechend der jeweiligen Zeiteinheit: +1 Tag, +1 Stunde etc.). Dafür muss er 1 Idee opfern. Die magische Wirkung der Puppe gilt danach als verflogen.",
+            "references": [
+                {
+                    "source": "Wiki",
+                    "link": "http://hexxen1733-regelwiki.de/index.php/hexenpuppe.html"
+                },
+                {
+                    "source": "Hexenzorn",
+                    "page": "80"
+                }
+            ],
+            "erreta": false
+        },
+        "hoerigkeitstrank": {
+            "name": "Hörigkeitstrank",
+            "nsc": "Bei menschlichen Nsc wirkt der Trank über eine vom Spielleiter frei bestimmbare Dauer zwischen 1 Tag und 1 Woche (bzw. 1 Elixierwürfel in Tagen). In diesem Zeitraum erfüllt der Mensch der Hexe jeden Wunsch, selbst wenn dieser beinhaltet, dass sich die Person selbst Verletzungen zufügt oder sogar sehenden Auges in den Tod schreitet.",
+            "pc": "Bei Jägern wirkt der Trank etwas anders, da sie erfahren im Umgang mit magischen Gegnern sind und eine höhere Skepsis und Aufmerksamkeit gegenüber dunklen Machenschaften an den Tag legen. Wird einem Jäger ein Hörigkeitstrank verabreicht, würfelt der HeXXenmeister insgeheim mit 1 Elixierwürfel und notiert das Ergebnis. Sobald der Jäger in die Nähe der Hexe kommt, die den Trank zubereitet hat, erhält er Malusstufen in Höhe der ausgewürfelten Zahl sowie ihr gegenüber den Zustand „Furcht“. Die Wirkung des Hörigkeitstranks reduziert sich mit jedem verstrichenen Tag um 1.",
+            "references": [
+                {
+                    "source": "Wiki",
+                    "link": "http://hexxen1733-regelwiki.de/index.php/hoerigkeitstrank.html"
+                },
+                {
+                    "source": "Hexenzorn",
+                    "page": "81"
+                }
+            ],
+            "erreta": false
+        },
+        "irrlicht-lampe": {
+            "name": "Irrlicht-Lampe",
+            "text":"Im Umkreis der Lampe (ca. 5 Meter) werden automatisch alle Schatten verbannt, so als ob das Licht um alle festen Objekte herum scheinen würde.",
+            "nsc": "",
+            "pc": "Unter diesen Umständen misslingen Heimlichkeits-Proben zum Anschleichen automatisch, und jeder Anwesende (Nsc und Jäger) erhält einen Bonus von +2 auf Erkennen-Proben, um beispielsweise Geheimtüren oder verborgene Dinge zu entdecken. Bei dem Irrlicht handelt es sich jedoch um den bösen Geist eines verstorbenen Wesens, oftmals um Menschen, die im Sumpf oder Moor ums Leben kamen. Die Lampe aktiviert sich bei Dunkelheit automatisch, aber rechtschaffene Wesen im Umkreis der Lampe leiden nachts unter Albträumen. Alle Jäger, die im Beisein einer Irrlicht-Lampe schlafen wollen und nicht mindestens 2 Verderbnis haben, regenerieren nach jeder Nachtphase 1 Feld Mh und 1 Lep weniger als gewöhnlich.",
+            "references": [
+                {
+                    "source": "Wiki",
+                    "link": "http://hexxen1733-regelwiki.de/index.php/irrlicht-lampe.html"
+                },
+                {
+                    "source": "Archiv des Wächterbunds II",
+                    "page": "44"
+                }
+            ],
+            "erreta": false
+        },
+        "lebender-zopf": {
+            "name": "Lebender Zopf",
+            "nsc": "Wird der Zopf von einem Jäger auf einen Nsc geworfen (2 Ap, Angriffsprobe auf Schleudern, 1 Erfolg nötig), so wickelt sich der Zopf noch im Flug aus und stranguliert den Getroffenen. Der Nsc erhält automatisch 5 Malusstufen.",
+            "pc": "Nsc führen die Angriffsprobe als (F)-Handlung mit Ges + As aus. Wird ein Jäger getroffen, erleidet er ebenfalls 5 Malusstufen sowie den Zustand [Haaresfluch].",
+            "references": [
+                {
+                    "source": "Wiki",
+                    "link": "http://hexxen1733-regelwiki.de/index.php/lebender-zopf.html"
+                },
+                {
+                    "source": "Archiv des Wächterbunds II",
+                    "page": "43"
+                }
+            ],
+            "erreta": false
+        },
+        "libellentrank": {
+            "name": "Libellentrank",
+            "nsc": "Die Einnahme des Elixiers erfordert keine Handlung für den Nsc, ist aber nur einmal pro Runde möglich. Der Nsc erhält sofort eine zusätzliche (N)- oder (F)-Handlung.",
+            "pc": "Jäger, die den Trank als kostenlose Reaktion anwenden können, erhalten stattdessen 3 Ap, müssen aber in der Lage sein, 2 MH-Kästchen durchzustreichen.",
+            "references": [
+                {
+                    "source": "Wiki",
+                    "link": "http://hexxen1733-regelwiki.de/index.php/libellentrank.html"
+                },
+                {
+                    "source": "Hexenzorn",
+                    "page": "81"
+                }
+            ],
+            "erreta": false
+        },
+        "liebestrank": {
+            "name": "Liebestrank",
+            "nsc": "",
+            "pc": "Dieser Trank wirkt ähnlich wie der Hörigkeitstrank, mit dem Unterschied, dass sich normale Menschen selbst über große Distanzen zu ihrer Angebeteten hingezogen fühlen und versuchen, das Ziel ihrer Leidenschaft zu erreichen. Sie entwickeln eine Art Spürsinn, der ihnen Richtung und Distanz vorgibt, so dass sie die Wahl ihrer Fortbewegung (zu Fuß, reitend, in der Kutsche, per Schiff) selbst wählen. Auch Jäger, die einen Liebestrank zu sich nahmen, haben diesen Spürsinn, der es ihnen leichtmacht, eine Hexe aufzustöbern. Aus diesem Grund wählen Hexen ihre Opfer mit Bedacht. Die regeltechnischen Auswirkungen des Liebestranks auf Jäger sind mit denen des Hörigkeitstranks identisch.",
+            "references": [
+                {
+                    "source": "Wiki",
+                    "link": "http://hexxen1733-regelwiki.de/index.php/liebestrank.html"
+                },
+                {
+                    "source": "Hexenzorn",
+                    "page": "81"
+                }
+            ],
+            "erreta": false
+        },
+        "magischer-besen": {
+            "name": "Magischer Besen",
+            "nsc": "Der Hexenbesen kann nur von der Hexe benutzt werden, die ihn hergestellt hat. Er ermöglicht einer Hexe das Fliegen, regeltechnisch erhält sie dadurch die Nsc-Eigenschaft „Flieger“. Befindet sich die Hexe auf dem Boden, kann der Besen Attacken ausführen. Er agiert jeweils in der Ini-Phase der Hexe, führt einen Angriff mit 6 Würfeln aus und verursacht 2 Punkte Grundschaden. Die Lep des Besens berechnen sich anhand der As der Hexe x 10, der Pw entspricht der As. Jede Hexe kann immer nur über einen magischen Besen gebieten; wird er zerstört, kann sie einen neuen erst nach Ablauf dreier Vollmondnächte erschaffen. Wird die Hexe getötet, verliert der magische Besen alle seine magischen Eigenschaften.",
+            "pc": "Jäger können den magischen Besen nicht nutzen.",
+            "references": [
+                {
+                    "source": "Wiki",
+                    "link": "http://hexxen1733-regelwiki.de/index.php/magischer-besen.html"
+                },
+                {
+                    "source": "Hexenzorn",
+                    "page": "81"
+                }
+            ],
+            "erreta": false
+        },
+        "mantel-der-augen": {
+            "name": "Mantel der Augen",
+            "nsc": "Die Hexe, die den Mantel trägt, nimmt auf magische Weise alles wahr, was sich im Umkreis von 100 Metern abspielt, und ist daher unmöglich zu überraschen. Im Kampf kann die Hexe einmal pro Runde als freie Handlung ein Auge zerdrücken und damit den Zauber Blindheit gegen einen Jäger wirken, ganz so, als ob sie den Zauber selbst kennt. Beherrscht sie den Zauber selbst, führt sie ihn mit Meisterschaft (+3) aus. Ein Mantel hat 2W6 Augen, die auf diese Weise zerdrückt werden können.",
+            "pc": "Wird der Mantel von einem Jäger getragen, erhält er 1 Verderbnis. Er führt sämtliche Erkennen- und Aufmerksamkeit- Proben mit +5 aus. Zerdrückt er ein Auge, führt er eine vergleichende Probe Hexenkunst (nur möglich, wenn er die Fertigkeit besitzt) gegen Wil des Nsc durch. Für jeden Differenzerfolg zugunsten des Jägers erleidet der Gegner 1 Malusstufe.",
+            "references": [
+                {
+                    "source": "Wiki",
+                    "link": "http://hexxen1733-regelwiki.de/index.php/mantel-der-augen.html"
+                },
+                {
+                    "source": "Archiv des Wächterbunds II",
+                    "page": "44"
+                }
+            ],
+            "erreta": false
+        },
+        "miniaturhelfer": {
+            "name": "Miniaturhelfer",
+            "nsc": "Um Miniaturhelfer zu aktivieren, benötigt der Nsc keine Handlung, jedoch kann er dies nur einmal pro Zug tun. Die Art der auf diese Weise beschworenen Bandengegner kann der HeXXenmeister frei bestimmen. Üblicherweise handelt es sich um Kreaturen, die von der Hexe nicht auf normalem Wege herbeigerufen werden können, die aber typisch für die Region sind, z. B. Raubvögel im Gebirge, Ratten in der Stadt, Schlickknechte im Sumpf. Die Gesamtzahl der beschworenen Bandenstufen entspricht Jz –1 Elixierwürfeln. Allerdings agieren die Kreaturen in der aktuellen Runde erst in Ini 1. Die Belebung der Miniaturhelfer zählt nicht als Beschwörung, und der HeXXenmeister kann alle Richtlinien zum Beschwörungslimit in diesem Fall ignorieren.",
+            "pc": "Nsc können die Miniaturhelfer für 1 AP aktivieren, jedoch besteht eine 50%-Chance (leere Seite auf dem Januswürfel), dass die Miniaturhelfer die Jäger attackieren. Die Miniaturhelfer werden nicht die Hexe angreifen, die sie erschaffen hat.",
+            "references": [
+                {
+                    "source": "Wiki",
+                    "link": "http://hexxen1733-regelwiki.de/index.php/miniaturhelfer.html"
+                },
+                {
+                    "source": "Hexenzorn",
+                    "page": "81"
+                }
+            ],
+            "erreta": false
+        },
+        "mumifizierte-hand": {
+            "name": "Mumifizierte Hand",
+            "nsc": "Um damit im Nahkampf zu treffen, führen Jäger eine Probe auf Fausthieb aus (1 Ap). Wird sie als Wurfgeschoss verwendet, ist eine Probe auf Schleudern (2 Ap) notwendig. Es reicht ein Erfolg, damit die Hand trifft und sich automatisch um die Kehle des Opfers bzw. um eine andere empfindliche Stelle legt. Ein Treffer richtet sofort Elixiersymbole mal 3 Schmerzschaden an. Die Hand drückt ab der folgenden Runde jeweils in Ini 1 erneut zu und verursacht Elixiersymbol mal 2, dann mal 1 Schaden, bevor sie automatisch abfällt. Ein Jäger kann sie vorher als Aktion (2 Ap) und einer gelungenen Probe auf Muskelspiel (–3) entfernen.",
+            "pc": "Nsc führen die Probe im Nahkampf als (N)-Handlung aus mit Ath + As, im Fernkampf als (F)-Handlung mit Ges + As. Um sich von der Hand zu befreien, würfelt ein Nsc Kkr (–3), was 1 beliebige Handlung verbraucht.",
+            "references": [
+                {
+                    "source": "Wiki",
+                    "link": "http://hexxen1733-regelwiki.de/index.php/mumifizierte-hand.html"
+                },
+                {
+                    "source": "Archiv des Wächterbunds II",
+                    "page": "43"
+                }
+            ],
+            "erreta": false
+        },
+        "nachtmahrgift": {
+            "name": "Nachtmahrgift",
+            "nsc": "Gelangt Nachtmahrgift in den Körper eines Nsc (Lep-Verlust erforderlich), erleidet dieser je 1 Malusstufe pro LEP-Verlust.",
+            "pc": "Jäger erleiden ebenfalls 1 Malusstufe pro Lep-Verlust und zusätzlich den Zustand Blindheit.",
+            "references": [
+                {
+                    "source": "Wiki",
+                    "link": "http://hexxen1733-regelwiki.de/index.php/nachtmahrgift.html"
+                },
+                {
+                    "source": "Hexenzorn",
+                    "page": "82"
+                }
+            ],
+            "erreta": false
+        },
+        "topf-der-finsternis": {
+            "name": "Topf der Finsternis",
+            "nsc": "Zerschmettert ein Nsc den Topf (keine Handlung erforderlich, jedoch nur einmal pro Zug ausführbar), leidet er lediglich unter den optischen Nachteilen. Selbst Nsc, die in absoluter Dunkelheit sehen können, werden kurzfristig blind. Sie verlieren alle Bindungen zu Gegnern, können keine Handlungen ausführen, außer, sich aus dem Kampfbereich heraus zu bewegen.",
+            "pc": "Ein Jäger kann den Topf als Aktion (1 AP) zerschmettern. Alle Jäger und anwesenden menschlichen, nicht-widernatürliche Nsc können für 1 Kampfrunde keine Aktionen, Reaktionen und Bewegungen ausführen und erleiden zusätzlich 5 Malusstufen mit dem gekoppelten Zustand „Furcht“. Auch sie verlieren alle Bindungen.",
+            "references": [
+                {
+                    "source": "Wiki",
+                    "link": "http://hexxen1733-regelwiki.de/index.php/topf-der-finsternis.html"
+                },
+                {
+                    "source": "Hexenzorn",
+                    "page": "82"
+                }
+            ],
+            "erreta": false
+        },
+        "trank-der-hekate": {
+            "name": "Trank der Hekate",
+            "nsc": "Die Benutzung des Tranks erfordert keine Handlung, kann aber nur einmal pro Zug erfolgen. Der Nsc erhält Hex-Punkte in Höhe 1 Elixierwürfels, jedoch ebenso viele Malusstufen. Die Malusstufen können wie üblich in Ini 0 abgebaut werden.",
+            "pc": "Ein Jäger erhält durch Benutzung eines Tranks der Hekate wahlweise Coups, Ideen, Rage oder Ambition in Höhe 1 Elixierwürfels, jedoch gleichzeitig Malusstufen in Höhe der erhaltenen Ressource und den Zustand [Entrückung].",
+            "references": [
+                {
+                    "source": "Wiki",
+                    "link": "http://hexxen1733-regelwiki.de/index.php/trank-der-hekate.html"
+                },
+                {
+                    "source": "Hexenzorn",
+                    "page": "82"
+                }
+            ],
+            "erreta": false
+        },
+        "trank-der-schoenen-maid": {
+            "name": "Trank der schönen Maid",
+            "nsc": "Ein Nsc, der einen solchen Trank zu sich nimmt (erfordert keine Handlung, einmal pro Runde), darf einen Bonus von +1 auf alle Wil-Proben addieren, um den Gegner zu manipulieren (z. B. Redekunst) oder ihn zu bezaubern (z. B. Nsc-Kräfte wie „Halluzinationen“). Die Wirkung hält für eine Anzahl Stunden in Höhe 1 Elixierwürfels. Hexen erhalten den Bonus nur in ihrem Menschengesicht.",
+            "pc": "Jäger erhalten einen Bonus von +1 auf Redekunst-Proben. Auch bei der Informationsbeschaffung mittels Land und Leute darf der Bonus angewendet werden. Die Wirkung hält bis zum Ende der nächsten FZA.",
+            "references": [
+                {
+                    "source": "Wiki",
+                    "link": "http://hexxen1733-regelwiki.de/index.php/trank-der-schoenen-maid.html"
+                },
+                {
+                    "source": "Hexenzorn",
+                    "page": "82"
+                }
+            ],
+            "erreta": false
+        }
+    }
+}

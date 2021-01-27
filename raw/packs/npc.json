@@ -494,7 +494,6 @@
       "loot": {
         "raw": "20 Gulden (Beutegut: Schmuck)"
       },
-      "@todo": "unterschiedliches HEX Wachstum",
       "references": [
         {
           "source": "Wiki",
@@ -644,8 +643,7 @@
         },
         {
           "name": "Hex-Wachstum",
-          "raw": "+2 Hex in Ini 0 wenn Nacht",
-          "@todo": "zusätzlich?"
+          "raw": "+2 Hex in Ini 0 wenn Nacht"
         },
         {
           "name": "Hinterhalt",
@@ -682,7 +680,6 @@
       "loot": {
         "raw": "40 Gulden (Beutegut: gesammelter Tand)"
       },
-      "@todo": "Unterschiedliches HEX-Wachstum",
       "references": [
         {
           "source": "Wiki",
@@ -702,10 +699,10 @@
       "type": "leader",
       "unnatural": false,
       "level": 2,
+      "note": "Je nach Optionswahl auf der Lichtung. Option#1: volle Lep; Option#2: reduzierte Lep",
       "health": {
         "formula": "JZ*25",
-        "note": "Reduzierte Lep: JZ*15",
-        "@todo": "Evtl. nur eine Note oder als Rückfrage bei Kampfstart/Hinzufügen."
+        "note": "Reduzierte Lep: JZ*15"
       },
       "attributes": {
         "SIN": 5,
@@ -784,7 +781,9 @@
         },
         {
           "name": "Perlenschleuder",
-          "raw": "F: Angriff 12, Schaden 2* (*maximal Elixierwürfel Vorrat an Perlen)"
+          "raw": "F: Angriff 12, Schaden 2*",
+          "note": "* maximal Elixierwürfel Vorrat an Perlen, jede Perle hat einen Wert von 10 Gulden.",
+          "@todo": "Feld für Perlenvorrat"
         }
       ],
       "powers": [
@@ -844,8 +843,6 @@
       "loot": {
         "raw": "40 Gulden (Beutegut: Schmuck, Perlen*)"
       },
-      "feature": "(* maximal Elixierwürfel Vorrat an Perlen, jede Perle hat einen Wert von 10 Gulden.)",
-      "@todo": "Unterschiedliches HEX-Wachstum, Besonderheit als Feature",
       "references": [
         {
           "source": "Wiki",
@@ -911,10 +908,11 @@
         },
         {
           "name": "Hex-Wachstum",
-          "raw": [
-            "Jz -1 Hex in Ini 0",
-            "+2 Hex in Ini 0 wenn Nsc im Wasser steht oder schwimmt"
-          ]
+          "raw": "Jz -1 Hex in Ini 0"
+        },
+        {
+          "name": "Hex-Wachstum",
+          "raw":  "+2 Hex in Ini 0 wenn Nsc im Wasser steht oder schwimmt"
         },
         {
           "name": "Immunität",
@@ -960,7 +958,6 @@
       "loot": {
         "raw": "120 Gulden (Beutegut: Am Körper getragene Waffen, Schmuckstücke), 5000 Gulden (verborgener Schatz)"
       },
-      "@todo": "Unterschiedliches HEX-Wachstum",
       "references": [
         {
           "source": "Wiki",
@@ -980,6 +977,7 @@
       "type": "leader",
       "unnatural": false,
       "level": 2,
+      "note": "Der Nachtmahr ist ein Alb und daher nicht widernatürlich.",
       "health": {
         "formula": "JZ*15"
       },
@@ -1011,8 +1009,7 @@
         {
           "name": "Ersticken",
           "note": "Der Nachtmahr führt Ersticken nicht mittels Kkr aus, sondern mittels Wil.",
-          "@todo": "müsste es dann nicht 12 gegen Muskelspiel heißen??",
-          "raw": "N: 9 gegen Muskelspiel, 1 innere Schadensstufe (Atemnot) pro Differenzerfolg"
+          "raw": "N: 12 gegen Muskelspiel, 1 innere Schadensstufe (Atemnot) pro Differenzerfolg"
         },
         {
           "name": "Geistschlag",
@@ -1052,8 +1049,6 @@
       "loot": {
         "raw": "40 Gulden (Beutegut, Schmuck und Tand, nur im Versteck des Nachtmahrs)"
       },
-      "feature": "*Der Nachtmahr ist ein Alb und daher nicht widernatürlich",
-      "@todo": "Unterschiedliches HEX-Wachstum",
       "references": [
         {
           "source": "Wiki",
@@ -1089,7 +1084,7 @@
         "value": 3,
         "type": "Schuppenhaut"
       },
-      "strategy": "mächtiger Offensiver (N1,N2,N3|F)",
+      "strategy": "mächtiger Offensiver (N1N2N3|F)",
       "attacks": [
         {
           "name": "Biss",
@@ -1111,10 +1106,11 @@
         },
         {
           "name": "Hex-Wachstum",
-          "raw": [
-            "+1 Hex, wenn Nicor Schaden anrichtet",
-            "+2 Hex in Ini 0 in der Nacht"
-          ]
+          "raw": "+1 Hex, wenn Nicor Schaden anrichtet"
+        },
+        {
+          "name": "Hex-Wachstum",
+          "raw": "+2 Hex in Ini 0 in der Nacht"
         },
         {
           "name": "Immunität",
@@ -1160,7 +1156,6 @@
       "loot": {
         "raw": "850 Gulden (Beutegut: gesammelte Schätze)"
       },
-      "@todo": "Unterschiedliches HEX-Wachstum, durchnummerierte Angriffe",
       "references": [
         {
           "source": "Wiki",
@@ -1238,10 +1233,11 @@
         },
         {
           "name": "Hex-Wachstum",
-          "raw": [
-            "Jz -2 Hex in Ini 0",
-            "+2 Hex in Ini 0 wenn Nsc im Wasser steht oder schwimmt"
-          ]
+          "raw": "Jz -2 Hex in Ini 0"
+        },
+        {
+          "name": "Hex-Wachstum",
+          "raw": "+2 Hex in Ini 0 wenn Nsc im Wasser steht oder schwimmt"
         },
         {
           "name": "Immunität",
@@ -1269,7 +1265,6 @@
       "loot": {
         "raw": "20 Gulden (Beutegut: Schmuck)"
       },
-      "@todo": "Unterschiedliches HEX-Wachstum",
       "references": [
         {
           "source": "Wiki",
@@ -1629,10 +1624,11 @@
         },
         {
           "name": "Hex-Wachstum",
-          "raw": [
-            "Jz Hex bei Start",
-            "+1 Hex in Ini 0 für je 10 getötete friedliche Wigbolde"
-          ]
+          "raw": "Jz Hex bei Start"
+        },
+        {
+          "name": "Hex-Wachstum",
+          "raw": "+1 Hex in Ini 0 für je 10 getötete friedliche Wigbolde"
         },
         {
           "name": "Terrorwelle",
@@ -1646,7 +1642,6 @@
       "loot": {
         "raw": "50 Gulden (Beutegut, z. B. Schmuck, Tand und Ingredienzen)"
       },
-      "@todo": "unterschiedliches HEX Wachstum",
       "references": [
         {
           "source": "Wiki",
@@ -1749,15 +1744,14 @@
         },
         {
           "name": "Terrorwelle",
-          "raw": "N|F: 12 gegen Geistesstärke, 1 Malusstufe (Furcht, 5: MFD) pro Differenzerfolg, 1 Hex pro Ziel (1–Jz Ziele*)"
+          "raw": "N|F: 12 gegen Geistesstärke, 1 Malusstufe (Furcht, 5: MFD) pro Differenzerfolg, 1 Hex pro Ziel (1–Jz Ziele*)",
+          "note": "*Der Aspekt der Furcht attackiert mit der Kraft so viele Jäger, wie es ihm seine verfügbaren Hex ermöglichen."
         },
         {
           "name": "Wahrer Name",
           "raw": "„Valac“, Espritsymbol: 2 Erfolge"
         }
       ],
-      "feature": "*Der Aspekt der Furcht attackiert mit der Kraft so viele Jäger, wie es ihm seine verfügbaren Hex ermöglichen.",
-      "@todo": "Beschreibung als feature",
       "references": [
         {
           "source": "Wiki",
@@ -1797,7 +1791,8 @@
       "attacks": [
         {
           "name": "Tentakelhieb",
-          "raw": "N|F: Angriff 6, kein Schaden* +Gefrorene Furcht"
+          "raw": "N|F: Angriff 6, Schaden 0 (+Gefrorene Furcht)*",
+          "note": "*Die Angriffserfolge werden nur ausgewürfelt, um zu bestimmen, wie schwer es für die Jäger ist, die Attacke mittels Ausweichen, Schildblock oder Parieren zu kontern."
         }
       ],
       "powers": [
@@ -1819,8 +1814,6 @@
           "raw": "Malusschaden, innerer Schaden, äußerer Schaden"
         }
       ],
-      "feature": "*Die Angriffserfolge werden nur ausgewürfelt, um zu bestimmen, wie schwer es für die Jäger ist, die Attacke mittels Ausweichen, Schildblock oder Parieren zu kontern.",
-      "@todo": "Beschreibung als feature",
       "references": [
         {
           "source": "Wiki",
@@ -1878,18 +1871,18 @@
         },
         {
           "name": "Hex-Wachstum",
-          "raw": [
-            "Jz – 1 Hex in Ini 0",
-            "+1 Hex, sobald ein Jäger sein Hassobjekt in irgendeiner Form attackiert"
-          ]
+          "raw": "Jz – 1 Hex in Ini 0"
+        },
+        {
+          "name": "Hex-Wachstum",
+          "raw": "+1 Hex, sobald ein Jäger sein Hassobjekt in irgendeiner Form attackiert"
         },
         {
           "name": "Kochendes Blut",
           "raw": "N|F: Angriff 9, Schade 2 Un +Lebenskraftentzug (je 2), 1 Hex pro Ziel (1–3 Ziele)"
         },
         {
-          "name": "Maulsperre",
-          "@todo": "Mundsperre??",
+          "name": "Mundsperre",
           "raw": "N|F: 12 gegen Geistesstärke, 1 Malusstufe (Stummheit, 5: MFD) pro Differenzerfolg, 1 Hex pro Ziel (1–3 Ziele)"
         },
         {
@@ -1977,7 +1970,6 @@
           "raw": "Trifft ein Projektil einen Blitzwirbel, so verschwindet das Projektil im Inneren und tritt an einer anderen Stelle wieder hervor, wo es einen anderen Wirbel trifft und anschließend verschwindet. Es empfiehlt sich, die Blitzwirbel in Form von Plättchen auszulegen und durchzunummerieren. Immer, wenn ein Wirbel getroffen wird, würfelt der HeXXenmeister mit einem Blutwürfel und ermittelt das Ziel anhand des Ergebnisses. Eine leere Seite bedeutet, dass der getroffene Wirbel Schaden nimmt, eine 1, 2 oder 3 bedeutet, dass der 1., 2. oder 3. Wirbel im Uhrzeigersinn getroffen wird. Es ist nicht nötig, den exakten Schaden zu bestimmen. Getroffene Wirbel erhalten, gleichgültig wie hoch der eigentliche Schaden wäre, 1 Schadensmarker, und wenn deren Anzahl der Jz entspricht, wird der Wirbel inaktiv. Wird ein inaktiver Wirbel initial getroffen, leitet er das Projektil wie üblich weiter, wird ein inaktiver Wirbel jedoch durch Weiterleitung getroffen, verpufft der Angriff."
         }
       ],
-      "@todo": "Dynamischer Pw",
       "references": [
         {
           "source": "Wiki",
@@ -2031,10 +2023,11 @@
         },
         {
           "name": "Hex-Wachstum",
-          "raw": [
-            "+1 Hex in Ini 0 pro Pfeilerstufe",
-            "+1 Hex in Ini 0 pro Jäger mit Zustand „Schmerzen“"
-          ]
+          "raw":  "+1 Hex in Ini 0 pro Pfeilerstufe"
+        },
+        {
+          "name": "Hex-Wachstum",
+          "raw": "+1 Hex in Ini 0 pro Jäger mit Zustand „Schmerzen“"
         },
         {
           "name": "Kochendes Blut",
@@ -2042,7 +2035,8 @@
         },
         {
           "name": "Schmerzen",
-          "raw": "N|F: 12 gegen Geistesstärke, 1 äußere Schadensstufe (Blutung, 5: MF) pro Differenzerfolg, 1 Hex pro Ziel (1–Jz* Ziele)"
+          "raw": "N|F: 12 gegen Geistesstärke, 1 äußere Schadensstufe (Blutung, 5: MF) pro Differenzerfolg, 1 Hex pro Ziel (1–Jz* Ziele)",
+          "note": "*Der Aspekt des Schmerzes attackiert mit der Kraft so viele Jäger, wie es ihm seine verfügbaren Hex ermöglichen."
         },
         {
           "name": "Wahrer Name",
@@ -2053,8 +2047,6 @@
           "raw": "N|F: 12 gegen Unempfindlichkeit, 1 Ge pro Erfolg, Limit: Summe aller anhaltenden Einflüsse des Jägers, 1 Hex pro Ziel (1–3 Ziele)"
         }
       ],
-      "feature": "*Der Aspekt des Schmerzes attackiert mit der Kraft so viele Jäger, wie es ihm seine verfügbaren Hex ermöglichen.",
-      "@todo": "Beschreibung als feature",
       "references": [
         {
           "source": "Wiki",
@@ -2171,19 +2163,14 @@
       "environment-effect": [
         {
           "name": "Dämonischer Schlund",
-          "raw": "Diese Erdlöcher sind keine Kreaturen und können daher auch nicht mit normalen Mitteln getötet werden. Um ein Erdloch zu „stopfen“, muss es mit Erde, Pflanzen, Gestein oder ähnlichem gefüllt werden. Ein freistehender Jäger kann dies tun, indem er 3 Ap für eine Aktion ausgibt und wahlweise auf Fingerfertigkeit, Muskelspiel oder Unempfindlichkeit würfelt, wobei der HeXXenmeister auch andere Proben zulassen kann, wenn der Jäger eine erfolgsversprechende Methode nennt. Jeder Erfolg platziert einen Marker auf einem Schlund. Befinden sich Jz Marker auf einem Schlund, schließt er sich vorübergehend. Jeweils in Ini 0 würfelt der HeXXenmeister mit einem Elixierwürfel für jeden Schlund (auch für geschlossene), wie er sich verhält, jedoch würfelt er insgesamt nicht häufiger als die Jz angibt (bei 3 Jägern sucht sich der HeXXenmeister 3 Schlünde aus, deren Verhalten er auswürfelt)."
+          "raw": "Diese Erdlöcher sind keine Kreaturen und können daher auch nicht mit normalen Mitteln getötet werden. Um ein Erdloch zu „stopfen“, muss es mit Erde, Pflanzen, Gestein oder ähnlichem gefüllt werden. Ein freistehender Jäger kann dies tun, indem er 3 Ap für eine Aktion ausgibt und wahlweise auf Fingerfertigkeit, Muskelspiel oder Unempfindlichkeit würfelt, wobei der HeXXenmeister auch andere Proben zulassen kann, wenn der Jäger eine erfolgsversprechende Methode nennt. Jeder Erfolg platziert einen Marker auf einem Schlund. Befinden sich Jz Marker auf einem Schlund, schließt er sich vorübergehend. Jeweils in Ini 0 würfelt der HeXXenmeister mit einem Elixierwürfel für jeden Schlund (auch für geschlossene), wie er sich verhält, jedoch würfelt er insgesamt nicht häufiger als die Jz angibt (bei 3 Jägern sucht sich der HeXXenmeister 3 Schlünde aus, deren Verhalten er auswürfelt).",
+          "note": "Elixierwürfel\n\n1 oder 5 Ist der Schlund offen, speit er Jz Myrmidonen-Larven aus.\n\n2 Ist der Schlund offen, speit er einen Säureklumpen gegen einen zufällig ermittelten freistehenden Jäger aus. Der Jäger erleidet 1 Blutwürfel Säureschaden. Wird das Symbol für 3 Blutstropfen gewürfelt, wird seine Panzerung beschädigt und verliert 1 Pw, ohne dass der Jäger als Ausgleich 1 Ap erhalten würde.\n\n3 Ist der Schlund geschlossen, bricht er wieder auf. Sämtliche Marker werden entfernt.\n\n4 Ist der Schlund offen, speit er eine giftige Wolke aus, die in der Umgebung +1 Giftstufe anrichtet, so als ob die Nsc-Kraft GiftwolkeBdR gewirkt worden wäre. Anders als die Nsc-Kraft kann dieser Effekt mehrfach gewirkt werden, jedoch steigt die Giftstufe der Umgebung niemals über Stufe 3."
         },
         {
           "name": "Pfeiler Attackieren",
           "raw": "Jäger können den Holzpfeiler attackieren. Der Pfeiler hat eine Schadensresistenz von 5 gegenüber allen Angriffen außer gegen Angriffe, die Feuerschaden anrichten. Der Pfeiler ist immun gegen alle Schadensarten und anhaltende Einflüsse mit Ausnahme von äußerem Schaden in Verbindung mit dem Zustand Verbrennung. Schaden, der gegen den Pfeiler gerichtet ist, wird von den Lep des Aspekts des Zorns abgezogen."
         }
       ],
-      "feature": {
-        "Schlund Verhalten": {
-          "raw": "Elixierwürfel\n\n1 oder 5 Ist der Schlund offen, speit er Jz Myrmidonen-Larven aus.\n\n2 Ist der Schlund offen, speit er einen Säureklumpen gegen einen zufällig ermittelten freistehenden Jäger aus. Der Jäger erleidet 1 Blutwürfel Säureschaden. Wird das Symbol für 3 Blutstropfen gewürfelt, wird seine Panzerung beschädigt und verliert 1 Pw, ohne dass der Jäger als Ausgleich 1 Ap erhalten würde.\n\n3 Ist der Schlund geschlossen, bricht er wieder auf. Sämtliche Marker werden entfernt.\n\n4 Ist der Schlund offen, speit er eine giftige Wolke aus, die in der Umgebung +1 Giftstufe anrichtet, so als ob die Nsc-Kraft GiftwolkeBdR gewirkt worden wäre. Anders als die Nsc-Kraft kann dieser Effekt mehrfach gewirkt werden, jedoch steigt die Giftstufe der Umgebung niemals über Stufe 3."
-        }
-      },
-      "@todo": "Schlund Verhalten",
       "references": [
         {
           "source": "Wiki",
@@ -2363,10 +2350,11 @@
         },
         {
           "name": "Hex-Wachstum",
-          "raw": [
-            "+1 Hex in Ini 0",
-            "+2 Hex, sobald normale Hetsche im Umfeld stirbt"
-          ]
+          "raw": "+1 Hex in Ini 0"
+        },
+        {
+          "name": "Hex-Wachstum",
+          "raw": "+2 Hex, sobald normale Hetsche im Umfeld stirbt"
         },
         {
           "name": "Immunität",
@@ -2396,7 +2384,6 @@
       "loot": {
         "raw": "25 Gulden (Beutegut, z. B. seltene Kristalle und Erze)"
       },
-      "@todo": "unterschiedliches HEX Wachstum",
       "references": [
         {
           "source": "Wiki",
@@ -2464,7 +2451,6 @@
       "loot": {
         "raw": "25 Gulden (Beutegut, z. B. seltene Kristalle und Erze)"
       },
-      "@todo": "durchnummerierte Angriffe",
       "references": [
         {
           "source": "Wiki",
@@ -2766,10 +2752,11 @@
         },
         {
           "name": "Hex-Wachstum",
-          "raw": [
-            "(Jz -2 Hex in INI 0",
-            "Nachts Jz HEX"
-          ]
+          "raw": "Jz -2 Hex in INI 0, Nachts Jz in INI 0"
+        },
+        {
+          "name": "Hex-Wachstum",
+          "raw": "Nachts Jz Hex"
         },
         {
           "name": "Flieger",
@@ -2792,7 +2779,6 @@
           "raw": "N|F: Zaubernder wird unsichbar, 2 Hex freistehend, 4 Hex gebunden"
         }
       ],
-      "@todo": "Unterschiedliches HEX Wachstum",
       "references": [
         {
           "source": "Wiki",
@@ -2986,7 +2972,6 @@
           "raw": "Nsc befindet sich auf Augenhöhe oder schwebt hoch in der Luft"
         }
       ],
-      "@todo": "mehrere Quellen",
       "references": [
         {
           "source": "Wiki",
@@ -3162,19 +3147,23 @@
       "attacks": [
         {
           "name": "1 Laternenschwung*",
-          "raw": "N: Erfolge 3, Schaden 2 +äußerer Schaden (je 1, Verbrennung)"
+          "raw": "N: Erfolge 3, Schaden 2 +äußerer Schaden (je 1, Verbrennung)",
+          "note": "*Angriff jede Runde neu auswürfeln mit Elixierwürfel."
         },
         {
           "name": "2 Klauenangriff*",
-          "raw": "N: Erfolge 2, Schaden 3"
+          "raw": "N: Erfolge 2, Schaden 3",
+          "note": "*Angriff jede Runde neu auswürfeln mit Elixierwürfel."
         },
         {
           "name": "3 Verschmelzung*",
-          "raw": "siehe Kräfte"
+          "raw": "siehe Kräfte",
+          "note": "*Angriff jede Runde neu auswürfeln mit Elixierwürfel."
         },
         {
           "name": "4-5 Runenleuchten*",
-          "raw": "N|F: Erfolge 2, Schaden 2 UN"
+          "raw": "N|F: Erfolge 2, Schaden 2 UN",
+          "note": "*Angriff jede Runde neu auswürfeln mit Elixierwürfel."
         }
       ],
       "powers": [
@@ -3183,8 +3172,6 @@
           "raw": "anstatt Angriff: Bandengegner verschmilzt mit einem anderen Bandengegner derselben Stufe und Art zu „Verschmolzener Runendiener“"
         }
       ],
-      "@todo": "Beschreibung als feature",
-      "feature": "Angriff jede Runde neu auswürfeln mit Elixierwürfel.",
       "references": [
         {
           "source": "Wiki",
@@ -3359,10 +3346,11 @@
         },
         {
           "name": "Hex-Wachstum",
-          "raw": [
-            "1 Hex in Ini 0",
-            "+2 Hex für jeden Jäger, der unter Blindheit oder Furcht leidet"
-          ]
+          "raw": "1 Hex in Ini 0"
+        },
+        {
+          "name": "Hex-Wachstum",
+          "raw": "+2 Hex für jeden Jäger, der unter Blindheit oder Furcht leidet"
         },
         {
           "name": "Meister der Magie",
@@ -3387,7 +3375,6 @@
       "loot": {
         "raw": "160 Gulden (Beutegut, z. B. Hörner)"
       },
-      "@todo": "Unterschiedliches HEX-Wachstum",
       "references": [
         {
           "source": "Wiki",
@@ -3474,11 +3461,6 @@
           "raw": "Nach jedem Kampf steigt die Bedrohungsstufe um +1 durch den Effekt „Besiegte Wächter“, wodurch sich die Zahl der ausliegenden Bedrohungsmarker erhöht; zusätzlich kann der HeXXenmeister nach jedem Kampf einen Toreffekt aussuchen; jeder Toreffekt kostet 1–4 Bedrohungsmarker, wobei die bei der Erstürmung der Burg aufgebauten Bedrohungsmarker ebenfalls zählen.\n\n1 Marker: Leichtes Erdbeben. Ein schwerer Schlag erschüttert den Fels, lässt Steine bröckeln und auf die Jäger herabregnen. Jeder Jäger erleidet 1 Blutwürfel Schmerzschaden.\n2 Marker: Unterstützung aus Phthia. Aus dem Reich der Myrmidonen, bzw. aus dem Portal in der Decke der Kammer, kommen fliegende Myrmidonen geflogen. Zu Beginn des nächsten Kampfes werden Bandengegnerstufen (beliebige Myrmidonen) in Höhe der Jz x 2 ausgelegt. Bei 4 Jägern könnten somit 4 Myrmidonen-Krieger erscheinen oder 8 Myrmidonen-Larven.\n3 Marker: Valacs Aufmerksamkeit. Der Dämon bemerkt die Jäger und stößt ein infernalisches Brüllen aus. Er führt Terrorwelle mit 12 Würfeln gegen jeden Jäger aus und aktiviert sofort den nächsten Wächter. Die Jäger können die Malussstufen erst im nun beginnenden neuen Kampf abbauen.\n4 Marker (optional): Das Tor ist offen. Dieser Effekt kann erst nach dem Sieg über Torwächter Nr. 4 ausgelöst werden und auch nur dann, wenn die Jäger keine großen Schwierigkeiten gegen die Wächter haben. Mit einem knirschenden Geräusch brechen große Teile der Decke ein und stürzen um den Dämon herum in die Tiefe. Das Portal nach Phthia hat sich erheblich vergrößert, und die Myrmidonen stürzen sich scharenweise in die Höhle. Im Kampf gegen den letzten Wächter erscheinen jeweils in Ini 0 Jz x 2 Bandengegnerstufen (Myrmidonen). Wenn das immer noch zu leicht erscheint, kann der HeXXenmeister die Höhe der Bandegegnerstufen auf Jz x 3 oder x 4 erhöhen."
         }
       ],
-      "feature": {
-        "Schlund Verhalten": {
-          "raw": "Elixierwürfel\n\n1 oder 5 Ist der Schlund offen, speit er Jz Myrmidonen-Larven aus.\n\n2 Ist der Schlund offen, speit er einen Säureklumpen gegen einen zufällig ermittelten freistehenden Jäger aus. Der Jäger erleidet 1 Blutwürfel Säureschaden. Wird das Symbol für 3 Blutstropfen gewürfelt, wird seine Panzerung beschädigt und verliert 1 Pw, ohne dass der Jäger als Ausgleich 1 Ap erhalten würde.\n\n3 Ist der Schlund geschlossen, bricht er wieder auf. Sämtliche Marker werden entfernt.\n\n4 Ist der Schlund offen, speit er eine giftige Wolke aus, die in der Umgebung +1 Giftstufe anrichtet, so als ob die Nsc-Kraft GiftwolkeBdR gewirkt worden wäre. Anders als die Nsc-Kraft kann dieser Effekt mehrfach gewirkt werden, jedoch steigt die Giftstufe der Umgebung niemals über Stufe 3."
-        }
-      },
       "@todo": "was machen wir mit den einzelnen Pfeilern und den Pfeilermächten ?",
       "references": [
         {
@@ -3533,10 +3515,11 @@
         },
         {
           "name": "Hex-Wachstum",
-          "raw": [
-            "Jz – 2 Hex in Ini 0",
-            "+1 Hex in Ini 0 für jeden Jäger mit dem Zustand Verbrennung"
-          ]
+          "raw": "Jz – 2 Hex in Ini 0"
+        },
+        {
+          "name": "Hex-Wachstum",
+          "raw": "+1 Hex in Ini 0 für jeden Jäger mit dem Zustand Verbrennung"
         },
         {
           "name": "Immunität",
@@ -3566,7 +3549,6 @@
       "loot": {
         "raw": "200 Gulden (Beutegut: seltene Kohlesteine für Alchemie)"
       },
-      "@todo": "Unterschiedliches HEX-Wachstum",
       "references": [
         {
           "source": "Wiki",
@@ -3636,11 +3618,15 @@
         },
         {
           "name": "Hex-Wachstum",
-          "raw": [
-            "Jz -1 Hex in INI 0, falls es Nacht ist",
-            "Jz -2 Hex in INI 0, falls sich die Hexe im verfluchten Viertel befindet",
-            "+1 Hex für jeden Jäger, der unter mindestens 1 Malusstufe leidet"
-          ]
+          "raw": "Jz -1 Hex in INI 0, falls es Nacht ist"
+        },
+        {
+          "name": "Hex-Wachstum",
+          "raw": "Jz -2 Hex in INI 0, falls sich die Hexe im verfluchten Viertel befindet"
+        },
+        {
+          "name": "Hex-Wachstum",
+          "raw": "+1 Hex für jeden Jäger, der unter mindestens 1 Malusstufe leidet"
         },
         {
           "name": "Schleicher der Finsternis",
@@ -3659,7 +3645,6 @@
           "raw": "N|F: 17 gegen Geistesstärke, 1 Malusstufe (Krankheit, 5: MH) pro Differenzerfolg, 5 Hex"
         }
       ],
-      "@todo": "Unterschiedliches HEX-Wachstum",
       "references": [
         {
           "source": "Wiki",
@@ -3805,12 +3790,10 @@
         },
         {
           "name": "Blutfeuer",
-          "@todo": "fehlt",
           "raw": "N|F: Ziel verliert 1 Coup oder Lep pro Lähmungsstufe, Malusstufe und äußere Schadensstufe"
         },
         {
           "name": "Blutkokon",
-          "@todo": "fehlt",
           "raw": "F: 13 gegen Geistesstärke, 1 Lähmungsstufe (Taumeln, 5: MFD) pro Differenzerfolg, 1 Hex pro Ziel (1 - 3 Ziele)"
         },
         {
@@ -4041,11 +4024,15 @@
         },
         {
           "name": "Hex-Wachstum",
-          "raw": [
-            "Jz Hex in Ini 0",
-            "+1 Hex in Ini 0 wenn in Geweihträger-Gestalt",
-            "+1 Hex in Ini 0, sobald Macht der Kelten dreimal gewirkt wurde"
-          ]
+          "raw": "Jz Hex in Ini 0"
+        },
+        {
+          "name": "Hex-Wachstum",
+          "raw": "+1 Hex in Ini 0 wenn in Geweihträger-Gestalt"
+        },
+        {
+          "name": "Hex-Wachstum",
+          "raw": "+1 Hex in Ini 0, sobald Macht der Kelten dreimal gewirkt wurde"
         },
         {
           "name": "Macht der Kelten",
@@ -4060,7 +4047,7 @@
           "raw": "NN|FF: Kkr +3, Ath +2, Ges -4, Ini +2, Pw 2 (Fell), Lep berechnet mit Jz +1. Zusätzliche Kräfte:Geweih männlich (Kkr), Schaden 5 + Lähmung (je 1, Taumeln), Geweih weiblich (Kkr), Schaden 2 + Lähmung (je 1, Taumeln), die weibliche Gestalt gilt als berittene Einheit)"
         }
       ],
-      "@todo": "Verwandlung/Gestaltwandlung Hexe einfügen mit Atr., Pw, Ini Veränderung, Eigenen Angriffen Unterschiedliches HEX-Wachstum, ",
+      "@todo": "Verwandlung/Gestaltwandlung Hexe einfügen mit Atr., Pw, Ini Veränderung, Eigenen Angriffen",
       "references": [
         {
           "source": "Wiki",
@@ -4132,11 +4119,15 @@
         },
         {
           "name": "Hex-Wachstum",
-          "raw": [
-            "Jz Hex in Ini 0",
-            "Jz + 2 Hex falls die Begegnung im Eis stattfindet",
-            "als (N)- oder (F)-Handlung: +3 Hex"
-          ]
+          "raw": "Jz Hex in Ini 0"
+        },
+        {
+          "name": "Hex-Wachstum",
+          "raw": "Jz + 2 Hex falls die Begegnung im Eis stattfindet"
+        },
+        {
+          "name": "Hex-Wachstum",
+          "raw": "als (N)- oder (F)-Handlung: +3 Hex"
         },
         {
           "name": "Immunität",
@@ -4160,10 +4151,6 @@
       "loot": {
         "raw": "220 Gulden (Beutegut, z. B. Schmuck von Eingeborenen)"
       },
-      "@todo": [
-        "Unterschiedliches HEX-Wachstum",
-        "2 unterschiedliche PW Werte, je nach Ereignis"
-      ],
       "references": [
         {
           "source": "Wiki",
@@ -4388,6 +4375,7 @@
       "type": "leader",
       "unnatural": true,
       "level": 1,
+      "note": "*Die gekennzeichneten Angriffe und Kräfte verbrauchen Giftphiolen. Die Hexe verfügt standardmäßig über 7 Elixierwürfel Giftphiolen bei Kampfbeginn. Übrig gebliebene Giftphiolen können geplündert werden; sie zählen als einfaches Waffengift.",
       "health": {
         "formula": "JZ*10"
       },
@@ -4442,10 +4430,11 @@
         },
         {
           "name": "Hex-Wachstum",
-          "raw": [
-            "Jz − 1 Hex in Ini 0",
-            "Ini 0: Nsc verliert Blutw. Giftphiolen, +2 Hex pro verlorener Giftphiole"
-          ]
+          "raw": "Jz − 1 Hex in Ini 0"
+        },
+        {
+          "name": "Hex-Wachstum",
+          "raw": "Ini 0: Nsc verliert Blutw. Giftphiolen, +2 Hex pro verlorener Giftphiole"
         },
         {
           "name": "Immunität",
@@ -4459,11 +4448,6 @@
           "name": "Schmerzen",
           "raw": "N|F: 9 gegen Geistesstärke, 1 äußere Schadenstufe (Blutung, 5: MF) pro Differenzerfolg, 1 Hex pro Ziel (1–3 Ziele)"
         }
-      ],
-      "feature": "*Die gekennzeichneten Angriffe und Kräfte verbrauchen Giftphiolen. Die Hexe verfügt standardmäßig über 7 Elixierwürfel Giftphiolen bei Kampfbeginn. Übrig gebliebene Giftphiolen können geplündert werden; sie zählen als einfaches Waffengift.",
-      "@todo": [
-        "Sternchenbemerkung als feature gekennzeichnet",
-        "Unterschiedliches HEX-Wachstum"
       ],
       "references": [
         {
@@ -4484,6 +4468,7 @@
       "type": "leader",
       "unnatural": true,
       "level": 1,
+      "note": "*Die gekennzeichneten Angriffe und Kräfte verbrauchen Giftphiolen. Die Hexe verfügt standardmäßig über 7 Elixierwürfel Giftphiolen bei Kampfbeginn. Übrig gebliebene Giftphiolen können geplündert werden; sie zählen als einfaches Waffengift.",
       "health": {
         "formula": "JZ*10"
       },
@@ -4538,10 +4523,11 @@
         },
         {
           "name": "Hex-Wachstum",
-          "raw": [
-            "Jz − 1 Hex in Ini 0",
-            "Ini 0: Nsc verliert Blutw. Giftphiolen, +2 Hex pro verlorener Giftphiole"
-          ]
+          "raw": "Jz − 1 Hex in Ini 0"
+        },
+        {
+          "name": "Hex-Wachstum",
+          "raw": "Ini 0: Nsc verliert Blutw. Giftphiolen, +2 Hex pro verlorener Giftphiole"
         },
         {
           "name": "Immunität",
@@ -4566,11 +4552,6 @@
       "loot": {
         "raw": "200 Gulden (Beutegut, z. B. Chemikalien)"
       },
-      "feature": "*Die gekennzeichneten Angriffe und Kräfte verbrauchen Giftphiolen. Die Hexe verfügt standardmäßig über 7 Elixierwürfel Giftphiolen bei Kampfbeginn. Übrig gebliebene Giftphiolen können geplündert werden; sie zählen als einfaches Waffengift.",
-      "@todo": [
-        "Sternchenbemerkung als feature gekennzeichnet",
-        "Unterschiedliches HEX-Wachstum"
-      ],
       "references": [
         {
           "source": "Wiki",
@@ -4640,14 +4621,17 @@
         },
         {
           "name": "Hex-Wachstum",
-          "raw": [
-            "Solange der Hexenstein intakt ist: +(Jz-2) Hex in Ini 0",
-            "Automatisch +(Jz-2) Hex in Ini 0",
-            "Wenn das Maultier stirbt: +(Jz-2) Hex"
-          ]
+          "raw": "Solange der Hexenstein intakt ist: +(Jz-2) Hex in Ini 0"
+        },
+        {
+          "name": "Hex-Wachstum",
+          "raw": "Automatisch +(Jz-2) Hex in Ini 0"
+        },
+        {
+          "name": "Hex-Wachstum",
+          "raw": "Wenn das Maultier stirbt: +(Jz-2) Hex"
         }
       ],
-      "@todo": "Unterschiedliches HEX-Wachstum",
       "references": [
         {
           "source": "Wiki",
@@ -4694,7 +4678,6 @@
           "raw": "F: Angriff 12, Schaden 1"
         }
       ],
-      "@todo": "powers genauer betrachten",
       "powers": [
         {
           "name": "Beschwörung",
@@ -4718,7 +4701,7 @@
         },
         {
           "name": "Hex-Wachstum",
-          "raw": "Jz Hex in Ini 0"
+          "raw": "Jz Hex in INI 0"
         },
         {
           "name": "Schutzzauber",
@@ -4730,28 +4713,27 @@
         },
         {
           "name": "Dornendickicht",
-          "area": "nature",
+          "area": "In der Natur",
           "raw": "N|F: Umgebungseffekt, pro Kampfrunde 1 äußerer Schaden (Blutung), ausweichbar, zerstörbar, 5 Hex"
         },
         {
           "name": "Gegenschlag des Waldes",
-          "area": "nature",
+          "area": "In der Natur",
           "raw": "N|F: 1–3 Hex, 1 Blutwürfel normaler Schaden pro Hex bei allen Jägern"
         },
         {
           "name": "Revierbeschwörung",
-          "area": "nature",
+          "area": "In der Natur",
           "raw": "N|F: Raubvogel (Bande 2), 2 für 1 Hex; Wolf (Bande 2), 2 für 1 Hex; Gehörntes Wild (Bande 2), 2 für 1 Hex; Waldtier (Bande 1), 3 für 1 Hex; Bandenwiderstand +1"
         },
         {
           "name": "Hex-Wachstum",
-          "area": "nature",
-          "@todo": "einmalig oder in jeder Ini0?",
-          "raw": "+1 Hex für jede aktivierte Säule"
+          "area": "In der Natur",
+          "raw": "+1 Hex für jede aktivierte Säule in INI 0"
         },
         {
           "name": "Wurzeldorn",
-          "area": "nature",
+          "area": "In der Natur",
           "raw": "N|F: Angriff 15, Schaden 3 +Lähmung (je 1 pro Lep-Verlust, Fixierung), 1 Hex pro Ziel (1–3 Ziele)"
         }
       ],
@@ -4823,11 +4805,15 @@
         },
         {
           "name": "Hex-Wachstum",
-          "raw": [
-            "Jz − 2 Hex in Ini 0",
-            "Ini 0: +1 Hex für jeden Jäger, der mind. 1 Segnung oder Rage besitzt",
-            "Ini 0: Opfer von 5 Lep: +3 Hex"
-          ]
+          "raw": "Jz − 2 Hex in Ini 0"
+        },
+        {
+          "name": "Hex-Wachstum",
+          "raw": "Ini 0: +1 Hex für jeden Jäger, der mind. 1 Segnung oder Rage besitzt"
+        },
+        {
+          "name": "Hex-Wachstum",
+          "raw": "Ini 0: Opfer von 5 Lep: +3 Hex"
         },
         {
           "name": "Kochendes Blut",
@@ -4850,7 +4836,6 @@
           "raw": "N|F: 10 gegen Geistesstärke (Bonus +1 pro Segnung), Maximum Segnungen −1 pro Differenzerfolg, 1 Hex pro Ziel (max. Jz Ziele)"
         }
       ],
-      "@todo": "Unterschiedliches HEX-Wachstum",
       "references": [
         {
           "source": "Wiki",
@@ -4904,19 +4889,15 @@
         },
         {
           "name": "Hex-Macht",
-          "raw": [
-            "Jz Hex bei Start",
-            "+1 in einer Kirche",
-            "+3 in einer Kathedrale oder einem Dom"
-          ]
+          "raw": "Jz Hex bei Start, +1 in einer Kirche, +3 in einer Kathedrale oder einem Dom"
         },
         {
           "name": "Hex-Wachstum",
-          "raw": [
-            "Jz − 2 Hex in Ini 0",
-            "Ini 0: +1 Hex für jeden Jäger, der mind. 1 Segnung oder Rage besitzt",
-            "Ini 0: Opfer von 5 Lep: +3 Hex"
-          ]
+          "raw": "Ini 0: +1 Hex für jeden Jäger, der mind. 1 Segnung oder Rage besitzt"
+        },
+        {
+          "name": "Hex-Wachstum",
+          "raw": "Ini 0: Opfer von 5 Lep: +3 Hex"
         },
         {
           "name": "Kochendes Blut",
@@ -4939,7 +4920,6 @@
           "raw": "N|F: 10 gegen Geistesstärke (Bonus +1 pro Segnung), Maximum Segnungen −1 pro Differenzerfolg, 1 Hex pro Ziel (max. Jz Ziele)"
         }
       ],
-      "@todo": "Unterschiedliche HEX zum Start und unterschiedliches HEX-Wachstum",
       "story": [
         "Anlockung",
         "Aufruhr",
@@ -4957,7 +4937,7 @@
       "references": [
         {
           "source": "Wiki",
-          "link": "http://hexxen1733-regelwiki.de/index.php/jakobstochter.html"
+          "link": "http://hexxen1733-regelwiki.de/index.php/jakobstochter-6567.html"
         },
         {
           "source": "Hexenzorn",
@@ -5267,10 +5247,12 @@
         },
         {
           "name": "Hex-Wachstum",
-          "raw": [
-            "Jz Hex in Ini 0",
-            "+1 Hex in Ini 0, nur in Menschengestalt"
-          ]
+          "raw": "Jz Hex in Ini 0"
+        },
+        {
+          "name": "Hex-Wachstum",
+          "raw": "+1 Hex in Ini 0",
+          "shape": "Mensch"
         },
         {
           "name": "Schneller Gestaltwechsel",
@@ -5291,7 +5273,7 @@
           "raw": "N|F: Kkr −1, Ath +2, Ges −2, Sin +2; zusätzliche Kräfte: Flieger, Immunität (Malusschaden); Krallenangriff (Ath) Angriff 9, Schaden 2"
         }
       ],
-      "@todo": "Unterschiedliches HEX-Wachstum, Unterschiedliche Beschwörung, Verwandlung als Rabe mit anderen Werten, Angriffen und Kräften, Müssen durch Gestaltwandel Proben angepasst werden? Worauf basieren sie?",
+      "@todo": "Verwandlung als Rabe mit anderen Werten, Angriffen und Kräften, Müssen durch Gestaltwandel Proben angepasst werden? Worauf basieren sie?",
       "story": [
         "Beherrschung des Winds",
         "Beschwörung",
@@ -5378,10 +5360,11 @@
         },
         {
           "name": "Hex-Wachstum",
-          "raw": [
-            "Jz Hex in Ini 0",
-            "N - oder F - Handlung: +4 Hex"
-          ]
+          "raw": "Jz Hex in Ini 0"
+        },
+        {
+          "name": "Hex-Wachstum",
+          "raw": "N - oder F - Handlung: +4 Hex"
         },
         {
           "name": "Revierbeschwörung",
@@ -5416,7 +5399,6 @@
       "loot": {
         "raw": "450 Gulden (Beutegut, z. B. seltene natürliche Substanzen)"
       },
-      "@todo": "Unterschiedliches HEX-Wachstum, Beschwörung verschiedener Kreaturen",
       "references": [
         {
           "source": "Wiki",
@@ -5486,10 +5468,11 @@
         },
         {
           "name": "Hex-Wachstum",
-          "raw": [
-            "Jz Hex in Ini 0",
-            "N - oder F - Handlung: +3 Hex"
-          ]
+          "raw": "Jz Hex in Ini 0"
+        },
+        {
+          "name": "Hex-Wachstum",
+          "raw": "N - oder F - Handlung: +3 Hex"
         },
         {
           "name": "Immunität",
@@ -5512,7 +5495,6 @@
           "raw": "N|F: Bereichseffekt, 13 gegen Akrobatik, 1 Malusstufe pro Differenzerfolg, 1 Blutwürfel Sc pro 2 Differenzerfolge, 3 Hex"
         }
       ],
-      "@todo": "Unterschiedliches HEX-Wachstum, Beschwörung verschiedener Kreaturen",
       "story": [
         "Anlockung",
         "Auferstehung",
@@ -5651,10 +5633,11 @@
         },
         {
           "name": "Hex-Wachstum",
-          "raw": [
-            "Jz − 2 Hex in Ini 0",
-            "+1 Hex für jeden Jäger mit Lähmungsstufen in Ini 0"
-          ]
+          "raw": "Jz − 2 Hex in Ini 0"
+        },
+        {
+          "name": "Hex-Wachstum",
+          "raw": "+1 Hex für jeden Jäger mit Lähmungsstufen in Ini 0"
         },
         {
           "name": "Hinterhalt",
@@ -5695,7 +5678,7 @@
           }
         }
       ],
-      "@todo": "Unterschiedliches HEX-Wachstum, Verwandlung als Spinnenmensch mit anderen Werten, Angriffen und INI",
+      "@todo": "Verwandlung als Spinnenmensch mit anderen Werten, Angriffen und INI",
       "story": [
         "Aufruhr",
         "Korruption",
@@ -5861,8 +5844,7 @@
       ],
       "powers": [
         {
-          "name": "Anfälligkeit",
-          "@todo": "Anfällig??",
+          "name": "Anfällig",
           "raw": "heiliger Schaden, Feuerschaden"
         },
         {
@@ -5957,10 +5939,11 @@
         },
         {
           "name": "Hex-Wachstum",
-          "raw": [
-            "Jz − 2 Hex in Ini 0",
-            "+1 Hex in Ini 0 für jeden tanzenden Jäger"
-          ]
+          "raw": "Jz − 2 Hex in Ini 0"
+        },
+        {
+          "name": "Hex-Wachstum",
+          "raw": "+1 Hex in Ini 0 für jeden tanzenden Jäger"
         },
         {
           "name": "Schrei der Sirene",
@@ -6078,11 +6061,15 @@
         },
         {
           "name": "Hex-Wachstum",
-          "raw": [
-            "Jz Hex in Ini 0",
-            "+1 Hex in Ini 0 wenn in Geweihträgergestalt",
-            "+1 Hex in Ini 0, sobald Macht der Kelten dreimal gewirkt wurde"
-          ]
+          "raw": "Jz Hex in Ini 0"
+        },
+        {
+          "name": "Hex-Wachstum",
+          "raw": "+1 Hex in Ini 0 wenn in Geweihträgergestalt"
+        },
+        {
+          "name": "Hex-Wachstum",
+          "raw": "+1 Hex in Ini 0, sobald Macht der Kelten dreimal gewirkt wurde"
         },
         {
           "name": "Macht der Kelten",
@@ -6181,11 +6168,15 @@
         },
         {
           "name": "Hex-Wachstum",
-          "raw": [
-            "(Jz − 2 Hex in Ini 0",
-            "+2 Hex in Ini 0, wenn der Kampf im Wald stattfindet",
-            "+2 Hex in Ini 0, wenn Tiere anwesend sind"
-          ]
+          "raw": "Jz − 2 Hex in Ini 0"
+        },
+        {
+          "name": "Hex-Wachstum",
+          "raw": "+2 Hex in Ini 0, wenn der Kampf im Wald stattfindet"
+        },
+        {
+          "name": "Hex-Wachstum",
+          "raw": "+2 Hex in Ini 0, wenn Tiere anwesend sind"
         },
         {
           "name": "Gegenschlag des Waldes",
@@ -6280,7 +6271,7 @@
       "loot": {
         "raw": "30 Gulden (Beutegut: Plunder, Kleidung, Münzen)"
       },
-      "@todo": "Kärft mit meheren Auswirkungen, Nummerierte Angriffe",
+      "@todo": "Kärft mit meheren Auswirkungen,",
       "references": [
         {
           "source": "Wiki",
@@ -6670,7 +6661,6 @@
           "raw": "Malusschaden"
         }
       ],
-      "@todo": "2 Quellenangaben",
       "references": [
         {
           "source": "Wiki",
@@ -6874,7 +6864,6 @@
         },
         {
           "name": "Dornenschmetterschlag",
-          "@todo": "fehlt",
           "raw": "Angriff mit Schlagwaffe, -2 Pw bis Ini 0: Ziel des Angriffs kann defensive Aktion nur mit 1 Coup ausführen"
         },
         {
@@ -7004,7 +6993,6 @@
           "raw": "wird nicht gebunden"
         }
       ],
-      "@todo": "Nahkampf von 1-3 Nummeriert und mehere Quellenangaben",
       "references": [
         {
           "source": "Wiki",
@@ -7372,7 +7360,6 @@
       "loot": {
         "raw": "30 Gulden (Beutegut, Halbedelsteine)"
       },
-      "@todo": "mehrere Quellenangaben",
       "references": [
         {
           "source": "Wiki",
@@ -7478,7 +7465,6 @@
       "loot": {
         "raw": "20 Gulden (Beutegut, z.B. alchemistische Ingredienzen)"
       },
-      "@todo": "N - Angriffe nummeriert 1-3",
       "references": [
         {
           "source": "Wiki",
@@ -7509,7 +7495,6 @@
         }
       ],
       "powers": [],
-      "@todo": "2 Quellenangaben",
       "references": [
         {
           "source": "Wiki",
@@ -7553,7 +7538,6 @@
           "raw": "6 pro Jäger"
         }
       ],
-      "@todo": "2 Quellenangaben",
       "references": [
         {
           "source": "Wiki",
@@ -7577,6 +7561,7 @@
       "type": "leader",
       "unnatural": true,
       "level": 2,
+      "note": "*Hautglyphen sind im Archiv des Wächterbunds II beschrieben; die in Zauberglyphen gebundenen Nsc-Kräfte können vom HeXXenmeister nach Belieben geändert werden.",
       "health": {
         "formula": "JZ*15"
       },
@@ -7611,12 +7596,10 @@
       "powers": [
         {
           "name": "Glyphe der Arkanen Macht*",
-          "@todo": "fehlt",
           "raw": "Nsc startet mit 3 Hex, jeweils in Ini 0: +3 Hex"
         },
         {
           "name": "Glyphe der Vitalität*",
-          "@todo": "fehlt",
           "raw": "Jz bei Lep-Berechnung +1"
         },
         {
@@ -7633,8 +7616,6 @@
       "loot": {
         "raw": "300 Gulden (Beutegut: Waffen und Rüstung)"
       },
-      "feature": "*Hautglyphen sind im Archiv des Wächterbunds II beschrieben; die in Zauberglyphen gebundenen Nsc-Kräfte können vom HeXXenmeister nach Belieben geändert werden.",
-      "@todo": "Beschreibung als Feature",
       "references": [
         {
           "source": "Wiki",
@@ -7677,8 +7658,8 @@
           "raw": "N: Angriff 13, Schaden 2 +innerer Schaden (je 2, Vergiftung)"
         },
         {
-          "name": "Scherenangriff",
-          "raw": "NN: Niederwalzen"
+          "name": "Niederwalzen",
+          "raw": "NN: Angriff 13, Schaden 6"
         }
       ],
       "powers": [
@@ -7696,12 +7677,10 @@
         },
         {
           "name": "Stachelbombe",
-          "@todo": "fehlt",
           "raw": "N|F: Jäger erhält Elixierwürfel äußere Schadensstufen, Verbrennung, 1 Hex"
         },
         {
           "name": "Käferangriff",
-          "@todo": "fehlt",
           "raw": "N: Nach Nahkampfangriff: Jäger erhält Blutwürfel Malusstufen, Trauma, 1 Hex"
         }
       ],
@@ -7766,10 +7745,11 @@
         },
         {
           "name": "Hex-Wachstum",
-          "raw": [
-            "Jz − 2 Hex in Ini 0",
-            "+2 Hex in Ini 0 für jeden Jäger mit Zustand „Schläfrigkeit“"
-          ]
+          "raw": "Jz − 2 Hex in Ini 0"
+        },
+        {
+          "name": "Hex-Wachstum",
+          "raw": "+2 Hex in Ini 0 für jeden Jäger mit Zustand „Schläfrigkeit“"
         },
         {
           "name": "Lied des Schlafes",
@@ -7791,7 +7771,6 @@
       "loot": {
         "raw": "330 Gulden (Beutegut, feinster, oft antiker Schmuck)"
       },
-      "@todo": "unterschiedliches HEX-Wachstum, 2 Quellenangaben",
       "references": [
         {
           "source": "Wiki",
@@ -7976,11 +7955,10 @@
         },
         {
           "name": "Verdorbenes Land",
-          "raw": "N|F: 11 gegen Geistesstärke, 1 Malusstufe (Krankheit, 5: MF) pro Differenzerfolg, 25 Lep*"
+          "raw": "N|F: 11 gegen Geistesstärke, 1 Malusstufe (Krankheit, 5: MF) pro Differenzerfolg, 25 Lep*",
+          "note": "*Die Schlickmutter benutzt keine Hex-Punkte, um Kräfte zu wirken, sondern verbraucht Lep., 5 Lep entsprechen hierbei 1 Hex."
         }
       ],
-      "@todo": "Besonderheit als Feature gekennzeichnet",
-      "feature": "*Die Schlickmutter benutzt keine Hex-Punkte, um Kräfte zu wirken, sondern verbraucht Lep., 5 Lep entsprechen hierbei 1 Hex.",
       "references": [
         {
           "source": "Wiki",
@@ -8702,7 +8680,6 @@
         },
         {
           "name": "Donnerschlag",
-          "@todo": "fehlt",
           "raw": "Bei natürlichen Nahkampfangriffen, wenn Erfolge >= Kkr-Wert: Blutwürfel Schmerzschaden, pro 2 Erfolge Lähmungsschaden (Torkeln)"
         },
         {
@@ -8871,25 +8848,21 @@
       "powers": [
         {
           "name": "Glyphe der Raserei",
-          "@todo": "fehlt",
           "raw": "freie Handlung: +5 innere Schadensstufen, pro innere Schadensstufe +1 auf N - Handlungen, –1 auf F-Handlungen"
         },
         {
           "name": "Glyphe des Widerstands",
-          "@todo": "fehlt",
           "raw": "nur 1 Schadenspunktpro innere/äußere Schadensstufe, 2 bei Anfälligkeit"
         },
         {
           "name": "Rüstungsglyphe",
-          "@todo": "fehlt",
-          "raw": "Pw +2*"
+          "raw": "Pw +2*",
+          "note": "*Bereits in Nsc-Werte eingerechnet."
         }
       ],
       "loot": {
         "raw": "150 Gulden in Form von Ausrüstung und Waffen (Beutegut)"
       },
-      "@todo": "Besonderheit als Feature gekennzeichnet",
-      "feature": "* Bereits in Nsc-Werte eingerechnet.",
       "references": [
         {
           "source": "Wiki",
@@ -8955,10 +8928,11 @@
         },
         {
           "name": "Hex-Wachstum",
-          "raw": [
-            "+1 Hex in Ini 0",
-            "+1 Hex in Ini 0 für jeden Jäger, der über Verderbnis verfügt"
-          ]
+          "raw": "+1 Hex in Ini 0"
+        },
+        {
+          "name": "Hex-Wachstum",
+          "raw": "+1 Hex in Ini 0 für jeden Jäger, der über Verderbnis verfügt"
         },
         {
           "name": "Immunität",
@@ -8976,7 +8950,6 @@
       "loot": {
         "raw": "300 Gulden (Ausrüstung und Zierrat; der Besitz gilt im Salzburger Land als Frevel)"
       },
-      "@todo": "Unterschiedliches HEX Wachstum",
       "references": [
         {
           "source": "Wiki",
@@ -9083,7 +9056,6 @@
       "loot": {
         "raw": "15 Gulden (Münzen)"
       },
-      "@todo": "2 Quellenangaben",
       "references": [
         {
           "source": "Wiki",
@@ -9554,11 +9526,15 @@
         },
         {
           "name": "Hex-Wachstum",
-          "raw": [
-            "Jz – 1 in Ini 0",
-            "+5 Hex, wenn Aura der Rechtschaffenheit vernichtet wird",
-            "+1 Hex, sobald ein Jäger 5 oder mehr Lep durch Blitze erleidet"
-          ]
+          "raw": "Jz – 1 in Ini 0"
+        },
+        {
+          "name": "Hex-Wachstum",
+          "raw": "+5 Hex, wenn Aura der Rechtschaffenheit vernichtet wird"
+        },
+        {
+          "name": "Hex-Wachstum",
+          "raw": "+1 Hex, sobald ein Jäger 5 oder mehr Lep durch Blitze erleidet"
         },
         {
           "name": "Kettenblitz",
@@ -9569,7 +9545,6 @@
           "raw": "+3 auf Fechtwaffen"
         }
       ],
-      "@todo": "Unterschiedliches HEX Wachstum",
       "references": [
         {
           "source": "Wiki",
@@ -10173,12 +10148,10 @@
         },
         {
           "name": "Rundlich",
-          "@todo": "Amorpher Körper??",
           "raw": "keine heimtückische Attacke möglich"
         },
         {
           "name": "Schwächeausnutzung",
-          "@todo": "fehlt",
           "raw": "Gegner keine Coups: Angriff +3"
         }
       ],
@@ -10201,6 +10174,7 @@
       "type": "leader",
       "unnatural": true,
       "level": 1,
+      "note": "LM = Lähmungs-Marker aus der INI O",
       "health": {
         "formula": "LM*10"
       },
@@ -10217,7 +10191,7 @@
         "value": 2,
         "type": "zähe Dornenranken"
       },
-      "strategy": "Offensiv ((N1)(N2)|F)",
+      "strategy": "Offensiv (N1N2|F)",
       "attacks": [
         {
           "name": "Fesselnder Peitschenhieb",
@@ -10254,8 +10228,6 @@
           "raw": "N|F: LM + 5 gegen Geistesstärke, 1 Malusstufe (Krankheit, 5: MF) pro Differenzerfolg, 5 Hex"
         }
       ],
-      "feature": "LM = Lähmungs-Marker aus der INI O",
-      "@todo": "Durchnummerierte N - Angriffe, Erklärung als feature",
       "references": [
         {
           "source": "Wiki",
@@ -10399,10 +10371,11 @@
         },
         {
           "name": "Hex-Macht",
-          "raw": [
-            "Jz + 1 Hex bei Start",
-            "+3 Hex, wenn in Ini 0 auf dem Rücken eines Jägers"
-          ]
+          "raw": "Jz + 1 Hex bei Start"
+        },
+        {
+          "name": "Hex-Macht",
+          "raw": "+3 Hex, wenn in Ini 0 auf dem Rücken eines Jägers"
         },
         {
           "name": "Hex-Wachstum",
@@ -10425,7 +10398,6 @@
           "raw": "N|F: Zaubernder verliert alle Bindungen, 3 Hex"
         }
       ],
-      "@todo": "Unterschiedliche HEX Macht",
       "story": [
         "Bewegung",
         "Illusion",
@@ -10479,7 +10451,8 @@
         },
         {
           "name": "Rammangriff",
-          "raw": "NN: Angriff 12, Schaden 8 +Lähmung (je 1, Torkeln)*"
+          "raw": "NN: Angriff 12, Schaden 8 +Lähmung (je 1, Torkeln)*",
+          "note": "*Nur nach Bewegung in den Nahkampf."
         }
       ],
       "powers": [
@@ -10512,8 +10485,6 @@
           "raw": "N|F: 9 gegen Geistesstärke, 1 Malusstufe (Furcht, 5: MFD) pro Differenzerfolg, 1 Hex pro Ziel (1–3 Ziele)"
         }
       ],
-      "@todo": "Unterschiedliche HEX Macht",
-      "feature": "*Nur nach Bewegung in den Nahkampf.",
       "references": [
         {
           "source": "Wiki",
@@ -10544,7 +10515,8 @@
         },
         {
           "name": " Zornbiss*",
-          "raw": "N: Erfolge 3, Schaden 3"
+          "raw": "N: Erfolge 3, Schaden 3",
+          "note": "*Nur wenn Bock anwesend ist."
         }
       ],
       "powers": [
@@ -10553,8 +10525,6 @@
           "raw": "Malusschaden"
         }
       ],
-      "@todo": "feature",
-      "feature": "* Nur wenn Bock anwesend ist.",
       "loot": {
         "raw": "1 Gulden (Beutegut: Schafsfell und Fleisch)"
       },
@@ -10615,15 +10585,13 @@
         },
         {
           "name": "Lebkuchenhülle",
-          "@todo": "fehlt",
           "raw": "Pw 10; bei Lep-Verlust durch direkten Waffenschaden: Pw −1, Jz Lebkuchenschrecken"
         }
       ],
-      "@todo": "Nummerierte Angriffe",
       "references": [
         {
           "source": "Wiki",
-          "link": "http://hexxen1733-regelwiki.de/index.php/blutschnucke-bock.html"
+          "link": "http://hexxen1733-regelwiki.de/index.php/braunfaulige.html"
         },
         {
           "source": "Geheimnisse der Deutschen Lande",
@@ -10728,10 +10696,11 @@
         },
         {
           "name": "Hex-Wachstum",
-          "raw": [
-            "Jz –2 Hex in Ini 0",
-            "+2 Hex in Ini 0 wenn innerhalb von Wasser"
-          ]
+          "raw": "Jz –2 Hex in Ini 0"
+        },
+        {
+          "name": "Hex-Wachstum",
+          "raw": "+2 Hex in Ini 0 wenn innerhalb von Wasser"
         },
         {
           "name": "Immunität",
@@ -10751,7 +10720,8 @@
         },
         {
           "name": "Wahrer Name",
-          "raw": "„Melachanna“, Espritsterne: 2 Erfolge*"
+          "raw": "„Melachanna“, Espritsterne: 2 Erfolge*",
+          "note": "*Die Jäger können den wahren Namen der Melusine in Infamis‘ Hexenküche in Erfahrung bringen."
         },
         {
           "name": "Wasserfontäne",
@@ -10762,8 +10732,6 @@
           "raw": "N|F: Bereichseffekt, 13 gegen Akrobatik, 1 Malusstufe pro Differenzerfolg, 1 Blutwürfel Sc für 2 Differenzerfolge, 3 Hex"
         }
       ],
-      "feature": "*Die Jäger können den wahren Namen der Melusine in Infamis‘ Hexenküche in Erfahrung bringen.",
-      "@todo": "Erklärung als feature, Unterschiedliches HEX Wachstum",
       "story": [
         "Heilelexiere",
         "Kontrolle über Wasser",
@@ -10820,7 +10788,6 @@
       "powers": [
         {
           "name": "Demolieren",
-          "@todo": "fehlt",
           "raw": "N|F: jeder Kampfteilnehmer nimmt Kkr + As normalen Schaden (ausweichbar, blockbar),(Espritsymbol): Demolieren kann nicht mehr an diesem Ort angewendet werden"
         },
         {
@@ -11146,7 +11113,6 @@
       "powers": [
         {
           "name": "Auge des Horus",
-          "@todo": "fehlt",
           "raw": "Ein okkulter Philosoph oder Horus-Falke kann Hex-Punkte aus dem Auge des Horus generieren, pro Runde aber maximal Hex-Punkte in Höhe der Jz. In jedem Amulett schlummern Hex-Punkte in Höhe eines Elixierwürfels x 5 oder pauschal 15."
         },
         {
@@ -11278,7 +11244,6 @@
       "powers": [
         {
           "name": "Auge des Horus",
-          "@todo": "fehlt",
           "raw": "Ein okkulter Philosoph oder Horus-Falke kann Hex-Punkte aus dem Auge des Horus generieren, pro Runde aber maximal Hex-Punkte in Höhe der Jz. In jedem Amulett schlummern Hex-Punkte in Höhe eines Elixierwürfels x 5 oder pauschal 15."
         },
         {
@@ -11353,7 +11318,7 @@
         },
         {
           "name": "Fesselnde Bänder",
-          "raw": "N|F: Angriff 8, kein Schaden +Lähmung (je 1, Taumeln, 5: Fixierung)"
+          "raw": "N|F: Angriff 8, Schaden 0 +Lähmung (je 1, Taumeln, 5: Fixierung)"
         },
         {
           "name": "Pistole",
@@ -11367,8 +11332,7 @@
         },
         {
           "name": "Beschwörung",
-          "@todo": "Anzahl? Kein Nekromantie.",
-          "raw": "N|F: Wandelnde Leiche (Bande 1), 4 für 1 Hex; Horusmumie (Bande 2), 3 für 1 Hex; Gruftwächter (Bande 3), 2 für 1 Hex"
+          "raw": "N|F: Wandelnde Leiche (Bande 1), 3 für 1 Hex; Horusmumie (Bande 2), 2 für 1 Hex; Gruftwächter (Bande 3), 1 für 1 Hex"
         },
         {
           "name": "Blick des Verderbens",
@@ -11388,10 +11352,11 @@
         },
         {
           "name": "Hex-Wachstum",
-          "raw": [
-            "Jz Hex in Ini 0",
-            "+1 Hex, wenn ein Angriff mit „Fesselnde Bänder“ Lähmung erzeugt"
-          ]
+          "raw": "Jz Hex in Ini 0"
+        },
+        {
+          "name": "Hex-Wachstum",
+          "raw": "+1 Hex, wenn ein Angriff mit „Fesselnde Bänder“ Lähmung erzeugt"
         },
         {
           "name": "Immunität",
@@ -11410,7 +11375,6 @@
           "raw": "Immunität Gift, Anfällig heiliger Schaden, in Ini 0: –2 Einflussstufen pro 1 Hex"
         }
       ],
-      "@todo": "unterschiedliches HEX Wachstum",
       "loot": {
         "raw": "80 Gulden (Münzen), Auge des Horus"
       },
@@ -11501,6 +11465,7 @@
       "type": "leader",
       "unnatural": true,
       "level": 4,
+      "note": "As = Anführerstufe",
       "health": {
         "formula": "Jz*30"
       },
@@ -11582,8 +11547,6 @@
       "loot": {
         "raw": "500 Gulden (Beutegut im Gepäck, z. B. magischer Tand)"
       },
-      "feature": "As = Anführerstufe",
-      "@todo": "Beschreibung als feature",
       "references": [
         {
           "source": "Wiki",
@@ -11633,8 +11596,7 @@
       "powers": [
         {
           "name": "Beschwörung",
-          "@todo": "warum hier kein Hinweis zu Nekromatie wie bei anderen?",
-          "raw": "N|F: Gruftwächter (Bande 3), 2 für 3 Hex durch Nekromantie); andere untote Bandengegner nach Wahl des HeXXenmeisters"
+          "raw": "N|F: Gruftwächter (Bande 3, 2 für 3 Hex durch Nekromantie); andere untote Bandengegner nach Wahl des HeXXenmeisters"
         },
         {
           "name": "Blindheit",
@@ -11753,7 +11715,6 @@
       "powers": [
         {
           "name": "Beschwörung",
-          "@todo": "Hinweis Nekromantie??",
           "raw": "N|F: Wandelnde Leiche (Bande 1), 4 für 1 Hex; oder Grabwächter (Bande 3), 2 für 1 Hex"
         },
         {
@@ -11766,10 +11727,11 @@
         },
         {
           "name": "Hex-Wachstum",
-          "raw": [
-            "+1 Hex für je 2 gestorbene untote Bandenkreaturen",
-            "Ini 0: weniger als 5 Banden anwesend: 1 Hex pro Jz"
-          ]
+          "raw": "+1 Hex für je 2 gestorbene untote Bandenkreaturen"
+        },
+        {
+          "name": "Hex-Wachstum",
+          "raw": "Ini 0: weniger als 5 Banden anwesend: 1 Hex pro Jz"
         },
         {
           "name": "Nekromantie",
@@ -11796,7 +11758,6 @@
           "raw": "N|F: 3 Schaden pro Hex, 1-5 Hex pro Ziel (1 Ziel), reduzierbar über Ausweichen, Schildblock"
         }
       ],
-      "@todo": "Unterschiedliches HEX Wachstum",
       "loot": {
         "raw": "820 Gulden (inkl. Besitztümer)"
       },
@@ -11861,10 +11822,11 @@
         },
         {
           "name": "Hex-Wachstum",
-          "raw": [
-            "+1 Hex, wenn ein Gierschlund sich teilt",
-            "+1 Hex in Ini 0 pro Jäger mit Zustand „Fluch des Goldes“"
-          ]
+          "raw": "+1 Hex, wenn ein Gierschlund sich teilt"
+        },
+        {
+          "name": "Hex-Wachstum",
+          "raw": "+1 Hex in Ini 0 pro Jäger mit Zustand „Fluch des Goldes“"
         },
         {
           "name": "Schmerzen",
@@ -11883,7 +11845,6 @@
           "raw": "N|F: 3 Schaden pro Hex, 1–5 Hex pro Ziel (1 Ziel), reduzierbar über Ausweichen, Schildblock"
         }
       ],
-      "@todo": "Unterschiedliches HEX Wachstum",
       "loot": {
         "raw": "1W6 Gulden, bzw. früherer Besitz des Toten"
       },
@@ -11983,7 +11944,6 @@
       "powers": [
         {
           "name": "Beschwörung",
-          "@todo": "Hinweis Nekromantie??",
           "raw": "N|F: Gruftwächter (Bande 3), 2 für 1 Hex; Wandelnde Leiche (Bande 1), 4 für 1 Hex"
         },
         {
@@ -11996,10 +11956,11 @@
         },
         {
           "name": "Hex-Wachstum",
-          "raw": [
-            "Jz - 2 Hex in Ini 0",
-            "Ini 0: Wenn Gruftwächter oder wandelnde Leichen anwesend sind: +1 Hex"
-          ]
+          "raw": "Jz - 2 Hex in Ini 0"
+        },
+        {
+          "name": "Hex-Wachstum",
+          "raw": "Ini 0: Wenn Gruftwächter oder wandelnde Leichen anwesend sind: +1 Hex"
         },
         {
           "name": "Nekromantie",
@@ -12028,7 +11989,6 @@
         "Korruption",
         "Schwächung"
       ],
-      "@todo": "Unterschiedliches HEX Wachstum",
       "loot": {
         "raw": "350 Gulden (Beutegut, inkl. Waffen und Besitztümer)"
       },
@@ -12448,7 +12408,8 @@
         },
         {
           "name": "Rammangriff*",
-          "raw": "N: Erfolge 3, Schaden 3 +Lähmung (je 2, Taumeln)"
+          "raw": "N: Erfolge 3, Schaden 3 +Lähmung (je 2, Taumeln)",
+          "note": "*Nur nach Bewegung in den Nahkampf."
         }
       ],
       "powers": [
@@ -12460,8 +12421,6 @@
       "loot": {
         "raw": "7 Gulden (Beutegut: Felle, Hörner)"
       },
-      "feature": "*Nur nach Bewegung in den Nahkampf.",
-      "@todo": "Erklärung als feature",
       "references": [
         {
           "source": "Wiki",
@@ -13034,7 +12993,8 @@
         },
         {
           "name": "Schwanzschlag",
-          "raw": "N: (nur durch Derwisch) Angriff 12 gegen alle gebundenen und von hinten angreifenden Gegner, Schaden 3 +Lähmung (je 1, Taumeln)"
+          "raw": "N: Angriff 12, Schaden 3 +Lähmung (je 1, Taumeln)",
+          "note": "nur durch Derwisch, gegen alle gebundenen und von hinten angreifenden Gegner"
         }
       ],
       "powers": [
@@ -13104,7 +13064,6 @@
       "loot": {
         "raw": "3 Gulden (Beutegut: Plunder und Tand)"
       },
-      "@todo": "mehrere Quellen",
       "references": [
         {
           "source": "Wiki",
@@ -13262,10 +13221,11 @@
         },
         {
           "name": "Hex-Wachstum",
-          "raw": [
-            "Jz + 3 Hex in Ini 0",
-            "für je 3 andere Unholde: +1 Hex in Ini 0"
-          ]
+          "raw": "Jz + 3 Hex in Ini 0"
+        },
+        {
+          "name": "Hex-Wachstum",
+          "raw": "für je 3 andere Unholde: +1 Hex in Ini 0"
         },
         {
           "name": "Unholdfeuer",
@@ -13275,7 +13235,6 @@
       "loot": {
         "raw": "200 Gulden (Beutegut: Plunder und Tand)"
       },
-      "@todo": "unterschiedliches HEX Wachstum",
       "references": [
         {
           "source": "Wiki",
@@ -13318,7 +13277,6 @@
       "loot": {
         "raw": "3 Gulden (Beutegut: Plunder und Tand)"
       },
-      "@todo": "mehrere Quellen",
       "references": [
         {
           "source": "Wiki",
@@ -13365,7 +13323,6 @@
       "loot": {
         "raw": "3 Gulden (Beutegut: Plunder und Tand)"
       },
-      "@todo": "mehrere Quellen",
       "references": [
         {
           "source": "Wiki",
@@ -13502,11 +13459,15 @@
         },
         {
           "name": "Hex-Wachstum",
-          "raw": [
-            "Jz − 2 Hex in Ini 0",
-            "für je 5 andere Unholde: +1 Hex in Ini 0",
-            "wenn Götze beschworen wurde: +1 Hex in Ini 0"
-          ]
+          "raw": "Jz − 2 Hex in Ini 0"
+        },
+        {
+          "name": "Hex-Wachstum",
+          "raw": "für je 5 andere Unholde: +1 Hex in Ini 0"
+        },
+        {
+          "name": "Hex-Wachstum",
+          "raw": "wenn Götze beschworen wurde: +1 Hex in Ini 0"
         },
         {
           "name": "Tarnung der Geister",
@@ -13524,7 +13485,6 @@
       "loot": {
         "raw": "20 Gulden (Beutegut: Plunder und Tand)"
       },
-      "@todo": "mehrere Quellen",
       "references": [
         {
           "source": "Wiki",
@@ -13756,10 +13716,11 @@
         },
         {
           "name": "Hex-Wachstum",
-          "raw": [
-            "Jz - 2 Hex in Ini 0",
-            "Als N|F -Handlung 1 Sektenmitglied opfern: +1 Hex"
-          ]
+          "raw": "Jz - 2 Hex in Ini 0"
+        },
+        {
+          "name": "Hex-Wachstum",
+          "raw": "Als N|F -Handlung 1 Sektenmitglied opfern: +1 Hex"
         },
         {
           "name": "Immunität",
@@ -13866,10 +13827,11 @@
         },
         {
           "name": "Hex-Wachstum",
-          "raw": [
-            "+1 Hex in Ini 0",
-            "+2 Hex in Ini 0 pro Jäger mit Zustand „Furcht“ oder „Verzauberung“"
-          ]
+          "raw": "+1 Hex in Ini 0"
+        },
+        {
+          "name": "Hex-Wachstum",
+          "raw": "+2 Hex in Ini 0 pro Jäger mit Zustand „Furcht“ oder „Verzauberung“"
         },
         {
           "name": "Raserei",
@@ -14134,7 +14096,8 @@
       "attacks": [
         {
           "name": "Biss",
-          "raw": "N: Erfolge 3, Schaden 2 +Schwanzattacke*"
+          "raw": "N: Erfolge 3, Schaden 2 +Schwanzattacke*",
+          "note": "*Schwanzattacke: Trifft eine Ochsenratte mit dem Biss, dann richtet sie zusätzlich Schaden in Höhe eines Blutwürfels an (der Zusatzschaden wird auf den normalen Biss-Schaden addiert)."
         }
       ],
       "powers": [
@@ -14143,8 +14106,6 @@
           "raw": "Nahkampfgegner-Angriffe -3"
         }
       ],
-      "feature": "*Schwanzattacke: Trifft eine Ochsenratte mit dem Biss, dann richtet sie zusätzlich Schaden in Höhe eines Blutwürfels an (der Zusatzschaden wird auf den normalen Biss-Schaden addiert).",
-      "@todo": "Besonderheit als Feature gekennzeichnet",
       "references": [
         {
           "source": "Wiki",
@@ -14216,7 +14177,6 @@
       "powers": [
         {
           "name": "Doppelangriff",
-          "@todo": "fehlt",
           "raw": "Zweimal Biss pro Runde"
         }
       ],
@@ -14754,10 +14714,11 @@
         },
         {
           "name": "Hex-Wachstum",
-          "raw": [
-            "für jede getötete Teufelsratte +1 Hex",
-            "hat die Matriarchin in Ini 0 keine Hex: +1 Hex"
-          ]
+          "raw": "für jede getötete Teufelsratte +1 Hex"
+        },
+        {
+          "name": "Hex-Wachstum",
+          "raw": "hat die Matriarchin in Ini 0 keine Hex: +1 Hex"
         },
         {
           "name": "Immunität",
@@ -14779,7 +14740,6 @@
       "loot": {
         "raw": "300 Gulden (verstreute Wertgegenstände)"
       },
-      "@todo": "unterschiedliches HEX Wachstum",
       "references": [
         {
           "source": "Wiki",
@@ -15947,7 +15907,6 @@
         },
         {
           "name": "Fesselnde Ranken",
-          "@todo": "Fesselnde Bänder??",
           "raw": "N|F: Angriff 8, kein Schaden +Lähmungsschaden (je 1, Taumeln, bei 5 Erfolgen: Fixierung)"
         },
         {
@@ -15960,7 +15919,6 @@
         },
         {
           "name": "Sprung ins Dickicht",
-          "@todo": "fehlt",
           "raw": "N: Lösen von allen Gegnern, danach F - Aktion"
         },
         {
@@ -16274,7 +16232,6 @@
           "raw": "Karlstein ist ein Untoter, der auf heiligem Boden kämpft. Jäger können als Aktion für 3 AP die spirituelle Macht dieses Ortes anrufen (z. B. durch ein Gebet) und eine Probe Wis + Fw (Wissensgebiete) ablegen. Für jeden Erfolg auf der Probe erhält Karlstein 1 Malusstufe. Führt ein Jäger mit dem Kruzifix diese Probe ab, erhält er einen Bonus +2."
         }
       ],
-      "@todo": "mehrere Quellen",
       "references": [
         {
           "source": "Wiki",
@@ -16740,7 +16697,6 @@
           "raw": "6 pro Jäger"
         }
       ],
-      "@todo": "mehrere Quellen",
       "references": [
         {
           "source": "Wiki",
@@ -16796,7 +16752,7 @@
         },
         {
           "name": "Fesselnde Bänder",
-          "raw": "N|F: Angriff 8, kein Schaden +Lähmung (je 1, Taumeln, 5: Fixierung)"
+          "raw": "N|F: Angriff 8, Schaden 0 +Lähmung (je 1, Taumeln, 5: Fixierung)"
         }
       ],
       "powers": [
@@ -16830,10 +16786,11 @@
         },
         {
           "name": "Hex-Wachstum",
-          "raw": [
-            "Jz - 2 Hex in Ini 0",
-            "wenn ein Angriff mit Fesselnde Bänder Lähmung erzeugt: +1 Hex"
-          ]
+          "raw": "Jz - 2 Hex in Ini 0"
+        },
+        {
+          "name": "Hex-Wachstum",
+          "raw": "wenn ein Angriff mit Fesselnde Bänder Lähmung erzeugt: +1 Hex"
         },
         {
           "name": "Immunität",
@@ -16874,7 +16831,6 @@
       "loot": {
         "raw": "700 Gulden (inkl. Besitztümer)"
       },
-      "@todo": "unterschiedliches HEX Wachstum",
       "references": [
         {
           "source": "Wiki",
@@ -16924,7 +16880,6 @@
         },
         {
           "name": "Gemeinsame Giftwolke",
-          "@todo": "Giftwolke??",
           "raw": "N|F: Gift-Effekt (Umgebung) 1 pro Nebelwandler (max. 5)"
         },
         {
@@ -16933,7 +16888,6 @@
         },
         {
           "name": "Roter Nebel",
-          "@todo": "fehlt",
           "raw": "bei Tod: Kreatur wird durch 1 Nebelphantom ersetzt (Bande 3 Gegner)"
         },
         {
@@ -16970,7 +16924,8 @@
       "attacks": [
         {
           "name": "Todeshauch*",
-          "raw": "N|F: Erfolge 2, Schaden 3 GE"
+          "raw": "N|F: Erfolge 2, Schaden 3 GE",
+          "note": "*Man kann dem Todeshauch ausweichen, ihn aber nicht blocken oder parieren."
         }
       ],
       "powers": [
@@ -16983,8 +16938,6 @@
           "raw": "Nsc befindet sich auf Augenhöhe oder schwebt hoch in der Luft"
         }
       ],
-      "feature": "*Man kann dem Todeshauch ausweichen, ihn aber nicht blocken oder parieren.",
-      "@todo": "Beschreibung als Feature",
       "references": [
         {
           "source": "Wiki",
@@ -17072,7 +17025,6 @@
         },
         {
           "name": "Artefaktbelebung",
-          "@todo": "fehlt",
           "raw": "Nsc stirbt im Bereich des Artefakts und (Janussymbol): 2 Wandelnde Leichen (Bande1) kommen in Ini 0 ins Spiel"
         },
         {
@@ -17196,10 +17148,11 @@
         },
         {
           "name": "Hex-Wachstum",
-          "raw": [
-            "Jz Hex in Ini 0",
-            "Ini 0: für jeden Jäger, der unter Blindheit, Stummheit oder Taubheit leidet: +1 Hex"
-          ]
+          "raw": "Jz Hex in Ini 0"
+        },
+        {
+          "name": "Hex-Wachstum",
+          "raw": "Ini 0: für jeden Jäger, der unter Blindheit, Stummheit oder Taubheit leidet: +1 Hex"
         },
         {
           "name": "Immunität",
@@ -17235,7 +17188,6 @@
       "loot": {
         "raw": "Meistens keine verwertbare Beute"
       },
-      "@todo": "unterschiedliches HEX Wachstum",
       "references": [
         {
           "source": "Wiki",

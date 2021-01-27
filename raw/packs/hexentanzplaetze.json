@@ -1,0 +1,207 @@
+{
+  "widernatuerliche-wesen": "Tanzplätze sind durch Magie geschaffene Wesenheiten und daher widernatürlich, auch wenn sie wie ein gewöhnlicher Teil der Natur wirken mögen.",
+  "live": "Wie andere Nsc besitzen Tanzplätze eine gewisse Zahl an Lebenspunkten, die mit der Größe der Jägergruppe (Jz) skaliert. Sinken die Lep auf 0, gilt der Tanzplatz als zerstört: Seine magische Energie verfliegt und er ist nicht länger als Ritual- und Zeremonienort nutzbar. Das bedeutet jedoch nicht, dass der Ort restlos in Trümmern liegt, die Jäger haben lediglich die wichtigsten Merkmale des Platzes vernichtet. Eine Unholdgrotte beispielsweise lässt sich nicht zerschlagen, weil es sich um einen leeren Raum aus Fels handelt. Sinken ihre Lep auf 0, wurden vielmehr alle unheiligen Höhlenmalereien unschädlich gemacht, die den Ort mit Magie erfüllen. Eine gesegnete Eiche ist gleichsam nicht gefällt, wenn ihre Lep auf 0 sinken, sie ist nur so stark beschädigt, dass sie keine arkane Energie mehr speichern kann und wahrscheinlich mit der Zeit verdorrt und abstirbt.",
+  "resistence": "Bei den meisten Tanzplätzen handelt es sich um Orte mit soliden Objekten, die gegen Angriffe mit leichteren Waffen gefeit sind. Diese sogenannte Tanzplatzresistenz verleiht dem Ort eine Schadensreduzierung gegen alle Waffenarten, die weniger als 3 Punkte Grundschaden verursachen wie Faust, Dolche und Messer, Fechtwaffen oder Schleudern. Die Höhe der Schadensreduzierung variiert je nach der Beschaffenheit des Tanzplatzes und kann von Ort zu Ort unterschiedlich sein. Als Richtlinie gilt: 3 für Holz, 4 für gemauerte Objekte, 5 für massiven Stein. Tanzplatzresistenz ist nur gegen Angriffe mit materiellen Waffen gültig. Sollten die Jäger mit zauberähnlichen oder spirituellen Kräften dem Ort zu Leibe rücken, muss der HeXXenmeister entscheiden, ob die Kraft wirkt. Üblicherweise sind alle Angriffe, die den Geist eines Gegners, seine Emotionen oder sein mentale Einstellung betreffen, wirkungslos gegen Tanzplätze, aber Jägerkräfte, die einen sichtbaren destruktiven Effekt haben, können wirksam sein, wenn der HeXXenmeister dies gestattet, dann ohne Abzüge durch Tanzplatzresistenz.",
+  "imunities": "Des Weiteren sind Tanzplätze immun gegen anhaltende Einflüsse. Im Einzelfall muss der Spielleiter entscheiden, ob eine bestimmte Jägerkraft auch gegen einen Tanzplatz wirkt. Versuchen die Jäger beispielsweise, eine gesegnete Eiche zu zerstören, so kann der HeXXenmeister zulassen, dass äußere Schadensstufen durch Feuer (z. B. mittels Brandgeschossen) angerichtet werden können.",
+  "environmental-effect": "An den meisten Hexentanzplätzen wirken bestimmte Umgebungseffekte. Viele dieser Effekte werden aktiviert, wenn es an dem Ort zu einem Kampf kommt.",
+  "nsc-power": "Oft verfügen Tanzplätze über eine geringe Zahl an Nsc-Kräften, die sie mittels ihrer generierten Hex-Punkte einsetzen. Hexentanzplätze besitzen keinen Strategie-Eintrag, sie können in einer Kampfrunde so lange Handlungen ausführen, bis sie alle Hex-Punkte verbraucht haben. Tanzplätze haben keinen Initiative-Wert, sie agieren daher immer als Letztes in der Ini-Reihenfolge (de facto in Ini 1).",
+  "power-and-dices": "Da Tanzplätze keine Attribute oder Anführerstufe besitzen, werden die für Nsc-Kräfte notwendigen Würfelvorräte vom HeXXenmeister anhand der Bedeutung des Ortes (und somit seiner Macht) festgelegt. Die Werte reichen von 6 bis 10 und können wahlweise auch mit einem Elixierwürfel + 5 bestimmt werden. Dieser Wert wird auch als Machtwert bezeichnet. Sollte die Anführerstufe wichtig sein, um beispielsweise den Grundschaden von Angriffen zu bestimmen (wie z.B. bei der Jägerkraft Kettenblitz, Buch der Regeln), wird eine Anführerstufe von 2 angenommen.",
+  "fight": "Tanzplätze werden zwar wie Nsc behandelt, brauchen aber nicht in Form eines Nsc-Plättchens ausgelegt werden. Weil ein Kampf üblicherweise direkt auf dem Tanzplatz ausgetragen wird, sind Angriffe gegen ihn von jeder Position aus möglich. Heimtückische Attacken sind nicht anwendbar. Durch einen Nahkampfangriff wird ein Jäger nicht an den Tanzplatz gebunden, ebenso wird dieser nicht an den Jäger gebunden, sollte der Ort über einen Nahkampfangriff verfügen. Für Sc gelten die üblichen Einschränkungen beim Einsatz von Waffen. So kann ein Jäger beispielsweise keine Muskete gegen den Tanzplatz abfeuern, wenn er gleichzeitig an einen anderen Gegner gebunden ist. Der Tanzplatz selbst gilt stets als freistehend.",
+  "recognize": "Sobald ein Tanzplatz aktiv wird, sollte sich dies in einer deutlich sichtbaren Veränderung der Umgebung ausdrücken, damit die Spieler und deren Jäger erkennen, wovon sie angegriffen werden und welches Element sie attackieren können. Solche Phänomene können sich stark voneinander unterscheiden: So kann der Boden zu vibrieren beginnen, ein unheimliches Leuchten von einem wichtigen Objekt des Platzes ausgehen, können Bäume sich wie beseelt bewegen oder Runen und andere Symbole aufleuchten",
+  "hexentanzplatz": {
+    "das-felsennest": {
+      "name": "Das Felsennest",
+      "live": "Jz x 20",
+      "initiative": "1",
+      "resistence": "Sr −5/alle Waffen < 3 Grundschaden",
+      "ability": {
+        "ability1": "Beschwörung (Raubvogel (Bande 2, 2 für 1 Hex) oder Kleiner Vogel (Bande 1, 3 für 1 Hex))",
+        "ability2": "Hex-Macht (Jz Hex bei Start)",
+        "ability3": "Hex-Wachstum (Jz − 1 Hex in Ini 0)",
+        "ability4": "Kettenblitz (Angriff [Machtwert], Schaden 4 Bl, 1 Hex pro Ziel (1–3 Ziele))"
+      },
+      "environmental-effect": {
+        "luftige-hoehe": {
+          "name": "Luftige Höhe",
+          "discription": "Felsennester sind für Jäger kaum zugänglich. Um sie zu erreichen, bleibt der Gruppe nichts anderes übrig, als eine steile und oft extrem hohe Felswand zu erklimmen. In seltenen Fällen mag die Umgebung so beschaffen sein, dass man den Tanzplatz von der Seite her erreichen kann (z. B. über einen Berggrat), aber auch dann ist am Ende eine Kletterpartie erforderlich. Der HeXXenmeister legt fest, wie viele Etappen nötig sind, um das Felsennest zu erreichen, wobei jede einer Distanz von 50 Metern entspricht. Üblich sind 1 bis 10 Etappen. Pro Etappe würfelt der HeXXenmeister die Schwierigkeit der Kletterpartie mit 1 Elixierwürfel aus. Jeder Jäger legt anschließend eine Akrobatik-Probe ab, bei der er so viele Erfolge erzielen muss, wie die Schwierigkeit angibt. Für jeden Erfolg weniger erleidet er 1 Punkt Schmerzschaden (durch Kälte, Verletzungen und Erschöpfung). Wird kein Erfolg gewürfelt, zählt ebenfalls nur die Differenz zum Schwierigkeitsgrad. Dabei gehen wir davon aus, dass alle Jäger angeseilt sind, sodass kein Risiko eines Absturzes besteht. Die Kletterpartie gilt als geschlossener Konflikt, ausgegebene Coups und Ideen regenerieren also erst bei Erreichen des Felsennests."
+        },
+        "kampf-am-abgrund": {
+          "name": "Kampf am Abgrund",
+          "discription": "Wir gehen davon aus, dass die Jäger auch bei ihrem Aufenthalt auf dem Felsennest stets angeleint sind, um nicht in den Tod zu stürzen. Allerdings können besonders niederträchtige Widersacher genau diese Halteleinen ins Visier nehmen. Jeweils zu Beginn einer Kampfrunde, beginnend ab der zweiten, muss jeder Jäger als freie Reaktion eine Probe auf Akrobatik ausführen. Dabei reicht 1 Erfolg aus, um nicht abzustürzen. Wird kein Erfolg erzielt, fällt der Jäger von der Klippe und bleibt in seinen Seilen hängen. Er verliert sofort alle Bindungen zu Gegnern und nimmt Schmerzschaden in Höhe 1 Blutwürfels. Das Hochklettern erfordert 2 Ap. Anführergegner können versuchen, ein Seil zu durchtrennen. Geeignete Mittel vorausgesetzt (Hiebwaffen, Klauen etc.), führt der Gegner dazu einen gezielten Angriff auf das Seil aus (Malus von −5). Ist dieser erfolgreich, wird das Seil durchtrennt. Gelingt dem Jäger in Ini 0 seine Akrobatik-Probe nicht (0 Erfolge), so stürzt er unwiederbringlich in den Tod. Bei einer erfolgreichen Rückkehr auf das Plateau kann das durchtrennte Seil wieder verbunden werden. Das erfordert 3 Ap und eine einfache Probe auf Fingerfertigkeit."
+        }
+      },
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/das-felsennest.html"
+        },
+        {
+          "source": "Hexenzorn",
+          "page": "75"
+        }
+      ],
+      "erreta": false
+    },
+    "das-tor-zur-anderswelt": {
+      "name": "Das Tor zur Anderswelt",
+      "live": "Jz x 10",
+      "initiative": "1",
+      "resistence": "Jeglicher Schaden wird ignoriert, außer durch [Nicht von dieser Welt],s.u.",
+      "ability": {
+        "ability1": "Beschwörung (beliebige Bandengegner jeder Stufe, Anzahl und Hex-Kosten entsprechend der Stufe)",
+        "ability2": "Hex-Macht (Jz + 1 Hex bei Start)",
+        "ability3": "Hex-Wachstum (+Blutwürfel Hex in Ini 0; wird die leere Seite gewürfelt, erhalten alle Jäger Geistschaden in Höhe 1 Elixierwürfels)",
+        "ability4": ""
+      },
+      "environmental-effect": {
+        "nicht-von-dieser-welt": {
+          "name": "Nicht von dieser Welt",
+          "discription": "Tore zur Anderswelt sind Teil des Limbus, jenem Zwischenreich, das den Übergang bildet von der Wirklichkeit in jenseitige Sphären. Daher sind diese Tanzplätze weder durch Waffengewalt noch Zauberkraft zerstörbar. Stattdessen können Jäger durch Konzentration versuchen, den Ort aus dem Limbus in die Realität zurückzureißen, wodurch die Verbindung zur Anderswelt gekappt wird. Das erfordert jeweils eine Aktion mit 2 Ap und eine Probe auf Geistesstärke. Jeder Erfolg dezimiert die Lep des Platzes um 1. Optional kann der HeXXenmeister den Spielern erlauben, vor der Probe eine bestimmte Erinnerung ihres Jägers zu erzählen (in Kurzform), um einen Bonus von +1 bis +5 zu erhalten – je nachdem, wie stark das Erlebnis die Realität wiedergibt (die schrecklichen, wie auch die schönen Seiten)."
+        },
+        "schlimmster-albtraum": {
+          "name": "Schlimmster Albtraum",
+          "discription": "Das Tor zur Anderswelt kann zu jeder Sphäre, Dimension und jedem mythologischen Reich führen, das der Spielleiter für angemessen hält. Dementsprechend ist die Art der herbeigerufenen Gegner (durch die Kraft „Beschwörung“) völlig offen. Der HeXXenmeister kann jeden Bandengegner durch das Portal schreiten lassen, den er möchte. Dazu zählen neben allen in diesem Buch vorgestellten Kreaturen auch sämtliche aus anderen Publikationen und Abenteuern. So kann der Spielleiter durchaus Wesen verwenden, die sich in bereits bestrittenen Abenteuern als besonders lästig oder gefährlich erwiesen haben. Geben die Spieler eine Erinnerung ihres Jägers wieder (siehe Umgebungseffekt „Nicht von dieser Welt“), bietet es sich an, einen Kreaturentyp zu wählen, der zu der Erzählung passt. Beispielsweise können schwer gerüstete Söldner erscheinen, wenn sich ein Jäger an eine schreckliche Schlacht erinnert, oder Waldtiere, wenn er von einem Spaziergang durch einen ruhigen Hain berichtet. Die üblichen Beschwörungsrichtlinien sind an diesem Ort aufgehoben."
+        }
+      },
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/das-tor-zur-anderswelt.html"
+        },
+        {
+          "source": "Hexenzorn",
+          "page": "73"
+        }
+      ],
+      "erreta": false
+    },
+    "der-hexenfriedhof": {
+      "name":"Der Hexenfriedhof",
+      "live": "variabel je nach Alter und Größe; durchschnittlich Jz x 20, bei sehr alten Friedhöfen aber bis zu Jz x 50",
+      "initiative": "1",
+      "resistence": "SR −4/alle Waffen < 3 Grundschaden",
+      "ability": {
+        "ability1": "Beschwörung (Todesrabe [WdH] (Bande 2, 2 für 1 Hex), Raubvogel (Bande 2, 2 für 1 Hex), Schlickknecht (Bande 2, 2 für 1 Hex) oder Wandelnde Leiche [BdR] (Bande 1, 3 für 1 Hex))",
+        "ability2": "Hex-Macht (Jz Hex bei Start)",
+        "ability3": "Hex-Wachstum (immer wenn ein Hexengeist erscheint: +Jz Hex)",
+        "ability4": "Verdorbenes Land ([Machtwert] gegen Geistesstärke, 1 Malusstufe (Krankheit, 5: MF) pro Differenzerfolg, 5 Hex)"
+      },
+      "environmental-effect": {
+        "baeume-des-zorns": {
+          "name": "Bäume des Zorns",
+          "discription": "Der Tanzplatz verfügt über eine Reihe von beseelten Bäumen des Zorns entsprechend dem Machtwert (Elixierwürfel + 5). Jeder Baum des Zorns wird als Bandengegner der Stufe 3 behandelt."
+        },
+        "hexengeister": {
+          "name": "Hexengeister",
+          "discription": "Die Geister der verstorbenen Hexen zürnen denen, die ihre Gräber verwüsten und ihre Bäume des Zorns verletzen. Immer wenn ein Baum des Zorns vernichtet wird, erscheint 1 Hexengeist in Ini 0."
+        }
+      },
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/der-hexenfriedhof.html"
+        },
+        {
+          "source": "Hexenzorn",
+          "page": "69"
+        }
+      ],
+      "erreta": false
+    },
+    "die-grotte-der-unholde": {
+      "name":"Die Grotte der Unholde",
+      "live": "Jz x 25",
+      "initiative": "1",
+      "resistence": "SR −5/alle Waffen < 3 Grundschaden",
+      "ability": {
+        "ability1": "Beschwörung (beliebige Unhold-Bandengegner, Anzahl und Kosten je nach Stufe)",
+        "ability2": "Hex-Macht (Start-Hex werden durch Umgebungseffekt „Ort der Dunkelheit“ bestimmt)",
+        "ability3": "Hex-Wachstum (Jz − 1 Hex)",
+        "ability4": "Terrorwelle ([Machtwert] gegen Geistesstärke, 1 Malusstufe (Furcht, 5: MFD) pro Differenzerfolg, 1 Hex pro Ziel (1–3 Ziele))"
+      },
+      "environmental-effect": {
+        "ort-der-dunkelheit": {
+          "name": "Ort der Dunkelheit",
+          "discription": "Jede Unholdgrotte ist von einer grausamen Wesenheit beseelt, womöglich ein an den Ort gebundener Dämon oder ein vergessener finsterer Götze aus den Frühtagen der einst hier lebenden Menschen. In jedem Fall verursacht der Ort bei allen Eindringlingen (der weder eine Hexe noch ein Unhold ist) starkes Unbehagen. Oft ist es nur das unbestimmte Gefühl, aus den Schatten beobachtet zu werden, oder der Eindruck, dass eine langsam den Rücken hinaufschleichende Eiseskälte den Verstand lähmt. Sobald ein Jäger eine Unholdgrotte betritt, muss er eine Vergleichsprobe auf Geistesstärke gegen den Machtwert des Platzes ausführen. Für jeden Erfolg zugunsten des Platzes verliert der Jäger wahlweise 1 Coup oder 1 Idee (der Spieler bestimmt) und die Unholdgrotte erhält 1 Hex."
+        }
+      },
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/die-grotte-der-unholde.html"
+        },
+        {
+          "source": "Hexenzorn",
+          "page": "68"
+        }
+      ],
+      "erreta": false
+    },
+    "kultstaette-des-kessels": {
+      "name":"Die Kultstätte des Kessels",
+      "live": "Jz x 20",
+      "initiative": "1",
+      "resistence": "Sr –[Blutmarker]/alle Waffen < 3 Grundschaden",
+      "ability": {
+        "ability1": "Beschwörung (Gehörntes Wild (Bande 2, 2 für 1 Hex) oder Waldtier (Bande 1, 3 für 1 Hex), im Winter auch Eisschwalben (Bande 1, 3 für 1 Hex))",
+        "ability2": "Hex-Macht (0 Hex bei Start)",
+        "ability3": "Hex-Wachstum (+Hex in Höhe der ausliegenden Blutmarker)",
+        "ability4": "Kochendes Blut (N|F: Angriff [Machtwert], Schaden 2 Un, +Lebenskraftentzug (je 2), 1 Hex pro Ziel (1-3 Ziele))"
+      },
+      "environmental-effect": {
+        "blut-des-lebens": {
+          "name": "Blut des Lebens",
+          "discription": "Wird die Kultstätte attackiert, füllt sich der Kessel nach und nach auf magische Weise mit Blut. In jeder Runde wird in der Ini-Phase des Kessels (Ini 1) 1 Blutmarker ausgelegt und jeder anwesende Kampfteilnehmer, Freund oder Feind, regeneriert 1 Lep pro ausliegendem Blutmarker (einschließlich des neuen). Außerdem erhält die Kultstätte noch in derselben Phase Hex-Punkte in Höhe der ausliegenden Blutmarker, die sie sofort für Kräfte aufwenden kann (Beschwörung und/oder Feuerreigen). Die Zahl der Blutmarker entspricht auch der Schadensreduzierung (Tanzplatzresistenz), die also mit jeder Runde ansteigt. Wird der 5. Blutmarker ausgelegt, explodiert die angesammelte Masse in einer Fontäne aus Blut, wodurch jeder Jäger 5 Blutwürfel normalen Schaden erleidet. Anschließend beginnt der Kessel wieder bei 0 Blutmarkern. Sollte der Kessel transportabel sein, kann er umgeworfen werden (3 Ap, Muskelspiel-Probe (−2) oder Handwerken-Probe (−1) mit geeignetem Werkzeug). Arbeiten mehrere Jäger zusammen, muss die Aktion in einer gemeinsamen Ini-Phase durchgeführt werden (evtl. müssen einzelne Jäger ihre Ini entsprechend reduzieren). Der Wurf zählt dann als Gruppenprobe, wodurch jeder weitere Jäger einen Bonus +1 gibt. Ein Erfolg ändert aber nichts am Effekt; das Blut quillt dann weiter aus dem Kessel und verteilt sich über den Boden anstatt im Kessel anzusteigen. Allerdings kommt es nicht zur Explosion, stattdessen enden die Blutmarker bei 5."
+        },
+        "schlimmster-albtraum": {
+          "name": "Schlimmster Albtraum",
+          "discription": "Wenn der HeXXenmeister will, kann die Kultstätte des Kessels zusätzlich den Umgebungseffekt „Schlimmster Albtraum“ aufweisen (siehe: [Das Tor zur Anderswelt])."
+        }
+      },
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/die-kultstaette-des-kessels.html"
+        },
+        {
+          "source": "Hexenzorn",
+          "page": "71"
+        }
+      ],
+      "erreta": false
+    },
+    "gesegnete-eiche": {
+      "name":"Die gesegnete Eiche",
+      "live": "Jz x 20",
+      "initiative": "1",
+      "resistence": "SR −3/alle Waffen < 3 Grundschaden",
+      "ability": {
+        "ability1": "Beschwörung (Gehörntes Wild (Bande 2, 2 für 1 Hex), Wolf (Bande 2, 2 für 1 Hex) oder Waldtier (Bande 1, 3 für 1 Hex))",
+        "ability2": "Hex-Macht (Jz Hex bei Start; nach Festen und Ritualen kann die magische Kraft des Platzes verbraucht sein, in diesem Fall startet die gesegnete Eiche mit 0 oder 1 Hex)",
+        "ability3": "Hex-Wachstum (Jz − 1 Hex in Ini 0)",
+        "ability4": "Wurzeldorn (Angriff [Machtwert], Schaden 3 +Lähmung (je 1 pro Lep-Verlust, Fixierung), 1 Hex pro Ziel (1–3 Ziele))"
+      },
+      "environmental-effect": {
+        "tummelplatz-der-waldtiere": {
+          "name": "Tummelplatz der Waldtiere",
+          "discription": "Die Tiere des Waldes fühlen sich wie magisch angezogen von diesem Ort, stets sind Tiere verschiedener Arten an dem Tanzplatz oder in dessen näherer Umgebung anzutreffen. Verhalten sich Besucher rücksichtslos oder richten Schäden an, werden die Tiere sie angreifen. Kommt es an einer gesegneten Eiche zu einem Konflikt, sind von Beginn an Bandengegner (Gehörntes Wild, Wölfe, Waldtiere o. Ä.) in Höhe einer gesamten Bandenstufe von 4 Elixierwürfeln anwesend."
+        }
+      },
+      "references": [
+        {
+          "source": "Wiki",
+          "link": "http://hexxen1733-regelwiki.de/index.php/die-gesegnete-eiche.html"
+        },
+        {
+          "source": "Hexenzorn",
+          "page": "67"
+        },
+        {
+          "source": "Das finstere Herz des Waldes",
+          "page": "30"
+        }
+      ],
+      "erreta": false
+    }
+  }
+}

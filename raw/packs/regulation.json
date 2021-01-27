@@ -18,9 +18,258 @@
             "page": "212"
           }
         ]
+      },
+      {
+        "name": "Offensiv (NN|F)",
+        "_id": "",
+        "@rev": 1,
+        "description": "Offensive Nsc rennen auf die Jäger zu und verwickeln sie in den Nahkampf. Dabei verteilen sie sich möglichst breit, um viele Jäger zu binden (wie tumbe Gegner). Sofort nach ihrer Bewegung führen sie zwei Nahkampf-Handlungen (hintereinander) aus. Den Fernkampf verwenden sie nur, wenn es keine andere Möglichkeit gibt, aktiv zu werden. (Viele offensive Nsc haben allerdings keine Fernkampfwaffe und führen daher nie Fernkampf-Handlungen aus.)",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/strategien.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "212"
+          }
+        ]
+      },
+      {
+        "name": "Beschützend (NN|F)",
+        "_id": "",
+        "@rev": 1,
+        "description": "Wenn sich in den Reihen der Nsc ein Anführergegner befindet, der beschützt werden muss, bleiben Nsc mit beschützender Strategie erst einmal abwartend stehen und führen lediglich eine Fernkampf-Handlung pro Runde aus. Wollen Jäger auf den Anführer zustürmen, müssen sie zuerst freistehende, beschützende Gegner attackieren (oder anders ausgedrückt: Der beschützende Nsc stellt sich automatisch zwischen den Jäger und den von ihm beschützten Anführer). Die Beschützend-Strategie hat keine Wirkung gegen berittene Jäger oder Distanzangriffe. Sobald beschützende Nsc im Nahkampf gebunden sind, führen sie in ihrer Ini-Phase zwei Nahkampf-Handlung durch.",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/strategien.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "212"
+          }
+        ]
+      },
+      {
+        "name": "Defensiv (N|FF)",
+        "_id": "",
+        "@rev": 1,
+        "description": "Defensive Nsc bleiben freistehen, denn ihr Hauptaugenmerk liegt auf dem Fernkampf. Solange sie freistehen, können sie pro Runde zwei Fernkampf-Handlungen ausführen (dabei verteilen sie ihre Angriffe möglichst gleichmäßig auf die Jäger, siehe: tumbe Nsc). Benutzen sie Waffen, gelten dieselben Einsatzregeln wie auch für Jäger (so können beispielsweise Musketen nicht auf einen gebundenen Gegner abgefeuert werden). Benutzen sie Zauber oder natürliche Fernkampfangriffe, können sie diese auf gebundene Ziele anwenden. Sind defensive Nsc an einen Jäger gebunden, müssen sie sich mittels Nahkampf-Handlung zur Wehr setzen (davon haben sie allerdings nur eine). Die Benutzung einer Pistole ist zwar auch dann gestattet, zählt aber als Nahkampf-Handlung und kann nur gegen den gebundenen Sc ausgeführt werden.",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/strategien.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "212"
+          }
+        ]
+      },
+      {
+        "name": "Allrounder (NN|FF)",
+        "_id": "",
+        "@rev": 1,
+        "description": "Allrounder haben in jedem Fall zwei Handlungen pro Runde, egal, ob es sich um Fernkampf- oder Nahkampf-Handlungen handelt (oder eine Mischung aus beiden). Allrounder sind meistens mächtige Anführer oder Zauberer, die nach der Taktik vorgehen, erst den gefährlichsten Jäger außer Gefecht zu setzen, oder den Umständen entsprechend sinnvolle Taktiken anzuwenden. Daher werden Allrounder vom HeXXenmeister nach bestem Wissen und Gewissen geführt.",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/strategien.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "212"
+          }
+        ]
+      },
+      {
+        "name": "Mächtiger Allrounder (NNN|FF)",
+        "_id": "",
+        "@rev": 1,
+        "description": "Mächtige Allrounder können auch mehr als zwei Handlungen pro Runde ausführen.",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/strategien.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "212"
+          }
+        ]
+      },
+      {
+        "name": "Zufallsbewegungen",
+        "_id": "",
+        "@rev": 1,
+        "description": "In einigen Fällen bewegen sich Nsc auf einen zufällig ermittelten Jäger zu. Das tritt ein, wenn sich ein Spielercharakter mit Hilfe von Coups oder Ideen von einem Gegner getrennt hat oder Effekte wie „Verlaufen“ der Jägerkraft „Fortgeschrittene Kriegstaktiken“ zum Einsatz kommen. Wichtig ist, dass durch zufällige Bewegungen der ursprüngliche Jäger wieder ins Visier genommen werden kann. Wenn sich Maria Hexenfluch durch einen Coup von ihrem Gegner trennte und der Nsc ein neues Ziel per Zufall bestimmt, kann es sein, dass er zufällig wieder Maria attackiert. In einigen Fällen ist das aber auch ausgeschlossen, so z. B. bei der Jägerkraft „Unscheinbar“ in der Alchemist-Rolle, bei dem in jedem Fall ein neuer Gegner bestimmt wird.",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/strategien.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "212"
+          }
+        ]
       }
     ],
     "Schadensform": [
+      {
+        "name": "Blitzschaden",
+        "_id": "",
+        "@rev": 1,
+        "abbr": "Bl",
+        "description": "Blitzschaden ist immer Schmerzschaden, d. h. Panzerung wird ignoriert, der erlittene Schaden wird aber von evtl. vorhandenen Puffer-LEP abgezogen. Zusätzlich gilt: NSC und Jäger, deren Panzerung aus Metall besteht, nehmen den doppelten Grundschaden (die Zahl der beim Angriff erwürfelten Erfolge wird auf den verdoppelten Grundschaden addiert; die Erfolge werden nicht verdoppelt – das entspricht einer Anfälligkeit). Damit dieser Effekt eintritt, muss ein großer Teil des Körpers von Metall umgeben sein. Bei Jägern oder meNSChlichen NSC ist dies automatisch in einer schweren Panzerung der Fall. Bei nichtmenschlichen Nsc bestimmt der HeXXenmeister, ob die Menge des Metalls für diesen Effekt ausreicht. Blitzschaden wird mit einem „Bl“ gekennzeichnet, z. B. Grundschaden 2 Bl.",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/besschafo_blitzschaden.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "78"
+          }
+        ]
+      },
+      {
+        "name": "Feuerschaden",
+        "_id": "",
+        "@rev": 1,
+        "abbr": "Fe",
+        "description": "Feuerschaden ignoriert Panzerung und zählt daher als Schmerzschaden. Wird Feuerschaden durch ein Geschoss angerichtet (z. B. ein Brandgeschoss), tritt der Feuereffekt erst nach dem Auftreffen ein. In diesem Fall verursacht der Aufprall des Geschosses zunächst direkten Schaden gemäß der Waffentabelle (z. B. Angriff mit der Schleuder). Dieser Aufprallschaden zählt nicht als Schmerzschaden und wird von der Panzerung wie üblich reduziert. Danach erhält das Ziel durch das Feuer äußere Schadensstufen in Höhe der Blutstropfensymbole des Blutwürfels bzw. der Erfolge bei der Angriffsprobe. Immer wenn bei einem Jäger durch einen Feuereffekt mindestens 1 äußere Schadensstufe erzeugt wurde, bekommt er den Zustand „Verbrennung“. Feuerschaden wird durch „Fe“ gekennzeichnet, z. B. Schaden 3 Fe.",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/besschafo_feuerschaden.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "78"
+          }
+        ]
+      },
+      {
+        "name": "Frostschaden",
+        "_id": "",
+        "@rev": 1,
+        "abbr": "Fe",
+        "description": "Frostschaden ist immer Schmerzschaden, außerdem sind einige Gegner Frostschaden gegenüber anfällig. Manchmal werden zusätzlich Malusstufen verursacht. Erleidet ein Jäger Frostschaden, kann das den Zustand „Erfrierung“ bewirken. Frostschaden wird mit einem „Fr“ gekennzeichnet, z. B. Grundschaden 4 Fr.",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/besschafo_frostschaden.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "78"
+          }
+        ]
+      },
+      {
+        "name": "Geistschaden",
+        "_id": "",
+        "@rev": 1,
+        "abbr": "Ge",
+        "description": "Geistschaden entsteht durch Zauberei oder zauberähnliche Kräfte. Oftmals ist diese Magie nicht mit sichtbaren Effekten verbunden, sondern wirkt sich direkt auf den Geist bzw. die Seele des Betroffenen aus. Das Besondere an Geistschaden ist, dass er nicht durch Panzerung reduziert wird und dass er Puffer-LEP ignoriert. Geistschaden wird mit einem „Ge“ gekennzeichnet.",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/besschafo_geistschaden.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "78"
+          }
+        ]
+      },
+      {
+        "name": "Giftschaden",
+        "_id": "",
+        "@rev": 1,
+        "abbr": "Gi",
+        "description": "Giftschaden ist eine besondere Form von Schmerzschaden. Das Gift muss immer erst in den Blutkreislauf gelangen, bevor es wirksam wird, d. h. es muss über eine Waffe in den Körper transportiert werden, oder alternativ durch einen Zauber. Giftschaden aus materiellen Quellen (wie einem vergifteten Dolch) wird nur dann wirksam, wenn eine Attacke (nach Abzug der Panzerung) zum Verlust von mindestens 1 LEP führt (wobei es gleichgültig ist, ob Puffer-LEP oder normale LEP betroffen sind). Für Gift-Zauber gilt diese Einschränkung oftmals nicht. Die meisten Waffengifte richten beim Eindringen in die Blutbahn direkten Schaden an, d. h. es werden zusätzliche LEP abgestrichen, aber keine inneren Schadensstufen erzeugt (und somit auch nicht der Zustand „Vergiftung“). Heimtückischere Gifte wirken über längere Zeit und richten keinen direkten Schaden an, generieren dafür aber innere Schadensstufen. Betroffene Jäger erhalten dadurch den Zustand „Vergiftung“. Giftschaden wird durch Gi gekennzeichnet.",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/besschafo_giftschaden.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "78"
+          }
+        ]
+      },
+      {
+        "name": "Heiliger Schaden",
+        "_id": "",
+        "@rev": 1,
+        "abbr": "He",
+        "description": "Heiliger Schaden ist immer Schmerzschaden. Einige Kreaturen wie Untote oder Vampire sind anfällig für heiligen Schaden, wodurch sich die Schadensmenge bei diesen Gegnern erhöht. Heiliger Schaden wird mit einem „He“ gekennzeichnet, z. B. Grundschaden 2 He.",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/besschafo_heiliger_schaden.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "78"
+          }
+        ]
+      },
+      {
+        "name": "Lichtschaden",
+        "_id": "",
+        "@rev": 1,
+        "abbr": "Li",
+        "description": "Lichtschaden ähnelt heiligem Schaden. Wie dieser zählt er als Schmerzschaden, und ebenso sind bestimmte Kreaturen gegenüber Lichtschaden anfällig. Verursacht der Angriff eines Jägers Lichtschaden, erzeugt dieser oft zusätzlich Malusstufen. Richtet hingegen ein Nsc bei einem Jäger Lichtschaden an, kann der Jäger dadurch den Zustand „Blindheit“ erlangen (was in der jeweiligen NSC-Kraft genauer beschrieben wird). Lichtschaden wird mit einem „Li“ gekennzeichnet, z. B. Grundschaden 1 Li.",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/besschafo_lichtschaden.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "78"
+          }
+        ]
+      },
+      {
+        "name": "Schadensreduzierung",
+        "_id": "",
+        "@rev": 1,
+        "abbr": "",
+        "description": "Die Jäger werden im Verlauf ihrer Abenteuer auf Gegner stoßen, die Schaden reduzieren können, sei es, weil sie eine natürliche Abwehr gegen gewisse Schadensklassen aufweisen oder weil sie aufgrund ihrer Größe, Schnelligkeit oder Gestalt gegenüber bestimmten Waffen weniger empfindlich sind. Dies wird „Schadensreduzierung“ genannt. Eine Schadensreduzierung besteht aus zwei Teilen: \ndem Wert, um den der Schaden reduziert wird, \nder Quelle, aus der der Schaden stammt. Eine Schadensreduzierung von „-2 / Dolche und Messer, Fechtwaffen, Pistolen“ bedeutet, dass jeder Schaden von Dolchen und Messern, Fechtwaffen oder Pistolen um 2 reduziert wird. Das funktioniert im Großen und Ganzen genau wie ein Panzerwert, allerdings wird durch Schadensreduzierung auch Schaden reduziert, der Panzerung umgeht. Heiliger Schaden ist beispielsweise Schmerzschaden, der die Panzerung umgeht. Hat ein Wesen jedoch eine Schadensreduzierung „-3 / heiliger Schaden“, dann zieht es immer 3 Punkte ab, solange es sich um heiligen Schaden handelt.",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/besschafo_schadensreduzierung.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "79"
+          }
+        ]
+      },
+      {
+        "name": "Schmerzschaden",
+        "_id": "",
+        "@rev": 1,
+        "abbr": "Sc",
+        "description": "Schmerzschaden ist Schaden, der Panzerungen ignoriert. Typischer Schmerzschaden ist der Schaden durch Gifte oder Feuer. Aber auch Säurewolken können Schmerzschaden anrichten, ebenso die Attacken von Kreaturen, die sich an den ungeschützten Stellen ihres Ziels verbeißen. Schmerzschaden ignoriert die Panzerung, wird aber von eventuell vorhandenen Puffer-LEP abgezogen. Schmerzschaden dient in erster Linie als Zusatz bei den Schadensklassen. Wenn ein besonderer Angriff 5 Schadenspunkte Schmerzschaden anrichtet, so ist das in den Regeln als 5 Sc gekennzeichnet.",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/besschafo_schmerzschaden.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "77"
+          }
+        ]
+      },
       {
         "name": "Säureschaden",
         "_id": "",
@@ -37,9 +286,42 @@
             "page": "79"
           }
         ]
+      },
+      {
+        "name": "Unheilschaden",
+        "_id": "",
+        "@rev": 1,
+        "abbr": "Un",
+        "description": "Unheilschaden entsteht durch schwarze Magie. Es ist die Standard-Zauberschadensform der Kreaturen der Nacht. Unheilschaden zählt als Schmerzschaden und kann je nach Angriff mit weiteren Nebeneffekten oder Zuständen wie z. B. Fluch verbunden sein. Einige Jägerkräfte, Zauber oder Talismane sind in der Lage, Unheilschaden zu reduzieren (eine Art arkane Panzerung). \nUnheilschaden wird mit einem „Un“ gekennzeichnet, z. B. 6 Un.Es ist die Standard-Zauberschadensform der Kreaturen der Nacht. Unheilschaden zählt als Schmerzschaden und kann je nach Angriff mit weiteren Nebeneffekten oder Zuständen wie z. B. Fluch verbunden sein. Einige Jägerkräfte, Zauber oder Talismane sind in der Lage, Unheilschaden zu reduzieren (eine Art arkane Panzerung). Unheilschaden wird mit einem „Un“ gekennzeichnet, z. B. 6 Un.",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/besschafo_unheilschaden.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "79"
+          }
+        ]
       }
     ],
     "Schadenszusatz (erfolgsbasierend)": [
+      {
+        "name": "Schadenszusatz (erfolgsbasierend)",
+        "_id": "",
+        "@rev": 1,
+        "description": "Die folgenden Schadenszusätze basieren auf den gewürfelten Erfolgen beim Angriffswurf.",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/Hex_NSCKr%C3%A4fte.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "213"
+          }
+        ]
+      },
       {
         "name": "Blutheilung",
         "_id": "",
@@ -55,9 +337,316 @@
             "page": "213"
           }
         ]
+      },
+      {
+        "name": "äußerer Schade",
+        "_id": "",
+        "@rev": 1,
+        "description": "Erfolge generieren äußere Schadensstufen und einen gekoppelten Zustand wie z. B. Verbrennung.",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/Hex_NSCKr%C3%A4fte.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "213"
+          }
+        ]
+      },
+      {
+        "name": "Malus",
+        "_id": "",
+        "@rev": 1,
+        "description": "Erfolge generieren Malusstufen und einen gekoppelten Zustand wie z. B. Furcht.",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/Hex_NSCKr%C3%A4fte.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "213"
+          }
+        ]
+      },
+      {
+        "name": "innerer Schaden",
+        "_id": "",
+        "@rev": 1,
+        "description": "Erfolge generieren innere Schadensstufen und einen Zustand wie z. B. Vergiftung. Dieser Schadenszusatz ist bei Waffenangriffen (z. B. Giftdolch) oft mit der Kennung „bei Lep-Verlust“ verbunden.",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/Hex_NSCKr%C3%A4fte.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "213"
+          }
+        ]
+      },
+      {
+        "name": "Lähmung",
+        "_id": "",
+        "@rev": 1,
+        "description": "Erfolge generieren Lähmungsstufen und einen gekoppelten Zustand wie z. B. Taumeln.",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/Hex_NSCKr%C3%A4fte.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "213"
+          }
+        ]
+      },
+      {
+        "name": "Lebenskraftentzug",
+        "_id": "",
+        "@rev": 1,
+        "description": "Erfolge reduzieren Coups und Ideen (gleichermaßen).",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/Hex_NSCKr%C3%A4fte.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "213"
+          }
+        ]
+      },
+      {
+        "name": "Säure",
+        "_id": "",
+        "@rev": 1,
+        "description": "Erfolge reduzieren den Pw des Jägers dauerhaft (siehe: Säureschaden).",
+        "todo": "Link Einfügen zum Säureschaden",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/Hex_NSCKr%C3%A4fte.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "213"
+          }
+        ]
+      },
+      {
+        "name": "Schwäche",
+        "_id": "",
+        "@rev": 1,
+        "description": "Erfolge reduzieren Coups.",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/Hex_NSCKr%C3%A4fte.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "213"
+          }
+        ]
+      },
+      {
+        "name": "Seelenraub",
+        "_id": "",
+        "@rev": 1,
+        "description": "Erfolge reduzieren Ideen.",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/Hex_NSCKr%C3%A4fte.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "213"
+          }
+        ]
+      },
+      {
+        "name": "Pilzinfektion",
+        "_id": "",
+        "@rev": 1,
+        "description": "Der Angriff verursacht bei Lep-Verlust (dabei zählen auch Puffer-Lep) innere Schadensstufen in der Höhe der gewürfelten Erfolge sowie den Zustand „Pilzinfektion“.",
+        "todo": "Link Einfügen zur Pilzinfektion",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/Hex_NSCKr%C3%A4fte.html"
+          },
+          {
+            "source": "Archiv des Wächterbunds III",
+            "page": "89"
+          }
+        ]
+      },
+      {
+        "name": "Segensentzug",
+        "_id": "",
+        "@rev": 1,
+        "description": "Jeder Erfolg des Angriffswurfs reduziert die Segnungen des Getroffenen um x.",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/Hex_NSCKr%C3%A4fte.html"
+          },
+          {
+            "source": "Geheimnisse der deutschen Lande",
+            "page": "127"
+          }
+        ]
       }
     ],
     "Schadenszusatz (nicht erfolgsbasierend)": [
+      {
+        "name": "Schadenszusatz (nicht erfolgsbasierend)",
+        "_id": "",
+        "@rev": 1,
+        "description": "Die folgenden speziellen Schadenszusätze sind unabhängig von den gewürfelten Erfolgen beim Angriffswurf.",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/Hex_NSCKr%C3%A4fte.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "213"
+          }
+        ]
+      },
+      {
+        "name": "Arkane Waffe (+x Hex bei Lep-Verlust)",
+        "_id": "",
+        "@rev": 1,
+        "description": "Sobald der Angriff mindestens 1 Lep Schaden verursacht, erhält der Nsc eine bestimmte Zahl Hex-Punkte.",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/Hex_NSCKr%C3%A4fte.html"
+          },
+          {
+            "source": "Hexenzorn",
+            "page": "30"
+          }
+        ]
+      },
+      {
+        "name": "Giftmixtur (Elixierw. innerer Schaden, Vergiftung)",
+        "_id": "",
+        "@rev": 1,
+        "description": "Gelingt der Angriff, erzeugt er inneren Schaden und den Zustand „Vergiftung“, wobei die Einflussstufe nicht von der Anzahl der Erfolge abhängt, sondern mit 1 Elixierwürfel bestimmt wird. Ein Angriff mit Giftmixtur kann also nur knapp mit 1 Erfolg treffen, aber dennoch bis zu 5 innere Schadensstufen verursachen.",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/Hex_NSCKr%C3%A4fte.html"
+          },
+          {
+            "source": "Hexenzorn",
+            "page": "27"
+          }
+        ]
+      },
+      {
+        "name": "Panzerdurchdringer (-x)",
+        "_id": "",
+        "@rev": 1,
+        "description": "Der Angriff ignoriert immer x Panzerpunkte.",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/Hex_NSCKr%C3%A4fte.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "213"
+          }
+        ]
+      },
+      {
+        "name": "Unholdgift",
+        "_id": "",
+        "@rev": 1,
+        "description": "Angriffe mit diesem Schadenszusatz generieren innere Schadensstufen und den Zustand „Tollwut“.",
+        "todo":"Link zu Tollwut einfügen",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/Hex_NSCKr%C3%A4fte.html"
+          },
+          {
+            "source": "Hexenzorn",
+            "page": "96"
+          }
+        ]
+      },
+      {
+        "name": "Wartezeit (x)",
+        "_id": "",
+        "@rev": 1,
+        "description": "Sobald der Angriff ausgeführt wurde (gleichgültig ob er erfolgreich war oder nicht), muss eine gewisse Zeit (in Runden) verstreichen, bis er erneut ausgeführt werden kann. Eine Wartezeit von 1 bedeutet, dass der Angriff nur einmal pro Runde ausgeführt werden kann. 2 bedeutet, dass zwischen den Angriffen eine komplette Kampfrunde verstreichen muss, etc.",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/Hex_NSCKr%C3%A4fte.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "213"
+          }
+        ]
+      },
+      {
+        "name": "Zusatzschaden (x)",
+        "_id": "",
+        "@rev": 1,
+        "description": "Dieser Angriff richtet zusätzlichen Schaden an, der meist durch den Elixierwürfel oder den Blutwürfel ausgedrückt ist, z. B. (2), (Elixierw.) oder (Blutw.) Wird oft kombiniert mit der Kennung „bei Lep-Verlust“. So bedeutet der Passus (2x Blutwürfel bei Lep-Verlust), dass der Zusatzschaden entsteht, sobald der Hauptschaden zu Lep-Verlust führte.",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/Hex_NSCKr%C3%A4fte.html"
+          },
+          {
+            "source": "Das Buch der Regeln",
+            "page": "213"
+          }
+        ]
+      },
+      {
+        "name": "Schutz zerschmettern",
+        "_id": "",
+        "@rev": 1,
+        "description": "Immer wenn der Nsc einen Jäger attackiert, der mindestens 1 Puffer-Lep besitzt, erhöht sich die Schadenswirkung um die in Klammern angegebene Menge oder Würfel.",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/Hex_NSCKr%C3%A4fte.html"
+          },
+          {
+            "source": "Geheimnisse der deutschen Lande",
+            "page": "127"
+          }
+        ]
+      },
+      {
+        "name": "Gefrorene Furcht",
+        "_id": "",
+        "@rev": 1,
+        "description": "Immer, wenn der Nsc mit einem Angriff trifft, der diesen Schadenszusatz hat, erleidet das Opfer 1 Fr für jede Malusstufe, die er aufgrund des Zustands Furcht hat.",
+        "references": [
+          {
+            "source": "Wiki",
+            "link": "http://hexxen1733-regelwiki.de/index.php/Hex_NSCKr%C3%A4fte.html"
+          },
+          {
+            "source": "Herrschaft des Dämonenmeisters, Kampagnenband",
+            "page": "86"
+          }
+        ]
+      }
     ]
   }
 }
