@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Implementation of the german RPG HeXXen 1733 (c) under the license of https://ulissesspiele.zendesk.com/hc/de/articles/360017969212-Inhaltsrichtlinien-f%C3%BCr-HeXXen-1733-Scriptorium.
  * Implementation based on the content of http://hexxen1733-regelwiki.de/
  * Author: Martin Brunninger
@@ -21,6 +21,7 @@ Hooks.once("init", async function() {
 	// Define custom Entity classes
   CONFIG.Actor.entityClass = HexxenActor;
   CONFIG.Item.entityClass = HexxenItem;
+  CONFIG.Dice.rolls.push(HexxenRoll);
 
   // Registering translation keys for Actors and Items
   Object.assign(CONFIG.Actor.typeLabels, {

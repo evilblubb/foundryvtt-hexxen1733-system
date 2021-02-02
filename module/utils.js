@@ -20,7 +20,8 @@ class HexxenDOMHelper {
 
   static deriveActorFromEvent(event) {
     const app = this.deriveAppFromEvent(event);
-    const actor = app.actor || undefined;
+    // TODO: ownedItems??
+    const actor = app?.actor || undefined;
     return actor;
   }
 
@@ -299,22 +300,39 @@ class HexxenSpecialCommandHelper {
       // TODO: Rechte?
       // TODO: durch custom chat commands ersetzbar??
       if ("/hex " === command) {
+        // split formula
+        const parts = HexxenRollHelper.splitHints(formula);
+        const sign = (parts.modifier && !parts.modifier?.startsWith('-')) ? '+' : '';
+        const s = document.createElement('span');
+        s.innerHTML = `${parts.flavour ? parts.flavour + ': ' : ''}`;
         const a = document.createElement('a');
         a.classList.add('hex-roll');
         a.title = 'Würfeln';
         a.dataset.message = formula;
-        a.innerHTML = `<i class="fas fa-dice"></i> ${formula}`;
+        a.innerHTML = `<i class="fas fa-dice"></i> ${parts.nameOrFormula}${sign}${parts.modifier || ''}`;
+        s.appendChild(a);
+        return s;
+      }
+      else if ("/hp " === command) {
+        // split formula
+        const parts = HexxenRollHelper.splitHints(formula);
+        const sign = (parts.modifier && !parts.modifier?.startsWith('-')) ? '+' : '';
+        const a = document.createElement('a');
+        a.classList.add('hex-prompt');
+        a.title = 'Im Chat anzeigen';
+        a.dataset.message = formula;
+        a.innerHTML = `<i class="fas fa-comments"></i> ${parts.flavour ? parts.flavour + ': ' : ''}<i class="fas fa-dice"></i> ${parts.nameOrFormula}${sign}${parts.modifier || ''}`;
         return a;
-        // return `<a class="hex-roll" title="Würfeln" data-message="${formula}"><i class="fas fa-dice"></i> ${formula}</a>`;
-      } else if ("/hc " === command) {
+      }
+      else if ("/hc " === command) {
         const a = document.createElement('a');
         a.classList.add('hex-chat');
         a.title = 'Im Chat anzeigen';
         a.dataset.message = formula;
         a.innerHTML = `<i class="fas fa-comments"></i> ${formula}`;
         return a;
-        // return `<a class="hex-chat" title="Im Chat anzeigen" data-message="${formula}"><i class="fas fa-comments"></i> ${formula}</a>`;
-      } else {
+      }
+      else {
         return oldCreateInlineRolls(match, command, formula, closing, ...args);
       }
     });
@@ -322,11 +340,22 @@ class HexxenSpecialCommandHelper {
     $("body").on("click", "a.hex-roll", (event) => {
       const actor = HexxenDOMHelper.deriveActorFromEvent(event);
       const message = event.currentTarget.dataset.message;
-      const showDialog = event.originalEvent.shiftKey || event.originalEvent.ctrlKey;
-      // TODO: Überprüfungen und Rechte?
-      // TODO: rollCommand und flavour trennen?
+      HexxenRollHelper.roll(actor, message, {event: event});
+    });
 
-      HexxenRollHelper.rollToChat(actor, message, null, {showDialog: showDialog});
+    $("body").on("click", "a.hex-prompt", (event) => {
+      const actor = HexxenDOMHelper.deriveActorFromEvent(event);
+      const speaker = ChatMessage.getSpeaker({actor: actor, token: actor ? actor.token : undefined});
+      const message = event.currentTarget.dataset.message;
+      // TODO: message modifizierbar machen? shift-/ctrl-Click
+      // TODO: Überprüfungen und Rechte?
+
+      // TODO: Prüfung notwendig, oder reicht speaker=undefined??
+      if (speaker) {
+        ChatMessage.create({ speaker: speaker, content: `[[/hex ${message}]]` });
+      } else {
+        ChatMessage.create({ content: `[[/hex ${message}]]` });
+      }
     });
 
     $("body").on("click", "a.hex-chat", (event) => {
@@ -341,6 +370,5 @@ class HexxenSpecialCommandHelper {
         ChatMessage.create({ content: message });
       }
     });
-
   }
 }
