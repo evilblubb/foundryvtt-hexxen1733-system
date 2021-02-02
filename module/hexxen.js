@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Implementation of the german RPG HeXXen 1733 (c) under the license of https://ulissesspiele.zendesk.com/hc/de/articles/360017969212-Inhaltsrichtlinien-f%C3%BCr-HeXXen-1733-Scriptorium.
  * Implementation based on the content of http://hexxen1733-regelwiki.de/
  * Author: Martin Brunninger
@@ -105,6 +105,51 @@ Hooks.once("ready", async function() {
 
   console.log(`${Hexxen.logPrefix}Ready Hook done`);
 });
+
+Hooks.once('diceSoNiceReady', (dice3d) => {
+  dice3d.addSystem({id: 'hexxen-1733', name: 'HeXXen 1733'}, 'force'); // erzwingen, sonst könnte ein System eingestellt sein, das die Hexxenwürfel nicht kennt.
+  dice3d.addDicePreset({
+    type: "dhh", // Hexxen
+    labels: ['*', '', '', '', 'h', 'h'],
+    // modelFile: "systems/hexxen-1733/img/rounded_d6.glb",
+    // modelFile: "systems/hexxen-1733/img/models_d6.gltf",
+    // modelFile: "systems/hexxen-1733/img/player_dice.gltf",
+    system: "hexxen-1733"
+  }, "d6");
+  CONFIG.Dice.terms.hh = HexxenDie;
+  dice3d.addDicePreset({
+    type: "dhg", // Gamemaster
+    labels: ['', '', '', 'h', 'h', 'h'],
+    system: "hexxen-1733"
+  }, "d6");
+  dice3d.addDicePreset({
+    type: "dhj", // Janus
+    labels: ['', '', '', 'j', 'j', 'j'],
+    system: "hexxen-1733"
+  }, "d6");
+  CONFIG.Dice.terms.hj = JanusDie;
+  dice3d.addDicePreset({
+    type: "dhs", // Segnung
+    labels: ['*', '*', '', 'h', 'h', 'hh'],
+    system: "hexxen-1733"
+  }, "d6");
+  dice3d.addDicePreset({
+    type: "dhb", // Blut
+    labels: ['', 'b', 'b', 'bb', 'bb', 'bbb'],
+    system: "hexxen-1733"
+  }, "d6");
+  dice3d.addDicePreset({
+    type: "dhe", // Elixir
+    labels: ['1', '2', '3', '4', '5', '3'],
+    system: "hexxen-1733"
+  }, "d6");
+  dice3d.addDicePreset({
+    type: "dhf", // Fluch
+    labels: ['1', '2', '3', '4', '5', '3'],
+    system: "hexxen-1733"
+  }, "d6");
+});
+
 
 class Hexxen {
   static get scope() {

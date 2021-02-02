@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Implementation of the german RPG HeXXen 1733 (c) under the license of https://ulissesspiele.zendesk.com/hc/de/articles/360017969212-Inhaltsrichtlinien-f%C3%BCr-HeXXen-1733-Scriptorium.
  * Implementation based on the content of http://hexxen1733-regelwiki.de/
  * Author: Martin Brunninger
@@ -254,15 +254,110 @@ class HexxenRoll extends Roll {
     return terms;
   }
 
+  _mapFace(face, key) {
+    switch(face) {
+      case '0': return 5; // ERFOLG
+      case '1': return 1; // ESPRITSTERN
+      case '2': return key === 'b' ? 1 : 3; // LEER
+      case '3': return 4; // BONUS
+      case '4': return 4; // MALUS
+      case '5': return 6; // DOPPELERFOLG
+      case '6': return 2; // BLUT_EINS
+      case '7': return 4; // BLUT_ZWEI
+      case '8': return 6; // BLUT_DREI
+      case '9': return 1; // ELIXIR_EINS
+      case '10': return 2; // ELIXIR_ZWEI
+      case '11': return 3; // ELIXIR_DREI
+      case '12': return 4; // ELIXIR_VIER
+      case '13': return 5; // ELIXIR_FUENF
+      case '14': return 1; // FLUCH_EINS
+      case '15': return 2; // FLUCH_ZWEI
+      case '16': return 3; // FLUCH_DREI
+      case '17': return 4; // FLUCH_VIER
+      case '18': return 5; // FLUCH_FUENF
+      default: throw 'unbekannte Face';
+    }
+  }
 
   /** @override TODO: momentan nur rolled setzen */
   evaluate({minimize=false, maximize=false}={}) {
+    // TODO: temp. Extraktionscode
+    const rollHtml = $(this.data.content);
+    const rolls = {h:[], '+':[], '-':[], s:[], b:[], e:[], f:[]};
+    rollHtml.find('input[data-face]').each((i, el) => {
+      const die = el.dataset.die;
+      const face = el.dataset.face;
+      switch (die) {
+        case '0': rolls.h.push(face); break;
+        case '1': rolls['+'].push(face); break;
+        case '2': rolls['-'].push(face); break;
+        case '3': rolls.s.push(face); break;
+        case '4': rolls.b.push(face); break;
+        case '5': rolls.e.push(face); break;
+        case '6': rolls.f.push(face); break;
+      }
+      // this._addToTerm(die, face);
+    });
+    console.log(rolls);
+    // Fake formula
+    const formula = [];
+    for (const key in rolls) {
+      if (rolls[key].length > 0) {
+        const die = ((key) => {
+          switch (key) {
+            case 'h': return 'dhh';
+            case '+': return 'dhj';
+            case '-': return 'dhj[Fire]';
+            case 's': return 'dhs';
+            case 'b': return 'dhb';
+            case 'e': return 'dhe';
+            case 'f': return 'dhf';
+          }
+        })(key);
+        formula.push(`${rolls[key].length}${die}`);
+      }
+    }
+    this._formula = formula.join('+');
+    console.log(this._formula);
+
+    // fake terms
+    for (const key in rolls) {
+      if (rolls[key].length > 0) {
+        const results = [];
+        for (const face of rolls[key]) {
+          results.push({active: true, result: this._mapFace(face, key)}); // FIXME: faces mappen
+        }
+        const dt = ((key) => {
+          switch (key) {
+            case 'h': return HexxenDie;
+            case '+': return JanusDie;
+            case '-': return JanusDie;
+            case 's': return HexxenDie; // FIXME:
+            case 'b': return HexxenDie;
+            case 'e': return HexxenDie;
+            case 'f': return HexxenDie;
+          }
+        })(key).fromResults({number: results.length, faces: 6}, results);
+        // TODO: Die flavour
+        if (key === '-') dt.options.colorset = 'black';
+        this.terms.push(dt);
+        this.terms.push('+');
+      }
+    }
+    if (this.terms.length > 0) {
+      this.terms.pop();
+    }
+    console.log(this.terms);
 
     // paste generated HTML into results array because of JSON serialization
     this.results = [ this.data.content ]; // FIXME:
     this._rolled = true;
     return this;
   }
+
+  // _addToTerm(die, face) {
+
+  // }
 
   /** @override */
   async render(chatOptions = {}) {
@@ -271,7 +366,19 @@ class HexxenRoll extends Roll {
     // TODO: eigenes Template
   }
 
+  static fromData(data) {
+    return super.fromData(data);
+  }
 }
+
+class HexxenDie extends DiceTerm {
+}
+HexxenDie.DENOMINATION = 'hh';
+
+class JanusDie extends DiceTerm {
+}
+JanusDie.DENOMINATION = 'hj';
+
 /**
  * HeXXen Roller Application
  * @type {FormApplication}
