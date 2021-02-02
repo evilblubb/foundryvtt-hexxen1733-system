@@ -18,10 +18,17 @@ Hooks.once("init", async function() {
   // Inject system logo and register listener to show an About dialog
   HexxenLogo.inject();
 
-	// Define custom Entity classes
+	// Define custom classes
   CONFIG.Actor.entityClass = HexxenActor;
   CONFIG.Item.entityClass = HexxenItem;
   CONFIG.Dice.rolls.push(HexxenRoll);
+  CONFIG.Dice.terms.hh = HexxenDie;
+  CONFIG.Dice.terms.hg = GamemasterDie;
+  CONFIG.Dice.terms.hj = JanusDie;
+  CONFIG.Dice.terms.hs = SegnungsDie;
+  CONFIG.Dice.terms.hb = BlutDie;
+  CONFIG.Dice.terms.he = ElixierDie;
+  CONFIG.Dice.terms.hf = FluchDie;
 
   // Registering translation keys for Actors and Items
   Object.assign(CONFIG.Actor.typeLabels, {
@@ -114,49 +121,42 @@ Hooks.once('diceSoNiceReady', (dice3d) => {
     modelFile: "systems/hexxen-1733/img/player_dice.gltf",
     system: "hexxen-1733"
   }, "d6");
-  CONFIG.Dice.terms.hh = HexxenDie;
   dice3d.addDicePreset({
     type: "dhg", // Gamemaster
     labels: ['', '', '', 'h', 'h', 'h'],
     // modelFile: "systems/hexxen-1733/img/player_dice.gltf",
     system: "hexxen-1733"
   }, "d6");
-  CONFIG.Dice.terms.hg = GamemasterDie;
   dice3d.addDicePreset({
     type: "dhj", // Janus
     labels: ['', '', '', 'j', 'j', 'j'],
     // modelFile: "systems/hexxen-1733/img/player_dice.gltf",
     system: "hexxen-1733"
   }, "d6");
-  CONFIG.Dice.terms.hj = JanusDie;
   dice3d.addDicePreset({
     type: "dhs", // Segnung
     labels: ['*', '*', '', 'h', 'h', 'hh'],
     // modelFile: "systems/hexxen-1733/img/player_dice.gltf",
     system: "hexxen-1733"
   }, "d6");
-  CONFIG.Dice.terms.hs = SegnungsDie;
   dice3d.addDicePreset({
     type: "dhb", // Blut
     labels: ['', 'b', 'b', 'bb', 'bb', 'bbb'],
     // modelFile: "systems/hexxen-1733/img/player_dice.gltf",
     system: "hexxen-1733"
   }, "d6");
-  CONFIG.Dice.terms.hb = BlutDie;
   dice3d.addDicePreset({
     type: "dhe", // Elixir
     labels: ['1', '2', '3', '4', '5', '3'],
     modelFile: "systems/hexxen-1733/img/elixier_dice.gltf",
     system: "hexxen-1733"
   }, "d6");
-  CONFIG.Dice.terms.he = ElixierDie;
   dice3d.addDicePreset({
     type: "dhf", // Fluch
     labels: ['1', '2', '3', '4', '5', '3'],
     // modelFile: "systems/hexxen-1733/img/player_dice.gltf",
     system: "hexxen-1733"
   }, "d6");
-  CONFIG.Dice.terms.hf = FluchDie;
 });
 
 
