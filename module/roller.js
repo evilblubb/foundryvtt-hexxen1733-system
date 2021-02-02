@@ -306,6 +306,7 @@ class HexxenRoll extends Roll {
         const die = ((key) => {
           switch (key) {
             case 'h': return 'dhh';
+            case 'g': return 'dhg';
             case '+': return 'dhj';
             case '-': return 'dhj[Fire]';
             case 's': return 'dhs';
@@ -325,17 +326,18 @@ class HexxenRoll extends Roll {
       if (rolls[key].length > 0) {
         const results = [];
         for (const face of rolls[key]) {
-          results.push({active: true, result: this._mapFace(face, key)}); // FIXME: faces mappen
+          results.push({active: true, result: this._mapFace(face, key)});
         }
         const dt = ((key) => {
           switch (key) {
             case 'h': return HexxenDie;
+            case 'g': return GamemasterDie;
             case '+': return JanusDie;
             case '-': return JanusDie;
-            case 's': return HexxenDie; // FIXME:
-            case 'b': return HexxenDie;
-            case 'e': return HexxenDie;
-            case 'f': return HexxenDie;
+            case 's': return SegnungsDie;
+            case 'b': return BlutDie;
+            case 'e': return ElixierDie;
+            case 'f': return FluchDie;
           }
         })(key).fromResults({number: results.length, faces: 6}, results);
         // TODO: Die flavour
@@ -375,9 +377,29 @@ class HexxenDie extends DiceTerm {
 }
 HexxenDie.DENOMINATION = 'hh';
 
+class GamemasterDie extends DiceTerm {
+}
+GamemasterDie.DENOMINATION = 'hg';
+
 class JanusDie extends DiceTerm {
 }
 JanusDie.DENOMINATION = 'hj';
+
+class SegnungsDie extends DiceTerm {
+}
+SegnungsDie.DENOMINATION = 'hs';
+
+class BlutDie extends DiceTerm {
+}
+BlutDie.DENOMINATION = 'hb';
+
+class ElixierDie extends DiceTerm {
+}
+ElixierDie.DENOMINATION = 'he';
+
+class FluchDie extends DiceTerm {
+}
+FluchDie.DENOMINATION = 'hf';
 
 /**
  * HeXXen Roller Application

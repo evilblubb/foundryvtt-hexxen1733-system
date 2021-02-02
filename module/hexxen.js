@@ -111,43 +111,52 @@ Hooks.once('diceSoNiceReady', (dice3d) => {
   dice3d.addDicePreset({
     type: "dhh", // Hexxen
     labels: ['*', '', '', '', 'h', 'h'],
-    // modelFile: "systems/hexxen-1733/img/rounded_d6.glb",
-    // modelFile: "systems/hexxen-1733/img/models_d6.gltf",
-    // modelFile: "systems/hexxen-1733/img/player_dice.gltf",
+    modelFile: "systems/hexxen-1733/img/player_dice.gltf",
     system: "hexxen-1733"
   }, "d6");
   CONFIG.Dice.terms.hh = HexxenDie;
   dice3d.addDicePreset({
     type: "dhg", // Gamemaster
     labels: ['', '', '', 'h', 'h', 'h'],
+    // modelFile: "systems/hexxen-1733/img/player_dice.gltf",
     system: "hexxen-1733"
   }, "d6");
+  CONFIG.Dice.terms.hg = GamemasterDie;
   dice3d.addDicePreset({
     type: "dhj", // Janus
     labels: ['', '', '', 'j', 'j', 'j'],
+    // modelFile: "systems/hexxen-1733/img/player_dice.gltf",
     system: "hexxen-1733"
   }, "d6");
   CONFIG.Dice.terms.hj = JanusDie;
   dice3d.addDicePreset({
     type: "dhs", // Segnung
     labels: ['*', '*', '', 'h', 'h', 'hh'],
+    // modelFile: "systems/hexxen-1733/img/player_dice.gltf",
     system: "hexxen-1733"
   }, "d6");
+  CONFIG.Dice.terms.hs = SegnungsDie;
   dice3d.addDicePreset({
     type: "dhb", // Blut
     labels: ['', 'b', 'b', 'bb', 'bb', 'bbb'],
+    // modelFile: "systems/hexxen-1733/img/player_dice.gltf",
     system: "hexxen-1733"
   }, "d6");
+  CONFIG.Dice.terms.hb = BlutDie;
   dice3d.addDicePreset({
     type: "dhe", // Elixir
     labels: ['1', '2', '3', '4', '5', '3'],
+    modelFile: "systems/hexxen-1733/img/elixier_dice.gltf",
     system: "hexxen-1733"
   }, "d6");
+  CONFIG.Dice.terms.he = ElixierDie;
   dice3d.addDicePreset({
     type: "dhf", // Fluch
     labels: ['1', '2', '3', '4', '5', '3'],
+    // modelFile: "systems/hexxen-1733/img/player_dice.gltf",
     system: "hexxen-1733"
   }, "d6");
+  CONFIG.Dice.terms.hf = FluchDie;
 });
 
 
