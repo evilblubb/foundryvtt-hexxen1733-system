@@ -115,26 +115,75 @@ Hooks.once("ready", async function() {
 
 Hooks.once('diceSoNiceReady', (dice3d) => {
   dice3d.addSystem({id: 'hexxen-1733', name: 'HeXXen 1733'}, 'force'); // erzwingen, sonst könnte ein System eingestellt sein, das die Hexxenwürfel nicht kennt.
+
+  dice3d.addColorset({
+    name: 'hexxen',
+    description: 'Hexxen',
+    category: 'Colors',
+    foreground: '#000',
+    background: '#5b8a1c',
+    outline: '#88cc28',
+    texture: 'none',
+    material: 'plastic'
+  });
+  dice3d.addColorset({
+    name: 'hexxen-blut',
+    description: 'Hexxen Blutwürfel',
+    category: 'Colors',
+    foreground: '#000',
+    background: '#d13923',
+    outline: '#8b5047',
+    edge: '#8b5047',
+    texture: 'none',
+    material: 'plastic'
+  });
+  dice3d.addColorset({
+    name: 'hexxen-seg',
+    description: 'Hexxen Segnungswürfel',
+    category: 'Colors',
+    foreground: '#000',
+    background: '#ddc517',
+    outline: '#928316',
+    edge: '#928316',
+    texture: 'none',
+    material: 'plastic'
+  });
+  dice3d.addColorset({
+    name: 'hexxen-fluch',
+    description: 'Hexxen Fluchwürfel',
+    category: 'Colors',
+    foreground: '#fff',
+    background: '#8f5e3f',
+    outline: '#e7dc0e',
+    edge: '#6d4730',
+    texture: 'none',
+    material: 'plastic'
+  });
+
   dice3d.addDicePreset({
     type: "dhh", // Hexxen
     labels: ['*', '', '', '', 'h', 'h'],
+    colorset: 'hexxen',
     modelFile: "systems/hexxen-1733/img/player_dice.gltf",
     system: "hexxen-1733"
   }, "d6");
   dice3d.addDicePreset({
     type: "dhg", // Gamemaster
     labels: ['', '', '', 'h', 'h', 'h'],
+    colorset: 'hexxen',
     // modelFile: "systems/hexxen-1733/img/player_dice.gltf",
     system: "hexxen-1733"
   }, "d6");
   dice3d.addDicePreset({
     type: "dhj", // Janus
     labels: ['', '', '', 'j', 'j', 'j'],
+    colorset: 'hexxen-seg',
     // modelFile: "systems/hexxen-1733/img/player_dice.gltf",
     system: "hexxen-1733"
   }, "d6");
   dice3d.addDicePreset({
     type: "dhs", // Segnung
+    colorset: 'hexxen-seg',
     labels: ['*', '*', '', 'h', 'h', 'hh'],
     // modelFile: "systems/hexxen-1733/img/player_dice.gltf",
     system: "hexxen-1733"
@@ -142,17 +191,20 @@ Hooks.once('diceSoNiceReady', (dice3d) => {
   dice3d.addDicePreset({
     type: "dhb", // Blut
     labels: ['', 'b', 'b', 'bb', 'bb', 'bbb'],
+    colorset: 'hexxen-blut',
     // modelFile: "systems/hexxen-1733/img/player_dice.gltf",
     system: "hexxen-1733"
   }, "d6");
   dice3d.addDicePreset({
     type: "dhe", // Elixir
     labels: ['1', '2', '3', '4', '5', '3'],
+    // colorset: '',
     modelFile: "systems/hexxen-1733/img/elixier_dice.gltf",
     system: "hexxen-1733"
   }, "d6");
   dice3d.addDicePreset({
     type: "dhf", // Fluch
+    colorset: 'hexxen-fluch',
     labels: ['1', '2', '3', '4', '5', '3'],
     // modelFile: "systems/hexxen-1733/img/player_dice.gltf",
     system: "hexxen-1733"
