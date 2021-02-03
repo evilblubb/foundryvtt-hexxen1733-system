@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Implementation of the german RPG HeXXen 1733 (c) under the license of https://ulissesspiele.zendesk.com/hc/de/articles/360017969212-Inhaltsrichtlinien-f%C3%BCr-HeXXen-1733-Scriptorium.
  * Implementation based on the content of http://hexxen1733-regelwiki.de/
  * Author: Martin Brunninger
@@ -364,7 +364,7 @@ class HexxenRoll extends Roll {
             case 'e': return ElixierDie;
             case 'f': return FluchDie;
           }
-        })(key).fromResults({number: results.length, faces: 6}, results);
+        })(key).fromResults({number: results.length}, results);
         // TODO: Die flavour
         if (key === '-') dt.options.colorset = 'black';
         this.terms.push(dt);
@@ -398,31 +398,52 @@ class HexxenRoll extends Roll {
   }
 }
 
-class HexxenDie extends DiceTerm {
+class HexxenTerm extends DiceTerm {
+  constructor(termData ) {
+    termData.faces=6;
+    super(termData);
+  }
 }
-HexxenDie.DENOMINATION = 'hh';
 
-class GamemasterDie extends DiceTerm {
+// TODO: Klassen vervollständigen
+class HexxenDie extends HexxenTerm {
+  /** @override */
+  static DENOMINATION = 'hh';
+
+  /** @override */
+  // static getResultLabel(result) {
+    //   return {
+      //       "1": '<img src="modules/szimfonia-dice-roller/images/D1_inCHAT.png" />',
+      //       "2": '<img src="modules/szimfonia-dice-roller/images/F2_inCHAT.png" />',
+      //       "3": '<img src="modules/szimfonia-dice-roller/images/S1_inCHAT.png" />',
+      //       "4" : '<img src="modules/szimfonia-dice-roller/images/S2_inCHAT.png" />',
+      //       "5": '<img src="modules/szimfonia-dice-roller/images/F1_inCHAT.png" />',
+      //       "6": '<img src="modules/szimfonia-dice-roller/images/D1_inCHAT.png" />'
+      //   }[result];
+      // }
+    }
+
+    class GamemasterDie extends HexxenTerm {
 }
 GamemasterDie.DENOMINATION = 'hg';
 
-class JanusDie extends DiceTerm {
+class JanusDie extends HexxenTerm {
 }
 JanusDie.DENOMINATION = 'hj';
 
-class SegnungsDie extends DiceTerm {
+class SegnungsDie extends HexxenTerm {
 }
 SegnungsDie.DENOMINATION = 'hs';
 
-class BlutDie extends DiceTerm {
+class BlutDie extends HexxenTerm {
 }
 BlutDie.DENOMINATION = 'hb';
 
-class ElixierDie extends DiceTerm {
+class ElixierDie extends HexxenTerm {
 }
 ElixierDie.DENOMINATION = 'he';
 
-class FluchDie extends DiceTerm {
+class FluchDie extends HexxenTerm {
 }
 FluchDie.DENOMINATION = 'hf';
 
