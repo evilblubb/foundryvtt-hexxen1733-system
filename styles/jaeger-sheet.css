@@ -167,6 +167,12 @@
   border-radius: 4px;
   padding: 2px;
 }
+.hexxen.jaeger .states .res-boxes .control i.fa-inverse {
+  color: rgba(255,255,255,0);
+}
+.hexxen.jaeger .states .res-boxes .control i.fa-inverse:hover {
+  color: #fff;
+}
 
 /******************/
 /* Tab skills     */
