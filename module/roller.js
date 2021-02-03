@@ -222,12 +222,7 @@ class HexxenSpecialDiceRollerHelper extends HexxenRollHelper {
     const speaker = ChatMessage.getSpeaker({actor: actor, token: actor ? actor.token : undefined});
     const message = roller.rollCommand(command);
 
-    if (actor) {
-      // ChatMessage.create( { speaker: speaker, content: message } );
-      HexxenRoll.create('roll', { content: message } ).toMessage( { speaker: speaker }, { rollMode: game.settings.get('core', 'rollMode') } );
-    } else {
-      ChatMessage.create( { content: message } );
-    }
+    HexxenRoll.create('roll', { content: message } ).toMessage( { speaker: speaker }, { rollMode: game.settings.get('core', 'rollMode') } );
 
     return {}; // TODO: result und chatId zurückgeben
   }
@@ -256,27 +251,52 @@ class HexxenRoll extends Roll {
 
   _mapFace(face, key) {
     switch(face) {
-      case '0': return 5; // ERFOLG
-      case '1': return 1; // ESPRITSTERN
-      case '2': return key === 'b' ? 1 : 3; // LEER
-      case '3': return 4; // BONUS
-      case '4': return 4; // MALUS
+      case '0':  // ERFOLG
+        switch(key) {
+          case 'h': return this._oneOf([5,6]);
+          case 'g': return this._oneOf([4,5,6]);
+          case 's': return this._oneOf([5,6]);
+          default: return 5;
+        }
+      case '1':  // ESPRITSTERN
+        switch(key) {
+          case 'h': return 1;
+          case 's': return this._oneOf([1,2]);
+          default: return 1;
+        }
+      case '2':  // LEER
+        switch(key) {
+          case 'h': return this._oneOf([2,3,4]);
+          case 'g': return this._oneOf([1,2,3]);
+          case 'j': return this._oneOf([2,3,4]);
+          case 's': return 3;
+          case 'b': return 1;
+          default: return 3;
+        }
+      case '3': return this._oneOf([4,5,6]); // BONUS
+      case '4': return this._oneOf([4,5,6]); // MALUS
       case '5': return 6; // DOPPELERFOLG
-      case '6': return 2; // BLUT_EINS
-      case '7': return 4; // BLUT_ZWEI
+      case '6': return this._oneOf([2,3]); // BLUT_EINS
+      case '7': return this._oneOf([4,5]); // BLUT_ZWEI
       case '8': return 6; // BLUT_DREI
       case '9': return 1; // ELIXIR_EINS
       case '10': return 2; // ELIXIR_ZWEI
-      case '11': return 3; // ELIXIR_DREI
+      case '11': return this._oneOf([3,6]); // ELIXIR_DREI
       case '12': return 4; // ELIXIR_VIER
       case '13': return 5; // ELIXIR_FUENF
       case '14': return 1; // FLUCH_EINS
       case '15': return 2; // FLUCH_ZWEI
-      case '16': return 3; // FLUCH_DREI
+      case '16': return this._oneOf([3,6]); // FLUCH_DREI
       case '17': return 4; // FLUCH_VIER
       case '18': return 5; // FLUCH_FUENF
       default: throw 'unbekannte Face';
     }
+  }
+
+  _oneOf(set) {
+    if (!Array.isArray(set)) return set;
+    const count = set.length;
+    return set[Math.floor(Math.random()*count)];
   }
 
   /** @override TODO: momentan nur rolled setzen */
@@ -306,6 +326,7 @@ class HexxenRoll extends Roll {
         const die = ((key) => {
           switch (key) {
             case 'h': return 'dhh';
+            case 'g': return 'dhg';
             case '+': return 'dhj';
             case '-': return 'dhj[Fire]';
             case 's': return 'dhs';
@@ -325,19 +346,20 @@ class HexxenRoll extends Roll {
       if (rolls[key].length > 0) {
         const results = [];
         for (const face of rolls[key]) {
-          results.push({active: true, result: this._mapFace(face, key)}); // FIXME: faces mappen
+          results.push({active: true, result: this._mapFace(face, key)});
         }
         const dt = ((key) => {
           switch (key) {
             case 'h': return HexxenDie;
+            case 'g': return GamemasterDie;
             case '+': return JanusDie;
             case '-': return JanusDie;
-            case 's': return HexxenDie; // FIXME:
-            case 'b': return HexxenDie;
-            case 'e': return HexxenDie;
-            case 'f': return HexxenDie;
+            case 's': return SegnungsDie;
+            case 'b': return BlutDie;
+            case 'e': return ElixierDie;
+            case 'f': return FluchDie;
           }
-        })(key).fromResults({number: results.length, faces: 6}, results);
+        })(key).fromResults({number: results.length}, results);
         // TODO: Die flavour
         if (key === '-') dt.options.colorset = 'black';
         this.terms.push(dt);
@@ -371,13 +393,54 @@ class HexxenRoll extends Roll {
   }
 }
 
-class HexxenDie extends DiceTerm {
+class HexxenTerm extends DiceTerm {
+  constructor(termData ) {
+    termData.faces=6;
+    super(termData);
+  }
 }
-HexxenDie.DENOMINATION = 'hh';
 
-class JanusDie extends DiceTerm {
+// TODO: Klassen vervollständigen
+class HexxenDie extends HexxenTerm {
+  /** @override */
+  static DENOMINATION = 'hh';
+
+  /** @override */
+  // static getResultLabel(result) {
+    //   return {
+      //       "1": '<img src="modules/szimfonia-dice-roller/images/D1_inCHAT.png" />',
+      //       "2": '<img src="modules/szimfonia-dice-roller/images/F2_inCHAT.png" />',
+      //       "3": '<img src="modules/szimfonia-dice-roller/images/S1_inCHAT.png" />',
+      //       "4" : '<img src="modules/szimfonia-dice-roller/images/S2_inCHAT.png" />',
+      //       "5": '<img src="modules/szimfonia-dice-roller/images/F1_inCHAT.png" />',
+      //       "6": '<img src="modules/szimfonia-dice-roller/images/D1_inCHAT.png" />'
+      //   }[result];
+      // }
+    }
+
+    class GamemasterDie extends HexxenTerm {
+}
+GamemasterDie.DENOMINATION = 'hg';
+
+class JanusDie extends HexxenTerm {
 }
 JanusDie.DENOMINATION = 'hj';
+
+class SegnungsDie extends HexxenTerm {
+}
+SegnungsDie.DENOMINATION = 'hs';
+
+class BlutDie extends HexxenTerm {
+}
+BlutDie.DENOMINATION = 'hb';
+
+class ElixierDie extends HexxenTerm {
+}
+ElixierDie.DENOMINATION = 'he';
+
+class FluchDie extends HexxenTerm {
+}
+FluchDie.DENOMINATION = 'hf';
 
 /**
  * HeXXen Roller Application
