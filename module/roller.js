@@ -222,12 +222,7 @@ class HexxenSpecialDiceRollerHelper extends HexxenRollHelper {
     const speaker = ChatMessage.getSpeaker({actor: actor, token: actor ? actor.token : undefined});
     const message = roller.rollCommand(command);
 
-    if (actor) {
-      // ChatMessage.create( { speaker: speaker, content: message } );
-      HexxenRoll.create('roll', { content: message } ).toMessage( { speaker: speaker }, { rollMode: game.settings.get('core', 'rollMode') } );
-    } else {
-      ChatMessage.create( { content: message } );
-    }
+    HexxenRoll.create('roll', { content: message } ).toMessage( { speaker: speaker }, { rollMode: game.settings.get('core', 'rollMode') } );
 
     return {}; // TODO: result und chatId zurückgeben
   }
