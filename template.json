@@ -623,8 +623,11 @@
     }
   },
   "item": {
-    "_template-revision": 1,
+    "_template-revision": 2,
     "description": "",
+    "summary": "",
+    "cost": "",
+    "upkeep": "",
     "quantity": 1,
     "weight": 0,
     "attributes": {}

@@ -38,14 +38,14 @@
   margin: 0;
 }
 .worldbuilding .resource {
-  width: 50%;
+  width: 33%;
   height: 40px;
   margin-top: 10px;
   float: left;
   text-align: center;
 }
 .worldbuilding .resource input {
-  width: 100px;
+  width: 50px;
   height: 28px;
 }
 .worldbuilding .tabs {
