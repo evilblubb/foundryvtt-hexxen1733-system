@@ -903,7 +903,7 @@
           "ausbau2": {
             "name": "Schutz vor dem Teufel",
             "_id": "7y0PWOyLDNBo6TCg",
-            "@rev": 1,
+            "@rev": 2,
             "description": "Allein durch deinen festen Willen, deine Überzeugung oder deinen Glauben fühlst du dich gegen jegliche Unbill gewappnet. Du kannst die unten beschriebenen Coupeffekte nutzen (kombinierbar), sobald du sie erlernt hast.",
             "summary": "",
             "create": "Du erhältst eine schwere Panzerung ([Kürass]).",
@@ -3580,10 +3580,10 @@
             },
             "geselle": {
               "geselle1": {
-                "name": "Schwarzmarkt",
+                "name": "Kunstobjekte",
                 "_id": "fQFcBE7f4PJFdJp1",
-                "@rev": 1,
-                "description": "Du kennst dich in den ruchlosen Kreisen von Grabschändern, Hehlern und Schmugglern aus. Sobald du eine neue Stadt betrittst, darfst du auf Land und Leute würfeln, modifiziert durch die Größe der Stadt (Kleinstadt –3, Großstadt +0, Messestadt/Hafenstadt: +3). Für jeden Erfolg kannst du 1 Ti oder 1 Mi für jeweils 5 Gulden erwerben (verbraucht keine Fza). Genauso viele Ti und Mi darfst du auch verkaufen (für je 5 Gulden). Hältst du dich länger in einer Stadt auf, darfst du den Effekt einmal pro Woche anwenden."
+                "@rev": 2,
+                "description": "Du kannst Tierpräparate, Mumien und Monstertrophäen herstellen."
               },
               "geselle2": {
                 "name": "Glücksbringer",
@@ -3612,10 +3612,10 @@
                 "description": "Ideen +1"
               },
               "experte3": {
-                "name": "Medizin",
+                "name": "Talismane",
                 "_id": "RwojimLmnAsngyMX",
-                "@rev": 1,
-                "description": "Du kannst Schädelpulver und Schmerzsalben herstellen."
+                "@rev": 2,
+                "description": "Du kannst Knochenflöten, Totenhände und Teufelsamulette herstellen."
               }
             },
             "meister": {

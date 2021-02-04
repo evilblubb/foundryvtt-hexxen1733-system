@@ -472,7 +472,8 @@
         "ap": 1,
         "value": 0,
         "attribute": "ATH",
-        "anmerkung": "Parade -3, außer Fausthiebe"
+        "anmerkung": "Parade -3, außer Fausthiebe",
+        "equipped": false
       },
       "Dolche & Messer": {
         "label": "Dolche & Messer",
@@ -480,7 +481,8 @@
         "ap": 1,
         "value": 0,
         "attribute": "GES",
-        "anmerkung": "Giftverwendung / Parade -2, außer Fausthiebe und Dolche & Messer"
+        "anmerkung": "Giftverwendung / Parade -2, außer Fausthiebe und Dolche & Messer",
+        "equipped": false
       },
       "Fechtwaffen": {
         "label": "Fechtwaffen",
@@ -488,7 +490,8 @@
         "ap": 1,
         "value": 0,
         "attribute": "ATH",
-        "anmerkung": "Parade -1 pro gebundenem Gegner über dem Ersten"
+        "anmerkung": "Parade -1 pro gebundenem Gegner über dem Ersten",
+        "equipped": false
       },
       "Schwerter": {
         "label": "Schwerter",
@@ -496,7 +499,8 @@
         "ap": 2,
         "value": 0,
         "attribute": "KKR",
-        "anmerkung": "Voll parierfähig"
+        "anmerkung": "Voll parierfähig",
+        "equipped": false
       },
       "Saebel": {
         "label": "Säbel",
@@ -504,7 +508,8 @@
         "ap": 2,
         "value": 0,
         "attribute": "KKR",
-        "anmerkung": "Parade -1"
+        "anmerkung": "Parade -1",
+        "equipped": false
       },
       "Schlagwaffen": {
         "label": "Schlagwaffen",
@@ -512,7 +517,8 @@
         "ap": 2,
         "value": 0,
         "attribute": "KKR",
-        "anmerkung": "Parade -2"
+        "anmerkung": "Parade -2",
+        "equipped": false
       },
       "Stangenwaffen": {
         "label": "Stangenwaffen",
@@ -520,7 +526,8 @@
         "ap": 3,
         "value": 0,
         "attribute": "KKR",
-        "anmerkung": "Parade kostet 2AP"
+        "anmerkung": "Parade kostet 2AP",
+        "equipped": false
       },
       "Lanzen": {
         "label": "Lanzen",
@@ -528,7 +535,8 @@
         "ap": 3,
         "value": 0,
         "attribute": "KKR",
-        "anmerkung": "Parade kostet 2AP"
+        "anmerkung": "Parade kostet 2AP",
+        "equipped": false
       },
       "Schleuder": {
         "label": "Schleuder",
@@ -536,7 +544,8 @@
         "ap": 2,
         "value": 0,
         "attribute": "GES",
-        "anmerkung": "Geschossgeeignet, Werfer muss freistehen"
+        "anmerkung": "Geschossgeeignet, Werfer muss freistehen",
+        "equipped": false
       },
       "Pistole": {
         "label": "Pistole",
@@ -544,7 +553,8 @@
         "ap": 2,
         "value": 0,
         "attribute": "SIN",
-        "anmerkung": "Immer freie Schussmöglichkeit"
+        "anmerkung": "Immer freie Schussmöglichkeit",
+        "equipped": false
       },
       "Armbrust": {
         "label": "Armbrust",
@@ -552,7 +562,8 @@
         "ap": 3,
         "value": 0,
         "attribute": "SIN",
-        "anmerkung": "Schütze muss freistehen"
+        "anmerkung": "Schütze muss freistehen",
+        "equipped": false
       },
       "Muskete": {
         "label": "Muskete",
@@ -560,7 +571,8 @@
         "ap": 3,
         "value": 0,
         "attribute": "SIN",
-        "anmerkung": "Schütze und Ziel müssen freistehen"
+        "anmerkung": "Schütze und Ziel müssen freistehen",
+        "equipped": false
       },
       "Ausweichen": {
         "label": "Ausweichen",
@@ -568,7 +580,8 @@
         "ap": 1,
         "value": 0,
         "attribute": "ATH",
-        "anmerkung": "Pro geb. Gegner -1, Distanzangriffe -1"
+        "anmerkung": "Pro geb. Gegner -1, Distanzangriffe -1",
+        "equipped": false
       },
       "Schildbenutzung": {
         "label": "Schildbenutzung",
@@ -576,7 +589,8 @@
         "ap": 1,
         "value": 0,
         "attribute": "KKR",
-        "anmerkung": "Nur 1x pro Runde / Blockt Distanzangriffe"
+        "anmerkung": "Nur 1x pro Runde / Blockt Distanzangriffe",
+        "equipped": false
       }
     },
     "notes": {
@@ -623,8 +637,11 @@
     }
   },
   "item": {
-    "_template-revision": 1,
+    "_template-revision": 2,
     "description": "",
+    "summary": "",
+    "cost": "",
+    "upkeep": "",
     "quantity": 1,
     "weight": 0,
     "attributes": {}

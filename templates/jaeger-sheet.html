@@ -377,8 +377,12 @@
 
         {{!-- Kampf Tab --}}
         <div class="tab combat scroll-y" data-group="primary" data-tab="combat">
+            <div class="hint"><i class="fas fa-info-circle"></i> Alle <b>Verteidigungsaktionen</b> (Parade/Ausweichen/Schild) kosten immer
+                <b>1 AP</b>, sofern in den Anmerkungen nichts anderes angegeben ist. Für die <b>Parade</b> wird ein Angriffswurf mit der jeweiligen
+                Waffe gewürfelt.</div>
             {{!-- TODO: Tabelle umbauen --}}
             <header class="block-header flexrow">
+                <label class="checkbox"><input type="checkbox" name="combatFilterEnabled" {{checked combatFilterEnabled}} disabled/></label>
                 <span class="li-label">Waffe</span>
                 <span class="li-schaden" title="Basis-Schaden">SCH</span>
                 <span class="li-ap" title="Aktionspunkte">AP</span>
@@ -394,6 +398,7 @@
                 <ol class="list-body">
                 {{#each data.combat as |skill key|}}
                     <li class="skill flexrow" data-key="{{key}}">
+                        <label class="checkbox"><input type="checkbox" name="data.combat.{{key}}.equipped" {{checked skill.equipped}}/></label>
                         <span class="li-label li-text">{{skill.label}}</span>
                         <span class="li-schaden li-text">{{skill.schaden}}</span>
                         <span class="li-ap li-text">{{skill.ap}}</span>

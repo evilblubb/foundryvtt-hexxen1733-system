@@ -49,6 +49,7 @@ class HexxenRollHelper {
   static createMacro(hotbar, data, slot) {
     if (data.type === 'HexxenRoll') {
       data.type = 'Macro';
+      // FIXME: hints aufteilen --> options
       data.data = {
         name: data.data.key,
         type: 'script',
@@ -57,11 +58,109 @@ class HexxenRollHelper {
     }
   }
 
-  static roll(actorId, hints={}) {
-    const actor = game.actors.get(actorId);
-    // FIXME: if (actor) und andere Prüfungen
+  static resolveActor(actorHint) {
+    if (actorHint instanceof Actor) {
+      return actorHint;
+    }
+    // TODO: tokens auf canvas prüfen?
+    let actor = game.actors.get(actorHint);
+    if (actor) return actor;
+    actor = game.actors.getName(actorHint);
+    if (actor) return actor;
+
+    // fallback
+    return ChatMessage.getSpeakerActor(ChatMessage.getSpeaker());
+  }
+
+  static splitHints(formula) {
+    // expecting formulaOrName|bonus#flavour
+    const parts1 = formula.split('#', 2);
+    const parts2 = parts1[0].split('|');
+    // TODO: mehrere Optionen
+    return { nameOrFormula: parts2[0], modifier: parts2[1], flavour: parts1[1] };
+  }
+
+  static _getHintType(nameOrFormula) {
+    // TODO: auf Items umstellen, sobald SC umgestellt
+    // vorerst über template testen
+    const template = game.system.template.Actor.character;
+    const types = ['attributes', 'skills', 'combat'];
+    for (const type of types) {
+      // vergleiche mit keys und labels
+      for (const key in template[type]) {
+        if (key === nameOrFormula || template[type][key].label === nameOrFormula) {
+          switch (type) {
+            case 'attributes': return 'attribute';
+            case 'skills': return 'skill';
+          }
+          return type;
+        }
+      }
+    }
+    // kein Name, teste Formel
+    if(this._testFormula(nameOrFormula)) {
+      return 'formula';
+    }
+    return false;
+  }
+
+  static _testFormula(formula) {
+    return this.delegate?.__testFormula(formula) || false;
+  }
+
+  static __testFormula(formula) {
+    throw "The delegate has to override __testFormula(...)";
+  }
+
+  /**
+   *
+   * @param {String|Actor} actor Name oder ID des Actors oder Actor-Objekt oder Token?
+   * @param {String|Object} hints key: Name der Fertigkeit
+   *                       type: (optional) Typ der Fertigkeit
+   * TODO: Rest sollte nach options verschoben werden
+   *                       event: (optional) MouseEvent
+   *                       showDialog: (opional) Würfeldialog, default: false
+   */
+  static roll(actor, hints={}, options={}) {
+    actor = this.resolveActor(actor);
+    // TODO: actor aus event ableiten?
+    // TODO: user mit mehreren Charakteren
+    if (!actor) {
+      ui.notifications.error("Kein Token ausgewählt!");
+      return false;
+    }
+
+    // TODO: Berechtigung? und andere Prüfungen?
+
+    if ('string' === typeof(hints)) {
+      // CASE 1: Attribut oder Fertigkeit (name|bonus#flavour)
+      // CASE 2: Formel (formula#flavour)
+      // ELSE:   nicht verarbeitbar --> Fehlermeldung
+      const parts = this.splitHints(hints);
+      parts.type = this._getHintType(parts.nameOrFormula);
+
+      if (!parts.type) {
+        ui.notifications.error("Würfelwurf kann nicht interpretiert werden!");
+        return false;
+      }
+      if ('formula' === parts.type) {
+        parts.formula = parts.nameOrFormula;
+        // TODO: ctrl-click
+        return this.rollToChat(actor, parts.formula, parts.flavour, options);
+      }
+      else {
+        parts.name = parts.nameOrFormula;
+        // TODO: könnte name oder key sein!
+        if ('character' !== actor.type) {
+          ui.notifications.error("Das Würfeln von Fertigkeiten wird aktuell nur von Spieler-Charakteren unterstützt!");
+          return false;
+          }
+        hints = { key: parts.name, type: parts.type, modifier: parts.modifier };
+      }
+    }
+
     // TODO: Tunnelung durch HexxenRoller ersetzen
-    const ev = hints.event;
+    const ev = options.event || hints.event;
     if (ev && ev.type === 'click') {
       hints.prompt = hints.prompt || ev.shiftKey || ev.ctrlKey;
     }
@@ -82,9 +181,18 @@ class HexxenRollHelper {
     // TODO: Umleitung über WürfelTool-Dialog implementieren (options.showDialog: true)
     return this.delegate._rollToChat(actor, roll, flavour, options);
   }
+
+  static _rollToChat(actor, roll={}, flavour=null, options={}) {
+    throw "The delegate has to override _rollToChat(...)";
+  }
 }
 
 class HexxenSpecialDiceRollerHelper extends HexxenRollHelper {
+
+  static __testFormula(formula) {
+    // FIXME: noch zu implementieren
+    return true;
+  }
 
   static _rollToChat(actor, roll={}, flavour=null, options={}) {
     const roller = game.specialDiceRoller.heXXen;
@@ -114,15 +222,225 @@ class HexxenSpecialDiceRollerHelper extends HexxenRollHelper {
     const speaker = ChatMessage.getSpeaker({actor: actor, token: actor ? actor.token : undefined});
     const message = roller.rollCommand(command);
 
-    if (actor) {
-      ChatMessage.create( { speaker: speaker, content: message } );
-    } else {
-      ChatMessage.create( { content: message } );
-    }
+    HexxenRoll.create('roll', { content: message } ).toMessage( { speaker: speaker }, { rollMode: game.settings.get('core', 'rollMode') } );
 
     return {}; // TODO: result und chatId zurückgeben
   }
 }
+
+class HexxenRoll extends Roll {
+
+  constructor(formula, data={}) {
+    super(formula, data);
+  }
+
+  /** @override */
+  static create(...args) {
+    return new HexxenRoll(...args);
+  }
+
+  /** @override TODO: momentan überspringen */
+  _identifyTerms(formula, {step=0}={}) {
+    return [];
+  }
+
+  /** @override TODO: momentan überspringen */
+  static cleanFormula(terms) {
+    return terms;
+  }
+
+  _mapFace(face, key) {
+    switch(face) {
+      case '0':  // ERFOLG
+        switch(key) {
+          case 'h': return this._oneOf([5,6]);
+          case 'g': return this._oneOf([4,5,6]);
+          case 's': return this._oneOf([4,5]);
+          default: return 5;
+        }
+      case '1':  // ESPRITSTERN
+        switch(key) {
+          case 'h': return 1;
+          case 's': return this._oneOf([1,2]);
+          default: return 1;
+        }
+      case '2':  // LEER
+        switch(key) {
+          case 'h': return this._oneOf([2,3,4]);
+          case 'g': return this._oneOf([1,2,3]);
+          case 'j': return this._oneOf([1,2,3]);
+          case 's': return 3;
+          case 'b': return 1;
+          default: return 3;
+        }
+      case '3': return this._oneOf([4,5,6]); // BONUS
+      case '4': return this._oneOf([4,5,6]); // MALUS
+      case '5': return 6; // DOPPELERFOLG
+      case '6': return this._oneOf([2,3]); // BLUT_EINS
+      case '7': return this._oneOf([4,5]); // BLUT_ZWEI
+      case '8': return 6; // BLUT_DREI
+      case '9': return 1; // ELIXIR_EINS
+      case '10': return 2; // ELIXIR_ZWEI
+      case '11': return this._oneOf([3,6]); // ELIXIR_DREI
+      case '12': return 4; // ELIXIR_VIER
+      case '13': return 5; // ELIXIR_FUENF
+      case '14': return 1; // FLUCH_EINS
+      case '15': return 2; // FLUCH_ZWEI
+      case '16': return this._oneOf([3,6]); // FLUCH_DREI
+      case '17': return 4; // FLUCH_VIER
+      case '18': return 5; // FLUCH_FUENF
+      default: throw 'unbekannte Face';
+    }
+  }
+
+  _oneOf(set) {
+    if (!Array.isArray(set)) return set;
+    const count = set.length;
+    return set[Math.floor(Math.random()*count)];
+  }
+
+  /** @override TODO: momentan nur rolled setzen */
+  evaluate({minimize=false, maximize=false}={}) {
+    // TODO: temp. Extraktionscode
+    const rollHtml = $(this.data.content);
+    const rolls = {h:[], '+':[], '-':[], s:[], b:[], e:[], f:[]};
+    rollHtml.find('input[data-face]').each((i, el) => {
+      const die = el.dataset.die;
+      const face = el.dataset.face;
+      switch (die) {
+        case '0': rolls.h.push(face); break;
+        case '1': rolls['+'].push(face); break;
+        case '2': rolls['-'].push(face); break;
+        case '3': rolls.s.push(face); break;
+        case '4': rolls.b.push(face); break;
+        case '5': rolls.e.push(face); break;
+        case '6': rolls.f.push(face); break;
+      }
+      // this._addToTerm(die, face);
+    });
+    // console.log(rolls);
+    // Fake formula
+    const formula = [];
+    for (const key in rolls) {
+      if (rolls[key].length > 0) {
+        const die = ((key) => {
+          switch (key) {
+            case 'h': return 'dhh';
+            case 'g': return 'dhg';
+            case '+': return 'dhj';
+            case '-': return 'dhj[Fire]';
+            case 's': return 'dhs';
+            case 'b': return 'dhb';
+            case 'e': return 'dhe';
+            case 'f': return 'dhf';
+          }
+        })(key);
+        formula.push(`${rolls[key].length}${die}`);
+      }
+    }
+    this._formula = formula.join('+');
+    // console.log(this._formula);
+
+    // fake terms
+    for (const key in rolls) {
+      if (rolls[key].length > 0) {
+        const results = [];
+        for (const face of rolls[key]) {
+          results.push({active: true, result: this._mapFace(face, key)});
+        }
+        const dt = ((key) => {
+          switch (key) {
+            case 'h': return HexxenDie;
+            case 'g': return GamemasterDie;
+            case '+': return JanusDie;
+            case '-': return JanusDie;
+            case 's': return SegnungsDie;
+            case 'b': return BlutDie;
+            case 'e': return ElixierDie;
+            case 'f': return FluchDie;
+          }
+        })(key).fromResults({number: results.length}, results);
+        // TODO: Die flavour
+        if (key === '-') dt.options.colorset = 'black';
+        this.terms.push(dt);
+        this.terms.push('+');
+      }
+    }
+    if (this.terms.length > 0) {
+      this.terms.pop();
+    }
+    // console.log(this.terms);
+
+    // paste generated HTML into results array because of JSON serialization
+    this.results = [ this.data.content ]; // FIXME:
+    this._rolled = true;
+    return this;
+  }
+
+  // _addToTerm(die, face) {
+
+  // }
+
+  /** @override */
+  async render(chatOptions = {}) {
+    // FIXME: implementieren
+    return chatOptions.isPrivate ? "" : this.results[0];
+    // TODO: eigenes Template
+  }
+
+  static fromData(data) {
+    return super.fromData(data);
+  }
+}
+
+class HexxenTerm extends DiceTerm {
+  constructor(termData ) {
+    termData.faces=6;
+    super(termData);
+  }
+}
+
+// TODO: Klassen vervollständigen
+class HexxenDie extends HexxenTerm {
+  /** @override */
+  static DENOMINATION = 'hh';
+
+  /** @override */
+  // static getResultLabel(result) {
+    //   return {
+      //       "1": '<img src="modules/szimfonia-dice-roller/images/D1_inCHAT.png" />',
+      //       "2": '<img src="modules/szimfonia-dice-roller/images/F2_inCHAT.png" />',
+      //       "3": '<img src="modules/szimfonia-dice-roller/images/S1_inCHAT.png" />',
+      //       "4" : '<img src="modules/szimfonia-dice-roller/images/S2_inCHAT.png" />',
+      //       "5": '<img src="modules/szimfonia-dice-roller/images/F1_inCHAT.png" />',
+      //       "6": '<img src="modules/szimfonia-dice-roller/images/D1_inCHAT.png" />'
+      //   }[result];
+      // }
+    }
+
+    class GamemasterDie extends HexxenTerm {
+}
+GamemasterDie.DENOMINATION = 'hg';
+
+class JanusDie extends HexxenTerm {
+}
+JanusDie.DENOMINATION = 'hj';
+
+class SegnungsDie extends HexxenTerm {
+}
+SegnungsDie.DENOMINATION = 'hs';
+
+class BlutDie extends HexxenTerm {
+}
+BlutDie.DENOMINATION = 'hb';
+
+class ElixierDie extends HexxenTerm {
+}
+ElixierDie.DENOMINATION = 'he';
+
+class FluchDie extends HexxenTerm {
+}
+FluchDie.DENOMINATION = 'hf';
 
 /**
  * HeXXen Roller Application
@@ -176,6 +494,7 @@ class HexxenRoller extends FormApplication {
 
     let type = this.hints.type;
     let key = this.hints.key;
+    let modifier = Number(this.hints.modifier) || 0;
     data.manual = key ? false : true;
 
     let result = {};
@@ -218,7 +537,16 @@ class HexxenRoller extends FormApplication {
       result.value = rolls;
       result.dice.h.count = rolls;
       result.label = combat.label;
-      if (combat.schaden) result.label += ` (SCH +${combat.schaden})`;
+      if (combat.schaden) result.label += ` (SCH +${combat.schaden})`; // TODO: könnte sich mit modifier überschneiden
+    }
+
+    if (modifier < 0) {
+      result.label += modifier;
+      result.dice['-'].count -= modifier; // require positive count
+    }
+    else if (modifier > 0) {
+      result.label += `+${modifier}`;
+      result.dice['+'].count += modifier;
     }
 
     return data;
