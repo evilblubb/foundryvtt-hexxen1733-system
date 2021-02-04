@@ -255,7 +255,7 @@ class HexxenRoll extends Roll {
         switch(key) {
           case 'h': return this._oneOf([5,6]);
           case 'g': return this._oneOf([4,5,6]);
-          case 's': return this._oneOf([5,6]);
+          case 's': return this._oneOf([4,5]);
           default: return 5;
         }
       case '1':  // ESPRITSTERN
@@ -268,7 +268,7 @@ class HexxenRoll extends Roll {
         switch(key) {
           case 'h': return this._oneOf([2,3,4]);
           case 'g': return this._oneOf([1,2,3]);
-          case 'j': return this._oneOf([2,3,4]);
+          case 'j': return this._oneOf([1,2,3]);
           case 's': return 3;
           case 'b': return 1;
           default: return 3;
@@ -318,7 +318,7 @@ class HexxenRoll extends Roll {
       }
       // this._addToTerm(die, face);
     });
-    console.log(rolls);
+    // console.log(rolls);
     // Fake formula
     const formula = [];
     for (const key in rolls) {
@@ -339,7 +339,7 @@ class HexxenRoll extends Roll {
       }
     }
     this._formula = formula.join('+');
-    console.log(this._formula);
+    // console.log(this._formula);
 
     // fake terms
     for (const key in rolls) {
@@ -369,7 +369,7 @@ class HexxenRoll extends Roll {
     if (this.terms.length > 0) {
       this.terms.pop();
     }
-    console.log(this.terms);
+    // console.log(this.terms);
 
     // paste generated HTML into results array because of JSON serialization
     this.results = [ this.data.content ]; // FIXME:
