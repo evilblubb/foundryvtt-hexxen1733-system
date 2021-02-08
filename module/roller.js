@@ -104,6 +104,23 @@ class HexxenRollHelper {
     return false;
   }
 
+  static _getKey(nameOrFormula) {
+    // vorerst über template testen
+    const template = game.system.template.Actor.character;
+    const types = ['attributes', 'skills', 'combat'];
+    for (const type of types) {
+      // vergleiche mit keys und labels
+      for (const key in template[type]) {
+        if (key === nameOrFormula) {
+          return nameOrFormula;
+        } else if (template[type][key].label === nameOrFormula) {
+          return key;
+        }
+      }
+    }
+    return nameOrFormula;
+  }
+
   static _testFormula(formula) {
     return this.delegate?.__testFormula(formula) || false;
   }
@@ -150,12 +167,12 @@ class HexxenRollHelper {
       }
       else {
         parts.name = parts.nameOrFormula;
-        // TODO: könnte name oder key sein!
+        parts.key = this._getKey(parts.nameOrFormula);
         if ('character' !== actor.type) {
           ui.notifications.error("Das Würfeln von Fertigkeiten wird aktuell nur von Spieler-Charakteren unterstützt!");
           return false;
           }
-        hints = { key: parts.name, type: parts.type, modifier: parts.modifier };
+        hints = { key: parts.key, type: parts.type, modifier: parts.modifier };
       }
     }
 
