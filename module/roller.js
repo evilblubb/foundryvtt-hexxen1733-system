@@ -74,8 +74,8 @@ class HexxenRollHelper {
 
   static splitHints(formula) {
     // expecting formulaOrName|bonus#flavour
-    const parts1 = formula.split('#', 2);
-    const parts2 = parts1[0].split('|');
+    const parts1 = formula.split('#', 2).map(p => p.trim());
+    const parts2 = parts1[0].split('|').map(p => p.trim());
     // TODO: mehrere Optionen
     return { nameOrFormula: parts2[0], modifier: parts2[1], flavour: parts1[1] };
   }
