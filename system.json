@@ -19,7 +19,8 @@
                 "module/item.js",
                 "module/item-sheet.js",
                 "module/rule-item-sheet.js",
-                "module/roller.js"
+                "module/roller.js",
+                "module/dsn.js"
               ],
   "esmodules": [],
   "styles": [ "styles/simple.css",

@@ -345,7 +345,7 @@ class HexxenRoll extends Roll {
             case 'h': return 'dhh';
             case 'g': return 'dhg';
             case '+': return 'dhj';
-            case '-': return 'dhj[Fire]';
+            case '-': return 'dhm';
             case 's': return 'dhs';
             case 'b': return 'dhb';
             case 'e': return 'dhe';
@@ -369,8 +369,8 @@ class HexxenRoll extends Roll {
           switch (key) {
             case 'h': return HexxenDie;
             case 'g': return GamemasterDie;
-            case '+': return JanusDie;
-            case '-': return JanusDie;
+            case '+': return JanusBonusDie;
+            case '-': return JanusMalusDie;
             case 's': return SegnungsDie;
             case 'b': return BlutDie;
             case 'e': return ElixierDie;
@@ -435,13 +435,17 @@ class HexxenDie extends HexxenTerm {
       // }
     }
 
-    class GamemasterDie extends HexxenTerm {
+class GamemasterDie extends HexxenTerm {
 }
 GamemasterDie.DENOMINATION = 'hg';
 
-class JanusDie extends HexxenTerm {
+class JanusBonusDie extends HexxenTerm {
 }
-JanusDie.DENOMINATION = 'hj';
+JanusBonusDie.DENOMINATION = 'hj';
+
+class JanusMalusDie extends HexxenTerm {
+}
+JanusMalusDie.DENOMINATION = 'hm';
 
 class SegnungsDie extends HexxenTerm {
 }
