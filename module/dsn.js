@@ -1,3 +1,37 @@
+class DSNHelper {
+  static rollAllDice() {
+    if (!game.dice3d) {
+      ui.notifications.info(game.i18n.localize('HEXXEN.modules.noDiceSoNice'));
+      return;
+    }
+
+    const hexxenDice = Object.keys(CONFIG.Dice.terms).filter(k => /^h[a-zA-Z]$/.test(k));
+    const diceCount = hexxenDice.length * 6;
+
+    if (game.settings.get('dice-so-nice', 'maxDiceNumber') < diceCount) {
+      ui.notifications.info(game.i18n.format('HEXXEN.modules.warnDiceLimit', {count: diceCount}));
+      return;
+    }
+
+    for (const dice of hexxenDice) {
+      const rollData = {
+        throws:[{
+          dice:[
+            { result: 1, type: `d${dice}`,vectors: [], options: {} },
+            { result: 2, type: `d${dice}`,vectors: [], options: {} },
+            { result: 3, type: `d${dice}`,vectors: [], options: {} },
+            { result: 4, type: `d${dice}`,vectors: [], options: {} },
+            { result: 5, type: `d${dice}`,vectors: [], options: {} },
+            { result: 6, type: `d${dice}`,vectors: [], options: {} }
+          ]
+        }]
+      };
+      game.dice3d.show(rollData);
+    }
+    // game.dice3d.show({ throws:[{ dice:[{ result:2,resultLabel:7,type: "dhh",vectors:[],options:{}},{result:5,resultLabel:7,type: "dhh",vectors:[],options:{}},{result:1,resultLabel:7,type: "dhh",vectors:[],options:{}},{result:1,resultLabel:7,type: "dhg",vectors:[],options:{}},{result:4,resultLabel:7,type: "dhg",vectors:[],options:{}},{result:1,resultLabel:7,type: "dhj",vectors:[],options:{}},{result:4,resultLabel:7,type: "dhj",vectors:[],options:{}},{result:1,resultLabel:7,type: "dhm",vectors:[],options:{}},{result:4,resultLabel:7,type: "dhm",vectors:[],options:{}},{result:3,resultLabel:7,type: "dhs",vectors:[],options:{}},{result:4,resultLabel:7,type: "dhs",vectors:[],options:{}},{result:6,resultLabel:7,type: "dhs",vectors:[],options:{}},{result:1,resultLabel:7,type: "dhs",vectors:[],options:{}},{result:1,resultLabel:7,type: "dhb",vectors:[],options:{}},{result:2,resultLabel:7,type: "dhb",vectors:[],options:{}},{result:4,resultLabel:7,type: "dhb",vectors:[],options:{}},{result:6,resultLabel:7,type: "dhb",vectors:[],options:{}},{result:1,resultLabel:7,type: "dhe",vectors:[],options:{}},{result:2,resultLabel:7,type: "dhe",vectors:[],options:{}},{result:3,resultLabel:7,type: "dhe",vectors:[],options:{}},{result:4,resultLabel:7,type: "dhe",vectors:[],options:{}},{result:5,resultLabel:7,type: "dhe",vectors:[],options:{}}] }] })
+  }
+}
+
 Hooks.once('diceSoNiceReady', (dice3d) => {
   const imgPath = 'modules/special-dice-roller/public/images/hex';
   const modelPath = 'systems/hexxen-1733/img/dice/3d';
