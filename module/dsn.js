@@ -28,7 +28,55 @@ class DSNHelper {
       };
       game.dice3d.show(rollData);
     }
-    // game.dice3d.show({ throws:[{ dice:[{ result:2,resultLabel:7,type: "dhh",vectors:[],options:{}},{result:5,resultLabel:7,type: "dhh",vectors:[],options:{}},{result:1,resultLabel:7,type: "dhh",vectors:[],options:{}},{result:1,resultLabel:7,type: "dhg",vectors:[],options:{}},{result:4,resultLabel:7,type: "dhg",vectors:[],options:{}},{result:1,resultLabel:7,type: "dhj",vectors:[],options:{}},{result:4,resultLabel:7,type: "dhj",vectors:[],options:{}},{result:1,resultLabel:7,type: "dhm",vectors:[],options:{}},{result:4,resultLabel:7,type: "dhm",vectors:[],options:{}},{result:3,resultLabel:7,type: "dhs",vectors:[],options:{}},{result:4,resultLabel:7,type: "dhs",vectors:[],options:{}},{result:6,resultLabel:7,type: "dhs",vectors:[],options:{}},{result:1,resultLabel:7,type: "dhs",vectors:[],options:{}},{result:1,resultLabel:7,type: "dhb",vectors:[],options:{}},{result:2,resultLabel:7,type: "dhb",vectors:[],options:{}},{result:4,resultLabel:7,type: "dhb",vectors:[],options:{}},{result:6,resultLabel:7,type: "dhb",vectors:[],options:{}},{result:1,resultLabel:7,type: "dhe",vectors:[],options:{}},{result:2,resultLabel:7,type: "dhe",vectors:[],options:{}},{result:3,resultLabel:7,type: "dhe",vectors:[],options:{}},{result:4,resultLabel:7,type: "dhe",vectors:[],options:{}},{result:5,resultLabel:7,type: "dhe",vectors:[],options:{}}] }] })
+  }
+
+  static rollAllFaces(no2D = false) {
+    if (!game.dice3d) {
+      ui.notifications.info(game.i18n.localize('HEXXEN.modules.noDiceSoNice'));
+      return;
+    }
+    const rollData = [
+      {result:2,type: "dhh",vectors:[],options:{}},
+      {result:5,type: "dhh",vectors:[],options:{}},
+      {result:1,type: "dhh",vectors:[],options:{}},
+      {result:1,type: "dhg",vectors:[],options:{}},
+      {result:4,type: "dhg",vectors:[],options:{}},
+      {result:1,type: "dhj",vectors:[],options:{}},
+      {result:4,type: "dhj",vectors:[],options:{}},
+      {result:1,type: "dhm",vectors:[],options:{}},
+      {result:4,type: "dhm",vectors:[],options:{}},
+      {result:3,type: "dhs",vectors:[],options:{}},
+      {result:4,type: "dhs",vectors:[],options:{}},
+      {result:6,type: "dhs",vectors:[],options:{}},
+      {result:1,type: "dhs",vectors:[],options:{}},
+      {result:1,type: "dhb",vectors:[],options:{}},
+      {result:2,type: "dhb",vectors:[],options:{}},
+      {result:4,type: "dhb",vectors:[],options:{}},
+      {result:6,type: "dhb",vectors:[],options:{}},
+      {result:1,type: "dhe",vectors:[],options:{}},
+      {result:2,type: "dhe",vectors:[],options:{}},
+      {result:3,type: "dhe",vectors:[],options:{}},
+      {result:4,type: "dhe",vectors:[],options:{}},
+      {result:5,type: "dhe",vectors:[],options:{}}
+    ];
+    if (!no2D) {
+      rollData.push(...[
+        {result:1,type: "dhf",vectors:[],options:{}},
+        {result:2,type: "dhf",vectors:[],options:{}},
+        {result:3,type: "dhf",vectors:[],options:{}},
+        {result:4,type: "dhf",vectors:[],options:{}},
+        {result:5,type: "dhf",vectors:[],options:{}}
+      ]);
+    }
+
+    const diceCount = rollData.length;
+
+    if (game.settings.get('dice-so-nice', 'maxDiceNumber') < diceCount) {
+      ui.notifications.info(game.i18n.format('HEXXEN.modules.warnDiceLimit', {count: diceCount}));
+      return;
+    }
+
+    game.dice3d.show({ throws:[{ dice: rollData }] });
   }
 }
 
