@@ -619,7 +619,8 @@ class HexxenRoller extends FormApplication {
     for ( let key of Object.keys(formData) ) {
       if ( key.startsWith("dice.") ) {
         const die = key.substr(5);
-        const count = formData[key];
+        // TODO: Workaround für negative Zähler
+        const count = Math.abs(formData[key]);
         roll[die] = count;
       }
     }
@@ -653,7 +654,8 @@ class HexxenRoller extends FormApplication {
     const data = this.getData();
     const roll = {};
     for ( let die of Object.keys(data.data.dice) ) {
-      const count = data.data.dice[die].count;
+      // TODO: Workaround für negative Zähler
+      const count = Math.abs(data.data.dice[die].count);
       roll[die] = count;
     }
     HexxenRollHelper.rollToChat(this.object, roll, data.data.label);
