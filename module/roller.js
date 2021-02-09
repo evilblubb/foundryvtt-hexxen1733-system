@@ -74,8 +74,8 @@ class HexxenRollHelper {
 
   static splitHints(formula) {
     // expecting formulaOrName|bonus#flavour
-    const parts1 = formula.split('#', 2);
-    const parts2 = parts1[0].split('|');
+    const parts1 = formula.split('#', 2).map(p => p.trim());
+    const parts2 = parts1[0].split('|').map(p => p.trim());
     // TODO: mehrere Optionen
     return { nameOrFormula: parts2[0], modifier: parts2[1], flavour: parts1[1] };
   }
@@ -102,6 +102,23 @@ class HexxenRollHelper {
       return 'formula';
     }
     return false;
+  }
+
+  static _getKey(nameOrFormula) {
+    // vorerst über template testen
+    const template = game.system.template.Actor.character;
+    const types = ['attributes', 'skills', 'combat'];
+    for (const type of types) {
+      // vergleiche mit keys und labels
+      for (const key in template[type]) {
+        if (key === nameOrFormula) {
+          return nameOrFormula;
+        } else if (template[type][key].label === nameOrFormula) {
+          return key;
+        }
+      }
+    }
+    return nameOrFormula;
   }
 
   static _testFormula(formula) {
@@ -150,12 +167,12 @@ class HexxenRollHelper {
       }
       else {
         parts.name = parts.nameOrFormula;
-        // TODO: könnte name oder key sein!
+        parts.key = this._getKey(parts.nameOrFormula);
         if ('character' !== actor.type) {
           ui.notifications.error("Das Würfeln von Fertigkeiten wird aktuell nur von Spieler-Charakteren unterstützt!");
           return false;
           }
-        hints = { key: parts.name, type: parts.type, modifier: parts.modifier };
+        hints = { key: parts.key, type: parts.type, modifier: parts.modifier };
       }
     }
 
@@ -328,7 +345,7 @@ class HexxenRoll extends Roll {
             case 'h': return 'dhh';
             case 'g': return 'dhg';
             case '+': return 'dhj';
-            case '-': return 'dhj[Fire]';
+            case '-': return 'dhm';
             case 's': return 'dhs';
             case 'b': return 'dhb';
             case 'e': return 'dhe';
@@ -352,8 +369,8 @@ class HexxenRoll extends Roll {
           switch (key) {
             case 'h': return HexxenDie;
             case 'g': return GamemasterDie;
-            case '+': return JanusDie;
-            case '-': return JanusDie;
+            case '+': return JanusBonusDie;
+            case '-': return JanusMalusDie;
             case 's': return SegnungsDie;
             case 'b': return BlutDie;
             case 'e': return ElixierDie;
@@ -418,13 +435,17 @@ class HexxenDie extends HexxenTerm {
       // }
     }
 
-    class GamemasterDie extends HexxenTerm {
+class GamemasterDie extends HexxenTerm {
 }
 GamemasterDie.DENOMINATION = 'hg';
 
-class JanusDie extends HexxenTerm {
+class JanusBonusDie extends HexxenTerm {
 }
-JanusDie.DENOMINATION = 'hj';
+JanusBonusDie.DENOMINATION = 'hj';
+
+class JanusMalusDie extends HexxenTerm {
+}
+JanusMalusDie.DENOMINATION = 'hm';
 
 class SegnungsDie extends HexxenTerm {
 }
@@ -602,7 +623,8 @@ class HexxenRoller extends FormApplication {
     for ( let key of Object.keys(formData) ) {
       if ( key.startsWith("dice.") ) {
         const die = key.substr(5);
-        const count = formData[key];
+        // TODO: Workaround für negative Zähler
+        const count = Math.abs(formData[key]);
         roll[die] = count;
       }
     }
@@ -636,7 +658,8 @@ class HexxenRoller extends FormApplication {
     const data = this.getData();
     const roll = {};
     for ( let die of Object.keys(data.data.dice) ) {
-      const count = data.data.dice[die].count;
+      // TODO: Workaround für negative Zähler
+      const count = Math.abs(data.data.dice[die].count);
       roll[die] = count;
     }
     HexxenRollHelper.rollToChat(this.object, roll, data.data.label);

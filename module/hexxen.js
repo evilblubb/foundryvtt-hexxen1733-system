@@ -24,7 +24,8 @@ Hooks.once("init", async function() {
   CONFIG.Dice.rolls.push(HexxenRoll);
   CONFIG.Dice.terms.hh = HexxenDie;
   CONFIG.Dice.terms.hg = GamemasterDie;
-  CONFIG.Dice.terms.hj = JanusDie;
+  CONFIG.Dice.terms.hj = JanusBonusDie;
+  CONFIG.Dice.terms.hm = JanusMalusDie;
   CONFIG.Dice.terms.hs = SegnungsDie;
   CONFIG.Dice.terms.hb = BlutDie;
   CONFIG.Dice.terms.he = ElixierDie;
@@ -112,7 +113,6 @@ Hooks.once("ready", async function() {
 
   console.log(`${Hexxen.logPrefix}Ready Hook done`);
 });
-
 
 class Hexxen {
   static get scope() {

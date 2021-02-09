@@ -17,5 +17,8 @@
   "HEXXEN.NPC-Sheet.TitleMobDeprecated": "HeXXen Bandengegner",
 
   "HEXXEN.Item-Sheet.Title": "HeXXen Ausrüstungsgegenstand",
-  "HEXXEN.RuleItem-Sheet.Title": "HeXXen Regeltext"
+  "HEXXEN.RuleItem-Sheet.Title": "HeXXen Regeltext",
+
+  "HEXXEN.modules.noDiceSoNice": "Das Modul DiceSoNice wurde nicht gefunden.",
+  "HEXXEN.modules.warnDiceLimit": "Um alle Würfel anzuzeigen, muss das DSN-Würfellimit auf mindestens {count} eingestellt sein!"
 }
