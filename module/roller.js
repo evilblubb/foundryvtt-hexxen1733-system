@@ -239,13 +239,14 @@ class HexxenSpecialDiceRollerHelper extends HexxenRollHelper {
     const speaker = ChatMessage.getSpeaker({actor: actor, token: actor ? actor.token : undefined});
     const message = roller.rollCommand(command);
 
-    HexxenRoll.create('roll', { content: message } ).toMessage( { speaker: speaker }, { rollMode: game.settings.get('core', 'rollMode') } );
+    SDRRoll.create('roll', { content: message } ).toMessage( { speaker: speaker }, { rollMode: game.settings.get('core', 'rollMode') } );
 
     return {}; // TODO: result und chatId zurückgeben
   }
 }
 
-class HexxenRoll extends Roll {
+// FIXME: alte HexxenRoll objekte umschreiben
+class SDRRoll extends Roll {
 
   constructor(formula, data={}) {
     super(formula, data);
@@ -253,7 +254,7 @@ class HexxenRoll extends Roll {
 
   /** @override */
   static create(...args) {
-    return new HexxenRoll(...args);
+    return new SDRRoll(...args);
   }
 
   /** @override TODO: momentan überspringen */
@@ -410,58 +411,208 @@ class HexxenRoll extends Roll {
   }
 }
 
+class HexxenRoll extends Roll {
+  constructor(formula, data={}) {
+    // FIXME: Hexxenformeln umschreiben
+    // FIXME: unbekannte Würfel
+    super(formula, data);
+  }
+
+  /** @override */
+  evaluate({minimize=false, maximize=false}={}) {
+    const ret = super.evaluate(...arguments);
+    this._total = this.hexxenTotal;
+    return ret;
+  }
+
+  /** @override */
+  _safeEval(expression) {
+    // FIXME: implementieren
+    // FIXME: reguläre Würfe
+    // FIXME: gemischte Würfe
+    this.hexxenTotal = HexxenRollResult.cleanString(expression, true);
+    return 0;
+  }
+
+  // FIXME: modifizierte Kopie aus Foundry, Alternativ: super aufrufen und HTML manipulieren
+  async render(chatOptions = {}) {
+    const html = await super.render(...arguments);
+    return $(html).find('.dice-total').text(this.total).end().prop('outerHTML');
+    ;
+  }
+  /** @override 0.7.9 */
+  // async render(chatOptions = {}) {
+  //   chatOptions = mergeObject({
+  //     user: game.user._id,
+  //     flavor: null,
+  //     template: this.constructor.CHAT_TEMPLATE,
+  //     blind: false
+  //   }, chatOptions);
+  //   const isPrivate = chatOptions.isPrivate;
+
+  //   // Execute the roll, if needed
+  //   if (!this._rolled) this.roll();
+
+  //   // Define chat data
+  //   const chatData = {
+  //     formula: isPrivate ? "???" : this._formula,
+  //     flavor: isPrivate ? null : chatOptions.flavor,
+  //     user: chatOptions.user,
+  //     tooltip: isPrivate ? "" : await this.getTooltip(),
+  //     total: isPrivate ? "?" : this.total // FIXME: Foundry verwendet Math.round!!
+  //   };
+
+  //   // Render the roll display template
+  //   return renderTemplate(chatOptions.template, chatData);
+  // }
+}
+
+// FIXME: Aufruf aus hexxen.js
+// Manipulate DiceTerm.matchTerm() to allow for two-digit denominations starting with 'h'
+// Wichtig: Muss bereits in init erfolgen! Sonst können Probleme beim Rekonstruieren der ChatMeldungen auftreten!
+Hooks.once('init', () => {
+  // FIXME: auf Änderungen in Foundry prüfen (Stand 0.7.9)
+  // static matchTerm(expression, {imputeNumber=true}={}) {
+  //   const rgx = new RegExp(`^([0-9]+)${imputeNumber ? "?" : ""}[dD]([A-z]|[0-9]+)${DiceTerm.MODIFIERS_REGEX}${DiceTerm.FLAVOR_TEXT_REGEX}`);
+  //   const match = expression.match(rgx);
+  //   return match || null;
+  // }
+
+  /* @override 0.7.9 */
+  DiceTerm.matchTerm = (expression, {imputeNumber=true}={}) => {
+    const rgx = new RegExp(`^([0-9]+)${imputeNumber ? "?" : ""}[dD]([hH][A-z]|[A-z]|[0-9]+)${DiceTerm.MODIFIERS_REGEX}${DiceTerm.FLAVOR_TEXT_REGEX}`);
+    const match = expression.match(rgx);
+    return match || null;
+  };
+});
+
+class HexxenRollResult {
+  static cleanString(result, isRoll=false) {
+    if ('string' !== typeof(result)) return result;
+    if (result.length === 0) return 0;
+
+    const order = '+-*bef';
+    const regex = RegExp(`\\d${isRoll?'+':'*'}[+\\-\\*bef]`, 'g'); // FIXME: schon terms bereinigen??
+    let parts = result.match(regex)||[];
+    parts = parts.reduce((r,p) => { let cnt=parseInt(p)||1; p=p.length>1?p.charAt(p.length-1):p; r[p]||=0; r[p]+=cnt; return r; }, {});
+    const keys = Object.keys(parts).sort((a,b) => order.indexOf(a) - order.indexOf(b));
+    return keys.reduce((r,k) => { return `${r} ${parts[k]}${k}` }, '');
+    // FIXME: 0 Ergebnisse
+    // FIXME: negative Erfolge
+  }
+
+}
+
 class HexxenTerm extends DiceTerm {
   constructor(termData ) {
     termData.faces=6;
     super(termData);
   }
+
+  static LABELS = ['?', '?', '?', '?', '?', '?'];
+  static IMGS = [];
+
+  /** @override */
+  roll({minimize=false, maximize=false}={}) {
+    const roll = super.roll(...arguments);
+    roll.count = this.constructor.LABELS[roll.result-1]; // FIXME: activeDice??
+    return roll;
+  }
+
+  /** @override */
+  get total() {
+    const total = super.total;
+    if ('string' === typeof(total)) return HexxenRollResult.cleanString(total.substring(1));
+    return total;
+  }
+
+  /** @override */
+  static getResultLabel(result) {
+    const imgPath = 'modules/special-dice-roller/public/images/hex'; // FIXME: via config
+    // FIXME: empty img
+    const img = this.IMGS[result-1];
+    return `<img src="${imgPath}/${img}" />`;
+    // FIXME: min/max-Farben und border entfernen (template?)
+    // FIXME: Würfelgröße
+
+    // FIXME: bei simple: &nbsp; ersetzen
+  }
 }
 
-// TODO: Klassen vervollständigen
 class HexxenDie extends HexxenTerm {
   /** @override */
   static DENOMINATION = 'hh';
-
   /** @override */
-  // static getResultLabel(result) {
-    //   return {
-      //       "1": '<img src="modules/szimfonia-dice-roller/images/D1_inCHAT.png" />',
-      //       "2": '<img src="modules/szimfonia-dice-roller/images/F2_inCHAT.png" />',
-      //       "3": '<img src="modules/szimfonia-dice-roller/images/S1_inCHAT.png" />',
-      //       "4" : '<img src="modules/szimfonia-dice-roller/images/S2_inCHAT.png" />',
-      //       "5": '<img src="modules/szimfonia-dice-roller/images/F1_inCHAT.png" />',
-      //       "6": '<img src="modules/szimfonia-dice-roller/images/D1_inCHAT.png" />'
-      //   }[result];
-      // }
-    }
+  static LABELS = ['*', '', '', '', '+', '+'];
+  /** @override */
+  static IMGS = ['hesprit.png', 'hblank.png', 'hblank.png', 'hblank.png', 'herfolg.png', 'herfolg.png'];
+}
 
 class GamemasterDie extends HexxenTerm {
+  /** @override */
+  static DENOMINATION = 'hg';
+  /** @override */
+  static LABELS = ['', '', '', '+', '+', '+'];
+  /** @override */
+  static IMGS = ['hblank.png', 'hblank.png', 'hblank.png', 'herfolg.png', 'herfolg.png', 'herfolg.png'];
+  // FIXME: Farbe?
 }
-GamemasterDie.DENOMINATION = 'hg';
 
 class JanusBonusDie extends HexxenTerm {
+  /** @override */
+  static DENOMINATION = 'hj';
+  /** @override */
+  static LABELS = ['', '', '', '+', '+', '+'];
+  /** @override */
+  static IMGS = ['jblank.png', 'jblank.png', 'jblank.png', 'jdoppelkopf.png', 'jdoppelkopf.png', 'jdoppelkopf.png'];
 }
-JanusBonusDie.DENOMINATION = 'hj';
 
 class JanusMalusDie extends HexxenTerm {
+  /** @override */
+  static DENOMINATION = 'hm';
+  /** @override */
+  static LABELS = ['', '', '', '-', '-', '-'];
+  /** @override */
+  static IMGS = ['jblank.png', 'jblank.png', 'jblank.png', 'jdoppelkopf.png', 'jdoppelkopf.png', 'jdoppelkopf.png'];
+  // FIXME: Farbe?
 }
-JanusMalusDie.DENOMINATION = 'hm';
 
 class SegnungsDie extends HexxenTerm {
+  /** @override */
+  static DENOMINATION = 'hs';
+  /** @override */
+  static LABELS = ['*', '*', '', '+', '+', '++'];
+  /** @override */
+  static IMGS = ['sesprit.png', 'sesprit.png', 'sblank.png', 'serfolg.png', 'serfolg.png', 'sdoppelerfolg.png'];
 }
-SegnungsDie.DENOMINATION = 'hs';
 
 class BlutDie extends HexxenTerm {
+  /** @override */
+  static DENOMINATION = 'hb';
+  /** @override */
+  static LABELS = ['', 'b', 'b', 'bb', 'bb', 'bbb'];
+  /** @override */
+  static IMGS = ['bblank.png', 'beins.png', 'beins.png', 'bzwei.png', 'bzwei.png', 'bdrei.png'];
 }
-BlutDie.DENOMINATION = 'hb';
 
 class ElixierDie extends HexxenTerm {
+  /** @override */
+  static DENOMINATION = 'he';
+  /** @override */
+  static LABELS = ['1e', '2e', '3e', '4e', '5e', '3e'];
+  /** @override */
+  static IMGS = ['eeins.png', 'ezwei.png', 'edrei.png', 'evier.png', 'efuenf.png', 'edrei.png'];
 }
-ElixierDie.DENOMINATION = 'he';
 
 class FluchDie extends HexxenTerm {
+  /** @override */
+  static DENOMINATION = 'hf';
+  /** @override */
+  static LABELS = ['1f', '2f', '3f', '4f', '5f', '3f'];
+  /** @override */
+  static IMGS = ['feins.png', 'fzwei.png', 'fdrei.png', 'fvier.png', 'ffuenf.png', 'fdrei.png'];
 }
-FluchDie.DENOMINATION = 'hf';
+
 
 /**
  * HeXXen Roller Application
