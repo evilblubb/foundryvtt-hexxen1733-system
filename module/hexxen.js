@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Implementation of the german RPG HeXXen 1733 (c) under the license of https://ulissesspiele.zendesk.com/hc/de/articles/360017969212-Inhaltsrichtlinien-f%C3%BCr-HeXXen-1733-Scriptorium.
  * Implementation based on the content of http://hexxen1733-regelwiki.de/
  * Author: Martin Brunninger
@@ -9,7 +9,7 @@
 /*  Foundry VTT Initialization                  */
 /* -------------------------------------------- */
 
-Hooks.once("init", async function() {
+Hooks.once("init", () => {
   console.log(`${Hexxen.logPrefix}Initializing system`);
 
   // Register Handlebars helper for use in HTML templates
