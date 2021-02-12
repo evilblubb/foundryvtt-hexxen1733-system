@@ -91,7 +91,7 @@ Hooks.once('diceSoNiceReady', (dice3d) => {
   const imgPath = 'modules/special-dice-roller/public/images/hex';
   const modelPath = 'systems/hexxen-1733/img/dice/3d';
 
-  // dice3d.addSystem({id: 'hexxen-1733-3d', name: 'HeXXen 1733 3D-Wurfel'}, 'exclusive');
+  dice3d.addSystem({id: 'hexxen-1733-3d', name: 'HeXXen 1733 3D-Wurfel'}, 'exclusive');
   dice3d.addSystem({id: 'hexxen-1733-pic', name: 'HeXXen 1733'}, 'exclusive');
   dice3d.addSystem({id: 'hexxen-1733-label', name: 'HeXXen 1733 Einfach'}, 'exclusive');
 
@@ -142,7 +142,7 @@ Hooks.once('diceSoNiceReady', (dice3d) => {
 
   // TODO: Spielerfarbe an den Würfelecken darstellen??
 
-  for (system of [/*'3d',*/ 'pic', 'label']) {
+  for (system of ['3d', 'pic', 'label']) {
     dice3d.addDicePreset({
       type: `d${HexxenDie.DENOMINATION}`, // Hexxen
       labels: 'pic' === system ?
