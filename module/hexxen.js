@@ -25,7 +25,12 @@ Hooks.once("init", () => {
   CONFIG.Item.entityClass = HexxenItem;
 
   HexxenRollSettings.registerSettings();
+  // Manipulate DiceTerm.matchTerm() to allow for two-character denominations starting with 'h'
+  // Wichtig: Muss bereits in init erfolgen! Sonst können Probleme beim Rekonstruieren der ChatMeldungen auftreten!
+  HexxenRollHelper.injectTwoCharacterDiceTermPatch();
+  // Assemble template paths
   HexxenRoll.TOOLTIP_TEMPLATE = Hexxen.basepath + "templates/dice/tooltip.html";
+  // Register rolls and dice
   CONFIG.Dice.rolls.unshift(HexxenRoll);
   CONFIG.Dice.rolls.push(SDRRoll);
   CONFIG.Dice.terms.hh = HexxenDie;

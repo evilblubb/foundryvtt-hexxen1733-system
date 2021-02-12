@@ -109,6 +109,26 @@ class HexxenRollHelper {
     }
   }
 
+  static injectTwoCharacterDiceTermPatch() {
+    // Manipulate DiceTerm.matchTerm() to allow for two-character denominations starting with 'h'
+    // Wichtig: Muss bereits in init erfolgen! Sonst können Probleme beim Rekonstruieren der ChatMeldungen auftreten!
+
+    // FIXME: auf Änderungen in Foundry prüfen (Stand 0.7.9)
+    // static matchTerm(expression, {imputeNumber=true}={}) {
+    //   const rgx = new RegExp(`^([0-9]+)${imputeNumber ? "?" : ""}[dD]([A-z]|[0-9]+)${DiceTerm.MODIFIERS_REGEX}${DiceTerm.FLAVOR_TEXT_REGEX}`);
+    //   const match = expression.match(rgx);
+    //   return match || null;
+    // }
+
+    /* @override 0.7.9 */
+    DiceTerm.matchTerm = (expression, {imputeNumber=true}={}) => {
+      const rgx = new RegExp(`^([0-9]+)${imputeNumber ? "?" : ""}[dD]([hH][A-z]|[A-z]|[0-9]+)${DiceTerm.MODIFIERS_REGEX}${DiceTerm.FLAVOR_TEXT_REGEX}`);
+      const match = expression.match(rgx);
+      return match || null;
+    };
+  }
+
+
   static resolveActor(actorHint) {
     if (actorHint instanceof Actor) {
       return actorHint;
@@ -295,25 +315,6 @@ class HexxenSpecialDiceRollerHelper extends HexxenRollHelper {
     return {}; // TODO: result und chatId zurückgeben
   }
 }
-
-// FIXME: Aufruf aus hexxen.js
-// Manipulate DiceTerm.matchTerm() to allow for two-digit denominations starting with 'h'
-// Wichtig: Muss bereits in init erfolgen! Sonst können Probleme beim Rekonstruieren der ChatMeldungen auftreten!
-Hooks.once('init', () => {
-  // FIXME: auf Änderungen in Foundry prüfen (Stand 0.7.9)
-  // static matchTerm(expression, {imputeNumber=true}={}) {
-  //   const rgx = new RegExp(`^([0-9]+)${imputeNumber ? "?" : ""}[dD]([A-z]|[0-9]+)${DiceTerm.MODIFIERS_REGEX}${DiceTerm.FLAVOR_TEXT_REGEX}`);
-  //   const match = expression.match(rgx);
-  //   return match || null;
-  // }
-
-  /* @override 0.7.9 */
-  DiceTerm.matchTerm = (expression, {imputeNumber=true}={}) => {
-    const rgx = new RegExp(`^([0-9]+)${imputeNumber ? "?" : ""}[dD]([hH][A-z]|[A-z]|[0-9]+)${DiceTerm.MODIFIERS_REGEX}${DiceTerm.FLAVOR_TEXT_REGEX}`);
-    const match = expression.match(rgx);
-    return match || null;
-  };
-});
 
 class HexxenRollResult {
   static cleanString(result, isRoll=false) {
