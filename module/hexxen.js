@@ -21,6 +21,7 @@ Hooks.once("init", () => {
 	// Define custom classes
   CONFIG.Actor.entityClass = HexxenActor;
   CONFIG.Item.entityClass = HexxenItem;
+  HexxenRoll.TOOLTIP_TEMPLATE = Hexxen.basepath + "templates/dice/tooltip.html";
   CONFIG.Dice.rolls.unshift(HexxenRoll);
   CONFIG.Dice.rolls.push(SDRRoll);
   // CONFIG.Dice.types.push(HexxenDie); // FIXME: auch als types registrieren??

@@ -85,7 +85,7 @@ img#hexxen-logo {
 .hexxen.app.minimized {
   background-color: var(--hexxen-minimized-title-color);
 }
-.hexxen img {
+.hexxen .sheet img {
   max-width: unset;
 }
 .hexxen .sheet-header img[data-edit] {
@@ -182,14 +182,23 @@ img#hexxen-logo {
   margin-bottom: 1px;
 }
 /* TODO: auch Chat berücksichtigen */
+.hexxen .editor .hex-prompt,
 .hexxen .editor .hex-roll,
-.hexxen .editor .hex-chat {
+.hexxen .editor .hex-chat,
+.chat-message .hex-roll {
   background: #DDD;
   padding: 1px 4px;
   border: var(--hexxen-box-border);
   border-radius: 2px;
   white-space: nowrap;
   word-break: break-all;
+}
+.hexxen.dice-tooltip .roll.min,
+.hexxen.dice-tooltip .roll.max {
+  filter: unset;
+}
+.hexxen.dice-tooltip .roll img {
+  border: unset;
 }
 
 .hexxen .note {
