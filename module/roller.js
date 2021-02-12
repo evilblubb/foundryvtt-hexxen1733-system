@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Implementation of the german RPG HeXXen 1733 (c) under the license of https://ulissesspiele.zendesk.com/hc/de/articles/360017969212-Inhaltsrichtlinien-f%C3%BCr-HeXXen-1733-Scriptorium.
  * Implementation based on the content of http://hexxen1733-regelwiki.de/
  * Author: Martin Brunninger
@@ -11,6 +11,7 @@
 class HexxenRollHelper {
 
   static get DICESET_SETTING_KEY() { return 'diceSet' }
+  static get DICESIZE_SETTING_KEY() { return 'diceSize' }
 
   static registerSettings() {
     game.settings.register(Hexxen.scope, this.DICESET_SETTING_KEY, {
@@ -24,12 +25,29 @@ class HexxenRollHelper {
       onChange: this._rerenderChat
     });
 
+    game.settings.register(Hexxen.scope, this.DICESIZE_SETTING_KEY, {
+      name: 'Würfelgröße',
+      hint: 'Wahle ein Würfelgröße für die Anzeige von Würfelergebnissen im Chat.',
+      scope: 'client',
+      config: true,
+      type: String,
+      choices: { '24': 'klein (24x24)', '32': 'mittel (32x32)', '40': 'groß (40x40)' },
+      default: '32',
+      onChange: this._updateChatDiceSize
+    });
+    this._updateChatDiceSize(game.settings.get(Hexxen.scope, this.DICESIZE_SETTING_KEY));
+
     // FIXME: Button oder Hinweis für DSN-Settings
   }
 
   static _rerenderChat(data) {
     game.messages.forEach(m => { if (m.isRoll) ui.chat.updateMessage(m); } );
     // TODO: update DSN-Presets falls weitere Dicesets?
+  }
+
+  static _updateChatDiceSize(data) {
+    // TODO: alte Zeile entfernen, falls vorhanden
+    $('head').find('#hexxen-styles').append(`.hexxen .roll { --hexxen-chat-dice-size: ${data}px;  }\n`);
   }
 
   static get diceImgPath() {

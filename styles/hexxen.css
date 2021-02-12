@@ -56,6 +56,8 @@ img#hexxen-logo {
   --hexxen-table-border: 1px solid var(--hexxen-highlight-even-color);
   --hexxen-seperator-image: url("/systems/hexxen-1733/img/Rabenkasten_weit_unten_small_braun.png");
 
+  --hexxen-chat-dice-size: 24px;
+
   scrollbar-color: var(--hexxen-light-color) var(--hexxen-dark-color);
 
   /* TODO: Absolute Pfadangaben für Grafiken wegen Safari. Pfad validieren! */
@@ -193,12 +195,15 @@ img#hexxen-logo {
   white-space: nowrap;
   word-break: break-all;
 }
+.hexxen.dice-tooltip .roll {
+  width: var(--hexxen-chat-dice-size);
+}
 .hexxen.dice-tooltip .roll.min,
 .hexxen.dice-tooltip .roll.max {
   filter: unset;
 }
 .hexxen.dice-tooltip .roll img {
-  border: unset;
+  border: 1px solid transparent;
 }
 
 .hexxen .note {

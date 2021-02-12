@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Implementation of the german RPG HeXXen 1733 (c) under the license of https://ulissesspiele.zendesk.com/hc/de/articles/360017969212-Inhaltsrichtlinien-f%C3%BCr-HeXXen-1733-Scriptorium.
  * Implementation based on the content of http://hexxen1733-regelwiki.de/
  * Author: Martin Brunninger
@@ -14,6 +14,8 @@ Hooks.once("init", () => {
 
   // Register Handlebars helper for use in HTML templates
   HexxenHandlebarsHelper.registerHelpers();
+
+  $('head').append('<style id="hexxen-styles"></style>');
 
   // Inject system logo and register listener to show an About dialog
   HexxenLogo.inject();
