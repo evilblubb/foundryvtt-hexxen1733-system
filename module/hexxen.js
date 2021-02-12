@@ -24,7 +24,7 @@ Hooks.once("init", () => {
   CONFIG.Actor.entityClass = HexxenActor;
   CONFIG.Item.entityClass = HexxenItem;
 
-  HexxenRollHelper.registerSettings();
+  HexxenRollSettings.registerSettings();
   HexxenRoll.TOOLTIP_TEMPLATE = Hexxen.basepath + "templates/dice/tooltip.html";
   CONFIG.Dice.rolls.unshift(HexxenRoll);
   CONFIG.Dice.rolls.push(SDRRoll);
