@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Implementation of the german RPG HeXXen 1733 (c) under the license of https://ulissesspiele.zendesk.com/hc/de/articles/360017969212-Inhaltsrichtlinien-f%C3%BCr-HeXXen-1733-Scriptorium.
  * Implementation based on the content of http://hexxen1733-regelwiki.de/
  * Author: Martin Brunninger
@@ -9,6 +9,34 @@
  * TODO: doc
  */
 class HexxenRollHelper {
+
+  static get DICESET_SETTING_KEY() { return 'diceSet' }
+
+  static registerSettings() {
+    game.settings.register(Hexxen.scope, this.DICESET_SETTING_KEY, {
+      name: 'Würfelset',
+      hint: 'Wahle ein Würfelset für die Anzeige von Würfelergebnissen im Chat.',
+      scope: 'client',
+      config: true,
+      type: String,
+      choices: { 'rendered': 'Modern', 'pics': 'Holzwürfel' },
+      default: 'rendered',
+      onChange: this._rerenderChat
+    });
+
+    // FIXME: Button oder Hinweis für DSN-Settings
+  }
+
+  static _rerenderChat(data) {
+    game.messages.forEach(m => { if (m.isRoll) ui.chat.updateMessage(m); } );
+    // TODO: update DSN-Presets falls weitere Dicesets?
+  }
+
+  static get diceImgPath() {
+    return `${Hexxen.basepath}/img/dice/${game.settings.get(Hexxen.scope, this.DICESET_SETTING_KEY)}`;
+  }
+
+  // TODO: zusätzliche DiceSets durch Module registrierbar machen
 
   static checkSystemReqirements() {
     // special-dice-roller
@@ -528,7 +556,8 @@ class HexxenTerm extends DiceTerm {
 
   /** @override */
   static getResultLabel(result) {
-    const imgPath = 'modules/special-dice-roller/public/images/hex'; // FIXME: via config
+    // const imgPath = 'modules/special-dice-roller/public/images/hex'; // FIXME: via config
+    const imgPath = HexxenRollHelper.diceImgPath; // FIXME: via config
     // FIXME: empty img
     const img = this.IMGS[result-1];
     return `<img src="${imgPath}/${img}" />`;
@@ -554,7 +583,7 @@ class GamemasterDie extends HexxenTerm {
   /** @override */
   static LABELS = ['', '', '', '+', '+', '+'];
   /** @override */
-  static IMGS = ['hblank.png', 'hblank.png', 'hblank.png', 'herfolg.png', 'herfolg.png', 'herfolg.png'];
+  static IMGS = ['gmblank.png', 'gmblank.png', 'gmblank.png', 'gmerfolg.png', 'gmerfolg.png', 'gmerfolg.png'];
   // FIXME: Farbe?
 }
 
@@ -564,7 +593,7 @@ class JanusBonusDie extends HexxenTerm {
   /** @override */
   static LABELS = ['', '', '', '+', '+', '+'];
   /** @override */
-  static IMGS = ['jblank.png', 'jblank.png', 'jblank.png', 'jdoppelkopf.png', 'jdoppelkopf.png', 'jdoppelkopf.png'];
+  static IMGS = ['jbblank.png', 'jbblank.png', 'jbblank.png', 'jbdoppelkopf.png', 'jbdoppelkopf.png', 'jbdoppelkopf.png'];
 }
 
 class JanusMalusDie extends HexxenTerm {
@@ -573,7 +602,7 @@ class JanusMalusDie extends HexxenTerm {
   /** @override */
   static LABELS = ['', '', '', '-', '-', '-'];
   /** @override */
-  static IMGS = ['jblank.png', 'jblank.png', 'jblank.png', 'jdoppelkopf.png', 'jdoppelkopf.png', 'jdoppelkopf.png'];
+  static IMGS = ['jmblank.png', 'jmblank.png', 'jmblank.png', 'jmdoppelkopf.png', 'jmdoppelkopf.png', 'jmdoppelkopf.png'];
   // FIXME: Farbe?
 }
 

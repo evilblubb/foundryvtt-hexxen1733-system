@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Implementation of the german RPG HeXXen 1733 (c) under the license of https://ulissesspiele.zendesk.com/hc/de/articles/360017969212-Inhaltsrichtlinien-f%C3%BCr-HeXXen-1733-Scriptorium.
  * Implementation based on the content of http://hexxen1733-regelwiki.de/
  * Author: Martin Brunninger
@@ -21,18 +21,17 @@ Hooks.once("init", () => {
 	// Define custom classes
   CONFIG.Actor.entityClass = HexxenActor;
   CONFIG.Item.entityClass = HexxenItem;
+
+  HexxenRollHelper.registerSettings();
   HexxenRoll.TOOLTIP_TEMPLATE = Hexxen.basepath + "templates/dice/tooltip.html";
   CONFIG.Dice.rolls.unshift(HexxenRoll);
   CONFIG.Dice.rolls.push(SDRRoll);
-  // CONFIG.Dice.types.push(HexxenDie); // FIXME: auch als types registrieren??
   CONFIG.Dice.terms.hh = HexxenDie;
   CONFIG.Dice.terms.hg = GamemasterDie;
   CONFIG.Dice.terms.hj = JanusBonusDie;
-  // CONFIG.Dice.types.push(JanusBonusDie); // FIXME: auch als types registrieren??
   CONFIG.Dice.terms.hm = JanusMalusDie;
   CONFIG.Dice.terms.hs = SegnungsDie;
   CONFIG.Dice.terms.hb = BlutDie;
-  // CONFIG.Dice.types.push(BlutDie); // FIXME: auch als types registrieren??
   CONFIG.Dice.terms.he = ElixierDie;
   CONFIG.Dice.terms.hf = FluchDie;
 
