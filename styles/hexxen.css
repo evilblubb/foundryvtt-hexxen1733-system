@@ -195,15 +195,31 @@ img#hexxen-logo {
   white-space: nowrap;
   word-break: break-all;
 }
-.hexxen.dice-tooltip .roll {
+.hexxen.dice-roll .roll {
   width: var(--hexxen-chat-dice-size);
 }
-.hexxen.dice-tooltip .roll.min,
-.hexxen.dice-tooltip .roll.max {
-  filter: unset;
-}
-.hexxen.dice-tooltip .roll img {
+.hexxen.dice-roll .roll img {
+  vertical-align: top;
   border: 1px solid transparent;
+  border-radius: 15%;
+}
+.hexxen.dice-roll .dice-symbol {
+  width: 20px;
+  height: 20px;
+  vertical-align: -3px;
+  border: 1px solid black;
+  border-radius: 15%;
+}
+.hexxen.dice-roll .part-total .dice-symbol {
+  width: 16px;
+  height: 16px;
+  vertical-align: -2px;
+}
+.hexxen.dice-roll .part-total .dice-subtotal {
+  margin: 0 2px;
+}
+.hexxen.dice-roll .dice-total .dice-subtotal {
+  margin: 0 5px;
 }
 
 .hexxen .note {

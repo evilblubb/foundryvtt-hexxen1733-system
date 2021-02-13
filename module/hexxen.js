@@ -20,6 +20,8 @@ Hooks.once("init", () => {
   // Inject system logo and register listener to show an About dialog
   HexxenLogo.inject();
 
+  CONFIG.Hexxen ||= {};
+
 	// Define custom classes
   CONFIG.Actor.entityClass = HexxenActor;
   CONFIG.Item.entityClass = HexxenItem;
@@ -29,7 +31,18 @@ Hooks.once("init", () => {
   // Wichtig: Muss bereits in init erfolgen! Sonst können Probleme beim Rekonstruieren der ChatMeldungen auftreten!
   HexxenRollHelper.injectTwoCharacterDiceTermPatch();
   // Assemble template paths
+  HexxenRoll.CHAT_TEMPLATE = Hexxen.basepath + "templates/dice/roll.html";
   HexxenRoll.TOOLTIP_TEMPLATE = Hexxen.basepath + "templates/dice/tooltip.html";
+  HexxenRoll.ROLL_TOTAL_TEMPLATE = Hexxen.basepath + "templates/dice/roll-total.html";
+  CONFIG.Hexxen.DICE_SYMBOLS = { // FIXME: i18n
+    '+': {path:`${Hexxen.basepath}/img/dice/symerfolg.png`, label: 'Erfolg'},
+    '-': {path:`${Hexxen.basepath}/img/dice/symerfolg.png`, label: 'Misserfolg'}, // FIXME: nur für /r??
+    '*': {path:`${Hexxen.basepath}/img/dice/symesprit.png`, label: 'Espritstern'},
+    'b': {path:`${Hexxen.basepath}/img/dice/symblut.png`, label: 'Bluttropfen'},
+    'e': {path:`${Hexxen.basepath}/img/dice/symelixier.png`, label: 'Elixir'},
+    'f': {path:`${Hexxen.basepath}/img/dice/symfluch.png`, label: 'Fluch'}
+  };
+
   // Register rolls and dice
   CONFIG.Dice.rolls.unshift(HexxenRoll);
   CONFIG.Dice.rolls.push(SDRRoll);
@@ -93,6 +106,8 @@ Hooks.once("init", () => {
 	  formula: "@ini.value",
     decimals: 1 // TODO: 0, sobald SC INI Vorrang im CombatTracker
   };
+
+  // FIXME: preload templates??
 
   // preload some images
   Hexxen.preload(

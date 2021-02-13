@@ -6,7 +6,7 @@
  */
 
 /**
- * TODO: doc
+ * Hilfsklasse für Würfelspezifische Einstellungen
  */
 class HexxenRollSettings {
 
@@ -317,16 +317,28 @@ class HexxenSpecialDiceRollerHelper extends HexxenRollHelper {
 }
 
 class HexxenRollResult {
+
+  static splitString(result) {
+    if ('string' !== typeof(result)) return result; // FIXME: was machen
+    if (result.length === 0) return 0;
+
+    const regex = RegExp(`\\d+[+\\-\\*bef]?`, 'g'); // FIXME: Operatoren schon in terms bereinigen??
+    let parts = result.match(regex)||[];
+    parts = parts.reduce((r,p) => { let cnt=parseInt(p)||1; p=p.length>1?p.charAt(p.length-1):p; r[p]||=0; r[p]+=cnt; return r; }, {});
+    return parts;
+  }
+
   static cleanString(result, isRoll=false) {
     if ('string' !== typeof(result)) return result;
     if (result.length === 0) return 0;
 
     const order = '+-*bef';
-    const regex = RegExp(`\\d${isRoll?'+':'*'}[+\\-\\*bef]`, 'g'); // FIXME: schon terms bereinigen??
+    const regex = RegExp(`\\d${isRoll?'+':'*'}[+\\-\\*bef]`, 'g'); // FIXME: Operatoren schon in terms bereinigen??
     let parts = result.match(regex)||[];
     parts = parts.reduce((r,p) => { let cnt=parseInt(p)||1; p=p.length>1?p.charAt(p.length-1):p; r[p]||=0; r[p]+=cnt; return r; }, {});
     const keys = Object.keys(parts).sort((a,b) => order.indexOf(a) - order.indexOf(b));
-    return keys.reduce((r,k) => { return `${r} ${parts[k]}${k}` }, '');
+    /*if (!isRoll) */return keys.reduce((r,k) => { return `${r} ${parts[k]}${k}` }, ''); // 16px;-2px
+    // return keys.reduce((r,k) => { return `${r}&nbsp;&nbsp;<img src="${HexxenRollSettings.diceImgPath}/herfolg.png" style="width:20px; vertical-align:-3px;"/>&nbsp;${parts[k]}&nbsp;` }, '');
     // FIXME: 0 Ergebnisse
     // FIXME: negative Erfolge
   }
@@ -345,6 +357,7 @@ class HexxenTerm extends DiceTerm {
   /** @override */
   roll({minimize=false, maximize=false}={}) {
     const roll = super.roll(...arguments);
+    // set count, so total() will add count instead of result
     roll.count = this.constructor.LABELS[roll.result-1]; // FIXME: activeDice??
     return roll;
   }
@@ -358,13 +371,10 @@ class HexxenTerm extends DiceTerm {
 
   /** @override */
   static getResultLabel(result) {
-    // const imgPath = 'modules/special-dice-roller/public/images/hex'; // FIXME: via config
-    const imgPath = HexxenRollSettings.diceImgPath; // FIXME: via config
-    // FIXME: empty img
+    const imgPath = HexxenRollSettings.diceImgPath;
     const img = this.IMGS[result-1];
+    // FIXME: empty img
     return `<img src="${imgPath}/${img}" />`;
-    // FIXME: min/max-Farben und border entfernen (template?)
-    // FIXME: Würfelgröße
 
     // FIXME: bei simple: &nbsp; ersetzen
   }
@@ -387,43 +397,80 @@ class HexxenRoll extends Roll {
   /** @override */
   _safeEval(expression) {
     // FIXME: implementieren
-    // FIXME: reguläre Würfe
-    // FIXME: gemischte Würfe
+    // FIXME: reguläre Würfe umleiten
+    // FIXME: KEINE gemischte Würfe
     this.hexxenTotal = HexxenRollResult.cleanString(expression, true);
     return 0;
   }
 
-  // FIXME: modifizierte Kopie aus Foundry, Alternativ: super aufrufen und HTML manipulieren
-  async render(chatOptions = {}) {
-    const html = await super.render(...arguments);
-    return $(html).find('.dice-total').text(this.total).end().prop('outerHTML');
-    ;
-  }
   /** @override 0.7.9 */
-  // async render(chatOptions = {}) {
-  //   chatOptions = mergeObject({
-  //     user: game.user._id,
-  //     flavor: null,
-  //     template: this.constructor.CHAT_TEMPLATE,
-  //     blind: false
-  //   }, chatOptions);
-  //   const isPrivate = chatOptions.isPrivate;
+  // Alternative:   return $(html).find('.dice-total').html(this.total).end().prop('outerHTML');
+  async render(chatOptions = {}) {
+    chatOptions = mergeObject({
+      user: game.user._id,
+      flavor: null,
+      template: this.constructor.CHAT_TEMPLATE,
+      blind: false
+    }, chatOptions);
+    const isPrivate = chatOptions.isPrivate;
 
-  //   // Execute the roll, if needed
-  //   if (!this._rolled) this.roll();
+    // Execute the roll, if needed
+    if (!this._rolled) this.roll();
 
-  //   // Define chat data
-  //   const chatData = {
-  //     formula: isPrivate ? "???" : this._formula,
-  //     flavor: isPrivate ? null : chatOptions.flavor,
-  //     user: chatOptions.user,
-  //     tooltip: isPrivate ? "" : await this.getTooltip(),
-  //     total: isPrivate ? "?" : this.total // FIXME: Foundry verwendet Math.round!!
-  //   };
+    if (isPrivate) return "";
 
-  //   // Render the roll display template
-  //   return renderTemplate(chatOptions.template, chatData);
-  // }
+    // Define chat data
+    const chatData = {
+      formula: this._formula,
+      flavor: chatOptions.flavor,
+      user: chatOptions.user,
+      tooltip: await this.getTooltip(),
+      total: await this.renderTotal(this.total)
+    };
+
+    // Render the roll display template
+    return renderTemplate(chatOptions.template, chatData);
+  }
+
+  async getTooltip() {
+    const parts = [];
+    for (const d of this.dice) {
+      const cls = d.constructor;
+      parts.push({
+        formula: d.expression,
+        total: await this.renderTotal(d.total),
+        faces: d.faces,
+        flavor: d.flavor,
+        rolls: d.results.map(r => {
+          return {
+            result: cls.getResultLabel(r.result),
+            classes: [
+              cls.name.toLowerCase(),
+              r.rerolled ? "rerolled" : null,
+              r.discarded ? "discarded" : null
+            ].filter(c => c).join(" ")
+          }
+        })
+      });
+    }
+    return renderTemplate(this.constructor.TOOLTIP_TEMPLATE, { parts });
+  }
+
+  renderTotal(total) {
+    const SYMBOLS = CONFIG.Hexxen.DICE_SYMBOLS;
+    const split = HexxenRollResult.splitString(total);
+    const parts = Object.keys(split).reduce((r, k) => {
+      r.push({symbol: k, count: split[k]});
+      return r;
+    }, []);
+    parts.forEach(p => {
+      const imgPath = SYMBOLS[p.symbol].path;
+      const label = SYMBOLS[p.symbol].label;
+      if (imgPath) { p.img = imgPath; }
+      if (label) { p.label = label; }
+    });
+    return renderTemplate(this.constructor.ROLL_TOTAL_TEMPLATE, {parts: parts});
+  }
 }
 
 
