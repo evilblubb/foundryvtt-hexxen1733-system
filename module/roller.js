@@ -25,7 +25,7 @@ class HexxenRoller extends FormApplication {
     return mergeObject(super.defaultOptions, {
       classes: ["hexxen", "roller"],
       id: "roller",
-      template: Hexxen.basepath + "templates/roller.html",
+      template: `${Hexxen.basepath}/templates/roller.html`,
       width: 300,
     });
   }

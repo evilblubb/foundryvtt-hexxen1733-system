@@ -31,9 +31,9 @@ Hooks.once("init", () => {
   // Wichtig: Muss bereits in init erfolgen! Sonst können Probleme beim Rekonstruieren der ChatMeldungen auftreten!
   HexxenRollHelper.injectTwoCharacterDiceTermPatch();
   // Assemble template paths
-  HexxenRoll.CHAT_TEMPLATE = Hexxen.basepath + "templates/dice/roll.html";
-  HexxenRoll.TOOLTIP_TEMPLATE = Hexxen.basepath + "templates/dice/tooltip.html";
-  HexxenRoll.ROLL_TOTAL_TEMPLATE = Hexxen.basepath + "templates/dice/roll-total.html";
+  HexxenRoll.CHAT_TEMPLATE = `${Hexxen.basepath}/templates/dice/roll.html`;
+  HexxenRoll.TOOLTIP_TEMPLATE = `${Hexxen.basepath}/templates/dice/tooltip.html`;
+  HexxenRoll.ROLL_TOTAL_TEMPLATE = `${Hexxen.basepath}/templates/dice/roll-total.html`;
   CONFIG.Hexxen.DICE_SYMBOLS = { // FIXME: i18n
     '+': {path:`${Hexxen.basepath}/img/dice/symerfolg.png`, label: 'Erfolg'},
     '-': {path:`${Hexxen.basepath}/img/dice/symerfolg.png`, label: 'Misserfolg'}, // FIXME: nur für /r??
@@ -147,7 +147,7 @@ class Hexxen {
 
   static get basepath() {
     // TODO: evtl. so machen: https://stackoverflow.com/questions/2255689/how-to-get-the-file-path-of-the-currently-executing-javascript-code/2255727
-    return "/systems/" + Hexxen.scope + "/";
+    return `/systems/${Hexxen.scope}`;
   }
 
   static get title() {
@@ -172,12 +172,12 @@ class HexxenLogo {
 
   static inject() {
     // use jQuery to inject the logo into the DOM
-    $("<a class='hexxen-logo'><img id='hexxen-logo' src='" + Hexxen.basepath + "img/HeXXen1733_scriptorium_small_outline.png' height='65px' /></a>")
-        .insertAfter("img#logo");
+    $(`<a class="hexxen-logo"><img id="hexxen-logo" src="${Hexxen.basepath}/img/HeXXen1733_scriptorium_small_outline.png" height="65px" /></a>`)
+        .insertAfter('img#logo');
 
     // TODO: eigenes left, #navigation left und #loading left/width dynamisch berechnen? Aktuell fix in hexxen.css eingetragen.
 
-    $($.find("a.hexxen-logo")).on("click", () => { new HexxenAbout().render(true); } );
+    $($.find('a.hexxen-logo')).on('click', () => { new HexxenAbout().render(true); } );
   }
 }
 
@@ -187,8 +187,8 @@ class HexxenAbout extends Application {
     return mergeObject(super.defaultOptions, {
       classes: ["hexxen", "about"],
       id: "hexxen-about",
-      title: "About Game System " + Hexxen.title,
-      template: Hexxen.basepath + "templates/about.html",
+      title: `About Game System ${Hexxen.title}`,
+      template: `${Hexxen.basepath}/templates/about.html`,
       "hx-basepath": Hexxen.basepath,
       width: 600,
       height: 450

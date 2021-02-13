@@ -11,7 +11,7 @@ class JaegerSheet extends HexxenActorSheet {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["hexxen", "sheet", "actor", "jaeger"],
-      template: Hexxen.basepath + "templates/jaeger-sheet.html",
+      template: `${Hexxen.basepath}/templates/jaeger-sheet.html`,
       width: 700,
       height: 720,
       tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "skills"}],

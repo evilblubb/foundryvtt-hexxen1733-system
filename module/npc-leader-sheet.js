@@ -15,7 +15,7 @@ class NpcLeaderSheet extends HexxenActorSheet {
 	static get defaultOptions() {
 	  return mergeObject(super.defaultOptions, {
   	  classes: ["sheet", "actor", "npc"],
-  	  template: Hexxen.basepath + "templates/npc-leader.html",
+  	  template: `${Hexxen.basepath}/templates/npc-leader.html`,
       width: 600,
       height: 600,
       tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description"}]

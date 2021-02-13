@@ -26,7 +26,7 @@ class RuleItemSheet extends ItemSheet {
 	static get defaultOptions() {
 	  return mergeObject(super.defaultOptions, {
 			classes: ["hexxen", "sheet", "rule"],
-			template: Hexxen.basepath + "templates/rule-item-sheet.html",
+			template: `${Hexxen.basepath}/templates/rule-item-sheet.html`,
 			width: 520,
 			height: 450,
       tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description"}]
@@ -108,7 +108,7 @@ class RuleItemSheet extends ItemSheet {
     const data = super.getData();
     data.actor = this.actor;
     data.name = data.item.data.name || data.item.name; // TODO: via Item?
-    data.img = data.item.img; // TODO: basepath??
+    data.img = data.item.img; // TODO: basepath prüfen??
     data.type = this.localizeType(data.item.type); // motivation/role/profession/power
     if ("profession" === data.item.type && data.item.data.type) {
       data.type = this.localizeType(data.item.data.type); // meisterprofession
