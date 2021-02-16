@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Implementation of the german RPG HeXXen 1733 (c) under the license of https://ulissesspiele.zendesk.com/hc/de/articles/360017969212-Inhaltsrichtlinien-f%C3%BCr-HeXXen-1733-Scriptorium.
  * Implementation based on the content of http://hexxen1733-regelwiki.de/
  * Author: Martin Brunninger
@@ -43,17 +43,15 @@ Hooks.once("init", () => {
     'f': {path:`${Hexxen.basepath}/img/dice/symfluch.png`, label: 'Fluch'}
   };
 
-  // Register rolls and dice
-  CONFIG.Dice.rolls.unshift(HexxenRoll);
+  // Register rolls, dice and coins
+  CONFIG.Dice.rolls.unshift(HexxenRoll); // new default Roll class
   CONFIG.Dice.rolls.push(SDRRoll);
-  CONFIG.Dice.terms.hh = HexxenDie;
-  CONFIG.Dice.terms.hg = GamemasterDie;
-  CONFIG.Dice.terms.hj = JanusBonusDie;
-  CONFIG.Dice.terms.hm = JanusMalusDie;
-  CONFIG.Dice.terms.hs = SegnungsDie;
-  CONFIG.Dice.terms.hb = BlutDie;
-  CONFIG.Dice.terms.he = ElixierDie;
-  CONFIG.Dice.terms.hf = FluchDie;
+  [
+    HexxenDie, GamemasterDie, JanusBonusDie, JanusMalusDie, SegnungsDie, BlutDie, ElixierDie, FluchDie,
+    ImminenceCoin, CoupCoin, IdeaCoin, BlessingCoin, RageCoin, AmbitionCoin
+  ].forEach(t => {
+    CONFIG.Dice.terms[t.DENOMINATION] = t;
+  });
 
   // Registering translation keys for Actors and Items
   Object.assign(CONFIG.Actor.typeLabels, {

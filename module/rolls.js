@@ -346,11 +346,6 @@ class HexxenRollResult {
 }
 
 class HexxenTerm extends DiceTerm {
-  constructor(termData ) {
-    termData.faces=6;
-    super(termData);
-  }
-
   static LABELS = ['?', '?', '?', '?', '?', '?'];
   static IMGS = [];
 
@@ -371,7 +366,7 @@ class HexxenTerm extends DiceTerm {
 
   /** @override */
   static getResultLabel(result) {
-    const imgPath = HexxenRollSettings.diceImgPath;
+    const imgPath = this.path;
     const img = this.IMGS[result-1];
     // FIXME: empty img
     return `<img src="${imgPath}/${img}" />`;
@@ -474,7 +469,29 @@ class HexxenRoll extends Roll {
 }
 
 
-class HexxenDie extends HexxenTerm {
+class HexxenDiceTerm extends HexxenTerm {
+  constructor(termData) {
+    termData.faces=6;
+    super(termData);
+  }
+
+  static get path() {
+    return HexxenRollSettings.diceImgPath; // FIXME: in CONFIG ablegen?
+  }
+}
+
+class HexxenResourceTerm extends HexxenTerm {
+  constructor(termData) {
+    termData.faces=2;
+    super(termData);
+  }
+
+  static get path() {
+    return '/systems/hexxen-1733/img/resources'; // FIXME: in CONFIG ablegen?
+  }
+}
+
+class HexxenDie extends HexxenDiceTerm {
   /** @override */
   static DENOMINATION = 'hh';
   /** @override */
@@ -483,17 +500,16 @@ class HexxenDie extends HexxenTerm {
   static IMGS = ['hesprit.png', 'hblank.png', 'hblank.png', 'hblank.png', 'herfolg.png', 'herfolg.png'];
 }
 
-class GamemasterDie extends HexxenTerm {
+class GamemasterDie extends HexxenDiceTerm {
   /** @override */
   static DENOMINATION = 'hg';
   /** @override */
   static LABELS = ['', '', '', '+', '+', '+'];
   /** @override */
   static IMGS = ['gmblank.png', 'gmblank.png', 'gmblank.png', 'gmerfolg.png', 'gmerfolg.png', 'gmerfolg.png'];
-  // FIXME: Farbe?
 }
 
-class JanusBonusDie extends HexxenTerm {
+class JanusBonusDie extends HexxenDiceTerm {
   /** @override */
   static DENOMINATION = 'hj';
   /** @override */
@@ -502,17 +518,16 @@ class JanusBonusDie extends HexxenTerm {
   static IMGS = ['jbblank.png', 'jbblank.png', 'jbblank.png', 'jbdoppelkopf.png', 'jbdoppelkopf.png', 'jbdoppelkopf.png'];
 }
 
-class JanusMalusDie extends HexxenTerm {
+class JanusMalusDie extends HexxenDiceTerm {
   /** @override */
   static DENOMINATION = 'hm';
   /** @override */
   static LABELS = ['', '', '', '-', '-', '-'];
   /** @override */
   static IMGS = ['jmblank.png', 'jmblank.png', 'jmblank.png', 'jmdoppelkopf.png', 'jmdoppelkopf.png', 'jmdoppelkopf.png'];
-  // FIXME: Farbe?
 }
 
-class SegnungsDie extends HexxenTerm {
+class SegnungsDie extends HexxenDiceTerm {
   /** @override */
   static DENOMINATION = 'hs';
   /** @override */
@@ -521,7 +536,7 @@ class SegnungsDie extends HexxenTerm {
   static IMGS = ['sesprit.png', 'sesprit.png', 'sblank.png', 'serfolg.png', 'serfolg.png', 'sdoppelerfolg.png'];
 }
 
-class BlutDie extends HexxenTerm {
+class BlutDie extends HexxenDiceTerm {
   /** @override */
   static DENOMINATION = 'hb';
   /** @override */
@@ -530,7 +545,7 @@ class BlutDie extends HexxenTerm {
   static IMGS = ['bblank.png', 'beins.png', 'beins.png', 'bzwei.png', 'bzwei.png', 'bdrei.png'];
 }
 
-class ElixierDie extends HexxenTerm {
+class ElixierDie extends HexxenDiceTerm {
   /** @override */
   static DENOMINATION = 'he';
   /** @override */
@@ -539,13 +554,67 @@ class ElixierDie extends HexxenTerm {
   static IMGS = ['eeins.png', 'ezwei.png', 'edrei.png', 'evier.png', 'efuenf.png', 'edrei.png'];
 }
 
-class FluchDie extends HexxenTerm {
+class FluchDie extends HexxenDiceTerm {
   /** @override */
   static DENOMINATION = 'hf';
   /** @override */
   static LABELS = ['1f', '2f', '3f', '4f', '5f', '3f'];
   /** @override */
   static IMGS = ['feins.png', 'fzwei.png', 'fdrei.png', 'fvier.png', 'ffuenf.png', 'fdrei.png'];
+}
+
+class ImminenceCoin extends HexxenResourceTerm {
+  /** @override */
+  static DENOMINATION = 'rx';
+  /** @override */
+  static LABELS = ['X', 'X'];
+  /** @override */
+  static IMGS = ['bedrohung.png', 'bedrohung.png'];
+}
+
+class CoupCoin extends HexxenResourceTerm {
+  /** @override */
+  static DENOMINATION = 'rc';
+  /** @override */
+  static LABELS = ['C', 'C'];
+  /** @override */
+  static IMGS = ['coup.png', 'coup.png'];
+}
+
+class IdeaCoin extends HexxenResourceTerm {
+  /** @override */
+  static DENOMINATION = 'ri';
+  /** @override */
+  static LABELS = ['I', 'I'];
+  /** @override */
+  static IMGS = ['idee.png', 'idee.png'];
+}
+
+class BlessingCoin extends HexxenResourceTerm {
+  /** @override */
+  static DENOMINATION = 'rs';
+  /** @override */
+  static LABELS = ['S', 'S'];
+  /** @override */
+  static IMGS = ['segnung.png', 'segnung.png'];
+}
+
+class RageCoin extends HexxenResourceTerm {
+  /** @override */
+  static DENOMINATION = 'rr';
+  /** @override */
+  static LABELS = ['R', 'R'];
+  /** @override */
+  static IMGS = ['rage.png', 'rage.png'];
+}
+
+class AmbitionCoin extends HexxenResourceTerm {
+  /** @override */
+  static DENOMINATION = 'ra';
+  /** @override */
+  static LABELS = ['A', 'A'];
+  /** @override */
+  static IMGS = ['ambition.png', 'ambition.png'];
 }
 
 
