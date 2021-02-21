@@ -98,6 +98,14 @@ class HexxenRollHelper {
     }
   }
 
+  static processChatCommand(chatlog, message, chatData) {
+    if (message.startsWith('/hex ')) {
+      this.roll(chatData?.speaker?.actor, message.substr(4));
+      return false;
+    }
+    return true;
+  }
+
   static createMacro(hotbar, data, slot) {
     if (data.type === 'HexxenRoll') {
       data.type = 'Macro';

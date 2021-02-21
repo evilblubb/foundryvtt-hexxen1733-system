@@ -127,6 +127,7 @@ Hooks.once("init", () => {
 
   console.log(`${Hexxen.logPrefix}Initialization done`);
 });
+Hooks.on('chatMessage', (x,y,z) => { return HexxenRollHelper.processChatCommand(x,y,z); }); // FIXME: Problem mit Initialisierungsreihenfolge mit SDR
 
 Hooks.once("ready", async function() {
   console.log(`${Hexxen.logPrefix}Ready Hook called`);
