@@ -6,7 +6,6 @@
     {{~else if this.symbol ~}}
       {{this.symbol}}&nbsp;
     {{~/if~}}
-    {{log ../semiTotal}}
     {{~#unless ../semiTotal~}}
       {{#if (lt this.count 0)}}0 ({{/if}}{{this.count}}{{#if (lt this.count 0)}}){{/if}}
     {{~else~}}
