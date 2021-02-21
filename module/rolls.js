@@ -10,10 +10,22 @@
  */
 class HexxenRollSettings {
 
+  static get USE_SDR_SETTING_KEY() { return 'useSdr' }
   static get DICESET_SETTING_KEY() { return 'diceSet' }
   static get DICESIZE_SETTING_KEY() { return 'diceSize' }
 
   static registerSettings() {
+    const sdr = game.modules.get("special-dice-roller");
+    game.settings.register(Hexxen.scope, this.USE_SDR_SETTING_KEY, {
+      name: 'Special Dice Roller',
+      hint: '[BETA] Nutzung von Special Dice Roller reaktivieren, falls Probleme mit internem Würfelmechanismus auftreten.',
+      scope: 'world',
+      config: sdr && sdr.active,
+      type: Boolean,
+      default: false,
+      onChange: this._updateSDR
+    });
+
     game.settings.register(Hexxen.scope, this.DICESET_SETTING_KEY, {
       name: 'Würfelset',
       hint: 'Wähle ein Würfelset für die Anzeige von Würfelergebnissen im Chat.',
@@ -41,6 +53,15 @@ class HexxenRollSettings {
     // FIXME: Button oder Hinweis für DSN-Settings
   }
 
+  static _updateSDR(data) {
+    HexxenRollHelper.checkSystemReqirements();
+  }
+
+  static get SDR() {
+    const sdr = game.modules.get("special-dice-roller");
+    return sdr && sdr.active && game.settings.get(Hexxen.scope, this.USE_SDR_SETTING_KEY);
+  }
+
   static _rerenderChat(data) {
     game.messages.forEach(m => { if (m.isRoll) ui.chat.updateMessage(m); } );
     // FIXME: DSN aktualisieren??
@@ -66,7 +87,9 @@ class HexxenRollHelper {
     // special-dice-roller
     const foundry = game.data.version;
     const sdr = game.modules.get("special-dice-roller");
-    if (sdr && sdr.active) {
+    if (!HexxenRollSettings.SDR) {
+      this.delegate = HexxenFoundryRollHelper;
+    } else if (sdr && sdr.active) {
       const version = sdr.data.version;
       // Foundry 0.6.5 and higher --> 0.11.2 or higher
       if (isNewerVersion(foundry, "0.6.4") && !isNewerVersion(version, "0.11.1")) {
@@ -281,6 +304,41 @@ class HexxenRollHelper {
 
   static _rollToChat(actor, roll={}, flavour=null, options={}) {
     throw "The delegate has to override _rollToChat(...)";
+  }
+}
+
+class HexxenFoundryRollHelper extends HexxenRollHelper {
+
+  static __testFormula(formula) {
+    // FIXME: noch zu implementieren
+    return true;
+  }
+
+  static _rollToChat(actor, roll={}, flavour=null, options={}) {
+    let empty = true;
+    let command = ''; // "/hex ";
+    if ("string" === typeof(roll)) {
+      empty = false;
+      command += roll;
+    } else if ("object" === typeof(roll)) {
+      for ( let die of Object.keys(roll) ) {
+        let count = roll[die];
+        if ( count > 0 ) {
+          empty = false;
+          command += count;
+          command += die;
+        }
+      }
+    }
+
+    if (empty) return false;
+
+    const speaker = ChatMessage.getSpeaker({actor: actor, token: actor ? actor.token : undefined});
+
+    // FIXME: 2ter Parameter sollte actor sein!
+    HexxenRoll.create(command, { content: command } ).toMessage( { speaker: speaker, flavor: flavour }, { rollMode: game.settings.get('core', 'rollMode') } );
+
+    return {}; // TODO: result und chatId zurückgeben
   }
 }
 
