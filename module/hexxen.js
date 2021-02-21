@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Implementation of the german RPG HeXXen 1733 (c) under the license of https://ulissesspiele.zendesk.com/hc/de/articles/360017969212-Inhaltsrichtlinien-f%C3%BCr-HeXXen-1733-Scriptorium.
  * Implementation based on the content of http://hexxen1733-regelwiki.de/
  * Author: Martin Brunninger
@@ -34,14 +34,15 @@ Hooks.once("init", () => {
   HexxenRoll.CHAT_TEMPLATE = `${Hexxen.basepath}/templates/dice/roll.html`;
   HexxenRoll.TOOLTIP_TEMPLATE = `${Hexxen.basepath}/templates/dice/tooltip.html`;
   HexxenRoll.ROLL_TOTAL_TEMPLATE = `${Hexxen.basepath}/templates/dice/roll-total.html`;
-  CONFIG.Hexxen.DICE_SYMBOLS = { // FIXME: i18n
+  CONFIG.Hexxen.ROLL_RESULT_SYMBOLS = { // FIXME: i18n
     '+': {path:`${Hexxen.basepath}/img/dice/symerfolg.png`, label: 'Erfolg'},
-    '-': {path:`${Hexxen.basepath}/img/dice/symerfolg.png`, label: 'Misserfolg'}, // FIXME: nur für /r??
+    '-': {path:`${Hexxen.basepath}/img/dice/symmisserfolg.png`, label: 'Misserfolg'}, // FIXME: nur für /r??
     '*': {path:`${Hexxen.basepath}/img/dice/symesprit.png`, label: 'Espritstern'},
     'b': {path:`${Hexxen.basepath}/img/dice/symblut.png`, label: 'Bluttropfen'},
     'e': {path:`${Hexxen.basepath}/img/dice/symelixier.png`, label: 'Elixir'},
     'f': {path:`${Hexxen.basepath}/img/dice/symfluch.png`, label: 'Fluch'}
   };
+  CONFIG.Hexxen.BONUS_CAP = 5;
 
   // Register rolls, dice and coins
   CONFIG.Dice.rolls.unshift(HexxenRoll); // new default Roll class

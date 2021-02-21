@@ -43,6 +43,7 @@ class HexxenRollSettings {
 
   static _rerenderChat(data) {
     game.messages.forEach(m => { if (m.isRoll) ui.chat.updateMessage(m); } );
+    // FIXME: DSN aktualisieren??
     // TODO: update DSN-Presets falls weitere Dicesets?
   }
 
@@ -122,7 +123,7 @@ class HexxenRollHelper {
 
     /* @override 0.7.9 */
     DiceTerm.matchTerm = (expression, {imputeNumber=true}={}) => {
-      const rgx = new RegExp(`^([0-9]+)${imputeNumber ? "?" : ""}[dD]([hH][A-z]|[A-z]|[0-9]+)${DiceTerm.MODIFIERS_REGEX}${DiceTerm.FLAVOR_TEXT_REGEX}`);
+      const rgx = new RegExp(`^([0-9]+)${imputeNumber ? "?" : ""}[dD]([hHrR][A-z]|[A-z]|[0-9]+)${DiceTerm.MODIFIERS_REGEX}${DiceTerm.FLAVOR_TEXT_REGEX}`);
       const match = expression.match(rgx);
       return match || null;
     };
@@ -318,88 +319,330 @@ class HexxenSpecialDiceRollerHelper extends HexxenRollHelper {
 
 class HexxenRollResult {
 
-  static splitString(result) {
-    if ('string' !== typeof(result)) return result; // FIXME: was machen
-    if (result.length === 0) return 0;
+  constructor(result) {
+    Object.assign(this, this.constructor._splitAndMergeResultString(result));
+  }
 
-    const regex = RegExp(`\\d+[+\\-\\*bef]?`, 'g'); // FIXME: Operatoren schon in terms bereinigen??
+  static fromResult(result) {
+    return new this(result);
+  }
+
+  static HEXXEN_RESULTS_REGEX = RegExp(`\\[\\d*[+\\-\\*bef]\\]`, 'g');
+  static HEXXEN_RESULTS_SORT_ORDER = '+-*bef';
+
+  static _splitAndMergeResultString(result) {
+    if (result instanceof this) return result;
+    if ('string' !== typeof(result)) throw 'Falscher Datentyp'; // TODO: i18n
+
+    const regex = this.HEXXEN_RESULTS_REGEX;
     let parts = result.match(regex)||[];
-    parts = parts.reduce((r,p) => { let cnt=parseInt(p)||1; p=p.length>1?p.charAt(p.length-1):p; r[p]||=0; r[p]+=cnt; return r; }, {});
+    parts = parts.reduce((r,p) => {
+      p = p.substr(1, p.length-2);
+      let cnt = parseInt(p) || 1;
+      let sym = p.length > 1 ? p.charAt(p.length-1) : p;
+      r[sym] ||= 0;
+      r[sym] += cnt;
+      return r;
+    }, {});
     return parts;
   }
 
-  static cleanString(result, isRoll=false) {
-    if ('string' !== typeof(result)) return result;
-    if (result.length === 0) return 0;
-
-    const order = '+-*bef';
-    const regex = RegExp(`\\d${isRoll?'+':'*'}[+\\-\\*bef]`, 'g'); // FIXME: Operatoren schon in terms bereinigen??
-    let parts = result.match(regex)||[];
-    parts = parts.reduce((r,p) => { let cnt=parseInt(p)||1; p=p.length>1?p.charAt(p.length-1):p; r[p]||=0; r[p]+=cnt; return r; }, {});
-    const keys = Object.keys(parts).sort((a,b) => order.indexOf(a) - order.indexOf(b));
-    /*if (!isRoll) */return keys.reduce((r,k) => { return `${r} ${parts[k]}${k}` }, ''); // 16px;-2px
-    // return keys.reduce((r,k) => { return `${r}&nbsp;&nbsp;<img src="${HexxenRollSettings.diceImgPath}/herfolg.png" style="width:20px; vertical-align:-3px;"/>&nbsp;${parts[k]}&nbsp;` }, '');
-    // FIXME: 0 Ergebnisse
-    // FIXME: negative Erfolge
+  static sort(keys) {
+    const order = this.HEXXEN_RESULTS_SORT_ORDER;
+    keys = keys.sort((a,b) => order.indexOf(a.charAt(0)) - order.indexOf(b.charAt(0))); // TODO: flavors berücksichtigen (z.B. 'b:1')
+    return keys;
   }
 
+  toString() {
+    const keys = this.constructor.sort(Object.keys(this));
+    const total = keys.map(k => `[${this[k]}${k}]`).join('');
+    return total || '[]';
+  }
 }
 
 class HexxenTerm extends DiceTerm {
   static LABELS = ['?', '?', '?', '?', '?', '?'];
   static IMGS = [];
+  static DICE_IMG = 0;
+
+  static _getCount(result) {
+    return HexxenRollResult.fromResult(`[${this.getResultLabel(result)}]`); // TODO: activeDice bei rerolls??
+  }
 
   /** @override */
   roll({minimize=false, maximize=false}={}) {
     const roll = super.roll(...arguments);
     // set count, so total() will add count instead of result
-    roll.count = this.constructor.LABELS[roll.result-1]; // FIXME: activeDice??
+    roll.count = this.constructor._getCount(roll.result);
     return roll;
   }
 
   /** @override */
   get total() {
-    const total = super.total;
-    if ('string' === typeof(total)) return HexxenRollResult.cleanString(total.substring(1));
-    return total;
+    let total = super.total; // sums up count --> Number, if vanilla roll; String, if hexxen roll.
+    if ('string' !== typeof(total)) return total;
+    // if string, there is a leading '0' which must be removed
+    total = total.substring(1);
+    return HexxenRollResult.fromResult(total);
+  }
+
+  /** @override */
+  toJSON() {
+    const json = super.toJSON();
+    // remove count from results (is redundant to result)
+    json.results.forEach(r => delete r.count);
+    return json;
+  }
+
+  /** @override */
+  static fromResults(options, results) {
+    // re-evaluate count
+    results.forEach(r => r.count = this._getCount(r.result));
+    return super.fromResults(options, results);
   }
 
   /** @override */
   static getResultLabel(result) {
+    return this.LABELS[result-1];
+  }
+
+  static getResultImage(result) {
     const imgPath = this.path;
     const img = this.IMGS[result-1];
-    // FIXME: empty img
-    return `<img src="${imgPath}/${img}" />`;
+    if (!img) throw 'Für Würfelseite {result} ist kein Bild definiert!'; // TODO: i18n
+    return `${imgPath}/${img}`;
+  }
 
-    // FIXME: bei simple: &nbsp; ersetzen
+  static findClassByTerm(term) {
+    return CONFIG.Dice.terms[term?.substr(1)];
+  }
+
+  static getDiceImage() {
+    const imgPath = this.path;
+    const img = this.IMGS[this.DICE_IMG];
+    if (!img) throw 'Für Würfel {dice} ist kein Bild definiert!'; // TODO: i18n
+    return `${imgPath}/${img}`;
   }
 }
 
 class HexxenRoll extends Roll {
   constructor(formula, data={}) {
-    // FIXME: Hexxenformeln umschreiben
-    // FIXME: unbekannte Würfel
-    super(formula, data);
+    const [_formula, cap] = HexxenRoll._convertHexxenTerms(formula);
+    super(_formula, data);
+
+    const [vanilla, hexxen, other] = this._termTypes(this.terms);
+
+    // FIXME: flags und original Formel merken?
+
+    // check for unsupported combinations
+    if (hexxen && vanilla) throw 'Hexxenwürfel und Augenwürfel können nicht kombiniert werden!'; // TODO: i18n
+    if (hexxen && other) throw 'Hexxenwürfel können nur mit "+" verkettet werden!'; // TODO: i18n
+
+    if (hexxen) {
+      this.terms = this._cleanupTerms(this.terms, cap);
+      this._formula = this.constructor.cleanFormula(this.terms);
+      // FIXME: in Hexxensyntax rückkonvertieren?
+    }
+    // TODO: unbekannte Würfel, Fehlermeldungen verbessern
+  }
+
+  static HEXXEN_DICE_SORT_ORDER = 'hgjmsbef';
+  static HEXXEN_DICE = '[hg\\+\\-sbef]';
+  static HEXXEN_TERM = `(?:\\d*${this.HEXXEN_DICE}${DiceTerm.FLAVOR_TEXT_REGEX})`;
+  static HEXXEN_MATCH_REGEX = new RegExp(`^${this.HEXXEN_TERM}+!?$`, 'i');
+  static HEXXEN_SPLIT_REGEX = new RegExp(this.HEXXEN_TERM, 'gi');
+  static HEXXEN_DICE_REGEX = new RegExp(this.HEXXEN_DICE, 'i');
+
+  static _convertHexxenTerms(formula) {
+    let cap = false;
+    if ('string' === typeof(formula)) {
+      cap = true;
+      if (formula.endsWith('!')) {
+        cap = false;
+        formula = formula.substr(0, formula.length-1); // remove '!'
+      }
+      // check if it's regular syntax or hexxen syntax
+      if (formula.match(this.HEXXEN_MATCH_REGEX)) {
+        let parts = formula.match(this.HEXXEN_SPLIT_REGEX);
+        // rewrite parts
+        parts = parts.map(p => {
+          // prefix with 1 if term has no number
+          p = Number.isNaN(Number.parseInt(p)) ? `1${p}` : p;
+          p = p.replace(this.HEXXEN_DICE_REGEX, match => {
+            switch (match) {
+              case '+': return 'dhj';
+              case '-': return 'dhm';
+              default: return `dh${match}`;
+            }
+          });
+          return p;
+        });
+        // FIXME: sortieren --> _cleanupTerms?
+        return [parts.join('+'), cap];
+      }
+    }
+    return [formula, cap];
+  }
+
+  _termTypes(terms) {
+    let vanilla = false, hexxen = false, other = false;
+    let partial = false;
+    terms.forEach(t => {
+      if (partial) { // target of a nested roll
+        if (typeof(t) === 'string') {
+          if (t.startsWith('dh')) hexxen = true;
+          else if (t.startsWith('dc')) ; // FIXME: noch zu klären hexxen = true;
+          else if (t.startsWith('d')) vanilla = true;
+        }
+        partial = false;
+      }
+      else if (t instanceof HexxenTerm) hexxen = true;
+      else if (t instanceof DiceTerm && t.constructor.DENOMINATION === 'c') ; // FIXME: noch zu klären
+      else if (t instanceof DiceTerm) vanilla = true;
+      else if (t instanceof Roll) partial = true; // nested roll e.g. (1d4)dhh // FIXME: Roll untersuchen
+      else if (t instanceof DicePool) ;
+      else if (t !== '+') other = true;
+    });
+    return [vanilla, hexxen, other];
+  }
+
+  _cleanupTerms(terms, cap) {
+    let sort = true;
+    // merge identical non-flavoured terms
+    // and remove '+' operators
+    terms = terms.reduce((ret, t) => {
+      if (t === '+') return ret;
+      if (t instanceof Roll) sort = false; // FIXME: das kann auch cap beeinflussen! // TODO: prüfen, ob doch irgendwie sortieren möglich ist
+      if (t instanceof HexxenTerm && !t.flavor) {
+        const tf = ret.find(t0 => (t0 instanceof t.constructor) && !t0.flavor);
+        if (tf) {
+          tf.number += t.number;
+          return ret;
+        }
+      }
+      ret.push(t);
+      return ret;
+    }, []);
+
+    // sort FIXME: Problem mit DicePools
+    // if (sort) {
+    //   const fn = (t) => { return this.constructor.HEXXEN_DICE_SORT_ORDER.indexOf(t.constructor.DENOMINATION.charAt(1)) };
+    //   terms = terms.sort((a, b) => { fn(a) - fn(b) });
+    // }
+
+    // FIXME: besser erst in step 1 (während evaluate)
+    if (cap) {
+      const janus = [];
+      let jidx = -1;
+      terms = terms.reduce((ret, t, i) => {
+        if (t instanceof JanusBonusDie || t instanceof JanusMalusDie) {
+          janus.push(t);
+          if (jidx === -1) jidx = ret.push(null) - 1; // push placeholder and remember position
+        } else {
+          ret.push(t);
+        }
+        return ret;
+      }, []);
+      if (janus.length === 1) {
+        terms[jidx] = janus[0]; // only one term
+        terms[jidx].options.number = terms[jidx].number; // FIXME: bleibt das erhalten?
+        terms[jidx].number = Math.min(CONFIG.Hexxen.BONUS_CAP, terms[jidx].number); // apply cap
+      }
+      else if (janus.length > 1) {
+        const bonus = [];
+        const malus = [];
+        janus.forEach(t => {
+          if (t instanceof JanusBonusDie) bonus.push(t);
+          else malus.push(t);
+        });
+        const bonusCount = bonus.reduce((ret, t) => {
+          ret += t.number;
+          // FIXME: flavor
+          return ret;
+        }, 0);
+        const malusCount = malus.reduce((ret, t) => {
+          ret += t.number;
+          // FIXME: flavor
+          return ret;
+        }, 0);
+        const count = Math.min(CONFIG.Hexxen.BONUS_CAP, bonusCount) - Math.min(CONFIG.Hexxen.BONUS_CAP, malusCount);
+        const dice = count < 0 ? JanusMalusDie : JanusBonusDie;
+        const d = new dice({number: Math.abs(count)});
+        // FIXME: flavor
+        terms[jidx] = d;
+      }
+      // FIXME: cap/nocap
+      // FIXME: Einfluss von nested Roll Objekten
+
+    }
+
+    // re-add '+' operators after HexxenTerms or Strings starting with 'dh' // FIXME: auch 'dr'
+    terms = terms.reduce((ret, t) => {
+      const prev = ret.length > 0 && ret[ret.length-1];
+      if (prev && ( prev instanceof HexxenTerm || (typeof(prev) === 'string' && prev.startsWith('dh') ))) ret.push('+');
+      ret.push(t);
+      return ret;
+    }, []);
+    return terms;
   }
 
   /** @override */
   evaluate({minimize=false, maximize=false}={}) {
+    // super.evaluate() calls _safeEval() but expects it to return a Number.
+    // As a hexxen roll isn't just a single number, the total has to be bypassed
+    // (via this._hexxenTotal) TODO: bessere Lösung suchen
+    this._hexxenTotal = undefined;
     const ret = super.evaluate(...arguments);
-    this._total = this.hexxenTotal;
+    // As this.hexxenTotal isn't persistant, copy it to this._total now.
+    if (this._hexxenTotal !== undefined) {
+      this._total = this._hexxenTotal;
+      delete this._hexxenTotal;
+    }
     return ret;
   }
 
   /** @override */
   _safeEval(expression) {
-    // FIXME: implementieren
-    // FIXME: reguläre Würfe umleiten
-    // FIXME: KEINE gemischte Würfe
-    this.hexxenTotal = HexxenRollResult.cleanString(expression, true);
-    return 0;
+    // _safeEval() is called from evaluate() but it expects a Number as return value.
+    // As a hexxen roll isn't just a single number, the total has to be bypassed
+    // (via this._hexxenTotal) TODO: bessere Lösung suchen
+    // FIXME: könnte Probleme bereiten bei foundry.js:7984 _splitParentheticalTerms
+    // FIXME: wäre dann aber ein geklammerter Ausdruck
+    if (expression.indexOf('[') !== -1) { // FIXME: geht hier auch Typprüfung?
+      this._hexxenTotal = HexxenRollResult.fromResult(expression);
+      // return something that is a number, will be replaced later on.
+      return 0;
+    }
+    else
+      return super._safeEval(expression);
+  }
+
+  /** @override */
+  toJSON() {
+    const json = super.toJSON();
+    // remove redundant values
+    delete json.results;
+    delete json._total;
+
+    return json;
+  }
+
+  /** @override */
+  static fromData(data) {
+    const roll = super.fromData(data);
+    // re-evaluate results and _total
+    roll.results = roll.terms.map(t => {
+      const total = t.total;
+      return total ? total : t;
+    });
+    const total = roll._safeEval(roll.results.join(" "));
+    roll._total = roll._hexxenTotal ? roll._hexxenTotal : total;
+    delete roll._hexxenTotal;
+
+    return roll;
   }
 
   /** @override 0.7.9 */
-  // Alternative:   return $(html).find('.dice-total').html(this.total).end().prop('outerHTML');
   async render(chatOptions = {}) {
     chatOptions = mergeObject({
       user: game.user._id,
@@ -416,11 +659,11 @@ class HexxenRoll extends Roll {
 
     // Define chat data
     const chatData = {
-      formula: this._formula,
+      formula: await this.renderDice(this._formula),
       flavor: chatOptions.flavor,
       user: chatOptions.user,
-      tooltip: await this.getTooltip(),
-      total: await this.renderTotal(this.total)
+      tooltip: await this.getTooltip(), // TODO: erst beim Aufklappen generieren
+      total: await this.renderTotal(this.total) // FIXME: totalize unterdrücken falls "!"
     };
 
     // Render the roll display template
@@ -431,18 +674,29 @@ class HexxenRoll extends Roll {
     const parts = [];
     for (const d of this.dice) {
       const cls = d.constructor;
+      const hexxen = HexxenTerm.isPrototypeOf(cls);
       parts.push({
-        formula: d.expression,
-        total: await this.renderTotal(d.total),
+        formula: await this.renderDice(d.expression),
+        total: hexxen ? await this.renderTotal(d.total, true) : d.total, // FIXME: totalize unterdrücken falls "!"
         faces: d.faces,
         flavor: d.flavor,
         rolls: d.results.map(r => {
+          const hasSuccess = r.success !== undefined;
+          const hasFailure = r.failure !== undefined;
+          const isMax = !hexxen && r.result === d.faces;
+          const isMin = !hexxen && r.result === 1;
           return {
-            result: cls.getResultLabel(r.result),
+            result: (hexxen ? `<img src="${cls.getResultImage(r.result)}" />` : cls.getResultLabel(r.result)), // TODO: HTML ins Template verschieben
             classes: [
               cls.name.toLowerCase(),
+              "d" + (hexxen ? 'h' : d.faces),
+              r.success ? "success" : null,
+              r.failure ? "failure" : null,
               r.rerolled ? "rerolled" : null,
-              r.discarded ? "discarded" : null
+              r.exploded ? "exploded" : null,
+              r.discarded ? "discarded" : null,
+              !(hasSuccess || hasFailure) && isMin ? "min" : null,
+              !(hasSuccess || hasFailure) && isMax ? "max" : null
             ].filter(c => c).join(" ")
           }
         })
@@ -451,20 +705,37 @@ class HexxenRoll extends Roll {
     return renderTemplate(this.constructor.TOOLTIP_TEMPLATE, { parts });
   }
 
-  renderTotal(total) {
-    const SYMBOLS = CONFIG.Hexxen.DICE_SYMBOLS;
-    const split = HexxenRollResult.splitString(total);
-    const parts = Object.keys(split).reduce((r, k) => {
-      r.push({symbol: k, count: split[k]});
+  renderDice(formula) {
+    return formula.replace(/(dh\w)/g, (match, p1, offset, string) => { // FIXME: ResourceCoins??
+      const cls = HexxenTerm.findClassByTerm(p1);
+      if (HexxenTerm.isPrototypeOf(cls)) return `<img src="${cls.getDiceImage()}" title="${cls.name}" />`; // FIXME: i18n label
+
+      return `[${p1}]`;
+    });
+  }
+
+  renderTotal(total, semiTotal=false, totalize=true) {
+    if (! (total instanceof HexxenRollResult)) return total;
+
+    if (totalize && total['-'] !== undefined) {
+      total['+'] = (total['+'] || 0) - total['-'];
+      delete total['-'];
+    }
+    if (!semiTotal && total['+'] === undefined) total['+'] = 0; // FIXME: welche Symbole anzeigen, obwohl 0
+
+    const parts = HexxenRollResult.sort(Object.keys(total)).reduce((r, k) => {
+      r.push({symbol: k, count: total[k]});
       return r;
     }, []);
+
+    const SYMBOLS = CONFIG.Hexxen.ROLL_RESULT_SYMBOLS;
     parts.forEach(p => {
       const imgPath = SYMBOLS[p.symbol].path;
       const label = SYMBOLS[p.symbol].label;
       if (imgPath) { p.img = imgPath; }
       if (label) { p.label = label; }
     });
-    return renderTemplate(this.constructor.ROLL_TOTAL_TEMPLATE, {parts: parts});
+    return renderTemplate(this.constructor.ROLL_TOTAL_TEMPLATE, {parts: parts, semiTotal: semiTotal});
   }
 }
 
@@ -498,6 +769,7 @@ class HexxenDie extends HexxenDiceTerm {
   static LABELS = ['*', '', '', '', '+', '+'];
   /** @override */
   static IMGS = ['hesprit.png', 'hblank.png', 'hblank.png', 'hblank.png', 'herfolg.png', 'herfolg.png'];
+  static DICE_IMG = 5;
 }
 
 class GamemasterDie extends HexxenDiceTerm {
@@ -507,6 +779,7 @@ class GamemasterDie extends HexxenDiceTerm {
   static LABELS = ['', '', '', '+', '+', '+'];
   /** @override */
   static IMGS = ['gmblank.png', 'gmblank.png', 'gmblank.png', 'gmerfolg.png', 'gmerfolg.png', 'gmerfolg.png'];
+  static DICE_IMG = 5;
 }
 
 class JanusBonusDie extends HexxenDiceTerm {
@@ -516,6 +789,7 @@ class JanusBonusDie extends HexxenDiceTerm {
   static LABELS = ['', '', '', '+', '+', '+'];
   /** @override */
   static IMGS = ['jbblank.png', 'jbblank.png', 'jbblank.png', 'jbdoppelkopf.png', 'jbdoppelkopf.png', 'jbdoppelkopf.png'];
+  static DICE_IMG = 5;
 }
 
 class JanusMalusDie extends HexxenDiceTerm {
@@ -525,6 +799,7 @@ class JanusMalusDie extends HexxenDiceTerm {
   static LABELS = ['', '', '', '-', '-', '-'];
   /** @override */
   static IMGS = ['jmblank.png', 'jmblank.png', 'jmblank.png', 'jmdoppelkopf.png', 'jmdoppelkopf.png', 'jmdoppelkopf.png'];
+  static DICE_IMG = 5;
 }
 
 class SegnungsDie extends HexxenDiceTerm {
@@ -534,6 +809,7 @@ class SegnungsDie extends HexxenDiceTerm {
   static LABELS = ['*', '*', '', '+', '+', '++'];
   /** @override */
   static IMGS = ['sesprit.png', 'sesprit.png', 'sblank.png', 'serfolg.png', 'serfolg.png', 'sdoppelerfolg.png'];
+  static DICE_IMG = 5;
 }
 
 class BlutDie extends HexxenDiceTerm {
@@ -543,6 +819,7 @@ class BlutDie extends HexxenDiceTerm {
   static LABELS = ['', 'b', 'b', 'bb', 'bb', 'bbb'];
   /** @override */
   static IMGS = ['bblank.png', 'beins.png', 'beins.png', 'bzwei.png', 'bzwei.png', 'bdrei.png'];
+  static DICE_IMG = 2;
 }
 
 class ElixierDie extends HexxenDiceTerm {
@@ -552,6 +829,7 @@ class ElixierDie extends HexxenDiceTerm {
   static LABELS = ['1e', '2e', '3e', '4e', '5e', '3e'];
   /** @override */
   static IMGS = ['eeins.png', 'ezwei.png', 'edrei.png', 'evier.png', 'efuenf.png', 'edrei.png'];
+  static DICE_IMG = 0;
 }
 
 class FluchDie extends HexxenDiceTerm {
@@ -561,6 +839,7 @@ class FluchDie extends HexxenDiceTerm {
   static LABELS = ['1f', '2f', '3f', '4f', '5f', '3f'];
   /** @override */
   static IMGS = ['feins.png', 'fzwei.png', 'fdrei.png', 'fvier.png', 'ffuenf.png', 'fdrei.png'];
+  static DICE_IMG = 0;
 }
 
 class ImminenceCoin extends HexxenResourceTerm {

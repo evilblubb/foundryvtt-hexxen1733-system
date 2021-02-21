@@ -195,20 +195,38 @@ img#hexxen-logo {
   white-space: nowrap;
   word-break: break-all;
 }
-.hexxen.dice-roll .roll {
+.hexxen.dice-roll .roll.dh {
   width: var(--hexxen-chat-dice-size);
+  background-image: unset;
 }
 .hexxen.dice-roll .roll img {
   vertical-align: top;
   border: 1px solid transparent;
   border-radius: 15%;
 }
+/* TODO: formula und symbol reorganisieren  */
 .hexxen.dice-roll .dice-symbol {
   width: 20px;
   height: 20px;
   vertical-align: -3px;
   border: 1px solid black;
   border-radius: 15%;
+}
+.hexxen.dice-roll .dice-formula img {
+  width: 24px;
+  height: 24px;
+  vertical-align: -7px;
+  border: 1px solid transparent;
+  border-radius: 15%;
+  margin-left: 2px;
+}
+.hexxen.dice-roll .part-formula img {
+  width: 20px;
+  height: 20px;
+  vertical-align: -5px;
+  border: 1px solid transparent;
+  border-radius: 15%;
+  margin-left: 4px;
 }
 .hexxen.dice-roll .part-total .dice-symbol {
   width: 16px;

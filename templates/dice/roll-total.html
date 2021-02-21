@@ -1,3 +1,4 @@
+{{#unless parts}}0{{/unless}}
 {{#each parts}}
   <span class="dice-subtotal">
     {{~#if this.img ~}}
@@ -5,6 +6,11 @@
     {{~else if this.symbol ~}}
       {{this.symbol}}&nbsp;
     {{~/if~}}
-    {{this.count ~}}
+    {{log ../semiTotal}}
+    {{~#unless ../semiTotal~}}
+      {{#if (lt this.count 0)}}0 ({{/if}}{{this.count}}{{#if (lt this.count 0)}}){{/if}}
+    {{~else~}}
+      {{this.count}}
+    {{~/unless~}}
   </span>
 {{/each}}
