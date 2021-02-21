@@ -456,7 +456,7 @@ class HexxenRoll extends Roll {
 
   static HEXXEN_DICE_SORT_ORDER = 'hgjmsbef';
   static HEXXEN_DICE = '[hg\\+\\-sbef]';
-  static HEXXEN_TERM = `(?:\\d*${this.HEXXEN_DICE}${DiceTerm.FLAVOR_TEXT_REGEX})`;
+  static HEXXEN_TERM = `(?:\\d*${this.HEXXEN_DICE}(?:\\[(.*?)\\])?)`;
   static HEXXEN_MATCH_REGEX = new RegExp(`^${this.HEXXEN_TERM}+!?$`, 'i');
   static HEXXEN_SPLIT_REGEX = new RegExp(this.HEXXEN_TERM, 'gi');
   static HEXXEN_DICE_REGEX = new RegExp(this.HEXXEN_DICE, 'i');
