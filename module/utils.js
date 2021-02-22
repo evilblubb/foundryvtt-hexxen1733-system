@@ -302,7 +302,7 @@ class HexxenSpecialCommandHelper {
       if ("/hex " === command) {
         // split formula
         const parts = HexxenRollHelper.splitHints(formula);
-        const sign = (parts.modifier && !parts.modifier?.startsWith('-')) ? '+' : '';
+        const sign = (parts.modifier && parts.modifier?.startsWith('-')) ? '+' : ''; // FIXME: doppeltes +
         const s = document.createElement('span');
         s.innerHTML = `${parts.flavour ? parts.flavour + ': ' : ''}`;
         const a = document.createElement('a');
@@ -316,7 +316,7 @@ class HexxenSpecialCommandHelper {
       else if ("/hp " === command) {
         // split formula
         const parts = HexxenRollHelper.splitHints(formula);
-        const sign = (parts.modifier && !parts.modifier?.startsWith('-')) ? '+' : '';
+        const sign = (parts.modifier && !parts.modifier?.startsWith('-')) ? '+' : ''; // FIXME: doppeltes +
         const a = document.createElement('a');
         a.classList.add('hexxen', 'hex-prompt');
         a.title = 'Im Chat anzeigen';
