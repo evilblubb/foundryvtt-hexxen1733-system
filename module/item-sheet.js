@@ -15,7 +15,7 @@ class SimpleItemSheet extends ItemSheet {
 	static get defaultOptions() {
 	  return mergeObject(super.defaultOptions, {
 			classes: ["worldbuilding", "sheet", "item"],
-			template: Hexxen.basepath + "/templates/item-sheet.html",
+			template: `${Hexxen.basepath}/templates/item-sheet.html`,
 			width: 520,
 			height: 480,
       tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description"}]

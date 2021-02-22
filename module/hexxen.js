@@ -9,27 +9,50 @@
 /*  Foundry VTT Initialization                  */
 /* -------------------------------------------- */
 
-Hooks.once("init", async function() {
+Hooks.once("init", () => {
   console.log(`${Hexxen.logPrefix}Initializing system`);
 
   // Register Handlebars helper for use in HTML templates
   HexxenHandlebarsHelper.registerHelpers();
 
+  $('head').append('<style id="hexxen-styles"></style>');
+
   // Inject system logo and register listener to show an About dialog
   HexxenLogo.inject();
+
+  CONFIG.Hexxen ||= {};
 
 	// Define custom classes
   CONFIG.Actor.entityClass = HexxenActor;
   CONFIG.Item.entityClass = HexxenItem;
-  CONFIG.Dice.rolls.push(HexxenRoll);
-  CONFIG.Dice.terms.hh = HexxenDie;
-  CONFIG.Dice.terms.hg = GamemasterDie;
-  CONFIG.Dice.terms.hj = JanusBonusDie;
-  CONFIG.Dice.terms.hm = JanusMalusDie;
-  CONFIG.Dice.terms.hs = SegnungsDie;
-  CONFIG.Dice.terms.hb = BlutDie;
-  CONFIG.Dice.terms.he = ElixierDie;
-  CONFIG.Dice.terms.hf = FluchDie;
+
+  HexxenRollSettings.registerSettings();
+  // Manipulate DiceTerm.matchTerm() to allow for two-character denominations starting with 'h'
+  // Wichtig: Muss bereits in init erfolgen! Sonst können Probleme beim Rekonstruieren der ChatMeldungen auftreten!
+  HexxenRollHelper.injectTwoCharacterDiceTermPatch();
+  // Assemble template paths
+  HexxenRoll.CHAT_TEMPLATE = `${Hexxen.basepath}/templates/dice/roll.html`;
+  HexxenRoll.TOOLTIP_TEMPLATE = `${Hexxen.basepath}/templates/dice/tooltip.html`;
+  HexxenRoll.ROLL_TOTAL_TEMPLATE = `${Hexxen.basepath}/templates/dice/roll-total.html`;
+  CONFIG.Hexxen.ROLL_RESULT_SYMBOLS = { // FIXME: i18n
+    '+': {path:`${Hexxen.basepath}/img/dice/symerfolg.png`, label: 'Erfolg'},
+    '-': {path:`${Hexxen.basepath}/img/dice/symmisserfolg.png`, label: 'Misserfolg'}, // FIXME: nur für /r??
+    '*': {path:`${Hexxen.basepath}/img/dice/symesprit.png`, label: 'Espritstern'},
+    'b': {path:`${Hexxen.basepath}/img/dice/symblut.png`, label: 'Bluttropfen'},
+    'e': {path:`${Hexxen.basepath}/img/dice/symelixier.png`, label: 'Elixir'},
+    'f': {path:`${Hexxen.basepath}/img/dice/symfluch.png`, label: 'Fluch'}
+  };
+  CONFIG.Hexxen.BONUS_CAP = 5;
+
+  // Register rolls, dice and coins
+  CONFIG.Dice.rolls.unshift(HexxenRoll); // new default Roll class
+  CONFIG.Dice.rolls.push(SDRRoll);
+  [
+    HexxenDie, GamemasterDie, JanusBonusDie, JanusMalusDie, SegnungsDie, BlutDie, ElixierDie, FluchDie,
+    ImminenceCoin, CoupCoin, IdeaCoin, BlessingCoin, RageCoin, AmbitionCoin
+  ].forEach(t => {
+    CONFIG.Dice.terms[t.DENOMINATION] = t;
+  });
 
   // Registering translation keys for Actors and Items
   Object.assign(CONFIG.Actor.typeLabels, {
@@ -83,6 +106,8 @@ Hooks.once("init", async function() {
     decimals: 1 // TODO: 0, sobald SC INI Vorrang im CombatTracker
   };
 
+  // FIXME: preload templates??
+
   // preload some images
   Hexxen.preload(
     `${Hexxen.basepath}/img/Hex_Pokerkarte_front_hell.png`,
@@ -102,6 +127,8 @@ Hooks.once("init", async function() {
 
   console.log(`${Hexxen.logPrefix}Initialization done`);
 });
+Hooks.on('chatMessage', (x,y,z) => { return HexxenRollHelper.processChatCommand(x,y,z); }); // FIXME: Problem mit Initialisierungsreihenfolge mit SDR
+Hooks.on('preCreateChatMessage', (data, options, userId) => { return HexxenRollHelper.pimpChatMessage(data, options, userId); }); // TODO: CR in Foundry
 
 Hooks.once("ready", async function() {
   console.log(`${Hexxen.logPrefix}Ready Hook called`);
@@ -121,7 +148,7 @@ class Hexxen {
 
   static get basepath() {
     // TODO: evtl. so machen: https://stackoverflow.com/questions/2255689/how-to-get-the-file-path-of-the-currently-executing-javascript-code/2255727
-    return "/systems/" + Hexxen.scope + "/";
+    return `/systems/${Hexxen.scope}`;
   }
 
   static get title() {
@@ -146,12 +173,12 @@ class HexxenLogo {
 
   static inject() {
     // use jQuery to inject the logo into the DOM
-    $("<a class='hexxen-logo'><img id='hexxen-logo' src='" + Hexxen.basepath + "img/HeXXen1733_scriptorium_small_outline.png' height='65px' /></a>")
-        .insertAfter("img#logo");
+    $(`<a class="hexxen-logo"><img id="hexxen-logo" src="${Hexxen.basepath}/img/HeXXen1733_scriptorium_small_outline.png" height="65px" /></a>`)
+        .insertAfter('img#logo');
 
     // TODO: eigenes left, #navigation left und #loading left/width dynamisch berechnen? Aktuell fix in hexxen.css eingetragen.
 
-    $($.find("a.hexxen-logo")).on("click", () => { new HexxenAbout().render(true); } );
+    $($.find('a.hexxen-logo')).on('click', () => { new HexxenAbout().render(true); } );
   }
 }
 
@@ -161,8 +188,8 @@ class HexxenAbout extends Application {
     return mergeObject(super.defaultOptions, {
       classes: ["hexxen", "about"],
       id: "hexxen-about",
-      title: "About Game System " + Hexxen.title,
-      template: Hexxen.basepath + "templates/about.html",
+      title: `About Game System ${Hexxen.title}`,
+      template: `${Hexxen.basepath}/templates/about.html`,
       "hx-basepath": Hexxen.basepath,
       width: 600,
       height: 450

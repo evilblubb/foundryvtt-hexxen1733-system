@@ -56,6 +56,8 @@ img#hexxen-logo {
   --hexxen-table-border: 1px solid var(--hexxen-highlight-even-color);
   --hexxen-seperator-image: url("/systems/hexxen-1733/img/Rabenkasten_weit_unten_small_braun.png");
 
+  --hexxen-chat-dice-size: 24px;
+
   scrollbar-color: var(--hexxen-light-color) var(--hexxen-dark-color);
 
   /* TODO: Absolute Pfadangaben für Grafiken wegen Safari. Pfad validieren! */
@@ -85,7 +87,7 @@ img#hexxen-logo {
 .hexxen.app.minimized {
   background-color: var(--hexxen-minimized-title-color);
 }
-.hexxen img {
+.hexxen .sheet img {
   max-width: unset;
 }
 .hexxen .sheet-header img[data-edit] {
@@ -181,15 +183,73 @@ img#hexxen-logo {
 .hexxen .editor p:last-of-type {
   margin-bottom: 1px;
 }
-/* TODO: auch Chat berücksichtigen */
-.hexxen .editor .hex-roll,
-.hexxen .editor .hex-chat {
+.hexxen.hex-prompt,
+.hexxen.hex-roll,
+.hexxen.hex-chat,
+.hexxen.inline-roll.inline-result {
   background: #DDD;
   padding: 1px 4px;
   border: var(--hexxen-box-border);
   border-radius: 2px;
   white-space: nowrap;
   word-break: break-all;
+}
+.hexxen.inline-roll.inline-result {
+  padding: 2px 4px;
+}
+.hexxen.dice-roll .roll.dh,
+.hexxen.dice-tooltip .roll.dh {
+  width: var(--hexxen-chat-dice-size);
+  background-image: unset;
+}
+.hexxen.dice-roll .roll img,
+.hexxen.dice-tooltip .roll img {
+  vertical-align: top;
+  border: 1px solid transparent;
+  border-radius: 15%;
+}
+/* TODO: formula und symbol reorganisieren  */
+.hexxen.dice-roll .result-symbol,
+.hexxen.inline-result .result-symbol {
+  width: 20px;
+  height: 20px;
+  vertical-align: -3px;
+  border: 1px solid black;
+  border-radius: 15%;
+}
+.hexxen.dice-roll .dice-formula img {
+  width: 24px;
+  height: 24px;
+  vertical-align: -7px;
+  border: 1px solid transparent;
+  border-radius: 15%;
+  margin-left: 2px;
+}
+.hexxen.dice-roll .part-formula img,
+.hexxen.dice-tooltip .part-formula img {
+  width: 20px;
+  height: 20px;
+  vertical-align: -5px;
+  border: 1px solid transparent;
+  border-radius: 15%;
+  margin-left: 4px;
+}
+.hexxen.dice-roll .part-total .result-symbol,
+.hexxen.dice-tooltip .part-total .result-symbol,
+.hexxen.inline-result .result-symbol {
+  width: 16px;
+  height: 16px;
+  vertical-align: -2px;
+}
+.hexxen.inline-result .result-symbol {
+  vertical-align: -3px;
+}
+.hexxen.dice-roll .part-total .dice-subtotal,
+.hexxen.inline-result .dice-subtotal {
+  margin: 0 2px;
+}
+.hexxen.dice-roll .dice-total .dice-subtotal {
+  margin: 0 5px;
 }
 
 .hexxen .note {

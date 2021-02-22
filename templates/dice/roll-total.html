@@ -1,0 +1,15 @@
+{{#unless parts}}0{{/unless}}
+{{#each parts}}
+  <span class="dice-subtotal">
+    {{~#if this.img ~}}
+      <img class="result-symbol" src="{{this.img}}" {{#if this.label}}title="{{this.label}}"{{/if}}/>&nbsp;
+    {{~else if this.symbol ~}}
+      {{this.symbol}}&nbsp;
+    {{~/if~}}
+    {{~#unless ../semiTotal~}}
+      {{#if (lt this.count 0)}}0 ({{/if}}{{this.count}}{{#if (lt this.count 0)}}){{/if}}
+    {{~else~}}
+      {{this.count}}
+    {{~/unless~}}
+  </span>
+{{/each}}
