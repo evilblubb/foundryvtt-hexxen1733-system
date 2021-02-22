@@ -2,7 +2,7 @@
 {{#each parts}}
   <span class="dice-subtotal">
     {{~#if this.img ~}}
-      <img class="dice-symbol" src="{{this.img}}" {{#if this.label}}title="{{this.label}}"{{/if}}/>&nbsp;
+      <img class="result-symbol" src="{{this.img}}" {{#if this.label}}title="{{this.label}}"{{/if}}/>&nbsp;
     {{~else if this.symbol ~}}
       {{this.symbol}}&nbsp;
     {{~/if~}}

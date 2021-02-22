@@ -129,6 +129,33 @@ class HexxenRollHelper {
     return true;
   }
 
+  static pimpChatMessage(data, options, userId) {
+    if (data.content && typeof(data.content) === 'string') {
+      let html = document.createElement('div');
+      html.innerHTML = data.content;
+      html = $(html);
+      const el = html.find('.inline-result:not(.hexxen)');
+      if (el.length > 0) {
+        const promise = HexxenRoll.renderTotal(HexxenRollResult.fromResult(html.text()));
+        promise.then(
+          (total) => {
+            total = `<i class="fas fa-dice-one"></i>&nbsp;${total}`;
+            el.html(total).addClass('hexxen');
+            data.content = html.html();
+            ChatMessage.create(data, options);
+          },
+          (reason) => {
+            console.log(reason);
+            ChatMessage.create(data, options);
+          }
+        );
+
+        return false;
+      }
+    }
+    return true;
+  }
+
   static createMacro(hotbar, data, slot) {
     if (data.type === 'HexxenRoll') {
       data.type = 'Macro';
@@ -788,6 +815,10 @@ class HexxenRoll extends Roll {
   }
 
   renderTotal(total, semiTotal=false, totalize=true) {
+    return this.constructor.renderTotal(total, semiTotal, totalize);
+  }
+
+  static renderTotal(total, semiTotal=false, totalize=true) {
     if (! (total instanceof HexxenRollResult)) return total;
 
     if (totalize && total['-'] !== undefined) {
@@ -808,7 +839,7 @@ class HexxenRoll extends Roll {
       if (imgPath) { p.img = imgPath; }
       if (label) { p.label = label; }
     });
-    return renderTemplate(this.constructor.ROLL_TOTAL_TEMPLATE, {parts: parts, semiTotal: semiTotal});
+    return renderTemplate(this.ROLL_TOTAL_TEMPLATE, {parts: parts, semiTotal: semiTotal});
   }
 }
 
