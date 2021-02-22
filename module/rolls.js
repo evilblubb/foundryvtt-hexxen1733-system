@@ -432,7 +432,14 @@ class HexxenTerm extends DiceTerm {
   static DICE_IMG = 0;
 
   static _getCount(result) {
-    return HexxenRollResult.fromResult(`[${this.getResultLabel(result)}]`); // TODO: activeDice bei rerolls??
+    result = this.getResultLabel(result);
+    // TODO: verallgemeinern
+    switch (result) {
+      case '++': result = '2+'; break;
+      case 'bb': result = '2b'; break;
+      case 'bbb': result = '3b'; break;
+    }
+    return HexxenRollResult.fromResult(`[${result}]`); // TODO: activeDice bei rerolls??
   }
 
   /** @override */
