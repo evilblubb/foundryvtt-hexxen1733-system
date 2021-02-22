@@ -183,11 +183,9 @@ img#hexxen-logo {
 .hexxen .editor p:last-of-type {
   margin-bottom: 1px;
 }
-/* TODO: auch Chat berücksichtigen */
-.hexxen .editor .hex-prompt,
-.hexxen .editor .hex-roll,
-.hexxen .editor .hex-chat,
-.chat-message .hex-roll {
+.hexxen.hex-prompt,
+.hexxen.hex-roll,
+.hexxen.hex-chat {
   background: #DDD;
   padding: 1px 4px;
   border: var(--hexxen-box-border);

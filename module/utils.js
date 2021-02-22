@@ -306,7 +306,7 @@ class HexxenSpecialCommandHelper {
         const s = document.createElement('span');
         s.innerHTML = `${parts.flavour ? parts.flavour + ': ' : ''}`;
         const a = document.createElement('a');
-        a.classList.add('hex-roll');
+        a.classList.add('hexxen', 'hex-roll');
         a.title = 'Würfeln';
         a.dataset.message = formula;
         a.innerHTML = `<i class="fas fa-dice"></i> ${parts.nameOrFormula}${sign}${parts.modifier || ''}`;
@@ -318,7 +318,7 @@ class HexxenSpecialCommandHelper {
         const parts = HexxenRollHelper.splitHints(formula);
         const sign = (parts.modifier && !parts.modifier?.startsWith('-')) ? '+' : '';
         const a = document.createElement('a');
-        a.classList.add('hex-prompt');
+        a.classList.add('hexxen', 'hex-prompt');
         a.title = 'Im Chat anzeigen';
         a.dataset.message = formula;
         a.innerHTML = `<i class="fas fa-comments"></i> ${parts.flavour ? parts.flavour + ': ' : ''}<i class="fas fa-dice"></i> ${parts.nameOrFormula}${sign}${parts.modifier || ''}`;
@@ -326,7 +326,7 @@ class HexxenSpecialCommandHelper {
       }
       else if ("/hc " === command) {
         const a = document.createElement('a');
-        a.classList.add('hex-chat');
+        a.classList.add('hexxen', 'hex-chat');
         a.title = 'Im Chat anzeigen';
         a.dataset.message = formula;
         a.innerHTML = `<i class="fas fa-comments"></i> ${formula}`;
