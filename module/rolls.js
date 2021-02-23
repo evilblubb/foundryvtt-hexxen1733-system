@@ -433,7 +433,7 @@ class HexxenRollResult {
       p = p.substr(1, p.length-2);
       let cnt = parseInt(p) || 1;
       let sym = p.length > 1 ? p.charAt(p.length-1) : p;
-      r[sym] ||= 0;
+      r[sym] = r[sym] || 0;
       r[sym] += cnt;
       return r;
     }, {});
