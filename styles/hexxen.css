@@ -195,6 +195,7 @@ img#hexxen-logo {
   word-break: break-all;
 }
 .hexxen.inline-roll.inline-result {
+  line-height: 26px; /* TODO: besser layouten */
   padding: 2px 4px;
 }
 .hexxen.dice-roll .roll.dh,

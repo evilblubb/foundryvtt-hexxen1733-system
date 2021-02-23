@@ -130,26 +130,30 @@ class HexxenRollHelper {
   }
 
   static pimpChatMessage(data, options, userId) {
-    if (data.content && typeof(data.content) === 'string') {
+    if (data.content && typeof(data.content) === 'string' && data.content.indexOf('inline-result') !== -1) {
       let html = document.createElement('div');
       html.innerHTML = data.content;
       html = $(html);
-      const el = html.find('.inline-result:not(.hexxen)');
-      if (el.length > 0) {
-        const promise = HexxenRoll.renderTotal(HexxenRollResult.fromResult(html.text()));
-        promise.then(
-          (total) => {
-            total = `<i class="fas fa-dice-one"></i>&nbsp;${total}`;
-            el.html(total).addClass('hexxen');
+      const result = html.find('.inline-result:not(.hexxen)');
+      if (result.length > 0) {
+        const promises = [];
+        result.each((index, el) => {
+          promises.push(HexxenRoll.renderTotal(HexxenRollResult.fromResult($(el).text())));
+        });
+        Promise.all(promises).then(
+          (totals) => {
+            result.each((index, el) => {
+              const total = `<i class="fas fa-dice-three"></i>&nbsp;${totals[index]}`;
+              $(el).html(total).addClass('hexxen');
+            });
             data.content = html.html();
             ChatMessage.create(data, options);
           },
           (reason) => {
-            console.log(reason);
+            console.error(reason);
             ChatMessage.create(data, options);
           }
         );
-
         return false;
       }
     }
@@ -433,7 +437,7 @@ class HexxenRollResult {
       p = p.substr(1, p.length-2);
       let cnt = parseInt(p) || 1;
       let sym = p.length > 1 ? p.charAt(p.length-1) : p;
-      r[sym] ||= 0;
+      r[sym] = r[sym] || 0;
       r[sym] += cnt;
       return r;
     }, {});

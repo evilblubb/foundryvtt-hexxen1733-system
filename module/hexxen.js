@@ -20,7 +20,7 @@ Hooks.once("init", () => {
   // Inject system logo and register listener to show an About dialog
   HexxenLogo.inject();
 
-  CONFIG.Hexxen ||= {};
+  CONFIG.Hexxen = CONFIG.Hexxen || {};
 
 	// Define custom classes
   CONFIG.Actor.entityClass = HexxenActor;
