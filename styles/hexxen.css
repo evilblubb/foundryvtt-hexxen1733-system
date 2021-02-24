@@ -183,6 +183,15 @@ img#hexxen-logo {
 .hexxen .editor p:last-of-type {
   margin-bottom: 1px;
 }
+.hexxen .dice-formula {
+  border: unset;
+  box-shadow: unset;
+  background: unset;
+}
+.hexxen .dice-formula + .hexxen.dice-tooltip {
+  border-top: 1px solid #999;
+  padding-top: 3px;
+}
 .hexxen.hex-prompt,
 .hexxen.hex-roll,
 .hexxen.hex-chat,
@@ -219,14 +228,13 @@ img#hexxen-logo {
   border-radius: 15%;
 }
 .hexxen.dice-roll .dice-formula img {
-  width: 24px;
-  height: 24px;
+  width: 32px;
+  height: 32px;
   vertical-align: -7px;
   border: 1px solid transparent;
   border-radius: 15%;
   margin-left: 2px;
 }
-.hexxen.dice-roll .part-formula img,
 .hexxen.dice-tooltip .part-formula img {
   width: 20px;
   height: 20px;
@@ -249,7 +257,8 @@ img#hexxen-logo {
 .hexxen.inline-result .dice-subtotal {
   margin: 0 2px;
 }
-.hexxen.dice-roll .dice-total .dice-subtotal {
+.hexxen.dice-roll .dice-total .dice-subtotal,
+.hexxen .dice-formula .part-formula {
   margin: 0 5px;
 }
 
