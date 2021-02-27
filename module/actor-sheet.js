@@ -8,6 +8,17 @@
 class HexxenActorSheet extends ActorSheet {
 
   /** @override */
+	async _renderOuter(options) {
+    const outer = await super._renderOuter(options);
+    if (this.actor.type === 'character') { // FIXME: nur eigener Charakter? // TODO: andere Decorations
+      const html = $(outer);
+      html.prepend($('<div class="deco-header"><div class="header-decoration"></div></div>'));
+      html.find('.deco-header').append(html.find('.window-header').detach());
+    }
+    return outer;
+  }
+
+  /** @override */
   _getHeaderButtons() {
     let buttons = super._getHeaderButtons();
 

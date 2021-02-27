@@ -317,6 +317,28 @@ img#hexxen-logo {
   right: 7px;
 }
 
+.hexxen.sheet .deco-header {
+  flex: 0 0 30px;
+  position: relative;
+}
+.hexxen.sheet .deco-header .header-decoration {
+  position: absolute;
+  top: -196px;
+  width: 100%;
+  height: 400px;
+  z-index: 10;
+  background-image: url("/systems/hexxen-1733/img/sheet_decoration_crow.png");
+  background-position: center;
+  background-size: 50%;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+.hexxen.sheet .deco-header .window-header {
+  position: absolute;
+  width: 100%;
+  height: 30px;
+  z-index: 20;
+}
 .hexxen.sheet .window-content {
   height: 100%;
   padding: 0px;
@@ -333,6 +355,8 @@ img#hexxen-logo {
 }
 
 .hexxen.sheet .sheet-header {
+  position: relative;
+  z-index: 15;
   display: grid;
   text-align: center;
   padding: 8px;
