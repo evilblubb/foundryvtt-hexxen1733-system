@@ -523,7 +523,9 @@ class HexxenTerm extends DiceTerm {
 
   static getDiceImage() {
     const imgPath = this.path;
-    const img = this.IMGS[this.DICE_IMG];
+    let img = this.DICE_IMG;
+    if (typeof(img) === 'string') return `/systems/hexxen-1733/img/resources/${img}`; // FIXME: coins
+    img = this.IMGS[this.DICE_IMG];
     if (!img) throw 'Für Würfel {dice} ist kein Bild definiert!'; // TODO: i18n
     return `${imgPath}/${img}`;
   }
@@ -810,12 +812,18 @@ class HexxenRoll extends Roll {
   }
 
   renderDice(formula) {
-    return formula.replace(/(dh\w)/g, (match, p1, offset, string) => { // FIXME: ResourceCoins??
-      const cls = HexxenTerm.findClassByTerm(p1);
-      if (HexxenTerm.isPrototypeOf(cls)) return `<img src="${cls.getDiceImage()}" title="${cls.name}" />`; // FIXME: i18n label
-
-      return `[${p1}]`;
-    });
+    return formula
+      .replaceAll(' + ', '%%+%%')
+      .replace(/(dh\w)/g, (match, p1, offset, string) => { // FIXME: ResourceCoins??
+        const cls = HexxenTerm.findClassByTerm(p1);
+        if (HexxenTerm.isPrototypeOf(cls)) {
+          return `<img src="${cls.getDiceImage()}" title="${cls.name}" />`; // FIXME: i18n label
+        }
+        else return `[${p1}]`;
+      })
+      .split('%%+%%')
+      .map(part => { return `<span class="part-formula">${part}</span>`; })
+      .join('');
   }
 
   renderTotal(total, semiTotal=false, totalize=true) {
@@ -877,7 +885,8 @@ class HexxenDie extends HexxenDiceTerm {
   static LABELS = ['*', '', '', '', '+', '+'];
   /** @override */
   static IMGS = ['hesprit.png', 'hblank.png', 'hblank.png', 'hblank.png', 'herfolg.png', 'herfolg.png'];
-  static DICE_IMG = 5;
+  static DICE_IMG = 'player_dice_icon.png';
+  // static DICE_IMG = 5;
 }
 
 class GamemasterDie extends HexxenDiceTerm {
@@ -887,7 +896,8 @@ class GamemasterDie extends HexxenDiceTerm {
   static LABELS = ['', '', '', '+', '+', '+'];
   /** @override */
   static IMGS = ['gmblank.png', 'gmblank.png', 'gmblank.png', 'gmerfolg.png', 'gmerfolg.png', 'gmerfolg.png'];
-  static DICE_IMG = 5;
+  static DICE_IMG = 'gm_dice_icon.png';
+  // static DICE_IMG = 5;
 }
 
 class JanusBonusDie extends HexxenDiceTerm {
@@ -897,7 +907,8 @@ class JanusBonusDie extends HexxenDiceTerm {
   static LABELS = ['', '', '', '+', '+', '+'];
   /** @override */
   static IMGS = ['jbblank.png', 'jbblank.png', 'jbblank.png', 'jbdoppelkopf.png', 'jbdoppelkopf.png', 'jbdoppelkopf.png'];
-  static DICE_IMG = 5;
+  static DICE_IMG = 'janus_bonus_dice_icon.png';
+  // static DICE_IMG = 5;
 }
 
 class JanusMalusDie extends HexxenDiceTerm {
@@ -907,7 +918,8 @@ class JanusMalusDie extends HexxenDiceTerm {
   static LABELS = ['', '', '', '-', '-', '-'];
   /** @override */
   static IMGS = ['jmblank.png', 'jmblank.png', 'jmblank.png', 'jmdoppelkopf.png', 'jmdoppelkopf.png', 'jmdoppelkopf.png'];
-  static DICE_IMG = 5;
+  static DICE_IMG = 'janus_malus_dice_icon.png';
+  // static DICE_IMG = 5;
 }
 
 class SegnungsDie extends HexxenDiceTerm {
@@ -917,7 +929,8 @@ class SegnungsDie extends HexxenDiceTerm {
   static LABELS = ['*', '*', '', '+', '+', '++'];
   /** @override */
   static IMGS = ['sesprit.png', 'sesprit.png', 'sblank.png', 'serfolg.png', 'serfolg.png', 'sdoppelerfolg.png'];
-  static DICE_IMG = 5;
+  static DICE_IMG = 'blessing_dice_icon.png';
+  // static DICE_IMG = 5;
 }
 
 class BlutDie extends HexxenDiceTerm {
@@ -927,7 +940,8 @@ class BlutDie extends HexxenDiceTerm {
   static LABELS = ['', 'b', 'b', 'bb', 'bb', 'bbb'];
   /** @override */
   static IMGS = ['bblank.png', 'beins.png', 'beins.png', 'bzwei.png', 'bzwei.png', 'bdrei.png'];
-  static DICE_IMG = 2;
+  static DICE_IMG = 'blood_dice_icon.png';
+  // static DICE_IMG = 2;
 }
 
 class ElixierDie extends HexxenDiceTerm {
@@ -937,7 +951,8 @@ class ElixierDie extends HexxenDiceTerm {
   static LABELS = ['1e', '2e', '3e', '4e', '5e', '3e'];
   /** @override */
   static IMGS = ['eeins.png', 'ezwei.png', 'edrei.png', 'evier.png', 'efuenf.png', 'edrei.png'];
-  static DICE_IMG = 0;
+  static DICE_IMG = 'elixir_dice_icon.png';
+  // static DICE_IMG = 0;
 }
 
 class FluchDie extends HexxenDiceTerm {
@@ -947,7 +962,8 @@ class FluchDie extends HexxenDiceTerm {
   static LABELS = ['1f', '2f', '3f', '4f', '5f', '3f'];
   /** @override */
   static IMGS = ['feins.png', 'fzwei.png', 'fdrei.png', 'fvier.png', 'ffuenf.png', 'fdrei.png'];
-  static DICE_IMG = 0;
+  static DICE_IMG = 'elixir_dice_icon.png';
+  // static DICE_IMG = 0;
 }
 
 class ImminenceCoin extends HexxenResourceTerm {

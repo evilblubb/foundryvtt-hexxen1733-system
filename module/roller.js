@@ -100,15 +100,15 @@ class HexxenRoller extends FormApplication {
       result.value = rolls;
       result.dice.h.count = rolls;
       result.label = combat.label;
-      if (combat.schaden) result.label += ` (SCH +${combat.schaden})`; // TODO: könnte sich mit modifier überschneiden
+      if (combat.schaden) result.label += ` (SCH +${combat.schaden})`; // FIXME: überschneidet sich mit modifier
     }
 
     if (modifier < 0) {
-      result.label += modifier;
+      result.label += ` - ${Math.abs(modifier)}`;
       result.dice['-'].count -= modifier; // require positive count
     }
     else if (modifier > 0) {
-      result.label += `+${modifier}`;
+      result.label += ` + ${modifier}`;
       result.dice['+'].count += modifier;
     }
 

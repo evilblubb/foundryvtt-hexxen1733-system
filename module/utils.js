@@ -302,26 +302,28 @@ class HexxenSpecialCommandHelper {
       if ("/hex " === command) {
         // split formula
         const parts = HexxenRollHelper.splitHints(formula);
-        const sign = (parts.modifier && parts.modifier?.startsWith('-')) ? '+' : ''; // FIXME: doppeltes +
+        const modifier = Number(parts.modifier) || '';
+        const sign = modifier ? (modifier < 0 ? ' - ' : ' + ') : '';
         const s = document.createElement('span');
         s.innerHTML = `${parts.flavour ? parts.flavour + ': ' : ''}`;
         const a = document.createElement('a');
         a.classList.add('hexxen', 'hex-roll');
         a.title = 'Würfeln';
         a.dataset.message = formula;
-        a.innerHTML = `<i class="fas fa-dice"></i> ${parts.nameOrFormula}${sign}${parts.modifier || ''}`;
+        a.innerHTML = `<i class="fas fa-dice"></i> ${parts.nameOrFormula}${sign}${modifier ? Math.abs(modifier) : ''}`;
         s.appendChild(a);
         return s;
       }
       else if ("/hp " === command) {
         // split formula
         const parts = HexxenRollHelper.splitHints(formula);
-        const sign = (parts.modifier && !parts.modifier?.startsWith('-')) ? '+' : ''; // FIXME: doppeltes +
+        const modifier = Number(parts.modifier) || '';
+        const sign = modifier ? (modifier < 0 ? ' - ' : ' + ') : '';
         const a = document.createElement('a');
         a.classList.add('hexxen', 'hex-prompt');
         a.title = 'Im Chat anzeigen';
         a.dataset.message = formula;
-        a.innerHTML = `<i class="fas fa-comments"></i> ${parts.flavour ? parts.flavour + ': ' : ''}<i class="fas fa-dice"></i> ${parts.nameOrFormula}${sign}${parts.modifier || ''}`;
+        a.innerHTML = `<i class="fas fa-comments"></i> ${parts.flavour ? parts.flavour + ': ' : ''}<i class="fas fa-dice"></i> ${parts.nameOrFormula}${sign}${modifier ? Math.abs(modifier) : ''}`;
         return a;
       }
       else if ("/hc " === command) {
