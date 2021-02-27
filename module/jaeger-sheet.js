@@ -11,7 +11,7 @@ class JaegerSheet extends HexxenActorSheet {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["hexxen", "sheet", "actor", "jaeger"],
-      template: Hexxen.basepath + "templates/jaeger-sheet.html",
+      template: `${Hexxen.basepath}/templates/jaeger-sheet.html`,
       width: 700,
       height: 720,
       tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "skills"}],
@@ -168,6 +168,7 @@ class JaegerSheet extends HexxenActorSheet {
       skill.summe = Number(skill.value) + Number(value);
       skill.label += extra;
     }
+    // TODO: Waffenfertigkeiten ggf. nach equipped sortieren
 
     // TODO: data.items filtern, sobald alle anderen subtypen abgehandelt
     out.actor.powers = out.actor.items.filter(i => { return "power" === i.type; });

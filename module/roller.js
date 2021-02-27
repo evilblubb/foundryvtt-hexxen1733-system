@@ -6,125 +6,6 @@
  */
 
 /**
- * TODO: doc
- */
-class HexxenRollHelper {
-
-  static checkSystemReqirements() {
-    // special-dice-roller
-    const foundry = game.data.version;
-    const sdr = game.modules.get("special-dice-roller");
-    if (sdr && sdr.active) {
-      const version = sdr.data.version;
-      // Foundry 0.6.5 and higher --> 0.11.2 or higher
-      if (isNewerVersion(foundry, "0.6.4") && !isNewerVersion(version, "0.11.1")) {
-        if (game.user.isGM) {
-          ui.notifications.error("Kein kompatibles Würfeltool gefunden! Seit \"Foundry 0.6.5\" wird mindestens Version \"0.11.2\" des Add-On \"special-dice-roller\" benötigt.",
-                                  {permanent: true});
-        }
-        return;
-      }
-      // Foundry up to 0.6.4 --> 0.11.0 or higher
-      else {
-        if (!isNewerVersion(version, "0.11")) { // 0.11.0 is newer than 0.11
-          if (game.user.isGM) {
-            ui.notifications.error("Kein kompatibles Würfeltool gefunden! Es wird mindestens Version \"0.11.0\" des Add-On \"special-dice-roller\" benötigt.",
-                                    {permanent: true});
-          }
-          return;
-        }
-      }
-
-      this.delegate = HexxenSpecialDiceRollerHelper;
-    } else if (false) {
-      // TODO: dice-so-nice??
-    } else {
-      if (game.user.isGM) {
-        ui.notifications.error("Kein kompatibles Würfeltool gefunden! Stellen Sie sicher, dass das Add-On \"special-dice-roller\" installiert und in der Welt aktiviert ist.",
-                                {permanent: true});
-      }
-    }
-  }
-
-  static createMacro(hotbar, data, slot) {
-    if (data.type === 'HexxenRoll') {
-      data.type = 'Macro';
-      data.data = {
-        name: data.data.key,
-        type: 'script',
-        command: `HexxenRollHelper.roll('${data.actorId}', { event: window.event, type: '${data.data.type}', key: '${data.data.key}', prompt: false });`
-      }
-    }
-  }
-
-  static roll(actorId, hints={}) {
-    const actor = game.actors.get(actorId);
-    // FIXME: if (actor) und andere Prüfungen
-    // TODO: Tunnelung durch HexxenRoller ersetzen
-    const ev = hints.event;
-    if (ev && ev.type === 'click') {
-      hints.prompt = hints.prompt || ev.shiftKey || ev.ctrlKey;
-    }
-    const roller = new HexxenRoller(actor, {}, hints);
-    if (hints.prompt === true) {
-      roller.render(true);
-    }
-    else {
-      roller.roll();
-    }
-  }
-
-  static rollToChat(actor, roll={}, flavour=null, options={}) {
-    if (!this.delegate) {
-      ui.notifications.error("Kein kompatibles Würfeltool gefunden!");
-      return false;
-    }
-    // TODO: Umleitung über WürfelTool-Dialog implementieren (options.showDialog: true)
-    return this.delegate._rollToChat(actor, roll, flavour, options);
-  }
-}
-
-class HexxenSpecialDiceRollerHelper extends HexxenRollHelper {
-
-  static _rollToChat(actor, roll={}, flavour=null, options={}) {
-    const roller = game.specialDiceRoller.heXXen;
-
-    let empty = true;
-    let command = "/hex ";
-    if ("string" === typeof(roll)) {
-      empty = false;
-      command += roll;
-    } else if ("object" === typeof(roll)) {
-      for ( let die of Object.keys(roll) ) {
-        let count = roll[die];
-        if ( count > 0 ) {
-          empty = false;
-          command += count;
-          command += die;
-        }
-      }
-    }
-
-    if (empty) return false;
-
-    if (flavour) {
-      command += ` # ${flavour}`;
-    }
-
-    const speaker = ChatMessage.getSpeaker({actor: actor, token: actor ? actor.token : undefined});
-    const message = roller.rollCommand(command);
-
-    if (actor) {
-      ChatMessage.create( { speaker: speaker, content: message } );
-    } else {
-      ChatMessage.create( { content: message } );
-    }
-
-    return {}; // TODO: result und chatId zurückgeben
-  }
-}
-
-/**
  * HeXXen Roller Application
  * @type {FormApplication}
  * @param entity {Entity}      The Entity object for which the sheet is being configured
@@ -144,7 +25,7 @@ class HexxenRoller extends FormApplication {
     return mergeObject(super.defaultOptions, {
       classes: ["hexxen", "roller"],
       id: "roller",
-      template: Hexxen.basepath + "templates/roller.html",
+      template: `${Hexxen.basepath}/templates/roller.html`,
       width: 300,
     });
   }
@@ -176,6 +57,7 @@ class HexxenRoller extends FormApplication {
 
     let type = this.hints.type;
     let key = this.hints.key;
+    let modifier = Number(this.hints.modifier) || 0;
     data.manual = key ? false : true;
 
     let result = {};
@@ -218,7 +100,16 @@ class HexxenRoller extends FormApplication {
       result.value = rolls;
       result.dice.h.count = rolls;
       result.label = combat.label;
-      if (combat.schaden) result.label += ` (SCH +${combat.schaden})`;
+      if (combat.schaden) result.label += ` (SCH +${combat.schaden})`; // FIXME: überschneidet sich mit modifier
+    }
+
+    if (modifier < 0) {
+      result.label += ` - ${Math.abs(modifier)}`;
+      result.dice['-'].count -= modifier; // require positive count
+    }
+    else if (modifier > 0) {
+      result.label += ` + ${modifier}`;
+      result.dice['+'].count += modifier;
     }
 
     return data;
@@ -274,7 +165,8 @@ class HexxenRoller extends FormApplication {
     for ( let key of Object.keys(formData) ) {
       if ( key.startsWith("dice.") ) {
         const die = key.substr(5);
-        const count = formData[key];
+        // TODO: Workaround für negative Zähler
+        const count = Math.abs(formData[key]);
         roll[die] = count;
       }
     }
@@ -308,7 +200,8 @@ class HexxenRoller extends FormApplication {
     const data = this.getData();
     const roll = {};
     for ( let die of Object.keys(data.data.dice) ) {
-      const count = data.data.dice[die].count;
+      // TODO: Workaround für negative Zähler
+      const count = Math.abs(data.data.dice[die].count);
       roll[die] = count;
     }
     HexxenRollHelper.rollToChat(this.object, roll, data.data.label);
