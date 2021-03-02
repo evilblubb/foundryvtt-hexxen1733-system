@@ -1,21 +1,58 @@
-﻿<form class="{{cssClass}}" autocomplete="off">
+{{#*inline "input"}}
+{{! example: >input id="languages" class="foo" target="data.languages" content=data.languages}}
+{{#if log}}
+{{log "root:" @root
+    "this:" @this
+    "editMode:" @root.editMode}}
+{{/if}}
+{{#unless @root.locked}}
+<input {{#if id}} id="{{id}}" {{/if}}
+    class="{{#if (isDefined class)}}{{class}} {{/if}}value"
+    type="text"
+    name="{{#if base-target}}{{base-target}}.{{/if}}{{target}}{{#if (isDefined content.value)}}.value{{/if}}"
+    value="{{#if (isDefined content.value)}}{{content.value}}{{else}}{{content}}{{/if}}"
+    {{! TODO: dtype besser lösen }}
+    {{#if content.dtype}}data-dtype="{{content.dtype}}"{{/if}}
+    {{#if dtype}}data-dtype="{{dtype}}"{{/if}}
+    {{#if placeholder}}placeholder="{{placeholder}}"{{/if}} />
+{{else}}
+<span class="{{#if (isDefined class)}}{{class}} {{/if}}value">
+    {{~#if html ~}}
+    {{#if (isDefined content.value)}}{{{content.value}}}{{else}}{{{content}}}{{/if}}
+    {{~else~}}
+    {{#if (isDefined content.value)}}{{content.value}}{{else}}{{content}}{{/if}}
+    {{~/if~}}
+</span>
+{{/unless}}
+{{/inline}}
+
+<form class="{{cssClass}}" autocomplete="off">
     <header class="sheet-header">
-        <img class="type-img" src="{{img}}" title="{{type}}"/>
+        <img class="type-img" src="{{img}}" {{#unless locked}}data-edit="img"{{/unless}} title="{{type}}"/>
         <h1 class="name">
-            <div class="value value-box">{{name}}</div>
+            {{>input class="value-box" target="name" content=name placeholder="Name"}}
         </h1>
         <div class="refs flexrow">
             <div class="origin">{{origin}}</div>
             <div class="sources">
-                [ Quelle(n):
+                [ {{#if custom}}Custom{{/if~}}
+                {{#if (and custom item.data.references)}} | {{/if~}}
+                {{#if item.data.references ~}}
+                Quelle(n):
                 {{#each item.data.references}}
-                <span class="source">
-                    {{#if this.link}}<a href="{{this.link}}">{{/if
-                    }}{{this.source}}{{#if this.page}}, Seite {{this.page}}{{/if
-                    }}{{#if this.link}}</a>{{/if}}
-                </span>
-                {{#unless @last}} | {{/unless}}
+                {{#unless @root.locked}}
+                    {{!-- ACHTUNG: innerhalb #each! Geänderter Kontext! --}}
+                    {{>input class="value-box" target="data.references.0.source" content=source placeholder="Quelle"}}
+                {{else}}
+                    <span class="source">
+                        {{#if this.link}}<a href="{{this.link}}">{{/if
+                        }}{{this.source}}{{#if this.page}}, Seite {{this.page}}{{/if
+                        }}{{#if this.link}}</a>{{/if}}
+                    </span>
+                    {{#unless @last}} | {{/unless}}
+                {{/unless}}
                 {{/each}}
+                {{/if}}
                 ]
             </div>
         </div>
@@ -41,8 +78,7 @@
         {{#if data.features}}
         <a class="item" data-tab="features"><div class="item-bg">Effekte</div></a>
         {{/if}}
-        <!--<a class="item" data-tab="extras"><div class="item-bg">Extras</div></a>-->
-        <!--<a class="item" data-tab="rules"><div class="item-bg">Regeln</div></a>-->
+        <a class="item rules-tab" data-tab="rules"><div class="item-bg"><i class="fas fa-cogs"></i></div></a>
     </nav>
 
     {{!-- Sheet Body --}}
@@ -59,48 +95,57 @@
             {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
 
             <div class="extras">
-                {{#if (isDefined data.qualification)}}
+                {{#if (or (not locked) data.qualification)}}
+                {{!-- TODO: nur bei Professionen? --}}
                 <label class="label" for="qualification">Voraussetzung:</label>
-                <div id="qualification" class="qualification">{{data.qualification}}</div>
+                <div id="qualification" class="qualification">{{>input target="data.qualification" content=data.qualification}}</div>
                 {{/if}}
-                {{#if (isDefined data.create)}}
+                {{#if (or (not locked) data.create)}}
                 <label class="label" for="create">
-                    Startausrüstung
-                    <i class="fas fa-info-circle" title="Nur für Rolle №1 oder wenn bei Erstellung gelernt."></i>:
+                    Startausrüstung:
+                    <i class="fas fa-info-circle" title="Nur für Rolle №1 oder wenn bei Erstellung gelernt."></i>
                 </label>
                 <div id="create" class="create">
                     {{!-- create might contain HTML-Markup, therefore tripple {} --}}
-                    {{{data.create}}}<br>
+                    {{>input target="data.create" content=data.create html=true log=true ~}}<br>
+                    {{#if (not locked) ~}}
+                    <span class="hint">(Kann Compendium Links enthalten.)</span>
+                    {{else~}}
+                    {{!-- TODO: nur anzeigen, falls auch Gegenstände enthalten --}}
                     <span class="hint">(Zum Ausrüsten den Gegenstand auf den Charakterbogen ziehen.)</span>
+                    {{/if}}
                 </div>
                 {{/if}}
-                {{#if (isDefined data.upkeep)}}
+                {{#if (or (not locked) data.upkeep)}}
                 <label class="label" for="upkeep">Unterhalt:</label>
-                <div id="upkeep" class="upkeep">{{data.upkeep}} Gulden</div>
+                <div id="upkeep" class="upkeep">{{>input class="short" target="data.upkeep" content=data.upkeep}} Gulden</div>
                 {{/if}}
 
                 {{!-- Ab hier für NSC-Kräfte --}}
-                {{#if (isDefined data.target)}}
-                <label class="label" for="target">Ziel:</label>
-                <div id="target" class="target">{{data.target}}</div>
-                {{/if}}
-                {{#if (isDefined data.cost)}}
-                <label class="label" for="cost">Kosten:</label>
-                <div id="cost" class="cost">{{data.cost}}</div>
-                {{/if}}
-                {{#if (isDefined data.syntax)}}
-                <label class="label" for="syntax">Syntax:</label>
-                <div id="syntax" class="syntax">{{data.syntax}}</div>
+                {{#if (isNSC item.type)}}
+                    {{#if (isDefined data.target)}}
+                    <label class="label" for="target">Ziel:</label>
+                    <div id="target" class="target">{{data.target}}</div>
+                    {{/if}}
+                    {{#if (isDefined data.cost)}}
+                    <label class="label" for="cost">Kosten:</label>
+                    <div id="cost" class="cost">{{data.cost}}</div>
+                    {{/if}}
+                    {{#if (isDefined data.syntax)}}
+                    <label class="label" for="syntax">Syntax:</label>
+                    <div id="syntax" class="syntax">{{data.syntax}}</div>
+                    {{/if}}
                 {{/if}}
             </div>
 
-            {{#if (isDefined data.summary)}}
+            {{!-- FIXME: muss das irgendwo verborgen werden?? --}}
+            {{! #if (isDefined data.summary)}}
             <header class="block-header">
-                Zusammenfassung für Charakterbogen
+                Zusammenfassung für den Charakterbogen
                 <i class="fas fa-info-circle" title="Ist eine Zusammenfassung vorhanden, so wird diese anstelle der Beschreibung im Charkterbogen angezeigt."></i>
             </header>
             {{editor content=data.summary target="data.summary" button=true owner=owner editable=editable}}
-            {{/if}}
+            {{! /if}}
 
             {{!-- TODO: tags --}}
             <div class="last"> </div>
@@ -175,14 +220,16 @@
             {{#each features.M}}
             <div class="feature meister">{{>entity-link this}}</div>
             {{/each}}
-        </div>
 
-        {{!-- Extras Tab --}}
-        <div class="tab extras" data-group="primary" data-tab="extras">
+            <div class="last"> </div>
         </div>
 
         {{!-- Rules Tab --}}
         <div class="tab rules" data-group="primary" data-tab="rules">
+            <header class="block-header">Automatisierungsregeln</header>
+            <header class="block-header">Aktive Effekte</header>
+
+            <div class="last"> </div>
         </div>
 
     </section>

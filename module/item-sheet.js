@@ -5,6 +5,39 @@
  * Software License: GNU GPLv3
  */
 
+
+class HexxenItemSheet extends ItemSheet {
+
+  get editMode() {
+    return this.actor?.getFlag(Hexxen.scope, "editMode") || false;
+  }
+
+  get custom() {
+    return this.item.getFlag(Hexxen.scope, "custom") || false;
+  }
+
+  /** @override */
+  getData() {
+    const data = super.getData();
+    data.custom = this.custom;
+    data.editMode = this.editMode;
+    data.locked = !data.editMode || !data.custom;
+    data.cssClass = ((data.cssClass || '') + (data.locked ? ' locked' : '')).trim();
+
+    return data;
+  }
+
+  /** @override */
+  setPosition(options={}) {
+    // TODO: nach HexxenItemSheet verschieben (Mixin? - ActorSheet)
+    // IMPORTANT: when used with Popout-Addon, position might not contain the correct dimensions!
+    const position = super.setPosition(options);
+    HexxenDOMHelper.calcSheetBodyHeight(this.element);
+    return position;
+  }
+}
+
+
 /**
  * Extend the basic ItemSheet with some very simple modifications
  * @extends {ItemSheet}

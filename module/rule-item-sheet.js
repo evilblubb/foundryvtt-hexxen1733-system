@@ -9,7 +9,7 @@
  * Extend the basic ItemSheet with some very simple modifications
  * @extends {ItemSheet}
  */
-class RuleItemSheet extends ItemSheet {
+class RuleItemSheet extends HexxenItemSheet {
 
   constructor(...args) {
     super(...args);
@@ -43,15 +43,6 @@ class RuleItemSheet extends ItemSheet {
     // Falls Tweak: this.actor ist nicht allgemein verfügbar!
     const prefix = this.compendium ? "[Compendium] " : (!this.actor ? "[World] " : "");
     return `${prefix}${super.title}`;
-  }
-
-  /** @override */
-  setPosition(options={}) {
-    // TODO: nach HexxenItemSheet verschieben (Mixin? - ActorSheet)
-    // IMPORTANT: when used with Popout-Addon, position might not contain the correct dimensions!
-    const position = super.setPosition(options);
-    HexxenDOMHelper.calcSheetBodyHeight(this.element);
-    return position;
   }
 
   /* -------------------------------------------- */
@@ -120,7 +111,6 @@ class RuleItemSheet extends ItemSheet {
     data.warnings.deprecated = this.item.getFlag(Hexxen.scope, "deprecated");
     data.warnings.bad = this.item.getFlag(Hexxen.scope, "badCompendiumId");
     data.warnings.update = this.item.getFlag(Hexxen.scope, "update");
-    // const custom = this.item.getFlag(Hexxen.scope, "custom");
     // const modified = this.item.getFlag(Hexxen.scope, "modified");
     if (!data.warnings.deprecated && !data.warnings.bad && !data.warnings.update) delete data.warnings;
 
@@ -247,6 +237,14 @@ class RuleItemSheet extends ItemSheet {
 
     // TODO: name Updates behandeln, falls Änderung erlaubt
     // TODO: img ändern, falls erlaubt
+
+    // TODO: rewrite von Array Inhalt Änderungen automatisieren
+    if (formData['data.references.0.source']) {
+      const org = duplicate(this.item.data.data.references);
+      org[0].source = formData['data.references.0.source'];
+      formData['data.references'] = org;
+      delete formData['data.references.0.source'];
+    }
 
     if ("motivation" === this.item.data.type) {
 

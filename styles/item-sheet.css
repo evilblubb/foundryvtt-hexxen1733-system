@@ -18,6 +18,7 @@
 }
 .hexxen.sheet.rule .sheet-header .type-img {
   grid-area: img;
+  align-self: start; /* align image to the top-left corner */
   border: none;
   margin-right: unset;
 }
@@ -26,12 +27,17 @@
   overflow: hidden;
 }
 .hexxen.sheet.rule .sheet-header .name .value-box {
+  display: block;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 .hexxen.sheet.rule .sheet-header .refs {
   grid-area: ref;
   flex-wrap: wrap;
+  min-height: 18px; /* consume the free pixel difference between col1/row1+2 and col2/row1+2 */
+}
+.hexxen.sheet.rule .sheet-header .refs input {
+  width: 150px;
 }
 .hexxen.sheet.rule .sheet-header .origin {
   flex: unset;
@@ -44,6 +50,7 @@
   text-align: right;
   font-size: 0.8em;
   color: var(--hexxen-hint-color);
+  margin-top: auto; /* consume free height on top border */
 }
 .hexxen.sheet.rule .sheet-header .warnings {
   grid-area: warnings;
@@ -54,11 +61,11 @@
   white-space: normal;
 }
 /** TODO: Workaround, da Editierbarkeit des Editor nicht direkt erkennbar */
-.hexxen.sheet.rule .tab.description .editor:first-of-type {
+.hexxen.sheet.rule form.locked .tab.description .editor:first-of-type {
   background: var(--hexxen-value-span-bgcolor);
 }
 /** TODO: Workaround für Problem mit editable=false bei Editor */
-.hexxen.sheet.rule .editor:hover .editor-content[data-edit="data.description"] + .editor-edit {
+.hexxen.sheet.rule form.locked .editor:hover .editor-content[data-edit="data.description"] + .editor-edit {
   display: none;
 }
 .hexxen.sheet.rule .extras {
@@ -67,10 +74,16 @@
   grid-gap: 0px 6px;
   margin: 0px 6px;
 }
+.hexxen.sheet.rule form:not(.locked) .extras {
+  grid-gap: 2px 6px;
+}
 .hexxen.sheet.rule .extras .label {
   min-width: 100px;
   white-space: nowrap;
   color: var(--hexxen-label-color);
+}
+.hexxen.sheet.rule form:not(.locked) .extras .label {
+  padding-top: 3px;
 }
 .hexxen.sheet.rule .extras .label i.fa-info-circle {
   color: #666;

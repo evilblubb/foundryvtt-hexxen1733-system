@@ -159,6 +159,9 @@ img#hexxen-logo {
   color: var(--hexxen-input-placeholder-color);
   opacity: 1;
 }
+.hexxen input.short {
+  max-width: 100px;
+}
 
 .hexxen .editor {
   min-height: 100px;
@@ -367,7 +370,8 @@ img#hexxen-logo {
   margin: unset;
   width: 100%;
 }
-.hexxen.sheet div.value.value-box {
+.hexxen.sheet div.value.value-box,
+.hexxen.sheet span.value.value-box {
   border-bottom: var(--hexxen-value-span-border);
   background-color: var(--hexxen-value-span-bgcolor);
   border-radius: 2px;
@@ -379,13 +383,16 @@ img#hexxen-logo {
   background: var(--hexxen-nav-bgcolor);
   border-top: var(--hexxen-nav-border);
   border-bottom: var(--hexxen-nav-border);
-  padding: 0px 10px;
+  padding: 0px 20px;
   margin: unset;
 }
 .hexxen.sheet .tabs .item {
   font-size: 1.15em;
   line-height: 39px;
   font-weight: bold;
+}
+.hexxen.sheet .tabs .item.rules-tab {
+  flex: 0 0 60px;
 }
 .hexxen.sheet .tabs .item.active .item-bg {
   background-color: var(--hexxen-nav-active-bgcolor);

@@ -8,11 +8,19 @@
 class HexxenHandlebarsHelper {
 
   static registerHelpers() {
+    Handlebars.registerHelper('not', this._not);
     Handlebars.registerHelper('isDefined', this._isDefined);
+    Handlebars.registerHelper('hasContent', this._hasContent);
+    Handlebars.registerHelper('isNSC', this._isNSC);
     Handlebars.registerHelper('repeat', this._repeat);
 
     Handlebars.registerHelper("dyn-input", this._dynInput); // TODO: Helper vs. Partial (jaeger-sheet.html)
     Handlebars.registerHelper("inc-btn", this._incButton);
+  }
+
+  static _not(value) {
+    // Caution: in case of (isDefined foo.bar): if foo === null --> value === null
+    return !value;
   }
 
   /**
@@ -22,6 +30,15 @@ class HexxenHandlebarsHelper {
   static _isDefined(value) {
     // Caution: in case of (isDefined foo.bar): if foo === null --> value === null
     return value !== undefined && value !== null;
+  }
+
+  static _hasContent(value) {
+    // Caution: in case of (isDefined foo.bar): if foo === null --> value === null
+    return value !== undefined && value !== null;
+  }
+
+  static _isNSC(value) {
+    return ['npc-power'].includes(value);
   }
 
   /**
