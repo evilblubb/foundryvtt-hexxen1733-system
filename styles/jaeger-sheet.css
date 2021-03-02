@@ -212,6 +212,20 @@
 /* Tab items      */
 /******************/
 
+/******************/
+/* Tab rules      */
+/******************/
+.hexxen.jaeger .rules {
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 4px 10px !important;
+}
+.hexxen.jaeger .rules > * {
+  grid-column: 1 / span 2;
+}
+.hexxen.jaeger .rules .table {
+  grid-column: auto;
+}
+
 /************************************/
 /* !!! TODO: ALT !!! Common section */
 /************************************/

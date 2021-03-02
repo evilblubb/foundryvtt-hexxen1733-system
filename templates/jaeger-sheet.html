@@ -110,6 +110,7 @@
         <a class="item" data-tab="combat"><div class="item-bg">Kampf</div></a>
         <a class="item" data-tab="powers"><div class="item-bg">Jägerkräfte</div></a>
         <a class="item" data-tab="items"><div class="item-bg">Besitz</div></a>
+        <a class="item rules-tab" data-tab="rules"><div class="item-bg"><i class="fas fa-cogs"></i></div></a>
     </nav>
 
     {{!-- Sheet Body --}}
@@ -162,47 +163,6 @@
                     <label class="td label" for="vitiation">Verderbnis</label>
                     <div class="td flexrow vitiation">
                         {{>input id="vitiation" target="data.vitiation" content=data.vitiation}}
-                    </div>
-                </div>
-            </div>
-
-            {{>seperator}}
-
-            {{!-- TODO: Temporäre Eingabemöglichkeit. Wird später (falls nötig) durch Buffs ersetzt. --}}
-            <header class="block-header">Temporäre Eingabefelder für Boni</header>
-            <div class="table table-3">
-                <div class="tr">
-                    <label class="td label" for="lep-bonus">LEP Max</label>
-                    <div class="td flexcol">
-                        {{>input id="lep-bonus" target="data.temp.lep-bonus" content=data.temp.lep-bonus dtype="Number" }}
-                        <div class="hint allow-break">Hinweis: Unempfindlichkeit ist bereits berücksichtigt.</div>
-                    </div>
-                </div>
-                <div class="tr">
-                    <label class="td label" for="ini-bonus">Initiative</label>
-                    <div class="td flexcol">
-                        {{>input id="ini-bonus" target="data.temp.ini-bonus" content=data.temp.ini-bonus dtype="Number" }}
-                        <div class="hint allow-break">Hinweis: Reflexe ist bereits berücksichtigt.</div>
-                    </div>
-                </div>
-            </div>
-            <div class="table table-4">
-                <div class="tr">
-                    <label class="td label" for="idee-bonus">Ideen</label>
-                    <div class="td flexrow idee-bonus">
-                        {{>input id="idee-bonus" target="data.temp.idee-bonus" content=data.temp.idee-bonus dtype="Number" }}
-                    </div>
-                </div>
-                <div class="tr">
-                    <label class="td label" for="coup-bonus">Coups</label>
-                    <div class="td flexrow coup-bonus">
-                        {{>input id="coup-bonus" target="data.temp.coup-bonus" content=data.temp.coup-bonus dtype="Number" }}
-                    </div>
-                </div>
-                <div class="tr">
-                    <label class="td label" for="ap-bonus">Aktionspunkte</label>
-                    <div class="td flexrow ap-bonus">
-                        {{>input id="ap-bonus" target="data.temp.ap-bonus" content=data.temp.ap-bonus dtype="Number" }}
                     </div>
                 </div>
             </div>
@@ -510,6 +470,55 @@
             {{editor content=data.notes.items.editor target="data.notes.items.editor" button=true owner=owner editable=editable}}
 
             {{>seperator}}
+            <div class="last"> </div>
+        </div>
+
+        {{!-- Rules Tab --}}
+        <div class="tab rules" data-group="primary" data-tab="rules">
+            {{!-- TODO: Temporäre Eingabemöglichkeit. Wird später (falls nötig) durch Buffs ersetzt. --}}
+            <header class="block-header">Temporäre Eingabefelder für Boni</header>
+            <div class="table table-3">
+                <div class="tr">
+                    <label class="td label" for="lep-bonus">LEP Max</label>
+                    <div class="td flexcol">
+                        {{>input id="lep-bonus" target="data.temp.lep-bonus" content=data.temp.lep-bonus dtype="Number" }}
+                        <div class="hint allow-break">Hinweis: Unempfindlichkeit ist bereits berücksichtigt.</div>
+                    </div>
+                </div>
+                <div class="tr">
+                    <label class="td label" for="ini-bonus">Initiative</label>
+                    <div class="td flexcol">
+                        {{>input id="ini-bonus" target="data.temp.ini-bonus" content=data.temp.ini-bonus dtype="Number" }}
+                        <div class="hint allow-break">Hinweis: Reflexe ist bereits berücksichtigt.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="table table-4">
+                <div class="tr">
+                    <label class="td label" for="idee-bonus">Ideen</label>
+                    <div class="td flexrow idee-bonus">
+                        {{>input id="idee-bonus" target="data.temp.idee-bonus" content=data.temp.idee-bonus dtype="Number" }}
+                    </div>
+                </div>
+                <div class="tr">
+                    <label class="td label" for="coup-bonus">Coups</label>
+                    <div class="td flexrow coup-bonus">
+                        {{>input id="coup-bonus" target="data.temp.coup-bonus" content=data.temp.coup-bonus dtype="Number" }}
+                    </div>
+                </div>
+                <div class="tr">
+                    <label class="td label" for="ap-bonus">Aktionspunkte</label>
+                    <div class="td flexrow ap-bonus">
+                        {{>input id="ap-bonus" target="data.temp.ap-bonus" content=data.temp.ap-bonus dtype="Number" }}
+                    </div>
+                </div>
+            </div>
+
+            {{>seperator}}
+
+            <header class="block-header">Automatisierungsregeln</header>
+            <header class="block-header">Aktive Effekte</header>
+
             <div class="last"> </div>
         </div>
 
