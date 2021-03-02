@@ -61,7 +61,7 @@
   white-space: normal;
 }
 /** TODO: Workaround, da Editierbarkeit des Editor nicht direkt erkennbar */
-.hexxen.sheet.rule form.locked .tab.description .editor:first-of-type {
+.hexxen.sheet.rule form.locked .tab.common .editor:first-of-type {
   background: var(--hexxen-value-span-bgcolor);
 }
 /** TODO: Workaround für Problem mit editable=false bei Editor */

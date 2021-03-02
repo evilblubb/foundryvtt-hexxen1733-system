@@ -1,4 +1,4 @@
-{{#*inline "input"}}
+﻿{{#*inline "input"}}
 {{! example: >input id="languages" class="foo" target="data.languages" content=data.languages}}
 {{#if log}}
 {{log "root:" @root
@@ -71,7 +71,7 @@
 
     {{!-- Sheet Tab Navigation --}}
     <nav class="sheet-tabs tabs" data-group="primary">
-        <a class="item" data-tab="description"><div class="item-bg">Beschreibung</div></a>
+        <a class="item" data-tab="common"><div class="item-bg">Allgemein</div></a>
         {{#if data.powers}}
         <a class="item" data-tab="powers"><div class="item-bg">Jägerkräfte</div></a>
         {{/if}}
@@ -85,7 +85,7 @@
     <section class="sheet-body">
 
         {{!-- Description Tab --}}
-        <div class="tab description" data-group="primary" data-tab="description">
+        <div class="tab common" data-group="primary" data-tab="common">
             {{#if (eq item.type "npc-power")}}
             <header class="block-header">{{data.type}}</header>
             {{else}}

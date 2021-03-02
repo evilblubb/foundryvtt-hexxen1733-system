@@ -29,7 +29,7 @@ class RuleItemSheet extends HexxenItemSheet {
 			template: `${Hexxen.basepath}/templates/rule-item-sheet.html`,
 			width: 520,
 			height: 450,
-      tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description"}]
+      tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "common"}]
       // TODO: Scrollbars
 		});
   }
