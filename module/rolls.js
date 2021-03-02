@@ -813,7 +813,7 @@ class HexxenRoll extends Roll {
 
   renderDice(formula) {
     return formula
-      .replaceAll(' + ', '%%+%%')
+      .replace(/ \+ /g, '%%+%%')
       .replace(/(dh\w)/g, (match, p1, offset, string) => { // FIXME: ResourceCoins??
         const cls = HexxenTerm.findClassByTerm(p1);
         if (HexxenTerm.isPrototypeOf(cls)) {

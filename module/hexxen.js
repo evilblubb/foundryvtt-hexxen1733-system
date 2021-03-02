@@ -110,7 +110,7 @@ Hooks.once("init", () => {
 
   // preload some images
   Hexxen.preload(
-    `${Hexxen.basepath}/img/Hex_Pokerkarte_front_hell.png`,
+    `${Hexxen.basepath}/img/parchment_red.png`,
     `${Hexxen.basepath}/img/Rabenkasten_oben_small_braun.png`,
     `${Hexxen.basepath}/img/Rabenkasten_weit_unten_small_braun.png`
   );
