@@ -132,7 +132,7 @@
   "secondaryTokenAttribute": "power",
   "dependencies": [
     {
-      "name": "special-dice-roller",
+      "name": "dice-so-nice",
       "type": "module"
     }
   ],
