@@ -47,7 +47,7 @@ img#hexxen-logo {
   --hexxen-box-border: 1px solid var(--hexxen-dark-color);
   --hexxen-nav-background-image: url("/systems/hexxen-1733/img/Rabenkasten_oben_small_braun.png");
   --hexxen-nav-bgcolor: rgba(80, 30, 0, 0.4);
-  --hexxen-nav-border: 1px solid var(--hexxen-dark-color);
+  --hexxen-nav-border: unset;
   --hexxen-nav-active-bgcolor: var(--hexxen-nav-bgcolor);
   --hexxen-header-color: var(--hexxen-dark-color);
   --hexxen-header-bgcolor: rgba(130, 50, 0, 0.3);
@@ -356,6 +356,10 @@ img#hexxen-logo {
 .hexxen.sheet .seperator {
   margin: 2px 0;
 }
+.hexxen.sheet .window-resizable-handle {
+  z-index: 50;
+  cursor: nwse-resize;
+}
 
 .hexxen.sheet .sheet-header {
   position: relative;
@@ -380,35 +384,57 @@ img#hexxen-logo {
 }
 .hexxen.sheet .tabs {
   height: 40px;
-  background: var(--hexxen-nav-bgcolor);
+  background: rgba(255,127,127,0.15);
+  background-image: url("/systems/hexxen-1733/img/sheet_decoration_navbar.png");
+  background-blend-mode: lighten;
+  background-position-x: center;
+  background-size: cover;
   border-top: var(--hexxen-nav-border);
   border-bottom: var(--hexxen-nav-border);
   padding: 0px 20px;
   margin: unset;
 }
 .hexxen.sheet .tabs .item {
+  position: relative;
   font-size: 1.15em;
   line-height: 39px;
   font-weight: bold;
+  color: #ddc7a9;
+  text-shadow: 0 0 1px black, 0 0 2px black, 0 0 4px crimson, 0 0 6px crimson;
 }
 .hexxen.sheet .tabs .item.rules-tab {
   flex: 0 0 60px;
 }
-.hexxen.sheet .tabs .item.active .item-bg {
-  background-color: var(--hexxen-nav-active-bgcolor);
-  border-radius: 10px 10px 0px 0px;
-  background-image: var(--hexxen-nav-background-image);
-  background-size: cover;
+/* FIXME: ::before statt .item-bg */
+.hexxen.sheet .tabs .item.active .item-bg,
+.hexxen.sheet .tabs .item:hover .item-bg {
+  position: absolute;
+  width: calc(min(200px, 100%) + 10px);
+  height: 52px;
+  top: 2px;
+  left: max(0px, calc((100% - 200px)/2));
+  color: #191813;
+  text-shadow: 0 0 2px #ddc7a9;
+    /* background-color: var(--hexxen-nav-active-bgcolor); */
+  /* border-radius: 10px 10px 0px 0px; */
+  background-image: url("/systems/hexxen-1733/img/sheet_decoration_navbar_active.png");
+  background-size: min(100%, 200px) 100%;
   background-repeat: no-repeat;
   background-position: center;
   /* TODO: bessere Lösung für overflow suchen, da Probleme mit Klickbereich. */
-  padding: 0 10px;
-  margin: 0 -10px;
+  padding: 0 5px;
+  margin: 0 -5px;
   text-decoration: none;
-  text-shadow: -1px -1px var(--hexxen-outline-color),
+  /* text-shadow: -1px -1px var(--hexxen-outline-color),
                -1px  1px var(--hexxen-outline-color),
                 1px -1px var(--hexxen-outline-color),
-                1px  1px var(--hexxen-outline-color);
+                1px  1px var(--hexxen-outline-color); */
+}
+.hexxen.sheet .tabs .item:hover:not(.active) .item-bg {
+  opacity: 0.65;
+}
+.hexxen.sheet .tab {
+  scrollbar-width: thin;
 }
 /* TODO: active tab umgestalten: heller statt dunkler, Border unten hell übermalen */
 /* .hexxen.sheet .tabs .item.active .item-bg {
@@ -418,6 +444,8 @@ img#hexxen-logo {
 } */
 .hexxen.sheet .sheet-body {
   overflow: hidden;
+  position: relative; /* FIXME: resize-handle */
+  z-index: 10;
 }
 .hexxen.sheet .sheet-body .tab[data-tab].active {
   display:grid;
