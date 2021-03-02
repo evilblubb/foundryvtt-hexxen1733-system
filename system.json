@@ -3,7 +3,7 @@
   "type": "system",
   "title": "HeXXen 1733",
   "description": "<p>Spielsystem für HeXXen 1733. Enthält Charakterblätter und Einbindung von Hexxenwürfeln.</p><p><br></p><p style='font-size:0.9em;font-style:italic'>Dieses Produkt wurde unter Lizenz erstellt. HeXXen 1733&trade; und sein Logo sind eingetragene Marken von Ulisses Spiele Deutschland, den U.S.A. und anderen Ländern. Ulisses Spiele und sein Logo sind eingetragene Marken der Ulisses Medien und Spiele Distribution GmbH.<br>Dieses Werk enthält Material, das durch Ulisses Spiele und/oder andere Autoren urheberrechtlich geschützt ist. Solches Material wird mit Erlaubnis im Rahmen der Vereinbarung über Gemeinschaftsinhalte für HeXXen-1733-Scriptorium verwendet.<br>Alle anderen Originalmaterialien in diesem Werk sind Copyright 2020 von Martin Brunninger und werden im Rahmen der Vereinbarung über Gemeinschaftsinhalte für HeXXen-1733-Scriptorium veröffentlicht.</p>",
-  "version": "0.6.3",
+  "version": "0.6.4",
   "minimumCoreVersion": "0.7.5",
   "compatibleCoreVersion": "0.7.5-0.7.99",
   "author": "Martin Brunninger",
